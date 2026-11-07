@@ -1,0 +1,30 @@
+{
+  "name": "cinematic-shorts-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Remotion + Three.js + React Three Fiber studio for original 2.5D cinematic shorts (flat outlined characters in lit 3D sets).",
+  "license": "MIT",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "stills": "node scripts/render-stills.mjs",
+    "render:preview": "remotion render src/index.ts InventorWalkInPreview out/inventor_walkin_540x960.mp4 --codec=h264 --crf=20",
+    "render:final": "remotion render src/index.ts InventorWalkIn out/inventor_walkin_1080x1920.mp4 --codec=h264 --crf=18",
+    "probe": "remotion ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,nb_frames -of compact out/inventor_walkin_540x960.mp4"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.4.0",
+    "@remotion/cli": "4.0.541",
+    "@remotion/three": "4.0.541",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.541",
+    "three": "0.180.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/three": "0.180.0",
+    "typescript": "5.9.3"
+  }
+}

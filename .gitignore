@@ -1,0 +1,11 @@
+# Do not commit proprietary/private source video references
+private_reference_videos/
+private_reference_sheets/
+*.mp4
+*.mov
+*.mkv
+# Our own original low-res test render is allowed (small, for phone review)
+!studio/previews/*.mp4
+# Build outputs
+node_modules/
+studio/out/
