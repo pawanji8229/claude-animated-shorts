@@ -101,8 +101,8 @@ const pulse = (a: number, b: number, c: number, d: number, f: number) => smooth(
 type ArmKey = { f: number; arm: ArmPose };
 const A = (hand: [number, number], elbow: [number, number], shape: ArmPose["shape"], rot = 0, behind = false): ArmPose => ({ hand, elbow, shape, rot, bend: 1, behind });
 const RL = { ...REST_L, elbow: [-40, 100] as [number, number] }, RR = { ...REST_R, elbow: [40, 100] as [number, number] };
-const TADA_L = A([-170, -150], [-118, -38], "open", Math.PI + 0.3), TADA_R = A([170, -150], [118, -38], "open", Math.PI - 0.3);
-const PAT = A([18, 40], [86, 92], "open", 2.4), PAT_UP = A([22, 28], [88, 84], "open", 2.4);
+const TADA_L = A([-170, -150], [-118, -38], "open", -0.25), TADA_R = A([170, -150], [118, -38], "open", 0.25); // fingers continue the forearm, splayed outward
+const PAT = A([18, 40], [86, 92], "open", 0.15), PAT_UP = A([22, 28], [88, 84], "open", 0.15);
 const HIP_L = A([-62, 132], [-122, 52], "fist", 0.4), HIP_R = A([62, 132], [122, 52], "fist", -0.4);
 const L_KEYS: ArmKey[] = [{ f: 0, arm: RL }, { f: 122, arm: RL }, { f: 134, arm: TADA_L }, { f: 150, arm: TADA_L }, { f: 162, arm: RL }, { f: 180, arm: RL }, { f: 192, arm: HIP_L }, { f: 240, arm: HIP_L }, { f: 252, arm: RL }, { f: 999, arm: RL }];
 const R_KEYS: ArmKey[] = [{ f: 0, arm: RR }, { f: 122, arm: RR }, { f: 134, arm: TADA_R }, { f: 150, arm: TADA_R }, { f: 160, arm: PAT }, { f: 165, arm: PAT_UP }, { f: 170, arm: PAT }, { f: 175, arm: PAT_UP }, { f: 180, arm: PAT }, { f: 192, arm: HIP_R }, { f: 240, arm: HIP_R }, { f: 252, arm: RR }, { f: 284, arm: RR }, { f: 296, arm: ARM.scratch }, { f: 999, arm: ARM.scratch }];

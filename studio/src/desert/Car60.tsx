@@ -67,8 +67,9 @@ export const Car60: React.FC<{ wheelSpin?: number; brake?: number }> = ({ wheelS
       ))}
       {/* wheel wells (shadowed recesses) + wheels */}
       {wheels.map(([x, s], i) => (
-        <group key={i} position={[x, 0.41, s * (HW - 0.18)]}>
-          <mesh position={[0, 0, s * 0.18]} rotation={[0, 0, 0]}><circleGeometry args={[0.47, 28, 0, Math.PI]} /><meshStandardMaterial color="#060607" side={THREE.DoubleSide} /></mesh>
+        <group key={i} position={[x, 0.41, s * (HW - 0.1)]}>
+          {/* wheel arch: thin dark ring on the body side, the tyre stays visible inside it */}
+          <mesh position={[0, 0, s * 0.105]}><ringGeometry args={[0.43, 0.5, 32, 1, 0, Math.PI]} /><meshStandardMaterial color="#0b0b0d" side={THREE.DoubleSide} roughness={0.8} /></mesh>
           <group rotation={[0, 0, -wheelSpin]}>
             <mesh geometry={G.tyre} material={M.tyre} castShadow><Ink k={0.7} /></mesh>
             <mesh geometry={G.wall} material={M.white} position={[0, 0, s * 0.09]} />

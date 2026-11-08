@@ -125,7 +125,8 @@ const ringGeometry = (i: number, w: number, thick: number) => {
     idx.push(A + 1, A + 3, B + 3, A + 1, B + 3, B + 1); // outer edge
     idx.push(A, B, B + 2, A, B + 2, A + 2); // inner edge (soffit lip)
   }
-  const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals();
+  const gi = new THREE.BufferGeometry(); gi.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); gi.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2)); gi.setIndex(idx);
+  const g = gi.toNonIndexed(); g.computeVertexNormals(); // flat per-face normals (front face, outer edge, lip)
   void s; return g;
 };
 
@@ -136,7 +137,7 @@ export const Bridge2: React.FC<{ glow?: number }> = ({ glow = 1 }) => {
     const mats = {
       wall: std({ map: gA, bumpMap: gA, bumpScale: 2.5 }),
       dark: std({ map: gB, bumpMap: gB, bumpScale: 2.5, color: "#e6ddd2" }),
-      vous: std({ map: vs, bumpMap: vs, bumpScale: 3 }),
+      vous: std({ map: vs, bumpMap: vs, bumpScale: 3, side: THREE.DoubleSide }),
       road: std({ map: as, roughness: 0.95 }),
       iron: std({ color: "#25262b", metalness: 0.55, roughness: 0.45 }),
       lamp: new THREE.MeshBasicMaterial({ color: new THREE.Color(2.2 * glow, 1.7 * glow, 1.0 * glow), toneMapped: false }),
