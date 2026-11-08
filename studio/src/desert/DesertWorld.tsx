@@ -7,6 +7,10 @@ import * as THREE from "three";
 import { Ink } from "../inventor/Workshop";
 import { cactusTex, cloudTex, graniteTex, mudTex, sandTex, skyTex, softGlow, strataTex } from "./desertTextures";
 import { rng } from "../lib/math";
+import { Bridge2 } from "./Bridge";
+import { Car60 } from "./Car60";
+import { DesertDetail } from "./DesertDetail";
+import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 
 export const BR = { deck: 8.4, width: 9, chanHalf: 5, chanBank: 9.5, chanDepth: 1.6 };
 // spans (m) left -> right, central span crosses the dry channel
@@ -235,11 +239,15 @@ const Car: React.FC<{ m: M; p: [number, number, number]; ry: number }> = ({ m, p
 
 const Tumbleweed: React.FC<{ m: M; p: [number, number, number]; spin: number; seed: number; s?: number }> = ({ m, p, spin, seed, s = 1 }) => {
   const geo = useMemo(() => {
-    const r = rng(seed), pts: THREE.Vector3[] = [];
-    for (let k = 0; k < 70; k++) { const a = new THREE.Vector3(r() - 0.5, r() - 0.5, r() - 0.5).normalize().multiplyScalar(0.45 + r() * 0.12); const b = new THREE.Vector3(r() - 0.5, r() - 0.5, r() - 0.5).normalize().multiplyScalar(0.45 + r() * 0.12); pts.push(a, a.clone().lerp(b, 0.5).multiplyScalar(0.75), a.clone().lerp(b, 0.5).multiplyScalar(0.75), b); }
-    return new THREE.BufferGeometry().setFromPoints(pts);
+    const r = rng(seed), parts: THREE.BufferGeometry[] = [];
+    for (let k = 0; k < 60; k++) {
+      const a = new THREE.Vector3(r() - 0.5, r() - 0.5, r() - 0.5).normalize().multiplyScalar(0.42 + r() * 0.08);
+      const b = new THREE.Vector3(r() - 0.5, r() - 0.5, r() - 0.5).normalize().multiplyScalar(0.42 + r() * 0.08);
+      parts.push(new THREE.TubeGeometry(new THREE.QuadraticBezierCurve3(a, a.clone().add(b).multiplyScalar(0.5 * (0.5 + r() * 0.4)), b), 8, 0.011, 4, false));
+    }
+    return mergeGeometries(parts);
   }, [seed]);
-  return <group position={p} scale={s}><lineSegments geometry={geo} rotation={[spin, spin * 0.3, 0]}><lineBasicMaterial color="#8a6a3e" /></lineSegments></group>;
+  return <group position={p} scale={s}><mesh geometry={geo} rotation={[spin, spin * 0.3, 0]} castShadow><meshStandardMaterial color="#9a7444" roughness={1} /></mesh></group>;
 };
 
 const DeadTree: React.FC<{ m: M; p: [number, number, number]; f: number }> = ({ m, p, f }) => (
@@ -255,9 +263,12 @@ const DeadTree: React.FC<{ m: M; p: [number, number, number]; f: number }> = ({ 
   </group>
 );
 
-export type DesertProps = { f: number; shadowRes: number; tumble: { p: [number, number, number]; spin: number }[]; pebble?: [number, number, number] | null };
+export type CarState = { pos: [number, number, number]; ry: number; spin: number; brake: number };
+export type DesertProps = { f: number; shadowRes: number; tumble: { p: [number, number, number]; spin: number }[]; pebble?: [number, number, number] | null; car?: CarState; carPath?: [number, number][] };
 
-export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebble }) => {
+/** areas kept clear for the action, the bridge footprint and the channel floor */
+export const avoidZone = (x: number, z: number) => (Math.abs(x) < 31 && Math.abs(z) < 6) || (Math.abs(x) < BR.chanBank && z > -60) || (x > -14 && x < -5 && z > 5.5 && z < 13) || (x < -8 && z > 7 && z < 14);
+export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebble, car, carPath = [] }) => {
   const m = useMats();
   const sunDir = useMemo(() => new THREE.Vector3(0.35, 0.16, -1).normalize(), []);
   const sunTarget = useMemo(() => { const o = new THREE.Object3D(); o.position.set(0, 0, 4); return o; }, []);
@@ -296,13 +307,14 @@ export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebbl
       <Sky m={m} sunDir={sunDir} />
       <Ground m={m} />
       <Mesas m={m} />
-      <Bridge m={m} />
+      <Bridge2 />
+      <DesertDetail f={f} gy={groundY} avoid={avoidZone} carPath={carPath} />
       {all.map((q, i) => q.kind === "saguaro" ? <Saguaro key={i} m={m} p={q.p} h={3 + q.s * 2.6} arms={1 + (q.seed % 3)} seed={q.seed} />
         : q.kind === "pear" ? <PricklyPear key={i} m={m} p={q.p} seed={q.seed} />
         : q.kind === "rock" ? <mesh key={i} position={[q.p[0], q.p[1] + 0.2 * q.s, q.p[2]]} scale={[q.s * 0.9, q.s * 0.55, q.s * 0.75]} rotation={[0, q.seed, 0]} material={q.seed % 2 ? m.rock : m.rockDark} castShadow receiveShadow><dodecahedronGeometry args={[0.6, 0]} /><Ink k={0.8} /></mesh>
         : null)}
       <primitive object={grass} />
-      <Car m={m} p={[-11.5, 0, 8.5]} ry={0.35} />
+      {car && <group position={car.pos} rotation={[0, car.ry, 0]}><Car60 wheelSpin={car.spin} brake={car.brake} /></group>}
       <DeadTree m={m} p={[12.5, 0, 3]} f={f} />
       {/* fence posts with sagging wire */}
       {Array.from({ length: 9 }, (_, i) => <mesh key={i} position={[-19 + (i % 2) * 0.1, 0.55, 14 - i * 4]} rotation={[0, 0, (i % 3 - 1) * 0.08]} material={m.wood} castShadow><cylinderGeometry args={[0.07, 0.09, 1.1, 6]} /><Ink k={0.7} /></mesh>)}

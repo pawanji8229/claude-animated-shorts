@@ -169,3 +169,61 @@ def desert_guitar(dur, r):
         out[0, i:i + m] += p[:m] * (1 - pan_) * 0.7
         out[1, i:i + m] += p[:m] * (1 + pan_) * 0.7
     return out
+
+
+# ---------------- car (1960s V8) ----------------
+def car_arrive(r, dur=1.45, decel=1.2):
+    """V8 approaching on gravel and decelerating: firing pulses (rpm falls), exhaust burble, tyre crunch tied to speed,
+    approach swell (distance) — synthesised, then softened so it sits like a real recording at distance."""
+    n = ns(dur); t = np.arange(n) / SR
+    speed = np.clip(1 - (t / decel) ** 1.6, 0, 1)            # 1 -> 0 as it parks
+    rpm = 650 + 1500 * speed                                  # idle 650 rpm
+    fire = rpm / 60 * 4                                       # V8: 4 firings per rev
+    ph = np.cumsum(fire) / SR
+    pulses = np.sin(2 * np.pi * ph) ** 9 * np.sign(np.sin(2 * np.pi * ph))
+    burble = lp(pulses + 0.35 * r.standard_normal(n) * (0.4 + 0.6 * speed), 380, 2)
+    rumble = lp(colored(n, r, 1.4), 90, 2) * (0.6 + 0.6 * speed)
+    gravel = np.zeros(n); k = 0.0
+    while k < dur:
+        i = int(k * SR)
+        if i >= n: break
+        gravel[i] += r.uniform(0.2, 1.0) * (1 if r.random() < 0.5 else -1)
+        k += r.exponential(1.0 / (60 + 900 * speed[min(i, n - 1)]))
+    crunch = bp(gravel, 900, 6000, 2) * (speed ** 0.7) * 1.2
+    approach = np.clip(t / 0.35, 0, 1) ** 1.5
+    return fades((burble * 0.9 + rumble * 0.8 + crunch) * approach, 0.05, 0.08)
+
+
+def engine_idle_off(r, dur=1.2):
+    n = ns(dur); t = np.arange(n) / SR
+    rpm = 650 * np.clip(1 - (t / 0.55) ** 2, 0, 1)
+    ph = np.cumsum(rpm / 60 * 4) / SR
+    y = lp(np.sin(2 * np.pi * ph) ** 7, 300, 2) * np.clip(1 - t / 0.6, 0, 1)
+    shudder = lp(r.standard_normal(n), 120, 2) * np.exp(-((t - 0.5) / 0.08) ** 2) * 0.8
+    ticks = np.zeros(n)
+    for at in (0.75, 0.98, 1.12):
+        c = modal(0.05, [(r.uniform(2600, 3400), 1.0, 0.004)], r); i = ns(at); ticks[i:i + len(c)] += c[: n - i] * 0.15
+    return fades(y * 0.8 + shudder + ticks, 0.01, 0.1)
+
+
+def brake_squeak(r):
+    d = 0.5; t = tt(d)
+    f = r.uniform(2100, 2500) * (1 + 0.04 * np.sin(2 * np.pi * 9 * t))
+    env = np.sin(np.pi * np.clip(t / d, 0, 1)) ** 2
+    return fades(np.sin(phase(f)) * env * 0.25, 0.02, 0.08)
+
+
+def door_open(r):
+    d = 0.5; out = np.zeros(ns(d))
+    latch = modal(0.08, [(r.uniform(1600, 2000), 1.0, 0.008), (r.uniform(3500, 4200), 0.6, 0.004)], r); out[: len(latch)] += latch * 0.8
+    t = tt(0.4); hinge = bp(colored(len(t), r, 0.6), 500, 2200, 2) * np.sin(np.pi * np.clip(t / 0.4, 0, 1)) * 0.15
+    i = ns(0.06); out[i:i + len(hinge)] += hinge[: len(out) - i]
+    return fades(out, 0.001, 0.05)
+
+
+def door_close(r):
+    d = 0.7; t = tt(d)
+    body = np.sin(phase(r.uniform(85, 110) * (1 + 0.5 * np.exp(-t / 0.01)))) * np.exp(-t / 0.08)
+    panel = modal(d, [(r.uniform(180, 240), 0.6, 0.06), (r.uniform(420, 520), 0.4, 0.04), (r.uniform(900, 1100), 0.2, 0.02)], r)
+    latch = np.zeros(len(t)); c = modal(0.06, [(r.uniform(2400, 3000), 1.0, 0.006)], r); i = ns(0.012); latch[i:i + len(c)] += c[: len(t) - i]
+    return fades(body * 0.9 + panel + latch * 0.6, 0.001, 0.1)

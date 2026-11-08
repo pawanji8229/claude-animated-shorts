@@ -40,6 +40,8 @@ LEVEL = {  # dB, layer, source description
     "gulp": (-18, "FG", "Hal's nervous gulp"), "hawk": (-29, "BG", "distant hawk cry"),
     "tumble_roll_1": (-21, "FG", "tumbleweed rolling across foreground"), "tumble_roll_2": (-25, "BG", "tumbleweed rolling away under the arch"),
     "vulture_flap": (-31, "BG", "vulture wing shuffle"),
+    "car_arrive": (-14, "FG", "1960s convertible V8 approaching on gravel, decelerating"), "brake_squeak": (-27, "FG", "brakes squeak at the stop"),
+    "engine_off": (-19, "FG", "ignition off: engine shudder + cooling ticks"), "door_open": (-21, "FG", "car door latch + hinge"), "door_close": (-15, "FG", "car door shuts"),
 }
 r0 = rng(2026)
 for k, e in enumerate(ev):
@@ -62,6 +64,11 @@ for k, e in enumerate(ev):
     elif kind == "gulp": x = S.gulp(r)
     elif kind == "hawk": x = S.hawk(r)
     elif kind == "vulture_flap": x = S.vulture_flap(r)
+    elif kind == "car_arrive": x = S.car_arrive(r); p = -0.6
+    elif kind == "brake_squeak": x = S.brake_squeak(r)
+    elif kind == "engine_off": x = S.engine_idle_off(r)
+    elif kind == "door_open": x = S.door_open(r)
+    elif kind == "door_close": x = S.door_close(r)
     elif kind.startswith("tumble_roll"):
         dur = 3.4 if kind.endswith("1") else 3.0
         x = S.tumble_roll(r, dur, 1.4 if kind.endswith("1") else 1.1)
@@ -103,8 +110,18 @@ if pk > 0.95:  # protect from clipping without touching the narration level: sca
     bed = sfx_d + amb_d + mus_d; mix = vo + bed * min(1.0, (0.95 - np.max(np.abs(vo))) / max(1e-6, np.max(np.abs(bed))))
 # master: ONE uniform gain on the finished mix (narration timing/content untouched; its balance vs the bed unchanged)
 I0, TP0 = integrated(mix), true_peak(mix)
-MASTER_DB = min(-16.0 - I0, -1.0 - TP0)
+# gain is set from the NARRATION (keep its peaks <= -1.5 dBFS), then a look-ahead brickwall limiter catches SFX peaks
+MASTER_DB = min(-16.0 - I0, -1.5 - true_peak(vo))
 master = mix * 10 ** (MASTER_DB / 20)
+def limiter(x, ceil_db=-1.0, look=0.003, rel=0.08):
+    from scipy.ndimage import maximum_filter1d
+    ceil = 10 ** (ceil_db / 20); pk = np.max(np.abs(x), axis=0)
+    need = np.minimum(1.0, ceil / np.maximum(pk, 1e-9))
+    L = ns(look); need = -maximum_filter1d(-need, size=2 * L + 1)  # min over the look-ahead window
+    g = np.empty_like(need); a = np.exp(-1 / (rel * SR)); v = 1.0
+    for i in range(len(need)): v = need[i] if need[i] < v else a * v + (1 - a) * need[i]; g[i] = v
+    return x * g[None, :]
+master = limiter(master, -1.2)
 for name, x in [("narration.wav", vo), ("sfx.wav", sfx_d), ("ambience.wav", amb_d), ("music.wav", mus_d), ("mix_premaster.wav", mix), ("mix.wav", master)]:
     write_wav(os.path.join(out, name), x)
 

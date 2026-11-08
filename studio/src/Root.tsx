@@ -43,9 +43,10 @@ export const RemotionRoot: React.FC = () => (
     {/* London Bridge film: one composition, rendered in frame-range batches; audio muxed after render */}
     <Composition id="LondonBridgePreview" component={LondonBridgeFilm} durationInFrames={FILM_FRAMES} fps={FPS} width={540} height={960} />
     <Composition id="LondonBridge" component={LondonBridgeFilm} durationInFrames={FILM_FRAMES} fps={FPS} width={1080} height={1920} />
-    <Composition id="LBPreviewEnvironment" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ envOnly: true, camOverride: { pos: [9, 4.2, 30] as [number, number, number], look: [-1, 4.5, 0] as [number, number, number], fov: 50, focus: 30 } }} />
-    <Composition id="LBPreviewHal" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 142 }} />
-    <Composition id="LBPreviewFinal" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 296 }} />
+    <Composition id="LBPreviewBridge" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ envOnly: true, frameOverride: 200, camOverride: { pos: [-0.6, 2.2, 13.8] as [number, number, number], look: [-6.4, 4.6, 4.5] as [number, number, number], fov: 44, focus: 11 } }} />
+    <Composition id="LBPreviewCar" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ envOnly: true, frameOverride: 90, camOverride: { pos: [-7.2, 1.15, 13.6] as [number, number, number], look: [-11.2, 0.75, 8.6] as [number, number, number], fov: 38, focus: 6.4 } }} />
+    <Composition id="LBPreviewEnvironment" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ envOnly: true, frameOverride: 200, camOverride: { pos: [16, 8, 52] as [number, number, number], look: [-2, 5, 0] as [number, number, number], fov: 50, focus: 50 } }} />
+    <Composition id="LBPreviewHal" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 146 }} />
     <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={3000} height={2200} />
   </>
 );

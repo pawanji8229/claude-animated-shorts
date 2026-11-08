@@ -87,7 +87,8 @@ const drawHead = (g: G, cx: number, cy: number, p: Odo3Pose, side: boolean) => {
     g.lineWidth = 3; g.strokeStyle = HAIR_SH;
     for (let k = 0; k < 3; k++) { g.beginPath(); g.moveTo(x + dir * (14 + k * 12), cy - 40 + k * 6); g.quadraticCurveTo(x + dir * (36 + k * 10), cy + 0, x + dir * (22 + k * 8), cy + 44); g.stroke(); }
   };
-  if (side) tuft(cx - 120, -1); else { tuft(cx - 140, -1); tuft(cx + 140, 1); }
+  // EARLESS RULE: side tufts removed (they read as ears)
+  void tuft;
   // head
   headShape(g, cx, cy, side); fs(g, SKIN, OUT + 1);
   g.save(); headShape(g, cx, cy, side); g.clip();

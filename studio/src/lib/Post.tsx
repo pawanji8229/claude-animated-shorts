@@ -25,6 +25,8 @@ export type PostParams = {
   saturation?: number;
   lift?: number; // black level lift (keeps shadow detail)
   warmCool?: number; // strength of the warm-highlight / cool-shadow split (0..1)
+  ao?: number; // screen-space ambient occlusion strength (0 = off)
+  aoRadius?: number; // AO radius in metres
 };
 
 const VERT = /* glsl */ `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
@@ -66,6 +68,7 @@ uniform vec2 sharpTexel;
 uniform float cNear; uniform float cFar; uniform float focusDist; uniform float focusRange; uniform float maxBlur;
 uniform float bloom; uniform float exposure; uniform float vignette; uniform float aspect;
 uniform float contrast; uniform float saturation; uniform float lift; uniform float warmCool;
+uniform float aoStrength; uniform float aoRadius; uniform float projScale;
 varying vec2 vUv;
 float linDepth(float d){ float z = d * 2.0 - 1.0; return (2.0 * cNear * cFar) / (cFar + cNear - z * (cFar - cNear)); }
 vec3 neutral(vec3 color){
@@ -91,6 +94,21 @@ void main(){
   float coc = clamp((abs(z - focusDist) - focusRange * 0.5) / (focusDist * 0.9 + 0.5), 0.0, 1.0) * maxBlur;
   vec3 h = texture2D(half1, vUv).rgb, q = texture2D(quarter, vUv).rgb;
   vec3 col = coc < 0.5 ? mix(s, h, coc * 2.0) : mix(h, q, (coc - 0.5) * 2.0);
+  // depth-only SSAO: 12 spiral samples, radius in metres projected to pixels, range-checked (no halos)
+  if (aoStrength > 0.0) {
+    float occ = 0.0;
+    float rpx = clamp(aoRadius * projScale / max(z, 0.3), 2.0, 60.0);
+    float jitter = fract(sin(dot(vUv, vec2(12.9898, 78.233))) * 43758.5453) * 6.2831;
+    for (int i = 0; i < 12; i++) {
+      float fi = float(i);
+      float ang = fi * 2.39996 + jitter, rr = (fi + 1.0) / 12.0;
+      vec2 o = vec2(cos(ang), sin(ang)) * rpx * rr * sharpTexel * 2.0;
+      float zs = linDepth(texture2D(depthTex, vUv + o).r);
+      float d = z - zs;
+      occ += clamp(d / (aoRadius * 0.5), 0.0, 1.0) * (1.0 - smoothstep(aoRadius, aoRadius * 3.0, d));
+    }
+    col *= 1.0 - aoStrength * (occ / 12.0);
+  }
   // bloom pyramid
   vec3 bl = texture2D(b0, vUv).rgb * 0.5 + texture2D(b1, vUv).rgb * 0.6 + texture2D(b2, vUv).rgb * 0.7
           + texture2D(b3, vUv).rgb * 0.8 + texture2D(b4, vUv).rgb * 0.9;
@@ -144,6 +162,7 @@ export const Post: React.FC<{ params: PostParams }> = ({ params }) => {
       sharpTexel: { value: new THREE.Vector2() }, cNear: { value: 0.05 }, cFar: { value: 40 }, focusDist: { value: 3 }, focusRange: { value: 1 },
       maxBlur: { value: 0.6 }, bloom: { value: 1 }, exposure: { value: 1 }, vignette: { value: 0.5 }, aspect: { value: W / H },
       contrast: { value: 1 }, saturation: { value: 1 }, lift: { value: 0 }, warmCool: { value: 1 },
+      aoStrength: { value: 0 }, aoRadius: { value: 0.5 }, projScale: { value: 500 },
     });
     return { qScene, qCam, quad, sceneRT, half, quarter, pyr, blur, down, comp };
   }, [W, H, ss]);
@@ -179,6 +198,8 @@ export const Post: React.FC<{ params: PostParams }> = ({ params }) => {
     u.cNear.value = cam.near; u.cFar.value = cam.far;
     u.focusDist.value = params.focusDist; u.focusRange.value = params.focusRange; u.maxBlur.value = params.maxBlur;
     u.bloom.value = params.bloom; u.exposure.value = params.exposure; u.vignette.value = params.vignette;
+    u.aoStrength.value = params.ao ?? 0; u.aoRadius.value = params.aoRadius ?? 0.5;
+    u.projScale.value = (H * ss) / (2 * Math.tan(((cam.fov ?? 50) * Math.PI) / 360));
     u.contrast.value = params.contrast ?? 1; u.saturation.value = params.saturation ?? 1; u.lift.value = params.lift ?? 0; u.warmCool.value = params.warmCool ?? 1;
     pass(comp, null);
     gl.toneMapping = prevTM;

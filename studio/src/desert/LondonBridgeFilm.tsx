@@ -13,7 +13,7 @@ import { CardSprite } from "../char/CardSprite";
 import { drawOdo5, headCenterPx5, W5, H5, SOLE5, CARD_H5, PX5 } from "../char/odo5";
 import { glow } from "../hall/hallTextures";
 import { DesertWorld } from "./DesertWorld";
-import { camHook, halAt, halPose, pebbleAt, tumbleweeds, HOOK_END } from "./desertHook";
+import { camHook, halAt, halPose, pebbleAt, tumbleweeds, HOOK_END, carAt, CAR_PATH, halVisible } from "./desertHook";
 import { V3 } from "../lib/math";
 
 type Cam = { pos: V3; look: V3; fov: number; focus: number };
@@ -53,8 +53,8 @@ export const LondonBridgeFilm: React.FC<{ envOnly?: boolean; frameOverride?: num
         gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.1, far: 900 }}>
         <Rig c={c} />
         <InkCtx.Provider value={2.8 * k}>
-          <DesertWorld f={f} shadowRes={hi ? 4096 : 2048} tumble={tumbleweeds(f)} pebble={pebbleAt(f)} />
-          {!envOnly && (
+          <DesertWorld f={f} shadowRes={hi ? 4096 : 2048} tumble={tumbleweeds(f)} pebble={pebbleAt(f)} car={carAt(f)} carPath={CAR_PATH} />
+          {!envOnly && halVisible(f) && (
             <>
               {/* warm face key (low sun bounce off the sand, cheated in front of the card) */}
               <pointLight position={[h[0] + 0.8, h[1] + 1.9, h[2] + 2.2]} color="#ffd2a0" intensity={4.5} distance={6} decay={1.7} />
@@ -65,7 +65,7 @@ export const LondonBridgeFilm: React.FC<{ envOnly?: boolean; frameOverride?: num
             </>
           )}
         </InkCtx.Provider>
-        <Post params={{ focusDist: c.focus, focusRange: 3.5, maxBlur: 0.22, bloom: 0.7, threshold: 1.7, exposure: 1.0, vignette: 0.55, ss: 2, contrast: 1.15, saturation: 1.08, lift: 0.012, warmCool: 0.8 }} />
+        <Post params={{ focusDist: c.focus, focusRange: 3.5, maxBlur: 0.22, bloom: 0.7, threshold: 1.7, exposure: 1.0, vignette: 0.55, ss: 2, contrast: 1.15, saturation: 1.08, lift: 0.012, warmCool: 0.8, ao: 0.6, aoRadius: 0.6 }} />
         <RenderAfterMount f={f} />
       </ThreeCanvas>
     </AbsoluteFill>

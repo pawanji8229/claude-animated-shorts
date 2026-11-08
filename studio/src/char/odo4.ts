@@ -93,7 +93,8 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo4Pose, side: boole
     g.moveTo(x, cy - 52 * s); g.bezierCurveTo(x + dir * 60 * s, cy - 70 * s, x + dir * 72 * s, cy - 6 * s, x + dir * 50 * s, cy + 10 * s);
     g.bezierCurveTo(x + dir * 74 * s, cy + 30 * s, x + dir * 50 * s, cy + 66 * s, x + dir * 12 * s, cy + 50 * s); g.closePath();
   }, c.hair, 4, 3);
-  if (side) tuft(cx - 128, -1, 1.05); else { tuft(cx - 132, -1, 0.95); tuft(cx + 132, 1, 0.95); }
+  // EARLESS RULE: side tufts removed (they read as ears)
+  void tuft;
   // head
   inked(g, c, headPath(g, cx, cy), c.face, 5, 7);
   if (!mask) { // gentle form shading inside the glow (keeps volume without dulling the face)

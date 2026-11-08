@@ -117,13 +117,19 @@ const keyed = (keys: [number, number][], t: number) => {
 
 // ---------- hands ----------
 /** Mitten hands with a readable thumb. `rot` = direction the hand points (radians, 0 = down). `side` mirrors thumb. */
-const drawHand = (g: G, c: Pal, at: P, rot: number, shape: Hand5, side: number, far: boolean, s = 1) => {
+const drawHand = (g: G, c: Pal, at: P, rot: number, shape: Hand5, side: number, far: boolean, s0 = 1) => {
+  const s = shape === "open" ? s0 * 1.18 : s0;
   const col = far ? c.limbFar : c.glove;
   g.save(); g.translate(at[0], at[1]); g.rotate(-rot); g.scale(side * s, s);
   const palm = () => { g.beginPath(); if (shape === "open") g.ellipse(0, 6, 17, 19, 0, 0, Math.PI * 2); else g.ellipse(0, 4, 15, 16, 0, 0, Math.PI * 2); };
   inked(g, c, palm, col, 2.2, 1.6);
   if (shape === "thumb") inked(g, c, () => { g.beginPath(); g.ellipse(-4, -18, 6.5, 13, -0.15, 0, Math.PI * 2); }, col, 2, 1.4);
-  else if (shape === "open") { for (const a of [-0.5, 0, 0.5]) inked(g, c, () => { g.beginPath(); g.ellipse(Math.sin(a) * 14, 20 + Math.cos(a) * 6, 5.5, 9, a, 0, Math.PI * 2); }, col, 1.8, 1.2); inked(g, c, () => { g.beginPath(); g.ellipse(15, 2, 5.5, 9, -1.0, 0, Math.PI * 2); }, col, 1.8, 1.2); }
+  else if (shape === "open") {
+    // spread open palm: four fanned fingers + splayed thumb (reads clearly even at preview size)
+    for (const a of [-0.62, -0.2, 0.2, 0.6]) inked(g, c, () => { g.beginPath(); g.ellipse(Math.sin(a) * 19, 18 + Math.cos(a) * 12, 5.2, 12, -a, 0, Math.PI * 2); }, col, 1.8, 1.2);
+    inked(g, c, () => { g.beginPath(); g.ellipse(19, -2, 5.5, 11, -1.15, 0, Math.PI * 2); }, col, 1.8, 1.2);
+    palm();  g.fillStyle = col; g.fill();
+  }
   else if (shape !== "fist") inked(g, c, () => { g.beginPath(); g.ellipse(13, 0, 5.5, 9, -0.7, 0, Math.PI * 2); }, col, 1.8, 1.2);
   if (shape === "fist" || shape === "grip" || shape === "thumb") { g.beginPath(); g.moveTo(-9, 8); g.quadraticCurveTo(0, 12, 9, 8); g.lineWidth = 2; g.strokeStyle = far ? "#222" : "#6a5148"; g.stroke(); }
   g.restore();
@@ -164,8 +170,17 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
     g.bezierCurveTo(x + dir * 74 * s, cy + 30 * s, x + dir * 50 * s, cy + 66 * s, x + dir * 12 * s, cy + 50 * s); g.closePath();
   }, c.hair, 4, 3);
   const cos = p.costume ?? COSTUME.odo, ts = cos.hat ? 0.72 : 1;
-  if (cos.tufts) { if (side) tuft(cx - 128, -1, 1.05 * ts); else { tuft(cx - 132, -1, 0.95 * ts); tuft(cx + 132, 1, 0.95 * ts); } }
+  // EARLESS RULE: nothing may protrude from the sides of the head (side hair puffs read as ears) — never drawn.
+  void tuft; void ts;
   inked(g, c, headPath(g, cx, cy), c.face, 5, 7);
+  // hair stays INSIDE the head silhouette: a fringe under the hat brim (hat costumes) — clean round head, no ears
+  if (cos.hat && cos.tufts && !mask) {
+    g.save(); headPath(g, cx, cy)(); g.clip();
+    for (const sg of side ? [-1] : [-1, 1]) { g.beginPath(); g.moveTo(cx + sg * 160, cy - 110); g.quadraticCurveTo(cx + sg * 118, cy - 70, cx + sg * 132, cy - 10); g.quadraticCurveTo(cx + sg * 150, cy - 30, cx + sg * 160, cy - 40); g.closePath(); g.fillStyle = c.hair; g.fill(); }
+    if (side) { g.beginPath(); g.moveTo(cx - 160, cy - 95); g.quadraticCurveTo(cx - 100, cy - 60, cx - 120, cy + 30); g.lineTo(cx - 170, cy + 30); g.closePath(); g.fillStyle = c.hair; g.fill(); }
+    g.restore();
+    headPath(g, cx, cy)(); g.lineWidth = 10; g.strokeStyle = c.ink; g.stroke();
+  }
   if (!mask) {
     g.save(); headPath(g, cx, cy)(); g.clip();
     const gr = g.createRadialGradient(cx + 40, cy - 50, 40, cx, cy, 175); gr.addColorStop(0, "rgba(255,255,255,0)"); gr.addColorStop(0.72, "rgba(255,255,255,0)"); gr.addColorStop(1, c.faceShade);

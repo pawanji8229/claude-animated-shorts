@@ -6,34 +6,39 @@ All effects are procedurally synthesised in `studio/audio/desert_sfx.py` (no thi
 
 | frame | start s | end s | source / object | generator | level dB | pan | fade in | fade out | layer |
 |---|---|---|---|---|---|---|---|---|---|
-| 0 | 0.000 | 3.400 | tumbleweed rolling across foreground | tumble_roll_1 | -20.9 | moving L->R | 0.15 s | 0.6 s | FG |
+| 0 | 0.000 | 1.450 | 1960s convertible V8 approaching on gravel, decelerating | car_arrive | -13.9 | -0.60 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 0 | 0.000 | 3.400 | tumbleweed rolling across foreground | tumble_roll_1 | -22.3 | moving L->R | 0.15 s | 0.6 s | FG |
 | 0 | 0.000 | 10.000 | desert wind bed with gusts + sand hiss (continuous) | ambience_wind | -25.0 | stereo wide | 0.5 s | — | BG |
 | 0 | 0.000 | 10.000 | faint cicadas (continuous) | ambience_cicadas | -36.0 | stereo wide | 0.5 s | — | BG |
 | 0 | 0.400 | 10.000 | sparse plucked desert guitar motif (original, Karplus-Strong) | music | -17 (pre-duck) | slight random pan | — | — | BG music |
-| 44 | 1.467 | 1.787 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -14.2 | -0.93 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 53 | 1.767 | 2.087 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -13.7 | -0.71 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 63 | 2.100 | 2.420 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -14.0 | -0.53 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 70 | 2.333 | 3.683 | distant hawk cry | hawk | -28.9 | +0.60 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | BG |
-| 72 | 2.400 | 2.720 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -14.3 | -0.41 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 81 | 2.700 | 3.020 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -15.4 | -0.32 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 90 | 3.000 | 3.320 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -14.5 | -0.24 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 99 | 3.300 | 3.620 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -15.3 | -0.17 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 111 | 3.700 | 4.020 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -14.9 | -0.13 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 121 | 4.033 | 4.383 | foot reposition on sand | turn_scuff | -20.1 | -0.30 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 126 | 4.200 | 4.620 | suit sleeves sweep (ta-da) | fabric_swish_big | -18.3 | -0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 154 | 5.133 | 5.413 | suit fabric movement | fabric_swish | -20.7 | -0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 160 | 5.333 | 5.493 | hand pats leather wallet in chest pocket | wallet_pat | -16.6 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 29 | 0.967 | 1.467 | brakes squeak at the stop | brake_squeak | -28.0 | -0.60 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 40 | 1.333 | 2.533 | ignition off: engine shudder + cooling ticks | engine_off | -18.7 | -0.60 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 41 | 1.367 | 1.867 | car door latch + hinge | door_open | -19.5 | -0.60 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 49 | 1.633 | 2.333 | car door shuts | door_close | -14.0 | -0.60 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 54 | 1.800 | 2.120 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -13.6 | -0.82 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 63 | 2.100 | 2.420 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -14.7 | -0.66 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 70 | 2.333 | 3.683 | distant hawk cry | hawk | -29.8 | +0.60 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | BG |
+| 71 | 2.367 | 2.687 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -14.9 | -0.55 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 79 | 2.633 | 2.953 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -14.7 | -0.45 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 87 | 2.900 | 3.220 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -14.4 | -0.36 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 95 | 3.167 | 3.487 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -15.6 | -0.28 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 103 | 3.433 | 3.753 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -15.0 | -0.21 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 111 | 3.700 | 4.020 | Hal's shoes on sand (procedural grain crunch + thump) | step_sand | -15.6 | -0.13 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 125 | 4.167 | 4.517 | foot reposition on sand | turn_scuff | -20.2 | -0.30 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 126 | 4.200 | 4.620 | suit sleeves sweep (ta-da) | fabric_swish_big | -15.7 | -0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 154 | 5.133 | 5.413 | suit fabric movement | fabric_swish | -21.4 | -0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 160 | 5.333 | 5.493 | hand pats leather wallet in chest pocket | wallet_pat | -17.1 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
 | 161 | 5.367 | 5.717 | coins in wallet | coin_jingle | -26.5 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 186 | 5.600 | 7.500 | camera rise / pull-back reveal | whoosh_reveal | -20.2 | +0.00 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 170 | 5.667 | 5.827 | hand pats leather wallet in chest pocket | wallet_pat | -17.2 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 171 | 5.700 | 6.050 | coins in wallet | coin_jingle | -24.8 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 180 | 6.000 | 6.160 | hand pats leather wallet in chest pocket | wallet_pat | -16.4 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 181 | 6.033 | 6.383 | coins in wallet | coin_jingle | -24.3 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 190 | 6.333 | 6.613 | suit fabric movement | fabric_swish | -21.8 | -0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 205 | 6.833 | 8.183 | distant hawk cry | hawk | -28.6 | -0.50 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | BG |
-| 228 | 7.600 | 10.600 | tumbleweed rolling away under the arch | tumble_roll_2 | -23.6 | C, receding | 0.15 s | 0.6 s | BG |
-| 236 | 7.867 | 8.567 | vulture wing shuffle | vulture_flap | -30.7 | +0.70 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | BG |
-| 250 | 8.333 | 9.053 | pebble falling (cartoon whistle, subtle) | pebble_whistle | -30.7 | +0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 272 | 9.067 | 9.967 | pebble hits baked mud + bounces + dust | pebble_clack | -13.3 | +0.25 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 274 | 9.133 | 9.313 | comic freeze tick | freeze_sting | -27.7 | +0.00 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
-| 286 | 9.533 | 9.853 | Hal's nervous gulp | gulp | -18.7 | -0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 186 | 5.600 | 7.500 | camera rise / pull-back reveal | whoosh_reveal | -19.1 | +0.00 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 170 | 5.667 | 5.827 | hand pats leather wallet in chest pocket | wallet_pat | -17.0 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 171 | 5.700 | 6.050 | coins in wallet | coin_jingle | -23.7 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 180 | 6.000 | 6.160 | hand pats leather wallet in chest pocket | wallet_pat | -14.6 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 181 | 6.033 | 6.383 | coins in wallet | coin_jingle | -23.5 | -0.15 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 190 | 6.333 | 6.613 | suit fabric movement | fabric_swish | -23.0 | -0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 205 | 6.833 | 8.183 | distant hawk cry | hawk | -30.5 | -0.50 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | BG |
+| 228 | 7.600 | 10.600 | tumbleweed rolling away under the arch | tumble_roll_2 | -26.1 | C, receding | 0.15 s | 0.6 s | BG |
+| 236 | 7.867 | 8.567 | vulture wing shuffle | vulture_flap | -29.7 | +0.70 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | BG |
+| 250 | 8.333 | 9.053 | pebble falling (cartoon whistle, subtle) | pebble_whistle | -30.6 | +0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 272 | 9.067 | 9.967 | pebble hits baked mud + bounces + dust | pebble_clack | -12.5 | +0.25 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 274 | 9.133 | 9.313 | comic freeze tick | freeze_sting | -28.4 | +0.00 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |
+| 286 | 9.533 | 9.853 | Hal's nervous gulp | gulp | -18.0 | -0.20 | built-in (≈2-10 ms) | built-in (≈30-150 ms) | FG |

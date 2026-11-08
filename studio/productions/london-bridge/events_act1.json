@@ -4,31 +4,59 @@
  "events": [
   {
    "frame": 0,
+   "kind": "car_arrive",
+   "x": -0.9,
+   "gain": 0.8,
+   "note": "1960s V8 approaches on gravel, decelerates, brakes (f0-40)"
+  },
+  {
+   "frame": 0,
    "kind": "tumble_roll_1",
    "x": -0.9,
    "gain": 0.6,
    "note": "tumbleweed crosses foreground L->R (f0-100)"
   },
   {
-   "frame": 44,
-   "kind": "step_sand",
-   "x": -0.9271388517757088,
-   "gain": 0.9,
-   "note": "far foot heel strike"
+   "frame": 29,
+   "kind": "brake_squeak",
+   "x": -0.6,
+   "gain": 0.35,
+   "note": "brakes squeak as the car stops"
   },
   {
-   "frame": 53,
+   "frame": 40,
+   "kind": "engine_off",
+   "x": -0.6,
+   "gain": 0.5,
+   "note": "ignition off: engine shudder + tick"
+  },
+  {
+   "frame": 41,
+   "kind": "door_open",
+   "x": -0.6,
+   "gain": 0.55,
+   "note": "car door latch + hinge (far side)"
+  },
+  {
+   "frame": 49,
+   "kind": "door_close",
+   "x": -0.6,
+   "gain": 0.7,
+   "note": "car door shuts"
+  },
+  {
+   "frame": 54,
    "kind": "step_sand",
-   "x": -0.7081167689232871,
+   "x": -0.8155445891290909,
    "gain": 0.9,
-   "note": "near foot heel strike"
+   "note": "far foot heel strike"
   },
   {
    "frame": 63,
    "kind": "step_sand",
-   "x": -0.5297384287226833,
+   "x": -0.6619004793476645,
    "gain": 0.9,
-   "note": "far foot heel strike"
+   "note": "near foot heel strike"
   },
   {
    "frame": 70,
@@ -38,42 +66,49 @@
    "note": "distant hawk"
   },
   {
-   "frame": 72,
+   "frame": 71,
    "kind": "step_sand",
-   "x": -0.4109456413309309,
-   "gain": 0.9,
-   "note": "near foot heel strike"
-  },
-  {
-   "frame": 81,
-   "kind": "step_sand",
-   "x": -0.3164609897808899,
+   "x": -0.5517220167450354,
    "gain": 0.9,
    "note": "far foot heel strike"
   },
   {
-   "frame": 90,
+   "frame": 79,
    "kind": "step_sand",
-   "x": -0.23777351402544022,
+   "x": -0.4539055684201447,
    "gain": 0.9,
    "note": "near foot heel strike"
   },
   {
-   "frame": 99,
+   "frame": 87,
    "kind": "step_sand",
-   "x": -0.16784288517996174,
+   "x": -0.3647642267183285,
+   "gain": 0.9,
+   "note": "far foot heel strike"
+  },
+  {
+   "frame": 95,
+   "kind": "step_sand",
+   "x": -0.28243440891974547,
+   "gain": 0.9,
+   "note": "near foot heel strike"
+  },
+  {
+   "frame": 103,
+   "kind": "step_sand",
+   "x": -0.2051601224436217,
    "gain": 0.9,
    "note": "far foot heel strike"
   },
   {
    "frame": 111,
    "kind": "step_sand",
-   "x": -0.1275114926999222,
+   "x": -0.13122404751601927,
    "gain": 0.9,
    "note": "near foot heel strike"
   },
   {
-   "frame": 121,
+   "frame": 125,
    "kind": "turn_scuff",
    "x": -0.3,
    "gain": 0.7,
