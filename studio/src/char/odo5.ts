@@ -55,7 +55,7 @@ const COLORS: Pal = {
   shirt: "#2c6c72", shirtShade: "#1f5156", collar: "#f3ead6", belt: "#e4a62c", buckle: "#d3a64a",
   apron: "#c4572a", apronShade: "#9b4120", brass: "#d0a245", brassD: "#8c6522", lens: "#ffe08c", strap: "#5a3a2a",
   shoe: "#2e1d16", mouth: "#6a2230", tongue: "#d0666e", teeth: "#ffffff", sweat: "#bfe6ff", wrench: "#a9b2bc",
-  blush: "#ff8a8a", rim: "#a9bcff", glove: "#3a2a24",
+  blush: "#ff8a8a", rim: "#a9bcff", glove: "#6a4a3c",
 };
 const MASK: Pal = Object.fromEntries(Object.keys(COLORS).map((k) => [k, "#4a4a4a"]));
 Object.assign(MASK, { ink: "#141414", limb: "#1a1a1a", limbFar: "#1a1a1a", face: "#ffffff", faceShade: "#ececec", teeth: "#ffffff", lens: "#b0b0b0", blush: "#ffffff", rim: "#4a4a4a", sweat: "#9a9a9a" });
