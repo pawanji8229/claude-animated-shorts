@@ -65,7 +65,7 @@
    "check": "loudness near target",
    "pass": true,
    "hard": false,
-   "detail": "I=-16.1 LUFS (target -16.0)"
+   "detail": "I=-16.2 LUFS (target -16.0)"
   },
   {
    "check": "no clipping (true peak <= -1 dBTP)",
@@ -80,6 +80,18 @@
    "detail": "offset 0 ms"
   },
   {
+   "check": "narration intelligible (every word above background)",
+   "pass": true,
+   "hard": true,
+   "detail": "worst word margin 15.7 dB in speech band (target >= 12.0; 2 automatic guard cuts)"
+  },
+  {
+   "check": "crowd stays quiet under narration",
+   "pass": true,
+   "hard": true,
+   "detail": "crowd -34.1 LU re narration (limit -18.0)"
+  },
+  {
    "check": "loop: last frame ~ first frame",
    "pass": true,
    "hard": false,
@@ -89,13 +101,13 @@
    "check": "loop: no audio click at boundary",
    "pass": true,
    "hard": false,
-   "detail": "max sample step 0.099"
+   "detail": "max sample step 0.004"
   },
   {
    "check": "loop: ambience level continuous",
    "pass": true,
    "hard": false,
-   "detail": "level change +5.8 dB"
+   "detail": "level change +2.7 dB"
   }
  ],
  "manual_visual_inspection_required": [

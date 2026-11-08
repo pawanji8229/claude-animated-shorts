@@ -4,6 +4,7 @@
 // Reports: pairwise correlation of hand motion between people, the most people moving their arms in the same frame,
 // shutter/flash spacing, simultaneous flashes, and photographers vs non-photographers. Exit 1 on a hard failure.
 import path from "path";
+import * as THREE from "three";
 import { personEvents } from "../src/char/crowdLife";
 
 (async () => {
@@ -36,6 +37,22 @@ import { personEvents } from "../src/char/crowdLife";
     ["camera raises start at different times (>= 10 frames apart)", gap(raises) >= 10, `raise starts ${raises.join(", ")}`],
     ["some people do not photograph", photographers < n, `${photographers}/${n} photographers`],
   ];
+  // visibility of every photographed shot (needs camAt + CROWD [+ HAL] exports): on screen, not behind the hero, not
+  // hidden behind another person -> a shutter sound always has a visible photographer
+  if (M.camAt && M.CROWD) {
+    const proj = (p: number[], f: number) => { const c = M.camAt(f); const cam = new THREE.PerspectiveCamera(c.fov, 9 / 16, 0.1, 500); cam.position.set(c.pos[0], c.pos[1], c.pos[2]); cam.lookAt(c.look[0], c.look[1], c.look[2]); cam.updateMatrixWorld(); const v = new THREE.Vector3(p[0], p[1], p[2]).project(cam); return [(v.x + 1) / 2, (1 - v.y) / 2, cam.position.distanceTo(new THREE.Vector3(p[0], p[1], p[2]))]; };
+    const bad: string[] = []; const lines: string[] = [];
+    for (const e of ev.filter((x) => x.kind === "shutter")) {
+      const m = M.CROWD[e.who], h = proj([m.pos[0], m.pos[1] + 1.15, m.pos[2]], e.frame);
+      const hero = M.HAL ? proj([M.HAL[0], M.HAL[1] + 1.0, M.HAL[2]], e.frame) : null;
+      const why: string[] = [];
+      if (h[0] < 0.06 || h[0] > 0.94) why.push("off-screen");
+      if (hero && Math.abs(h[0] - hero[0]) < 0.12 && h[2] > hero[2]) why.push("behind hero");
+      M.CROWD.forEach((o: any, j: number) => { if (j === e.who) return; const q = proj([o.pos[0], o.pos[1] + 1.15, o.pos[2]], e.frame); if (Math.abs(q[0] - h[0]) < 0.055 && q[2] < h[2] - 0.2) why.push(`behind person ${j}`); });
+      lines.push(`f${e.frame} p${e.who} x=${h[0].toFixed(2)}${why.length ? " " + why.join(",") : ""}`); if (why.length) bad.push(`f${e.frame} p${e.who}: ${why.join(", ")}`);
+    }
+    rows.push(["every photographer visible at their shutter moment", bad.length === 0, bad.length ? bad.join("; ") : lines.join(" | ")]);
+  }
   let fail = false;
   for (const [name, ok, d] of rows) { console.log(`${ok ? "PASS" : "FAIL"} ${name} — ${d}`); if (!ok) fail = true; }
   process.exit(fail ? 1 : 0);

@@ -149,7 +149,8 @@ export const personPose = (P: Persona, f: number, ctx: LifeCtx, faceRight = 0): 
       const w = env(f, c.t0, c.t1, 7, 10); lookX = lerp(lookX, c.x, w); lookY = lerp(lookY, c.y, w); brow += 0.15 * w * (c.y > 0 ? 1 : 0);
     } else if (c.kind === "point") {
       const w = env(f, c.t0, c.t1, 7, 9); if (w <= 0) continue;
-      const a: ArmPose = { hand: [c.side * c.dir[0], c.dir[1]], elbow: [c.side * c.dir[0] * 0.45, c.dir[1] * 0.4 + 30], shape: "open", rot: c.side * -1.2, bend: c.side };
+      // dir = hand offset from that shoulder in screen px (e.g. [-170, -110] = up and out to the left for side -1)
+      const a: ArmPose = { hand: [c.dir[0], c.dir[1]], elbow: [c.dir[0] * 0.5, c.dir[1] * 0.35 + 30], shape: "open", rot: Math.atan2(-c.dir[0], c.dir[1]) * 0.15, bend: c.side };
       if (c.side > 0) armR = mixArm(armR, a, w); else armL = mixArm(armL, a, w);
       lookX = lerp(lookX, c.side * 0.6, w); lookY = lerp(lookY, 0.4, w); mouth = "o";
     }

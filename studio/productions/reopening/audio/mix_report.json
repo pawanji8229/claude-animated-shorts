@@ -4,21 +4,21 @@
  "final_lufs": -16.1,
  "final_true_peak_dbtp": -1.1,
  "stems_lu_re_narration": {
-  "sfx": -22.4,
-  "crowd": -34.1,
-  "ambience": -29.3,
+  "sfx": -22.1,
+  "crowd": -34.0,
+  "ambience": -29.2,
   "music": null
  },
  "stems_speechband_db_re_narration_during_speech": {
-  "sfx": -23.7,
-  "crowd": -34.1,
+  "sfx": -23.5,
+  "crowd": -34.0,
   "ambience": -33.0,
   "music": null
  },
  "min_word_margin_target_db": 15.0,
  "words": 25,
- "min_word_margin_before_db": 12.6,
- "min_word_margin_after_db": 15.7,
+ "min_word_margin_before_db": 14.3,
+ "min_word_margin_after_db": 15.5,
  "word_margins_after": [
   {
    "word": "and",
@@ -33,27 +33,27 @@
   {
    "word": "nineteen",
    "t0": 0.47,
-   "margin_db": 30.9
+   "margin_db": 30.8
   },
   {
    "word": "seventy",
    "t0": 0.84,
-   "margin_db": 25.7
+   "margin_db": 25.5
   },
   {
    "word": "one",
    "t0": 1.2,
-   "margin_db": 19.9
+   "margin_db": 19.8
   },
   {
    "word": "london",
    "t0": 1.74,
-   "margin_db": 21.5
+   "margin_db": 21.4
   },
   {
    "word": "bridge",
    "t0": 2.16,
-   "margin_db": 25.2
+   "margin_db": 25.1
   },
   {
    "word": "reopened",
@@ -68,12 +68,12 @@
   {
    "word": "the",
    "t0": 3.533,
-   "margin_db": 27.7
+   "margin_db": 27.5
   },
   {
    "word": "arizona",
    "t0": 3.703,
-   "margin_db": 26.9
+   "margin_db": 26.7
   },
   {
    "word": "desert",
@@ -83,7 +83,7 @@
   {
    "word": "because",
    "t0": 5.181,
-   "margin_db": 21.8
+   "margin_db": 21.6
   },
   {
    "word": "he",
@@ -93,27 +93,27 @@
   {
    "word": "wasn't",
    "t0": 5.551,
-   "margin_db": 20.1
+   "margin_db": 18.2
   },
   {
    "word": "just",
    "t0": 6.011,
-   "margin_db": 21.5
+   "margin_db": 20.4
   },
   {
    "word": "buying",
    "t0": 6.311,
-   "margin_db": 21.5
+   "margin_db": 21.2
   },
   {
    "word": "a",
    "t0": 6.641,
-   "margin_db": 15.7
+   "margin_db": 15.5
   },
   {
    "word": "bridge",
    "t0": 6.691,
-   "margin_db": 17.1
+   "margin_db": 18.3
   },
   {
    "word": "he",
@@ -123,12 +123,12 @@
   {
    "word": "was",
    "t0": 7.663,
-   "margin_db": 16.5
+   "margin_db": 16.2
   },
   {
    "word": "buying",
    "t0": 7.843,
-   "margin_db": 17.9
+   "margin_db": 17.6
   },
   {
    "word": "the",
@@ -138,12 +138,12 @@
   {
    "word": "world's",
    "t0": 8.353,
-   "margin_db": 17.5
+   "margin_db": 16.9
   },
   {
    "word": "attention",
    "t0": 8.843,
-   "margin_db": 16.4
+   "margin_db": 15.9
   }
  ],
  "guard_adjustments": [
@@ -152,16 +152,8 @@
    "word": "he",
    "t0": 7.463,
    "t1": 7.653,
-   "margin_db": 12.6,
-   "cut_db": 3.4
-  },
-  {
-   "pass": 1,
-   "word": "was",
-   "t0": 7.663,
-   "t1": 7.833,
-   "margin_db": 13.3,
-   "cut_db": 2.7
+   "margin_db": 14.3,
+   "cut_db": 1.7
   }
  ],
  "events_placed": 67,

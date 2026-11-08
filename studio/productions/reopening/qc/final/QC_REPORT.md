@@ -14,12 +14,14 @@ file: `final.mp4` — **PASS (automatic checks) — visual review still required
 | no black frames | ✅ | 0 black runs [] |
 | no single-frame glitches | ✅ | 0 at frames [] |
 | no frozen/duplicated runs (soft) | ✅ | 0 freeze(s) at [] |
-| loudness near target (soft) | ✅ | I=-16.1 LUFS (target -16.0) |
+| loudness near target (soft) | ✅ | I=-16.2 LUFS (target -16.0) |
 | no clipping (true peak <= -1 dBTP) | ✅ | TP=-1.1 dBTP |
 | narration in sync (|offset| <= 1 frame) | ✅ | offset 0 ms |
+| narration intelligible (every word above background) | ✅ | worst word margin 15.7 dB in speech band (target >= 12.0; 2 automatic guard cuts) |
+| crowd stays quiet under narration | ✅ | crowd -34.1 LU re narration (limit -18.0) |
 | loop: last frame ~ first frame (soft) | ✅ | mean abs diff 6.0 (limit 18) |
-| loop: no audio click at boundary (soft) | ✅ | max sample step 0.099 |
-| loop: ambience level continuous (soft) | ✅ | level change +5.8 dB |
+| loop: no audio click at boundary (soft) | ✅ | max sample step 0.004 |
+| loop: ambience level continuous (soft) | ✅ | level change +2.7 dB |
 
 ## Mandatory visual inspection (not automatable)
 - [ ] character has NO ears in every view

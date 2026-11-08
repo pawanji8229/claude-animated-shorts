@@ -66,9 +66,9 @@ const COSTUMES: Costume[] = [
   { ...COSTUME.odo, goggles: false, apron: true, pal: { shirt: "#8a5ab0", shirtShade: "#6a3f8a" } },
 ];
 export const CROWD = COSTUMES.map((c, i) => {
-  // hand-placed on dry land, two loose rows; early photographers stand right of Hal (seen while the camera is right),
-  // late ones left of him (seen while it drifts left); nobody directly behind Hal (x = -9.0) so every face and camera reads
-  const [x, z] = ([[-11.55, 13.1], [-8.15, 12.6], [-10.85, 13.3], [-8.6, 12.05], [-10.1, 13.2], [-9.65, 12.6], [-8.45, 13.3], [-11.15, 12.5], [-9.95, 12.0], [-10.45, 12.7]] as const)[i];
+  // hand-placed on dry land inside the visible strip (x -10.3..-7.8), two loose clusters either side of Hal, front rows
+  // for the photographers; positions verified by scripts/check-crowd.ts (every shutter moment visible); nobody directly behind Hal (x = -9.0) so every face and camera reads
+  const [x, z] = ([[-10.3, 12.8], [-8.15, 13.6], [-9.45, 12.9], [-8.5, 13.55], [-9.85, 12.75], [-7.85, 13.6], [-8.3, 12.75], [-10.0, 13.6], [-8.0, 12.7], [-9.65, 13.65]] as const)[i];
   return { pos: [x, groundY(x, z), z] as V3, costume: c, phase: i * 0.37, h: 1.42 + ((i * 37) % 13) * 0.012 };
 });
 // Independent crowd: every person has their own persona + clip schedule (src/char/crowdLife.ts). No shared timing:
@@ -88,7 +88,7 @@ const PER: Omit<Persona, "costume" | "seed">[] = [
             { kind: "wave", t0: 236, t1: 262, side: 1, rate: 2.0, height: 0.8 }] },
   { idle: "rest", breathe: 3, sway: 3, swayAmp: 0.014, mood: "smile", eyes: "squint", brow: 0.8, temper: 1.3,
     clips: [{ kind: "talk", t0: 18, t1: 70, toward: 0.75, rate: 4.6, gesture: 1 }, { kind: "laugh", t0: 70, t1: 86 }, { kind: "clap", t0: 102, t1: 130, rate: 4.2, amp: 1.0 },
-            { kind: "point", t0: 178, t1: 206, side: -1, dir: [-150, -120] }, { kind: "talk", t0: 240, t1: 274, toward: 0.7, rate: 3.8, gesture: 0 }] },
+            { kind: "point", t0: 178, t1: 206, side: -1, dir: [-170, -110] }, { kind: "talk", t0: 240, t1: 274, toward: 0.7, rate: 3.8, gesture: 0 }] },
   { idle: "clasp", breathe: 2, sway: 2, swayAmp: 0.008, mood: "smile", eyes: "lid", brow: 0.7, temper: 0.8, camera: { flash: "cube" },
     clips: [{ kind: "look", t0: 20, t1: 72, x: -0.7, y: 0 }, { kind: "nod", t0: 38, t1: 60, times: 3 }, { kind: "laugh", t0: 73, t1: 90 },
             { kind: "photo", notice: 7, reach: 8, raise: 10, shots: [{ f: 229, flash: true }, { f: 246, flash: false }], lowerAfter: 8, lower: 13, elbowsOut: 0.9 }] },

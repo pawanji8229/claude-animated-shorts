@@ -12,14 +12,14 @@
   {
    "frame": 21,
    "kind": "clap_soft",
-   "x": -1,
+   "x": -0.6669587609902307,
    "gain": 1,
    "note": "person 0 claps"
   },
   {
    "frame": 29,
    "kind": "clap_soft",
-   "x": -1,
+   "x": -0.7458864416669909,
    "gain": 1,
    "note": "person 0 claps"
   },
@@ -33,14 +33,14 @@
   {
    "frame": 30,
    "kind": "cloth_soft",
-   "x": -0.8051437515642265,
+   "x": -0.5384770848975601,
    "gain": 1,
    "note": "person 9 lapel"
   },
   {
    "frame": 37,
    "kind": "clap_soft",
-   "x": -1,
+   "x": -0.815511670019332,
    "gain": 1,
    "note": "person 0 claps"
   },
@@ -61,7 +61,7 @@
   {
    "frame": 46,
    "kind": "clap_soft",
-   "x": -1,
+   "x": -0.8801533292740545,
    "gain": 1,
    "note": "person 0 claps"
   },
@@ -82,7 +82,7 @@
   {
    "frame": 60,
    "kind": "cloth_soft",
-   "x": -0.32991747543148264,
+   "x": -0.2799174754314831,
    "gain": 1,
    "note": "person 6 wave"
   },
@@ -103,7 +103,7 @@
   {
    "frame": 104,
    "kind": "cloth_soft",
-   "x": -0.2831301156684673,
+   "x": -0.24979678233513405,
    "gain": 1,
    "note": "person 3 lifts camera"
   },
@@ -117,70 +117,70 @@
   {
    "frame": 110,
    "kind": "clap_soft",
-   "x": -0.7365985065441594,
+   "x": -0.653265173210826,
    "gain": 1,
    "note": "person 4 claps"
   },
   {
    "frame": 117,
    "kind": "clap_soft",
-   "x": -0.6745362074874771,
+   "x": -0.5912028741541437,
    "gain": 1,
    "note": "person 4 claps"
   },
   {
    "frame": 124,
    "kind": "shutter",
-   "x": -0.10545435219325287,
+   "x": -0.07212101885991966,
    "gain": 1,
    "note": "person 3 presses the shutter"
   },
   {
    "frame": 124,
    "kind": "flash_pop",
-   "x": -0.10545435219325287,
+   "x": -0.07212101885991966,
    "gain": 1,
    "note": "person 3 flashcube/flash gun fires"
   },
   {
    "frame": 124,
    "kind": "clap_soft",
-   "x": -0.6054543521932528,
+   "x": -0.5221210188599196,
    "gain": 1,
    "note": "person 4 claps"
   },
   {
    "frame": 126,
    "kind": "clap_soft",
-   "x": -1,
+   "x": -0.6513110365725634,
    "gain": 1,
    "note": "person 0 claps"
   },
   {
    "frame": 131,
    "kind": "film_advance",
-   "x": -0.030928036291079763,
+   "x": 0.0024052970422534514,
    "gain": 1,
    "note": "person 3 winds on the film"
   },
   {
    "frame": 136,
    "kind": "clap_soft",
-   "x": -0.9586324218961728,
+   "x": -0.5419657552295062,
    "gain": 1,
    "note": "person 0 claps"
   },
   {
    "frame": 136,
    "kind": "cloth_soft",
-   "x": 0.024700911437160872,
+   "x": 0.05803424477049409,
    "gain": 1,
    "note": "person 3 lowers camera"
   },
   {
    "frame": 150,
    "kind": "cloth_soft",
-   "x": 0.23507192152247866,
+   "x": 0.2850719215224782,
    "gain": 1,
    "note": "person 6 lapel"
   },
@@ -194,63 +194,63 @@
   {
    "frame": 155,
    "kind": "cloth_soft",
-   "x": -0.6080342447704942,
+   "x": -0.22470091143716076,
    "gain": 1,
    "note": "person 7 lifts camera"
   },
   {
    "frame": 158,
    "kind": "clap_soft",
-   "x": -0.17446321644780718,
+   "x": 0.4755367835521926,
    "gain": 1,
    "note": "person 8 claps"
   },
   {
    "frame": 172,
    "kind": "shutter",
-   "x": -0.42788469458393114,
+   "x": -0.044551361250597665,
    "gain": 1,
    "note": "person 7 presses the shutter"
   },
   {
    "frame": 180,
    "kind": "film_advance",
-   "x": -0.35511552746266517,
+   "x": 0.028217805870668283,
    "gain": 1,
    "note": "person 7 winds on the film"
   },
   {
    "frame": 188,
    "kind": "shutter",
-   "x": -0.2931071307372388,
+   "x": 0.09022620259609464,
    "gain": 1,
    "note": "person 7 presses the shutter"
   },
   {
    "frame": 188,
    "kind": "flash_pop",
-   "x": -0.2931071307372388,
+   "x": 0.09022620259609464,
    "gain": 1,
    "note": "person 7 flashcube/flash gun fires"
   },
   {
    "frame": 190,
    "kind": "cloth_soft",
-   "x": -0.046177208960849946,
+   "x": 0.22048945770581638,
    "gain": 1,
    "note": "person 9 lifts camera"
   },
   {
    "frame": 196,
    "kind": "cloth_soft",
-   "x": -0.24370504725740064,
+   "x": 0.1396282860759328,
    "gain": 1,
    "note": "person 7 lowers camera"
   },
   {
    "frame": 197,
    "kind": "film_advance",
-   "x": -0.23849380948407214,
+   "x": 0.14483952384926133,
    "gain": 1,
    "note": "person 7 winds on the film"
   },
@@ -264,42 +264,42 @@
   {
    "frame": 206,
    "kind": "shutter",
-   "x": 0.0314526752425189,
+   "x": 0.2981193419091852,
    "gain": 1,
    "note": "person 9 presses the shutter"
   },
   {
    "frame": 214,
    "kind": "film_advance",
-   "x": 0.04775603761830993,
+   "x": 0.31442270428497626,
    "gain": 1,
    "note": "person 9 winds on the film"
   },
   {
    "frame": 215,
    "kind": "cloth_soft",
-   "x": 0.3153540709250902,
+   "x": 0.9153540709250905,
    "gain": 1,
    "note": "person 5 lifts camera"
   },
   {
    "frame": 216,
    "kind": "shutter",
-   "x": 0.04937075161578205,
+   "x": 0.31603741828244836,
    "gain": 1,
    "note": "person 9 presses the shutter"
   },
   {
    "frame": 216,
    "kind": "flash_pop",
-   "x": 0.04937075161578205,
+   "x": 0.31603741828244836,
    "gain": 1,
    "note": "person 9 flashcube/flash gun fires"
   },
   {
    "frame": 218,
    "kind": "clap_soft",
-   "x": 0.7166588966588835,
+   "x": 0.7666588966588831,
    "gain": 1,
    "note": "person 6 claps"
   },
@@ -313,35 +313,35 @@
   {
    "frame": 225,
    "kind": "film_advance",
-   "x": 0.04434566999272368,
+   "x": 0.31101233665939,
    "gain": 1,
    "note": "person 9 winds on the film"
   },
   {
    "frame": 225,
    "kind": "cloth_soft",
-   "x": 0.04434566999272368,
+   "x": 0.31101233665939,
    "gain": 1,
    "note": "person 9 lowers camera"
   },
   {
    "frame": 228,
    "kind": "clap_soft",
-   "x": 0.7048920386109714,
+   "x": 0.7548920386109709,
    "gain": 1,
    "note": "person 6 claps"
   },
   {
    "frame": 229,
    "kind": "shutter",
-   "x": 0.3023642730261577,
+   "x": 0.902364273026158,
    "gain": 1,
    "note": "person 5 presses the shutter"
   },
   {
    "frame": 229,
    "kind": "flash_pop",
-   "x": 0.3023642730261577,
+   "x": 0.902364273026158,
    "gain": 1,
    "note": "person 5 flashcube/flash gun fires"
   },
@@ -355,7 +355,7 @@
   {
    "frame": 236,
    "kind": "film_advance",
-   "x": 0.2779750546849253,
+   "x": 0.8779750546849255,
    "gain": 1,
    "note": "person 5 winds on the film"
   },
@@ -369,28 +369,28 @@
   {
    "frame": 238,
    "kind": "cloth_soft",
-   "x": 0.6189043483323194,
+   "x": 0.6522376816656527,
    "gain": 1,
    "note": "person 3 wave"
   },
   {
    "frame": 240,
    "kind": "cloth_soft",
-   "x": -0.3744050465822859,
+   "x": 0.04226162008438076,
    "gain": 1,
    "note": "person 0 hat"
   },
   {
    "frame": 242,
    "kind": "cloth_soft",
-   "x": -0.2519345295262478,
+   "x": 0.13139880380708568,
    "gain": 1,
    "note": "person 7 lifts camera"
   },
   {
    "frame": 246,
    "kind": "shutter",
-   "x": 0.22376220504227007,
+   "x": 0.8237622050422703,
    "gain": 1,
    "note": "person 5 presses the shutter"
   },
@@ -404,42 +404,42 @@
   {
    "frame": 252,
    "kind": "cloth_soft",
-   "x": -0.21878537539026865,
+   "x": 0.24788129127639813,
    "gain": 1,
    "note": "person 2 lapel"
   },
   {
    "frame": 253,
    "kind": "film_advance",
-   "x": 0.1734540812398908,
+   "x": 0.773454081239891,
    "gain": 1,
    "note": "person 5 winds on the film"
   },
   {
    "frame": 254,
    "kind": "cloth_soft",
-   "x": 0.16551167001933167,
+   "x": 0.765511670019332,
    "gain": 1,
    "note": "person 5 lowers camera"
   },
   {
    "frame": 258,
    "kind": "shutter",
-   "x": -0.3680013657123986,
+   "x": 0.015331967620934842,
    "gain": 1,
    "note": "person 7 presses the shutter"
   },
   {
    "frame": 263,
    "kind": "cloth_soft",
-   "x": -0.4135165753282492,
+   "x": -0.030183241994915733,
    "gain": 1,
    "note": "person 7 lowers camera"
   },
   {
    "frame": 265,
    "kind": "film_advance",
-   "x": -0.4327421306050094,
+   "x": -0.04940879727167591,
    "gain": 1,
    "note": "person 7 winds on the film"
   },
