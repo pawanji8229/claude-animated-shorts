@@ -33,6 +33,15 @@ blacks = re.findall(r"black_start:([\d.]+) black_end:([\d.]+)", bl)
 chk("no black frames", len(blacks) <= cfg["qc"]["maxBlackFrames"], f"{len(blacks)} black runs {blacks[:5]}")
 fz = run("ffmpeg", "-hide_banner", "-i", mp4, "-vf", f"freezedetect=n=0.0008:d={cfg['qc']['freezeMinSeconds']}", "-an", "-f", "null", "-").stderr
 freezes = re.findall(r"freeze_start: ([\d.]+)", fz)
+# single-frame glitches (a frame that differs from BOTH neighbours far more than they differ from each other),
+# e.g. a NaN pixel smeared into blocks by the post blur, a texture that failed to upload, a one-frame pop
+_raw = subprocess.run(["ffmpeg", "-v", "error", "-i", mp4, "-vf", "scale=90:160", "-f", "rawvideo", "-pix_fmt", "gray", "-"], capture_output=True).stdout
+_fr = np.frombuffer(_raw, np.uint8).astype(float).reshape(-1, 160 * 90)
+glitches = []
+for i in range(1, len(_fr) - 1):
+    dp, dn, dpn = [np.abs(x - y).mean() for x, y in ((_fr[i], _fr[i - 1]), (_fr[i], _fr[i + 1]), (_fr[i - 1], _fr[i + 1]))]
+    if min(dp, dn) > max(8.0, 4.0 * dpn): glitches.append(i)
+chk("no single-frame glitches", not glitches, f"{len(glitches)} at frames {glitches[:10]}")
 chk("no frozen/duplicated runs", not freezes, f"{len(freezes)} freeze(s) at {freezes[:6]}", hard=False)
 
 if a:

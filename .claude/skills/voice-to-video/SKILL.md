@@ -89,8 +89,8 @@ tool failures needing the user, or changes to the voiceover/creative direction.
 - Deliver stems: narration (untouched), sfx, ambience, music, mix + cue sheet (frame, times, source, level, pan, fades, FG/BG).
 
 ## 7. QC & reporting
-- `qc.py` hard checks: codec/size/fps, frame count = narration frames, duration, black frames, clipping, sync (cross-
-  correlation). Soft: freezes, loudness, loop metrics. Then Claude inspects the contact sheet + key stills for: ears,
+- `qc.py` hard checks: codec/size/fps, frame count = narration frames, duration, black frames, single-frame glitches
+  (a frame unlike both neighbours), clipping, sync (cross-correlation). Soft: freezes, loudness, loop metrics. Then Claude inspects the contact sheet + key stills for: ears,
   head/torso join, hands/feet, geometry artifacts, lighting, detail, camera feel — and says honestly what is weak.
 - Final report: what was automated vs authored, timings, QC table, ⚠ transcript words, known weaknesses, links to files.
 - Deliver with SendUserFile: final MP4, stems/cue-sheet ZIP, backup ZIP.

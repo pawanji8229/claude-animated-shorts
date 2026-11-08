@@ -44,12 +44,14 @@ void main(){
 
 const DOWN = /* glsl */ `
 uniform sampler2D tex; uniform vec2 texel; uniform float threshold; uniform float bright; varying vec2 vUv;
+// NaN/Inf/negative guard: one bad HDR pixel would otherwise be smeared into dark blocks by the blur/bloom pyramid
+vec3 sane(vec3 v){ bool ok = v.r < 6e4 && v.g < 6e4 && v.b < 6e4 && v.r >= 0.0 && v.g >= 0.0 && v.b >= 0.0; return ok ? v : vec3(0.0); }
 void main(){
   vec4 a = texture2D(tex, vUv + texel * vec2(-1.0,-1.0));
   vec4 b = texture2D(tex, vUv + texel * vec2( 1.0,-1.0));
   vec4 c = texture2D(tex, vUv + texel * vec2(-1.0, 1.0));
   vec4 d = texture2D(tex, vUv + texel * vec2( 1.0, 1.0));
-  vec3 col = (a.rgb + b.rgb + c.rgb + d.rgb) * 0.25;
+  vec3 col = (sane(a.rgb) + sane(b.rgb) + sane(c.rgb) + sane(d.rgb)) * 0.25;
   if (bright > 0.5) {
     float l = max(col.r, max(col.g, col.b));
     float knee = threshold * 0.5;
@@ -84,11 +86,12 @@ vec3 neutral(vec3 color){
   float g = 1.0 - 1.0 / (desat * (peak - np) + 1.0);
   return mix(color, vec3(np), g);
 }
+vec3 sane(vec3 v){ bool ok = v.r < 6e4 && v.g < 6e4 && v.b < 6e4 && v.r >= 0.0 && v.g >= 0.0 && v.b >= 0.0; return ok ? v : vec3(0.0); }
 vec3 toSRGB(vec3 c){ c = clamp(c, 0.0, 1.0); return mix(c * 12.92, 1.055 * pow(c, vec3(1.0/2.4)) - 0.055, step(0.0031308, c)); }
 void main(){
   // 2x2 box resolve of the supersampled target (clean anti-aliasing)
-  vec3 s = (texture2D(sharp, vUv + sharpTexel * vec2(-0.5,-0.5)).rgb + texture2D(sharp, vUv + sharpTexel * vec2(0.5,-0.5)).rgb
-          + texture2D(sharp, vUv + sharpTexel * vec2(-0.5, 0.5)).rgb + texture2D(sharp, vUv + sharpTexel * vec2(0.5, 0.5)).rgb) * 0.25;
+  vec3 s = (sane(texture2D(sharp, vUv + sharpTexel * vec2(-0.5,-0.5)).rgb) + sane(texture2D(sharp, vUv + sharpTexel * vec2(0.5,-0.5)).rgb)
+          + sane(texture2D(sharp, vUv + sharpTexel * vec2(-0.5, 0.5)).rgb) + sane(texture2D(sharp, vUv + sharpTexel * vec2(0.5, 0.5)).rgb)) * 0.25;
   // circle of confusion (use the nearest depth of a small neighbourhood so in-focus edges stay crisp)
   float z = linDepth(texture2D(depthTex, vUv).r);
   float coc = clamp((abs(z - focusDist) - focusRange * 0.5) / (focusDist * 0.9 + 0.5), 0.0, 1.0) * maxBlur;
