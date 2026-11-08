@@ -1,15 +1,15 @@
 # Asset manifest
 
-Generated 2026-11-08T12:25:46.201112+00:00 — 244 files.
+Generated 2026-11-08T14:59:37.579160+00:00 — 278 files.
 
 | path | bytes | sha256 |
 |---|---|---|
-| .claude/skills/voice-to-video/SKILL.md | 7488 | c5acae420e91e176… |
+| .claude/skills/voice-to-video/SKILL.md | 8656 | a81b6be1aff9ab90… |
 | .github/workflows/render-video.yml | 3132 | a3bcb735f6c40ffe… |
 | .gitignore | 463 | 49392c675a9442d3… |
 | ALL_CLAUDE_PROMPTS.md | 18094 | 8c5fc2c4bd183332… |
 | LICENSE | 1063 | 0c88b6c1afe23ba9… |
-| PROJECT_HANDOFF.md | 2718 | 4f49503f2dfc36f3… |
+| PROJECT_HANDOFF.md | 3212 | 88df3fb0504d47e1… |
 | README.md | 2925 | 2020de7f50a3ef6e… |
 | SKILL.md | 21431 | 3585154e13dee858… |
 | VOICE_TO_VIDEO_GUIDE.md | 3657 | 44a10bf642e80493… |
@@ -92,18 +92,19 @@ Generated 2026-11-08T12:25:46.201112+00:00 — 244 files.
 | references/sheets/short20_sheet.jpg | 583349 | 2b98da9443c978b3… |
 | studio/.gitignore | 30 | 034a0419c90e9c78… |
 | studio/README.md | 4451 | f02b34f41e8b5330… |
+| studio/audio/crowd_sfx.py | 5103 | 2db493baac777b22… |
 | studio/audio/desert_sfx.py | 10485 | 1c6c21137bde077a… |
 | studio/audio/dsp.py | 11468 | 3b456f4653fde5f3… |
 | studio/audio/mix_act1.py | 9213 | 1788a1ad26032b11… |
-| studio/audio/mix_events.py | 11266 | f043d43355297294… |
+| studio/audio/mix_events.py | 12945 | bfc5e75a626dfc21… |
 | studio/audio/requirements.txt | 27 | 983665a6331eda07… |
 | studio/audio/sfx_gen.py | 25699 | 656e0d04a8fbd05e… |
 | studio/package-lock.json | 182359 | 58915101bb7df6c1… |
 | studio/package.json | 1292 | e608eff014d3050e… |
-| studio/pipeline/analyze_audio.py | 7755 | f338781066b3a42b… |
+| studio/pipeline/analyze_audio.py | 7772 | cbbf3a8f68dc317f… |
 | studio/pipeline/backup.py | 1941 | e464e13741195ff0… |
 | studio/pipeline/make_video.sh | 3149 | 921455312246a8e1… |
-| studio/pipeline/qc.py | 7890 | 2c56d56a5034444f… |
+| studio/pipeline/qc.py | 8657 | 3a4d6f3b1d1a0394… |
 | studio/pipeline/render_batches.mjs | 3066 | 4d6b4457a96d44f5… |
 | studio/pipeline/requirements.txt | 54 | d5929fb59cf971ff… |
 | studio/pipeline/setup.sh | 1128 | 24cf4d28a1cec32b… |
@@ -128,6 +129,10 @@ Generated 2026-11-08T12:25:46.201112+00:00 — 244 files.
 | studio/previews/pipeline_test/contact_sheet.png | 2110673 | 401d30b14e9bc620… |
 | studio/previews/pipeline_test/loop_boundary_test.mp4 | 3467538 | 050387e9d35fea07… |
 | studio/previews/pipeline_test/twistframe_pipeline_test_540x960.mp4 | 10093535 | 24cd309b95e84259… |
+| studio/previews/reopening/QC_REPORT.md | 1490 | 0c690326a3ef5f82… |
+| studio/previews/reopening/contact_sheet.png | 2134741 | 9844d10b7fb6c17e… |
+| studio/previews/reopening/loop_boundary_test.mp4 | 2663797 | 236b05a46bbf235f… |
+| studio/previews/reopening/twistframe_reopening_loop_540x960.mp4 | 8433873 | 3f1990377db57a7a… |
 | studio/previews/v3/PreviewCharacter.png | 362479 | 374d5b0000356c29… |
 | studio/previews/v3/PreviewComposite.png | 1439763 | 348ab29d684bb3ed… |
 | studio/previews/v3/PreviewEnvironment.png | 1455385 | 7bdfa66fcc807849… |
@@ -152,6 +157,33 @@ Generated 2026-11-08T12:25:46.201112+00:00 — 244 files.
 | studio/productions/london-bridge/audio_act1/narration_full_48k.wav | 16995162 | aab8621e44262d3b… |
 | studio/productions/london-bridge/audio_act1/sfx.wav | 2880044 | 255a3a7f4fa9213d… |
 | studio/productions/london-bridge/events_act1.json | 4129 | 19b7cba90c668af2… |
+| studio/productions/reopening/SOURCE_NOTES.md | 614 | b4bf69ba78bfdcd5… |
+| studio/productions/reopening/STORYBOARD.md | 2405 | f57b05cbc8ee9a1a… |
+| studio/productions/reopening/analysis/TRANSCRIPT.md | 571 | 30e61c7a86e65ed4… |
+| studio/productions/reopening/analysis/analysis.json | 4102 | cbadba2aa43ba4e1… |
+| studio/productions/reopening/audio/ambience.wav | 2791178 | 047a4f9a6a0ad30b… |
+| studio/productions/reopening/audio/cue_sheet.csv | 5226 | ab48e9a146ba8758… |
+| studio/productions/reopening/audio/cue_sheet.md | 6517 | b3fdfa84fbf22602… |
+| studio/productions/reopening/audio/mix.wav | 2791178 | cbc1ed6bf52a99cf… |
+| studio/productions/reopening/audio/mix_premaster.wav | 2791178 | c3182df68b656d79… |
+| studio/productions/reopening/audio/music.wav | 2791178 | e79f7346bdeda5a6… |
+| studio/productions/reopening/audio/narration.wav | 2791178 | 8dc7ef80db94c00a… |
+| studio/productions/reopening/audio/narration_full_48k.wav | 2776602 | 984aa058c0f8b1e7… |
+| studio/productions/reopening/audio/sfx.wav | 2791178 | 67ea059704bddd1f… |
+| studio/productions/reopening/events.json | 5260 | bfbf14f1da65ba63… |
+| studio/productions/reopening/input/narration.mp3 | 194396 | 1252d0ccafa57d22… |
+| studio/productions/reopening/input/transcript.txt | 136 | 950482d54d6faa4c… |
+| studio/productions/reopening/production.json | 204 | d82a6c7e22cedb34… |
+| studio/productions/reopening/qc/final/QC_REPORT.md | 1490 | 0c690326a3ef5f82… |
+| studio/productions/reopening/qc/final/_lb/l.txt | 32 | bebe57981e51d687… |
+| studio/productions/reopening/qc/final/contact_sheet.png | 2134741 | 9844d10b7fb6c17e… |
+| studio/productions/reopening/qc/final/qc.json | 2409 | fd501ec7b8d88e9e… |
+| studio/productions/reopening/qc/test/QC_REPORT.md | 1184 | 981e69f9fda29b7a… |
+| studio/productions/reopening/qc/test/contact_sheet.png | 1968909 | 04ba91a645e434ba… |
+| studio/productions/reopening/qc/test/qc.json | 1903 | da4243d5f66b18cd… |
+| studio/productions/reopening/render/full_render.log | 2723 | 32fe88439c75328b… |
+| studio/productions/reopening/render/full_render2.log | 1506 | 4210dd196c1a1c37… |
+| studio/productions/reopening/render/qc_final.log | 851 | 26a26d11a006f6d5… |
 | studio/productions/test-hook/analysis/TRANSCRIPT.md | 583 | 99c86890089cc444… |
 | studio/productions/test-hook/analysis/analysis.json | 4555 | a87a62e225c6fa3a… |
 | studio/productions/test-hook/audio/ambience.wav | 2858882 | b99a1a977fc11c88… |
@@ -180,18 +212,18 @@ Generated 2026-11-08T12:25:46.201112+00:00 — 244 files.
 | studio/scripts/check-camera.ts | 1394 | 401571f85f8a625b… |
 | studio/scripts/export-events.ts | 762 | 704eae478ffed480… |
 | studio/scripts/render-stills.mjs | 1017 | fc6707074f107386… |
-| studio/src/Root.tsx | 5727 | 5c7a58762ab368b9… |
+| studio/src/Root.tsx | 6232 | 38d9b64d9e210bdb… |
 | studio/src/char/CardSprite.tsx | 3460 | e1d278a16bae01ec… |
 | studio/src/char/Odo4.tsx | 2860 | fee3bd6fde57f20d… |
 | studio/src/char/odo3.ts | 17703 | 908613ca2d7aefec… |
 | studio/src/char/odo4.ts | 20339 | ce927e6e779ab78a… |
 | studio/src/char/odo5.ts | 33741 | 5adbafe751ac3792… |
 | studio/src/data/captions.json | 457 | ed6911e10952da81… |
-| studio/src/desert/Bridge.tsx | 18595 | 57fd6050e744f764… |
+| studio/src/desert/Bridge.tsx | 18575 | 725bc38376231d02… |
 | studio/src/desert/Car60.tsx | 13101 | c78b20fb2b9f139c… |
-| studio/src/desert/DesertDetail.tsx | 18220 | ffaf33d9aeddfa7e… |
-| studio/src/desert/DesertWorld.tsx | 23773 | 1a87bfc111e13e24… |
-| studio/src/desert/LondonBridgeFilm.tsx | 4820 | c5102a4227b10229… |
+| studio/src/desert/DesertDetail.tsx | 18317 | dbf5500f7dcb9473… |
+| studio/src/desert/DesertWorld.tsx | 27809 | efde93da5df66149… |
+| studio/src/desert/LondonBridgeFilm.tsx | 4842 | fb6c230fcc5a42c1… |
 | studio/src/desert/desertHook.ts | 14234 | 1cbd5851f84dec5a… |
 | studio/src/desert/desertTextures.ts | 6662 | d696770b533df2ac… |
 | studio/src/hall/Hall10.tsx | 3028 | 21f13b559c9f8234… |
@@ -213,10 +245,12 @@ Generated 2026-11-08T12:25:46.201112+00:00 — 244 files.
 | studio/src/inventor/timeline10.ts | 8197 | 6158b7fb8463191c… |
 | studio/src/lib/Caption.tsx | 1349 | fbd574edd5fad56d… |
 | studio/src/lib/Ink.tsx | 2494 | 8481a0f41b775e7e… |
-| studio/src/lib/Post.tsx | 12342 | 59d9122e5ec7e10c… |
+| studio/src/lib/Post.tsx | 12779 | ef6c3e39255f36b5… |
 | studio/src/lib/math.ts | 1095 | edae2a2cedd41ffe… |
 | studio/src/previews/Previews.tsx | 9174 | 065c873dcd48593d… |
 | studio/src/previews/Sheet2D.tsx | 2321 | 32b1fd0b3dfb67d7… |
+| studio/src/productions/reopening/Film.tsx | 10375 | 9d78f2bbc88e5ca9… |
+| studio/src/productions/reopening/scene.ts | 9682 | 46272ead83204559… |
 | studio/tsconfig.json | 352 | 1768100c9a997502… |
 | studio/twistframe.config.json | 1563 | 76b80959ab1b6a21… |
 | templates/SCRIPT_example.md | 1849 | f8ceb1eeddb64b47… |
