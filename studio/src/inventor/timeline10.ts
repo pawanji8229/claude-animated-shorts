@@ -7,6 +7,7 @@
 // Everything is a pure function of the frame number.
 import { V3, clamp01, lerp, mix3, smooth } from "../lib/math";
 import { BENCH, BULB, type InventorState, type Cam } from "./timeline";
+import { reachHandPx, SOLE_Y, CANVAS_H } from "./inventorDraw";
 
 export const DURATION10 = 300;
 
@@ -107,7 +108,20 @@ export const lever10 = (f: number) => smooth(262, 268, f); // drives the lever a
 // --- camera: shots with cuts; every hold creeps ---
 type Shot = { a: number; b: number; cam: (t: number, f: number) => Cam; focus: (f: number) => V3 };
 const head = (f: number): V3 => { const p = inventor10(f).pos; return [p[0], 1.28, p[2]]; };
-export const LEVER_POS: V3 = [1.2, 0, -2.45]; // floor-standing lever beside the bench, within Odo's reach
+// Floor lever geometry is solved from Odo's hand: the knob sits 4 cm behind his card exactly where the drawn hand is
+// (as seen from the insert camera), so the grip always reads, whatever the pose curves are.
+const ODO_END: V3 = [0.92, 0, -2.25];
+const S4_CAM: V3 = [1.34, 0.95, -1.05];
+const YAW4 = Math.atan2(S4_CAM[0] - ODO_END[0], S4_CAM[2] - ODO_END[2]);
+const CARD_S = 1.62 / CANVAS_H;
+export const knobAt = (pull: number): V3 => {
+  const [hx, hy] = reachHandPx(pull);
+  const lx = (hx - 300) * CARD_S, ly = (SOLE_Y - hy) * CARD_S;
+  const right: V3 = [Math.cos(YAW4), 0, -Math.sin(YAW4)], back: V3 = [-Math.sin(YAW4), 0, -Math.cos(YAW4)];
+  return [ODO_END[0] + right[0] * lx + back[0] * 0.05, ly, ODO_END[2] + right[2] * lx + back[2] * 0.05];
+};
+const K0 = knobAt(0);
+export const LEVER_POS: V3 = [K0[0] + 0.05, 0, K0[2]]; // pivot base on the floor, rod leans slightly toward Odo
 const DOME: V3 = [BENCH.x - 0.35 + 0.18, BENCH.h + 0.52, BENCH.z + 0.05];
 const SHOTS: Shot[] = [
   { a: 0, b: 62, focus: head, cam: (t) => ({
@@ -122,8 +136,8 @@ const SHOTS: Shot[] = [
     const look = mix3([0.95, 1.18, -2.25], [1.1, 2.1, -2.0], up * 0.75);
     return { pos: mix3([0.98, 1.2, 1.15], [0.96, 1.28, 0.5], t), look, fov: 40, roll: 0.8 * Math.PI / 180 * t };
   } },
-  { a: 250, b: 272, focus: () => [1.12, 0.85, -2.35], cam: (t) => ({
-    pos: mix3([1.62, 0.92, -1.25], [1.56, 0.9, -1.42], t), look: mix3([1.1, 0.78, -2.4], [1.08, 0.76, -2.4], t), fov: 40, roll: -2.5 * Math.PI / 180 }) },
+  { a: 250, b: 272, focus: () => K0, cam: (t) => ({
+    pos: mix3([1.38, 0.84, -0.98], [1.3, 0.81, -1.12], t), look: mix3([1.06, 0.68, -2.3], [1.04, 0.67, -2.3], t), fov: 42, roll: -2.5 * Math.PI / 180 }) },
   { a: 272, b: 300, focus: () => mix3(head(290), DOME, 0.35), cam: (t) => ({
     pos: mix3([2.0, 1.08, -1.2], [2.35, 1.55, 0.35], t), look: mix3([1.35, 1.2, -2.8], [1.08, 1.28, -2.45], t), fov: lerp(40, 46, t), roll: lerp(-2, 1.5, t) * Math.PI / 180 }) },
 ];

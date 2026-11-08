@@ -4,7 +4,7 @@ import React, { useMemo } from "react";
 import * as THREE from "three";
 import { Box, Cyl, Ink, useMaterials } from "./Workshop";
 import { BENCH, DOOR, ROOM, WINDOW } from "./timeline";
-import { DOME_POS, IGNITE, LEVER_POS } from "./timeline10";
+import { DOME_POS, IGNITE, LEVER_POS, knobAt } from "./timeline10";
 import { rng } from "../lib/math";
 
 const canvasTex = (w: number, h: number, draw: (g: CanvasRenderingContext2D) => void) => {
@@ -98,7 +98,6 @@ export const Extras: React.FC<{ f: number; lever: number }> = ({ f, lever }) => 
   }), roughness: 0.6 }), []);
   const zb = ROOM.zBack;
   const sec = (f / 30) * (Math.PI * 2 / 60) + 1.2;
-  const leverA = 0.25 * lever; // upright -> pulled toward Odo
   const r = rng(7);
   return (
     <group>
@@ -107,10 +106,20 @@ export const Extras: React.FC<{ f: number; lever: number }> = ({ f, lever }) => 
         <Box p={[0, 0.07, 0]} s={[0.34, 0.14, 0.22]} mat={m.iron} />
         <Box p={[0, 0.15, 0]} s={[0.26, 0.03, 0.12]} mat={m.brass} />
         <mesh position={[0.12, 0.1, 0.112]}><circleGeometry args={[0.022, 16]} /><meshBasicMaterial color={lever > 0.5 ? [0.4, 3, 0.8] : [2.6, 0.3, 0.2]} toneMapped={false} /></mesh>
-        <group position={[0, 0.14, 0]} rotation={[0, 0, leverA]}>
-          <Cyl p={[0, 0.35, 0]} rt={0.014} rb={0.02} h={0.7} mat={m.steel} seg={10} />
-          <mesh position={[0, 0.71, 0]} material={m.red} castShadow><sphereGeometry args={[0.04, 16, 12]} /><Ink k={0.8} /></mesh>
-        </group>
+        {(() => {
+          // rod from the pivot (on the base) to the knob, which tracks Odo's hand
+          const k = knobAt(lever);
+          const piv = new THREE.Vector3(LEVER_POS[0], 0.14, LEVER_POS[2]);
+          const kv = new THREE.Vector3(...k);
+          const dir = kv.clone().sub(piv); const len = dir.length();
+          const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.normalize());
+          return (
+            <group position={[0, 0.14, 0]} quaternion={q}>
+              <Cyl p={[0, len / 2, 0]} rt={0.014} rb={0.02} h={len} mat={m.steel} seg={10} />
+              <mesh position={[0, len + 0.01, 0]} material={m.red} castShadow><sphereGeometry args={[0.04, 16, 12]} /><Ink k={0.8} /></mesh>
+            </group>
+          );
+        })()}
         <Pipe a={[0.17, 0.05, -0.05]} b={[0.45, 0.05, -0.6]} m={m.cord} r={0.014} />
         <Pipe a={[0.45, 0.05, -0.6]} b={[0.5, BENCH.h, -0.62]} m={m.cord} r={0.014} />
       </group>

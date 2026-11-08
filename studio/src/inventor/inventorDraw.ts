@@ -199,6 +199,15 @@ const torso = (g: G, cx: number, top: number, hip: number, side: boolean, sway: 
   g.lineTo(cx + (side ? 44 : 14), top + 58); g.lineTo(cx + (side ? 22 : -14), top + 58); g.closePath(); fillStroke(g, SCARF, 7);
 };
 
+/** Canvas-px position of the near hand while reaching for the lever (standing side pose).
+ *  Shared with the 3D lever so the knob is always exactly under the hand. */
+export const reachHandPx = (pull: number, breathe = 0): [number, number] => {
+  const hipY = SOLE_Y - 12 - 258; // straight legs
+  const topY = hipY - 210 - Math.sin(breathe) * 3;
+  const sh: [number, number] = [300 - 8 + 6 + Math.sin(0.08) * 200, topY + 34];
+  return [sh[0] + 142 + (40 - 142) * pull, sh[1] - 86 + (-70 + 86) * pull];
+};
+
 /** Draw the inventor for a given state into a 600x1000 canvas context (already cleared). */
 export const drawInventor = (g: G, st: InventorState) => {
   const side = st.mode === "side";
