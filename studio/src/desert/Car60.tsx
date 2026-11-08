@@ -113,20 +113,27 @@ export const Car60: React.FC<{ wheelSpin?: number; brake?: number }> = ({ wheelS
         <mesh position={[0, 0.1, 0.02]} rotation={[0, 0.3, Math.PI / 2]} material={M.chrome}><cylinderGeometry args={[0.055, 0.055, 0.02, 16]} /></mesh>
       </group>
       {/* front: grille with chrome bars, quad headlights, parking lights, bumper, hood ornament */}
-      <mesh position={[2.64, 0.53, 0]} material={M.dark}><boxGeometry args={[0.04, 0.2, W - 0.7]} /></mesh>
-      {Array.from({ length: 6 }, (_, k) => <mesh key={k} position={[2.665, 0.45 + k * 0.032, 0]} material={M.chrome}><boxGeometry args={[0.02, 0.012, W - 0.72]} /></mesh>)}
-      {[-1, 1].map((s) => [0.62, 0.42].map((z, k) => (
-        <group key={`${s}${k}`} position={[2.6, 0.62, s * z * (HW / 0.8)]}>
-          <mesh rotation={[0, 0, Math.PI / 2]} material={M.chrome}><torusGeometry args={[0.085, 0.018, 8, 20]} /></mesh>
-          <mesh rotation={[0, Math.PI / 2, 0]} position={[0.01, 0, 0]} material={M.lens}><circleGeometry args={[0.075, 20]} /></mesh>
+      {/* front fittings sit ON the bevelled nose (body surface reaches x ~2.70) */}
+      <mesh position={[2.705, 0.52, 0]} material={M.dark}><boxGeometry args={[0.03, 0.22, W - 0.62]} /></mesh>
+      <mesh position={[2.712, 0.52, 0]} material={M.chrome}><boxGeometry args={[0.02, 0.26, 0.03]} /></mesh>
+      {[-1, 1].map((sg) => <mesh key={`gs${sg}`} position={[2.712, 0.52, sg * (W - 0.62) / 2]} material={M.chrome}><boxGeometry args={[0.025, 0.26, 0.03]} /></mesh>)}
+      {[0.635, 0.405].map((y) => <mesh key={`gb${y}`} position={[2.712, y, 0]} material={M.chrome}><boxGeometry args={[0.025, 0.03, W - 0.58]} /></mesh>)}
+      {Array.from({ length: 7 }, (_, k) => <mesh key={k} position={[2.72, 0.44 + k * 0.03, 0]} material={M.chrome}><boxGeometry args={[0.015, 0.01, W - 0.66]} /></mesh>)}
+      {Array.from({ length: 9 }, (_, k) => <mesh key={`v${k}`} position={[2.722, 0.52, -0.6 + k * 0.15]} material={M.chrome}><boxGeometry args={[0.012, 0.2, 0.01]} /></mesh>)}
+      {[-1, 1].map((sg) => [0.78, 0.56].map((z, k) => (
+        <group key={`${sg}${k}`} position={[2.69, 0.72, sg * z]}>
+          <mesh rotation={[0, Math.PI / 2, 0]} material={M.chrome}><torusGeometry args={[0.07, 0.016, 8, 22]} /></mesh>
+          <mesh rotation={[0, Math.PI / 2, 0]} position={[0.012, 0, 0]} material={M.lens}><circleGeometry args={[0.062, 20]} /></mesh>
+          <mesh rotation={[0, Math.PI / 2, 0]} position={[0.005, 0.025, 0]} material={M.chrome}><torusGeometry args={[0.08, 0.012, 6, 16, Math.PI]} /></mesh>
         </group>
       )))}
-      <mesh position={[2.72, 0.33, 0]} material={M.chrome} geometry={G.bumper} castShadow />
+      {[-1, 1].map((sg) => <mesh key={`pk${sg}`} position={[2.72, 0.36, sg * 0.62]} rotation={[0, 0, Math.PI / 2]}><capsuleGeometry args={[0.025, 0.12, 4, 8]} /><meshBasicMaterial color={[1.6, 1.0, 0.4]} toneMapped={false} /></mesh>)}
+      <mesh position={[2.84, 0.32, 0]} material={M.chrome} geometry={G.bumper} castShadow />
       <mesh position={[2.45, 0.92, 0]} rotation={[0, 0, -0.3]} material={M.chrome}><coneGeometry args={[0.025, 0.22, 8]} /></mesh>
       {/* rear: bumper, tail lights in fins, blank plate */}
-      <mesh position={[-2.72, 0.33, 0]} rotation={[0, Math.PI, 0]} material={M.chrome} geometry={G.bumper} castShadow />
-      {[-1, 1].map((s) => <mesh key={s} position={[-2.71, 0.88, s * (HW - 0.14)]} rotation={[0, 0, Math.PI / 2]} material={M.tail}><capsuleGeometry args={[0.035, 0.18, 4, 10]} /></mesh>)}
-      <mesh position={[-2.69, 0.45, 0]} rotation={[0, -Math.PI / 2, 0]}><planeGeometry args={[0.32, 0.16]} /><meshStandardMaterial color="#e9d8a6" roughness={0.5} /></mesh>
+      <mesh position={[-2.86, 0.32, 0]} rotation={[0, Math.PI, 0]} material={M.chrome} geometry={G.bumper} castShadow />
+      {[-1, 1].map((s) => <mesh key={s} position={[-2.75, 0.88, s * (HW - 0.14)]} rotation={[0, 0, Math.PI / 2]} material={M.tail}><capsuleGeometry args={[0.035, 0.18, 4, 10]} /></mesh>)}
+      <mesh position={[-2.745, 0.48, 0]} rotation={[0, -Math.PI / 2, 0]}><planeGeometry args={[0.32, 0.16]} /><meshStandardMaterial color="#e9d8a6" roughness={0.5} /></mesh>
       {/* soft contact shadow under the car */}
       <mesh position={[0, 0.012, 0]} rotation={[-Math.PI / 2, 0, 0]}><planeGeometry args={[6.0, 2.6]} /><meshBasicMaterial color="#000" transparent opacity={0.35} depthWrite={false} alphaMap={contactAlpha()} /></mesh>
     </group>

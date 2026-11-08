@@ -63,7 +63,7 @@ export const DesertDetail: React.FC<{ f: number; gy: GY; avoid: (x: number, z: n
       blockPlain: std({ color: "#a69c8f", roughness: 0.9 }), green: std({ color: "#3f6b46", metalness: 0.3, roughness: 0.5 }),
       track: new THREE.MeshBasicMaterial({ map: track, transparent: true, depthWrite: false, opacity: 0.85 }),
       shadow: new THREE.MeshBasicMaterial({ map: softGlow("rgba(30,15,5,0.75)", "rgba(30,15,5,0)"), transparent: true, depthWrite: false }),
-      dust: new THREE.SpriteMaterial({ map: softGlow("rgba(235,190,140,0.55)", "rgba(235,190,140,0)"), transparent: true, depthWrite: false }),
+      dust: new THREE.SpriteMaterial({ map: softGlow("rgba(235,190,140,0.28)", "rgba(235,190,140,0)"), transparent: true, depthWrite: false }),
       bird: std({ color: "#241e22", side: THREE.DoubleSide }),
     };
   }, [uTime]);
@@ -74,7 +74,7 @@ export const DesertDetail: React.FC<{ f: number; gy: GY; avoid: (x: number, z: n
     const gGeo = new THREE.DodecahedronGeometry(0.05, 0), gravel = new THREE.InstancedMesh(gGeo, M.gravel, 2600);
     let k = 0;
     for (let i = 0; k < 2600 && i < 9000; i++) {
-      const near = i % 3 !== 0, x = near ? (r() - 0.5) * 40 : (r() - 0.5) * 120, z = near ? 20 - r() * 34 : 30 - r() * 110;
+      const near = i % 3 !== 0, x = near ? (r() - 0.5) * 44 : (r() - 0.5) * 120, z = near ? 52 - r() * 66 : 56 - r() * 136;
       if (Math.abs(x) < 11 && z < 5.2 && z > -5.2) continue; // not inside the bridge footprint
       const s = 0.4 + r() * r() * 2.4;
       o.position.set(x, gy(x, z) + 0.02 * s, z); o.rotation.set(r() * 6, r() * 6, r() * 6); o.scale.set(s, s * (0.5 + r() * 0.4), s); o.updateMatrix(); gravel.setMatrixAt(k, o.matrix);
@@ -86,7 +86,7 @@ export const DesertDetail: React.FC<{ f: number; gy: GY; avoid: (x: number, z: n
     const pos = blade.attributes.position; for (let i = 0; i < pos.count; i++) { const y = pos.getY(i); pos.setX(i, pos.getX(i) * (1 - y / 0.55)); }
     const grass = new THREE.InstancedMesh(blade, M.grass, 4200); k = 0;
     for (let t = 0; t < 600 && k < 4200; t++) {
-      const x = (r() - 0.5) * 70, z = 24 - r() * 70; if (avoid(x, z)) continue;
+      const x = (r() - 0.5) * 70, z = 54 - r() * 100; if (avoid(x, z)) continue;
       const s = 0.6 + r() * 0.9;
       for (let b = 0; b < 7 && k < 4200; b++) { o.position.set(x + (r() - 0.5) * 0.25, gy(x, z), z + (r() - 0.5) * 0.25); o.rotation.set((r() - 0.5) * 0.6, r() * 6, (r() - 0.5) * 0.6); o.scale.set(s, s * (0.7 + r() * 0.6), s); o.updateMatrix(); grass.setMatrixAt(k++, o.matrix); }
     }
@@ -95,7 +95,7 @@ export const DesertDetail: React.FC<{ f: number; gy: GY; avoid: (x: number, z: n
     const sGeo = new THREE.IcosahedronGeometry(0.18, 0), shrubs = new THREE.InstancedMesh(sGeo, M.shrub, 1400), blossoms = new THREE.InstancedMesh(new THREE.SphereGeometry(0.035, 5, 4), M.flower, 500);
     k = 0; let kb = 0;
     for (let t = 0; t < 90; t++) {
-      const x = (r() - 0.5) * 90, z = 26 - r() * 90; if (avoid(x, z)) continue;
+      const x = (r() - 0.5) * 90, z = 54 - r() * 118; if (avoid(x, z)) continue;
       const s = 0.7 + r() * 0.8, y0 = gy(x, z);
       for (let b = 0; b < 14 && k < 1400; b++) { o.position.set(x + (r() - 0.5) * 0.7 * s, y0 + 0.1 + r() * 0.45 * s, z + (r() - 0.5) * 0.7 * s); o.rotation.set(r() * 6, r() * 6, 0); o.scale.setScalar(s * (0.6 + r() * 0.6)); o.updateMatrix(); shrubs.setMatrixAt(k++, o.matrix); }
       if (r() < 0.5) for (let b = 0; b < 8 && kb < 500; b++) { o.position.set(x + (r() - 0.5) * 0.7 * s, y0 + 0.3 + r() * 0.4 * s, z + (r() - 0.5) * 0.7 * s); o.scale.setScalar(1); o.updateMatrix(); blossoms.setMatrixAt(kb++, o.matrix); }
@@ -107,8 +107,8 @@ export const DesertDetail: React.FC<{ f: number; gy: GY; avoid: (x: number, z: n
   // hero rocks + cacti variety + contact shadows (individual, inked)
   const hero = useMemo(() => {
     const r = rng(31), list: { kind: string; x: number; z: number; s: number; seed: number }[] = [];
-    for (let i = 0; i < 220 && list.length < 70; i++) {
-      const x = (r() - 0.5) * 80, z = 24 - r() * 80; if (avoid(x, z)) continue;
+    for (let i = 0; i < 320 && list.length < 100; i++) {
+      const x = (r() - 0.5) * 80, z = 54 - r() * 110; if (avoid(x, z)) continue;
       const k = r(); list.push({ kind: k < 0.45 ? "rock" : k < 0.65 ? "barrel" : k < 0.82 ? "ocotillo" : "cholla", x, z, s: 0.6 + r() * 0.9, seed: i });
     }
     return list;
