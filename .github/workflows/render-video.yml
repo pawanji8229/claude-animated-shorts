@@ -8,12 +8,8 @@ on:
       composition:
         description: "Composition to render"
         type: choice
-        options: [InventorWalkInPreview, InventorWalkIn]
+        options: [InventorWalkInPreview, InventorWalkIn, NightShift10Preview, NightShift10]
         default: InventorWalkInPreview
-      captions:
-        description: "Burn in captions (off = upstream no-caption mode)"
-        type: boolean
-        default: true
       stills:
         description: "Comma-separated frames to export as PNG preview stills"
         type: string
@@ -43,7 +39,6 @@ jobs:
         working-directory: studio
     env:
       COMP: ${{ inputs.composition || 'InventorWalkInPreview' }}
-      CAPTIONS: ${{ github.event_name == 'pull_request' && 'true' || inputs.captions }}
       STILLS: ${{ inputs.stills || '8,70,140' }}
       FRAMES: ${{ inputs.frames }}
     steps:
@@ -73,7 +68,7 @@ jobs:
 
       - name: Render preview stills
         run: |
-          PROPS="{\"captions\":${CAPTIONS}}" node scripts/render-stills.mjs "$COMP" out/stills "$STILLS"
+          node scripts/render-stills.mjs "$COMP" out/stills "$STILLS"
 
       - name: Render MP4
         run: |
@@ -81,8 +76,7 @@ jobs:
           if [ -n "$FRAMES" ]; then RANGE="--frames=$FRAMES"; fi
           CRF=20; if [ "$COMP" = "InventorWalkIn" ]; then CRF=18; fi
           npx remotion render src/index.ts "$COMP" "out/${COMP}.mp4" \
-            --codec=h264 --crf=$CRF --gl=swangle $RANGE \
-            --props="{\"captions\":${CAPTIONS}}"
+            --codec=h264 --crf=$CRF --gl=swangle $RANGE
 
       - name: Verify output (dimensions / fps / frame count)
         run: |

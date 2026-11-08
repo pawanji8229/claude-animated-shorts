@@ -9,12 +9,9 @@ import { z } from "zod";
 import { Workshop, InkCtx } from "./Workshop";
 import { Inventor } from "./Inventor";
 import { DOOR, DOOR_OPEN, ROOM, cameraAt, inventorAt } from "./timeline";
-import { Caption } from "../lib/Caption";
 
-export const inventorSchema = z.object({
-  captions: z.boolean(),
-  caption: z.string(),
-});
+// No on-screen text: caption timing lives in src/data/captions.json.
+export const inventorSchema = z.object({});
 export type InventorProps = z.infer<typeof inventorSchema>;
 
 const Rig: React.FC<{ f: number }> = ({ f }) => {
@@ -44,7 +41,7 @@ const Rig: React.FC<{ f: number }> = ({ f }) => {
   return null;
 };
 
-export const InventorWalkIn: React.FC<InventorProps> = ({ captions, caption }) => {
+export const InventorWalkIn: React.FC<InventorProps> = () => {
   const f = useCurrentFrame();
   const { width, height } = useVideoConfig();
   const st = inventorAt(f);
@@ -71,7 +68,6 @@ export const InventorWalkIn: React.FC<InventorProps> = ({ captions, caption }) =
       </ThreeCanvas>
       {/* grade: warm vignette, darker corners (motivated by the single practical) */}
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 75% 60% at 55% 45%, rgba(0,0,0,0) 55%, rgba(14,6,2,0.55) 100%)", pointerEvents: "none" }} />
-      {captions ? <Caption text={caption} from={18} to={140} /> : null}
     </AbsoluteFill>
   );
 };

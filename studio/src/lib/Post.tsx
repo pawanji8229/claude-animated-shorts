@@ -21,6 +21,10 @@ export type PostParams = {
   exposure: number;
   vignette: number;
   ss: number; // supersampling factor for the scene target
+  contrast?: number; // filmic S-curve strength around mid-grey (1 = none)
+  saturation?: number;
+  lift?: number; // black level lift (keeps shadow detail)
+  warmCool?: number; // strength of the warm-highlight / cool-shadow split (0..1)
 };
 
 const VERT = /* glsl */ `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
@@ -61,6 +65,7 @@ uniform sampler2D b0; uniform sampler2D b1; uniform sampler2D b2; uniform sample
 uniform vec2 sharpTexel;
 uniform float cNear; uniform float cFar; uniform float focusDist; uniform float focusRange; uniform float maxBlur;
 uniform float bloom; uniform float exposure; uniform float vignette; uniform float aspect;
+uniform float contrast; uniform float saturation; uniform float lift; uniform float warmCool;
 varying vec2 vUv;
 float linDepth(float d){ float z = d * 2.0 - 1.0; return (2.0 * cNear * cFar) / (cFar + cNear - z * (cFar - cNear)); }
 vec3 neutral(vec3 color){
@@ -94,7 +99,15 @@ void main(){
   col = neutral(col);
   // split grade: cool the shadows a touch, warm the highlights (motivated tungsten vs moonlight)
   float lum = dot(col, vec3(0.2126, 0.7152, 0.0722));
-  col = mix(col * vec3(0.94, 0.98, 1.08), col * vec3(1.04, 1.0, 0.94), smoothstep(0.1, 0.7, lum));
+  col = mix(col, mix(col * vec3(0.9, 0.96, 1.14), col * vec3(1.06, 1.0, 0.9), smoothstep(0.08, 0.65, lum)), warmCool);
+  // filmic contrast (S-curve in a perceptual-ish domain), saturation, black lift
+  vec3 pc = pow(max(col, 0.0), vec3(1.0 / 2.2));
+  pc = clamp(0.5 + (pc - 0.5) * contrast, 0.0, 1.0);
+  pc = mix(pc, smoothstep(0.0, 1.0, pc), (contrast - 1.0) * 0.8);
+  col = pow(pc, vec3(2.2));
+  float l2 = dot(col, vec3(0.2126, 0.7152, 0.0722));
+  col = max(mix(vec3(l2), col, saturation), 0.0);
+  col = lift + col * (1.0 - lift);
   // vignette
   vec2 p = (vUv - 0.5) * vec2(aspect, 1.0) * 1.15;
   col *= mix(1.0, smoothstep(0.95, 0.25, length(p)), vignette);
@@ -130,6 +143,7 @@ export const Post: React.FC<{ params: PostParams }> = ({ params }) => {
       b0: { value: null }, b1: { value: null }, b2: { value: null }, b3: { value: null }, b4: { value: null },
       sharpTexel: { value: new THREE.Vector2() }, cNear: { value: 0.05 }, cFar: { value: 40 }, focusDist: { value: 3 }, focusRange: { value: 1 },
       maxBlur: { value: 0.6 }, bloom: { value: 1 }, exposure: { value: 1 }, vignette: { value: 0.5 }, aspect: { value: W / H },
+      contrast: { value: 1 }, saturation: { value: 1 }, lift: { value: 0 }, warmCool: { value: 1 },
     });
     return { qScene, qCam, quad, sceneRT, half, quarter, pyr, blur, down, comp };
   }, [W, H, ss]);
@@ -165,6 +179,7 @@ export const Post: React.FC<{ params: PostParams }> = ({ params }) => {
     u.cNear.value = cam.near; u.cFar.value = cam.far;
     u.focusDist.value = params.focusDist; u.focusRange.value = params.focusRange; u.maxBlur.value = params.maxBlur;
     u.bloom.value = params.bloom; u.exposure.value = params.exposure; u.vignette.value = params.vignette;
+    u.contrast.value = params.contrast ?? 1; u.saturation.value = params.saturation ?? 1; u.lift.value = params.lift ?? 0; u.warmCool.value = params.warmCool ?? 1;
     pass(comp, null);
     gl.toneMapping = prevTM;
   }, 1);

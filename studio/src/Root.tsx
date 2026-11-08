@@ -4,8 +4,10 @@ import { InventorWalkIn, inventorSchema } from "./inventor/InventorWalkIn";
 import { DURATION, FPS } from "./inventor/timeline";
 import { NightShift10, nightShiftSchema } from "./inventor/NightShift10";
 import { DURATION10 } from "./inventor/timeline10";
+import { Sheet2D } from "./previews/Sheet2D";
+import { Previews, previewSchema } from "./previews/Previews";
 
-const defaults = { captions: true, caption: "Midnight. The workshop is awake." };
+const defaults = {};
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -14,7 +16,12 @@ export const RemotionRoot: React.FC = () => (
     {/* Low-res preview: rendered natively at 540x960 (cheaper than --scale on CPU-only runners) */}
     <Composition id="InventorWalkInPreview" component={InventorWalkIn} schema={inventorSchema} durationInFrames={DURATION} fps={FPS} width={540} height={960} defaultProps={defaults} />
     {/* v2 quality test: 10 s, full post stack. Final-size twin for later. */}
-    <Composition id="NightShift10Preview" component={NightShift10} schema={nightShiftSchema} durationInFrames={DURATION10} fps={FPS} width={540} height={960} defaultProps={{ captions: true, post: true }} />
-    <Composition id="NightShift10" component={NightShift10} schema={nightShiftSchema} durationInFrames={DURATION10} fps={FPS} width={1080} height={1920} defaultProps={{ captions: true, post: true }} />
+    <Composition id="NightShift10Preview" component={NightShift10} schema={nightShiftSchema} durationInFrames={DURATION10} fps={FPS} width={540} height={960} defaultProps={{ post: true }} />
+    <Composition id="NightShift10" component={NightShift10} schema={nightShiftSchema} durationInFrames={DURATION10} fps={FPS} width={1080} height={1920} defaultProps={{ post: true }} />
+    {/* v3 approval frames (1080x1920, no on-screen text) */}
+    <Composition id="PreviewCharacter" component={Previews} schema={previewSchema} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ mode: "character" as const }} />
+    <Composition id="PreviewEnvironment" component={Previews} schema={previewSchema} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ mode: "environment" as const }} />
+    <Composition id="PreviewComposite" component={Previews} schema={previewSchema} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ mode: "composite" as const }} />
+    <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={2400} height={1100} />
   </>
 );

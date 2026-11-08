@@ -14,9 +14,9 @@ import { Inventor } from "./Inventor";
 import { Extras } from "./Extras";
 import { DOOR, ROOM } from "./timeline";
 import { DOME_POS, IGNITE, camera10, doorOpen10, gearRot10, glow10, igniteAt, inventor10, lampK10, lever10 } from "./timeline10";
-import { Caption } from "../lib/Caption";
 
-export const nightShiftSchema = z.object({ captions: z.boolean(), post: z.boolean() });
+// No on-screen text: caption timing lives in src/data/captions.json.
+export const nightShiftSchema = z.object({ post: z.boolean() });
 export type NightShiftProps = z.infer<typeof nightShiftSchema>;
 
 const Rig: React.FC<{ f: number }> = ({ f }) => {
@@ -52,13 +52,7 @@ const RenderAfterMount: React.FC<{ f: number }> = ({ f }) => {
   return null;
 };
 
-const CAPTIONS: [number, number, string][] = [
-  [8, 96, "Midnight. Everyone else is asleep."],
-  [104, 200, "Odo has one more idea to try."],
-  [206, 300, "Tonight, it finally works."],
-];
-
-export const NightShift10: React.FC<NightShiftProps> = ({ captions, post }) => {
+export const NightShift10: React.FC<NightShiftProps> = ({ post }) => {
   const f = useCurrentFrame();
   const { width, height } = useVideoConfig();
   const st = inventor10(f);
@@ -103,7 +97,6 @@ export const NightShift10: React.FC<NightShiftProps> = ({ captions, post }) => {
       {/* warm grade wash + white flash on ignition */}
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 80% 65% at 55% 45%, rgba(0,0,0,0) 60%, rgba(14,6,2,0.35) 100%)", pointerEvents: "none" }} />
       <AbsoluteFill style={{ backgroundColor: "#fff6e0", opacity: Math.max(0, 0.3 * (1 - Math.abs(f - IGNITE - 2) / 3)), pointerEvents: "none" }} />
-      {captions ? CAPTIONS.map(([a, b, t]) => <Caption key={a} text={t} from={a} to={b} />) : null}
     </AbsoluteFill>
   );
 };

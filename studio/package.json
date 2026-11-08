@@ -13,6 +13,7 @@
     "probe": "remotion ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,nb_frames -of compact out/inventor_walkin_540x960.mp4"
   },
   "dependencies": {
+    "@react-three/drei": "10.7.6",
     "@react-three/fiber": "9.8.2",
     "@react-three/postprocessing": "3.2.2",
     "@remotion/cli": "4.0.541",
