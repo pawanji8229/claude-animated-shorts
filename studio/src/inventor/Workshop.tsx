@@ -10,28 +10,32 @@ import { rng } from "../lib/math";
 
 /** Ink width in screen px, scaled with output height (3.2 px at 1920 tall). */
 export const InkCtx = createContext(3.2);
+export type Mats = ReturnType<typeof useMaterials>;
+
+/** Animated set controls. The 5 s shot uses the defaults derived from its own timeline. */
+export type FX = { glow: number; gearRot: number; lever: number; lampK: number; extras: boolean };
 const INK = "#0b0a0c";
 
-const Ink: React.FC<{ angle?: number; k?: number }> = ({ angle = Math.PI, k = 1 }) => {
+export const Ink: React.FC<{ angle?: number; k?: number }> = ({ angle = Math.PI, k = 1 }) => {
   const px = useContext(InkCtx);
   return <InkHull px={px * k} color={INK} angle={angle} />;
 };
 
 type BoxProps = { p: [number, number, number]; s: [number, number, number]; r?: [number, number, number]; mat: THREE.Material; ink?: boolean; cast?: boolean; receive?: boolean };
-const Box: React.FC<BoxProps> = ({ p, s, r, mat, ink = true, cast = true, receive = true }) => (
+export const Box: React.FC<BoxProps> = ({ p, s, r, mat, ink = true, cast = true, receive = true }) => (
   <mesh position={p} rotation={r} material={mat} castShadow={cast} receiveShadow={receive}>
     <boxGeometry args={s} />
     {ink && <Ink />}
   </mesh>
 );
-const Cyl: React.FC<{ p: [number, number, number]; rt: number; rb: number; h: number; mat: THREE.Material; seg?: number; r?: [number, number, number]; ink?: boolean }> = ({ p, rt, rb, h, mat, seg = 24, r, ink = true }) => (
+export const Cyl: React.FC<{ p: [number, number, number]; rt: number; rb: number; h: number; mat: THREE.Material; seg?: number; r?: [number, number, number]; ink?: boolean }> = ({ p, rt, rb, h, mat, seg = 24, r, ink = true }) => (
   <mesh position={p} rotation={r} material={mat} castShadow receiveShadow>
     <cylinderGeometry args={[rt, rb, h, seg]} />
     {ink && <Ink />}
   </mesh>
 );
 
-const gearGeometry = (teeth: number, ro: number, ri: number, hole: number, depth: number) => {
+export const gearGeometry = (teeth: number, ro: number, ri: number, hole: number, depth: number) => {
   const s = new THREE.Shape();
   const n = teeth * 4;
   for (let i = 0; i <= n; i++) {
@@ -46,7 +50,7 @@ const gearGeometry = (teeth: number, ro: number, ri: number, hole: number, depth
   return g;
 };
 
-const useMaterials = () =>
+export const useMaterials = () =>
   useMemo(() => {
     const std = (o: THREE.MeshStandardMaterialParameters) => new THREE.MeshStandardMaterial({ roughness: 0.82, metalness: 0, ...o });
     const floorMap = floorTexture();
@@ -76,6 +80,8 @@ const useMaterials = () =>
       peg: std({ color: "#5a4128" }),
       shade: std({ color: "#2f4b3f", metalness: 0.4, roughness: 0.45, side: THREE.DoubleSide }),
       cord: std({ color: "#111" }),
+      scarf: std({ color: "#b8462f" }),
+      brassMatte: std({ color: "#b48a3c", metalness: 0.25, roughness: 0.6 }),
     };
   }, []);
 
@@ -175,13 +181,13 @@ const Shelf: React.FC<{ m: ReturnType<typeof useMaterials>; x: number }> = ({ m,
 };
 
 /** Hero prop: brass "night-light engine" — gear train, copper coil and a glass dome with a glowing filament. */
-const Contraption: React.FC<{ m: ReturnType<typeof useMaterials>; f: number }> = ({ m, f }) => {
+const Contraption: React.FC<{ m: ReturnType<typeof useMaterials>; fx: FX }> = ({ m, fx }) => {
   const g1 = useMemo(() => gearGeometry(14, 0.17, 0.145, 0.03, 0.035), []);
   const g2 = useMemo(() => gearGeometry(9, 0.11, 0.09, 0.025, 0.035), []);
-  const glow = domeGlow(f);
+  const glow = fx.glow;
   const filament = useMemo(() => new THREE.MeshBasicMaterial({ color: new THREE.Color("#ffb347"), toneMapped: false }), []);
   filament.color.setRGB(1.0 * glow, 0.62 * glow, 0.22 * glow);
-  const rot = (f / 30) * 0.9;
+  const rot = fx.gearRot;
   const y0 = BENCH.h;
   return (
     <group position={[BENCH.x - 0.35, y0, BENCH.z + 0.05]}>
@@ -189,7 +195,7 @@ const Contraption: React.FC<{ m: ReturnType<typeof useMaterials>; f: number }> =
       <Cyl p={[0.18, 0.3, 0]} rt={0.09} rb={0.11} h={0.36} mat={m.brass} />
       <mesh position={[0.18, 0.52, 0]} material={m.glassB}><sphereGeometry args={[0.13, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2]} /></mesh>
       <mesh position={[0.18, 0.56, 0]} material={filament}><torusKnotGeometry args={[0.035, 0.008, 48, 6, 2, 5]} /></mesh>
-      <pointLight position={[0.18, 0.6, 0.05]} color="#ffaa55" intensity={0.6 * glow} distance={2.2} decay={2} />
+      <pointLight position={[0.18, 0.62, 0.12]} color="#ffb870" intensity={0.6 * glow} distance={fx.extras ? 3.2 : 2.2} decay={2} />
       <mesh position={[-0.16, 0.32, 0.08]} rotation={[0, 0, rot]} material={m.brass} castShadow><primitive object={g1} attach="geometry" /><Ink k={0.8} /></mesh>
       <mesh position={[0.04, 0.2, 0.1]} rotation={[0, 0, -rot * (14 / 9) + 0.2]} material={m.copper} castShadow><primitive object={g2} attach="geometry" /><Ink k={0.8} /></mesh>
       <mesh position={[-0.16, 0.32, 0.04]} rotation={[Math.PI / 2, 0, 0]} material={m.iron}><cylinderGeometry args={[0.02, 0.02, 0.1, 10]} /></mesh>
@@ -202,7 +208,7 @@ const Contraption: React.FC<{ m: ReturnType<typeof useMaterials>; f: number }> =
   );
 };
 
-const Bench: React.FC<{ m: ReturnType<typeof useMaterials>; f: number }> = ({ m, f }) => {
+const Bench: React.FC<{ m: ReturnType<typeof useMaterials>; fx: FX }> = ({ m, fx }) => {
   const { x, z, w, d, h } = BENCH;
   return (
     <group>
@@ -221,7 +227,7 @@ const Bench: React.FC<{ m: ReturnType<typeof useMaterials>; f: number }> = ({ m,
       <mesh position={[x + 0.45, h + 0.003, z + 0.18]} rotation={[-Math.PI / 2, 0, 0.25]} receiveShadow><planeGeometry args={[0.42, 0.3]} /><meshStandardMaterial color="#e9dfc4" /></mesh>
       <Box p={[x + 0.5, h + 0.012, z + 0.2]} s={[0.24, 0.018, 0.04]} r={[0, 0.6, 0]} mat={m.steel} />
       <Cyl p={[x + 0.2, h + 0.08, z - 0.2]} rt={0.05} rb={0.05} h={0.16} mat={m.cream} seg={14} />
-      <Contraption m={m} f={f} />
+      <Contraption m={m} fx={fx} />
       {/* pegboard with tools above the bench */}
       <Box p={[x + 0.55, 1.65, ROOM.zBack + 0.12]} s={[1.3, 0.85, 0.04]} mat={m.peg} />
       <Box p={[x + 0.25, 1.68, ROOM.zBack + 0.16]} s={[0.05, 0.5, 0.03]} mat={m.steel} />
@@ -233,7 +239,7 @@ const Bench: React.FC<{ m: ReturnType<typeof useMaterials>; f: number }> = ({ m,
   );
 };
 
-const Lamp: React.FC<{ m: ReturnType<typeof useMaterials>; f: number; shadowRes: number }> = ({ m, f, shadowRes }) => {
+const Lamp: React.FC<{ m: ReturnType<typeof useMaterials>; f: number; shadowRes: number; k: number }> = ({ m, f, shadowRes, k }) => {
   const sway = bulbSway(f);
   const cordLen = ROOM.h - BULB[1];
   const alpha = useMemo(() => coneAlpha(), []);
@@ -245,17 +251,17 @@ const Lamp: React.FC<{ m: ReturnType<typeof useMaterials>; f: number; shadowRes:
       <group position={[0, -cordLen, 0]}>
         <mesh material={m.shade} castShadow><coneGeometry args={[0.26, 0.2, 28, 1, true]} /><Ink /></mesh>
         <mesh position={[0, 0.06, 0]} material={m.brass}><cylinderGeometry args={[0.04, 0.05, 0.1, 12]} /></mesh>
-        <mesh position={[0, -0.07, 0]}><sphereGeometry args={[0.07, 20, 14]} /><meshBasicMaterial color={[3.2, 2.2, 1.2]} toneMapped={false} /></mesh>
+        <mesh position={[0, -0.07, 0]}><sphereGeometry args={[0.07, 20, 14]} /><meshBasicMaterial color={[3.2 * k, 2.2 * k, 1.2 * k]} toneMapped={false} /></mesh>
         {/* soft halo sprite */}
         <sprite position={[0, -0.08, 0]} scale={[0.9, 0.9, 1]}><spriteMaterial map={glowTex} blending={THREE.AdditiveBlending} depthWrite={false} transparent opacity={0.85} /></sprite>
         {/* visible light cone */}
         <mesh position={[0, -1.25, 0]}><cylinderGeometry args={[0.22, 1.3, 2.4, 40, 1, true]} /><meshBasicMaterial color="#ffb96b" alphaMap={alpha} transparent opacity={0.09} blending={THREE.AdditiveBlending} depthWrite={false} side={THREE.DoubleSide} toneMapped={false} /></mesh>
         <primitive object={target} />
         <spotLight
-          position={[0, -0.08, 0]} target={target} color="#ffb067" intensity={34} distance={9} decay={2}
+          position={[0, -0.08, 0]} target={target} color="#ffb067" intensity={34 * k} distance={9} decay={2}
           angle={0.95} penumbra={0.65} castShadow shadow-mapSize={[shadowRes, shadowRes]} shadow-bias={-0.0004} shadow-normalBias={0.02}
         />
-        <pointLight position={[0, -0.1, 0]} color="#ff9e57" intensity={4.5} distance={8} decay={1.6} />
+        <pointLight position={[0, -0.1, 0]} color="#ff9e57" intensity={4.5 * k} distance={8} decay={1.6} />
       </group>
     </group>
   );
@@ -277,8 +283,9 @@ const Dust: React.FC<{ f: number }> = ({ f }) => {
   return <points geometry={geo}><pointsMaterial color="#ffd9a0" size={0.018} transparent opacity={0.7} blending={THREE.AdditiveBlending} depthWrite={false} /></points>;
 };
 
-export const Workshop: React.FC<{ f: number; doorOpen: number; shadowRes: number }> = ({ f, doorOpen, shadowRes }) => {
+export const Workshop: React.FC<{ f: number; doorOpen: number; shadowRes: number; fx?: Partial<FX>; children?: React.ReactNode }> = ({ f, doorOpen, shadowRes, fx: fxIn, children }) => {
   const m = useMaterials();
+  const fx: FX = { glow: domeGlow(f), gearRot: (f / 30) * 0.9, lever: 0, lampK: 1, extras: false, ...fxIn };
   const gearBig = useMemo(() => gearGeometry(18, 0.42, 0.37, 0.08, 0.05), []);
   const W = ROOM.x1 - ROOM.x0, D = ROOM.zFront - ROOM.zBack;
   return (
@@ -299,9 +306,9 @@ export const Workshop: React.FC<{ f: number; doorOpen: number; shadowRes: number
       <Box p={[ROOM.x1 - 0.1, ROOM.h / 2, ROOM.zBack + 0.1]} s={[0.2, ROOM.h, 0.2]} mat={m.beam} />
       <Door m={m} open={doorOpen} />
       <Shelf m={m} x={-3.55} />
-      <Bench m={m} f={f} />
+      <Bench m={m} fx={fx} />
       {/* decorative wall gear between window and bench */}
-      <mesh position={[0.62, 2.55, ROOM.zBack + 0.13]} rotation={[0, 0, f * 0.004]} material={m.brass} castShadow><primitive object={gearBig} attach="geometry" /><Ink /></mesh>
+      <mesh position={[0.62, 2.55, ROOM.zBack + 0.13]} rotation={[0, 0, f * 0.004]} material={m.brassMatte} castShadow><primitive object={gearBig} attach="geometry" /><Ink /></mesh>
       {/* stool, crates, barrel: mid-ground dressing clustered around the action, path kept clear */}
       <group position={[2.85, 0, -1.25]}>
         <Cyl p={[0, 0.62, 0]} rt={0.2} rb={0.2} h={0.06} mat={m.bench} />
@@ -312,7 +319,8 @@ export const Workshop: React.FC<{ f: number; doorOpen: number; shadowRes: number
       <Cyl p={[-3.3, 1.05, -1.5]} rt={0.07} rb={0.08} h={0.18} mat={m.glassA} seg={14} />
       <Cyl p={[3.55, 0.45, -2.9]} rt={0.3} rb={0.34} h={0.9} mat={m.door} />
       <Cyl p={[3.55, 0.92, -2.9]} rt={0.31} rb={0.31} h={0.05} mat={m.iron} />
-      <Lamp m={m} f={f} shadowRes={shadowRes} />
+      <Lamp m={m} f={f} shadowRes={shadowRes} k={fx.lampK} />
+      {children}
       <Dust f={f} />
     </group>
   );

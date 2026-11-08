@@ -73,6 +73,16 @@ export type InventorState = {
   lookUp: number; // 0..1 head/eyes up toward the bulb
   delight: number; // 0..1 brows up, smile, arms open
   blink: boolean;
+  // v2 acting controls (optional so the 5 s shot keeps working unchanged)
+  lookX?: number; // -1..1 eyes glance left/right
+  idea?: number; // 0..1 right index finger raised (front view)
+  goggles?: number; // 0..1 goggles lowered from brow onto the eyes
+  goggleHand?: number; // 0..1 hand at the goggles while lowering them
+  reach?: number; // 0..1 near arm reaches forward (side view) to the lever
+  pull?: number; // 0..1 lever pulled (hand travels down)
+  lensGlow?: number; // 0..1 goggles reflect the contraption flare
+  breathe?: number; // idle breathing phase (radians)
+  shiver?: number; // 0..1 shake-off-the-cold wiggle
 };
 
 const BLINKS = [44, 88, 131];
