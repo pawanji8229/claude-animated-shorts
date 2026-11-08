@@ -5,7 +5,9 @@ import { DURATION, FPS } from "./inventor/timeline";
 import { NightShift10, nightShiftSchema } from "./inventor/NightShift10";
 import { DURATION10 } from "./inventor/timeline10";
 import { Sheet2D } from "./previews/Sheet2D";
-import { Previews, previewSchema } from "./previews/Previews";
+import { Hall10 } from "./hall/Hall10";
+import { DUR_H10 } from "./hall/timelineHall10";
+import { Previews, Previews4, previewSchema } from "./previews/Previews";
 
 const defaults = {};
 
@@ -22,6 +24,12 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="PreviewCharacter" component={Previews} schema={previewSchema} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ mode: "character" as const }} />
     <Composition id="PreviewEnvironment" component={Previews} schema={previewSchema} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ mode: "environment" as const }} />
     <Composition id="PreviewComposite" component={Previews} schema={previewSchema} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ mode: "composite" as const }} />
+    <Composition id="Preview4Portrait" component={Previews4} schema={previewSchema} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ mode: "portrait4" as const }} />
+    <Composition id="Preview4FullBody" component={Previews4} schema={previewSchema} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ mode: "character4" as const }} />
+    <Composition id="Preview4InScene" component={Previews4} schema={previewSchema} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ mode: "composite4" as const }} />
+    {/* v4: "Night Errand" 10 s, Odo v4 in the Long Workshop (no on-screen text) */}
+    <Composition id="NightErrand10Preview" component={Hall10} durationInFrames={DUR_H10} fps={FPS} width={540} height={960} />
+    <Composition id="NightErrand10" component={Hall10} durationInFrames={DUR_H10} fps={FPS} width={1080} height={1920} />
     <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={2400} height={1100} />
   </>
 );

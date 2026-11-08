@@ -15,9 +15,12 @@ import { InkCtx } from "../inventor/Workshop";
 import { LongHall, bayZ, PENDANT_X } from "../hall/LongHall";
 import { CardSprite } from "../char/CardSprite";
 import { drawOdo3, defaultPose, W3, H3, SOLE3, CARD_H3, Odo3Pose } from "../char/odo3";
+import { Odo4 } from "../char/Odo4";
+import { pose4, headCenterPx } from "../char/odo4";
+import { cardToWorld } from "../char/Odo4";
 import { V3 } from "../lib/math";
 
-export const previewSchema = z.object({ mode: z.enum(["character", "environment", "composite"]) });
+export const previewSchema = z.object({ mode: z.enum(["character", "environment", "composite", "portrait4", "character4", "composite4"]) });
 type Props = z.infer<typeof previewSchema>;
 
 const Rig: React.FC<{ pos: V3; look: V3; fov: number; fog: [string, number, number]; bg: string }> = ({ pos, look, fov, fog, bg }) => {
@@ -102,3 +105,51 @@ export const Previews: React.FC<Props> = ({ mode }) => {
   );
 };
 void PENDANT_X;
+
+// ---------------- v4 approval frames ----------------
+export const Previews4: React.FC<Props> = ({ mode }) => {
+  const f = useCurrentFrame();
+  const { width, height } = useVideoConfig();
+  const hi = height >= 1500, k = height / 1920;
+  const studio = mode === "character4";
+  const odoPos: V3 = [0.05, 0, bayZ(1) + 0.55];
+  const standPose = pose4({ view: "front", mouth: "awkward", browL: 0.8, browR: -0.2, lids: 0.5, lookX: 0.45, breathe: 0.5 });
+  const walkPose = pose4({ view: "side", walk: 1, distance: 0.78 * 0.1, holdJar: 1, mouth: "awkward", lookX: 0.6, lids: 0.45 });
+  const pose = mode === "composite4" ? walkPose : standPose;
+  const pos: V3 = studio ? [0, 0, 0] : odoPos;
+  let cam: V3, look: V3, fov: number;
+  if (mode === "portrait4") {
+    const hc = cardToWorld(pos, [pos[0] + 0.25, 1, pos[2] + 2], headCenterPx(pose));
+    cam = [pos[0] + 0.25, hc[1] - 0.02, pos[2] + 1.75]; look = [hc[0], hc[1] - 0.12, hc[2]]; fov = 34;
+  } else if (studio) { cam = [0.05, 0.72, 3.0]; look = [0.05, 0.64, 0]; fov = 34; }
+  else { cam = [0.4, 1.3, 1.2]; look = [-0.05, 1.18, -12]; fov = 50; }
+  const focus = Math.hypot(pos[0] - cam[0], 0.95 - cam[1], pos[2] - cam[2]);
+  const keyTarget = useMemo(() => new THREE.Object3D(), []);
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#0c0a14" }}>
+      <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }}
+        gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov, position: cam, near: 0.05, far: 60 }}>
+        <Rig pos={cam} look={look} fov={fov} fog={studio ? ["#1e1a36", 3.2, 7.5] : ["#231b3d", 9, 34]} bg={studio ? "#1e1a36" : "#0d0b18"} />
+        <InkCtx.Provider value={2.8 * k}>
+          <hemisphereLight args={["#5c66c4", "#241a30", studio ? 0.7 : 0.95]} />
+          {studio ? (
+            <>
+              <Studio />
+              <primitive object={keyTarget} />
+              <spotLight position={[0.8, 3.6, 3.0]} target={keyTarget} color="#ffd9b0" intensity={30} angle={0.55} penumbra={0.75} distance={10} decay={1.6} castShadow shadow-mapSize={[2048, 2048]} shadow-bias={-0.0004} />
+              <directionalLight position={[-3, 2.2, -2.5]} color="#7d8cff" intensity={1.4} />
+            </>
+          ) : (
+            <>
+              <LongHall f={f} shadowRes={hi ? 4096 : 2048} keyBay={1} reflectRes={hi ? 1024 : 512} />
+              <pointLight position={[pos[0] + 0.35, 2.3, pos[2] + 1.5]} color="#ffc48a" intensity={3.6} distance={4.5} decay={1.8} />
+            </>
+          )}
+          <Odo4 pose={pose} pos={pos} cam={cam} hi={hi} jar={0.3} />
+        </InkCtx.Provider>
+        <Post params={{ focusDist: focus, focusRange: mode === "portrait4" ? 0.5 : studio ? 3 : 2.5, maxBlur: mode === "portrait4" ? 0.9 : studio ? 0.2 : 0.3, bloom: 0.8, threshold: 1.55, exposure: 1.0, vignette: 0.62, ss: 2, contrast: 1.16, saturation: 1.1, lift: 0.012, warmCool: 1 }} />
+        <RenderAfterMount f={f} />
+      </ThreeCanvas>
+    </AbsoluteFill>
+  );
+};
