@@ -96,7 +96,9 @@ tool failures needing the user, or changes to the voiceover/creative direction.
   or mass-synchronised shutter/clap sounds.
 - Gate: `scripts/check-crowd.ts` runs automatically in `make_video.sh audio` for any scene that exports `PERSONAS`
   (max pairwise hand-motion correlation ≤ 0.6, never > half the crowd gesturing in one frame, shutters ≥ 6 frames
-  apart, flashes ≥ 8 apart, camera raises ≥ 10 apart, not everyone photographs). Fix the schedules if it fails.
+  apart, flashes ≥ 8 apart, camera raises ≥ 10 apart, not everyone photographs, and — when the scene exports `camAt`,
+  `CROWD`, `HAL` — every photographer on screen and unobstructed at each shutter frame, so no shutter is heard from an
+  unseen camera). Fix the schedules or positions if it fails; keep the whole crowd inside the strip the camera sees.
 - Then inspect CONSECUTIVE frames around every photography event (raise, press, flash, lower) in the encoded video.
 
 ## 5. Camera & loop rules
