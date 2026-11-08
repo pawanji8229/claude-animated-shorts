@@ -14,3 +14,7 @@ studio/out/
 # python env (recreated by studio/pipeline/setup.sh)
 .venv/
 __pycache__/
+
+# render intermediates (pipeline)
+studio/productions/*/render/
+studio/productions/*/qc/_lb/
