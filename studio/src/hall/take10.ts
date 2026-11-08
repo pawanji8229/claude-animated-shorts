@@ -31,9 +31,9 @@ const KEYS: Key[] = (() => {
     { f: 100, pos: [1.05, 1.08, z(100) + 0.8], look: [X_LANE, 0.9, z(100) - 0.25], fov: 41 },
     { f: 150, pos: [0.98, 1.12, z(150) + 1.25], look: [X_LANE, 0.92, z(150) - 0.15], fov: 40 },
     { f: 188, pos: [0.6, 1.05, zs + 1.95], look: [X_LANE, 0.93, zs], fov: 39 },
-    { f: 242, pos: [0.38, 1.02, zs + 1.58], look: [X_LANE + 0.02, 0.95, zs], fov: 38 },
-    { f: 300, pos: [0.24, 1.0, zs + 1.24], look: [X_LANE + 0.06, 0.97, zs], fov: 37 },
-    { f: 330, pos: [0.2, 0.99, zs + 1.15], look: [X_LANE + 0.07, 0.97, zs], fov: 37 },
+    { f: 242, pos: [0.42, 1.02, zs + 1.75], look: [X_LANE + 0.06, 0.92, zs], fov: 38 },
+    { f: 300, pos: [0.3, 1.0, zs + 1.5], look: [X_LANE + 0.1, 0.93, zs], fov: 37 },
+    { f: 330, pos: [0.28, 0.99, zs + 1.45], look: [X_LANE + 0.1, 0.93, zs], fov: 37 },
   ];
 })();
 const cr = (a: number, b: number, c: number, d: number, t: number) => 0.5 * (2 * b + (-a + c) * t + (2 * a - 5 * b + 4 * c - d) * t * t + (-a + 3 * b - 3 * c + d) * t * t * t);
@@ -156,7 +156,7 @@ const PEND = (() => {
     const c = camTake(f), yaw = Math.atan2(c.pos[0] - p[0], c.pos[2] - p[2]);
     const right: V3 = [Math.cos(yaw), 0, -Math.sin(yaw)];
     const v = ((p[0] - pPrev[0]) * right[0] + (p[2] - pPrev[2]) * right[2]) / dt;
-    const a = f === 0 ? 0 : (v - vPrev) / dt;
+    const a = f === 0 || f === 172 ? 0 : Math.max(-6, Math.min(6, (v - vPrev) / dt)); // no kick when the drawing switches view
     for (let s = 0; s < sub; s++) { const h = dt / sub; const acc = -(gth / Lp) * Math.sin(th) - (a / Lp) * Math.cos(th) - 2.2 * om; om += acc * h; th += om * h; }
     out.push(th); pPrev = p; vPrev = v;
   }

@@ -34,6 +34,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="NightErrand10" component={Hall10} durationInFrames={DUR_H10} fps={FPS} width={1080} height={1920} />
     {/* v5: "The Awkward Encounter" — one continuous take, no cuts, no text */}
     <Composition id="AwkwardTake10Preview" component={Take10} durationInFrames={DUR_TAKE} fps={FPS} width={540} height={960} />
+    <Composition id="V5PreviewEnvironment" component={Take10} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ envOnly: true }} />
+    <Composition id="V5PreviewCringe" component={Take10} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 226 }} />
+    <Composition id="V5PreviewFinal" component={Take10} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 284 }} />
     <Composition id="AwkwardTake10" component={Take10} durationInFrames={DUR_TAKE} fps={FPS} width={1080} height={1920} />
     <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={3000} height={2200} />
   </>

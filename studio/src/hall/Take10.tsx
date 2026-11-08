@@ -15,13 +15,13 @@ import { glow } from "./hallTextures";
 import { camTake, handWorld, lanternAngle, odoAt, poseTake } from "./take10";
 import { V3 } from "../lib/math";
 
-const Rig: React.FC<{ f: number }> = ({ f }) => {
+const Rig: React.FC<{ f: number; override?: { pos: V3; look: V3; fov: number } }> = ({ f, override }) => {
   const { camera, scene, gl } = useThree();
   const env = useMemo(() => { const pm = new THREE.PMREMGenerator(gl); const t = pm.fromScene(new RoomEnvironment(), 0.04).texture; pm.dispose(); return t; }, [gl]);
   useLayoutEffect(() => {
     scene.environment = env; scene.environmentIntensity = 0.14;
     scene.background = new THREE.Color("#0d0b18"); scene.fog = new THREE.Fog("#231b3d", 8, 30);
-    const c = camTake(f), cam = camera as THREE.PerspectiveCamera;
+    const c = override ?? camTake(f), cam = camera as THREE.PerspectiveCamera;
     cam.position.set(...c.pos); cam.lookAt(...c.look); cam.fov = c.fov; cam.near = 0.04; cam.far = 60; cam.updateProjectionMatrix();
   });
   return null;
@@ -53,11 +53,11 @@ const Lantern: React.FC<{ at: V3; angle: number; yaw: number; k: number }> = ({ 
   );
 };
 
-export const Take10: React.FC = () => {
-  const f = useCurrentFrame();
+export const Take10: React.FC<{ envOnly?: boolean; frameOverride?: number }> = ({ envOnly, frameOverride }) => {
+  const f0 = useCurrentFrame(), f = frameOverride ?? f0;
   const { width, height } = useVideoConfig();
   const hi = height >= 1500, k = height / 1920;
-  const c = camTake(f), o = odoAt(f), pose = poseTake(f);
+  const c = envOnly ? { pos: [0.35, 1.25, 1.6] as V3, look: [-0.25, 1.15, -10] as V3, fov: 48, focus: 6 } : camTake(f), o = odoAt(f), pose = poseTake(f);
   const yaw = Math.atan2(c.pos[0] - o[0], c.pos[2] - o[2]);
   const hc = headCenterPx5(pose);
   const head: V3 = [o[0] + Math.cos(yaw) * (hc[0] - W5 / 2) * PX5 - Math.sin(yaw) * 0.04, (SOLE5 - hc[1]) * PX5, o[2] - Math.sin(yaw) * (hc[0] - W5 / 2) * PX5 - Math.cos(yaw) * 0.04];
@@ -66,7 +66,7 @@ export const Take10: React.FC = () => {
     <AbsoluteFill style={{ backgroundColor: "#0c0a14" }}>
       <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }}
         gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.04, far: 60 }}>
-        <Rig f={f} />
+        <Rig f={f} override={envOnly ? c : undefined} />
         <InkCtx.Provider value={2.8 * k}>
           <hemisphereLight args={["#5c66c4", "#241a30", 0.9]} />
           <LongHall f={f} shadowRes={hi ? 4096 : 2048} keyBay={1} reflectRes={hi ? 1024 : 512} />
@@ -74,13 +74,13 @@ export const Take10: React.FC = () => {
           {/* warm face key travelling with Odo (motivated by pendant + lantern), cool back-rim from the windows */}
           <pointLight position={[o[0] + 0.45, 2.2, o[2] + 1.4]} color="#ffc48a" intensity={3.2} distance={4.5} decay={1.8} />
           <pointLight position={[o[0] - 0.9, 1.8, o[2] - 1.3]} color="#7f8dff" intensity={2.4} distance={3.2} decay={2} />
-          <CardSprite W={W5} H={H5} sole={SOLE5} cardH={CARD_H5} pos={o} camPos={c.pos} texScale={hi ? 2 : 1.3}
+          {!envOnly && <><CardSprite W={W5} H={H5} sole={SOLE5} cardH={CARD_H5} pos={o} camPos={c.pos} texScale={hi ? 2 : 1.3}
             albedo={0.8} fill={0.85} fillColor="#fff4e8" contact={0.85}
             draw={(g) => drawOdo5(g, pose)} drawMask={(g) => drawOdo5(g, pose, true)} />
           <sprite position={head} scale={[0.95, 0.95, 1]}><spriteMaterial map={halo} transparent opacity={0.15} blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} /></sprite>
-          <Lantern at={handWorld(f)} angle={lanternAngle(f)} yaw={yaw} k={1} />
+          <Lantern at={handWorld(f)} angle={lanternAngle(f)} yaw={yaw} k={1} /></>}
         </InkCtx.Provider>
-        <Post params={{ focusDist: c.focus, focusRange: 0.9, maxBlur: 0.55, bloom: 0.85, threshold: 1.55, exposure: 1.0, vignette: 0.64, ss: 2, contrast: 1.2, saturation: 1.1, lift: 0.01, warmCool: 1 }} />
+        <Post params={{ focusDist: c.focus, focusRange: 1.6, maxBlur: 0.26, bloom: 0.85, threshold: 1.55, exposure: 1.0, vignette: 0.64, ss: 2, contrast: 1.2, saturation: 1.1, lift: 0.01, warmCool: 1 }} />
         <RenderAfterMount f={f} />
       </ThreeCanvas>
     </AbsoluteFill>

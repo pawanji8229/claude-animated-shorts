@@ -184,7 +184,7 @@ const FloorKit: React.FC<{ m: M }> = ({ m }) => {
             <mesh position={[-1.6, 0.004, z + 0.2]} rotation={[-Math.PI / 2, 0, r() * 6]} material={m.dust}><planeGeometry args={[0.9, 0.7]} /></mesh>
             {i % 3 === 1 && (
               <group position={[-1.05, 0, z + 0.85]} rotation={[0, r(), 0]}>
-                <Box p={[0, 0.12, 0]} s={[0.44, 0.24, 0.22]} m={m.red} ink />
+                <Box p={[0, 0.12, 0]} s={[0.44, 0.24, 0.22]} m={m.wood} ink />
                 <Box p={[0, 0.26, 0]} s={[0.26, 0.03, 0.03]} m={m.iron} />
               </group>
             )}
