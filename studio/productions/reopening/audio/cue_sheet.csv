@@ -1,0 +1,42 @@
+trigger_frame,start_s,end_s,source / responsible object,generator,level_dB,stereo_pos,fade_in,fade_out,layer
+6,0.200,2.600,crowd cheer (formant voices + applause),cheer,-17.5,-0.40,built-in (≈2-10 ms),built-in (≈30-150 ms),BG
+9,7.991,13.991,"small motor boat passing under the arch (Doppler, L->R)",boat_pass,-23.8,-0.03,built-in (≈2-10 ms),built-in (≈30-150 ms),BG
+33,1.100,1.520,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-19.8,-0.45,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+34,1.133,1.483,flash bulb pop,flash_pop,-23.1,-0.45,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+100,3.333,5.733,crowd cheer (formant voices + applause),cheer,-15.8,-0.40,built-in (≈2-10 ms),built-in (≈30-150 ms),BG
+106,1.533,7.533,"small motor boat passing under the arch (Doppler, L->R)",boat_pass,-24.0,+0.38,built-in (≈2-10 ms),built-in (≈30-150 ms),BG
+117,3.900,4.320,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-18.9,-0.14,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+118,3.933,4.283,flash bulb pop,flash_pop,-23.4,-0.14,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+146,4.867,7.267,crowd cheer (formant voices + applause),cheer,-18.4,-0.40,built-in (≈2-10 ms),built-in (≈30-150 ms),BG
+152,5.067,5.347,suit fabric movement,fabric_swish,-23.4,-0.15,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+185,6.167,6.587,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-21.4,-0.21,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+186,6.200,6.550,flash bulb pop,flash_pop,-24.4,-0.21,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+203,4.767,10.767,"small motor boat passing under the arch (Doppler, L->R)",boat_pass,-22.7,-0.33,built-in (≈2-10 ms),built-in (≈30-150 ms),BG
+220,7.333,7.613,suit fabric movement,fabric_swish,-21.3,-0.15,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+229,7.633,8.933,impressed crowd 'oooh',crowd_ooh,-20.3,-0.30,built-in (≈2-10 ms),built-in (≈30-150 ms),BG
+230,7.667,8.087,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-20.2,-0.10,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+231,7.700,8.050,flash bulb pop,flash_pop,-25.1,-0.10,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+233,7.767,8.187,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-19.6,+0.12,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+233,7.767,7.947,comic freeze tick,freeze_sting,-27.8,-0.10,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+234,7.800,8.150,flash bulb pop,flash_pop,-24.8,+0.12,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+236,7.867,8.287,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-20.4,+0.31,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+236,7.867,8.187,Hal's nervous gulp,gulp,-17.3,-0.15,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+237,7.900,8.250,flash bulb pop,flash_pop,-24.3,+0.31,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+239,7.967,8.387,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-20.4,-0.17,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+240,8.000,8.350,flash bulb pop,flash_pop,-24.4,-0.17,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+243,8.100,8.520,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-19.7,+0.01,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+244,8.133,8.483,flash bulb pop,flash_pop,-22.8,+0.01,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+246,8.200,8.620,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-20.1,+0.23,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+246,8.200,8.480,suit fabric movement,fabric_swish,-21.6,-0.15,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+247,8.233,8.583,flash bulb pop,flash_pop,-24.4,+0.23,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+250,8.333,8.753,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-20.1,-0.30,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+251,8.367,8.717,flash bulb pop,flash_pop,-24.2,-0.30,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+254,8.467,8.887,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-19.4,-0.08,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+255,8.500,8.850,flash bulb pop,flash_pop,-24.6,-0.08,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+258,8.600,9.020,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-19.7,+0.09,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+259,8.633,8.983,flash bulb pop,flash_pop,-23.7,+0.09,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+262,8.733,9.153,crowd member's SLR camera: mirror slap + shutter + film advance,shutter,-19.9,+0.30,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+263,8.767,9.117,flash bulb pop,flash_pop,-23.4,+0.30,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+278,9.267,9.547,suit fabric movement,fabric_swish,-21.4,-0.15,built-in (≈2-10 ms),built-in (≈30-150 ms),FG
+0,0.000,9.691,"ceremony crowd bed: distant talkers, scattered claps, river under the bridge (continuous, loop-safe)",ambience_crowd,-20.0,stereo wide,—,—,BG
+0,0.000,9.691,light desert wind (continuous),ambience_wind,-31.0,stereo wide,—,—,BG

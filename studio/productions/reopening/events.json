@@ -1,0 +1,279 @@
+{
+ "fps": 30,
+ "frames": 291,
+ "events": [
+  {
+   "frame": 6,
+   "kind": "cheer",
+   "x": -0.4,
+   "gain": 0.7,
+   "note": "cheer as the scene opens"
+  },
+  {
+   "frame": 9,
+   "kind": "boat_pass",
+   "x": -0.03333333333333333,
+   "gain": 0.55,
+   "note": "motorboat 2 passes under the arch"
+  },
+  {
+   "frame": 33,
+   "kind": "shutter",
+   "x": -0.44864866782661234,
+   "gain": 0.8,
+   "note": "crowd member 3 camera shutter"
+  },
+  {
+   "frame": 34,
+   "kind": "flash_pop",
+   "x": -0.44864866782661234,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 3)"
+  },
+  {
+   "frame": 100,
+   "kind": "cheer",
+   "x": -0.4,
+   "gain": 0.7,
+   "note": "cheer after 'reopened'"
+  },
+  {
+   "frame": 106,
+   "kind": "boat_pass",
+   "x": 0.3833333333333333,
+   "gain": 0.55,
+   "note": "motorboat 1 passes under the arch"
+  },
+  {
+   "frame": 117,
+   "kind": "shutter",
+   "x": -0.13919765496743017,
+   "gain": 0.8,
+   "note": "crowd member 7 camera shutter"
+  },
+  {
+   "frame": 118,
+   "kind": "flash_pop",
+   "x": -0.13919765496743017,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 7)"
+  },
+  {
+   "frame": 146,
+   "kind": "cheer",
+   "x": -0.4,
+   "gain": 0.7,
+   "note": "cheer swell over the desert reveal"
+  },
+  {
+   "frame": 152,
+   "kind": "fabric_swish",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal's suit sleeve (gesture change)"
+  },
+  {
+   "frame": 185,
+   "kind": "shutter",
+   "x": -0.2054133931544039,
+   "gain": 0.8,
+   "note": "crowd member 1 camera shutter"
+  },
+  {
+   "frame": 186,
+   "kind": "flash_pop",
+   "x": -0.2054133931544039,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 1)"
+  },
+  {
+   "frame": 203,
+   "kind": "boat_pass",
+   "x": -0.3333333333333333,
+   "gain": 0.55,
+   "note": "motorboat 0 passes under the arch"
+  },
+  {
+   "frame": 220,
+   "kind": "fabric_swish",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal's suit sleeve (gesture change)"
+  },
+  {
+   "frame": 229,
+   "kind": "crowd_ooh",
+   "x": -0.3,
+   "gain": 0.6,
+   "note": "crowd 'ooh' as cameras come up"
+  },
+  {
+   "frame": 230,
+   "kind": "shutter",
+   "x": -0.10337459561759192,
+   "gain": 0.8,
+   "note": "crowd member 2 camera shutter"
+  },
+  {
+   "frame": 231,
+   "kind": "flash_pop",
+   "x": -0.10337459561759192,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 2)"
+  },
+  {
+   "frame": 233,
+   "kind": "shutter",
+   "x": 0.12139507999638226,
+   "gain": 0.8,
+   "note": "crowd member 5 camera shutter"
+  },
+  {
+   "frame": 233,
+   "kind": "freeze_sting",
+   "x": -0.1,
+   "gain": 0.4,
+   "note": "comic freeze tick"
+  },
+  {
+   "frame": 234,
+   "kind": "flash_pop",
+   "x": 0.12139507999638226,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 5)"
+  },
+  {
+   "frame": 236,
+   "kind": "shutter",
+   "x": 0.30511031727888316,
+   "gain": 0.8,
+   "note": "crowd member 8 camera shutter"
+  },
+  {
+   "frame": 236,
+   "kind": "gulp",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal gulps under the flash volley"
+  },
+  {
+   "frame": 237,
+   "kind": "flash_pop",
+   "x": 0.30511031727888316,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 8)"
+  },
+  {
+   "frame": 239,
+   "kind": "shutter",
+   "x": -0.17220252329114297,
+   "gain": 0.8,
+   "note": "crowd member 1 camera shutter"
+  },
+  {
+   "frame": 240,
+   "kind": "flash_pop",
+   "x": -0.17220252329114297,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 1)"
+  },
+  {
+   "frame": 243,
+   "kind": "shutter",
+   "x": 0.006501410034305562,
+   "gain": 0.8,
+   "note": "crowd member 4 camera shutter"
+  },
+  {
+   "frame": 244,
+   "kind": "flash_pop",
+   "x": 0.006501410034305562,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 4)"
+  },
+  {
+   "frame": 246,
+   "kind": "shutter",
+   "x": 0.22691621340491994,
+   "gain": 0.8,
+   "note": "crowd member 7 camera shutter"
+  },
+  {
+   "frame": 246,
+   "kind": "fabric_swish",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal's suit sleeve (gesture change)"
+  },
+  {
+   "frame": 247,
+   "kind": "flash_pop",
+   "x": 0.22691621340491994,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 7)"
+  },
+  {
+   "frame": 250,
+   "kind": "shutter",
+   "x": -0.2972718255208265,
+   "gain": 0.8,
+   "note": "crowd member 0 camera shutter"
+  },
+  {
+   "frame": 251,
+   "kind": "flash_pop",
+   "x": -0.2972718255208265,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 0)"
+  },
+  {
+   "frame": 254,
+   "kind": "shutter",
+   "x": -0.08297111988216048,
+   "gain": 0.8,
+   "note": "crowd member 3 camera shutter"
+  },
+  {
+   "frame": 255,
+   "kind": "flash_pop",
+   "x": -0.08297111988216048,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 3)"
+  },
+  {
+   "frame": 258,
+   "kind": "shutter",
+   "x": 0.08993536212470972,
+   "gain": 0.8,
+   "note": "crowd member 6 camera shutter"
+  },
+  {
+   "frame": 259,
+   "kind": "flash_pop",
+   "x": 0.08993536212470972,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 6)"
+  },
+  {
+   "frame": 262,
+   "kind": "shutter",
+   "x": 0.30157504566920856,
+   "gain": 0.8,
+   "note": "crowd member 9 camera shutter"
+  },
+  {
+   "frame": 263,
+   "kind": "flash_pop",
+   "x": 0.30157504566920856,
+   "gain": 0.6,
+   "note": "flash bulb fires (member 9)"
+  },
+  {
+   "frame": 278,
+   "kind": "fabric_swish",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal's suit sleeve (gesture change)"
+  }
+ ]
+}
