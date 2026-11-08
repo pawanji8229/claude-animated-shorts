@@ -11,7 +11,51 @@ import { Bridge2 } from "./Bridge";
 import { Car60 } from "./Car60";
 import { DesertDetail } from "./DesertDetail";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import { MeshReflectorMaterial } from "@react-three/drei";
+import { PIER_X, ARCH_C, BRIDGE_LEN as BRIDGE_LEN2, BR2 } from "./Bridge";
 
+/** Water filling the dug channel (opening day): reflective, slightly green-blue; edge meets the banks at y=-0.62. */
+const ChannelWater: React.FC = () => (
+  <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.62, 0]} receiveShadow>
+    <planeGeometry args={[14.6, 320]} />
+    <MeshReflectorMaterial color="#3f93a8" roughness={0.92} metalness={0.05} mirror={0.45} blur={[300, 90]} resolution={512} mixBlur={0.9} mixStrength={1.6} mixContrast={1.05} depthScale={0.3} minDepthThreshold={0.4} maxDepthThreshold={1.2} />
+  </mesh>
+);
+/** Pennant bunting sagging between the parapet pedestals + small flags on the lamp standards (periodic sway). */
+const Bunting: React.FC<{ t: number }> = ({ t }) => {
+  const posts = useMemo(() => PIER_X.concat(ARCH_C, [-BRIDGE_LEN2 / 2 + 0.6, BRIDGE_LEN2 / 2 - 0.6]).sort((a, b) => a - b), []);
+  const cols = useMemo(() => ["#d8402f", "#f2c230", "#2f7fc1", "#f4efe2", "#3aa56a"].map((c) => new THREE.Color(c)), []);
+  const mesh = useMemo(() => {
+    const tri = new THREE.BufferGeometry(); tri.setAttribute("position", new THREE.Float32BufferAttribute([-0.13, 0, 0, 0.13, 0, 0, 0, -0.32, 0], 3)); tri.computeVertexNormals();
+    const m = new THREE.InstancedMesh(tri, new THREE.MeshStandardMaterial({ side: THREE.DoubleSide, roughness: 0.8 }), 600); m.castShadow = true; return m;
+  }, []);
+  const o = new THREE.Object3D(); let k = 0;
+  for (const sz of [-1, 1]) for (let i = 0; i < posts.length - 1; i++) {
+    const x0 = posts[i], x1 = posts[i + 1], n = Math.max(4, Math.round((x1 - x0) / 0.42));
+    for (let j = 1; j < n && k < 600; j++) {
+      const u = j / n, x = x0 + (x1 - x0) * u, sag = 0.7 * 4 * u * (1 - u);
+      o.position.set(x, BR2.deck + 1.25 - sag, sz * (BR2.width / 2 - 0.25));
+      o.rotation.set(0.25 * Math.sin(2 * Math.PI * (2 * t) + x * 0.7), sz > 0 ? 0 : Math.PI, 0); o.updateMatrix();
+      mesh.setMatrixAt(k, o.matrix); mesh.setColorAt(k, cols[(i * 7 + j) % cols.length]); k++;
+    }
+  }
+  mesh.count = k; mesh.instanceMatrix.needsUpdate = true; if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+  return (
+    <group>
+      <primitive object={mesh} />
+      {PIER_X.map((x) => [-1, 1].map((sz) => (
+        <group key={`${x}${sz}`} position={[x, BR2.deck + 1.27 + 3.9, sz * (BR2.width / 2 - 0.25)]} rotation={[0, 0.3 * Math.sin(2 * Math.PI * 3 * t + x), 0]}>
+          <mesh position={[0, 0.35, 0]}><cylinderGeometry args={[0.015, 0.015, 0.7, 6]} /><meshStandardMaterial color="#d9d4c8" metalness={0.5} roughness={0.4} /></mesh>
+          <mesh position={[0.32, 0.55, 0]} rotation={[0, 0.2 * Math.sin(2 * Math.PI * 4 * t + x), 0]}><planeGeometry args={[0.6, 0.34]} /><meshStandardMaterial color={x > 0 ? "#d8402f" : "#2f7fc1"} side={THREE.DoubleSide} roughness={0.8} /></mesh>
+        </group>
+      )))}
+    </group>
+  );
+};
+
+/** The sun disc/glow live on their own layer: the main camera enables it, the water reflection camera does not
+ *  (prevents a blown-out sun glint in the channel water). */
+export const SUN_LAYER = 1;
 export const BR = { deck: 8.4, width: 9, chanHalf: 5, chanBank: 9.5, chanDepth: 1.6 };
 // spans (m) left -> right, central span crosses the dry channel
 const SPANS = [7, 8.5, 10, 8.5, 7], PIER = 2.4, ABUT = 4.5, RISE = [4.6, 5.4, 6.3, 5.4, 4.6];
@@ -176,8 +220,8 @@ const Sky: React.FC<{ m: M; sunDir: THREE.Vector3 }> = ({ m, sunDir }) => {
   return (
     <group>
       <mesh material={m.sky}><sphereGeometry args={[420, 32, 16]} /></mesh>
-      <sprite position={sp} scale={[120, 120, 1]}><spriteMaterial map={sun} transparent fog={false} toneMapped={false} depthWrite={false} blending={THREE.AdditiveBlending} /></sprite>
-      <mesh position={sp.clone().multiplyScalar(0.98)}><sphereGeometry args={[9, 20, 14]} /><meshBasicMaterial color={[3.2, 2.6, 1.9]} toneMapped={false} fog={false} /></mesh>
+      <sprite position={sp} scale={[70, 70, 1]} layers={SUN_LAYER}><spriteMaterial map={sun} transparent opacity={0.45} fog={false} toneMapped={false} depthWrite={false} blending={THREE.AdditiveBlending} /></sprite>
+      <mesh position={sp.clone().multiplyScalar(0.98)} layers={SUN_LAYER}><sphereGeometry args={[9, 20, 14]} /><meshBasicMaterial color={[1.9, 1.6, 1.2]} toneMapped={false} fog={false} /></mesh>
       {Array.from({ length: 10 }, (_, i) => {
         const a = -1.2 + i * 0.26 + r() * 0.1, d = 330, y = 60 + r() * 70;
         return <sprite key={i} position={[Math.sin(a) * d, y, -Math.cos(a) * d]} scale={[110 + r() * 80, 45 + r() * 25, 1]}><spriteMaterial map={clouds[i % 3]} transparent fog={false} depthWrite={false} opacity={0.9} /></sprite>;
@@ -264,11 +308,17 @@ const DeadTree: React.FC<{ m: M; p: [number, number, number]; f: number }> = ({ 
 );
 
 export type CarState = { pos: [number, number, number]; ry: number; spin: number; brake: number };
-export type DesertProps = { f: number; shadowRes: number; tumble: { p: [number, number, number]; spin: number }[]; pebble?: [number, number, number] | null; car?: CarState; carPath?: [number, number][] };
+export type DesertProps = { f: number; shadowRes: number; tumble: { p: [number, number, number]; spin: number }[]; pebble?: [number, number, number] | null; car?: CarState; carPath?: [number, number][];
+  /** opening-day variant: water in the dug channel, festive bunting, no construction leftovers; `loopT` 0..1 drives periodic motion */
+  water?: boolean; festive?: boolean; leftovers?: boolean; loopT?: number;
+  /** extra rectangles [x0, x1, z0, z1] kept free of scattered props (e.g. around a production's camera) */
+  clearZones?: [number, number, number, number][] };
 
 /** areas kept clear for the action, the bridge footprint and the channel floor */
 export const avoidZone = (x: number, z: number) => (Math.abs(x) < 31 && Math.abs(z) < 6) || (Math.abs(x) < BR.chanBank && z > -60) || (x > -14 && x < -5 && z > 5.5 && z < 13) || (x < -8 && z > 7 && z < 14);
-export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebble, car, carPath = [] }) => {
+export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebble, car, carPath = [], water = false, festive = false, leftovers = true, loopT = 0, clearZones = [] }) => {
+  const zonesKey = JSON.stringify(clearZones);
+  const avoid = useMemo(() => (x: number, z: number) => avoidZone(x, z) || clearZones.some(([a, b, c, d]) => x > a && x < b && z > c && z < d), [zonesKey]); // eslint-disable-line
   const m = useMats();
   const sunDir = useMemo(() => new THREE.Vector3(0.35, 0.16, -1).normalize(), []);
   const sunTarget = useMemo(() => { const o = new THREE.Object3D(); o.position.set(0, 0, 4); return o; }, []);
@@ -277,7 +327,7 @@ export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebbl
     const ok = (x: number, z: number) => !(Math.abs(x) < 9 && z > -8 && z < 14) && Math.abs(x) > BR.chanBank + 1;
     for (let i = 0; i < 160; i++) {
       const x = (r() - 0.5) * 150, z = 30 - r() * 150;
-      if (!ok(x, z)) continue;
+      if (!ok(x, z) || clearZones.some(([a, b, c, d]) => x > a && x < b && z > c && z < d)) continue;
       const k = r(); const y = groundY(x, z);
       list.push({ kind: k < 0.16 ? "saguaro" : k < 0.3 ? "pear" : k < 0.62 ? "rock" : "grass", p: [x, y, z], s: 0.6 + r() * 0.9, seed: i });
     }
@@ -308,7 +358,9 @@ export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebbl
       <Ground m={m} />
       <Mesas m={m} />
       <Bridge2 />
-      <DesertDetail f={f} gy={groundY} avoid={avoidZone} carPath={carPath} />
+      <DesertDetail f={f} gy={groundY} avoid={avoid} carPath={carPath} leftovers={leftovers} />
+      {water && <ChannelWater />}
+      {festive && <Bunting t={loopT} />}
       {all.map((q, i) => q.kind === "saguaro" ? <Saguaro key={i} m={m} p={q.p} h={3 + q.s * 2.6} arms={1 + (q.seed % 3)} seed={q.seed} />
         : q.kind === "pear" ? <PricklyPear key={i} m={m} p={q.p} seed={q.seed} />
         : q.kind === "rock" ? <mesh key={i} position={[q.p[0], q.p[1] + 0.2 * q.s, q.p[2]]} scale={[q.s * 0.9, q.s * 0.55, q.s * 0.75]} rotation={[0, q.seed, 0]} material={q.seed % 2 ? m.rock : m.rockDark} castShadow receiveShadow><dodecahedronGeometry args={[0.6, 0]} /><Ink k={0.8} /></mesh>

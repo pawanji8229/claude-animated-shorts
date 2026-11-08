@@ -36,7 +36,7 @@ const canvasTex = (w: number, h: number, draw: (g: CanvasRenderingContext2D, r: 
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
 };
 
-export const DesertDetail: React.FC<{ f: number; gy: GY; avoid: (x: number, z: number) => boolean; carPath: [number, number][] }> = ({ f, gy, avoid, carPath }) => {
+export const DesertDetail: React.FC<{ f: number; gy: GY; avoid: (x: number, z: number) => boolean; carPath: [number, number][]; leftovers?: boolean }> = ({ f, gy, avoid, carPath, leftovers = true }) => {
   const uTime = useMemo(() => ({ value: 0 }), []);
   uTime.value = f / 30;
   const M = useMemo(() => {
@@ -177,7 +177,8 @@ export const DesertDetail: React.FC<{ f: number; gy: GY; avoid: (x: number, z: n
           return <mesh key={`${i}${o}`} position={[cx, gy(cx, cz) + 0.01, cz]} rotation={[-Math.PI / 2, 0, ang]} material={M.track}><planeGeometry args={[0.32, len + 0.05]} /></mesh>;
         });
       })}
-      {/* construction leftovers by the right abutment */}
+      {/* construction leftovers by the right abutment (hidden on opening day) */}
+      {leftovers && <>
       {shadow(10.8, 7.2, 2.8, 2.2)}{shadow(13.4, 9.0, 1.6, 1.0)}{shadow(14.6, 7.8, 2.2, 1.6)}{shadow(9.4, 9.6, 1.0, 1.0)}
       <group position={[10.8, gy(10.8, 7.2), 7.2]} rotation={[0, -0.4, 0]}>
         <mesh position={[0, 0.08, 0]} material={M.woodDk} castShadow receiveShadow><boxGeometry args={[1.6, 0.16, 1.2]} /><Ink k={0.8} /></mesh>
@@ -205,6 +206,7 @@ export const DesertDetail: React.FC<{ f: number; gy: GY; avoid: (x: number, z: n
       <mesh position={[14.6, gy(14.6, 7.8) + 0.25, 7.8]} scale={[1.4, 0.45, 1.0]} material={M.tarp} castShadow receiveShadow><sphereGeometry args={[0.7, 12, 8]} /><Ink k={0.7} /></mesh>
       <mesh position={[9.4, gy(9.4, 9.6) + 0.3, 9.6]} rotation={[0, 0.3, 0]} material={M.wood} castShadow><boxGeometry args={[0.6, 0.6, 0.6]} /><Ink k={0.7} /></mesh>
       <group position={[11.6, gy(11.6, 9.9), 9.9]} rotation={[0.1, 0.8, 0.35]}><mesh position={[0, 0.55, 0]} material={M.wood} castShadow><cylinderGeometry args={[0.02, 0.02, 1.1, 6]} /></mesh><mesh position={[0, 0.02, 0]} material={M.iron}><boxGeometry args={[0.22, 0.04, 0.28]} /></mesh></group>
+      </>}
       {/* distant ridges */}
       {ridges.map((rd, i) => <mesh key={`r${i}`} geometry={rd.g} position={[0, -2, -rd.d]}><meshBasicMaterial color={rd.col} fog={false} toneMapped={false} /></mesh>)}
       {/* low height haze bands */}

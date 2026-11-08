@@ -211,7 +211,7 @@ export const Bridge2: React.FC<{ glow?: number }> = ({ glow = 1 }) => {
     <group>
       <mesh geometry={R.body} material={R.mats.wall} castShadow receiveShadow><Ink k={1.1} /></mesh>
       {R.rings.map(({ g, sz }, i) => (
-        <mesh key={i} geometry={g} material={R.mats.vous} position={[0, 0, sz > 0 ? BR2.width / 2 + 0.004 : -BR2.width / 2 - 0.004]} scale={[1, 1, sz]} castShadow receiveShadow><Ink k={0.9} /></mesh>
+        <mesh key={i} geometry={g} material={R.mats.vous} position={[0, 0, sz > 0 ? BR2.width / 2 + 0.004 : -BR2.width / 2 - 0.004]} scale={[1, 1, sz]} castShadow receiveShadow />
       ))}
       {/* keystones */}
       {ARCH_C.map((c, i) => [-1, 1].map((sz) => <mesh key={`${i}${sz}`} position={[c, baseY(i) + RISE[i] + 0.45, sz * (BR2.width / 2 + 0.2)]} material={R.mats.dark} castShadow><boxGeometry args={[0.55, 1.05, 0.3]} /><Ink /></mesh>))}

@@ -8,6 +8,8 @@ import { Sheet2D } from "./previews/Sheet2D";
 import { Hall10 } from "./hall/Hall10";
 import { Take10 } from "./hall/Take10";
 import { LondonBridgeFilm } from "./desert/LondonBridgeFilm";
+import { ReopeningFilm } from "./productions/reopening/Film";
+import { FILM_FRAMES as REOPENING_FRAMES } from "./productions/reopening/scene";
 import { FILM_FRAMES } from "./desert/desertHook";
 import { DUR_TAKE } from "./hall/take10";
 import { DUR_H10 } from "./hall/timelineHall10";
@@ -47,6 +49,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="LBPreviewCar" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ envOnly: true, frameOverride: 90, camOverride: { pos: [-4.3, 1.25, 9.4] as [number, number, number], look: [-10.7, 0.66, 7.85] as [number, number, number], fov: 47, focus: 5.6 } }} />
     <Composition id="LBPreviewEnvironment" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ envOnly: true, frameOverride: 200, camOverride: { pos: [16, 8, 52] as [number, number, number], look: [-2, 5, 0] as [number, number, number], fov: 50, focus: 50 } }} />
     <Composition id="LBPreviewHal" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 146 }} />
+    {/* voice-to-video test production "reopening" (291 frames = 9.6914 s narration) */}
+    <Composition id="ReopeningPreview" component={ReopeningFilm} durationInFrames={REOPENING_FRAMES} fps={FPS} width={540} height={960} />
+    <Composition id="Reopening" component={ReopeningFilm} durationInFrames={REOPENING_FRAMES} fps={FPS} width={1080} height={1920} />
     <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={3000} height={2200} />
   </>
 );

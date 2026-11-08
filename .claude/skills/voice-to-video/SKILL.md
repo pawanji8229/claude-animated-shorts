@@ -48,8 +48,17 @@ tool failures needing the user, or changes to the voiceover/creative direction.
   and final (1080x1920) ids in `src/Root.tsx` with `durationInFrames = analysis.frames`.
 - Reuse library: characters `src/char/odo5.ts` (+ CardSprite face-glow mask), post `src/lib/Post.tsx` (SSAO, DOF, bloom,
   grade), ink `src/lib/Ink.tsx`, worlds `src/desert/*` (desert, bridge, 1960s car, detail layer), `src/hall/*` (workshop
-  hall + clutter), audio generators `studio/audio/desert_sfx.py` + `sfx_gen.py`. Extend the library; do not fork it.
+  hall + clutter), audio generators `studio/audio/desert_sfx.py` (desert/car/character), `crowd_sfx.py` (camera
+  shutter, flash pop, cheer, crowd ooh, boat pass, crowd bed) + `sfx_gen.py`. Extend the library; do not fork it.
+- Worked loop example: `src/productions/reopening/` (orbiting camera whose aim tracks the hero, integer-frequency
+  periodic motion so frame N == frame 0, boats spaced one loop apart, event list built from the same data).
+- `productions/<id>/production.json` picks the sound beds: `{"ambience": "desert|crowd|room|sea|none",
+  "music": "desert_guitar|none", "composition": "<Preview>", "loop": true}`. Unknown event kinds are skipped by the
+  mixer — add a generator + `LEVEL` entry in `audio/mix_events.py` for every new kind (check the cue sheet count).
 - Run `npx tsx scripts/check-camera.ts`-style checks for the new camera (0 intersections, no speed spikes).
+- Render 4+ stills across the loop (not only the key beats) before `test`: check the hero stays in frame at every
+  phase of the camera sway, and look for HDR hot spots (a low sun glinting off glossy water/metal blooms into a
+  white blob — fix with rougher materials or by moving the light, never by hiding the problem in the grade).
 
 ## 4. Locked visual rules
 - Flat 2D illustrated characters (Canvas2D cards) in perspective-rich, detailed, motivated 3D worlds.
@@ -68,7 +77,8 @@ tool failures needing the user, or changes to the voiceover/creative direction.
 - ONE continuous take: no cuts/teleports; connected geography; smooth accel/decel; camera never inside meshes.
 - Batches are frame ranges of the SAME composition (identical encoder settings) -> lossless join; audio muxed once.
 - Seamless loop: plan the last ~1 s to return to the opening camera position/direction/velocity, lighting and pose;
-  ambience/music are rendered loop-safe (`--loop`, tail crossfaded into head). Do not alter the voice to force a loop;
+  ambience/music are rendered loop-safe (`--loop`, tail crossfaded into head) and SFX that run past the last frame
+  are wrapped onto the start (pre-rolls before frame 0 wrap to the end). Do not alter the voice to force a loop;
   if the words do not loop, keep the story and report it. QC writes `loop_boundary_test.mp4` + metrics.
 
 ## 6. Sound rules

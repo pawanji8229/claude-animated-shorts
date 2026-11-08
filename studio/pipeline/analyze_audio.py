@@ -60,7 +60,7 @@ for i, (t0, t1) in enumerate(zip(cuts[:-1], cuts[1:])):
             for k in range(blk.a, blk.a + blk.size): agree.add(k)
         for k, w in enumerate(words): w["p"] = 1.0 if k in agree else 0.0
         conf = round(len(agree) / max(1, len(words)), 3); alt_text = " ".join(alt)
-    phrases.append({"index": i + 1, "start": round(s0, 3), "end": round(s1, 3), "startFrame": int(round(s0 * a.fps)), "endFrame": int(round(s1 * a.fps)),
+    phrases.append({"index": i + 1, "start": round(s0, 3), "end": round(s1, 3), "startFrame": int(round(s0 * a.fps)), "endFrame": min(frames - 1, int(round(s1 * a.fps))),
                     "asr": text, "asr_alt": alt_text if asr_ok else "", "asr_words": words, "asr_agreement": conf, "uncertain": [w["word"] for w in words if w["p"] is not None and w["p"] < 0.35]})
 
 # supplied transcript: distribute its words over the phrases in proportion to ASR word counts / durations

@@ -1,5 +1,5 @@
 # TwistFrame Lab generic event-driven sound design + mix (generalised from the London Bridge Act 1 mixer).
-# Usage: python mix_events.py <narration.mp3|wav> <events.json> <outdir> [duration_s|full] [--ambience desert|room|sea|none]
+# Usage: python mix_events.py <narration.mp3|wav> <events.json> <outdir> [duration_s|full] [--ambience desert|crowd|room|sea|none]
 #                              [--music desert_guitar|none] [--loop]
 # --loop makes ambience/music circular (tail crossfaded into head) so the end of the video flows into its start.
 # Writes: narration.wav (untouched narration, 48 kHz), sfx.wav, ambience.wav, music.wav, mix.wav,
@@ -8,6 +8,7 @@ import json, subprocess, sys, os, csv
 import numpy as np
 from dsp import SR, ns, rng, pan, st, place, make_ir, convolve_st, write_wav, read_wav, integrated, true_peak, lp
 import desert_sfx as S
+import crowd_sfx as C
 
 import argparse
 _ap = argparse.ArgumentParser(); _ap.add_argument("narration"); _ap.add_argument("events"); _ap.add_argument("outdir"); _ap.add_argument("duration", nargs="?", default="full")
@@ -37,7 +38,8 @@ for i in range(N):
 duck = lambda depth_db: 10 ** (depth_db * env / 20)
 
 ev = json.load(open(evp))["events"]
-sfx = np.zeros((2, N)); amb = np.zeros((2, N)); mus = np.zeros((2, N)); verb_send = np.zeros((2, N))
+TAILPAD = ns(8.0)  # sounds that run past the end: folded back onto the start when --loop
+sfx = np.zeros((2, N + TAILPAD)); verb_send = np.zeros((2, N + TAILPAD)); amb = np.zeros((2, N)); mus = np.zeros((2, N))
 rows = []
 LEVEL = {  # dB, layer, source description
     "step_sand": (-15, "FG", "Hal's shoes on sand (procedural grain crunch + thump)"),
@@ -50,6 +52,9 @@ LEVEL = {  # dB, layer, source description
     "tumble_roll_1": (-21, "FG", "tumbleweed rolling across foreground"), "tumble_roll_2": (-25, "BG", "tumbleweed rolling away under the arch"),
     "vulture_flap": (-31, "BG", "vulture wing shuffle"),
     "car_arrive": (-14, "FG", "1960s convertible V8 approaching on gravel, decelerating"), "brake_squeak": (-27, "FG", "brakes squeak at the stop"),
+    "shutter": (-20, "FG", "crowd member's SLR camera: mirror slap + shutter + film advance"),
+    "flash_pop": (-24, "FG", "flash bulb pop"), "cheer": (-17, "BG", "crowd cheer (formant voices + applause)"),
+    "crowd_ooh": (-19, "BG", "impressed crowd 'oooh'"), "boat_pass": (-23, "BG", "small motor boat passing under the arch (Doppler, L->R)"),
     "engine_off": (-19, "FG", "ignition off: engine shudder + cooling ticks"), "door_open": (-21, "FG", "car door latch + hinge"), "door_close": (-15, "FG", "car door shuts"),
 }
 r0 = rng(2026)
@@ -78,6 +83,11 @@ for k, e in enumerate(ev):
     elif kind == "engine_off": x = S.engine_idle_off(r)
     elif kind == "door_open": x = S.door_open(r)
     elif kind == "door_close": x = S.door_close(r)
+    elif kind == "shutter": x = C.shutter(r)
+    elif kind == "flash_pop": x = C.flash_pop(r)
+    elif kind == "cheer": x = C.cheer(r)
+    elif kind == "crowd_ooh": x = C.crowd_ooh(r)
+    elif kind == "boat_pass": x = C.boat_pass(r); t0 -= 2.0  # event = boat emerges from the arch; engine peaks ~1 s later
     elif kind.startswith("tumble_roll"):
         dur = 3.4 if kind.endswith("1") else 3.0
         x = S.tumble_roll(r, dur, 1.4 if kind.endswith("1") else 1.1)
@@ -90,16 +100,19 @@ for k, e in enumerate(ev):
         rows.append([f, f"{t0:.3f}", f"{t0 + n / SR:.3f}", desc, kind, f"{db + jitter_db:.1f}", "moving L->R" if kind.endswith("1") else "C, receding", "0.15 s", "0.6 s", layer])
         continue
     else: continue
+    if t0 < 0 and _A.loop: t0 += DUR  # pre-roll of a sound that peaks early wraps to the end of the loop
     gain = 10 ** ((db + jitter_db) / 20)
-    sx = pan(x, p)
+    sx = x if np.ndim(x) == 2 else pan(x, p)  # stereo generators carry their own image
     if kind == "hawk": sx = st(lp(x, 2600, 2)) * 0.9; sx = pan(lp(x, 2600, 2), p)
     place(sfx, sx, t0, gain)
     place(verb_send, sx, t0, gain * (0.5 if layer == "BG" else 0.22))
-    rows.append([f, f"{t0:.3f}", f"{t0 + len(x) / SR:.3f}", desc, kind, f"{db + jitter_db:.1f}", f"{p:+.2f}", "built-in (≈2-10 ms)", "built-in (≈30-150 ms)", layer])
+    rows.append([f, f"{t0:.3f}", f"{t0 + np.shape(x)[-1] / SR:.3f}", desc, kind, f"{db + jitter_db:.1f}", f"{p:+.2f}", "built-in (≈2-10 ms)", "built-in (≈30-150 ms)", layer])
 
 # open-air reverb with a slap from the bridge face (~55 ms) — subtle
 ir = make_ir(0.65, 7, early=[(0.055, 0.6, 0.2), (0.11, 0.3, -0.3)], hf=1.4)
-sfx += convolve_st(verb_send, ir) * 0.25
+sfx += convolve_st(verb_send, ir)[:, :sfx.shape[1]] * 0.25
+if _A.loop: _k = min(TAILPAD, N); sfx[:, :_k] += sfx[:, N:N + _k]  # wrap tails into the head -> the loop point has no cut-off sounds
+sfx = sfx[:, :N]
 
 # ---- continuous ambience (never cuts) ----
 XF = 1.2 if _A.loop else 0.0  # seconds of tail crossfaded into the head for a seamless loop
@@ -113,6 +126,10 @@ if _A.ambience == "desert":
     amb += bed(S.desert_wind, 11) * 10 ** (-25 / 20); amb += bed(S.cicadas, 12) * 10 ** (-8 / 20)
     rows.append([0, "0.000", f"{DUR:.3f}", "desert wind bed with gusts + sand hiss (continuous, loop-safe)" if XF else "desert wind bed with gusts + sand hiss (continuous)", "ambience_wind", "-25.0", "stereo wide", "—" if XF else "0.5 s", "—", "BG"])
     rows.append([0, "0.000", f"{DUR:.3f}", "faint cicadas (continuous)", "ambience_cicadas", "-36.0", "stereo wide", "—", "—", "BG"])
+elif _A.ambience == "crowd":
+    amb += bed(C.crowd_bed, 16) * 10 ** (-20 / 20); amb += bed(S.desert_wind, 11) * 10 ** (-31 / 20)
+    rows.append([0, "0.000", f"{DUR:.3f}", "ceremony crowd bed: distant talkers, scattered claps, river under the bridge (continuous" + (", loop-safe)" if XF else ")"), "ambience_crowd", "-20.0", "stereo wide", "—", "—", "BG"])
+    rows.append([0, "0.000", f"{DUR:.3f}", "light desert wind (continuous)", "ambience_wind", "-31.0", "stereo wide", "—", "—", "BG"])
 elif _A.ambience == "room":
     from sfx_gen import breeze
     amb += bed(lambda d, r: breeze(d, r, level=0.5, bright=500), 14) * 10 ** (-30 / 20)
@@ -151,7 +168,7 @@ for name, x in [("narration.wav", vo), ("sfx.wav", sfx_d), ("ambience.wav", amb_
 with open(os.path.join(out, "cue_sheet.csv"), "w", newline="") as fh:
     w = csv.writer(fh); w.writerow(["trigger_frame", "start_s", "end_s", "source / responsible object", "generator", "level_dB", "stereo_pos", "fade_in", "fade_out", "layer"]); w.writerows(rows)
 with open(os.path.join(out, "cue_sheet.md"), "w") as fh:
-    fh.write(f"# Sound cue sheet (0–{DUR:.2f} s; loop-safe beds: {bool(XF)})\n\nMaster: one uniform gain of {MASTER_DB:+.1f} dB on the finished mix (target −16 LUFS, ≤ −1 dBTP); stems are delivered pre-master.\n\nAll effects are procedurally synthesised in `studio/audio/desert_sfx.py` (no third-party recordings). Levels are pre-ducking; ambience −7 dB, music −8 dB and SFX −2 dB under narration.\n\n")
+    fh.write(f"# Sound cue sheet (0–{DUR:.2f} s; loop-safe beds: {bool(XF)})\n\nMaster: one uniform gain of {MASTER_DB:+.1f} dB on the finished mix (target −16 LUFS, ≤ −1 dBTP); stems are delivered pre-master.\n\nAll effects are procedurally synthesised in `studio/audio/` (desert_sfx.py, crowd_sfx.py, sfx_gen.py — no third-party recordings). Levels are pre-ducking; ambience −7 dB, music −8 dB and SFX −2 dB under narration.\n\n")
     fh.write("| frame | start s | end s | source / object | generator | level dB | pan | fade in | fade out | layer |\n|---|---|---|---|---|---|---|---|---|---|\n")
     for rr in sorted(rows, key=lambda z: float(z[1])): fh.write("| " + " | ".join(str(c) for c in rr) + " |\n")
 print(f"events placed: {len(rows)}  narration I={integrated(vo):.1f} LUFS | pre-master mix I={I0:.1f} LUFS TP={TP0:.1f} dBTP | master gain {MASTER_DB:+.1f} dB -> I={integrated(master):.1f} LUFS TP={true_peak(master):.1f} dBTP")

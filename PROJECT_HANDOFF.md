@@ -8,8 +8,9 @@
 - `studio/` — Remotion 4.0.541 + three 0.180 + R3F 9.8.2 project.
   - `twistframe.config.json` — central config (fps, sizes, render batch/crf/gl, loudness, ducking, QC thresholds).
   - `pipeline/` — `setup.sh`, `analyze_audio.py`, `make_video.sh`, `render_batches.mjs`, `qc.py`, `backup.py`.
-  - `audio/` — `dsp.py`, `sfx_gen.py` (upstream synth kit), `desert_sfx.py` (desert/car/character SFX), `mix_events.py`
-    (generic mixer), `mix_act1.py` (London Bridge Act 1 original).
+  - `audio/` — `dsp.py`, `sfx_gen.py` (upstream synth kit), `desert_sfx.py` (desert/car/character SFX), `crowd_sfx.py`
+    (shutter, flash, cheer, ooh, boat, crowd bed), `mix_events.py` (generic mixer; ambience desert|crowd|room|sea|none,
+    music desert_guitar|none, loop-safe beds + wrapped SFX tails), `mix_act1.py` (London Bridge Act 1 original).
   - `src/char/odo5.ts` — character rig v5 + costumes (odo, hal, clerk, workerA, workerB). EARLESS. `CardSprite.tsx` glow mask.
   - `src/lib/Post.tsx` — HDR post: 2× supersampling, SSAO, DOF, bloom, neutral tone map, grade, vignette.
   - `src/desert/` — London Bridge film: desert world, rebuilt bridge, 1960s car, detail layer, Act 1 timeline.
@@ -20,6 +21,9 @@
 - London Bridge film: transcript/storyboard (full 59 s), Act 1 (frames 0–309) built and repaired; awaiting user
   approval of the repaired Act 1 stills before rendering Act 1 video and Batches B–E (Acts 2–7 not yet built).
 - Pipeline verified end-to-end on `productions/test-hook` (9.9 s sample of the London Bridge narration).
+- Voice-to-video loop test `productions/reopening` (9.69 s line "And in 1971, London Bridge reopened…"): new
+  original scene (reopening ceremony, crowd with flash cameras, boats, bunting, confetti), audio → test → full render
+  → QC → backup run through the stage scripts. See `productions/reopening/qc/QC_REPORT.md`.
 
 ## Automated vs Claude-authored
 | automated by scripts | needs Claude |

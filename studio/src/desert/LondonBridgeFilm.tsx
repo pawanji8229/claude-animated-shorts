@@ -23,7 +23,7 @@ const Rig: React.FC<{ c: Cam }> = ({ c }) => {
   useLayoutEffect(() => {
     scene.environment = env; scene.environmentIntensity = 0.25;
     scene.background = new THREE.Color("#e9b88f"); scene.fog = new THREE.Fog("#efbb8c", 45, 300);
-    const cam = camera as THREE.PerspectiveCamera;
+    const cam = camera as THREE.PerspectiveCamera; cam.layers.enable(1);
     cam.position.set(...c.pos); cam.lookAt(...c.look); cam.fov = c.fov; cam.near = 0.1; cam.far = 900; cam.updateProjectionMatrix();
   });
   return null;
