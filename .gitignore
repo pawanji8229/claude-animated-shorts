@@ -6,6 +6,7 @@ private_reference_sheets/
 *.mkv
 # Our own original low-res test render is allowed (small, for phone review)
 !studio/previews/*.mp4
+!studio/previews/*/*.mp4
 # Build outputs
 node_modules/
 studio/out/
