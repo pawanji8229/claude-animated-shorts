@@ -17,9 +17,9 @@ file: `final.mp4` — **PASS (automatic checks) — visual review still required
 | loudness near target (soft) | ✅ | I=-16.2 LUFS (target -16.0) |
 | no clipping (true peak <= -1 dBTP) | ✅ | TP=-1.1 dBTP |
 | narration in sync (|offset| <= 1 frame) | ✅ | offset 0 ms |
-| narration intelligible (every word above background) | ✅ | worst word margin 15.7 dB in speech band (target >= 12.0; 2 automatic guard cuts) |
-| crowd stays quiet under narration | ✅ | crowd -34.1 LU re narration (limit -18.0) |
-| loop: last frame ~ first frame (soft) | ✅ | mean abs diff 6.0 (limit 18) |
+| narration intelligible (every word above background) | ✅ | worst word margin 15.5 dB in speech band (target >= 12.0; 1 automatic guard cuts) |
+| crowd stays quiet under narration | ✅ | crowd -34.0 LU re narration (limit -18.0) |
+| loop: last frame ~ first frame (soft) | ✅ | mean abs diff 6.3 (limit 18) |
 | loop: no audio click at boundary (soft) | ✅ | max sample step 0.004 |
 | loop: ambience level continuous (soft) | ✅ | level change +2.7 dB |
 

@@ -17,8 +17,8 @@ file: `test.mp4` — **PASS (automatic checks) — visual review still required*
 | loudness near target (soft) | ✅ | I=-16.4 LUFS (target -16.0) |
 | no clipping (true peak <= -1 dBTP) | ✅ | TP=-1.2 dBTP |
 | narration in sync (|offset| <= 1 frame) | ✅ | offset 0 ms |
-| narration intelligible (every word above background) | ✅ | worst word margin 15.7 dB in speech band (target >= 12.0; 2 automatic guard cuts) |
-| crowd stays quiet under narration | ✅ | crowd -34.1 LU re narration (limit -18.0) |
+| narration intelligible (every word above background) | ✅ | worst word margin 15.5 dB in speech band (target >= 12.0; 1 automatic guard cuts) |
+| crowd stays quiet under narration | ✅ | crowd -34.0 LU re narration (limit -18.0) |
 
 ## Mandatory visual inspection (not automatable)
 - [ ] character has NO ears in every view
