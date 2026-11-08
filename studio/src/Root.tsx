@@ -6,6 +6,8 @@ import { NightShift10, nightShiftSchema } from "./inventor/NightShift10";
 import { DURATION10 } from "./inventor/timeline10";
 import { Sheet2D } from "./previews/Sheet2D";
 import { Hall10 } from "./hall/Hall10";
+import { Take10 } from "./hall/Take10";
+import { DUR_TAKE } from "./hall/take10";
 import { DUR_H10 } from "./hall/timelineHall10";
 import { Previews, Previews4, previewSchema } from "./previews/Previews";
 
@@ -30,6 +32,9 @@ export const RemotionRoot: React.FC = () => (
     {/* v4: "Night Errand" 10 s, Odo v4 in the Long Workshop (no on-screen text) */}
     <Composition id="NightErrand10Preview" component={Hall10} durationInFrames={DUR_H10} fps={FPS} width={540} height={960} />
     <Composition id="NightErrand10" component={Hall10} durationInFrames={DUR_H10} fps={FPS} width={1080} height={1920} />
-    <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={2400} height={1100} />
+    {/* v5: "The Awkward Encounter" — one continuous take, no cuts, no text */}
+    <Composition id="AwkwardTake10Preview" component={Take10} durationInFrames={DUR_TAKE} fps={FPS} width={540} height={960} />
+    <Composition id="AwkwardTake10" component={Take10} durationInFrames={DUR_TAKE} fps={FPS} width={1080} height={1920} />
+    <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={3000} height={2200} />
   </>
 );

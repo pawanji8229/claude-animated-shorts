@@ -21,13 +21,13 @@ const useHallMats = () => useMemo(() => {
   wallT.repeat.set(1 / HALL.bay, 1 / HALL.h);
   const cab = cabinetWood();
   return {
-    wall: std({ map: wallT, side: THREE.DoubleSide }),
+    wall: std({ map: wallT, bumpMap: wallT, bumpScale: 1.2, side: THREE.DoubleSide }),
     wallL: (() => { const t = hallWall(1); t.repeat.set(1 / HALL.bay, 1); return std({ map: t }); })(),
     ceiling: std({ color: "#1a1424" }),
     beam: std({ color: "#3b2619", roughness: 0.8 }),
     beamDark: std({ color: "#24160e" }),
     benchTop: std({ color: "#7a4e2c", roughness: 0.55 }),
-    bench: std({ map: cab }),
+    bench: std({ map: cab, bumpMap: cab, bumpScale: 1.5 }),
     drawer: std({ map: cab, color: "#c99a7a" }),
     peg: std({ color: "#3c2a22" }),
     brass: std({ color: "#c79a45", metalness: 0.75, roughness: 0.32 }),
@@ -333,7 +333,7 @@ const FloorRow: React.FC<{ m: M; f: number }> = ({ m, f }) => (
   <group>
     {Array.from({ length: HALL.bays }, (_, i) => {
       const z = bayZ(i) - 0.25, x = 1.42;
-      if (i % 2 === 0) return (
+      if (i % 2 === 1) return (
         <group key={i} position={[x, 0, z]} rotation={[0, -Math.PI / 2 + 0.25, 0]}>
           <B p={[0, 0.05, 0]} s={[0.5, 0.1, 0.38]} m={m.iron} />
           <C p={[0, 0.85, -0.08]} rt={0.045} rb={0.05} h={1.6} m={m.iron} seg={14} />
