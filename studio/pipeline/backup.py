@@ -20,7 +20,7 @@ with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED, compresslevel=6) as z:
         dn[:] = [x for x in dn if x not in SKIP_DIRS]
         for f in fn:
             p = os.path.join(d, f); rel = os.path.relpath(p, ROOT)
-            if skip(rel) or p == out: continue
+            if skip(rel) or p == out or rel == "ASSET_MANIFEST.md": continue
             h = hashlib.sha256(open(p, "rb").read()).hexdigest(); rows.append((rel, os.path.getsize(p), h))
             z.write(p, os.path.join("claude-animated-shorts", rel))
     man = f"# Asset manifest\n\nGenerated {datetime.datetime.now(datetime.timezone.utc).isoformat()} — {len(rows)} files.\n\n| path | bytes | sha256 |\n|---|---|---|\n" + "".join(f"| {r} | {s} | {h[:16]}… |\n" for r, s, h in sorted(rows))

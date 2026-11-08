@@ -1,6 +1,6 @@
 # Asset manifest
 
-Generated 2026-11-08T12:24:25.134027Z — 241 files.
+Generated 2026-11-08T12:25:46.201112+00:00 — 244 files.
 
 | path | bytes | sha256 |
 |---|---|---|
@@ -101,7 +101,7 @@ Generated 2026-11-08T12:24:25.134027Z — 241 files.
 | studio/package-lock.json | 182359 | 58915101bb7df6c1… |
 | studio/package.json | 1292 | e608eff014d3050e… |
 | studio/pipeline/analyze_audio.py | 7755 | f338781066b3a42b… |
-| studio/pipeline/backup.py | 1894 | 1acdfba450903b21… |
+| studio/pipeline/backup.py | 1941 | e464e13741195ff0… |
 | studio/pipeline/make_video.sh | 3149 | 921455312246a8e1… |
 | studio/pipeline/qc.py | 7890 | 2c56d56a5034444f… |
 | studio/pipeline/render_batches.mjs | 3066 | 4d6b4457a96d44f5… |
@@ -125,6 +125,9 @@ Generated 2026-11-08T12:24:25.134027Z — 241 files.
 | studio/previews/london_bridge_v2/motion_test_seqA.png | 722545 | b3b321fff804ad56… |
 | studio/previews/london_bridge_v2/motion_test_seqB.png | 733781 | 599fe6b966bcc53f… |
 | studio/previews/nightshift_10s_540x960.mp4 | 4231564 | 69282dc7c53fec8f… |
+| studio/previews/pipeline_test/contact_sheet.png | 2110673 | 401d30b14e9bc620… |
+| studio/previews/pipeline_test/loop_boundary_test.mp4 | 3467538 | 050387e9d35fea07… |
+| studio/previews/pipeline_test/twistframe_pipeline_test_540x960.mp4 | 10093535 | 24cd309b95e84259… |
 | studio/previews/v3/PreviewCharacter.png | 362479 | 374d5b0000356c29… |
 | studio/previews/v3/PreviewComposite.png | 1439763 | 348ab29d684bb3ed… |
 | studio/previews/v3/PreviewEnvironment.png | 1455385 | 7bdfa66fcc807849… |
