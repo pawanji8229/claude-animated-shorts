@@ -1,7 +1,7 @@
 // Flat 2D model sheet for fast character checks (no WebGL). Not a deliverable frame.
 import React, { useLayoutEffect, useRef } from "react";
 import { AbsoluteFill } from "remotion";
-import { drawOdo5, pose5, Odo5Pose, ARM } from "../char/odo5";
+import { drawOdo5, pose5, Odo5Pose, ARM, COSTUME } from "../char/odo5";
 
 export const Sheet2D: React.FC = () => {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -10,7 +10,12 @@ export const Sheet2D: React.FC = () => {
     g.fillStyle = "#2b2d3a"; g.fillRect(0, 0, 3000, 2200);
     const lantern = ARM.lantern;
     const rows: Partial<Odo5Pose>[][] = [
-      Array.from({ length: 8 }, (_, i) => ({ view: "side" as const, walk: 1, gait: i / 8, holdLantern: true })),
+      [0, 0.25, 0.5, 0.75].map((q) => ({ view: "side" as const, walk: 1, gait: q, costume: COSTUME.hal, mouth: "smile" as const })).concat([
+        { view: "front", costume: COSTUME.hal, mouth: "smile", eyes: "lid", lids: 0.3, browL: 0.8, browR: 0.5 } as any,
+        { view: "front", costume: COSTUME.hal, mouth: "smile", eyes: "squint", browL: 1, browR: 1, armL: { hand: [-120, -120], bend: 1, shape: "open", rot: Math.PI, elbow: [-110, -10] }, armR: { hand: [120, -120], bend: -1, shape: "open", rot: Math.PI, elbow: [110, -10] } } as any,
+        { view: "front", costume: COSTUME.hal, mouth: "yikes", eyes: "squint", blush: 1, sweat: 1, worry: 1, browL: 0.4, browR: 0.4 } as any,
+        { view: "front", costume: COSTUME.workerA, mouth: "awkward" } as any,
+      ]),
       [
         { view: "front", armL: lantern },
         { view: "front", eyes: "wide", pupil: 0.45, browL: 1, browR: 1, worry: 0.3, mouth: "o", armL: lantern },

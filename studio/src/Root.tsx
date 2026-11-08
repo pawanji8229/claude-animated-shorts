@@ -7,6 +7,8 @@ import { DURATION10 } from "./inventor/timeline10";
 import { Sheet2D } from "./previews/Sheet2D";
 import { Hall10 } from "./hall/Hall10";
 import { Take10 } from "./hall/Take10";
+import { LondonBridgeFilm } from "./desert/LondonBridgeFilm";
+import { FILM_FRAMES } from "./desert/desertHook";
 import { DUR_TAKE } from "./hall/take10";
 import { DUR_H10 } from "./hall/timelineHall10";
 import { Previews, Previews4, previewSchema } from "./previews/Previews";
@@ -38,6 +40,12 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="V5PreviewCringe" component={Take10} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 226 }} />
     <Composition id="V5PreviewFinal" component={Take10} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 284 }} />
     <Composition id="AwkwardTake10" component={Take10} durationInFrames={DUR_TAKE} fps={FPS} width={1080} height={1920} />
+    {/* London Bridge film: one composition, rendered in frame-range batches; audio muxed after render */}
+    <Composition id="LondonBridgePreview" component={LondonBridgeFilm} durationInFrames={FILM_FRAMES} fps={FPS} width={540} height={960} />
+    <Composition id="LondonBridge" component={LondonBridgeFilm} durationInFrames={FILM_FRAMES} fps={FPS} width={1080} height={1920} />
+    <Composition id="LBPreviewEnvironment" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ envOnly: true, camOverride: { pos: [9, 4.2, 30] as [number, number, number], look: [-1, 4.5, 0] as [number, number, number], fov: 50, focus: 30 } }} />
+    <Composition id="LBPreviewHal" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 142 }} />
+    <Composition id="LBPreviewFinal" component={LondonBridgeFilm} durationInFrames={1} fps={FPS} width={1080} height={1920} defaultProps={{ frameOverride: 296 }} />
     <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={3000} height={2200} />
   </>
 );

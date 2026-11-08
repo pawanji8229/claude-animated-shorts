@@ -14,6 +14,18 @@ export type Eyes5 = "lid" | "wide" | "squint" | "wince";
 export type Mouth5 = "awkward" | "yikes" | "o" | "smile" | "flat" | "wobble";
 export type Hand5 = "relaxed" | "fist" | "grip" | "open" | "thumb";
 export type ArmPose = { hand: [number, number]; bend: number; shape: Hand5; rot: number; behind?: boolean; elbow?: [number, number] };
+/** Costume = palette overrides + accessory switches; the rig, proportions and line style stay identical. */
+export type Costume = { pal?: Record<string, string>; goggles: boolean; hairs: boolean; tufts: boolean; hat: null | "cowboy" | "bowler" | "hard"; stache: boolean; suit: boolean; apron: boolean };
+export const COSTUME: Record<string, Costume> = {
+  odo: { goggles: true, hairs: true, tufts: true, hat: null, stache: false, suit: false, apron: true },
+  // Hal Brightwater, the 1960s developer: cream wide-brim hat, tan suit, brown tie, pencil moustache
+  hal: { goggles: false, hairs: false, tufts: true, hat: "cowboy", stache: true, suit: true, apron: false,
+    pal: { hair: "#6b4a2e", hairShade: "#4a301c", shirt: "#c9a26a", shirtShade: "#a7814e", collar: "#fbf6ec", tie: "#7a3b22", hat: "#efe3c4", hatShade: "#cdbb92", band: "#6b3d22", glove: "#6a4a3c", pocket: "#c8452f" } },
+  clerk: { goggles: false, hairs: false, tufts: true, hat: "bowler", stache: false, suit: true, apron: false,
+    pal: { hair: "#3a3a44", shirt: "#3b3f52", shirtShade: "#2b2e3d", collar: "#fbf6ec", tie: "#8a1f2a", hat: "#22232b", hatShade: "#14151a", band: "#3a3b45", glove: "#3a2a24", pocket: "#f3ead6" } },
+  workerA: { goggles: false, hairs: false, tufts: true, hat: "hard", stache: false, suit: false, apron: false, pal: { hat: "#f2b81e", hatShade: "#c58f10", shirt: "#3d6fa8", shirtShade: "#2c537f", hair: "#5a3a26" } },
+  workerB: { goggles: false, hairs: false, tufts: true, hat: "hard", stache: true, suit: false, apron: false, pal: { hat: "#e8e6df", hatShade: "#bdb9ad", shirt: "#b8462f", shirtShade: "#8e3422", hair: "#2a2220" } },
+};
 export type Odo5Pose = {
   view: "front" | "side";
   gait: number; // gait cycles (fractional) — drives every walk curve
@@ -30,6 +42,7 @@ export type Odo5Pose = {
   holdLantern: boolean; // side: near hand grips lantern bail; front: armL grips it
   rim: number; // painted rim light strength
   breathe: number; squash: number; hairLag: number;
+  costume?: Costume;
 };
 const A = (hand: [number, number], shape: Hand5 = "relaxed", bend = 1, rot = 0, behind = false, elbow?: [number, number]): ArmPose => ({ hand, bend, shape, rot, behind, elbow });
 export const REST_L = A([-34, 194], "relaxed", -1, 0.15), REST_R = A([34, 194], "relaxed", 1, -0.15);
@@ -120,6 +133,29 @@ const drawHand = (g: G, c: Pal, at: P, rot: number, shape: Hand5, side: number, 
 export const HEAD5 = { rx: 150, ry: 143 };
 const headPath = (g: G, cx: number, cy: number) => () => { g.beginPath(); g.ellipse(cx, cy, HEAD5.rx, HEAD5.ry, 0, 0, Math.PI * 2); };
 
+const drawHat = (g: G, c: Pal, cx: number, cy: number, kind: "cowboy" | "bowler" | "hard", side: boolean, lag: number) => {
+  const tilt = (side ? -0.06 : -0.035) + lag * 0.03;
+  g.save(); g.translate(cx, cy - 104); g.rotate(tilt);
+  if (kind === "cowboy") {
+    const bw = side ? 168 : 205;
+    // brim (upturned edges), crown with centre pinch, band
+    inked(g, c, () => { g.beginPath(); g.moveTo(-bw, -16); g.quadraticCurveTo(-bw * 0.92, 18, -bw * 0.5, 22); g.quadraticCurveTo(0, 30, bw * 0.5, 22); g.quadraticCurveTo(bw * 0.92, 18, bw, -16); g.quadraticCurveTo(bw * 0.7, 6, 0, 8); g.quadraticCurveTo(-bw * 0.7, 6, -bw, -16); g.closePath(); }, c.hat, 4.5, 4);
+    inked(g, c, () => { g.beginPath(); g.moveTo(-86, 6); g.bezierCurveTo(-96, -60, -70, -104, -30, -98); g.quadraticCurveTo(0, -80, 30, -98); g.bezierCurveTo(70, -104, 96, -60, 86, 6); g.closePath(); }, c.hat, 4.5, 4);
+    g.save(); g.beginPath(); g.moveTo(-86, 6); g.bezierCurveTo(-96, -60, -70, -104, -30, -98); g.quadraticCurveTo(0, -80, 30, -98); g.bezierCurveTo(70, -104, 96, -60, 86, 6); g.closePath(); g.clip();
+    g.fillStyle = c.band; g.fillRect(-100, -22, 200, 22); g.fillStyle = c.hatShade; g.fillRect(-100, -110, 46, 120); g.restore();
+    taper(g, [[-20, -92], [0, -82], [20, -92]], 4, c.ink, 0.4);
+  } else if (kind === "bowler") {
+    inked(g, c, () => { g.beginPath(); g.ellipse(0, 6, side ? 130 : 150, 22, 0, 0, Math.PI * 2); }, c.hat, 4, 3);
+    inked(g, c, () => { g.beginPath(); g.moveTo(-96, 6); g.bezierCurveTo(-104, -100, 104, -100, 96, 6); g.closePath(); }, c.hat, 4, 3);
+    g.fillStyle = c.band; g.fillRect(-97, -14, 194, 16);
+  } else {
+    inked(g, c, () => { g.beginPath(); g.moveTo(-150, 10); g.quadraticCurveTo(-150, -2, -120, -4); g.lineTo(120, -4); g.quadraticCurveTo(150, -2, 150, 10); g.closePath(); }, c.hat, 4, 3);
+    inked(g, c, () => { g.beginPath(); g.moveTo(-118, 0); g.bezierCurveTo(-120, -110, 120, -110, 118, 0); g.closePath(); }, c.hat, 4, 3);
+    taper(g, [[0, -86], [0, -4]], 10, c.hatShade, 0.6);
+  }
+  g.restore();
+};
+
 const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boolean, mask: boolean) => {
   const fx = side ? 46 : 0, sp = side ? 0.62 : 1;
   const tuft = (x: number, dir: number, s: number) => inked(g, c, () => {
@@ -127,7 +163,8 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
     g.moveTo(x, cy - 52 * s); g.bezierCurveTo(x + dir * 60 * s, cy - 70 * s, x + dir * 72 * s, cy - 6 * s, x + dir * 50 * s, cy + 10 * s);
     g.bezierCurveTo(x + dir * 74 * s, cy + 30 * s, x + dir * 50 * s, cy + 66 * s, x + dir * 12 * s, cy + 50 * s); g.closePath();
   }, c.hair, 4, 3);
-  if (side) tuft(cx - 128, -1, 1.05); else { tuft(cx - 132, -1, 0.95); tuft(cx + 132, 1, 0.95); }
+  const cos = p.costume ?? COSTUME.odo, ts = cos.hat ? 0.72 : 1;
+  if (cos.tufts) { if (side) tuft(cx - 128, -1, 1.05 * ts); else { tuft(cx - 132, -1, 0.95 * ts); tuft(cx + 132, 1, 0.95 * ts); } }
   inked(g, c, headPath(g, cx, cy), c.face, 5, 7);
   if (!mask) {
     g.save(); headPath(g, cx, cy)(); g.clip();
@@ -139,20 +176,21 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
   }
   // curly hairs with follow-through
   const hl = p.hairLag;
-  for (const [dx, h, cv] of [[-18, 54, -24], [4, 70, 14], [24, 46, 30]] as const) {
+  if (cos.hairs) for (const [dx, h, cv] of [[-18, 54, -24], [4, 70, 14], [24, 46, 30]] as const) {
     const sw = hl * (0.6 + h / 100) * 26;
     taper(g, [[cx + dx, cy - HEAD5.ry + 6], [cx + dx + cv * 0.4 - sw * 0.3, cy - HEAD5.ry - h * 0.6], [cx + dx + cv - sw * 0.8, cy - HEAD5.ry - h * 0.75 + Math.abs(sw) * 0.2], [cx + dx + cv * 1.3 - sw, cy - HEAD5.ry - h * 0.45 + Math.abs(sw) * 0.3]], 7, c.ink, 0.3);
   }
   const ex = p.lookX * 9, ey = cy - 4 - 8 * p.lookY;
   const eyeX = (s: number) => cx + fx + s * 46 * sp;
-  if (!mask) { g.save(); headPath(g, cx, cy)(); g.clip(); g.beginPath(); g.ellipse(cx, cy + 120, 185, 250, 0, Math.PI * 1.25, Math.PI * 1.75); g.lineWidth = 15; g.strokeStyle = c.strap; g.stroke(); g.restore(); }
+  if (cos.goggles && !mask) { g.save(); headPath(g, cx, cy)(); g.clip(); g.beginPath(); g.ellipse(cx, cy + 120, 185, 250, 0, Math.PI * 1.25, Math.PI * 1.75); g.lineWidth = 15; g.strokeStyle = c.strap; g.stroke(); g.restore(); }
   const gy = cy - 94;
   const lens = (x: number) => {
     inked(g, c, () => { g.beginPath(); g.arc(x, gy, 27, 0, Math.PI * 2); }, c.brass, 4, 3);
     g.beginPath(); g.arc(x, gy, 17, 0, Math.PI * 2); g.fillStyle = c.lens; g.fill(); g.lineWidth = 3.5; g.strokeStyle = c.ink; g.stroke();
     if (!mask) { g.beginPath(); g.ellipse(x - 6, gy - 6, 6, 3.5, -0.6, 0, Math.PI * 2); g.fillStyle = "#fff"; g.fill(); for (let k = 0; k < 6; k++) { const a = (k / 6) * Math.PI * 2; g.beginPath(); g.arc(x + Math.cos(a) * 22, gy + Math.sin(a) * 22, 1.6, 0, Math.PI * 2); g.fillStyle = c.brassD; g.fill(); } }
   };
-  if (side) lens(cx + fx + 40); else { lens(cx - 40); lens(cx + 40); g.beginPath(); g.moveTo(cx - 13, gy); g.lineTo(cx + 13, gy); g.lineWidth = 7; g.strokeStyle = c.brassD; g.stroke(); }
+  if (cos.goggles) { if (side) lens(cx + fx + 40); else { lens(cx - 40); lens(cx + 40); g.beginPath(); g.moveTo(cx - 13, gy); g.lineTo(cx + 13, gy); g.lineWidth = 7; g.strokeStyle = c.brassD; g.stroke(); } }
+  if (cos.hat) drawHat(g, c, cx + (side ? 14 : 0), cy, cos.hat, side, p.hairLag);
 
   // blush (behind features)
   if (p.blush > 0.02 && !mask) for (const s of side ? [1] : [-1, 1]) { g.beginPath(); g.ellipse(eyeX(s) + s * 14, ey + 36, 24 * sp + 4, 11, 0, 0, Math.PI * 2); g.fillStyle = c.blush; g.globalAlpha = 0.45 * p.blush; g.fill(); g.globalAlpha = 1;
@@ -189,6 +227,7 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
 
   // mouth
   const mx = cx + fx + (side ? 8 : 6), my = cy + 64, mw = p.mouthW;
+  if (cos.stache) { for (const sgn of side ? [1] : [-1, 1]) taper(g, [[mx + sgn * 4, my - 14], [mx + sgn * 18 * sp, my - 17], [mx + sgn * 34 * sp, my - 10]], 7, c.ink, 0.3); }
   switch (p.mouth) {
     case "awkward": taper(g, [[mx - 26 * sp * mw, my + 4], [mx - 10 * sp, my + 1], [mx + 4 * sp, my + 4], [mx + 18 * sp * mw, my - 4], [mx + 24 * sp * mw, my - 10]], 7, c.ink, 0.35); break;
     case "wobble": taper(g, [[mx - 28 * sp * mw, my + 2], [mx - 16 * sp, my - 3], [mx - 4 * sp, my + 3], [mx + 8 * sp, my - 3], [mx + 20 * sp, my + 3], [mx + 28 * sp * mw, my - 2]], 6.5, c.ink, 0.35); break;
@@ -224,7 +263,7 @@ const torsoPath = (g: G, cx: number, top: number, bot: number, wTop: number, wBo
   g.quadraticCurveTo(cx, bot + 16, cx - wBot / 2 + 8, bot);
   g.bezierCurveTo(cx - wBot / 2 - 6, bot - 40, cx - wTop / 2, top + (bot - top) * 0.5, cx - wTop / 2, top + wTop / 2); g.closePath();
 };
-const drawTorso = (g: G, c: Pal, cx: number, top: number, bot: number, side: boolean, sway: number, mask: boolean, rim: number) => {
+const drawTorso = (g: G, c: Pal, cx: number, top: number, bot: number, side: boolean, sway: number, mask: boolean, rim: number, cos: Costume = COSTUME.odo) => {
   const wT = side ? 120 : 138, wB = side ? 132 : 156;
   const tp = torsoPath(g, cx, top, bot, wT, wB);
   inked(g, c, tp, c.shirt, 5, 6);
@@ -238,6 +277,18 @@ const drawTorso = (g: G, c: Pal, cx: number, top: number, bot: number, side: boo
     g.restore();
   }
   const vx = cx + (side ? 26 : 0);
+  if (cos.suit) {
+    // shirt V, tie, lapels, buttons, pocket square
+    inked(g, c, () => { g.beginPath(); g.moveTo(vx - 34, top + 66); g.lineTo(vx + 34, top + 66); g.lineTo(vx, top + 190); g.closePath(); }, c.collar, 3, 2);
+    taper(g, [[vx, top + 84], [vx + 2, top + 140], [vx, top + 186]], 18, c.tie, 0.55, 0.3);
+    g.beginPath(); g.moveTo(vx - 8, top + 76); g.lineTo(vx + 8, top + 76); g.lineTo(vx + 5, top + 92); g.lineTo(vx - 5, top + 92); g.closePath(); g.fillStyle = c.tie; g.fill(); g.lineWidth = 2.5; g.strokeStyle = c.ink; g.stroke();
+    for (const sg of side ? [1] : [-1, 1]) inked(g, c, () => { g.beginPath(); g.moveTo(vx + sg * 34, top + 64); g.lineTo(vx + sg * 10, top + 196); g.lineTo(vx + sg * 46, top + 120); g.closePath(); }, c.shirtShade, 3, 2);
+    if (!mask) {
+      for (const y of [top + 214, top + 244]) { g.beginPath(); g.arc(vx + 4, y, 5, 0, Math.PI * 2); g.fillStyle = "#5a3a22"; g.fill(); g.lineWidth = 2; g.strokeStyle = c.ink; g.stroke(); }
+      if (!side) { g.beginPath(); g.moveTo(cx + 38, top + 150); g.lineTo(cx + 62, top + 150); g.lineTo(cx + 56, top + 136); g.lineTo(cx + 46, top + 142); g.closePath(); g.fillStyle = c.pocket; g.fill(); g.lineWidth = 2; g.strokeStyle = c.ink; g.stroke(); }
+    }
+    return;
+  }
   inked(g, c, () => { g.beginPath(); g.moveTo(vx - 30, top + 70); g.lineTo(vx + 30, top + 70); g.lineTo(vx, top + 140); g.closePath(); }, c.collar, 3, 2);
   if (!mask) for (const y of [top + 160, top + 190]) { g.beginPath(); g.arc(vx + (side ? 4 : 0), y, 4.5, 0, Math.PI * 2); g.fillStyle = c.collar; g.fill(); g.lineWidth = 2; g.strokeStyle = c.ink; g.stroke(); }
   const by = bot - 92;
@@ -247,6 +298,7 @@ const drawTorso = (g: G, c: Pal, cx: number, top: number, bot: number, side: boo
   inked(g, c, () => { g.beginPath(); g.roundRect(vx - 15 + (side ? 18 : 0), by - 5, 30, 32, 5); }, c.buckle, 3, 2);
   const a0 = side ? cx - 6 : cx - 66, a1 = side ? cx + wB / 2 + 12 : cx + 66;
   const apron = () => { g.beginPath(); g.moveTo(a0 + 4, by + 24); g.lineTo(a1 - 4, by + 24); g.lineTo(a1 + 6 + sway, bot + 46); g.quadraticCurveTo((a0 + a1) / 2 + sway, bot + 56, a0 - 6 + sway * 0.6, bot + 46); g.closePath(); };
+  if (!cos.apron) return;
   inked(g, c, apron, c.apron, 4, 4);
   if (!mask) {
     g.save(); apron(); g.clip(); g.fillStyle = c.apronShade; g.fillRect(a0 - 10, by + 20, 22, 120);
@@ -335,7 +387,8 @@ const sideArmAngles = (p: Odo5Pose, q: number, far: boolean, lantern: boolean) =
 };
 
 export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
-  const c = mask ? MASK : COLORS;
+  const cos = p.costume ?? COSTUME.odo;
+  const c = mask ? MASK : { ...COLORS, tie: "#7a3b22", hat: "#efe3c4", hatShade: "#cdbb92", band: "#6b3d22", pocket: "#c8452f", ...(cos.pal ?? {}) };
   const r = rig(p);
   const side = r.side, w = side ? p.walk : 0;
   const Lpx = p.stride / PX5;
@@ -361,7 +414,7 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
     leg(far, true); leg(near, false);
     const sway = -Math.sin(2 * Math.PI * r.q) * 9 * w;
     g.save(); g.translate(hip[0], hip[1]); g.rotate(r.tilt); g.translate(-hip[0], -hip[1]);
-    drawTorso(g, c, hip[0], top, bot, true, sway, mask, p.rim);
+    drawTorso(g, c, hip[0], top, bot, true, sway, mask, p.rim, cos);
     g.restore();
     const hc = r.headC;
     g.save(); g.translate(hc[0], hc[1] + 140); g.rotate(r.nod - 0.06 * p.lookY); g.translate(-hc[0], -(hc[1] + 140));
@@ -387,7 +440,7 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
     // arms that pass behind the head are drawn first
     if (p.armL.behind) frontArm(-1, p.armL);
     if (p.armR.behind) frontArm(1, p.armR);
-    drawTorso(g, c, 300, top, bot, false, 0, mask, p.rim);
+    drawTorso(g, c, 300, top, bot, false, 0, mask, p.rim, cos);
     drawHead(g, c, r.headC[0], r.headC[1], p, false, mask);
     if (!p.armL.behind) frontArm(-1, p.armL);
     if (!p.armR.behind) frontArm(1, p.armR);

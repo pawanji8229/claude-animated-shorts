@@ -1,0 +1,202 @@
+{
+ "fps": 30,
+ "frames": 1771,
+ "events": [
+  {
+   "frame": 0,
+   "kind": "tumble_roll_1",
+   "x": -0.9,
+   "gain": 0.6,
+   "note": "tumbleweed crosses foreground L->R (f0-100)"
+  },
+  {
+   "frame": 44,
+   "kind": "step_sand",
+   "x": -0.9271388517757088,
+   "gain": 0.9,
+   "note": "far foot heel strike"
+  },
+  {
+   "frame": 53,
+   "kind": "step_sand",
+   "x": -0.7081167689232871,
+   "gain": 0.9,
+   "note": "near foot heel strike"
+  },
+  {
+   "frame": 63,
+   "kind": "step_sand",
+   "x": -0.5297384287226833,
+   "gain": 0.9,
+   "note": "far foot heel strike"
+  },
+  {
+   "frame": 70,
+   "kind": "hawk",
+   "x": 0.6,
+   "gain": 0.35,
+   "note": "distant hawk"
+  },
+  {
+   "frame": 72,
+   "kind": "step_sand",
+   "x": -0.4109456413309309,
+   "gain": 0.9,
+   "note": "near foot heel strike"
+  },
+  {
+   "frame": 81,
+   "kind": "step_sand",
+   "x": -0.3164609897808899,
+   "gain": 0.9,
+   "note": "far foot heel strike"
+  },
+  {
+   "frame": 90,
+   "kind": "step_sand",
+   "x": -0.23777351402544022,
+   "gain": 0.9,
+   "note": "near foot heel strike"
+  },
+  {
+   "frame": 99,
+   "kind": "step_sand",
+   "x": -0.16784288517996174,
+   "gain": 0.9,
+   "note": "far foot heel strike"
+  },
+  {
+   "frame": 111,
+   "kind": "step_sand",
+   "x": -0.1275114926999222,
+   "gain": 0.9,
+   "note": "near foot heel strike"
+  },
+  {
+   "frame": 121,
+   "kind": "turn_scuff",
+   "x": -0.3,
+   "gain": 0.7,
+   "note": "Hal turns to camera (foot reposition)"
+  },
+  {
+   "frame": 126,
+   "kind": "fabric_swish_big",
+   "x": -0.2,
+   "gain": 0.85,
+   "note": "ta-da arms sweep up"
+  },
+  {
+   "frame": 154,
+   "kind": "fabric_swish",
+   "x": -0.2,
+   "gain": 0.55,
+   "note": "arms come down"
+  },
+  {
+   "frame": 160,
+   "kind": "wallet_pat",
+   "x": -0.15,
+   "gain": 0.8,
+   "note": "hand pats chest pocket"
+  },
+  {
+   "frame": 161,
+   "kind": "coin_jingle",
+   "x": -0.15,
+   "gain": 0.45,
+   "note": "coins in wallet"
+  },
+  {
+   "frame": 170,
+   "kind": "wallet_pat",
+   "x": -0.15,
+   "gain": 0.8,
+   "note": "hand pats chest pocket"
+  },
+  {
+   "frame": 171,
+   "kind": "coin_jingle",
+   "x": -0.15,
+   "gain": 0.45,
+   "note": "coins in wallet"
+  },
+  {
+   "frame": 180,
+   "kind": "wallet_pat",
+   "x": -0.15,
+   "gain": 0.8,
+   "note": "hand pats chest pocket"
+  },
+  {
+   "frame": 181,
+   "kind": "coin_jingle",
+   "x": -0.15,
+   "gain": 0.45,
+   "note": "coins in wallet"
+  },
+  {
+   "frame": 186,
+   "kind": "whoosh_reveal",
+   "x": 0,
+   "gain": 0.55,
+   "note": "camera rises / pulls back to reveal the bridge"
+  },
+  {
+   "frame": 190,
+   "kind": "fabric_swish",
+   "x": -0.2,
+   "gain": 0.5,
+   "note": "hands to hips"
+  },
+  {
+   "frame": 205,
+   "kind": "hawk",
+   "x": -0.5,
+   "gain": 0.3,
+   "note": "distant hawk over the reveal"
+  },
+  {
+   "frame": 228,
+   "kind": "tumble_roll_2",
+   "x": 0.1,
+   "gain": 0.45,
+   "note": "tumbleweed rolls away under the arch"
+  },
+  {
+   "frame": 236,
+   "kind": "vulture_flap",
+   "x": 0.7,
+   "gain": 0.3,
+   "note": "vulture shifts on the dead tree"
+  },
+  {
+   "frame": 250,
+   "kind": "pebble_whistle",
+   "x": 0.2,
+   "gain": 0.35,
+   "note": "pebble tips off parapet"
+  },
+  {
+   "frame": 272,
+   "kind": "pebble_clack",
+   "x": 0.25,
+   "gain": 0.85,
+   "note": "pebble hits dry riverbed"
+  },
+  {
+   "frame": 274,
+   "kind": "freeze_sting",
+   "x": 0,
+   "gain": 0.45,
+   "note": "Hal freezes (comic tick)"
+  },
+  {
+   "frame": 286,
+   "kind": "gulp",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "nervous gulp as cringe starts"
+  }
+ ]
+}
