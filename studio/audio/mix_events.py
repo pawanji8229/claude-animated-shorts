@@ -1,174 +1,203 @@
-# TwistFrame Lab generic event-driven sound design + mix (generalised from the London Bridge Act 1 mixer).
-# Usage: python mix_events.py <narration.mp3|wav> <events.json> <outdir> [duration_s|full] [--ambience desert|crowd|room|sea|none]
-#                              [--music desert_guitar|none] [--loop]
-# --loop makes ambience/music circular (tail crossfaded into head) so the end of the video flows into its start.
-# Writes: narration.wav (untouched narration, 48 kHz), sfx.wav, ambience.wav, music.wav, mix.wav,
-#         cue_sheet.csv + cue_sheet.md (every placed sound with frame, time, level, pan, fades, layer).
-import json, subprocess, sys, os, csv
+# TwistFrame Lab generic event-driven sound design + NARRATION-PRIORITY mix.
+# Usage: python mix_events.py <narration.mp3|wav> <events.json> <outdir> [duration_s|full]
+#            [--ambience desert|crowd|room|sea|none] [--music desert_guitar|none] [--loop] [--analysis analysis.json]
+# Principles (see .claude/skills/voice-to-video/SKILL.md §6):
+#  * the narration is the reference: every layer is set RELATIVE to it (event peaks vs narration peak, beds by loudness)
+#  * layers duck under speech (smooth attack/release) and come back in pauses
+#  * word-level masking guard: in the speech band (300-4000 Hz) every word must stay >= MIN_MARGIN dB above everything
+#    else; where it does not, all background layers are pulled down around that word (smooth ramps)
+#  * narration is never edited (timing, content, tone); one uniform master gain + true-peak limiter on the finished mix
+#  * --loop: beds are circular (tail crossfaded into head); SFX tails past the end wrap onto the start
+# Writes stems narration/sfx/crowd/ambience/music + mix.wav, cue_sheet.csv/.md, mix_report.json (measured balance,
+# per-word margins, every guard adjustment).
+import json, subprocess, os, csv, argparse
 import numpy as np
-from dsp import SR, ns, rng, pan, st, place, make_ir, convolve_st, write_wav, read_wav, integrated, true_peak, lp
+from dsp import SR, ns, rng, pan, st, place, make_ir, convolve_st, write_wav, read_wav, integrated, true_peak, lp, bp
 import desert_sfx as S
 import crowd_sfx as C
 
-import argparse
-_ap = argparse.ArgumentParser(); _ap.add_argument("narration"); _ap.add_argument("events"); _ap.add_argument("outdir"); _ap.add_argument("duration", nargs="?", default="full")
-_ap.add_argument("--ambience", default="desert"); _ap.add_argument("--music", default="desert_guitar"); _ap.add_argument("--loop", action="store_true")
-_A = _ap.parse_args()
-mp3, evp, out = _A.narration, _A.events, _A.outdir
-if _A.duration == "full":
-    DUR = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp3], capture_output=True, text=True, check=True).stdout.strip())
-else:
-    DUR = float(_A.duration)
+ap = argparse.ArgumentParser(); ap.add_argument("narration"); ap.add_argument("events"); ap.add_argument("outdir"); ap.add_argument("duration", nargs="?", default="full")
+ap.add_argument("--ambience", default="desert"); ap.add_argument("--music", default="desert_guitar"); ap.add_argument("--loop", action="store_true")
+ap.add_argument("--analysis", default=None)
+A = ap.parse_args()
+CFG = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "twistframe.config.json")))["audio"]
+MIX = CFG.get("mix", {})
+MIN_MARGIN = MIX.get("minWordMarginDb", 15.0)
+DUCK = MIX.get("duckDb", {"sfx": -4, "crowd": -8, "ambience": -6, "music": -10})
+mp3, evp, out = A.narration, A.events, A.outdir
+DUR = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp3], capture_output=True, text=True, check=True).stdout.strip()) if A.duration == "full" else float(A.duration)
 FPS = 30
 os.makedirs(out, exist_ok=True)
 N = ns(DUR)
+db = lambda x: 10 ** (x / 20)
 
-# ---- narration: decode only (no edits, no gain change); master clock ----
+# ---- narration: decode only (no edits, no gain change); master clock and level reference ----
 wav_full = os.path.join(out, "narration_full_48k.wav")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", mp3, "-ar", str(SR), "-ac", "2", "-c:a", "pcm_s24le", wav_full], check=True)
 vo_full, _ = read_wav(wav_full)
 vo = np.zeros((2, N)); m = min(N, vo_full.shape[1]); vo[:, :m] = vo_full[:, :m]
+NPK = float(np.max(np.abs(vo))) + 1e-9          # narration sample peak (event levels are relative to it)
+NI = integrated(vo)                               # narration loudness (bed levels are relative to it)
 
-# ---- speech-aware ducking envelope ----
+# ---- speech envelope for ducking (smooth: 60 ms attack, 600 ms release -> no pumping, backgrounds return in pauses) ----
 win = ns(0.02); rms = np.sqrt(np.convolve(vo[0] ** 2, np.ones(win) / win, mode="same"))
-mask = (rms > 10 ** (-38 / 20)).astype(float)
-att, rel = 0.07, 0.4; env = np.zeros(N); a1, a2 = np.exp(-1 / (att * SR)), np.exp(-1 / (rel * SR)); v = 0.0
+mask = (rms > NPK * db(-32)).astype(float)
+a1, a2 = np.exp(-1 / (0.06 * SR)), np.exp(-1 / (0.6 * SR)); env = np.zeros(N); v = 0.0
 for i in range(N):
-    tgt = mask[i]; v = (a1 if tgt > v else a2) * v + (1 - (a1 if tgt > v else a2)) * tgt; env[i] = v
+    k = a1 if mask[i] > v else a2; v = k * v + (1 - k) * mask[i]; env[i] = v
 duck = lambda depth_db: 10 ** (depth_db * env / 20)
 
-ev = json.load(open(evp))["events"]
-TAILPAD = ns(8.0)  # sounds that run past the end: folded back onto the start when --loop
-sfx = np.zeros((2, N + TAILPAD)); verb_send = np.zeros((2, N + TAILPAD)); amb = np.zeros((2, N)); mus = np.zeros((2, N))
-rows = []
-LEVEL = {  # dB, layer, source description
-    "step_sand": (-15, "FG", "Hal's shoes on sand (procedural grain crunch + thump)"),
-    "turn_scuff": (-19, "FG", "foot reposition on sand"),
-    "fabric_swish_big": (-17, "FG", "suit sleeves sweep (ta-da)"), "fabric_swish": (-22, "FG", "suit fabric movement"),
-    "wallet_pat": (-16, "FG", "hand pats leather wallet in chest pocket"), "coin_jingle": (-25, "FG", "coins in wallet"),
-    "whoosh_reveal": (-19, "FG", "camera rise / pull-back reveal"), "pebble_whistle": (-31, "FG", "pebble falling (cartoon whistle, subtle)"),
-    "pebble_clack": (-12, "FG", "pebble hits baked mud + bounces + dust"), "freeze_sting": (-27, "FG", "comic freeze tick"),
-    "gulp": (-18, "FG", "Hal's nervous gulp"), "hawk": (-29, "BG", "distant hawk cry"),
-    "tumble_roll_1": (-21, "FG", "tumbleweed rolling across foreground"), "tumble_roll_2": (-25, "BG", "tumbleweed rolling away under the arch"),
-    "vulture_flap": (-31, "BG", "vulture wing shuffle"),
-    "car_arrive": (-14, "FG", "1960s convertible V8 approaching on gravel, decelerating"), "brake_squeak": (-27, "FG", "brakes squeak at the stop"),
-    "shutter": (-20, "FG", "crowd member's SLR camera: mirror slap + shutter + film advance"),
-    "flash_pop": (-24, "FG", "flash bulb pop"), "cheer": (-17, "BG", "crowd cheer (formant voices + applause)"),
-    "crowd_ooh": (-19, "BG", "impressed crowd 'oooh'"), "boat_pass": (-23, "BG", "small motor boat passing under the arch (Doppler, L->R)"),
-    "engine_off": (-19, "FG", "ignition off: engine shudder + cooling ticks"), "door_open": (-21, "FG", "car door latch + hinge"), "door_close": (-15, "FG", "car door shuts"),
+# ---- event levels: dB of the event's PEAK relative to the narration peak; stem; description ----
+REL = {
+    "step_sand": (-12, "sfx", "shoes on sand"), "turn_scuff": (-16, "sfx", "foot reposition on sand"),
+    "fabric_swish_big": (-17, "sfx", "suit sleeves sweep"), "fabric_swish": (-23, "sfx", "suit fabric movement"), "cloth_soft": (-28, "sfx", "quiet clothing rustle"),
+    "wallet_pat": (-14, "sfx", "hand pats leather wallet"), "coin_jingle": (-22, "sfx", "coins in wallet"),
+    "whoosh_reveal": (-13, "sfx", "camera rise / reveal"), "pebble_whistle": (-26, "sfx", "pebble falling (subtle whistle)"),
+    "pebble_clack": (-9, "sfx", "pebble hits baked mud"), "freeze_sting": (-19, "sfx", "comic freeze tick"),
+    "gulp": (-15, "sfx", "nervous gulp"), "hawk": (-23, "sfx", "distant hawk cry"),
+    "tumble_roll_1": (-14, "sfx", "tumbleweed rolling across foreground"), "tumble_roll_2": (-20, "sfx", "tumbleweed rolling away"),
+    "vulture_flap": (-24, "sfx", "vulture wing shuffle"),
+    "car_arrive": (-6, "sfx", "1960s convertible V8 approaching, decelerating"), "brake_squeak": (-18, "sfx", "brakes squeak"),
+    "engine_off": (-12, "sfx", "ignition off + cooling ticks"), "door_open": (-14, "sfx", "car door latch + hinge"), "door_close": (-8, "sfx", "car door shuts"),
+    "shutter": (-15, "sfx", "SLR shutter (mirror slap + curtain)"), "film_advance": (-25, "sfx", "thumb winds on the film"),
+    "flash_pop": (-23, "sfx", "flashcube / flash gun pop"), "boat_pass": (-18, "sfx", "small motor boat passing (Doppler)"),
+    "clap_soft": (-23, "crowd", "single soft clap"), "cheer": (-27, "crowd", "distant crowd cheer"), "crowd_ooh": (-29, "crowd", "distant crowd 'ooh'"),
 }
-r0 = rng(2026)
+GEN = {
+    "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
+    "fabric_swish_big": lambda r: S.fabric_swish(r, True), "fabric_swish": lambda r: S.fabric_swish(r, False), "cloth_soft": C.cloth_soft,
+    "wallet_pat": S.wallet_pat, "coin_jingle": S.coin_jingle, "whoosh_reveal": S.whoosh_reveal, "pebble_whistle": S.pebble_whistle,
+    "pebble_clack": S.pebble_clack, "freeze_sting": S.freeze_tick, "gulp": S.gulp, "hawk": lambda r: lp(S.hawk(r), 2600, 2), "vulture_flap": S.vulture_flap,
+    "car_arrive": S.car_arrive, "brake_squeak": S.brake_squeak, "engine_off": S.engine_idle_off, "door_open": S.door_open, "door_close": S.door_close,
+    "shutter": lambda r: C.shutter(r, advance=False), "film_advance": C.film_advance, "flash_pop": C.flash_pop, "boat_pass": C.boat_pass,
+    "clap_soft": C.clap_soft, "cheer": lambda r: C.cheer(r, people=8), "crowd_ooh": C.crowd_ooh,
+}
+OFFSET = {"whoosh_reveal": -0.6, "boat_pass": -2.0}   # generator pre-rolls (s) so the peak lands on the event frame
+FIXED_PAN = {"car_arrive": -0.6}
+
+ev = json.load(open(evp))["events"]
+TAILPAD = ns(8.0)
+stems = {k: np.zeros((2, N + TAILPAD)) for k in ("sfx", "crowd")}; verb = np.zeros((2, N + TAILPAD))
+rows, skipped = [], {}
 for k, e in enumerate(ev):
-    f, kind = e["frame"], e["kind"]; t0 = f / FPS
-    if t0 >= DUR: continue
+    f, kind = e["frame"], e["kind"]; t0 = f / FPS + OFFSET.get(kind, 0.0)
+    if f / FPS >= DUR: continue
     r = rng(1000 + k * 7 + f)
-    db, layer, desc = LEVEL.get(kind, (-24, "FG", kind))
-    jitter_db = r.uniform(-1.5, 1.5)
-    p = float(e.get("x", 0.0))
-    if kind == "step_sand": x = S.step_sand(r, r.uniform(0.85, 1.1))
-    elif kind == "turn_scuff": x = S.turn_scuff(r)
-    elif kind == "fabric_swish_big": x = S.fabric_swish(r, True)
-    elif kind == "fabric_swish": x = S.fabric_swish(r, False)
-    elif kind == "wallet_pat": x = S.wallet_pat(r)
-    elif kind == "coin_jingle": x = S.coin_jingle(r)
-    elif kind == "whoosh_reveal": x = S.whoosh_reveal(r); t0 -= 0.6
-    elif kind == "pebble_whistle": x = S.pebble_whistle(r)
-    elif kind == "pebble_clack": x = S.pebble_clack(r)
-    elif kind == "freeze_sting": x = S.freeze_tick(r)
-    elif kind == "gulp": x = S.gulp(r)
-    elif kind == "hawk": x = S.hawk(r)
-    elif kind == "vulture_flap": x = S.vulture_flap(r)
-    elif kind == "car_arrive": x = S.car_arrive(r); p = -0.6
-    elif kind == "brake_squeak": x = S.brake_squeak(r)
-    elif kind == "engine_off": x = S.engine_idle_off(r)
-    elif kind == "door_open": x = S.door_open(r)
-    elif kind == "door_close": x = S.door_close(r)
-    elif kind == "shutter": x = C.shutter(r)
-    elif kind == "flash_pop": x = C.flash_pop(r)
-    elif kind == "cheer": x = C.cheer(r)
-    elif kind == "crowd_ooh": x = C.crowd_ooh(r)
-    elif kind == "boat_pass": x = C.boat_pass(r); t0 -= 2.0  # event = boat emerges from the arch; engine peaks ~1 s later
-    elif kind.startswith("tumble_roll"):
-        dur = 3.4 if kind.endswith("1") else 3.0
-        x = S.tumble_roll(r, dur, 1.4 if kind.endswith("1") else 1.1)
-        n = len(x); tt_ = np.linspace(0, 1, n)
-        if kind.endswith("1"): pp = -0.9 + 1.8 * tt_; g = np.sin(np.pi * np.clip(tt_ * 1.05, 0, 1)) ** 0.6
-        else: pp = 0.1 - 0.15 * tt_; g = np.clip(tt_ / 0.15, 0, 1) * (1 - tt_) ** 1.4
-        th = (np.clip(pp, -1, 1) + 1) * np.pi / 4
-        stx = np.stack([x * g * np.cos(th), x * g * np.sin(th)]) * np.sqrt(2)
-        gain = 10 ** ((db + jitter_db) / 20); place(sfx, stx, t0, gain); place(verb_send, stx, t0, gain * 0.3)
-        rows.append([f, f"{t0:.3f}", f"{t0 + n / SR:.3f}", desc, kind, f"{db + jitter_db:.1f}", "moving L->R" if kind.endswith("1") else "C, receding", "0.15 s", "0.6 s", layer])
-        continue
-    else: continue
-    if t0 < 0 and _A.loop: t0 += DUR  # pre-roll of a sound that peaks early wraps to the end of the loop
-    gain = 10 ** ((db + jitter_db) / 20)
-    sx = x if np.ndim(x) == 2 else pan(x, p)  # stereo generators carry their own image
-    if kind == "hawk": sx = st(lp(x, 2600, 2)) * 0.9; sx = pan(lp(x, 2600, 2), p)
-    place(sfx, sx, t0, gain)
-    place(verb_send, sx, t0, gain * (0.5 if layer == "BG" else 0.22))
-    rows.append([f, f"{t0:.3f}", f"{t0 + np.shape(x)[-1] / SR:.3f}", desc, kind, f"{db + jitter_db:.1f}", f"{p:+.2f}", "built-in (≈2-10 ms)", "built-in (≈30-150 ms)", layer])
-
-# open-air reverb with a slap from the bridge face (~55 ms) — subtle
+    if kind.startswith("tumble_roll"):
+        one = kind.endswith("1"); x = S.tumble_roll(r, 3.4 if one else 3.0, 1.4 if one else 1.1); n = len(x); u = np.linspace(0, 1, n)
+        pp = -0.9 + 1.8 * u if one else 0.1 - 0.15 * u; g = np.sin(np.pi * np.clip(u * 1.05, 0, 1)) ** 0.6 if one else np.clip(u / 0.15, 0, 1) * (1 - u) ** 1.4
+        th = (np.clip(pp, -1, 1) + 1) * np.pi / 4; x = np.stack([x * g * np.cos(th), x * g * np.sin(th)]) * np.sqrt(2); p_desc = "moving"
+    elif kind in GEN:
+        x = GEN[kind](r); p = float(FIXED_PAN.get(kind, e.get("x", 0.0))); x = x if np.ndim(x) == 2 else pan(x, p); p_desc = f"{p:+.2f}"
+    else:
+        skipped[kind] = skipped.get(kind, 0) + 1; continue
+    rel, stem, desc = REL.get(kind, (-24, "sfx", kind))
+    rel += float(r.uniform(-1.5, 1.5)) + 20 * np.log10(float(np.clip(e.get("gain", 1.0), 0.05, 1.0)))  # seeded per-instance variation
+    gain = NPK * db(rel) / (float(np.max(np.abs(x))) + 1e-9)       # event peak sits `rel` dB under the narration peak
+    if t0 < 0 and A.loop: t0 += DUR
+    place(stems[stem], x, t0, gain); place(verb, x, t0, gain * 0.2)
+    rows.append([f, f"{t0:.3f}", f"{t0 + x.shape[-1] / SR:.3f}", e.get("note") or desc, kind, stem, f"{rel:+.1f} dB re narration peak", p_desc])
 ir = make_ir(0.65, 7, early=[(0.055, 0.6, 0.2), (0.11, 0.3, -0.3)], hf=1.4)
-sfx += convolve_st(verb_send, ir)[:, :sfx.shape[1]] * 0.25
-if _A.loop: _k = min(TAILPAD, N); sfx[:, :_k] += sfx[:, N:N + _k]  # wrap tails into the head -> the loop point has no cut-off sounds
-sfx = sfx[:, :N]
+stems["sfx"] += convolve_st(verb, ir)[:, :N + TAILPAD] * 0.2
+for k in stems:
+    if A.loop: kk = min(TAILPAD, N); stems[k][:, :kk] += stems[k][:, N:N + kk]
+    stems[k] = stems[k][:, :N]
 
-# ---- continuous ambience (never cuts) ----
-XF = 1.2 if _A.loop else 0.0  # seconds of tail crossfaded into the head for a seamless loop
-def bed(gen, seed):
+# ---- continuous beds: loudness set RELATIVE to the narration (LU), loop-safe ----
+XF = 1.2 if A.loop else 0.0
+def bed(gen, seed, rel_lu):
     x = gen(DUR + XF, rng(seed))
-    if XF > 0:  # circular: the extra tail is equal-power crossfaded over the first XF seconds
+    if XF > 0:
         k = ns(XF); w = np.sin(np.linspace(0, np.pi / 2, k)) ** 2
         head = x[:, :k] * w + x[:, N:N + k] * (1 - w); x = x[:, :N].copy(); x[:, :k] = head
-    return x[:, :N]
-if _A.ambience == "desert":
-    amb += bed(S.desert_wind, 11) * 10 ** (-25 / 20); amb += bed(S.cicadas, 12) * 10 ** (-8 / 20)
-    rows.append([0, "0.000", f"{DUR:.3f}", "desert wind bed with gusts + sand hiss (continuous, loop-safe)" if XF else "desert wind bed with gusts + sand hiss (continuous)", "ambience_wind", "-25.0", "stereo wide", "—" if XF else "0.5 s", "—", "BG"])
-    rows.append([0, "0.000", f"{DUR:.3f}", "faint cicadas (continuous)", "ambience_cicadas", "-36.0", "stereo wide", "—", "—", "BG"])
-elif _A.ambience == "crowd":
-    amb += bed(C.crowd_bed, 16) * 10 ** (-20 / 20); amb += bed(S.desert_wind, 11) * 10 ** (-31 / 20)
-    rows.append([0, "0.000", f"{DUR:.3f}", "ceremony crowd bed: distant talkers, scattered claps, river under the bridge (continuous" + (", loop-safe)" if XF else ")"), "ambience_crowd", "-20.0", "stereo wide", "—", "—", "BG"])
-    rows.append([0, "0.000", f"{DUR:.3f}", "light desert wind (continuous)", "ambience_wind", "-31.0", "stereo wide", "—", "—", "BG"])
-elif _A.ambience == "room":
+    x = x[:, :N]; return x * db(NI + rel_lu - integrated(x))
+amb = np.zeros((2, N)); mus = np.zeros((2, N))
+def bedrow(desc, gen, rel): rows.append([0, "0.000", f"{DUR:.3f}", desc + (" (continuous, loop-safe)" if XF else " (continuous)"), gen, "bed", f"{rel:+.0f} LU re narration", "stereo wide"])
+if A.ambience == "desert":
+    amb += bed(S.desert_wind, 11, -23); amb += bed(S.cicadas, 12, -31); bedrow("desert wind + sand hiss", "desert_wind", -23); bedrow("faint cicadas", "cicadas", -31)
+elif A.ambience == "crowd":
+    stems["crowd"] += bed(C.crowd_murmur, 16, -28); amb += bed(C.river_bed, 17, -25); amb += bed(S.desert_wind, 11, -30)
+    bedrow("gentle distant crowd murmur (no shouting)", "crowd_murmur", -28); bedrow("river lapping under the bridge", "river_bed", -25); bedrow("light desert wind", "desert_wind", -30)
+elif A.ambience == "room":
     from sfx_gen import breeze
-    amb += bed(lambda d, r: breeze(d, r, level=0.5, bright=500), 14) * 10 ** (-30 / 20)
-    rows.append([0, "0.000", f"{DUR:.3f}", "interior room tone (continuous)", "ambience_room", "-30.0", "stereo", "—", "—", "BG"])
-elif _A.ambience == "sea":
-    from sfx_gen import water_bed
-    amb += bed(lambda d, r: np.stack([water_bed(d, r), water_bed(d, r)]) if np.ndim(water_bed(1.0, r)) == 1 else water_bed(d, r), 15) * 10 ** (-24 / 20)
-    rows.append([0, "0.000", f"{DUR:.3f}", "sea / water bed (continuous)", "ambience_sea", "-24.0", "stereo", "—", "—", "BG"])
-if _A.music == "desert_guitar":
-    mus += bed(S.desert_guitar, 13) * 10 ** (-17 / 20)
-    rows.append([0, "0.400", f"{DUR:.3f}", "sparse plucked desert guitar motif (original, Karplus-Strong)", "music", "-17 (pre-duck)", "slight random pan", "—", "—", "BG music"])
-if not _A.loop:  # a loop must not fade from silence at the start
-    fade = np.clip(np.arange(N) / ns(0.5), 0, 1); amb *= fade; mus *= fade
-amb_d, mus_d, sfx_d = amb * duck(-7), mus * duck(-8), sfx * duck(-2)
-mix = vo + sfx_d + amb_d + mus_d
-pk = np.max(np.abs(mix))
-if pk > 0.95:  # protect from clipping without touching the narration level: scale only the non-narration bed
-    bed = sfx_d + amb_d + mus_d; mix = vo + bed * min(1.0, (0.95 - np.max(np.abs(vo))) / max(1e-6, np.max(np.abs(bed))))
-# master: ONE uniform gain on the finished mix (narration timing/content untouched; its balance vs the bed unchanged)
-I0, TP0 = integrated(mix), true_peak(mix)
-# gain is set from the NARRATION (keep its peaks <= -1.5 dBFS), then a look-ahead brickwall limiter catches SFX peaks
-MASTER_DB = min(-16.0 - I0, -1.5 - true_peak(vo))
-master = mix * 10 ** (MASTER_DB / 20)
+    amb += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26); bedrow("interior room tone", "room_tone", -26)
+elif A.ambience == "sea":
+    amb += bed(C.river_bed, 15, -21); bedrow("sea / water bed", "water_bed", -21)
+if A.music == "desert_guitar":
+    mus += bed(S.desert_guitar, 13, -21); bedrow("sparse plucked desert guitar motif (original)", "music", -21)
+if not A.loop:
+    fade = np.clip(np.arange(N) / ns(0.5), 0, 1); amb *= fade; mus *= fade; stems["crowd"] *= fade
+
+# ---- ducking under speech ----
+L = {"sfx": stems["sfx"] * duck(DUCK["sfx"]), "crowd": stems["crowd"] * duck(DUCK["crowd"]), "ambience": amb * duck(DUCK["ambience"]), "music": mus * duck(DUCK["music"])}
+
+# ---- word-level masking guard (speech band) ----
+words = []
+anp = A.analysis or os.path.join(os.path.dirname(os.path.abspath(evp)), "analysis", "analysis.json")
+if os.path.exists(anp):
+    for ph in json.load(open(anp)).get("phrases", []):
+        for w in ph.get("asr_words", []): words.append((w["word"], float(w["t0"]), float(w["t1"])))
+def band(x): return bp(x.mean(0), 300, 4000, 2)
+vb = band(vo)
+def margins(beds):
+    bb = band(sum(beds.values())); res = []
+    for w, t0, t1 in words:
+        a, b = ns(max(0, t0 - 0.03)), ns(min(DUR, t1 + 0.03))
+        if b <= a: continue
+        en, eb = np.mean(vb[a:b] ** 2), np.mean(bb[a:b] ** 2) + 1e-12; res.append((w, t0, t1, 10 * np.log10(en / eb + 1e-12)))
+    return res
+before = margins(L); adjustments = []
+for it in range(3):
+    ms = margins(L); att = np.zeros(N)
+    for w, t0, t1, mg in ms:
+        if mg < MIN_MARGIN:
+            need = MIN_MARGIN - mg + 1.0; a, b = ns(max(0, t0 - 0.08)), ns(min(DUR, t1 + 0.08)); att[a:b] = np.maximum(att[a:b], need)
+            adjustments.append({"pass": it + 1, "word": w, "t0": t0, "t1": t1, "margin_db": round(mg, 1), "cut_db": round(need, 1)})
+    if not att.any(): break
+    hw = np.hanning(ns(0.12)); hw /= hw.sum(); att = np.maximum(att, np.convolve(att, hw, "same"))   # smooth ramps, never less than needed
+    g = 10 ** (-att / 20)
+    for k in L: L[k] = L[k] * g[None, :]
+after = margins(L)
+
+bedsum = sum(L.values()); mix = vo + bedsum
+I0 = integrated(mix)
+# gain from the loudness target, capped so narration peaks need at most `peakLimitAllowanceDb` of (transparent) limiting
+MASTER_DB = min(CFG["targetLufs"] - I0, CFG.get("narrationPeakMaxDb", -1.5) + MIX.get("peakLimitAllowanceDb", 2.0) - true_peak(vo))
+master = mix * db(MASTER_DB)
 def limiter(x, ceil_db=-1.0, look=0.003, rel=0.08):
     from scipy.ndimage import maximum_filter1d
-    ceil = 10 ** (ceil_db / 20); pk = np.max(np.abs(x), axis=0)
-    need = np.minimum(1.0, ceil / np.maximum(pk, 1e-9))
-    L = ns(look); need = -maximum_filter1d(-need, size=2 * L + 1)  # min over the look-ahead window
-    g = np.empty_like(need); a = np.exp(-1 / (rel * SR)); v = 1.0
+    ceil = db(ceil_db); pk = np.max(np.abs(x), axis=0); need = np.minimum(1.0, ceil / np.maximum(pk, 1e-9))
+    Lk = ns(look); need = -maximum_filter1d(-need, size=2 * Lk + 1); g = np.empty_like(need); a = np.exp(-1 / (rel * SR)); v = 1.0
     for i in range(len(need)): v = need[i] if need[i] < v else a * v + (1 - a) * need[i]; g[i] = v
     return x * g[None, :]
-master = limiter(master, -1.2)
-for name, x in [("narration.wav", vo), ("sfx.wav", sfx_d), ("ambience.wav", amb_d), ("music.wav", mus_d), ("mix_premaster.wav", mix), ("mix.wav", master)]:
+master = limiter(master, CFG.get("ceilingDbtp", -1.2))
+for name, x in [("narration.wav", vo), ("sfx.wav", L["sfx"]), ("crowd.wav", L["crowd"]), ("ambience.wav", L["ambience"]), ("music.wav", L["music"]), ("mix_premaster.wav", mix), ("mix.wav", master)]:
     write_wav(os.path.join(out, name), x)
 
+# ---- measured balance report ----
+def rel_lu(x): return None if np.max(np.abs(x)) < 1e-7 else round(integrated(x) - NI, 1)
+speech = env > 0.5
+def speech_ratio(x):  # bed short-term level during speech vs narration (speech band)
+    if not speech.any() or np.max(np.abs(x)) < 1e-7: return None
+    xb = band(x); return round(10 * np.log10(np.mean(xb[speech] ** 2) / (np.mean(vb[speech] ** 2) + 1e-12) + 1e-12), 1)
+rep = {"narration_lufs": round(NI, 1), "master_gain_db": round(MASTER_DB, 1), "final_lufs": round(integrated(master), 1), "final_true_peak_dbtp": round(true_peak(master), 1),
+       "stems_lu_re_narration": {k: rel_lu(v) for k, v in L.items()}, "stems_speechband_db_re_narration_during_speech": {k: speech_ratio(v) for k, v in L.items()},
+       "min_word_margin_target_db": MIN_MARGIN, "words": len(words),
+       "min_word_margin_before_db": round(min([m[3] for m in before]), 1) if before else None, "min_word_margin_after_db": round(min([m[3] for m in after]), 1) if after else None,
+       "word_margins_after": [{"word": w, "t0": t0, "margin_db": round(mg, 1)} for w, t0, t1, mg in after], "guard_adjustments": adjustments,
+       "events_placed": len(rows), "skipped_unknown_kinds": skipped, "ducking_db": DUCK}
+json.dump(rep, open(os.path.join(out, "mix_report.json"), "w"), indent=1)
+
 with open(os.path.join(out, "cue_sheet.csv"), "w", newline="") as fh:
-    w = csv.writer(fh); w.writerow(["trigger_frame", "start_s", "end_s", "source / responsible object", "generator", "level_dB", "stereo_pos", "fade_in", "fade_out", "layer"]); w.writerows(rows)
+    w = csv.writer(fh); w.writerow(["trigger_frame", "start_s", "end_s", "source / responsible object", "generator", "stem", "level", "pan"]); w.writerows(rows)
 with open(os.path.join(out, "cue_sheet.md"), "w") as fh:
-    fh.write(f"# Sound cue sheet (0–{DUR:.2f} s; loop-safe beds: {bool(XF)})\n\nMaster: one uniform gain of {MASTER_DB:+.1f} dB on the finished mix (target −16 LUFS, ≤ −1 dBTP); stems are delivered pre-master.\n\nAll effects are procedurally synthesised in `studio/audio/` (desert_sfx.py, crowd_sfx.py, sfx_gen.py — no third-party recordings). Levels are pre-ducking; ambience −7 dB, music −8 dB and SFX −2 dB under narration.\n\n")
-    fh.write("| frame | start s | end s | source / object | generator | level dB | pan | fade in | fade out | layer |\n|---|---|---|---|---|---|---|---|---|---|\n")
+    fh.write(f"# Sound cue sheet (0–{DUR:.2f} s; loop-safe: {bool(XF)})\n\n")
+    fh.write(f"Narration-priority mix. Narration {NI:.1f} LUFS is the reference; event levels are peak dB under the narration peak, beds are LU under the narration loudness. "
+             f"Ducking under speech: {DUCK}. Word masking guard: every word ≥ {MIN_MARGIN:.0f} dB above all other layers in the 300–4000 Hz speech band "
+             f"(worst word before guard {rep['min_word_margin_before_db']} dB, after {rep['min_word_margin_after_db']} dB; {len(adjustments)} guard cuts). "
+             f"Master {MASTER_DB:+.1f} dB → {rep['final_lufs']} LUFS, {rep['final_true_peak_dbtp']} dBTP.\n\n")
+    fh.write(f"Measured stem loudness vs narration (LU): {rep['stems_lu_re_narration']}\n\nAll effects are procedurally synthesised in `studio/audio/` (no third-party recordings).\n\n")
+    fh.write("| frame | start s | end s | source / object | generator | stem | level | pan |\n|---|---|---|---|---|---|---|---|\n")
     for rr in sorted(rows, key=lambda z: float(z[1])): fh.write("| " + " | ".join(str(c) for c in rr) + " |\n")
-print(f"events placed: {len(rows)}  narration I={integrated(vo):.1f} LUFS | pre-master mix I={I0:.1f} LUFS TP={TP0:.1f} dBTP | master gain {MASTER_DB:+.1f} dB -> I={integrated(master):.1f} LUFS TP={true_peak(master):.1f} dBTP")
+print(f"events placed: {len(rows)} (skipped unknown kinds: {skipped}) | narration {NI:.1f} LUFS | stems LU re narration {rep['stems_lu_re_narration']} | "
+      f"worst word margin {rep['min_word_margin_before_db']} -> {rep['min_word_margin_after_db']} dB ({len(adjustments)} guard cuts) | master {MASTER_DB:+.1f} dB -> {rep['final_lufs']} LUFS {rep['final_true_peak_dbtp']} dBTP")

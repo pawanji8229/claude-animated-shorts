@@ -22,6 +22,8 @@ case "$stage" in
     echo; echo "NEXT (Claude): storyboard + scene module for $id, then: make_video.sh audio $id <sceneModule.ts>";;
   audio)
     mod="$3"; nar=$(ls "$P"/input/narration.* | head -1)
+    # crowd naturalness gate: scenes with a crowd (export PERSONAS) must pass the no-synchronisation check
+    if grep -q "export const PERSONAS" "$mod"; then rc=0; npx tsx scripts/check-crowd.ts "$mod" > "$P/crowd_check.txt" || rc=$?; cat "$P/crowd_check.txt"; [ $rc -eq 0 ] || { echo "crowd check FAILED: re-author the crowd schedules"; exit 1; }; fi
     npx tsx scripts/export-events.ts "$mod" "$P/events.json"
     amb=$(node -e "console.log(require('./twistframe.config.json').audio.ambiencePreset)"); mus=$(node -e "console.log(require('./twistframe.config.json').audio.musicPreset)")
     [ -f "$P/production.json" ] && amb=$(node -e "console.log(require('$P/production.json').ambience ?? '$amb')") && mus=$(node -e "console.log(require('$P/production.json').music ?? '$mus')")

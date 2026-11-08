@@ -3,6 +3,7 @@
 import { V3, clamp01, lerp, smooth } from "../../lib/math";
 import { ARM, ArmPose, COSTUME, Costume, Odo5Pose, pose5, REST_L, REST_R } from "../../char/odo5";
 import { groundY } from "../../desert/DesertWorld";
+import { personPose, personEvents, personFlash, type Persona } from "../../char/crowdLife";
 
 export const FPS = 30;
 export const FILM_FRAMES = 291;
@@ -65,31 +66,47 @@ const COSTUMES: Costume[] = [
   { ...COSTUME.odo, goggles: false, apron: true, pal: { shirt: "#8a5ab0", shirtShade: "#6a3f8a" } },
 ];
 export const CROWD = COSTUMES.map((c, i) => {
-  const x = -12.0 + i * 0.42 + (i % 2) * 0.12, z = 13.4 - (i % 3) * 0.7 - (i % 2) * 0.35;
+  // hand-placed on dry land, two loose rows; early photographers stand right of Hal (seen while the camera is right),
+  // late ones left of him (seen while it drifts left); nobody directly behind Hal (x = -9.0) so every face and camera reads
+  const [x, z] = ([[-11.55, 13.1], [-8.15, 12.6], [-10.85, 13.3], [-8.6, 12.05], [-10.1, 13.2], [-9.65, 12.6], [-8.45, 13.3], [-11.15, 12.5], [-9.95, 12.0], [-10.45, 12.7]] as const)[i];
   return { pos: [x, groundY(x, z), z] as V3, costume: c, phase: i * 0.37, h: 1.42 + ((i * 37) % 13) * 0.012 };
 });
-const CAM_L: ArmPose = { hand: [72, -118], elbow: [-30, -10], shape: "grip", rot: 0, bend: 1 }, CAM_R: ArmPose = { hand: [-72, -118], elbow: [30, -10], shape: "grip", rot: 0, bend: 1 };
-export const cameraRaise = (f: number) => pulse(222, 230, 266, 276, f);
-export const crowdPose = (i: number, f: number): Odo5Pose => {
-  const c = CROWD[i], t = loopT(f);
-  const cheer = 0.5 + 0.5 * Math.sin(TAU * 3 * t + c.phase * 5); // 3 cheer waves per loop
-  const camK = cameraRaise(f);
-  const up = (s: number): ArmPose => ({ hand: [s * (60 + 110 * cheer), 150 - 300 * cheer], elbow: [s * (50 + 60 * cheer), 90 - 120 * cheer], shape: cheer > 0.4 ? "open" : "relaxed", rot: 0, bend: 1 });
-  const mix = (a: ArmPose, b: ArmPose): ArmPose => ({ ...b, hand: [lerp(a.hand[0], b.hand[0], camK), lerp(a.hand[1], b.hand[1], camK)], elbow: [lerp(a.elbow![0], b.elbow![0], camK), lerp(a.elbow![1], b.elbow![1], camK)], shape: camK > 0.5 ? b.shape : a.shape });
-  return pose5({
-    costume: c.costume, view: "front", eyes: camK > 0.5 ? "lid" : "squint", lids: 0.3,
-    mouth: camK > 0.5 ? "flat" : cheer > 0.55 ? "o" : "smile", browL: 0.7 + 0.3 * cheer, browR: 0.7 + 0.3 * cheer,
-    armL: mix(up(-1), CAM_L), armR: mix(up(1), CAM_R), breathe: TAU * 2 * t + i, squash: 0.03 * cheer, rim: 0.4,
-    lookX: camK > 0.5 ? 0.3 * Math.sign(HAL[0] - c.pos[0]) : 0, hairLag: 0.2 * Math.sin(TAU * 3 * t + i),
-  });
-};
-// flash volley ("the world's attention") + a few early flashes; each flash belongs to one crowd member
-export const FLASHES: { f: number; who: number }[] = [
-  { f: 34, who: 3 }, { f: 118, who: 7 }, { f: 186, who: 1 },
-  ...[231, 234, 237, 240, 244, 247, 251, 255, 259, 263].map((f, k) => ({ f, who: (k * 3 + 2) % CROWD.length })),
+// Independent crowd: every person has their own persona + clip schedule (src/char/crowdLife.ts). No shared timing:
+// photographers notice, reach, raise, aim, shoot (some with flash, some without), wind on, lower — each at their own
+// moment and speed; others clap in short bursts, chat, laugh, nod, wave once, fix a hat or lapel, or just watch.
+const toHal = (i: number) => Math.max(-0.8, Math.min(0.8, (HAL[0] - CROWD[i].pos[0]) * 0.35 + 0.15));
+const PER: Omit<Persona, "costume" | "seed">[] = [
+  { idle: "hip", breathe: 3, sway: 1, swayAmp: 0.012, mood: "smile", eyes: "squint", brow: 0.75, temper: 1.1,
+    clips: [{ kind: "clap", t0: 12, t1: 54, rate: 3.6, amp: 0.9 }, { kind: "clap", t0: 116, t1: 142, rate: 3.1, amp: 0.6 }, { kind: "look", t0: 176, t1: 218, x: -0.2, y: 0.55 }, { kind: "hat", t0: 238, t1: 262, side: 1 }] },
+  { idle: "rest", breathe: 2, sway: 2, swayAmp: 0.01, mood: "smile", eyes: "lid", brow: 0.7, temper: 1.0, camera: { flash: "cube" },
+    clips: [{ kind: "photo", notice: 9, reach: 9, raise: 11, shots: [{ f: 44, flash: true }, { f: 58, flash: false }], lowerAfter: 7, lower: 12, check: true, elbowsOut: 0.7 },
+            { kind: "talk", t0: 160, t1: 200, toward: -0.7, rate: 4.2, gesture: -1 }, { kind: "laugh", t0: 200, t1: 216 }] },
+  { idle: "clasp", breathe: 2, sway: 1, swayAmp: 0.006, mood: "flat", eyes: "lid", brow: 0.6, temper: 0.6,
+    clips: [{ kind: "look", t0: 26, t1: 92, x: 0.45, y: 0.05 }, { kind: "nod", t0: 100, t1: 124, times: 2 }, { kind: "look", t0: 182, t1: 228, x: -0.1, y: 0.6 }, { kind: "lapel", t0: 250, t1: 272, side: 1 }] },
+  { idle: "pockets", breathe: 3, sway: 2, swayAmp: 0.009, mood: "smile", eyes: "squint", brow: 0.8, temper: 0.9, camera: { flash: "gun" },
+    clips: [{ kind: "photo", notice: 12, reach: 14, raise: 16, shots: [{ f: 124, flash: true }], lowerAfter: 12, lower: 15, elbowsOut: 0.3 },
+            { kind: "wave", t0: 236, t1: 262, side: 1, rate: 2.0, height: 0.8 }] },
+  { idle: "rest", breathe: 3, sway: 3, swayAmp: 0.014, mood: "smile", eyes: "squint", brow: 0.8, temper: 1.3,
+    clips: [{ kind: "talk", t0: 18, t1: 70, toward: 0.75, rate: 4.6, gesture: 1 }, { kind: "laugh", t0: 70, t1: 86 }, { kind: "clap", t0: 102, t1: 130, rate: 4.2, amp: 1.0 },
+            { kind: "point", t0: 178, t1: 206, side: -1, dir: [-150, -120] }, { kind: "talk", t0: 240, t1: 274, toward: 0.7, rate: 3.8, gesture: 0 }] },
+  { idle: "clasp", breathe: 2, sway: 2, swayAmp: 0.008, mood: "smile", eyes: "lid", brow: 0.7, temper: 0.8, camera: { flash: "cube" },
+    clips: [{ kind: "look", t0: 20, t1: 72, x: -0.7, y: 0 }, { kind: "nod", t0: 38, t1: 60, times: 3 }, { kind: "laugh", t0: 73, t1: 90 },
+            { kind: "photo", notice: 7, reach: 8, raise: 10, shots: [{ f: 229, flash: true }, { f: 246, flash: false }], lowerAfter: 8, lower: 13, elbowsOut: 0.9 }] },
+  { idle: "behind", breathe: 2, sway: 1, swayAmp: 0.01, mood: "smile", eyes: "squint", brow: 0.75, temper: 1.0,
+    clips: [{ kind: "wave", t0: 58, t1: 96, side: -1, rate: 2.2, height: 0.9 }, { kind: "lapel", t0: 148, t1: 170, side: -1 }, { kind: "clap", t0: 208, t1: 236, rate: 3.0, amp: 0.7 }] },
+  { idle: "rest", breathe: 3, sway: 2, swayAmp: 0.011, mood: "flat", eyes: "lid", brow: 0.65, temper: 0.9, camera: { flash: "gun" },
+    clips: [{ kind: "photo", notice: 10, reach: 11, raise: 13, shots: [{ f: 172, flash: false }, { f: 188, flash: true }], lowerAfter: 8, lower: 14 },
+            { kind: "photo", notice: 6, reach: 9, raise: 12, shots: [{ f: 258, flash: false }], lowerAfter: 5, lower: 12, elbowsOut: 0.4 }] },
+  { idle: "pockets", breathe: 2, sway: 3, swayAmp: 0.007, mood: "awkward", eyes: "lid", brow: 0.6, temper: 0.7,
+    clips: [{ kind: "look", t0: 44, t1: 84, x: 0.3, y: 0.2 }, { kind: "clap", t0: 146, t1: 166, rate: 2.6, amp: 0.5 }, { kind: "look", t0: 194, t1: 234, x: -0.3, y: 0.55 }, { kind: "nod", t0: 250, t1: 266, times: 1 }] },
+  { idle: "rest", breathe: 3, sway: 1, swayAmp: 0.01, mood: "smile", eyes: "squint", brow: 0.7, temper: 1.0, camera: { flash: "cube" },
+    clips: [{ kind: "lapel", t0: 28, t1: 52, side: 1 }, { kind: "look", t0: 98, t1: 142, x: 0.9, y: -0.05 },
+            { kind: "photo", notice: 8, reach: 10, raise: 12, shots: [{ f: 206, flash: false }, { f: 216, flash: true }], lowerAfter: 9, lower: 13, check: true, elbowsOut: 0.6 }] },
 ];
-export const flashAt = (who: number, f: number) => Math.max(0, ...FLASHES.filter((x) => x.who === who).map((x) => (f >= x.f && f < x.f + 5 ? 1 - (f - x.f) / 5 : 0)));
-export const flashLight = (f: number) => Math.max(0, ...FLASHES.map((x) => (f >= x.f && f < x.f + 4 ? 1 - (f - x.f) / 4 : 0)));
+export const PERSONAS: Persona[] = PER.map((p, i) => ({ ...p, seed: 101 + i * 37, costume: CROWD[i].costume }));
+const LIFE = { loop: N, subjectX: () => 0 };
+export const crowdPose = (i: number, f: number): Odo5Pose => personPose(PERSONAS[i], f, { ...LIFE, subjectX: () => toHal(i) }, toHal(i) * 0.25);
+export const crowdFlash = (i: number, f: number) => personFlash(PERSONAS[i], f);
 
 // ---------------- boats (spaced one loop-travel apart -> seamless) ----------------
 export const boatsAt = (f: number) => [0, 1, 2].map((i) => {
@@ -109,15 +126,13 @@ export const balloonOffset = (k: number, f: number): V3 => [0.12 * Math.sin(TAU 
 export type SoundEvent = { frame: number; kind: string; x: number; gain: number; note?: string };
 export const soundEvents = (): SoundEvent[] => {
   const ev: SoundEvent[] = [];
-  for (const fl of FLASHES) {
-    const px = Math.max(-1, Math.min(1, (CROWD[fl.who].pos[0] - camAt(fl.f).pos[0]) / 6));
-    ev.push({ frame: fl.f - 1, kind: "shutter", x: px, gain: 0.8, note: `crowd member ${fl.who} camera shutter` });
-    ev.push({ frame: fl.f, kind: "flash_pop", x: px, gain: 0.6, note: `flash bulb fires (member ${fl.who})` });
+  // crowd: every shutter/flash/clap/cloth sound comes from that person's own animation schedule
+  for (const [i, P] of PERSONAS.entries()) for (const e of personEvents(P, i)) {
+    const px = Math.max(-1, Math.min(1, (CROWD[i].pos[0] - camAt(e.frame).pos[0]) / 3));
+    ev.push({ frame: e.frame, kind: e.kind, x: px, gain: 1, note: e.note });
   }
-  for (const [f, n] of [[6, "cheer as the scene opens"], [100, "cheer after 'reopened'"], [146, "cheer swell over the desert reveal"]] as const) ev.push({ frame: f, kind: "cheer", x: -0.4, gain: 0.7, note: n });
-  ev.push({ frame: 229, kind: "crowd_ooh", x: -0.3, gain: 0.6, note: "crowd 'ooh' as cameras come up" });
   for (const f of [152, 220, 246, 278]) ev.push({ frame: f, kind: "fabric_swish", x: -0.15, gain: 0.55, note: "Hal's suit sleeve (gesture change)" });
-  ev.push({ frame: 236, kind: "gulp", x: -0.15, gain: 0.55, note: "Hal gulps under the flash volley" });
+  ev.push({ frame: 236, kind: "gulp", x: -0.15, gain: 0.55, note: "Hal gulps after the flash" });
   ev.push({ frame: 233, kind: "freeze_sting", x: -0.1, gain: 0.4, note: "comic freeze tick" });
   // boat passes: when each boat crosses z=2 (emerging from under the arch toward camera)
   for (let f = 1; f < N; f++) for (const [i, b] of boatsAt(f).entries()) { const p = boatsAt(f - 1)[i]; if (p.pos[2] < 2 && b.pos[2] >= 2) ev.push({ frame: f, kind: "boat_pass", x: Math.max(-1, Math.min(1, b.pos[0] / 6)), gain: 0.55, note: `motorboat ${i} passes under the arch` }); }

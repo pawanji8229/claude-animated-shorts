@@ -38,6 +38,15 @@ Tip: attaching your script as a text file removes all transcription guesswork (A
   frames and is reported honestly, never auto-"approved".
 - GitHub is not used (account suspended). Everything stays in the session; you download ZIP backups.
 
+## Voice clarity and crowds (always on)
+- Your narration is always the clearest sound. Every effect is set relative to your voice, backgrounds dip smoothly
+  while you speak, and the mixer checks every single word: if anything masks a word it is turned down around that word.
+  QC fails the video if any word is less than 12 dB clear or the crowd gets loud.
+- Crowds are quiet, distant murmur and soft individual claps — no shouting or "woo" loops.
+- Crowd members move independently: each has their own timing, stance, expression and activity. Photographers each go
+  through notice → raise → aim → shoot → lower at different moments; shutter clicks and flashes come only from a visible
+  shot. An automatic check rejects synchronised crowds before rendering.
+
 ## Writing loop-friendly narration (optional)
 End on a line that leads back into your first line, e.g. last line "...and that's why…" + first line "...a man bought
 a bridge". Keep a 0.3–0.6 s breath at the very end. Claude will never edit your recording to do this.

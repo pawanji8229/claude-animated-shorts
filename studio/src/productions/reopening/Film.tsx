@@ -8,11 +8,11 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import { Post } from "../../lib/Post";
 import { InkCtx, Ink } from "../../inventor/Workshop";
 import { CardSprite } from "../../char/CardSprite";
-import { drawOdo5, headCenterPx5, W5, H5, SOLE5, PX5 } from "../../char/odo5";
+import { drawOdo5, headCenterPx5, cameraPx5, W5, H5, SOLE5, PX5 } from "../../char/odo5";
 import { glow } from "../../hall/hallTextures";
 import { DesertWorld } from "../../desert/DesertWorld";
 import { V3 } from "../../lib/math";
-import { HAL, CROWD, camAt, halPose, crowdPose, cameraRaise, flashAt, flashLight, boatsAt, confettiAt, balloonOffset, loopT } from "./scene";
+import { HAL, CROWD, camAt, halPose, crowdPose, crowdFlash, boatsAt, confettiAt, balloonOffset, loopT } from "./scene";
 
 const Rig: React.FC<{ f: number }> = ({ f }) => {
   const { camera, scene, gl } = useThree();
@@ -96,18 +96,20 @@ export const ReopeningFilm: React.FC = () => {
           <points geometry={confettiGeo}><pointsMaterial vertexColors size={0.06} /></points>
           {/* crowd (earless odo5 rig, costume variants) with cameras + flash bulbs */}
           {CROWD.map((m, i) => {
-            const pz = crowdPose(i, f), head = headWorld(m.pos, c.pos, headCenterPx5(pz), m.h, 0.12), fl = flashAt(i, f), raise = cameraRaise(f);
+            const pz = crowdPose(i, f), fl = crowdFlash(i, f), cam = pz.camera ? headWorld(m.pos, c.pos, cameraPx5(pz), m.h, 0.14) : null;
             return (
               <group key={i}>
                 <CardSprite W={W5} H={H5} sole={SOLE5} cardH={m.h} pos={m.pos} camPos={c.pos} texScale={hi ? 1.4 : 0.9} albedo={0.82} fill={0.7} fillColor="#fff2e2" contact={0.8} draw={(g) => drawOdo5(g, pz)} drawMask={(g) => drawOdo5(g, pz, true)} />
-                {raise > 0.05 && <group position={[head[0], head[1] - 0.04, head[2]]} scale={raise}><mesh><boxGeometry args={[0.16, 0.1, 0.07]} /><meshStandardMaterial color="#1c1c20" /></mesh><mesh position={[0, 0.07, 0]}><boxGeometry args={[0.06, 0.05, 0.05]} /><meshStandardMaterial color="#c9c9c9" metalness={0.8} roughness={0.2} /></mesh></group>}
-                {fl > 0 && <sprite position={[head[0], head[1] + 0.05, head[2] + 0.05]} scale={[0.38 * fl + 0.12, 0.38 * fl + 0.12, 1]}><spriteMaterial map={flashTex} transparent opacity={0.85 * fl} blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} /></sprite>}
+                {/* brief, subtle flash from THIS person's camera (only on their own flash shots) */}
+                {fl > 0 && cam && <sprite position={cam} scale={[0.16 * fl + 0.05, 0.16 * fl + 0.05, 1]}><spriteMaterial map={flashTex} transparent opacity={0.45 * fl} blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} /></sprite>}
               </group>
             );
           })}
+          {/* ONE always-mounted flash fill light, moved to whoever is firing (no light add/remove -> no shader recompiles) */}
+          {(() => { let best = 0, at: V3 = [HAL[0], HAL[1] + 1.4, HAL[2] + 1]; CROWD.forEach((m, i) => { const fl = crowdFlash(i, f); if (fl > best) { const pz = crowdPose(i, f); best = fl; const w = headWorld(m.pos, c.pos, cameraPx5(pz), m.h, 0.14); at = [w[0], w[1], w[2] + 0.25]; } });
+            return <pointLight position={at} color="#f4f8ff" intensity={1.4 * best} distance={4.5} decay={2} />; })()}
           {/* Hal + face glow + flash fill */}
           <pointLight position={[HAL[0] + 0.8, HAL[1] + 1.9, HAL[2] + 2.2]} color="#ffd2a0" intensity={4.5} distance={6} decay={1.7} />
-          <pointLight position={[HAL[0] + 0.4, HAL[1] + 1.5, HAL[2] + 2.6]} color="#ffffff" intensity={6 * flashLight(f)} distance={5} decay={2} />
           <CardSprite W={W5} H={H5} sole={SOLE5} cardH={1.55} pos={HAL} camPos={c.pos} texScale={hi ? 2 : 1.3} albedo={0.82} fill={0.82} fillColor="#fff2e2" contact={0.9} draw={(g) => drawOdo5(g, hp)} drawMask={(g) => drawOdo5(g, hp, true)} />
           <sprite position={hHead} scale={[0.95, 0.95, 1]}><spriteMaterial map={halo} transparent opacity={0.14} blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} /></sprite>
         </InkCtx.Provider>

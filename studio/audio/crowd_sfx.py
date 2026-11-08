@@ -6,14 +6,14 @@ from dsp import SR, ns, tt, lp, hp, bp, colored, smooth_noise, fades, modal, pha
 from sfx_gen import hurrah, applause, babble, vox, vowel_track, _track, water_bed
 
 
-def shutter(r):
-    """mechanical SLR: mirror slap + shutter curtain clack, then the thumb film-advance ratchet"""
+def shutter(r, advance=True):
+    """mechanical SLR: mirror slap + shutter curtain clack (+ optional thumb film-advance ratchet)"""
     d = 0.42; t = tt(d); n = len(t); y = np.zeros(n)
     for t0, a, fc in [(0.0, 1.0, 2400), (r.uniform(0.018, 0.03), 0.8, 3600)]:
         k = ns(t0); L = n - k; tl = np.arange(L) / SR
         y[k:] += a * bp(r.standard_normal(L), fc * 0.5, fc * 1.6, 2) * np.exp(-tl / 0.006)
         y[k:] += a * 0.5 * modal(L / SR, [(r.uniform(900, 1100), 1.0, 0.012), (r.uniform(2600, 3000), 0.6, 0.008)], r)
-    for i in range(5):  # advance lever ratchet
+    for i in range(5 if advance else 0):  # advance lever ratchet
         k = ns(0.17 + i * r.uniform(0.028, 0.036)); L = min(ns(0.02), n - k)
         if L <= 0: break
         tl = np.arange(L) / SR; y[k:k + L] += 0.25 * hp(r.standard_normal(L), 3000) * np.exp(-tl / 0.003)
@@ -86,3 +86,46 @@ def crowd_bed(dur, r):
     w = water_bed(dur, r, close=0.4)
     out += (w if np.ndim(w) == 2 else np.stack([w, w])) * 0.35
     return out
+
+
+def film_advance(r):
+    """thumb lever winding on the film: 4-6 tiny ratchet ticks + lever spring return"""
+    d = 0.3; n = ns(d); y = np.zeros(n); k0 = 0
+    for i in range(int(r.integers(4, 7))):
+        k = ns(0.01 + i * r.uniform(0.026, 0.034)); L = min(ns(0.018), n - k)
+        if L <= 0: break
+        tl = np.arange(L) / SR; y[k:k + L] += r.uniform(0.6, 1.0) * hp(r.standard_normal(L), 2800) * np.exp(-tl / 0.0025)
+    k = ns(0.24); L = n - k; tl = np.arange(L) / SR
+    y[k:] += 0.5 * bp(r.standard_normal(L), 1500, 5000, 2) * np.exp(-tl / 0.004)
+    return fades(y * 0.5, 0.0005, 0.02)
+
+
+def clap_soft(r):
+    """one person's single soft clap (cupped/flat palms vary)"""
+    d = 0.09; t = tt(d); n = len(t)
+    fc = r.uniform(900, 2200); cup = r.uniform(0.0, 0.7)
+    y = reson(r.standard_normal(n), fc, 1.3) * np.exp(-t / r.uniform(0.005, 0.009))
+    y += cup * reson(r.standard_normal(n), r.uniform(380, 650), 4) * np.exp(-t / 0.012)
+    return fades(y * 0.5, 0.0003, 0.02)
+
+
+def cloth_soft(r):
+    """quiet clothing rustle (sleeve / jacket) for small arm movements"""
+    d = r.uniform(0.25, 0.45); t = tt(d); n = len(t)
+    e = np.sin(np.pi * t / d) ** 1.5 * (0.7 + 0.3 * smooth_noise(n, r, 18))
+    return fades(bp(colored(n, r, 0.4), 700, 5000, 1) * e * 0.3, 0.01, 0.05)
+
+
+def crowd_murmur(dur, r, talkers=12):
+    """gentle, distant crowd murmur: many quiet talkers, low-passed for distance, no shouting/cheering"""
+    n = ns(dur); out = np.zeros((2, n))
+    for p in range(talkers):
+        man = r.uniform() < 0.6
+        x = babble(dur, r, r.uniform(100, 140) if man else r.uniform(185, 230), r.uniform(0.95, 1.05) if man else r.uniform(1.12, 1.2), rate=3.6, active=0.55)
+        out += pan(lp(x, 1900, 2), r.uniform(-0.9, 0.9)) * r.uniform(0.2, 0.45)
+    return out * (0.85 + 0.15 * smooth_noise(n, r, 0.2))[None, :]
+
+
+def river_bed(dur, r):
+    w = water_bed(dur, r, close=0.4)
+    return w if np.ndim(w) == 2 else np.stack([w, w])

@@ -43,6 +43,10 @@ export type Odo5Pose = {
   rim: number; // painted rim light strength
   breathe: number; squash: number; hairLag: number;
   costume?: Costume;
+  /** optional (default 0/absent -> identical to earlier renders): head roll + whole-body sway about the soles (radians) */
+  headRoll?: number; bodyRoll?: number;
+  /** optional hand-held 1970s camera: blend 0 = hanging on its strap at the chest, 1 = at the point between the hands */
+  camera?: { blend: number; flash: "cube" | "gun" | "none"; tiltRad?: number };
 };
 const A = (hand: [number, number], shape: Hand5 = "relaxed", bend = 1, rot = 0, behind = false, elbow?: [number, number]): ArmPose => ({ hand, bend, shape, rot, behind, elbow });
 export const REST_L = A([-34, 194], "relaxed", -1, 0.15), REST_R = A([34, 194], "relaxed", 1, -0.15);
@@ -373,6 +377,37 @@ const rig = (p: Odo5Pose): Rig => {
   return { hip, top, bot, headC, tilt, nod, side, sq, q, s };
 };
 export const headCenterPx5 = (p: Odo5Pose): P => rig(p).headC;
+/** front-view shoulder joint in card px (s = -1 screen-left, +1 screen-right); arm `hand`/`elbow` offsets are relative to it */
+export const shoulderPx5 = (p: Odo5Pose, s: number): P => [300 + s * 64, rig(p).top + 112];
+/** where the hand-held camera's lens centre is drawn (card px), for 3D flash sprites / lights */
+export const cameraPx5 = (p: Odo5Pose): P => {
+  const r = rig(p), hang: P = [300, r.top + 150];
+  const hL: P = [300 - 64 + p.armL.hand[0], r.top + 112 + p.armL.hand[1]], hR: P = [300 + 64 + p.armR.hand[0], r.top + 112 + p.armR.hand[1]];
+  const mid: P = [(hL[0] + hR[0]) / 2, (hL[1] + hR[1]) / 2 - 6];
+  const k = Math.min(1, Math.max(0, p.camera?.blend ?? 0));
+  const x = hang[0] + (mid[0] - hang[0]) * k - 300, y = hang[1] + (mid[1] - hang[1]) * k - SOLE5, a = p.bodyRoll ?? 0;
+  return [300 + x * Math.cos(a) - y * Math.sin(a), SOLE5 + x * Math.sin(a) + y * Math.cos(a)];
+};
+/** 1970s 35 mm camera (body, lens barrel, viewfinder hump, optional flashcube / flash gun) + neck strap, ink style */
+const drawCamera5 = (g: G, c: Pal, p: Odo5Pose, top: number, mask: boolean) => {
+  const cam = p.camera!; const [x, y] = cameraPx5({ ...p, bodyRoll: 0 }); const k = Math.min(1, Math.max(0, cam.blend));
+  const neckL: P = [300 - 30, top + 40], neckR: P = [300 + 30, top + 40];
+  g.save(); g.lineCap = "round"; g.strokeStyle = mask ? "#2a2a2a" : "#3a2a22"; g.lineWidth = 5;
+  const sag = 40 + 50 * k; // strap hangs lower once the camera is lifted to the face
+  g.beginPath(); g.moveTo(x - 30, y - 6); g.quadraticCurveTo(neckL[0] - 10, (neckL[1] + y) / 2 + sag, neckL[0], neckL[1]); g.stroke();
+  g.beginPath(); g.moveTo(x + 30, y - 6); g.quadraticCurveTo(neckR[0] + 10, (neckR[1] + y) / 2 + sag, neckR[0], neckR[1]); g.stroke();
+  g.translate(x, y); g.rotate(cam.tiltRad ?? 0);
+  const body = mask ? "#3a3a3a" : "#26252b", chrome = mask ? "#6a6a6a" : "#c9c9cf";
+  inked(g, c, () => { g.beginPath(); g.roundRect(-34, -20, 68, 40, 6); }, body, 3.5, 3);
+  g.fillStyle = chrome; g.fillRect(-34, -20, 68, 9); // chrome top plate
+  inked(g, c, () => { g.beginPath(); g.moveTo(-12, -20); g.lineTo(-8, -32); g.lineTo(8, -32); g.lineTo(12, -20); g.closePath(); }, body, 3, 2); // prism hump
+  inked(g, c, () => { g.beginPath(); g.arc(0, 3, 15, 0, Math.PI * 2); }, chrome, 3, 2); // lens barrel
+  g.beginPath(); g.arc(0, 3, 9, 0, Math.PI * 2); g.fillStyle = mask ? "#202020" : "#1a2a3a"; g.fill();
+  g.beginPath(); g.arc(-3, 0, 3, 0, Math.PI * 2); g.fillStyle = mask ? "#505050" : "#9fc4e8"; g.fill(); // glint
+  if (cam.flash === "cube") inked(g, c, () => { g.beginPath(); g.rect(14, -42, 16, 16); }, mask ? "#808080" : "#eef3f6", 2.5, 2);
+  if (cam.flash === "gun") { inked(g, c, () => { g.beginPath(); g.rect(18, -50, 22, 30); }, body, 2.5, 2); g.fillStyle = mask ? "#909090" : "#f4f1e8"; g.fillRect(20, -48, 18, 10); }
+  g.restore();
+};
 
 /** Near (lantern) hand position in canvas px for the 3D lantern; swings with the walk. */
 export const lanternHandPx5 = (p: Odo5Pose): P => {
@@ -408,7 +443,7 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
   const side = r.side, w = side ? p.walk : 0;
   const Lpx = p.stride / PX5;
   const sqT = p.squash * 0.06;
-  g.save(); g.translate(300, SOLE5); g.scale(1 + sqT, 1 - sqT); g.translate(-300, -SOLE5);
+  g.save(); g.translate(300, SOLE5); if (p.bodyRoll) g.rotate(p.bodyRoll); g.scale(1 + sqT, 1 - sqT); g.translate(-300, -SOLE5);
   const { hip, top, bot } = r;
   if (side) {
     const stand = (o: number): Foot => ({ pos: [o, SOLE5 - ANKLE], ang: 0 });
@@ -456,7 +491,11 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
     if (p.armL.behind) frontArm(-1, p.armL);
     if (p.armR.behind) frontArm(1, p.armR);
     drawTorso(g, c, 300, top, bot, false, 0, mask, p.rim, cos);
+    const hr = p.headRoll ?? 0;
+    if (hr) { g.save(); g.translate(r.headC[0], r.headC[1] + 110); g.rotate(hr); g.translate(-r.headC[0], -(r.headC[1] + 110)); }
     drawHead(g, c, r.headC[0], r.headC[1], p, false, mask);
+    if (hr) g.restore();
+    if (p.camera) drawCamera5(g, c, p, top, mask);
     if (!p.armL.behind) frontArm(-1, p.armL);
     if (!p.armR.behind) frontArm(1, p.armR);
   }

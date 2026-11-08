@@ -58,6 +58,16 @@ if a:
     lag_ms = (list(lags)[int(np.argmax(cc))]) * 10
     chk("narration in sync (|offset| <= 1 frame)", abs(lag_ms) <= 1000 / FPS, f"offset {lag_ms} ms")
 
+# narration priority (from the mixer's measured report, if present): every word clear of the background, crowd quiet
+_mr = os.path.join(os.path.dirname(os.path.abspath(anp)), "..", "audio", "mix_report.json")
+if os.path.exists(_mr):
+    M = json.load(open(_mr)); q = cfg["qc"]
+    if M.get("min_word_margin_after_db") is not None:
+        chk("narration intelligible (every word above background)", M["min_word_margin_after_db"] >= q.get("minWordMarginDb", 12), f"worst word margin {M['min_word_margin_after_db']} dB in speech band (target >= {q.get('minWordMarginDb', 12)}; {len(M.get('guard_adjustments', []))} automatic guard cuts)")
+    cr = (M.get("stems_lu_re_narration") or {}).get("crowd")
+    if cr is not None: chk("crowd stays quiet under narration", cr <= q.get("maxCrowdLuReNarration", -18), f"crowd {cr} LU re narration (limit {q.get('maxCrowdLuReNarration', -18)})")
+    if M.get("skipped_unknown_kinds"): chk("all sound events have generators", False, f"skipped {M['skipped_unknown_kinds']}")
+
 if LOOP:
     T = cfg["qc"]["loopBoundarySeconds"]; tmp = os.path.join(outd, "_lb")
     os.makedirs(tmp, exist_ok=True)

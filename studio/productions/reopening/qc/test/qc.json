@@ -50,6 +50,12 @@
    "detail": "0 black runs []"
   },
   {
+   "check": "no single-frame glitches",
+   "pass": true,
+   "hard": true,
+   "detail": "0 at frames []"
+  },
+  {
    "check": "no frozen/duplicated runs",
    "pass": true,
    "hard": false,
@@ -59,19 +65,31 @@
    "check": "loudness near target",
    "pass": true,
    "hard": false,
-   "detail": "I=-14.8 LUFS (target -16.0)"
+   "detail": "I=-16.4 LUFS (target -16.0)"
   },
   {
    "check": "no clipping (true peak <= -1 dBTP)",
    "pass": true,
    "hard": true,
-   "detail": "TP=-2.1 dBTP"
+   "detail": "TP=-1.2 dBTP"
   },
   {
    "check": "narration in sync (|offset| <= 1 frame)",
    "pass": true,
    "hard": true,
    "detail": "offset 0 ms"
+  },
+  {
+   "check": "narration intelligible (every word above background)",
+   "pass": true,
+   "hard": true,
+   "detail": "worst word margin 15.7 dB in speech band (target >= 12.0; 2 automatic guard cuts)"
+  },
+  {
+   "check": "crowd stays quiet under narration",
+   "pass": true,
+   "hard": true,
+   "detail": "crowd -34.1 LU re narration (limit -18.0)"
   }
  ],
  "manual_visual_inspection_required": [

@@ -1,0 +1,175 @@
+{
+ "narration_lufs": -23.1,
+ "master_gain_db": 7.0,
+ "final_lufs": -16.1,
+ "final_true_peak_dbtp": -1.1,
+ "stems_lu_re_narration": {
+  "sfx": -22.4,
+  "crowd": -34.1,
+  "ambience": -29.3,
+  "music": null
+ },
+ "stems_speechband_db_re_narration_during_speech": {
+  "sfx": -23.7,
+  "crowd": -34.1,
+  "ambience": -33.0,
+  "music": null
+ },
+ "min_word_margin_target_db": 15.0,
+ "words": 25,
+ "min_word_margin_before_db": 12.6,
+ "min_word_margin_after_db": 15.7,
+ "word_margins_after": [
+  {
+   "word": "and",
+   "t0": 0.24,
+   "margin_db": 26.9
+  },
+  {
+   "word": "in",
+   "t0": 0.36,
+   "margin_db": 29.6
+  },
+  {
+   "word": "nineteen",
+   "t0": 0.47,
+   "margin_db": 30.9
+  },
+  {
+   "word": "seventy",
+   "t0": 0.84,
+   "margin_db": 25.7
+  },
+  {
+   "word": "one",
+   "t0": 1.2,
+   "margin_db": 19.9
+  },
+  {
+   "word": "london",
+   "t0": 1.74,
+   "margin_db": 21.5
+  },
+  {
+   "word": "bridge",
+   "t0": 2.16,
+   "margin_db": 25.2
+  },
+  {
+   "word": "reopened",
+   "t0": 2.44,
+   "margin_db": 30.0
+  },
+  {
+   "word": "in",
+   "t0": 3.373,
+   "margin_db": 29.3
+  },
+  {
+   "word": "the",
+   "t0": 3.533,
+   "margin_db": 27.7
+  },
+  {
+   "word": "arizona",
+   "t0": 3.703,
+   "margin_db": 26.9
+  },
+  {
+   "word": "desert",
+   "t0": 4.263,
+   "margin_db": 29.8
+  },
+  {
+   "word": "because",
+   "t0": 5.181,
+   "margin_db": 21.8
+  },
+  {
+   "word": "he",
+   "t0": 5.451,
+   "margin_db": 27.2
+  },
+  {
+   "word": "wasn't",
+   "t0": 5.551,
+   "margin_db": 20.1
+  },
+  {
+   "word": "just",
+   "t0": 6.011,
+   "margin_db": 21.5
+  },
+  {
+   "word": "buying",
+   "t0": 6.311,
+   "margin_db": 21.5
+  },
+  {
+   "word": "a",
+   "t0": 6.641,
+   "margin_db": 15.7
+  },
+  {
+   "word": "bridge",
+   "t0": 6.691,
+   "margin_db": 17.1
+  },
+  {
+   "word": "he",
+   "t0": 7.463,
+   "margin_db": 16.0
+  },
+  {
+   "word": "was",
+   "t0": 7.663,
+   "margin_db": 16.5
+  },
+  {
+   "word": "buying",
+   "t0": 7.843,
+   "margin_db": 17.9
+  },
+  {
+   "word": "the",
+   "t0": 8.283,
+   "margin_db": 17.6
+  },
+  {
+   "word": "world's",
+   "t0": 8.353,
+   "margin_db": 17.5
+  },
+  {
+   "word": "attention",
+   "t0": 8.843,
+   "margin_db": 16.4
+  }
+ ],
+ "guard_adjustments": [
+  {
+   "pass": 1,
+   "word": "he",
+   "t0": 7.463,
+   "t1": 7.653,
+   "margin_db": 12.6,
+   "cut_db": 3.4
+  },
+  {
+   "pass": 1,
+   "word": "was",
+   "t0": 7.663,
+   "t1": 7.833,
+   "margin_db": 13.3,
+   "cut_db": 2.7
+  }
+ ],
+ "events_placed": 67,
+ "skipped_unknown_kinds": {},
+ "ducking_db": {
+  "sfx": -4,
+  "crowd": -8,
+  "ambience": -6,
+  "music": -10
+ }
+}

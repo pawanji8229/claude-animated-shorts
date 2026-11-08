@@ -9,9 +9,13 @@
   - `twistframe.config.json` — central config (fps, sizes, render batch/crf/gl, loudness, ducking, QC thresholds).
   - `pipeline/` — `setup.sh`, `analyze_audio.py`, `make_video.sh`, `render_batches.mjs`, `qc.py`, `backup.py`.
   - `audio/` — `dsp.py`, `sfx_gen.py` (upstream synth kit), `desert_sfx.py` (desert/car/character SFX), `crowd_sfx.py`
-    (shutter, flash, cheer, ooh, boat, crowd bed), `mix_events.py` (generic mixer; ambience desert|crowd|room|sea|none,
-    music desert_guitar|none, loop-safe beds + wrapped SFX tails), `mix_act1.py` (London Bridge Act 1 original).
+    (shutter, film advance, flash, soft clap, cloth, murmur, river, boat), `mix_events.py` (narration-priority mixer:
+    levels relative to the narration, smooth ducking, per-word masking guard, stems sfx/crowd/ambience/music,
+    mix_report.json; ambience desert|crowd|room|sea|none, music desert_guitar|none, loop-safe), `mix_act1.py` (London Bridge Act 1 original).
   - `src/char/odo5.ts` — character rig v5 + costumes (odo, hal, clerk, workerA, workerB). EARLESS. `CardSprite.tsx` glow mask.
+  - `src/char/crowdLife.ts` — independent crowd behaviour (personas + per-person clip schedules: photograph, clap, talk,
+    laugh, nod, wave, hat/lapel, look, point) with sound events and flashes derived from the same data.
+    `scripts/check-crowd.ts` = no-synchronisation gate (run automatically by `make_video.sh audio`).
   - `src/lib/Post.tsx` — HDR post: 2× supersampling, SSAO, DOF, bloom, neutral tone map, grade, vignette.
   - `src/desert/` — London Bridge film: desert world, rebuilt bridge, 1960s car, detail layer, Act 1 timeline.
   - `src/hall/` — Long Workshop world (+ HallDetail clutter) and "Awkward Encounter" take.

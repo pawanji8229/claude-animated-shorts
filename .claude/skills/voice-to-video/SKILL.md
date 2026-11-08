@@ -28,7 +28,7 @@ Full human guide: `VOICE_TO_VIDEO_GUIDE.md`. State of the project: `PROJECT_HAND
 P=studio/pipeline
 bash $P/make_video.sh init   <id> <voice.mp3|wav> [transcript.txt]   # AUTOMATED: ffprobe, pauses, ASR, uncertainty flags
 #   CLAUDE: productions/<id>/STORYBOARD.md (+ SOURCE_NOTES.md for facts) and the scene code (see §3)
-bash $P/make_video.sh audio  <id> src/productions/<id>/scene.ts       # AUTOMATED: events -> SFX/ambience/music stems, ducked mix, cue sheet
+bash $P/make_video.sh audio  <id> src/productions/<id>/scene.ts       # AUTOMATED: crowd check, events -> stems, narration-priority mix, cue sheet, mix_report
 bash $P/make_video.sh test   <id> <PreviewComposition> 0-59           # AUTOMATED: 2 batches, join, mux, objective QC
 bash $P/make_video.sh render <id> <Composition>                       # AUTOMATED: all frames in resumable batches + mux
 bash $P/make_video.sh qc     <id>                                     # AUTOMATED: full QC + loop-boundary test clip
@@ -46,7 +46,8 @@ tool failures needing the user, or changes to the voiceover/creative direction.
   `FILM_FRAMES` (= analysis.frames), `soundEvents`.
 - `src/productions/<id>/Film.tsx`: composition (pattern: `src/desert/LondonBridgeFilm.tsx`), register preview (540x960)
   and final (1080x1920) ids in `src/Root.tsx` with `durationInFrames = analysis.frames`.
-- Reuse library: characters `src/char/odo5.ts` (+ CardSprite face-glow mask), post `src/lib/Post.tsx` (SSAO, DOF, bloom,
+- Reuse library: characters `src/char/odo5.ts` (+ CardSprite face-glow mask; optional `camera`, `headRoll`, `bodyRoll`),
+  crowd behaviour `src/char/crowdLife.ts` (personas, clips, derived sound events, flashes), post `src/lib/Post.tsx` (SSAO, DOF, bloom,
   grade), ink `src/lib/Ink.tsx`, worlds `src/desert/*` (desert, bridge, 1960s car, detail layer), `src/hall/*` (workshop
   hall + clutter), audio generators `studio/audio/desert_sfx.py` (desert/car/character), `crowd_sfx.py` (camera
   shutter, flash pop, cheer, crowd ooh, boat pass, crowd bed) + `sfx_gen.py`. Extend the library; do not fork it.
@@ -73,6 +74,31 @@ tool failures needing the user, or changes to the voiceover/creative direction.
   (z-fighting), contact shadows + SSAO, wind-driven secondary motion, background life. No primitive placeholders for
   hero objects.
 
+## 4b. Crowd & background-character rules (MANDATORY for every crowd, any size)
+- Build crowds with `src/char/crowdLife.ts`: one `Persona` per person (stable seed, own idle stance —
+  rest/clasp/behind/hip/pockets —, own breathing + sway rates as integer cycles per loop, temperament, mood, eyes) and an
+  INDIVIDUAL clip schedule. Worked example: `src/productions/reopening/scene.ts` (`PERSONAS`).
+- **NO SYNCHRONISED CROWD ANIMATION.** Never drive several people with one curve, one sine or one timeline, and never
+  "offset the same animation by a few frames". Each person gets different clips, start times, durations, holds,
+  amplitudes and reaction delays. Typical mix: some clap in short bursts, some chat (head turned to a neighbour,
+  irregular syllables, small hand gesture) and laugh/nod, some watch the landmark, one waves briefly, some fix a hat or
+  lapel, some just stand and breathe, some react LATE to the main action.
+- Photographers follow the full sequence per person: notice -> look at the subject -> reach for the camera (dominant
+  hand first, other hand a few frames later) -> raise -> settle/aim (small drift) -> press (2-frame dip) -> wind on the
+  film -> second shot or lower (some check the camera) -> let it hang on the strap -> idle. Different photographers
+  start at clearly different times; some shoot early, some late, most people never photograph. Not every shot flashes.
+- Flashes: brief (peak on the shutter frame, gone after 3 frames), small, from that person's camera position, one
+  always-mounted fill light moved to whoever fires (no light add/remove). Never two flashes within 8 frames.
+- Place people so nobody who performs an action is hidden behind the hero at the moment of the action (check stills
+  at each action frame along the camera path; swap who stands where rather than retime the story).
+- Every crowd sound is derived from the same clips (`personEvents`): shutter on the press frame, flash pop only on
+  flash shots, film advance on the wind-on, one soft clap per palm contact, quiet cloth on gestures. No disconnected
+  or mass-synchronised shutter/clap sounds.
+- Gate: `scripts/check-crowd.ts` runs automatically in `make_video.sh audio` for any scene that exports `PERSONAS`
+  (max pairwise hand-motion correlation ≤ 0.6, never > half the crowd gesturing in one frame, shutters ≥ 6 frames
+  apart, flashes ≥ 8 apart, camera raises ≥ 10 apart, not everyone photographs). Fix the schedules if it fails.
+- Then inspect CONSECUTIVE frames around every photography event (raise, press, flash, lower) in the encoded video.
+
 ## 5. Camera & loop rules
 - ONE continuous take: no cuts/teleports; connected geography; smooth accel/decel; camera never inside meshes.
 - Batches are frame ranges of the SAME composition (identical encoder settings) -> lossless join; audio muxed once.
@@ -84,13 +110,31 @@ tool failures needing the user, or changes to the voiceover/creative direction.
 ## 6. Sound rules
 - Event-driven, frame-accurate cues from the animation (never place sounds without a visible cause).
 - Surface-specific footsteps only on foot contact; cloth, hands, props, vehicles, machinery, weather, ambience layers.
-- Per-instance variation (seeded). Ducking under speech (amb −7, music −8, SFX −2 dB). One master gain set from the
-  narration's loudness/peak + look-ahead limiter (−16 LUFS target, ≤ −1 dBTP).
-- Deliver stems: narration (untouched), sfx, ambience, music, mix + cue sheet (frame, times, source, level, pan, fades, FG/BG).
+- Per-instance variation (seeded). Rich detail is welcome (hundreds of cues in a long video) but NEVER at the expense
+  of narration clarity: **the narrator is always the clearest sound.**
+- Narration-priority mix (`audio/mix_events.py`, settings in `twistframe.config.json` audio.mix):
+  - levels are set RELATIVE to the narration: event peaks in dB under the narration peak (`REL` table), beds in LU
+    under the narration loudness. Starting points: footsteps −10…−12, shutters −15 (short, subtle), flash −23, film
+    advance −25, cloth −23…−28, soft claps −23, major effects (car, door, impact) −6…−9; ambience beds −23…−30 LU,
+    crowd murmur −28 LU, music −21 LU (≈ 20–25 dB under speech after ducking). Adjust by measuring the result.
+  - crowds are a QUIET, DISTANT murmur + individually triggered soft claps. No shouting, screaming, "woo!" or
+    repetitive cheering loops; `cheer`/`crowd_ooh` only for a rare, story-critical beat, at −27 dB or lower.
+  - smooth ducking under speech (60 ms attack, 600 ms release; sfx −4, crowd −8, ambience −6, music −10 dB);
+    backgrounds come back gently in pauses; no sudden jumps.
+  - word masking guard: every ASR word must stay ≥ 15 dB above all other layers in the 300–4000 Hz speech band;
+    the mixer measures each word and pulls the background down around any word that fails (smooth ramps), logging
+    every cut in `mix_report.json`. If a sound still masks a word, lower or remove that sound.
+  - one master gain (≤ 2 dB of transparent peak limiting on the voice), −16 LUFS, ≤ −1 dBTP. Narration timing,
+    content and tone are never edited.
+- Deliver stems: narration (untouched), sfx, crowd, ambience, music, mix + cue sheet (frame, times, source, stem,
+  level re narration, pan) + `mix_report.json` (measured stem levels vs narration, per-word margins, guard cuts).
+- Intelligibility check before delivery: QC fails if the worst word margin < 12 dB or the crowd stem is louder than
+  −18 LU re narration; also listen-check the phrase with the densest effects.
 
 ## 7. QC & reporting
 - `qc.py` hard checks: codec/size/fps, frame count = narration frames, duration, black frames, single-frame glitches
-  (a frame unlike both neighbours), clipping, sync (cross-correlation). Soft: freezes, loudness, loop metrics. Then Claude inspects the contact sheet + key stills for: ears,
+  (a frame unlike both neighbours), clipping, sync (cross-correlation), narration intelligibility (worst word margin)
+  and crowd level (from `mix_report.json`). Soft: freezes, loudness, loop metrics. Then Claude inspects the contact sheet + key stills for: ears,
   head/torso join, hands/feet, geometry artifacts, lighting, detail, camera feel — and says honestly what is weak.
 - Final report: what was automated vs authored, timings, QC table, ⚠ transcript words, known weaknesses, links to files.
 - Deliver with SendUserFile: final MP4, stems/cue-sheet ZIP, backup ZIP.
