@@ -1,0 +1,14 @@
+{
+  "_doc": "TwistFrame Lab central configuration. Read by pipeline scripts and by the voice-to-video skill.",
+  "brand": "TwistFrame Lab",
+  "video": { "fps": 30, "preview": [540, 960], "final": [1080, 1920], "aspect": "9:16", "codec": "h264", "pixelFormat": "yuv420p" },
+  "render": { "batchFrames": 150, "crf": 17, "gl": "swangle", "delayRenderTimeoutMs": 400000, "browserExecutable": "", "previewComposition": "LondonBridgePreview", "finalComposition": "LondonBridge" },
+  "audio": { "sampleRate": 48000, "targetLufs": -16.0, "ceilingDbtp": -1.2, "narrationPeakMaxDb": -1.5, "duckDb": { "ambience": -7, "music": -8, "sfx": -2 }, "aacBitrate": "256k", "ambiencePreset": "desert", "musicPreset": "desert_guitar", "loopSafeBeds": true },
+  "style": {
+    "characters": "original flat 2D illustrated cards (odo5 rig + costumes) in detailed 3D worlds; NO EARS; head overlaps pill torso; brush variable-width outlines; face-only glow mask (fill 0.8-0.95) + soft halo; awkward/cringe expressions when the story suits",
+    "post": { "ss": 2, "contrast": 1.15, "saturation": 1.08, "lift": 0.012, "ao": 0.6, "aoRadius": 0.6, "bloomThreshold": 1.6, "vignette": 0.55 },
+    "camera": "ONE continuous take; monotone-cubic keyframes + Gaussian low-pass; check-camera must report 0 problems; max speed change < 4 m/s per frame"
+  },
+  "qc": { "maxBlackFrames": 0, "freezeMinSeconds": 0.5, "durationToleranceFrames": 1, "loopBoundarySeconds": 1.5, "loopMaxMeanDiff": 18, "lufsTolerance": 1.5 },
+  "paths": { "productions": "productions", "python": "../.venv/bin/python" }
+}

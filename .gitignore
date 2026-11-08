@@ -10,3 +10,7 @@ private_reference_sheets/
 # Build outputs
 node_modules/
 studio/out/
+
+# python env (recreated by studio/pipeline/setup.sh)
+.venv/
+__pycache__/

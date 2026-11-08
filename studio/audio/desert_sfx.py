@@ -161,6 +161,8 @@ def desert_guitar(dur, r):
     n = ns(dur); out = np.zeros((2, n))
     A2, C3, E3, G3, A3, B3, C4, E4 = 110.0, 130.81, 164.81, 196.0, 220.0, 246.94, 261.63, 329.63
     seq = [(0.4, A2), (1.0, E3), (1.6, A3), (2.2, C4), (3.4, G3), (4.0, B3), (4.6, E4), (6.0, A2), (6.6, E3), (7.2, C4), (8.6, A3), (9.2, E3)]
+    period = 10.4  # the motif repeats for any duration
+    seq = [(at + k * period, f) for k in range(int(dur // period) + 1) for at, f in seq]
     for at, f in seq:
         if at >= dur: continue
         p = pluck(f, 2.2, r, 0.35) * 0.35
