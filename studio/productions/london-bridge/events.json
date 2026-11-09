@@ -1375,6 +1375,13 @@
    "note": "dismantling crew walk in"
   },
   {
+   "frame": 796,
+   "kind": "truck_pass",
+   "x": -0.5,
+   "gain": 0.45,
+   "note": "flatbed truck with more numbered blocks rolls along the quay"
+  },
+  {
    "frame": 797,
    "kind": "step_stone",
    "x": -0.5,
@@ -1506,6 +1513,13 @@
    "x": -0.19999999999999998,
    "gain": 1,
    "note": "person 5 wrench"
+  },
+  {
+   "frame": 846,
+   "kind": "air_brake",
+   "x": -0.4,
+   "gain": 0.4,
+   "note": "truck stops behind the stacks"
   },
   {
    "frame": 850,
@@ -1669,25 +1683,25 @@
    "note": "bow cuts a swell"
   },
   {
-   "frame": 1024,
+   "frame": 1016,
+   "kind": "water_rush",
+   "x": 0.3,
+   "gain": 0.65,
+   "note": "culverts open: water boils up and fills the lock chamber"
+  },
+  {
+   "frame": 1046,
    "kind": "lock_gate",
    "x": 0.4,
    "gain": 0.8,
-   "note": "lock gate motors start, gates swing open"
+   "note": "upper gate motors start, gates swing open"
   },
   {
-   "frame": 1034,
+   "frame": 1054,
    "kind": "ship_horn",
    "x": 0.4,
-   "gain": 0.55,
-   "note": "short horn entering the lock"
-  },
-  {
-   "frame": 1040,
-   "kind": "water_rush",
-   "x": 0.3,
-   "gain": 0.6,
-   "note": "water churns as the gates open"
+   "gain": 0.5,
+   "note": "short horn as the ship leaves the lock"
   },
   {
    "frame": 1070,
@@ -1844,13 +1858,6 @@
    "note": "person 0 hat"
   },
   {
-   "frame": 1238,
-   "kind": "scaffold_clatter",
-   "x": 0.3,
-   "gain": 0.6,
-   "note": "scaffold poles come down"
-  },
-  {
    "frame": 1241,
    "kind": "ratchet",
    "x": -0.7833333333333333,
@@ -1872,25 +1879,11 @@
    "note": "granite block set into the facing"
   },
   {
-   "frame": 1247,
-   "kind": "scaffold_clatter",
-   "x": 0.3,
-   "gain": 0.6,
-   "note": "scaffold poles come down"
-  },
-  {
    "frame": 1250,
    "kind": "step_sand",
    "x": -0.3,
    "gain": 0.55,
    "note": "Hal walks up to admire the bridge"
-  },
-  {
-   "frame": 1255,
-   "kind": "scaffold_clatter",
-   "x": 0,
-   "gain": 0.6,
-   "note": "scaffold poles come down"
   },
   {
    "frame": 1258,

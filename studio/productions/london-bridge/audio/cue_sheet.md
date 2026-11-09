@@ -1,8 +1,8 @@
 # Sound cue sheet (0–59.01 s; loop-safe: True)
 
-Narration-priority mix. Narration -24.4 LUFS is the reference; event levels are peak dB under the narration peak, beds are LU under the narration loudness. Ducking under speech: {'sfx': -4, 'crowd': -8, 'ambience': -6, 'music': -10}. Word masking guard: every word ≥ 15 dB above all other layers in the 300–4000 Hz speech band (worst word before guard 2.5 dB, after 15.3 dB; 32 guard cuts). Master +8.4 dB → -16.1 LUFS, -1.1 dBTP.
+Narration-priority mix. Narration -24.4 LUFS is the reference; event levels are peak dB under the narration peak, beds are LU under the narration loudness. Ducking under speech: {'sfx': -4, 'crowd': -8, 'ambience': -6, 'music': -10}. Word masking guard: every word ≥ 15 dB above all other layers in the 300–4000 Hz speech band (worst word before guard 4.0 dB, after 15.3 dB; 32 guard cuts). Master +8.4 dB → -16.1 LUFS, -1.1 dBTP.
 
-Measured stem loudness vs narration (LU): {'sfx': np.float64(-18.2), 'crowd': np.float64(-33.9), 'ambience': np.float64(-29.0), 'music': None}
+Measured stem loudness vs narration (LU): {'sfx': np.float64(-18.1), 'crowd': np.float64(-33.9), 'ambience': np.float64(-29.0), 'music': None}
 
 All effects are procedurally synthesised in `studio/audio/` (no third-party recordings).
 
@@ -90,6 +90,7 @@ All effects are procedurally synthesised in `studio/audio/` (no third-party reco
 | 748 | 24.933 | 25.093 | dismantling crew walk in | step_stone | sfx | -23.2 dB re narration peak | -0.50 |
 | 749 | 24.967 | 25.127 | dismantling crew walk in | step_stone | sfx | -25.5 dB re narration peak | -0.50 |
 | 751 | 25.033 | 25.193 | dismantling crew walk in | step_stone | sfx | -23.5 dB re narration peak | -0.50 |
+| 796 | 25.033 | 28.433 | flatbed truck with more numbered blocks rolls along the quay | truck_pass | sfx | -23.6 dB re narration peak | -0.50 |
 | 752 | 25.067 | 25.227 | dismantling crew walk in | step_stone | sfx | -24.7 dB re narration peak | -0.50 |
 | 752 | 25.067 | 25.227 | dismantling crew walk in | step_stone | sfx | -25.6 dB re narration peak | -0.50 |
 | 754 | 25.133 | 25.574 | handshake | cloth_soft | sfx | -34.0 dB re narration peak | -0.10 |
@@ -206,158 +207,156 @@ All effects are procedurally synthesised in `studio/audio/` (no third-party reco
 | 795 | 26.500 | 26.660 | dismantling crew walk in | step_stone | sfx | -22.9 dB re narration peak | -0.50 |
 | 796 | 26.533 | 26.693 | dismantling crew walk in | step_stone | sfx | -23.0 dB re narration peak | -0.50 |
 | 796 | 26.533 | 26.693 | dismantling crew walk in | step_stone | sfx | -25.6 dB re narration peak | -0.50 |
-| 797 | 26.567 | 26.727 | dismantling crew walk in | step_stone | sfx | -25.5 dB re narration peak | -0.50 |
-| 798 | 26.600 | 26.760 | dismantling crew walk in | step_stone | sfx | -23.7 dB re narration peak | -0.50 |
-| 799 | 26.633 | 26.793 | dismantling crew walk in | step_stone | sfx | -23.6 dB re narration peak | -0.50 |
+| 797 | 26.567 | 26.727 | dismantling crew walk in | step_stone | sfx | -24.2 dB re narration peak | -0.50 |
+| 798 | 26.600 | 26.760 | dismantling crew walk in | step_stone | sfx | -25.1 dB re narration peak | -0.50 |
 | 799 | 26.633 | 26.793 | dismantling crew walk in | step_stone | sfx | -24.2 dB re narration peak | -0.50 |
-| 800 | 26.667 | 26.827 | dismantling crew walk in | step_stone | sfx | -22.8 dB re narration peak | -0.50 |
-| 801 | 26.700 | 26.860 | dismantling crew walk in | step_stone | sfx | -22.7 dB re narration peak | -0.50 |
-| 802 | 26.733 | 26.893 | dismantling crew walk in | step_stone | sfx | -24.4 dB re narration peak | -0.50 |
-| 803 | 26.767 | 26.927 | dismantling crew walk in | step_stone | sfx | -24.5 dB re narration peak | -0.50 |
-| 805 | 26.833 | 27.051 | person 3 chalk | chalk_scratch | sfx | -25.4 dB re narration peak | +0.00 |
-| 805 | 26.833 | 26.993 | dismantling crew walk in | step_stone | sfx | -25.2 dB re narration peak | -0.50 |
-| 807 | 26.900 | 27.060 | dismantling crew walk in | step_stone | sfx | -24.3 dB re narration peak | -0.50 |
-| 812 | 27.067 | 27.967 | gull cry over the river | gull | sfx | -31.2 dB re narration peak | +1.00 |
-| 814 | 27.133 | 28.033 | person 4 hammer | hammer_hit | sfx | -17.3 dB re narration peak | -0.30 |
-| 823 | 27.433 | 27.696 | person 3 chalk | chalk_scratch | sfx | -24.2 dB re narration peak | +0.00 |
-| 832 | 27.733 | 27.913 | person 5 wrench | ratchet | sfx | -24.9 dB re narration peak | -0.20 |
-| 838 | 27.933 | 28.833 | person 4 hammer | hammer_hit | sfx | -15.7 dB re narration peak | -0.30 |
+| 799 | 26.633 | 26.793 | dismantling crew walk in | step_stone | sfx | -22.9 dB re narration peak | -0.50 |
+| 800 | 26.667 | 26.827 | dismantling crew walk in | step_stone | sfx | -22.7 dB re narration peak | -0.50 |
+| 801 | 26.700 | 26.860 | dismantling crew walk in | step_stone | sfx | -24.9 dB re narration peak | -0.50 |
+| 802 | 26.733 | 26.893 | dismantling crew walk in | step_stone | sfx | -24.6 dB re narration peak | -0.50 |
+| 803 | 26.767 | 26.927 | dismantling crew walk in | step_stone | sfx | -23.3 dB re narration peak | -0.50 |
+| 805 | 26.833 | 27.036 | person 3 chalk | chalk_scratch | sfx | -23.8 dB re narration peak | +0.00 |
+| 805 | 26.833 | 26.993 | dismantling crew walk in | step_stone | sfx | -24.8 dB re narration peak | -0.50 |
+| 807 | 26.900 | 27.060 | dismantling crew walk in | step_stone | sfx | -24.9 dB re narration peak | -0.50 |
+| 812 | 27.067 | 27.967 | gull cry over the river | gull | sfx | -32.4 dB re narration peak | +1.00 |
+| 814 | 27.133 | 28.033 | person 4 hammer | hammer_hit | sfx | -18.1 dB re narration peak | -0.30 |
+| 823 | 27.433 | 27.626 | person 3 chalk | chalk_scratch | sfx | -22.8 dB re narration peak | +0.00 |
+| 832 | 27.733 | 27.913 | person 5 wrench | ratchet | sfx | -23.9 dB re narration peak | -0.20 |
+| 838 | 27.933 | 28.833 | person 4 hammer | hammer_hit | sfx | -16.9 dB re narration peak | -0.30 |
 | 838 | 27.933 | 28.933 | hook lowered to the block | chain_rattle | sfx | -26.4 dB re narration peak | +0.20 |
-| 842 | 28.067 | 28.301 | person 3 chalk | chalk_scratch | sfx | -24.4 dB re narration peak | +0.00 |
-| 846 | 28.200 | 28.380 | person 5 wrench | ratchet | sfx | -24.5 dB re narration peak | -0.20 |
-| 850 | 28.333 | 28.568 | person 6 chalk | chalk_scratch | sfx | -24.0 dB re narration peak | -0.10 |
-| 852 | 28.400 | 29.400 | slings hooked round the block | chain_rattle | sfx | -24.1 dB re narration peak | +0.15 |
-| 861 | 28.700 | 28.906 | person 3 chalk | chalk_scratch | sfx | -24.7 dB re narration peak | +0.00 |
-| 861 | 28.700 | 28.880 | person 5 wrench | ratchet | sfx | -25.4 dB re narration peak | -0.20 |
-| 862 | 28.733 | 29.633 | person 4 hammer | hammer_hit | sfx | -15.6 dB re narration peak | -0.30 |
-| 866 | 28.867 | 30.467 | winch takes the load, block lifts | crane_winch | sfx | -25.1 dB re narration peak | +0.20 |
-| 873 | 29.100 | 29.304 | person 6 chalk | chalk_scratch | sfx | -24.6 dB re narration peak | -0.10 |
-| 875 | 29.167 | 29.347 | person 5 wrench | ratchet | sfx | -23.3 dB re narration peak | -0.20 |
-| 889 | 29.633 | 29.813 | person 5 wrench | ratchet | sfx | -23.5 dB re narration peak | -0.20 |
-| 894 | 29.800 | 30.207 | person 4 hat | cloth_soft | sfx | -30.1 dB re narration peak | -0.30 |
-| 894 | 29.800 | 31.400 | crane slews toward the ship | crane_winch | sfx | -28.1 dB re narration peak | +0.40 |
-| 902 | 30.067 | 30.341 | person 8 wave | cloth_soft | sfx | -32.2 dB re narration peak | -0.30 |
-| 905 | 30.167 | 31.067 | gull cry over the river | gull | sfx | -31.7 dB re narration peak | +1.00 |
-| 926 | 30.867 | 32.467 | block lowered into the hold | crane_winch | sfx | -27.6 dB re narration peak | +0.50 |
-| 944 | 31.467 | 31.967 | block lands in the hold | stone_thud | sfx | -16.9 dB re narration peak | +0.50 |
-| 950 | 31.667 | 32.667 | deck hand frees the slings | chain_rattle | sfx | -26.5 dB re narration peak | +0.50 |
-| 952 | 31.733 | 33.933 | ship's horn: casting off | ship_horn | sfx | -21.4 dB re narration peak | +0.60 |
-| 960 | 32.000 | 35.000 | engine chugs as the ship pulls away | ship_engine | sfx | -25.7 dB re narration peak | +0.60 |
-| 964 | 32.133 | 32.455 | person 9 wave | cloth_soft | sfx | -30.1 dB re narration peak | -0.20 |
-| 970 | 32.333 | 33.333 | bow wave as she gathers way | bow_splash | sfx | -29.3 dB re narration peak | +0.50 |
+| 842 | 28.067 | 28.282 | person 3 chalk | chalk_scratch | sfx | -25.0 dB re narration peak | +0.00 |
+| 846 | 28.200 | 28.380 | person 5 wrench | ratchet | sfx | -24.6 dB re narration peak | -0.20 |
+| 846 | 28.200 | 29.100 | truck stops behind the stacks | air_brake | sfx | -31.4 dB re narration peak | -0.40 |
+| 850 | 28.333 | 28.548 | person 6 chalk | chalk_scratch | sfx | -24.6 dB re narration peak | -0.10 |
+| 852 | 28.400 | 29.400 | slings hooked round the block | chain_rattle | sfx | -26.4 dB re narration peak | +0.15 |
+| 861 | 28.700 | 28.896 | person 3 chalk | chalk_scratch | sfx | -25.3 dB re narration peak | +0.00 |
+| 861 | 28.700 | 28.880 | person 5 wrench | ratchet | sfx | -24.5 dB re narration peak | -0.20 |
+| 862 | 28.733 | 29.633 | person 4 hammer | hammer_hit | sfx | -16.0 dB re narration peak | -0.30 |
+| 866 | 28.867 | 30.467 | winch takes the load, block lifts | crane_winch | sfx | -24.8 dB re narration peak | +0.20 |
+| 873 | 29.100 | 29.305 | person 6 chalk | chalk_scratch | sfx | -22.7 dB re narration peak | -0.10 |
+| 875 | 29.167 | 29.347 | person 5 wrench | ratchet | sfx | -24.1 dB re narration peak | -0.20 |
+| 889 | 29.633 | 29.813 | person 5 wrench | ratchet | sfx | -25.1 dB re narration peak | -0.20 |
+| 894 | 29.800 | 30.075 | person 4 hat | cloth_soft | sfx | -31.5 dB re narration peak | -0.30 |
+| 894 | 29.800 | 31.400 | crane slews toward the ship | crane_winch | sfx | -26.2 dB re narration peak | +0.40 |
+| 902 | 30.067 | 30.471 | person 8 wave | cloth_soft | sfx | -30.2 dB re narration peak | -0.30 |
+| 905 | 30.167 | 31.067 | gull cry over the river | gull | sfx | -30.9 dB re narration peak | +1.00 |
+| 926 | 30.867 | 32.467 | block lowered into the hold | crane_winch | sfx | -27.8 dB re narration peak | +0.50 |
+| 944 | 31.467 | 31.967 | block lands in the hold | stone_thud | sfx | -16.1 dB re narration peak | +0.50 |
+| 950 | 31.667 | 32.667 | deck hand frees the slings | chain_rattle | sfx | -25.7 dB re narration peak | +0.50 |
+| 952 | 31.733 | 33.933 | ship's horn: casting off | ship_horn | sfx | -20.7 dB re narration peak | +0.60 |
+| 960 | 32.000 | 35.000 | engine chugs as the ship pulls away | ship_engine | sfx | -25.0 dB re narration peak | +0.60 |
+| 964 | 32.133 | 32.528 | person 9 wave | cloth_soft | sfx | -30.2 dB re narration peak | -0.20 |
+| 970 | 32.333 | 33.333 | bow wave as she gathers way | bow_splash | sfx | -28.0 dB re narration peak | +0.50 |
 | 985 | 32.833 | 35.467 | ambience segment: sea (0.5 s equal-power crossfades) | ambience_sea | bed | see preset | stereo wide |
-| 988 | 32.933 | 35.933 | ship engine at sea | ship_engine | sfx | -24.2 dB re narration peak | +0.30 |
-| 992 | 33.067 | 34.067 | bow cuts a swell | bow_splash | sfx | -25.8 dB re narration peak | +0.20 |
-| 1006 | 33.533 | 34.533 | bow cuts a swell | bow_splash | sfx | -27.1 dB re narration peak | +0.20 |
-| 1024 | 34.133 | 36.733 | lock gate motors start, gates swing open | lock_gate | sfx | -24.0 dB re narration peak | +0.40 |
-| 1070 | 34.167 | 37.567 | 1960s flatbed truck 0 rumbles past with numbered blocks | truck_pass | sfx | -18.0 dB re narration peak | -0.60 |
-| 1034 | 34.467 | 36.667 | short horn entering the lock | ship_horn | sfx | -21.5 dB re narration peak | +0.40 |
-| 1082 | 34.567 | 37.967 | 1960s flatbed truck 1 rumbles past with numbered blocks | truck_pass | sfx | -21.3 dB re narration peak | -0.30 |
-| 1040 | 34.667 | 37.467 | water churns as the gates open | water_rush | sfx | -23.6 dB re narration peak | +0.30 |
-| 1094 | 34.967 | 38.367 | 1960s flatbed truck 2 rumbles past with numbered blocks | truck_pass | sfx | -23.5 dB re narration peak | +0.00 |
+| 988 | 32.933 | 35.933 | ship engine at sea | ship_engine | sfx | -24.5 dB re narration peak | +0.30 |
+| 992 | 33.067 | 34.067 | bow cuts a swell | bow_splash | sfx | -24.3 dB re narration peak | +0.20 |
+| 1006 | 33.533 | 34.533 | bow cuts a swell | bow_splash | sfx | -25.0 dB re narration peak | +0.20 |
+| 1016 | 33.867 | 36.667 | culverts open: water boils up and fills the lock chamber | water_rush | sfx | -22.3 dB re narration peak | +0.30 |
+| 1070 | 34.167 | 37.567 | 1960s flatbed truck 0 rumbles past with numbered blocks | truck_pass | sfx | -20.3 dB re narration peak | -0.60 |
+| 1082 | 34.567 | 37.967 | 1960s flatbed truck 1 rumbles past with numbered blocks | truck_pass | sfx | -20.2 dB re narration peak | -0.30 |
+| 1046 | 34.867 | 37.467 | upper gate motors start, gates swing open | lock_gate | sfx | -25.1 dB re narration peak | +0.40 |
+| 1094 | 34.967 | 38.367 | 1960s flatbed truck 2 rumbles past with numbered blocks | truck_pass | sfx | -22.9 dB re narration peak | +0.00 |
+| 1054 | 35.133 | 37.333 | short horn as the ship leaves the lock | ship_horn | sfx | -21.9 dB re narration peak | +0.40 |
 | 1064 | 35.467 | 49.367 | ambience segment: desert (0.5 s equal-power crossfades) | ambience_desert | bed | see preset | stereo wide |
-| 1100 | 36.667 | 37.567 | lead truck's air brakes hiss at the site | air_brake | sfx | -27.3 dB re narration peak | +0.20 |
-| 1139 | 37.967 | 39.567 | truck crane winch lifts a block off the stack | crane_winch | sfx | -28.9 dB re narration peak | -0.50 |
-| 1142 | 38.067 | 42.067 | concrete mixer drum churning | concrete_mixer | sfx | -29.4 dB re narration peak | +0.60 |
-| 1144 | 38.133 | 38.494 | person 3 wave | cloth_soft | sfx | -31.5 dB re narration peak | +0.32 |
-| 1158 | 38.600 | 39.100 | granite block set into the facing | stone_thud | sfx | -17.0 dB re narration peak | -0.40 |
-| 1174 | 39.133 | 40.033 | person 0 hammer | hammer_hit | sfx | -17.9 dB re narration peak | -0.93 |
-| 1183 | 39.433 | 41.033 | truck crane winch lifts a block off the stack | crane_winch | sfx | -28.4 dB re narration peak | -0.50 |
-| 1186 | 39.533 | 39.713 | person 1 wrench | ratchet | sfx | -24.7 dB re narration peak | -0.78 |
-| 1187 | 39.567 | 40.017 | person 2 shovel | shovel_dig | sfx | -18.9 dB re narration peak | -0.38 |
-| 1197 | 39.900 | 40.800 | person 0 hammer | hammer_hit | sfx | -17.9 dB re narration peak | -0.93 |
-| 1200 | 40.000 | 40.180 | person 1 wrench | ratchet | sfx | -25.3 dB re narration peak | -0.78 |
-| 1200 | 40.000 | 40.900 | person 3 hammer | hammer_hit | sfx | -18.4 dB re narration peak | +0.32 |
-| 1202 | 40.067 | 40.567 | granite block set into the facing | stone_thud | sfx | -17.9 dB re narration peak | -0.40 |
-| 1214 | 40.467 | 40.647 | person 1 wrench | ratchet | sfx | -23.7 dB re narration peak | -0.78 |
-| 1221 | 40.700 | 41.150 | person 2 shovel | shovel_dig | sfx | -17.4 dB re narration peak | -0.38 |
-| 1227 | 40.900 | 42.500 | truck crane winch lifts a block off the stack | crane_winch | sfx | -30.0 dB re narration peak | -0.50 |
-| 1227 | 40.900 | 41.080 | person 1 wrench | ratchet | sfx | -25.2 dB re narration peak | -0.78 |
-| 1230 | 41.000 | 41.900 | person 3 hammer | hammer_hit | sfx | -16.7 dB re narration peak | +0.32 |
-| 1238 | 41.267 | 41.583 | person 0 hat | cloth_soft | sfx | -29.9 dB re narration peak | -0.93 |
-| 1238 | 41.267 | 42.067 | scaffold poles come down | scaffold_clatter | sfx | -23.3 dB re narration peak | +0.30 |
-| 1241 | 41.367 | 41.547 | person 1 wrench | ratchet | sfx | -24.8 dB re narration peak | -0.78 |
-| 1242 | 41.400 | 41.720 | Hal walks up to admire the bridge | step_sand | sfx | -19.6 dB re narration peak | -0.30 |
-| 1246 | 41.533 | 42.033 | granite block set into the facing | stone_thud | sfx | -17.1 dB re narration peak | -0.40 |
-| 1247 | 41.567 | 42.367 | scaffold poles come down | scaffold_clatter | sfx | -25.0 dB re narration peak | +0.30 |
+| 1100 | 36.667 | 37.567 | lead truck's air brakes hiss at the site | air_brake | sfx | -25.3 dB re narration peak | +0.20 |
+| 1139 | 37.967 | 39.567 | truck crane winch lifts a block off the stack | crane_winch | sfx | -30.4 dB re narration peak | -0.50 |
+| 1142 | 38.067 | 42.067 | concrete mixer drum churning | concrete_mixer | sfx | -28.9 dB re narration peak | +0.60 |
+| 1144 | 38.133 | 38.399 | person 3 wave | cloth_soft | sfx | -29.6 dB re narration peak | +0.32 |
+| 1158 | 38.600 | 39.100 | granite block set into the facing | stone_thud | sfx | -16.9 dB re narration peak | -0.40 |
+| 1174 | 39.133 | 40.033 | person 0 hammer | hammer_hit | sfx | -17.3 dB re narration peak | -0.93 |
+| 1183 | 39.433 | 41.033 | truck crane winch lifts a block off the stack | crane_winch | sfx | -28.3 dB re narration peak | -0.50 |
+| 1186 | 39.533 | 39.713 | person 1 wrench | ratchet | sfx | -25.0 dB re narration peak | -0.78 |
+| 1187 | 39.567 | 40.017 | person 2 shovel | shovel_dig | sfx | -18.5 dB re narration peak | -0.38 |
+| 1197 | 39.900 | 40.800 | person 0 hammer | hammer_hit | sfx | -18.4 dB re narration peak | -0.93 |
+| 1200 | 40.000 | 40.180 | person 1 wrench | ratchet | sfx | -22.8 dB re narration peak | -0.78 |
+| 1200 | 40.000 | 40.900 | person 3 hammer | hammer_hit | sfx | -17.2 dB re narration peak | +0.32 |
+| 1202 | 40.067 | 40.567 | granite block set into the facing | stone_thud | sfx | -19.2 dB re narration peak | -0.40 |
+| 1214 | 40.467 | 40.647 | person 1 wrench | ratchet | sfx | -22.7 dB re narration peak | -0.78 |
+| 1221 | 40.700 | 41.150 | person 2 shovel | shovel_dig | sfx | -18.7 dB re narration peak | -0.38 |
+| 1227 | 40.900 | 42.500 | truck crane winch lifts a block off the stack | crane_winch | sfx | -29.9 dB re narration peak | -0.50 |
+| 1227 | 40.900 | 41.080 | person 1 wrench | ratchet | sfx | -23.7 dB re narration peak | -0.78 |
+| 1230 | 41.000 | 41.900 | person 3 hammer | hammer_hit | sfx | -16.8 dB re narration peak | +0.32 |
+| 1238 | 41.267 | 41.636 | person 0 hat | cloth_soft | sfx | -31.0 dB re narration peak | -0.93 |
+| 1241 | 41.367 | 41.547 | person 1 wrench | ratchet | sfx | -25.2 dB re narration peak | -0.78 |
+| 1242 | 41.400 | 41.720 | Hal walks up to admire the bridge | step_sand | sfx | -18.5 dB re narration peak | -0.30 |
+| 1246 | 41.533 | 42.033 | granite block set into the facing | stone_thud | sfx | -17.5 dB re narration peak | -0.40 |
 | 1250 | 41.667 | 41.987 | Hal walks up to admire the bridge | step_sand | sfx | -20.3 dB re narration peak | -0.30 |
-| 1255 | 41.833 | 42.633 | scaffold poles come down | scaffold_clatter | sfx | -25.2 dB re narration peak | +0.00 |
-| 1258 | 41.933 | 42.253 | Hal walks up to admire the bridge | step_sand | sfx | -18.8 dB re narration peak | -0.30 |
-| 1265 | 42.167 | 42.487 | Hal walks up to admire the bridge | step_sand | sfx | -18.4 dB re narration peak | -0.30 |
-| 1276 | 42.533 | 42.953 | Hal's proud ta-da at the finished bridge | fabric_swish_big | sfx | -22.5 dB re narration peak | -0.20 |
-| 1300 | 43.333 | 46.333 | tumbleweed rolls along the dry channel | tumble_roll_2 | sfx | -27.1 dB re narration peak | moving |
-| 1358 | 45.267 | 45.447 | Hal freezes: no river | freeze_sting | sfx | -28.1 dB re narration peak | +0.00 |
-| 1372 | 45.733 | 46.053 | nervous gulp | gulp | sfx | -22.0 dB re narration peak | -0.20 |
-| 1384 | 46.133 | 49.333 | excavators rumble in along the channel on their tracks | excavator | sfx | -20.8 dB re narration peak | +0.20 |
-| 1408 | 46.933 | 47.253 | Hal slinks away | step_sand | sfx | -20.4 dB re narration peak | -0.40 |
-| 1420 | 47.333 | 48.033 | excavator buckets bite the channel bed | bucket_scrape | sfx | -21.9 dB re narration peak | -0.20 |
-| 1420 | 47.333 | 47.653 | Hal slinks away | step_sand | sfx | -22.0 dB re narration peak | -0.50 |
-| 1490 | 47.667 | 53.667 | motorboat 2 passes under the arch | boat_pass | sfx | -23.0 dB re narration peak | -0.03 |
-| 1440 | 48.000 | 48.900 | soil dumped on the bank | dirt_dump | sfx | -24.8 dB re narration peak | +0.30 |
-| 1444 | 48.133 | 50.933 | water released: rushes down the new channel | water_rush | sfx | -21.7 dB re narration peak | +0.00 |
-| 1452 | 48.400 | 51.600 | excavators climb out of the channel | excavator | sfx | -24.6 dB re narration peak | +0.40 |
-| 1476 | 49.200 | 51.800 | flood front crashes under the arches | splash_big | sfx | -21.3 dB re narration peak | +0.10 |
+| 1258 | 41.933 | 42.253 | Hal walks up to admire the bridge | step_sand | sfx | -19.8 dB re narration peak | -0.30 |
+| 1265 | 42.167 | 42.487 | Hal walks up to admire the bridge | step_sand | sfx | -19.5 dB re narration peak | -0.30 |
+| 1276 | 42.533 | 42.953 | Hal's proud ta-da at the finished bridge | fabric_swish_big | sfx | -23.0 dB re narration peak | -0.20 |
+| 1300 | 43.333 | 46.333 | tumbleweed rolls along the dry channel | tumble_roll_2 | sfx | -24.9 dB re narration peak | moving |
+| 1358 | 45.267 | 45.447 | Hal freezes: no river | freeze_sting | sfx | -29.1 dB re narration peak | +0.00 |
+| 1372 | 45.733 | 46.053 | nervous gulp | gulp | sfx | -23.6 dB re narration peak | -0.20 |
+| 1384 | 46.133 | 49.333 | excavators rumble in along the channel on their tracks | excavator | sfx | -21.3 dB re narration peak | +0.20 |
+| 1408 | 46.933 | 47.253 | Hal slinks away | step_sand | sfx | -19.7 dB re narration peak | -0.40 |
+| 1420 | 47.333 | 48.033 | excavator buckets bite the channel bed | bucket_scrape | sfx | -21.0 dB re narration peak | -0.20 |
+| 1420 | 47.333 | 47.653 | Hal slinks away | step_sand | sfx | -19.5 dB re narration peak | -0.50 |
+| 1490 | 47.667 | 53.667 | motorboat 2 passes under the arch | boat_pass | sfx | -23.8 dB re narration peak | -0.03 |
+| 1440 | 48.000 | 48.900 | soil dumped on the bank | dirt_dump | sfx | -24.6 dB re narration peak | +0.30 |
+| 1444 | 48.133 | 50.933 | water released: rushes down the new channel | water_rush | sfx | -22.4 dB re narration peak | +0.00 |
+| 1452 | 48.400 | 51.600 | excavators climb out of the channel | excavator | sfx | -21.8 dB re narration peak | +0.40 |
+| 1476 | 49.200 | 51.800 | flood front crashes under the arches | splash_big | sfx | -20.4 dB re narration peak | +0.10 |
 | 1481 | 49.367 | 59.011 | ambience segment: crowd (0.5 s equal-power crossfades) | ambience_crowd | bed | see preset | stereo wide |
-| 1502 | 50.067 | 50.157 | person 0 claps | clap_soft | crowd | -23.4 dB re narration peak | -0.67 |
-| 1510 | 50.333 | 50.423 | person 0 claps | clap_soft | crowd | -23.6 dB re narration peak | -0.75 |
-| 1510 | 50.333 | 50.772 | person 1 lifts camera | cloth_soft | sfx | -32.5 dB re narration peak | -0.03 |
-| 1511 | 50.367 | 50.649 | person 9 lapel | cloth_soft | sfx | -32.1 dB re narration peak | -0.54 |
-| 1518 | 50.600 | 50.690 | person 0 claps | clap_soft | crowd | -21.6 dB re narration peak | -0.82 |
-| 1525 | 50.833 | 51.253 | person 1 presses the shutter | shutter | sfx | -14.8 dB re narration peak | -0.15 |
-| 1525 | 50.833 | 51.183 | person 1 flashcube/flash gun fires | flash_pop | sfx | -23.2 dB re narration peak | -0.15 |
-| 1527 | 50.900 | 50.990 | person 0 claps | clap_soft | crowd | -24.3 dB re narration peak | -0.88 |
-| 1587 | 50.900 | 56.900 | motorboat 1 passes under the arch | boat_pass | sfx | -23.1 dB re narration peak | +0.38 |
-| 1534 | 51.133 | 51.433 | person 1 winds on the film | film_advance | sfx | -26.2 dB re narration peak | -0.20 |
-| 1539 | 51.300 | 51.720 | person 1 presses the shutter | shutter | sfx | -13.7 dB re narration peak | -0.22 |
-| 1541 | 51.367 | 51.755 | person 6 wave | cloth_soft | sfx | -31.1 dB re narration peak | -0.28 |
-| 1546 | 51.533 | 51.946 | person 1 lowers camera | cloth_soft | sfx | -30.8 dB re narration peak | -0.24 |
-| 1548 | 51.600 | 51.900 | person 1 winds on the film | film_advance | sfx | -24.0 dB re narration peak | -0.25 |
-| 1585 | 52.833 | 53.136 | person 3 lifts camera | cloth_soft | sfx | -30.1 dB re narration peak | -0.25 |
-| 1591 | 53.033 | 53.123 | person 4 claps | clap_soft | crowd | -24.4 dB re narration peak | -0.65 |
-| 1598 | 53.267 | 53.357 | person 4 claps | clap_soft | crowd | -21.7 dB re narration peak | -0.59 |
-| 1605 | 53.500 | 53.920 | person 3 presses the shutter | shutter | sfx | -13.6 dB re narration peak | -0.07 |
-| 1605 | 53.500 | 53.850 | person 3 flashcube/flash gun fires | flash_pop | sfx | -21.7 dB re narration peak | -0.07 |
-| 1605 | 53.500 | 53.590 | person 4 claps | clap_soft | crowd | -21.5 dB re narration peak | -0.52 |
-| 1607 | 53.567 | 53.657 | person 0 claps | clap_soft | crowd | -23.2 dB re narration peak | -0.65 |
-| 1612 | 53.733 | 54.033 | person 3 winds on the film | film_advance | sfx | -26.0 dB re narration peak | +0.00 |
-| 1617 | 53.900 | 53.990 | person 0 claps | clap_soft | crowd | -21.8 dB re narration peak | -0.54 |
-| 1617 | 53.900 | 54.210 | person 3 lowers camera | cloth_soft | sfx | -32.1 dB re narration peak | +0.06 |
-| 1684 | 54.133 | 60.133 | motorboat 0 passes under the arch | boat_pass | sfx | -23.6 dB re narration peak | -0.33 |
-| 1631 | 54.367 | 54.738 | person 6 lapel | cloth_soft | sfx | -30.0 dB re narration peak | +0.29 |
-| 1633 | 54.433 | 54.713 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -30.7 dB re narration peak | -0.15 |
-| 1636 | 54.533 | 54.877 | person 7 lifts camera | cloth_soft | sfx | -31.2 dB re narration peak | -0.22 |
-| 1639 | 54.633 | 54.723 | person 8 claps | clap_soft | crowd | -22.7 dB re narration peak | +0.48 |
-| 1653 | 55.100 | 55.520 | person 7 presses the shutter | shutter | sfx | -15.4 dB re narration peak | -0.04 |
-| 1661 | 55.367 | 55.667 | person 7 winds on the film | film_advance | sfx | -26.3 dB re narration peak | +0.03 |
-| 1669 | 55.633 | 56.053 | person 7 presses the shutter | shutter | sfx | -13.7 dB re narration peak | +0.09 |
-| 1669 | 55.633 | 55.983 | person 7 flashcube/flash gun fires | flash_pop | sfx | -22.6 dB re narration peak | +0.09 |
-| 1671 | 55.700 | 56.043 | person 9 lifts camera | cloth_soft | sfx | -29.6 dB re narration peak | +0.22 |
-| 1677 | 55.900 | 56.216 | person 7 lowers camera | cloth_soft | sfx | -30.3 dB re narration peak | +0.14 |
-| 1678 | 55.933 | 56.233 | person 7 winds on the film | film_advance | sfx | -25.7 dB re narration peak | +0.14 |
-| 1687 | 56.233 | 56.653 | person 9 presses the shutter | shutter | sfx | -15.3 dB re narration peak | +0.30 |
+| 1502 | 50.067 | 50.157 | person 0 claps | clap_soft | crowd | -23.6 dB re narration peak | -0.67 |
+| 1510 | 50.333 | 50.423 | person 0 claps | clap_soft | crowd | -21.9 dB re narration peak | -0.75 |
+| 1510 | 50.333 | 50.748 | person 1 lifts camera | cloth_soft | sfx | -30.9 dB re narration peak | -0.03 |
+| 1511 | 50.367 | 50.794 | person 9 lapel | cloth_soft | sfx | -31.9 dB re narration peak | -0.54 |
+| 1518 | 50.600 | 50.690 | person 0 claps | clap_soft | crowd | -24.3 dB re narration peak | -0.82 |
+| 1525 | 50.833 | 51.253 | person 1 presses the shutter | shutter | sfx | -15.7 dB re narration peak | -0.15 |
+| 1525 | 50.833 | 51.183 | person 1 flashcube/flash gun fires | flash_pop | sfx | -21.9 dB re narration peak | -0.15 |
+| 1527 | 50.900 | 50.990 | person 0 claps | clap_soft | crowd | -21.8 dB re narration peak | -0.88 |
+| 1587 | 50.900 | 56.900 | motorboat 1 passes under the arch | boat_pass | sfx | -22.3 dB re narration peak | +0.38 |
+| 1534 | 51.133 | 51.433 | person 1 winds on the film | film_advance | sfx | -26.1 dB re narration peak | -0.20 |
+| 1539 | 51.300 | 51.720 | person 1 presses the shutter | shutter | sfx | -15.0 dB re narration peak | -0.22 |
+| 1541 | 51.367 | 51.656 | person 6 wave | cloth_soft | sfx | -30.0 dB re narration peak | -0.28 |
+| 1546 | 51.533 | 51.945 | person 1 lowers camera | cloth_soft | sfx | -30.0 dB re narration peak | -0.24 |
+| 1548 | 51.600 | 51.900 | person 1 winds on the film | film_advance | sfx | -26.5 dB re narration peak | -0.25 |
+| 1585 | 52.833 | 53.220 | person 3 lifts camera | cloth_soft | sfx | -30.2 dB re narration peak | -0.25 |
+| 1591 | 53.033 | 53.123 | person 4 claps | clap_soft | crowd | -23.7 dB re narration peak | -0.65 |
+| 1598 | 53.267 | 53.357 | person 4 claps | clap_soft | crowd | -24.3 dB re narration peak | -0.59 |
+| 1605 | 53.500 | 53.920 | person 3 presses the shutter | shutter | sfx | -15.9 dB re narration peak | -0.07 |
+| 1605 | 53.500 | 53.850 | person 3 flashcube/flash gun fires | flash_pop | sfx | -22.4 dB re narration peak | -0.07 |
+| 1605 | 53.500 | 53.590 | person 4 claps | clap_soft | crowd | -23.9 dB re narration peak | -0.52 |
+| 1607 | 53.567 | 53.657 | person 0 claps | clap_soft | crowd | -22.4 dB re narration peak | -0.65 |
+| 1612 | 53.733 | 54.033 | person 3 winds on the film | film_advance | sfx | -23.5 dB re narration peak | +0.00 |
+| 1617 | 53.900 | 53.990 | person 0 claps | clap_soft | crowd | -22.8 dB re narration peak | -0.54 |
+| 1617 | 53.900 | 54.325 | person 3 lowers camera | cloth_soft | sfx | -31.0 dB re narration peak | +0.06 |
+| 1684 | 54.133 | 60.133 | motorboat 0 passes under the arch | boat_pass | sfx | -22.0 dB re narration peak | -0.33 |
+| 1631 | 54.367 | 54.677 | person 6 lapel | cloth_soft | sfx | -32.4 dB re narration peak | +0.29 |
+| 1633 | 54.433 | 54.713 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -31.0 dB re narration peak | -0.15 |
+| 1636 | 54.533 | 54.874 | person 7 lifts camera | cloth_soft | sfx | -31.4 dB re narration peak | -0.22 |
+| 1639 | 54.633 | 54.723 | person 8 claps | clap_soft | crowd | -23.3 dB re narration peak | +0.48 |
+| 1653 | 55.100 | 55.520 | person 7 presses the shutter | shutter | sfx | -16.4 dB re narration peak | -0.04 |
+| 1661 | 55.367 | 55.667 | person 7 winds on the film | film_advance | sfx | -23.8 dB re narration peak | +0.03 |
+| 1669 | 55.633 | 56.053 | person 7 presses the shutter | shutter | sfx | -15.0 dB re narration peak | +0.09 |
+| 1669 | 55.633 | 55.983 | person 7 flashcube/flash gun fires | flash_pop | sfx | -24.4 dB re narration peak | +0.09 |
+| 1671 | 55.700 | 56.113 | person 9 lifts camera | cloth_soft | sfx | -31.7 dB re narration peak | +0.22 |
+| 1677 | 55.900 | 56.261 | person 7 lowers camera | cloth_soft | sfx | -31.2 dB re narration peak | +0.14 |
+| 1678 | 55.933 | 56.233 | person 7 winds on the film | film_advance | sfx | -23.8 dB re narration peak | +0.14 |
+| 1687 | 56.233 | 56.653 | person 9 presses the shutter | shutter | sfx | -14.0 dB re narration peak | +0.30 |
 | 1695 | 56.500 | 56.800 | person 9 winds on the film | film_advance | sfx | -25.5 dB re narration peak | +0.31 |
-| 1696 | 56.533 | 56.947 | person 5 lifts camera | cloth_soft | sfx | -31.0 dB re narration peak | +0.92 |
-| 1697 | 56.567 | 56.987 | person 9 presses the shutter | shutter | sfx | -15.3 dB re narration peak | +0.32 |
-| 1697 | 56.567 | 56.917 | person 9 flashcube/flash gun fires | flash_pop | sfx | -24.3 dB re narration peak | +0.32 |
-| 1699 | 56.633 | 56.723 | person 6 claps | clap_soft | crowd | -21.8 dB re narration peak | +0.77 |
-| 1701 | 56.700 | 56.980 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -31.6 dB re narration peak | -0.15 |
-| 1706 | 56.867 | 57.167 | person 9 winds on the film | film_advance | sfx | -24.8 dB re narration peak | +0.31 |
-| 1706 | 56.867 | 57.165 | person 9 lowers camera | cloth_soft | sfx | -29.5 dB re narration peak | +0.31 |
-| 1709 | 56.967 | 57.057 | person 6 claps | clap_soft | crowd | -23.5 dB re narration peak | +0.75 |
-| 1710 | 57.000 | 57.420 | person 5 presses the shutter | shutter | sfx | -14.8 dB re narration peak | +0.90 |
-| 1710 | 57.000 | 57.350 | person 5 flashcube/flash gun fires | flash_pop | sfx | -21.5 dB re narration peak | +0.90 |
-| 1714 | 57.133 | 57.313 | comic freeze tick | freeze_sting | sfx | -28.1 dB re narration peak | -0.10 |
-| 1717 | 57.233 | 57.533 | person 5 winds on the film | film_advance | sfx | -25.6 dB re narration peak | +0.88 |
-| 1717 | 57.233 | 57.553 | Hal gulps after the flash | gulp | sfx | -22.7 dB re narration peak | -0.15 |
-| 1719 | 57.300 | 57.666 | person 3 wave | cloth_soft | sfx | -31.6 dB re narration peak | +0.65 |
-| 1721 | 57.367 | 57.651 | person 0 hat | cloth_soft | sfx | -31.9 dB re narration peak | +0.04 |
-| 1723 | 57.433 | 57.731 | person 7 lifts camera | cloth_soft | sfx | -31.5 dB re narration peak | +0.13 |
-| 1727 | 57.567 | 57.987 | person 5 presses the shutter | shutter | sfx | -13.8 dB re narration peak | +0.82 |
-| 1727 | 57.567 | 57.847 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -29.1 dB re narration peak | -0.15 |
-| 1733 | 57.767 | 58.173 | person 2 lapel | cloth_soft | sfx | -30.1 dB re narration peak | +0.25 |
-| 1734 | 57.800 | 58.100 | person 5 winds on the film | film_advance | sfx | -26.5 dB re narration peak | +0.77 |
-| 1735 | 57.833 | 58.214 | person 5 lowers camera | cloth_soft | sfx | -31.4 dB re narration peak | +0.77 |
-| 1739 | 57.967 | 58.387 | person 7 presses the shutter | shutter | sfx | -15.8 dB re narration peak | +0.02 |
-| 1744 | 58.133 | 58.502 | person 7 lowers camera | cloth_soft | sfx | -31.8 dB re narration peak | -0.03 |
-| 1746 | 58.200 | 58.500 | person 7 winds on the film | film_advance | sfx | -23.6 dB re narration peak | -0.05 |
-| 1759 | 58.633 | 58.913 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -31.2 dB re narration peak | -0.15 |
+| 1696 | 56.533 | 56.817 | person 5 lifts camera | cloth_soft | sfx | -32.2 dB re narration peak | +0.92 |
+| 1697 | 56.567 | 56.987 | person 9 presses the shutter | shutter | sfx | -14.2 dB re narration peak | +0.32 |
+| 1697 | 56.567 | 56.917 | person 9 flashcube/flash gun fires | flash_pop | sfx | -23.5 dB re narration peak | +0.32 |
+| 1699 | 56.633 | 56.723 | person 6 claps | clap_soft | crowd | -24.1 dB re narration peak | +0.77 |
+| 1701 | 56.700 | 56.980 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -29.8 dB re narration peak | -0.15 |
+| 1706 | 56.867 | 57.167 | person 9 winds on the film | film_advance | sfx | -25.0 dB re narration peak | +0.31 |
+| 1706 | 56.867 | 57.207 | person 9 lowers camera | cloth_soft | sfx | -29.8 dB re narration peak | +0.31 |
+| 1709 | 56.967 | 57.057 | person 6 claps | clap_soft | crowd | -23.1 dB re narration peak | +0.75 |
+| 1710 | 57.000 | 57.420 | person 5 presses the shutter | shutter | sfx | -15.2 dB re narration peak | +0.90 |
+| 1710 | 57.000 | 57.350 | person 5 flashcube/flash gun fires | flash_pop | sfx | -23.8 dB re narration peak | +0.90 |
+| 1714 | 57.133 | 57.313 | comic freeze tick | freeze_sting | sfx | -30.1 dB re narration peak | -0.10 |
+| 1717 | 57.233 | 57.533 | person 5 winds on the film | film_advance | sfx | -23.6 dB re narration peak | +0.88 |
+| 1717 | 57.233 | 57.553 | Hal gulps after the flash | gulp | sfx | -24.2 dB re narration peak | -0.15 |
+| 1719 | 57.300 | 57.709 | person 3 wave | cloth_soft | sfx | -29.9 dB re narration peak | +0.65 |
+| 1721 | 57.367 | 57.678 | person 0 hat | cloth_soft | sfx | -30.3 dB re narration peak | +0.04 |
+| 1723 | 57.433 | 57.849 | person 7 lifts camera | cloth_soft | sfx | -32.5 dB re narration peak | +0.13 |
+| 1727 | 57.567 | 57.987 | person 5 presses the shutter | shutter | sfx | -15.7 dB re narration peak | +0.82 |
+| 1727 | 57.567 | 57.847 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -30.0 dB re narration peak | -0.15 |
+| 1733 | 57.767 | 58.061 | person 2 lapel | cloth_soft | sfx | -29.7 dB re narration peak | +0.25 |
+| 1734 | 57.800 | 58.100 | person 5 winds on the film | film_advance | sfx | -23.9 dB re narration peak | +0.77 |
+| 1735 | 57.833 | 58.230 | person 5 lowers camera | cloth_soft | sfx | -31.5 dB re narration peak | +0.77 |
+| 1739 | 57.967 | 58.387 | person 7 presses the shutter | shutter | sfx | -15.3 dB re narration peak | +0.02 |
+| 1744 | 58.133 | 58.462 | person 7 lowers camera | cloth_soft | sfx | -31.5 dB re narration peak | -0.03 |
+| 1746 | 58.200 | 58.500 | person 7 winds on the film | film_advance | sfx | -24.4 dB re narration peak | -0.05 |
+| 1759 | 58.633 | 58.913 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -29.8 dB re narration peak | -0.15 |
