@@ -1690,7 +1690,7 @@
    "note": "water churns as the gates open"
   },
   {
-   "frame": 1066,
+   "frame": 1070,
    "kind": "truck_pass",
    "x": -0.6,
    "gain": 0.85,
@@ -1704,14 +1704,14 @@
    "note": "1960s flatbed truck 1 rumbles past with numbered blocks"
   },
   {
-   "frame": 1098,
+   "frame": 1094,
    "kind": "truck_pass",
    "x": 0,
    "gain": 0.55,
    "note": "1960s flatbed truck 2 rumbles past with numbered blocks"
   },
   {
-   "frame": 1128,
+   "frame": 1100,
    "kind": "air_brake",
    "x": 0.2,
    "gain": 0.6,

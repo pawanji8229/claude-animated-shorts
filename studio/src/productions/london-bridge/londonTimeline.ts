@@ -29,8 +29,9 @@ export const camLondon = camPath([
   { f: 846, pos: [-38.0, 13.5, 27.0], look: [-16.0, 7.0, 2.0], fov: 46 },         // reveal: the bridge coming apart
   { f: 876, pos: [-46.0, 12.5, 46.0], look: [-30.0, 6.5, 31.0], fov: 50 },        // loading: stack, crane, ship
   { f: 905, pos: [-45.0, 13.0, 47.0], look: [-28.5, 6.5, 32.0], fov: 50 },
-  { f: 940, pos: [-42.0, 11.0, 46.0], look: [-26.5, 3.5, 34.0], fov: 46 },        // block into the hold
-  { f: 970, pos: [-44.0, 12.0, 48.0], look: [-24.5, 2.5, 34.5], fov: 48 },
+  { f: 922, pos: [-39.0, 15.5, 43.5], look: [-26.0, 3.2, 33.5], fov: 46 },        // rise to look over the quay wall
+  { f: 946, pos: [-36.0, 17.0, 40.5], look: [-25.0, 2.3, 33.4], fov: 42 },        // block lowered into the open hold
+  { f: 972, pos: [-43.0, 12.5, 47.5], look: [-24.5, 2.5, 34.5], fov: 48 },
   { f: 996, pos: [-44.0, 12.0, 49.5], look: [-24.0, 2.5, 37.0], fov: 48 },        // ahead-left of the ship (= sea camera)
   { f: 1020, pos: [-44.0, 12.0, 51.0], look: [-24.0, 2.5, 40.0], fov: 48 },
 ], 7);

@@ -29,7 +29,7 @@ export const camWorks = camPath([
 // ---------------- trucks on the desert road (1064-1140) ----------------
 export const ROAD = (x: number) => 15.5 - 0.06 * (x + 60) + 1.4 * Math.sin((x + 60) * 0.05);
 export const trucksAt = (f: number) => [0, 1, 2].map((i) => {
-  const t0 = 1040 + i * 16, x = lerp(-90, -18 - i * 6.5, smooth(t0, t0 + 95, f)), z = ROAD(x) + (i % 2) * 0.2;
+  const t0 = 1004 + i * 14, x = lerp(-90, -18 - i * 6.5, smooth(t0, t0 + 95, f)), z = ROAD(x) + (i % 2) * 0.2;
   const x2 = lerp(-90, -18 - i * 6.5, smooth(t0, t0 + 95, f + 1)), sp = (x2 - x) * 30;
   const ang = Math.atan2(ROAD(x + 0.5) - ROAD(x - 0.5), 1);
   return { pos: [x, groundY(x, z), z] as V3, ry: -ang, speed: sp, spin: (x + 90) / 0.45, i };
@@ -140,8 +140,8 @@ export const floodY = (f: number) => lerp(-BR.chanDepth + 0.08, -0.62, smooth(14
 export type SoundEvent = { frame: number; kind: string; x: number; gain: number; note?: string };
 export const worksSoundEvents = (): SoundEvent[] => {
   const ev: SoundEvent[] = [];
-  for (const i of [0, 1, 2]) ev.push({ frame: 1066 + i * 16, kind: "truck_pass", x: -0.6 + 0.3 * i, gain: 0.85 - 0.15 * i, note: `1960s flatbed truck ${i} rumbles past with numbered blocks` });
-  ev.push({ frame: 1128, kind: "air_brake", x: 0.2, gain: 0.6, note: "lead truck's air brakes hiss at the site" });
+  for (const i of [0, 1, 2]) ev.push({ frame: 1070 + i * 12, kind: "truck_pass", x: -0.6 + 0.3 * i, gain: 0.85 - 0.15 * i, note: `1960s flatbed truck ${i} rumbles past with numbered blocks` });
+  ev.push({ frame: 1100, kind: "air_brake", x: 0.2, gain: 0.6, note: "lead truck's air brakes hiss at the site" });
   ev.push({ frame: 1142, kind: "concrete_mixer", x: 0.6, gain: 0.6, note: "concrete mixer drum churning" });
   for (let f = CYC0 + 1; f < CYC0 + 3 * CYC; f++) { const c0 = ((f - 1 - CYC0) / CYC) % 1, c1 = ((f - CYC0) / CYC) % 1; if (c0 < 0.06 && c1 >= 0.06) ev.push({ frame: f, kind: "crane_winch", x: -0.5, gain: 0.45, note: "truck crane winch lifts a block off the stack" }); if (c0 < 0.5 && c1 >= 0.5) ev.push({ frame: f, kind: "stone_thud", x: -0.4, gain: 0.7, note: "granite block set into the facing" }); }
   CREW.forEach((p, i) => { for (const e of personEvents(p.P, i)) ev.push({ frame: e.frame, kind: e.kind, x: Math.max(-1, Math.min(1, p.pos[0] / 12)), gain: 1, note: e.note }); });

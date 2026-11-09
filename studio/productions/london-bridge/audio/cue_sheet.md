@@ -1,6 +1,6 @@
 # Sound cue sheet (0–59.01 s; loop-safe: True)
 
-Narration-priority mix. Narration -24.4 LUFS is the reference; event levels are peak dB under the narration peak, beds are LU under the narration loudness. Ducking under speech: {'sfx': -4, 'crowd': -8, 'ambience': -6, 'music': -10}. Word masking guard: every word ≥ 15 dB above all other layers in the 300–4000 Hz speech band (worst word before guard 3.4 dB, after 15.3 dB; 32 guard cuts). Master +8.4 dB → -16.1 LUFS, -1.1 dBTP.
+Narration-priority mix. Narration -24.4 LUFS is the reference; event levels are peak dB under the narration peak, beds are LU under the narration loudness. Ducking under speech: {'sfx': -4, 'crowd': -8, 'ambience': -6, 'music': -10}. Word masking guard: every word ≥ 15 dB above all other layers in the 300–4000 Hz speech band (worst word before guard 2.5 dB, after 15.3 dB; 32 guard cuts). Master +8.4 dB → -16.1 LUFS, -1.1 dBTP.
 
 Measured stem loudness vs narration (LU): {'sfx': np.float64(-18.2), 'crowd': np.float64(-33.9), 'ambience': np.float64(-29.0), 'music': None}
 
@@ -249,14 +249,14 @@ All effects are procedurally synthesised in `studio/audio/` (no third-party reco
 | 988 | 32.933 | 35.933 | ship engine at sea | ship_engine | sfx | -24.2 dB re narration peak | +0.30 |
 | 992 | 33.067 | 34.067 | bow cuts a swell | bow_splash | sfx | -25.8 dB re narration peak | +0.20 |
 | 1006 | 33.533 | 34.533 | bow cuts a swell | bow_splash | sfx | -27.1 dB re narration peak | +0.20 |
-| 1066 | 34.033 | 37.433 | 1960s flatbed truck 0 rumbles past with numbered blocks | truck_pass | sfx | -20.9 dB re narration peak | -0.60 |
 | 1024 | 34.133 | 36.733 | lock gate motors start, gates swing open | lock_gate | sfx | -24.0 dB re narration peak | +0.40 |
+| 1070 | 34.167 | 37.567 | 1960s flatbed truck 0 rumbles past with numbered blocks | truck_pass | sfx | -18.0 dB re narration peak | -0.60 |
 | 1034 | 34.467 | 36.667 | short horn entering the lock | ship_horn | sfx | -21.5 dB re narration peak | +0.40 |
 | 1082 | 34.567 | 37.967 | 1960s flatbed truck 1 rumbles past with numbered blocks | truck_pass | sfx | -21.3 dB re narration peak | -0.30 |
 | 1040 | 34.667 | 37.467 | water churns as the gates open | water_rush | sfx | -23.6 dB re narration peak | +0.30 |
-| 1098 | 35.100 | 38.500 | 1960s flatbed truck 2 rumbles past with numbered blocks | truck_pass | sfx | -23.5 dB re narration peak | +0.00 |
+| 1094 | 34.967 | 38.367 | 1960s flatbed truck 2 rumbles past with numbered blocks | truck_pass | sfx | -23.5 dB re narration peak | +0.00 |
 | 1064 | 35.467 | 49.367 | ambience segment: desert (0.5 s equal-power crossfades) | ambience_desert | bed | see preset | stereo wide |
-| 1128 | 37.600 | 38.500 | lead truck's air brakes hiss at the site | air_brake | sfx | -25.1 dB re narration peak | +0.20 |
+| 1100 | 36.667 | 37.567 | lead truck's air brakes hiss at the site | air_brake | sfx | -27.3 dB re narration peak | +0.20 |
 | 1139 | 37.967 | 39.567 | truck crane winch lifts a block off the stack | crane_winch | sfx | -28.9 dB re narration peak | -0.50 |
 | 1142 | 38.067 | 42.067 | concrete mixer drum churning | concrete_mixer | sfx | -29.4 dB re narration peak | +0.60 |
 | 1144 | 38.133 | 38.494 | person 3 wave | cloth_soft | sfx | -31.5 dB re narration peak | +0.32 |

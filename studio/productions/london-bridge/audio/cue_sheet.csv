@@ -240,10 +240,10 @@ trigger_frame,start_s,end_s,source / responsible object,generator,stem,level,pan
 1024,34.133,36.733,"lock gate motors start, gates swing open",lock_gate,sfx,-24.0 dB re narration peak,+0.40
 1034,34.467,36.667,short horn entering the lock,ship_horn,sfx,-21.5 dB re narration peak,+0.40
 1040,34.667,37.467,water churns as the gates open,water_rush,sfx,-23.6 dB re narration peak,+0.30
-1066,34.033,37.433,1960s flatbed truck 0 rumbles past with numbered blocks,truck_pass,sfx,-20.9 dB re narration peak,-0.60
+1070,34.167,37.567,1960s flatbed truck 0 rumbles past with numbered blocks,truck_pass,sfx,-18.0 dB re narration peak,-0.60
 1082,34.567,37.967,1960s flatbed truck 1 rumbles past with numbered blocks,truck_pass,sfx,-21.3 dB re narration peak,-0.30
-1098,35.100,38.500,1960s flatbed truck 2 rumbles past with numbered blocks,truck_pass,sfx,-23.5 dB re narration peak,+0.00
-1128,37.600,38.500,lead truck's air brakes hiss at the site,air_brake,sfx,-25.1 dB re narration peak,+0.20
+1094,34.967,38.367,1960s flatbed truck 2 rumbles past with numbered blocks,truck_pass,sfx,-23.5 dB re narration peak,+0.00
+1100,36.667,37.567,lead truck's air brakes hiss at the site,air_brake,sfx,-27.3 dB re narration peak,+0.20
 1139,37.967,39.567,truck crane winch lifts a block off the stack,crane_winch,sfx,-28.9 dB re narration peak,-0.50
 1142,38.067,42.067,concrete mixer drum churning,concrete_mixer,sfx,-29.4 dB re narration peak,+0.60
 1144,38.133,38.494,person 3 wave,cloth_soft,sfx,-31.5 dB re narration peak,+0.32
