@@ -33,15 +33,17 @@ export const cardWorld = (pos: V3, cam: V3, px: [number, number], cardH: number,
   return [pos[0] + Math.cos(yaw) * lx + Math.sin(yaw) * push, pos[1] + ly, pos[2] - Math.sin(yaw) * lx + Math.cos(yaw) * push];
 };
 
+/** optional horizontal mirror of a card drawing (a side-view walker heading screen-left) */
+const mirror = (g: CanvasRenderingContext2D, on: boolean | undefined, draw: () => void) => { if (!on) return draw(); g.save(); g.translate(W5, 0); g.scale(-1, 1); draw(); g.restore(); };
 /** one earless odo5 character card + approved face glow (mask fill), halo sprite, optional warm face key */
-export const Toon: React.FC<{ pose: Odo5Pose; pos: V3; cam: V3; h?: number; hi: boolean; light?: number; keyColor?: string; halo?: number }> = ({ pose, pos, cam, h = 1.55, hi, light = 0, keyColor = "#ffd2a0", halo = 0.14 }) => {
+export const Toon: React.FC<{ pose: Odo5Pose; pos: V3; cam: V3; h?: number; hi: boolean; light?: number; keyColor?: string; halo?: number; flip?: boolean }> = ({ pose, pos, cam, h = 1.55, hi, light = 0, keyColor = "#ffd2a0", halo = 0.14, flip }) => {
   const haloTex = useMemo(() => glow("rgba(255,236,205,0.9)", "rgba(255,210,160,0)"), []);
-  const head = cardWorld(pos, cam, headCenterPx5(pose), h, -0.05);
+  const hc = headCenterPx5(pose), head = cardWorld(pos, cam, flip ? [W5 - hc[0], hc[1]] : hc, h, -0.05);
   return (
     <group>
       {light > 0 && <pointLight position={[pos[0] + 0.7, pos[1] + 1.8, pos[2] + 2.0]} color={keyColor} intensity={light} distance={6} decay={1.7} />}
       <CardSprite W={W5} H={H5} sole={SOLE5} cardH={h} pos={pos} camPos={cam} texScale={hi ? 1.6 : 1.1} albedo={0.82} fill={0.8} fillColor="#fff2e2" contact={0.85}
-        draw={(g) => drawOdo5(g, pose)} drawMask={(g) => drawOdo5(g, pose, true)} />
+        draw={(g) => mirror(g, flip, () => drawOdo5(g, pose))} drawMask={(g) => mirror(g, flip, () => drawOdo5(g, pose, true))} />
       {halo > 0 && <sprite position={head} scale={[0.95 * h / 1.55, 0.95 * h / 1.55, 1]}><spriteMaterial map={haloTex} transparent opacity={halo} blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} /></sprite>}
     </group>
   );

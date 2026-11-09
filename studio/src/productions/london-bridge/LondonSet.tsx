@@ -1,7 +1,8 @@
-// London, dusk (film frames 340-984): the old granite bridge over the Thames (same Bridge2 geometry as Arizona, sooted),
-// the new concrete bridge rising beside it with scaffold + tower crane, granite embankments with cast-iron lamps,
-// plane trees and benches, Victorian terraces and warehouses, a hazy original skyline, barges, gulls, the quay derrick
-// and the 1960s cargo ship that takes the numbered blocks. No text anywhere except chalk numbers ON the stones.
+// London, dusk (film frames 344-996), v2: the old granite bridge over the Thames being taken apart (Bridge2, sooted,
+// clipped from the top + stripped-deck cap, tube-and-plank scaffold), the new concrete bridge with a lattice tower crane,
+// granite embankments with cast-iron lamps, plane trees, Victorian terraces, a hazy skyline, barges, gulls; the purchase
+// (cheque book, legible cheque, deed, handshake), numbered granite blocks, the quay portal crane loading cycle, and the
+// detailed 1960s cargo ship with mooring lines and foam wake. No text except numbers ON stones and on the cheque.
 import React, { useMemo } from "react";
 import * as THREE from "three";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
@@ -11,10 +12,10 @@ import { Post } from "../../lib/Post";
 import { InkCtx } from "../../inventor/Workshop";
 import { Ink } from "../../inventor/Workshop";
 import { Bridge2, BRIDGE_LEN, PIER_X } from "../../desert/Bridge";
-import { cameraPx5 } from "../../char/odo5";
 import { V3, rng, smooth } from "../../lib/math";
 import { SetRig, RenderAfterMount, Toon, cardWorld, TAU } from "./common";
 import * as L from "./londonTimeline";
+import { CargoShip, FoamWake, GraniteBlock, QuayCrane, Rod, latticePairs, rippleNormal, struts } from "./assets";
 
 const cnv = (w: number, h: number, draw: (g: CanvasRenderingContext2D, r: () => number) => void, seed = 1) => {
   const c = document.createElement("canvas"); c.width = w; c.height = h; const g = c.getContext("2d")!; draw(g, rng(seed));
@@ -103,144 +104,139 @@ const Tree: React.FC<{ p: V3; s: number; m: { bark: THREE.Material; leaf: THREE.
     {[[0, 4.2, 0, 1.7], [0.9, 3.7, 0.3, 1.2], [-0.8, 3.8, -0.2, 1.25], [0.2, 5.0, -0.4, 1.1], [-0.3, 3.4, 0.8, 1.0]].map(([x, y, z, r], k) => <mesh key={k} position={[x, y, z]} material={m.leaf} castShadow><icosahedronGeometry args={[r, 1]} /><Ink k={0.8} /></mesh>)}
   </group>
 );
-/** 1960s cargo ship (original design): black hull + red boot-top, white bridge house, funnel, masts, derricks, open hold */
-export const Ship: React.FC<{ blocks: number }> = ({ blocks }) => {
-  const g = useMemo(() => {
-    const s = new THREE.Shape(); s.moveTo(-9, -2.2); s.lineTo(6, -2.2); s.quadraticCurveTo(10.5, -1.2, 11.5, 0); s.quadraticCurveTo(10.5, 1.2, 6, 2.2); s.lineTo(-9, 2.2); s.quadraticCurveTo(-10.2, 1.4, -10.2, 0); s.quadraticCurveTo(-10.2, -1.4, -9, -2.2);
-    const hull = new THREE.ExtrudeGeometry(s, { depth: 2.6, bevelEnabled: true, bevelSize: 0.12, bevelThickness: 0.12, bevelSegments: 2 }); hull.rotateX(-Math.PI / 2); hull.translate(0, -1.2, 0);
-    return { hull, black: new THREE.MeshStandardMaterial({ color: "#1d1e22", roughness: 0.6 }), red: new THREE.MeshStandardMaterial({ color: "#9b2a22", roughness: 0.7 }), white: new THREE.MeshStandardMaterial({ color: "#ece6da", roughness: 0.7 }), deck: new THREE.MeshStandardMaterial({ color: "#7d5a3c", roughness: 0.9 }), funnel: new THREE.MeshStandardMaterial({ color: "#c9852e", roughness: 0.6 }), stone: new THREE.MeshStandardMaterial({ color: "#a39684", roughness: 0.9 }), win: new THREE.MeshBasicMaterial({ color: new THREE.Color(1.6, 1.3, 0.8), toneMapped: false }) };
-  }, []);
-  return (
-    <group rotation={[0, -Math.PI / 2, 0]}>
-      <mesh geometry={g.hull} material={g.black} castShadow receiveShadow><Ink k={1.0} /></mesh>
-      <mesh position={[0.5, -0.9, 0]} material={g.red}><boxGeometry args={[19.6, 0.5, 4.5]} /></mesh>
-      <mesh position={[0.5, 1.42, 0]} material={g.deck} receiveShadow><boxGeometry args={[19.4, 0.06, 4.2]} /></mesh>
-      <group position={[-6.5, 1.45, 0]}>
-        <mesh position={[0, 1.1, 0]} material={g.white} castShadow><boxGeometry args={[3.6, 2.2, 3.8]} /><Ink k={0.8} /></mesh>
-        <mesh position={[0.3, 2.7, 0]} material={g.white} castShadow><boxGeometry args={[2.6, 1.0, 4.2]} /><Ink k={0.8} /></mesh>
-        {[-1.2, -0.4, 0.4, 1.2].map((z) => <mesh key={z} position={[1.62, 2.75, z]} material={g.win}><boxGeometry args={[0.04, 0.35, 0.5]} /></mesh>)}
-        <mesh position={[-1.2, 3.8, 0]} material={g.funnel} castShadow><cylinderGeometry args={[0.55, 0.7, 2.2, 14]} /><Ink k={0.7} /></mesh>
-        <mesh position={[-1.2, 4.9, 0]} material={g.black}><cylinderGeometry args={[0.57, 0.57, 0.3, 14]} /></mesh>
-      </group>
-      {[[-1.5, 0], [5.0, 0]].map(([x], k) => <group key={k} position={[x, 1.45, 0]}>
-        <mesh position={[0, 3, 0]} material={g.black} castShadow><cylinderGeometry args={[0.1, 0.13, 6, 8]} /><Ink k={0.5} /></mesh>
-        <mesh position={[1.3, 1.6, 0]} rotation={[0, 0, -1.0]} material={g.black}><cylinderGeometry args={[0.06, 0.08, 3.2, 6]} /></mesh>
-        <mesh position={[1.6, 0.35, 0]} material={g.deck} castShadow><boxGeometry args={[2.6, 0.5, 3.2]} /><Ink k={0.6} /></mesh>
-      </group>)}
-      {/* numbered blocks in the open hold */}
-      {Array.from({ length: blocks }, (_, i) => <mesh key={i} position={[2.4 + (i % 4) * 0.9, 1.75 + Math.floor(i / 8) * 0.55, -0.8 + (Math.floor(i / 4) % 2) * 1.6]} material={g.stone} castShadow><boxGeometry args={[0.8, 0.5, 0.6]} /><Ink k={0.5} /></mesh>)}
-    </group>
-  );
-};
+
+const chequeTex = () => cnv(512, 230, (g, r) => {
+  g.fillStyle = "#dfe8d0"; g.fillRect(0, 0, 512, 230);
+  g.strokeStyle = "rgba(90,130,100,0.35)"; g.lineWidth = 1;
+  for (let k = 0; k < 26; k++) { g.beginPath(); for (let x = 0; x <= 512; x += 4) { const y = 115 + Math.sin(x * 0.035 + k * 0.45) * (40 + k * 2.5) * Math.sin(x * 0.006 + k * 0.2); x ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke(); } // guilloche
+  g.strokeStyle = "#3f6a4f"; g.lineWidth = 6; g.strokeRect(8, 8, 496, 214); g.lineWidth = 1.5; g.strokeRect(16, 16, 480, 198);
+  g.fillStyle = "rgba(63,106,79,0.85)"; g.beginPath(); g.arc(64, 64, 30, 0, TAU); g.fill(); g.strokeStyle = "#dfe8d0"; g.lineWidth = 2; for (let k = 0; k < 8; k++) { g.beginPath(); g.arc(64, 64, 6 + k * 3, 0, TAU); g.stroke(); }
+  g.fillStyle = "#26402f"; g.font = "bold 24px Georgia, 'DejaVu Serif', serif"; g.textAlign = "right"; g.fillText("1968", 486, 46);
+  g.strokeStyle = "#26402f"; g.lineWidth = 1.5; for (const y of [96, 150]) { g.beginPath(); g.moveTo(110, y); g.lineTo(330, y); g.stroke(); }
+  g.fillStyle = "#fbfbf4"; g.fillRect(338, 74, 160, 46); g.strokeStyle = "#26402f"; g.lineWidth = 2; g.strokeRect(338, 74, 160, 46);
+  g.fillStyle = "#1a2f6a"; g.font = "bold 25px Georgia, 'DejaVu Serif', serif"; g.textAlign = "center"; g.fillText("$2,460,000.00", 418, 107);
+  const scrib = (x0: number, y0: number, w: number, amp: number) => { g.strokeStyle = "#1a2f6a"; g.lineWidth = 2.4; g.beginPath(); for (let x = 0; x <= w; x += 3) { const y = y0 - Math.abs(Math.sin(x * 0.21 + r())) * amp + Math.sin(x * 0.05) * 3; x ? g.lineTo(x0 + x, y) : g.moveTo(x0 + x, y); } g.stroke(); };
+  scrib(118, 92, 200, 14); scrib(118, 146, 190, 12); scrib(330, 190, 150, 18);                       // payee, amount in words, signature (handwriting)
+  g.fillStyle = "#26402f"; g.font = "18px monospace"; g.textAlign = "left"; g.fillText("0246 1968 0001", 30, 208);
+}, 51);
+const deedTex = () => cnv(256, 128, (g, r) => { g.fillStyle = "#efe2c2"; g.fillRect(0, 0, 256, 128); for (let i = 0; i < 400; i++) { g.fillStyle = `rgba(120,90,50,${r() * 0.06})`; g.fillRect(r() * 256, r() * 128, 3, 3); } g.strokeStyle = "rgba(60,40,20,0.5)"; for (let y = 20; y < 120; y += 9) { g.beginPath(); g.moveTo(20 + r() * 6, y); g.lineTo(236 - r() * 30, y); g.stroke(); } }, 52);
+const rubbleTex = () => cnv(512, 128, (g, r) => { g.fillStyle = "#6f675e"; g.fillRect(0, 0, 512, 128); for (let i = 0; i < 260; i++) { g.fillStyle = `hsl(30,${4 + r() * 6}%,${28 + r() * 26}%)`; const w = 12 + r() * 40, h = 8 + r() * 22; g.fillRect(r() * 512, r() * 128, w, h); } for (let i = 0; i < 3000; i++) { g.fillStyle = `rgba(0,0,0,${r() * 0.15})`; g.fillRect(r() * 512, r() * 128, 2, 2); } }, 53);
 
 export const LondonSet: React.FC<{ from: number }> = ({ from }) => {
   const f = useCurrentFrame() + from;
   const { width, height } = useVideoConfig();
   const hi = height >= 1500, k = height / 1920;
-  const c = L.camLondon(f, L.halLondonVisible(f) && f < 790 ? [L.halLondonAt(f)[0], L.Y0 + 1.1, L.halLondonAt(f)[2]] : undefined);
+  const c = L.camLondon(f, L.halLondonVisible(f) && f < 790 ? (f >= 712 && f < 750 ? [L.CLERK[0] + 0.15, L.Y0 + 1.0, L.CLERK[2]] : [L.halLondonAt(f)[0], L.Y0 + 1.1, L.halLondonAt(f)[2]]) : undefined);
   const M = useMemo(() => {
-    const pv = paving(); pv.repeat.set(12, 60); const wt = wallTex(); wt.repeat.set(30, 1);
+    const pv = paving(); pv.repeat.set(12, 60); const wt = wallTex(); wt.repeat.set(30, 1); const rb = rubbleTex(); rb.repeat.set(4, 1);
     return {
       pave: new THREE.MeshStandardMaterial({ map: pv, roughness: 0.85 }), wall: new THREE.MeshStandardMaterial({ map: wt, roughness: 0.9 }),
       cope: new THREE.MeshStandardMaterial({ color: "#b4aa9a", roughness: 0.85 }), iron: new THREE.MeshStandardMaterial({ color: "#1e2126", metalness: 0.5, roughness: 0.5 }),
       glass: new THREE.MeshBasicMaterial({ color: new THREE.Color(2.4, 1.85, 1.1), toneMapped: false }), bark: new THREE.MeshStandardMaterial({ color: "#5d4a3a", roughness: 0.95 }),
       leaf: new THREE.MeshStandardMaterial({ color: "#3f5a35", roughness: 0.9 }), wood: new THREE.MeshStandardMaterial({ color: "#6e4a2e", roughness: 0.85 }),
       concrete: new THREE.MeshStandardMaterial({ color: "#a7a49c", roughness: 0.95 }), scaffold: new THREE.MeshStandardMaterial({ color: "#8a8f96", metalness: 0.6, roughness: 0.45 }),
-      crane: new THREE.MeshStandardMaterial({ color: "#d7a123", roughness: 0.6 }), sky: new THREE.MeshBasicMaterial({ map: duskSky(), side: THREE.BackSide, fog: false, depthWrite: false }),
+      plank: new THREE.MeshStandardMaterial({ color: "#8a6a44", roughness: 0.9 }), crane: new THREE.MeshStandardMaterial({ color: "#d7a123", roughness: 0.6 }),
+      sky: new THREE.MeshBasicMaterial({ map: duskSky(), side: THREE.BackSide, fog: false, depthWrite: false }),
       sun: new THREE.MeshBasicMaterial({ color: new THREE.Color(1.6, 1.15, 0.7), fog: false, toneMapped: false }), bp: new THREE.MeshStandardMaterial({ map: blueprintTex(), roughness: 0.8, side: THREE.DoubleSide }),
-      paper: new THREE.MeshStandardMaterial({ color: "#efe7d4", roughness: 0.9 }), money: new THREE.MeshStandardMaterial({ color: "#5b8a5a", roughness: 0.8 }),
-      stone: new THREE.MeshStandardMaterial({ color: "#a39684", roughness: 0.9 }), barge: new THREE.MeshStandardMaterial({ color: "#3a2a22", roughness: 0.8 }),
-      numbered: Array.from({ length: 14 }, (_, i) => new THREE.MeshStandardMaterial({ map: chalkNumbers(1031 + i * 7 + (i % 3) * 113), roughness: 0.9 })),
+      paper: new THREE.MeshStandardMaterial({ color: "#efe7d4", roughness: 0.9 }), stone: new THREE.MeshStandardMaterial({ color: "#a39684", roughness: 0.9 }), barge: new THREE.MeshStandardMaterial({ color: "#3a2a22", roughness: 0.8 }),
+      rubble: new THREE.MeshStandardMaterial({ map: rb, roughness: 0.95 }), rope: new THREE.MeshStandardMaterial({ color: "#c9b48a", roughness: 0.9 }),
+      cheque: new THREE.MeshStandardMaterial({ map: chequeTex(), roughness: 0.75, side: THREE.DoubleSide, emissive: "#ffffff", emissiveIntensity: 0.12 }),
+      book: new THREE.MeshStandardMaterial({ color: "#20402e", roughness: 0.6 }), deed: new THREE.MeshStandardMaterial({ map: deedTex(), roughness: 0.85 }),
+      seal: new THREE.MeshStandardMaterial({ color: "#a3171a", roughness: 0.4 }), ripple: rippleNormal(),
     };
   }, []);
-  const scaffold = useMemo(() => { // new bridge works scaffold: instanced tubes on the concrete piers
-    const geo = new THREE.CylinderGeometry(0.05, 0.05, 1, 5), m = new THREE.InstancedMesh(geo, M.scaffold, 900), o = new THREE.Object3D(); let n = 0;
-    for (const px of [-20, -6, 8, 22]) for (let lv = 0; lv < 6; lv++) for (let i = 0; i < 6; i++) {
-      if (n > 880) break;
-      const x = px - 2 + i * 0.8, y = L.RIVER_Y + lv * 1.3;
-      o.position.set(x, y + 0.65, -22.5); o.rotation.set(0, 0, 0); o.scale.set(1, 1.3, 1); o.updateMatrix(); m.setMatrixAt(n++, o.matrix);
-      o.position.set(x + 0.4, y + 1.3, -22.5); o.rotation.set(0, 0, Math.PI / 2); o.scale.set(1, 0.8, 1); o.updateMatrix(); m.setMatrixAt(n++, o.matrix);
-      o.position.set(x, y + 0.65, -27.5); o.rotation.set(0, 0, 0); o.scale.set(1, 1.3, 1); o.updateMatrix(); m.setMatrixAt(n++, o.matrix);
-    }
-    m.count = n; m.castShadow = true; return m;
+  const bridgeScaffold = useMemo(() => { // tube-and-coupler scaffold on the north face of the old bridge (west spans), braced, with planks
+    const P: [V3, V3][] = [], z0 = 4.5 + 0.55, z1 = z0 + 1.1;
+    for (let x = -27.5; x <= -9; x += 1.8) { P.push([[x, 0.9, z0], [x, 10.6, z0]], [[x, 0.9, z1], [x, 10.6, z1]]); }
+    for (let y = 2.2; y <= 10.6; y += 2.1) { P.push([[-27.5, y, z0], [-9.5, y, z0]], [[-27.5, y, z1], [-9.5, y, z1]]); for (let x = -27.5; x <= -9; x += 1.8) P.push([[x, y, z0], [x, y, z1]]); }
+    for (let x = -27.5; x < -10; x += 3.6) P.push([[x, 0.9, z1], [x + 3.6, 10.6, z1]]);
+    return struts(P, 0.045, M.scaffold);
   }, [M]);
+  const towerCrane = useMemo(() => ({ mast: struts(latticePairs(30, 1.4, 1.4, 20, 1), 0.05, M.crane), jib: struts(latticePairs(24, 1.0, 1.0, 16, 0.5), 0.04, M.crane) }), [M]);
   const gulls = useMemo(() => { const tri = new THREE.BufferGeometry(); tri.setAttribute("position", new THREE.Float32BufferAttribute([-0.5, 0, 0, 0, 0, 0.12, 0, 0.06, -0.1, 0.5, 0, 0, 0, 0, 0.12, 0, 0.06, -0.1], 3)); tri.computeVertexNormals(); const m = new THREE.InstancedMesh(tri, new THREE.MeshStandardMaterial({ color: "#f4f2ee", side: THREE.DoubleSide }), 10); return m; }, []);
   { const o = new THREE.Object3D(); for (let i = 0; i < 10; i++) { const a = f * 0.012 + i * 0.63, r = 14 + i * 2.3; o.position.set(-14 + Math.cos(a) * r, 14 + (i % 4) * 2.5 + Math.sin(f * 0.05 + i) * 0.6, 8 + Math.sin(a) * r * 0.6); o.rotation.set(0, -a, 0); const fl = Math.sin(f * 0.45 + i * 1.7) * 0.6; o.scale.set(1.2, 1 + fl, 1.2); o.updateMatrix(); gulls.setMatrixAt(i, o.matrix); } gulls.instanceMatrix.needsUpdate = true; }
+  M.ripple.repeat.set(26, 300); M.ripple.offset.set(f * 0.0009, f * 0.0016);
 
-  const h = L.halLondonAt(f), hp = L.halLondonPose(f), bp = L.blueprintAt(f), cr = L.craneAt(f), ship = L.shipAt(f);
+  const h = L.halLondonAt(f), hp = L.halLondonPose(f), bp = L.blueprintAt(f), cr = L.craneAt(f), ship = L.shipAt(f), sp = L.shipSpeed(f);
   const bpCenter = cardWorld(h, c.pos, [300, 520], 1.55, 0.25);
   const camYaw = Math.atan2(c.pos[0] - h[0], c.pos[2] - h[2]);
-  const boomTip: V3 = [L.CRANE[0] + Math.cos(cr.yaw) * 7.5, L.Y0 + 9.6, L.CRANE[2] - Math.sin(cr.yaw) * 7.5];
-  const blocksInHold = 9 + (cr.released ? 1 : 0);
-  const clerk = L.clerkAt(f), cp = L.clerkPose(f), lecIn = L.lecternIn(f);
+  const clerk = L.clerkAt(f), cp = L.clerkPose(f), pr = L.props(f), dY = L.dismantleY(f);
+  const holdAt = (who: "hal-L" | "hal-R" | "clerk-R" | "clerk-L"): V3 => {
+    const hal = who.startsWith("hal"), side = who.endsWith("L") ? -1 : 1;
+    if (!hal && f < 640) return cardWorld(clerk, c.pos, [330, 590], 1.5, 0.18);
+    return cardWorld(hal ? h : clerk, c.pos, L.handPx(hal ? hp : cp, side), hal ? 1.55 : 1.5, 0.14);
+  };
+  const yawTo = (p: V3) => Math.atan2(c.pos[0] - p[0], c.pos[2] - p[2]);
+  const toCam = (p: V3, d: number, dy = 0): V3 => { const a = yawTo(p); return [p[0] + Math.sin(a) * d, p[1] + dy, p[2] + Math.cos(a) * d]; };
+  const chq = pr.cheque, chqP = holdAt(chq.holder), bookP = holdAt("hal-L"), deedP = holdAt(pr.deed.holder);
   return (
     <AbsoluteFill style={{ backgroundColor: "#1d2a4f" }}>
       <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.1, far: 1400 }}>
-        <SetRig c={c} bg="#47507c" fog={["#7d7f9a", 40, 330]} env={0.22} />
+        <SetRig c={c} bg="#47507c" fog={["#7d7f9a", 40, 330]} env={0.22} clip />
         <InkCtx.Provider value={2.8 * k}>
           <mesh material={M.sky}><sphereGeometry args={[900, 32, 16]} /></mesh>
           <mesh position={[-60, 38, -800]} material={M.sun}><sphereGeometry args={[9, 20, 14]} /></mesh>
           <hemisphereLight args={["#aab4e6", "#8a6a4e", 1.15]} />
           <directionalLight position={[40, 30, 60]} color="#9fb0ff" intensity={0.35} />
           <directionalLight position={[-60, 40, -120]} color="#ffb07a" intensity={2.6} castShadow shadow-mapSize={[hi ? 4096 : 2048, hi ? 4096 : 2048]} shadow-camera-left={-40} shadow-camera-right={40} shadow-camera-top={40} shadow-camera-bottom={-40} shadow-camera-far={300} shadow-bias={-0.0004} />
-          {/* river + embankments */}
+          {/* river: reflective, normal-mapped moving ripples that distort the reflections */}
           <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, L.RIVER_Y, 0]}><planeGeometry args={[L.BANK_X * 2, 700]} />
-            <MeshReflectorMaterial color="#3b5560" roughness={0.92} metalness={0.05} mirror={0.4} blur={[300, 90]} resolution={512} mixBlur={0.9} mixStrength={1.4} mixContrast={1.05} depthScale={0.3} minDepthThreshold={0.4} maxDepthThreshold={1.2} /></mesh>
+            <MeshReflectorMaterial color="#38515c" roughness={0.6} metalness={0.05} mirror={0.45} blur={[220, 60]} resolution={512} mixBlur={0.7} mixStrength={1.5} mixContrast={1.05} depthScale={0.3} minDepthThreshold={0.4} maxDepthThreshold={1.2}
+              normalMap={M.ripple} normalScale={new THREE.Vector2(0.35, 0.35)} distortionMap={M.ripple} distortion={0.22} /></mesh>
           {[-1, 1].map((s) => <group key={s}>
             <mesh position={[s * (L.BANK_X + 0.5), L.Y0 / 2 - 1, 0]} material={M.wall} receiveShadow><boxGeometry args={[1, L.Y0 + 2, 700]} /><Ink k={0.8} /></mesh>
             <mesh position={[s * (L.BANK_X + 20), L.Y0 - 0.05, 0]} rotation={[-Math.PI / 2, 0, 0]} material={M.pave} receiveShadow><planeGeometry args={[40, 700]} /></mesh>
             <mesh position={[s * (L.BANK_X + 0.35), L.Y0 + 0.5, 0]} material={M.cope} castShadow receiveShadow><boxGeometry args={[0.5, 1.0, 700]} /><Ink k={0.9} /></mesh>
-            {Array.from({ length: 26 }, (_, i) => -90 + i * 7).filter((z) => Math.abs(z) > 6).map((z) => <Lamp key={z} p={[s * (L.BANK_X + 0.35), L.Y0 + 1.0, z]} iron={M.iron} glass={M.glass} />)}
+            {Array.from({ length: 26 }, (_, i) => -90 + i * 7).filter((z) => Math.abs(z) > 6 && !(s < 0 && z > 24 && z < 42)).map((z) => <Lamp key={z} p={[s * (L.BANK_X + 0.35), L.Y0 + 1.0, z]} iron={M.iron} glass={M.glass} />)}
             {Array.from({ length: 20 }, (_, i) => -90 + i * 9.5).filter((z) => Math.abs(z) > 7 && !(s < 0 && z > -2 && z < 75)).map((z, i) => <Tree key={z} p={[s * (L.BANK_X + 7.5), L.Y0, z]} s={0.9 + (i % 3) * 0.12} m={M} />)}
           </group>)}
+          {/* quay edge bollards */}
+          {[20.5, 39.5, 45].map((z) => <mesh key={z} position={[-27.9, L.Y0 + 0.2, z]} material={M.iron} castShadow><cylinderGeometry args={[0.16, 0.2, 0.45, 12]} /><Ink k={0.5} /></mesh>)}
           <pointLight position={[-L.BANK_X - 0.35, L.Y0 + 4.5, 15]} color="#ffc98a" intensity={10} distance={13} decay={1.6} />
           <pointLight position={[-36, L.Y0 + 4.2, 9]} color="#ffc98a" intensity={8} distance={11} decay={1.6} />
           <pointLight position={[-L.BANK_X - 0.35, L.Y0 + 4.5, 26]} color="#ffc98a" intensity={8} distance={12} decay={1.6} />
-          {/* benches */}
+          <pointLight position={[-32, L.Y0 + 6, 31]} color="#ffd9a8" intensity={14} distance={16} decay={1.5} />
           {[[-36.5, 19.5], [-36.5, -8]].map(([x, z], i) => <group key={i} position={[x, L.Y0, z]}><mesh position={[0, 0.45, 0]} material={M.wood} castShadow><boxGeometry args={[0.5, 0.08, 1.8]} /><Ink k={0.6} /></mesh><mesh position={[-0.22, 0.75, 0]} material={M.wood} castShadow><boxGeometry args={[0.06, 0.5, 1.8]} /></mesh>{[-0.75, 0.75].map((dz) => <mesh key={dz} position={[0, 0.22, dz]} material={M.iron}><boxGeometry args={[0.5, 0.44, 0.06]} /></mesh>)}</group>)}
-          {/* the old bridge (sooted London granite) */}
-          <Bridge2 tint="#c8c3bd" glow={1.1} />
-          {/* the new bridge works upstream: concrete piers, partial deck, scaffold, tower crane */}
+          {/* the old bridge (sooted London granite), its top courses coming off: clipped + stripped deck + scaffold */}
+          <Bridge2 tint="#c8c3bd" glow={1.1} clipY={dY} />
+          {dY < 8.42 && <mesh position={[0, dY - 0.02, 0]} material={M.rubble} receiveShadow castShadow><boxGeometry args={[BRIDGE_LEN - 0.3, 0.04, 8.8]} /></mesh>}
+          <primitive object={bridgeScaffold} />
+          {[2.2, 4.3, 6.4, 8.5].map((y) => <mesh key={y} position={[-18.5, y + 0.06, 4.5 + 1.1]} material={M.plank} castShadow receiveShadow><boxGeometry args={[18, 0.06, 1.0]} /></mesh>)}
+          {/* the new bridge works upstream: concrete piers, partial deck, lattice tower crane */}
           {[-20, -6, 8, 22].map((x) => <mesh key={x} position={[x, L.RIVER_Y + 3.5, -25]} material={M.concrete} castShadow receiveShadow><boxGeometry args={[3, 7, 6]} /><Ink k={0.8} /></mesh>)}
           <mesh position={[-13, L.RIVER_Y + 7.4, -25]} material={M.concrete} castShadow><boxGeometry args={[17, 0.8, 6.6]} /><Ink k={0.8} /></mesh>
-          <primitive object={scaffold} />
-          <group position={[1, L.RIVER_Y, -31]} rotation={[0, f * 0.003, 0]}>
-            <mesh position={[0, 14, 0]} material={M.crane} castShadow><boxGeometry args={[1.2, 28, 1.2]} /><Ink k={0.6} /></mesh>
-            <mesh position={[6, 27.6, 0]} material={M.crane} castShadow><boxGeometry args={[22, 0.9, 0.9]} /><Ink k={0.6} /></mesh>
-            <mesh position={[-4.5, 27, 0]} material={M.concrete}><boxGeometry args={[2.4, 2, 1.6]} /></mesh>
-            <mesh position={[13, 21.5, 0]} material={M.iron}><cylinderGeometry args={[0.03, 0.03, 12, 4]} /></mesh>
+          <group position={[1, L.RIVER_Y, -31]}>
+            <group rotation={[0, 0, Math.PI / 2]}><primitive object={towerCrane.mast} /></group>
+            <group position={[0, 30, 0]} rotation={[0, f * 0.003, 0]}>
+              <group position={[-6, 0.7, 0]}><primitive object={towerCrane.jib} /></group>
+              <mesh position={[-7.5, 0.6, 0]} material={M.concrete} castShadow><boxGeometry args={[2.6, 1.8, 1.4]} /></mesh>
+              <mesh position={[0.8, 0.2, 0.9]} material={M.paper} castShadow><boxGeometry args={[1.2, 1.4, 1.0]} /></mesh>
+              <Rod a={[13, 0.2, 0]} b={[13, -10, 0]} r={0.03} m={M.iron} />
+            </group>
           </group>
           <Buildings />
           <Skyline />
-          {/* barges drifting downstream */}
           {[0, 1].map((i) => { const z = -120 + ((f * 0.05 + i * 90) % 220); return <group key={i} position={[8 + i * 7, L.RIVER_Y + 0.3, z]}><mesh material={M.barge} castShadow><boxGeometry args={[3.2, 0.9, 11]} /><Ink k={0.7} /></mesh><mesh position={[0, 0.6, -1]} material={M.stone}><boxGeometry args={[2.4, 0.5, 6]} /></mesh><mesh position={[0, 1.0, 4.4]} material={M.paper}><boxGeometry args={[1.6, 1.2, 1.6]} /></mesh></group>; })}
           <primitive object={gulls} />
-          {/* numbered block stacks under the north abutment (dismantling) + at the quay */}
-          {Array.from({ length: 14 }, (_, i) => <mesh key={i} position={[-38.6 + (i % 5) * 0.95, L.Y0 + 0.28 + Math.floor(i / 10) * 0.56, 5.6 + (Math.floor(i / 5) % 2) * -0.8]} rotation={[0, 0.03 * (i % 3), 0]} material={[M.stone, M.stone, M.stone, M.stone, M.numbered[i], M.stone]} castShadow receiveShadow><boxGeometry args={[0.85, 0.55, 0.6]} /><Ink k={0.5} /></mesh>)}
-          {Array.from({ length: 6 }, (_, i) => <mesh key={i} position={[L.STACK[0] + (i % 3) * 0.9, L.Y0 + 0.28 + Math.floor(i / 3) * 0.56, L.STACK[2]]} material={[M.stone, M.stone, M.stone, M.stone, M.numbered[(i + 5) % 14], M.stone]} castShadow><boxGeometry args={[0.85, 0.55, 0.6]} /><Ink k={0.5} /></mesh>)}
-          {/* scaffold on the north span (being dismantled) */}
-          {Array.from({ length: 10 }, (_, i) => <mesh key={i} position={[-26 + i * 1.1, 6.5, 5.0]} material={M.scaffold}><cylinderGeometry args={[0.05, 0.05, 4.6, 5]} /></mesh>)}
-          <mesh position={[-21, 8.8, 5.0]} rotation={[0, 0, Math.PI / 2]} material={M.scaffold}><cylinderGeometry args={[0.05, 0.05, 11, 5]} /></mesh>
-          {/* quay derrick crane */}
-          <group position={L.CRANE}>
-            <mesh position={[0, 4.8, 0]} material={M.crane} castShadow><boxGeometry args={[0.6, 9.6, 0.6]} /><Ink k={0.6} /></mesh>
-            <group position={[0, 9.4, 0]} rotation={[0, cr.yaw, 0]}><mesh position={[3.75, 0.2, 0]} rotation={[0, 0, 0.05]} material={M.crane} castShadow><boxGeometry args={[7.5, 0.35, 0.35]} /><Ink k={0.6} /></mesh></group>
-          </group>
-          <mesh position={[boomTip[0], (boomTip[1] + cr.hookY) / 2, boomTip[2]]} material={M.iron}><cylinderGeometry args={[0.025, 0.025, Math.max(0.1, boomTip[1] - cr.hookY), 4]} /></mesh>
-          {cr.carrying && <mesh position={[boomTip[0], cr.hookY - 0.35, boomTip[2]]} material={[M.stone, M.stone, M.stone, M.stone, M.numbered[3], M.stone]} castShadow><boxGeometry args={[0.85, 0.55, 0.6]} /><Ink k={0.5} /></mesh>}
-          <group position={ship}><Ship blocks={blocksInHold} /></group>
-          {/* lectern + cheque + stamp pad + money crate (cheque scene) */}
-          {lecIn > 0.001 && <group position={[L.LECTERN[0] - (1 - lecIn) * 4, L.Y0, L.LECTERN[2]]}>
-            <mesh position={[0, 0.55, 0]} material={M.wood} castShadow><boxGeometry args={[0.18, 1.1, 0.18]} /><Ink k={0.6} /></mesh>
-            <mesh position={[0, 1.12, 0]} rotation={[0.35, 0, 0]} material={M.wood} castShadow><boxGeometry args={[0.8, 0.06, 0.55]} /><Ink k={0.6} /></mesh>
-            <mesh position={[0, 1.16, 0.02]} rotation={[0.35, 0, 0]} material={M.paper}><boxGeometry args={[0.62, 0.012, 0.3]} /></mesh>
-          </group>}
-          {f >= 700 && f < 900 && <group position={[L.crateX(f), L.Y0, L.CRATE_Z]}><mesh position={[0, 0.3, 0]} material={M.wood} castShadow><boxGeometry args={[0.8, 0.6, 0.55]} /><Ink k={0.6} /></mesh>{[0, 1, 2, 3, 4, 5].map((i) => <mesh key={i} position={[-0.27 + (i % 3) * 0.27, 0.64, -0.12 + Math.floor(i / 3) * 0.24]} material={M.money}><boxGeometry args={[0.22, 0.08, 0.18]} /></mesh>)}</group>}
+          {/* numbered blocks: dismantling stack beside the abutment + loading stack at the quay */}
+          {Array.from({ length: 14 }, (_, i) => <GraniteBlock key={i} n={1031 + i * 7 + (i % 3) * 113} p={[-39.2 + (i % 5) * 1.08, L.Y0 + 0.3 + Math.floor(i / 10) * 0.6, 5.5 + (Math.floor(i / 5) % 2) * -0.8]} ry={0.03 * (i % 3) - 0.03} />)}
+          {L.stackBlocks().map((b, i) => L.stackHas(i, f) && <GraniteBlock key={i} n={b.n} p={b.p} />)}
+          <QuayCrane base={L.CRANE} s={cr} blockN={L.stackBlocks()[L.LIFT].n} />
+          <group position={ship}><CargoShip cargo={L.shipCargo(f)} open lights={1} /></group>
+          <group position={[ship[0], L.RIVER_Y, ship[2] - 10.2]}><FoamWake len={26} width={9} travel={ship[2] - L.SHIP0[2]} k={Math.min(1, sp * 5)} /></group>
+          {L.mooring(f).map(([a, b], i) => <Rod key={i} a={a} b={b} r={0.03} m={M.rope} shadow={false} />)}
           {/* people */}
-          {L.LONDON_PEOPLE.map((p, i) => L.londonPeopleVisible(i, f) && <Toon key={i} pose={L.londonPersonPose(i, f)} pos={p.pos} cam={c.pos} h={p.h} hi={hi} halo={0.1} />)}
-          {f >= 596 && f < 985 && <Toon pose={cp} pos={clerk} cam={c.pos} h={1.5} hi={hi} light={0} halo={0.1} />}
+          {L.LONDON_PEOPLE.map((p, i) => L.londonPeopleVisible(i, f) && <Toon key={i} pose={L.londonPersonPose(i, f)} pos={L.londonPersonAt(i, f)} cam={c.pos} h={p.h} hi={hi} halo={0.1} />)}
+          {L.clerkVisible(f) && <Toon pose={cp} pos={clerk} cam={c.pos} h={1.5} hi={hi} light={0} halo={0.1} />}
           {L.halLondonVisible(f) && <Toon pose={hp} pos={h} cam={c.pos} hi={hi} light={4} />}
-          {/* blueprint between Hal's hands (unrolls), rolled tube afterwards */}
+          {/* purchase props: cheque book, the cheque, the rolled deed with seal */}
+          {pr.book.k > 0.02 && <mesh position={bookP} rotation={[0, yawTo(bookP), 0]} scale={pr.book.k} material={M.book}><boxGeometry args={[0.26, 0.15, 0.03]} /></mesh>}
+          {chq.k > 0.02 && <mesh position={toCam(chqP, chq.holder === "hal-L" ? 0.03 : 0.0, chq.holder === "hal-L" ? 0.005 : 0.02)} rotation={[0, yawTo(chqP), chq.holder === "hal-L" ? 0 : -0.08]} scale={chq.k * (chq.holder === "hal-L" ? 0.85 : 1)} material={M.cheque}><planeGeometry args={[0.3, 0.135]} /></mesh>}
+          <group position={deedP} rotation={[0, yawTo(deedP), pr.deed.holder === "hal-L" && f > 780 ? 0.9 : Math.PI / 2]}>
+            <mesh material={M.deed} castShadow><cylinderGeometry args={[0.035, 0.035, 0.36, 14]} /><Ink k={0.4} /></mesh>
+            <mesh rotation={[Math.PI / 2, 0, 0]} material={M.seal}><torusGeometry args={[0.038, 0.008, 6, 14]} /></mesh>
+            <mesh position={[0, -0.02, 0.04]} rotation={[Math.PI / 2, 0, 0]} material={M.seal}><cylinderGeometry args={[0.03, 0.03, 0.01, 12]} /></mesh>
+          </group>
           {bp.open > 0.01 && <mesh position={bpCenter} rotation={[-0.15 + 0.15 * bp.show, camYaw, 0]} scale={[bp.open, 1, 1]} material={M.bp}><planeGeometry args={[0.62, 0.4]} /></mesh>}
           {L.ideaSpark(f) > 0.01 && <sprite position={cardWorld(h, c.pos, [380, 150], 1.55, 0.2)} scale={[0.25 * L.ideaSpark(f), 0.25 * L.ideaSpark(f), 1]}><spriteMaterial color={new THREE.Color(2.2, 1.9, 1.2)} transparent opacity={0.7 * L.ideaSpark(f)} blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} /></sprite>}
         </InkCtx.Provider>
@@ -250,4 +246,4 @@ export const LondonSet: React.FC<{ from: number }> = ({ from }) => {
     </AbsoluteFill>
   );
 };
-void cameraPx5; void PIER_X; void BRIDGE_LEN; void smooth;
+void PIER_X; void smooth; void chalkNumbers;

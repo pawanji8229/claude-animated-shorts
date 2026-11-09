@@ -11,6 +11,7 @@ import { FILM_FRAMES, SW } from "./timeline";
 export const FPS = 30;
 export { FILM_FRAMES };
 export type SoundEvent = { frame: number; kind: string; x: number; gain: number; note?: string };
+// v2: transitions are cross-dissolves (no curtain whooshes / dust gust); the ambience timeline crossfades under them.
 const inRange = (a: number, b: number) => (e: SoundEvent) => e.frame >= a && e.frame < b;
 export const soundEvents = (): SoundEvent[] => [
   ...hookSoundEvents().filter(inRange(0, SW.london)),
@@ -18,8 +19,4 @@ export const soundEvents = (): SoundEvent[] => [
   ...seaSoundEvents().filter(inRange(SW.sea, SW.works)),
   ...worksSoundEvents().filter(inRange(SW.works - 30, SW.reopen)),
   ...reopeningEvents().map((e) => ({ ...e, frame: e.frame + SW.reopen })).filter(inRange(SW.reopen, FILM_FRAMES)),
-  { frame: SW.sea - 8, kind: "whoosh_reveal", x: 0, gain: 0.35, note: "camera passes through the sea fog" },
-  { frame: SW.works - 8, kind: "whoosh_reveal", x: 0, gain: 0.35, note: "camera passes through the heat haze" },
-  { frame: SW.reopen - 8, kind: "whoosh_reveal", x: 0, gain: 0.35, note: "camera passes through the river spray" },
-  { frame: FILM_FRAMES - 14, kind: "wind_gust", x: 0.3, gain: 0.7, note: "desert dust gust carries the end back to the start (loop)" },
 ].sort((a, b) => a.frame - b.frame);

@@ -234,20 +234,6 @@
    "note": "nervous gulp as cringe starts"
   },
   {
-   "frame": 318,
-   "kind": "whoosh_reveal",
-   "x": 0,
-   "gain": 0.4,
-   "note": "camera rises into the clouds"
-  },
-  {
-   "frame": 352,
-   "kind": "whoosh_reveal",
-   "x": 0,
-   "gain": 0.3,
-   "note": "camera descends out of the clouds over the Thames"
-  },
-  {
    "frame": 366,
    "kind": "gull",
    "x": -1,
@@ -437,116 +423,1033 @@
    "note": "lightbulb moment: soft bell"
   },
   {
-   "frame": 640,
+   "frame": 612,
    "kind": "step_stone",
    "x": -0.4,
-   "gain": 0.5,
-   "note": "clerk arrives at the lectern"
+   "gain": 0.45,
+   "note": "the seller walks up with the deed"
+  },
+  {
+   "frame": 622,
+   "kind": "step_stone",
+   "x": -0.4,
+   "gain": 0.45,
+   "note": "the seller walks up with the deed"
+  },
+  {
+   "frame": 632,
+   "kind": "step_stone",
+   "x": -0.4,
+   "gain": 0.45,
+   "note": "the seller walks up with the deed"
+  },
+  {
+   "frame": 642,
+   "kind": "cloth_soft",
+   "x": -0.05,
+   "gain": 0.7,
+   "note": "Hal pulls the cheque book from his jacket"
   },
   {
    "frame": 658,
    "kind": "pen_scratch",
    "x": -0.05,
    "gain": 0.7,
-   "note": "pen signs the cheque"
+   "note": "pen writes the cheque"
   },
   {
    "frame": 663,
    "kind": "pen_scratch",
    "x": -0.05,
    "gain": 0.7,
-   "note": "pen signs the cheque"
+   "note": "pen writes the cheque"
   },
   {
    "frame": 668,
    "kind": "pen_scratch",
    "x": -0.05,
    "gain": 0.7,
-   "note": "pen signs the cheque"
+   "note": "pen writes the cheque"
   },
   {
    "frame": 673,
    "kind": "pen_scratch",
    "x": -0.05,
    "gain": 0.7,
-   "note": "pen signs the cheque"
+   "note": "pen writes the cheque"
   },
   {
    "frame": 678,
    "kind": "pen_scratch",
    "x": -0.05,
    "gain": 0.7,
-   "note": "pen signs the cheque"
+   "note": "pen writes the cheque"
   },
   {
    "frame": 683,
    "kind": "pen_scratch",
    "x": -0.05,
    "gain": 0.7,
-   "note": "pen signs the cheque"
+   "note": "pen writes the cheque"
   },
   {
    "frame": 688,
    "kind": "pen_scratch",
    "x": -0.05,
    "gain": 0.7,
-   "note": "pen signs the cheque"
+   "note": "pen writes the cheque"
   },
   {
    "frame": 693,
    "kind": "pen_scratch",
    "x": -0.05,
    "gain": 0.7,
-   "note": "pen signs the cheque"
+   "note": "pen writes the cheque"
   },
   {
-   "frame": 706,
-   "kind": "stamp_thunk",
-   "x": -0.15,
+   "frame": 704,
+   "kind": "paper_rustle",
+   "x": -0.05,
    "gain": 0.85,
-   "note": "clerk stamps the cheque"
+   "note": "cheque torn from the book"
   },
   {
-   "frame": 724,
-   "kind": "crate_slide",
-   "x": -0.1,
-   "gain": 0.7,
-   "note": "money crate slides across"
-  },
-  {
-   "frame": 740,
-   "kind": "register_ring",
-   "x": -0.1,
+   "frame": 718,
+   "kind": "paper_rustle",
+   "x": -0.15,
    "gain": 0.5,
-   "note": "cash-register ding (original synth)"
+   "note": "cheque handed to the seller"
+  },
+  {
+   "frame": 745,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 746,
+   "kind": "cloth_soft",
+   "x": -0.15,
+   "gain": 0.6,
+   "note": "seller tucks the cheque into his breast pocket"
+  },
+  {
+   "frame": 746,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 748,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 749,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 751,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 752,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 752,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
   },
   {
    "frame": 754,
    "kind": "cloth_soft",
+   "x": -0.1,
+   "gain": 0.7,
+   "note": "handshake"
+  },
+  {
+   "frame": 754,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 754,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 755,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 755,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 756,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 757,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 757,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 758,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 758,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 759,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 759,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 760,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 761,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 761,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 762,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 762,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 762,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 763,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 763,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 764,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 764,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 764,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 765,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 765,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 765,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 766,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 766,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 766,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 767,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 768,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 768,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 768,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 768,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 768,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 769,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 769,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 770,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 770,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 770,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 770,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 771,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 771,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 771,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 771,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 772,
+   "kind": "paper_rustle",
+   "x": -0.1,
+   "gain": 0.6,
+   "note": "the deed changes hands"
+  },
+  {
+   "frame": 772,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 772,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 772,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 773,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 773,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 774,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 774,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 774,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 774,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 775,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 775,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 775,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 776,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 776,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 776,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 776,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 777,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 777,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 777,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 777,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 778,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 778,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 778,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 779,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 779,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 780,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 780,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 780,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 780,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 781,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 781,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 781,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 782,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 782,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 782,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 783,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 783,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 783,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 783,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 784,
+   "kind": "cloth_soft",
    "x": -0.15,
-   "gain": 0.8,
-   "note": "clerk tips bowler hat"
+   "gain": 0.6,
+   "note": "seller tips his bowler"
+  },
+  {
+   "frame": 784,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 784,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 784,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 785,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 785,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 786,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 786,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 787,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 787,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 788,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 788,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 789,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 789,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 789,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 790,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 790,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 791,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 792,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 792,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 792,
+   "kind": "crane_winch",
+   "x": 0.3,
+   "gain": 0.55,
+   "note": "quay crane slews over the stack"
   },
   {
    "frame": 793,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 793,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 794,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 794,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 795,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 795,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 796,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 796,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 797,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 798,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 799,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 799,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 800,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 801,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 802,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 803,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
+  },
+  {
+   "frame": 805,
    "kind": "chalk_scratch",
    "x": 5.551115123125783e-17,
    "gain": 1,
    "note": "person 3 chalk"
   },
   {
-   "frame": 808,
-   "kind": "hammer_hit",
-   "x": -0.3,
-   "gain": 1,
-   "note": "person 4 hammer"
+   "frame": 805,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
   },
   {
-   "frame": 811,
-   "kind": "chalk_scratch",
-   "x": 5.551115123125783e-17,
-   "gain": 1,
-   "note": "person 3 chalk"
+   "frame": 807,
+   "kind": "step_stone",
+   "x": -0.5,
+   "gain": 0.35,
+   "note": "dismantling crew walk in"
   },
   {
    "frame": 812,
@@ -556,14 +1459,14 @@
    "note": "gull cry over the river"
   },
   {
-   "frame": 820,
-   "kind": "ratchet",
-   "x": -0.19999999999999998,
+   "frame": 814,
+   "kind": "hammer_hit",
+   "x": -0.3,
    "gain": 1,
-   "note": "person 5 wrench"
+   "note": "person 4 hammer"
   },
   {
-   "frame": 830,
+   "frame": 823,
    "kind": "chalk_scratch",
    "x": 5.551115123125783e-17,
    "gain": 1,
@@ -571,108 +1474,122 @@
   },
   {
    "frame": 832,
-   "kind": "hammer_hit",
-   "x": -0.3,
-   "gain": 1,
-   "note": "person 4 hammer"
-  },
-  {
-   "frame": 834,
    "kind": "ratchet",
    "x": -0.19999999999999998,
    "gain": 1,
    "note": "person 5 wrench"
   },
   {
-   "frame": 842,
-   "kind": "chalk_scratch",
-   "x": -0.09999999999999998,
+   "frame": 838,
+   "kind": "hammer_hit",
+   "x": -0.3,
    "gain": 1,
-   "note": "person 6 chalk"
+   "note": "person 4 hammer"
   },
   {
-   "frame": 849,
+   "frame": 838,
+   "kind": "chain_rattle",
+   "x": 0.2,
+   "gain": 0.5,
+   "note": "hook lowered to the block"
+  },
+  {
+   "frame": 842,
    "kind": "chalk_scratch",
    "x": 5.551115123125783e-17,
    "gain": 1,
    "note": "person 3 chalk"
   },
   {
-   "frame": 849,
+   "frame": 846,
    "kind": "ratchet",
    "x": -0.19999999999999998,
    "gain": 1,
    "note": "person 5 wrench"
   },
   {
-   "frame": 856,
+   "frame": 850,
+   "kind": "chalk_scratch",
+   "x": -0.09999999999999998,
+   "gain": 1,
+   "note": "person 6 chalk"
+  },
+  {
+   "frame": 852,
+   "kind": "chain_rattle",
+   "x": 0.15,
+   "gain": 0.55,
+   "note": "slings hooked round the block"
+  },
+  {
+   "frame": 861,
+   "kind": "chalk_scratch",
+   "x": 5.551115123125783e-17,
+   "gain": 1,
+   "note": "person 3 chalk"
+  },
+  {
+   "frame": 861,
+   "kind": "ratchet",
+   "x": -0.19999999999999998,
+   "gain": 1,
+   "note": "person 5 wrench"
+  },
+  {
+   "frame": 862,
    "kind": "hammer_hit",
    "x": -0.3,
    "gain": 1,
    "note": "person 4 hammer"
   },
   {
-   "frame": 863,
-   "kind": "ratchet",
-   "x": -0.19999999999999998,
-   "gain": 1,
-   "note": "person 5 wrench"
-  },
-  {
-   "frame": 865,
-   "kind": "chalk_scratch",
-   "x": -0.09999999999999998,
-   "gain": 1,
-   "note": "person 6 chalk"
-  },
-  {
-   "frame": 874,
+   "frame": 866,
    "kind": "crane_winch",
    "x": 0.2,
    "gain": 0.8,
-   "note": "crane winch lifts a numbered block"
+   "note": "winch takes the load, block lifts"
   },
   {
-   "frame": 877,
-   "kind": "ratchet",
-   "x": -0.19999999999999998,
-   "gain": 1,
-   "note": "person 5 wrench"
-  },
-  {
-   "frame": 878,
-   "kind": "chain_rattle",
-   "x": 0.2,
-   "gain": 0.6,
-   "note": "lifting chain takes the load"
-  },
-  {
-   "frame": 888,
+   "frame": 873,
    "kind": "chalk_scratch",
    "x": -0.09999999999999998,
    "gain": 1,
    "note": "person 6 chalk"
   },
   {
-   "frame": 892,
+   "frame": 875,
+   "kind": "ratchet",
+   "x": -0.19999999999999998,
+   "gain": 1,
+   "note": "person 5 wrench"
+  },
+  {
+   "frame": 889,
+   "kind": "ratchet",
+   "x": -0.19999999999999998,
+   "gain": 1,
+   "note": "person 5 wrench"
+  },
+  {
+   "frame": 894,
    "kind": "cloth_soft",
    "x": -0.3,
    "gain": 1,
    "note": "person 4 hat"
   },
   {
-   "frame": 892,
-   "kind": "ratchet",
-   "x": -0.19999999999999998,
-   "gain": 1,
-   "note": "person 5 wrench"
-  },
-  {
-   "frame": 902,
+   "frame": 894,
    "kind": "crane_winch",
    "x": 0.4,
    "gain": 0.55,
    "note": "crane slews toward the ship"
+  },
+  {
+   "frame": 902,
+   "kind": "cloth_soft",
+   "x": -0.3,
+   "gain": 1,
+   "note": "person 8 wave"
   },
   {
    "frame": 905,
@@ -682,32 +1599,53 @@
    "note": "gull cry over the river"
   },
   {
-   "frame": 940,
+   "frame": 926,
+   "kind": "crane_winch",
+   "x": 0.5,
+   "gain": 0.5,
+   "note": "block lowered into the hold"
+  },
+  {
+   "frame": 944,
    "kind": "stone_thud",
    "x": 0.5,
    "gain": 0.85,
-   "note": "block lands in the ship's hold"
-  },
-  {
-   "frame": 946,
-   "kind": "ship_horn",
-   "x": 0.6,
-   "gain": 0.7,
-   "note": "cargo ship horn: departure"
+   "note": "block lands in the hold"
   },
   {
    "frame": 950,
+   "kind": "chain_rattle",
+   "x": 0.5,
+   "gain": 0.5,
+   "note": "deck hand frees the slings"
+  },
+  {
+   "frame": 952,
+   "kind": "ship_horn",
+   "x": 0.6,
+   "gain": 0.7,
+   "note": "ship's horn: casting off"
+  },
+  {
+   "frame": 960,
    "kind": "ship_engine",
    "x": 0.6,
    "gain": 0.7,
-   "note": "ship engine chugs as it pulls away"
+   "note": "engine chugs as the ship pulls away"
   },
   {
-   "frame": 977,
-   "kind": "whoosh_reveal",
-   "x": 0,
-   "gain": 0.35,
-   "note": "camera passes through the sea fog"
+   "frame": 964,
+   "kind": "cloth_soft",
+   "x": -0.19999999999999998,
+   "gain": 1,
+   "note": "person 9 wave"
+  },
+  {
+   "frame": 970,
+   "kind": "bow_splash",
+   "x": 0.5,
+   "gain": 0.45,
+   "note": "bow wave as she gathers way"
   },
   {
    "frame": 988,
@@ -752,28 +1690,21 @@
    "note": "water churns as the gates open"
   },
   {
-   "frame": 1050,
+   "frame": 1066,
    "kind": "truck_pass",
    "x": -0.6,
    "gain": 0.85,
    "note": "1960s flatbed truck 0 rumbles past with numbered blocks"
   },
   {
-   "frame": 1056,
-   "kind": "whoosh_reveal",
-   "x": 0,
-   "gain": 0.35,
-   "note": "camera passes through the heat haze"
-  },
-  {
-   "frame": 1066,
+   "frame": 1082,
    "kind": "truck_pass",
    "x": -0.3,
    "gain": 0.7,
    "note": "1960s flatbed truck 1 rumbles past with numbered blocks"
   },
   {
-   "frame": 1082,
+   "frame": 1098,
    "kind": "truck_pass",
    "x": 0,
    "gain": 0.55,
@@ -785,6 +1716,13 @@
    "x": 0.2,
    "gain": 0.6,
    "note": "lead truck's air brakes hiss at the site"
+  },
+  {
+   "frame": 1139,
+   "kind": "crane_winch",
+   "x": -0.5,
+   "gain": 0.45,
+   "note": "truck crane winch lifts a block off the stack"
   },
   {
    "frame": 1142,
@@ -801,11 +1739,11 @@
    "note": "person 3 wave"
   },
   {
-   "frame": 1162,
+   "frame": 1158,
    "kind": "stone_thud",
    "x": -0.4,
    "gain": 0.7,
-   "note": "granite block set into place"
+   "note": "granite block set into the facing"
   },
   {
    "frame": 1174,
@@ -815,11 +1753,11 @@
    "note": "person 0 hammer"
   },
   {
-   "frame": 1184,
+   "frame": 1183,
    "kind": "crane_winch",
    "x": -0.5,
    "gain": 0.45,
-   "note": "mobile crane winch"
+   "note": "truck crane winch lifts a block off the stack"
   },
   {
    "frame": 1186,
@@ -857,11 +1795,11 @@
    "note": "person 3 hammer"
   },
   {
-   "frame": 1206,
+   "frame": 1202,
    "kind": "stone_thud",
    "x": -0.4,
    "gain": 0.7,
-   "note": "granite block set into place"
+   "note": "granite block set into the facing"
   },
   {
    "frame": 1214,
@@ -879,17 +1817,17 @@
   },
   {
    "frame": 1227,
+   "kind": "crane_winch",
+   "x": -0.5,
+   "gain": 0.45,
+   "note": "truck crane winch lifts a block off the stack"
+  },
+  {
+   "frame": 1227,
    "kind": "ratchet",
    "x": -0.7833333333333333,
    "gain": 1,
    "note": "person 1 wrench"
-  },
-  {
-   "frame": 1228,
-   "kind": "crane_winch",
-   "x": -0.5,
-   "gain": 0.45,
-   "note": "mobile crane winch"
   },
   {
    "frame": 1230,
@@ -920,6 +1858,20 @@
    "note": "person 1 wrench"
   },
   {
+   "frame": 1242,
+   "kind": "step_sand",
+   "x": -0.3,
+   "gain": 0.55,
+   "note": "Hal walks up to admire the bridge"
+  },
+  {
+   "frame": 1246,
+   "kind": "stone_thud",
+   "x": -0.4,
+   "gain": 0.7,
+   "note": "granite block set into the facing"
+  },
+  {
    "frame": 1247,
    "kind": "scaffold_clatter",
    "x": 0.3,
@@ -928,10 +1880,10 @@
   },
   {
    "frame": 1250,
-   "kind": "stone_thud",
-   "x": -0.4,
-   "gain": 0.7,
-   "note": "granite block set into place"
+   "kind": "step_sand",
+   "x": -0.3,
+   "gain": 0.55,
+   "note": "Hal walks up to admire the bridge"
   },
   {
    "frame": 1255,
@@ -939,6 +1891,20 @@
    "x": 0,
    "gain": 0.6,
    "note": "scaffold poles come down"
+  },
+  {
+   "frame": 1258,
+   "kind": "step_sand",
+   "x": -0.3,
+   "gain": 0.55,
+   "note": "Hal walks up to admire the bridge"
+  },
+  {
+   "frame": 1265,
+   "kind": "step_sand",
+   "x": -0.3,
+   "gain": 0.55,
+   "note": "Hal walks up to admire the bridge"
   },
   {
    "frame": 1276,
@@ -969,39 +1935,39 @@
    "note": "nervous gulp"
   },
   {
-   "frame": 1398,
+   "frame": 1384,
    "kind": "excavator",
-   "x": 0.1,
-   "gain": 0.8,
-   "note": "excavator diesels rev and dig"
+   "x": 0.2,
+   "gain": 0.7,
+   "note": "excavators rumble in along the channel on their tracks"
   },
   {
    "frame": 1408,
+   "kind": "step_sand",
+   "x": -0.4,
+   "gain": 0.5,
+   "note": "Hal slinks away"
+  },
+  {
+   "frame": 1420,
    "kind": "bucket_scrape",
    "x": -0.2,
-   "gain": 0.7,
-   "note": "excavator 0 bucket bites the channel bed"
+   "gain": 0.75,
+   "note": "excavator buckets bite the channel bed"
   },
   {
-   "frame": 1412,
+   "frame": 1420,
+   "kind": "step_sand",
+   "x": -0.5,
+   "gain": 0.45,
+   "note": "Hal slinks away"
+  },
+  {
+   "frame": 1440,
    "kind": "dirt_dump",
-   "x": 0.4,
-   "gain": 0.55,
-   "note": "excavator 1 dumps soil on the bank"
-  },
-  {
-   "frame": 1428,
-   "kind": "dirt_dump",
-   "x": -0.3,
-   "gain": 0.55,
-   "note": "excavator 0 dumps soil on the bank"
-  },
-  {
-   "frame": 1432,
-   "kind": "bucket_scrape",
    "x": 0.3,
-   "gain": 0.7,
-   "note": "excavator 1 bucket bites the channel bed"
+   "gain": 0.6,
+   "note": "soil dumped on the bank"
   },
   {
    "frame": 1444,
@@ -1011,25 +1977,11 @@
    "note": "water released: rushes down the new channel"
   },
   {
-   "frame": 1449,
-   "kind": "bucket_scrape",
-   "x": -0.2,
-   "gain": 0.7,
-   "note": "excavator 0 bucket bites the channel bed"
-  },
-  {
    "frame": 1452,
-   "kind": "dirt_dump",
+   "kind": "excavator",
    "x": 0.4,
    "gain": 0.55,
-   "note": "excavator 1 dumps soil on the bank"
-  },
-  {
-   "frame": 1473,
-   "kind": "whoosh_reveal",
-   "x": 0,
-   "gain": 0.35,
-   "note": "camera passes through the river spray"
+   "note": "excavators climb out of the channel"
   },
   {
    "frame": 1476,
@@ -1478,13 +2430,6 @@
    "x": -0.04940879727167591,
    "gain": 1,
    "note": "person 7 winds on the film"
-  },
-  {
-   "frame": 1757,
-   "kind": "wind_gust",
-   "x": 0.3,
-   "gain": 0.7,
-   "note": "desert dust gust carries the end back to the start (loop)"
   },
   {
    "frame": 1759,
