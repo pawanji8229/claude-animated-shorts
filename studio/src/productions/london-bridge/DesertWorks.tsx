@@ -9,6 +9,7 @@ import { Post } from "../../lib/Post";
 import { InkCtx, Ink } from "../../inventor/Workshop";
 import { DesertWorld, groundY, BR } from "../../desert/DesertWorld";
 import { BRIDGE_LEN } from "../../desert/Bridge";
+import { softGlow } from "../../desert/desertTextures";
 import { V3, rng } from "../../lib/math";
 import { SetRig, RenderAfterMount, Toon, TAU } from "./common";
 import * as W from "./worksTimeline";
@@ -20,7 +21,7 @@ const useMats = () => useMemo(() => ({
   stone: new THREE.MeshStandardMaterial({ color: "#c4ad8f", roughness: 0.9 }), steel: new THREE.MeshStandardMaterial({ color: "#8a8f96", metalness: 0.6, roughness: 0.45 }),
   yellow: new THREE.MeshStandardMaterial({ color: "#e0a91f", roughness: 0.55 }), dark: new THREE.MeshStandardMaterial({ color: "#2a2b30", roughness: 0.6 }),
   dirt: new THREE.MeshStandardMaterial({ color: "#a06a42", roughness: 1 }), drum: new THREE.MeshStandardMaterial({ color: "#e4e0d6", roughness: 0.6 }),
-  dust: new THREE.SpriteMaterial({ color: "#e8c69a", transparent: true, opacity: 0.35, depthWrite: false }), foam: new THREE.MeshStandardMaterial({ color: "#f4fbfb", roughness: 0.6, transparent: true, opacity: 0.9 }),
+  dust: new THREE.SpriteMaterial({ map: softGlow("rgba(232,198,154,0.55)", "rgba(232,198,154,0)"), transparent: true, depthWrite: false }), foam: new THREE.MeshStandardMaterial({ color: "#f4fbfb", roughness: 0.6, transparent: true, opacity: 0.9 }),
 }), []);
 type Mt = ReturnType<typeof useMats>;
 
@@ -89,7 +90,7 @@ export const DesertWorks: React.FC<{ from: number }> = ({ from }) => {
             clearZones={[[-95, -10, 11, 21]]}>
             {/* trucks + dust trails */}
             {f < 1160 && trucks.map((t) => <group key={t.i} position={t.pos} rotation={[0, t.ry, 0]}><Truck i={t.i} spin={t.spin} m={m} /></group>)}
-            {f < 1160 && trucks.map((t) => dust.slice(0, 12).map((d) => { const back = (d + (f % 3) / 3) * 0.9, a = Math.max(0, 1 - back / 11) * Math.min(1, Math.abs(t.speed) / 6); return a > 0.02 ? <sprite key={`${t.i}-${d}`} position={[t.pos[0] - 4 - back, t.pos[1] + 0.5 + back * 0.12, t.pos[2] + Math.sin(d * 2.1) * 0.6]} scale={[1.2 + back * 0.35, 1.0 + back * 0.3, 1]} material={m.dust} /> : null; }))}
+            {f < 1160 && trucks.map((t) => dust.slice(0, 12).map((d) => { const back = (d + (f % 3) / 3) * 0.9, a = Math.max(0, 1 - back / 11) * Math.min(1, Math.abs(t.speed) / 6); return a > 0.02 ? <sprite key={`${t.i}-${d}`} position={[t.pos[0] - 4 - back, t.pos[1] + 0.5 + back * 0.12, t.pos[2] + Math.sin(d * 2.1) * 0.6]} scale={[(1.8 + back * 0.5) * (0.6 + 0.4 * a), (1.4 + back * 0.4) * (0.6 + 0.4 * a), 1]} material={m.dust} /> : null; }))}
             {/* rebuild: scaffold (comes down), mobile crane, mixer truck, block stacks */}
             {f >= 1120 && f < 1275 && <group position={[0, -down * 9.5, 0]}><primitive object={scaffold} /></group>}
             {f >= 1120 && f < 1285 && <group position={[W.MCRANE[0], groundY(W.MCRANE[0], W.MCRANE[2]), W.MCRANE[2]]}>
