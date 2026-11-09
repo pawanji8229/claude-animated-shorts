@@ -1,6 +1,6 @@
 # Asset manifest
 
-Generated 2026-11-09T07:06:11.527550+00:00 — 350 files.
+Generated 2026-11-09T16:50:31.360414+00:00 — 369 files.
 
 | path | bytes | sha256 |
 |---|---|---|
@@ -132,10 +132,19 @@ Generated 2026-11-09T07:06:11.527550+00:00 — 350 files.
 | studio/previews/NightShift10Preview_f215.png | 487387 | 3cf3665316c20051… |
 | studio/previews/NightShift10Preview_f292.png | 569602 | 7d1a233a7a2a3596… |
 | studio/previews/inventor_walkin_540x960.mp4 | 1425054 | 10ba3a6da6dcaf3a… |
-| studio/previews/london-bridge-full/QC_REPORT.md | 3842 | 09fa429989f5e7d6… |
-| studio/previews/london-bridge-full/contact_sheet.png | 1946780 | ca87eba98ed891bd… |
-| studio/previews/london-bridge-full/london_bridge_full_1080x1920.mp4 | 120273413 | b3f9bd85d06ed415… |
-| studio/previews/london-bridge-full/loop_boundary_test.mp4 | 7233355 | 63af25eaae9df1ef… |
+| studio/previews/london-bridge-full/COVERAGE_REPORT.md | 8154 | 50fb0a57fd0097ad… |
+| studio/previews/london-bridge-full/QC_REPORT.md | 6709 | 6ff33f759bed83f4… |
+| studio/previews/london-bridge-full/comparisons/old_vs_new_f1040.png | 1130787 | eda89c1337bc535f… |
+| studio/previews/london-bridge-full/comparisons/old_vs_new_f1100.png | 1218539 | 0b8ad0a1bb562a7a… |
+| studio/previews/london-bridge-full/comparisons/old_vs_new_f1200.png | 1296064 | ffd55362ba2c3a7a… |
+| studio/previews/london-bridge-full/comparisons/old_vs_new_f1440.png | 1374167 | f3bf509a622cf50b… |
+| studio/previews/london-bridge-full/comparisons/old_vs_new_f360.png | 818374 | 7e4f10b31e2702db… |
+| studio/previews/london-bridge-full/comparisons/old_vs_new_f727.png | 907161 | 746e321108b72ea9… |
+| studio/previews/london-bridge-full/comparisons/old_vs_new_f812.png | 900745 | 700c41d40e51a230… |
+| studio/previews/london-bridge-full/comparisons/old_vs_new_f940.png | 939924 | 5c78ae8641fb3220… |
+| studio/previews/london-bridge-full/contact_sheet.png | 4353310 | 78f144b6ea363fbe… |
+| studio/previews/london-bridge-full/london_bridge_full_1080x1920.mp4 | 135306723 | e322418bb43edad5… |
+| studio/previews/london-bridge-full/loop_boundary_test.mp4 | 7087632 | 214f319403946cd5… |
 | studio/previews/london_bridge/1_environment.png | 2315916 | 29df89d2d5e3ce14… |
 | studio/previews/london_bridge/2_hal_tada.png | 1728057 | d31df7cbea7e6dd8… |
 | studio/previews/london_bridge/3_final_cringe.png | 1756397 | 6cf2c4c42fae7722… |
@@ -167,6 +176,8 @@ Generated 2026-11-09T07:06:11.527550+00:00 — 350 files.
 | studio/previews/v5/2_cringe_pose.png | 1517143 | c346d742d5ab8a68… |
 | studio/previews/v5/3_final_composition.png | 1426248 | 5e2a2911bbf3eeb1… |
 | studio/previews/v5/awkward_take_10s_540x960.mp4 | 5276268 | bec98a9d541f6424… |
+| studio/productions/london-bridge/AUDIT_COVERAGE.md | 8319 | 5d699b1e4d54883d… |
+| studio/productions/london-bridge/COVERAGE_V2.md | 8154 | 50fb0a57fd0097ad… |
 | studio/productions/london-bridge/PRODUCTION_PLAN.md | 3030 | 8c298a84f63fc5be… |
 | studio/productions/london-bridge/SOUND_DESIGN.md | 3716 | d6e727c6ef230c1d… |
 | studio/productions/london-bridge/STORYBOARD.md | 6741 | b8dcc90c85c4f6f6… |
@@ -174,17 +185,17 @@ Generated 2026-11-09T07:06:11.527550+00:00 — 350 files.
 | studio/productions/london-bridge/TRANSCRIPT_v1.md | 3969 | 9d24aa55d8cb39c6… |
 | studio/productions/london-bridge/analysis/TRANSCRIPT.md | 1987 | 203bcf3f3e36a39d… |
 | studio/productions/london-bridge/analysis/analysis.json | 23462 | 5ed84d176eb42fd0… |
-| studio/productions/london-bridge/audio/ambience.wav | 16995086 | 99a97f0f840c1d1b… |
-| studio/productions/london-bridge/audio/crowd.wav | 16995086 | 8af5100b41fc58d1… |
-| studio/productions/london-bridge/audio/cue_sheet.csv | 20408 | 5b9cadf3212f5dd9… |
-| studio/productions/london-bridge/audio/cue_sheet.md | 24863 | 5dac2a8ecfe678b9… |
-| studio/productions/london-bridge/audio/mix.wav | 16995086 | 9efd0b1a54eec49a… |
-| studio/productions/london-bridge/audio/mix_premaster.wav | 16995086 | b5f55a1437732765… |
-| studio/productions/london-bridge/audio/mix_report.json | 15365 | 11b8a142b6ff3a49… |
+| studio/productions/london-bridge/audio/ambience.wav | 16995086 | a4e0dfd001572d4d… |
+| studio/productions/london-bridge/audio/crowd.wav | 16995086 | 2f460661fc45eb74… |
+| studio/productions/london-bridge/audio/cue_sheet.csv | 32814 | 090777361d27cb28… |
+| studio/productions/london-bridge/audio/cue_sheet.md | 39545 | 6e5a37cfbae07935… |
+| studio/productions/london-bridge/audio/mix.wav | 16995086 | 29af5672c1d44ec0… |
+| studio/productions/london-bridge/audio/mix_premaster.wav | 16995086 | e0102a2d9d60abd0… |
+| studio/productions/london-bridge/audio/mix_report.json | 14998 | e57972fc8de064e8… |
 | studio/productions/london-bridge/audio/music.wav | 16995086 | bc9059c42467bd67… |
 | studio/productions/london-bridge/audio/narration.wav | 16995086 | 5c8d3727f992e99b… |
 | studio/productions/london-bridge/audio/narration_full_48k.wav | 16995162 | aab8621e44262d3b… |
-| studio/productions/london-bridge/audio/sfx.wav | 16995086 | da9cc7c404564318… |
+| studio/productions/london-bridge/audio/sfx.wav | 16995086 | 02084040b64b3987… |
 | studio/productions/london-bridge/audio_act1/ambience.wav | 2880044 | 3fee056b09ec5bcb… |
 | studio/productions/london-bridge/audio_act1/cue_sheet.csv | 4473 | baf2e3db4f2cb8a5… |
 | studio/productions/london-bridge/audio_act1/cue_sheet.md | 5616 | c8db122bb8c4e4c3… |
@@ -194,22 +205,28 @@ Generated 2026-11-09T07:06:11.527550+00:00 — 350 files.
 | studio/productions/london-bridge/audio_act1/narration.wav | 2880044 | a7ad78f4766e240e… |
 | studio/productions/london-bridge/audio_act1/narration_full_48k.wav | 16995162 | aab8621e44262d3b… |
 | studio/productions/london-bridge/audio_act1/sfx.wav | 2880044 | 255a3a7f4fa9213d… |
-| studio/productions/london-bridge/events.json | 26815 | a5ec07b26de75491… |
+| studio/productions/london-bridge/events.json | 42978 | c413dd84f19e2836… |
 | studio/productions/london-bridge/events_act1.json | 4129 | 19b7cba90c668af2… |
 | studio/productions/london-bridge/input/narration.mp3 | 944213 | c41684837bda4afd… |
 | studio/productions/london-bridge/input/transcript.txt | 897 | a3d48aaad3ef29fa… |
 | studio/productions/london-bridge/production.json | 349 | 67140ce3aa5685e9… |
-| studio/productions/london-bridge/qc/final/QC_REPORT.md | 1733 | ad4b5df314b32fd9… |
+| studio/productions/london-bridge/qc/final/QC_REPORT.md | 1733 | bef3e666d11ce33c… |
 | studio/productions/london-bridge/qc/final/_lb/l.txt | 32 | bebe57981e51d687… |
-| studio/productions/london-bridge/qc/final/contact_sheet.png | 1946780 | ca87eba98ed891bd… |
-| studio/productions/london-bridge/qc/final/qc.json | 2778 | 1c1c933c947393e9… |
+| studio/productions/london-bridge/qc/final/contact_sheet.png | 2214073 | 2c4f28c572c1b7c5… |
+| studio/productions/london-bridge/qc/final/qc.json | 2778 | 002649fd7d2664c4… |
 | studio/productions/london-bridge/qc/test/QC_REPORT.md | 1475 | ee034aa8fb5e5193… |
 | studio/productions/london-bridge/qc/test/contact_sheet.png | 1208379 | 9612825e5957111b… |
 | studio/productions/london-bridge/qc/test/qc.json | 2382 | 2ce45d87ac9c08ac… |
 | studio/productions/london-bridge/render/full_render.log | 13121 | 349d8d637a46f14a… |
 | studio/productions/london-bridge/render/full_render2.log | 6218 | 29d22c336c7b41d8… |
 | studio/productions/london-bridge/render/full_render3.log | 2566 | f8678dad62e28f64… |
+| studio/productions/london-bridge/render/full_render_v2.log | 10588 | 53d6972fdd75fa44… |
+| studio/productions/london-bridge/render/job1.log | 4173 | fac95a1ed08d3044… |
+| studio/productions/london-bridge/render/job2.log | 4079 | 2992c8b9a809d26a… |
+| studio/productions/london-bridge/render/job3.log | 1435 | 74704601e4902f27… |
+| studio/productions/london-bridge/render/motion/run.sh | 1065 | 3df0d7153acab398… |
 | studio/productions/london-bridge/render/qc_final.log | 1088 | 97feefb02285eae3… |
+| studio/productions/london-bridge/render/render_range.sh | 364 | 7f5e672559e7d2d7… |
 | studio/productions/reopening/SOURCE_NOTES.md | 614 | b4bf69ba78bfdcd5… |
 | studio/productions/reopening/STORYBOARD.md | 2405 | f57b05cbc8ee9a1a… |
 | studio/productions/reopening/analysis/TRANSCRIPT.md | 571 | 30e61c7a86e65ed4… |
@@ -272,6 +289,7 @@ Generated 2026-11-09T07:06:11.527550+00:00 — 350 files.
 | studio/scripts/check-crowd.ts | 5247 | 2e2a60d5be866d89… |
 | studio/scripts/export-events.ts | 762 | 704eae478ffed480… |
 | studio/scripts/render-stills.mjs | 1017 | fc6707074f107386… |
+| studio/scripts/stills.mjs | 1242 | 800baee3a3b35373… |
 | studio/src/Root.tsx | 6676 | 6ea69139801ff30e… |
 | studio/src/char/CardSprite.tsx | 3460 | e1d278a16bae01ec… |
 | studio/src/char/Odo4.tsx | 2860 | fee3bd6fde57f20d… |
@@ -310,17 +328,18 @@ Generated 2026-11-09T07:06:11.527550+00:00 — 350 files.
 | studio/src/lib/math.ts | 1095 | edae2a2cedd41ffe… |
 | studio/src/previews/Previews.tsx | 9174 | 065c873dcd48593d… |
 | studio/src/previews/Sheet2D.tsx | 2321 | 32b1fd0b3dfb67d7… |
-| studio/src/productions/london-bridge/DesertWorks.tsx | 12510 | d9ae47df2035a9aa… |
-| studio/src/productions/london-bridge/Film.tsx | 1584 | d4de0b89ca6cd2dc… |
-| studio/src/productions/london-bridge/LondonSet.tsx | 27148 | 78e69f373947b1f8… |
-| studio/src/productions/london-bridge/SeaSet.tsx | 9795 | c6af0612c1978b48… |
+| studio/src/productions/london-bridge/DesertWorks.tsx | 8721 | cb3da377f040972c… |
+| studio/src/productions/london-bridge/Film.tsx | 2554 | 753d2d3fc01e22e4… |
+| studio/src/productions/london-bridge/LondonSet.tsx | 28013 | f60f77160c950a0a… |
+| studio/src/productions/london-bridge/SeaSet.tsx | 22306 | 396bde44183e125e… |
 | studio/src/productions/london-bridge/Veil.tsx | 3415 | a503c21bf35afe2d… |
-| studio/src/productions/london-bridge/common.tsx | 5397 | 53925897a4492715… |
+| studio/src/productions/london-bridge/assets.tsx | 50648 | f3b5f8cb020da43d… |
+| studio/src/productions/london-bridge/common.tsx | 5783 | 47f18eb63932305b… |
 | studio/src/productions/london-bridge/crowds.ts | 555 | 3134d73708f8e670… |
-| studio/src/productions/london-bridge/londonTimeline.ts | 16252 | fc4b1d88ec22f406… |
-| studio/src/productions/london-bridge/scene.ts | 1795 | c8ee2334369c3275… |
-| studio/src/productions/london-bridge/timeline.ts | 897 | dfe583366930b730… |
-| studio/src/productions/london-bridge/worksTimeline.ts | 10411 | c1a647b26cfa95fd… |
+| studio/src/productions/london-bridge/londonTimeline.ts | 27938 | cbc3947cbcc2f5a4… |
+| studio/src/productions/london-bridge/scene.ts | 1440 | 687bc31ca97c5f64… |
+| studio/src/productions/london-bridge/timeline.ts | 1286 | 8f036db68b02fa10… |
+| studio/src/productions/london-bridge/worksTimeline.ts | 16980 | 3911419d7bfee067… |
 | studio/src/productions/reopening/Film.tsx | 10472 | aab449cf9ab90b85… |
 | studio/src/productions/reopening/scene.ts | 12520 | 723385602924925e… |
 | studio/tsconfig.json | 352 | 1768100c9a997502… |
