@@ -1,18 +1,18 @@
 # Asset manifest
 
-Generated 2026-11-08T17:51:10.263267+00:00 — 288 files.
+Generated 2026-11-09T02:04:54.247188+00:00 — 302 files.
 
 | path | bytes | sha256 |
 |---|---|---|
-| .claude/skills/voice-to-video/SKILL.md | 13492 | 7f2693e8fbfc3488… |
+| .claude/skills/voice-to-video/SKILL.md | 15060 | 56590abb1ef50ac2… |
 | .github/workflows/render-video.yml | 3132 | a3bcb735f6c40ffe… |
 | .gitignore | 463 | 49392c675a9442d3… |
 | ALL_CLAUDE_PROMPTS.md | 18094 | 8c5fc2c4bd183332… |
 | LICENSE | 1063 | 0c88b6c1afe23ba9… |
-| PROJECT_HANDOFF.md | 3677 | 6c76535b03ba2dbf… |
+| PROJECT_HANDOFF.md | 4184 | 44286566be98752f… |
 | README.md | 2925 | 2020de7f50a3ef6e… |
 | SKILL.md | 21431 | 3585154e13dee858… |
-| VOICE_TO_VIDEO_GUIDE.md | 4429 | b318420a7d14deb4… |
+| VOICE_TO_VIDEO_GUIDE.md | 4680 | 165f477232a62a10… |
 | docs/ANDROID_RENDER_GUIDE.md | 2748 | 08da49e79ef18124… |
 | docs/CINEMATIC_KIT_README.md | 4681 | c62109906e102fc6… |
 | docs/SKILL_ADDENDUM_original.md | 4642 | c97f828eed41a968… |
@@ -24,6 +24,20 @@ Generated 2026-11-08T17:51:10.263267+00:00 — 288 files.
 | references/SCRIPT_NARRATIVE_ANALYSIS.md | 10871 | 43742784450cdd82… |
 | references/STYLE_BIBLE.md | 3615 | d7bc0a4c83689ecb… |
 | references/VIDEO_MANIFEST.md | 3509 | de80d811e8a22e09… |
+| references/benchmarks/reopening_v2_approved/QC_REPORT.md | 5095 | 2cb0874f13a3b98c… |
+| references/benchmarks/reopening_v2_approved/README.md | 2402 | 41095ff9098c0f9b… |
+| references/benchmarks/reopening_v2_approved/benchmark.json | 2806 | 29ae8d18c59444a9… |
+| references/benchmarks/reopening_v2_approved/contact_sheet.png | 2173565 | 295b5ba0abef18d8… |
+| references/benchmarks/reopening_v2_approved/crowd_check.txt | 832 | fc11531d4f37ca9d… |
+| references/benchmarks/reopening_v2_approved/cue_sheet.md | 8026 | b5b62152c99a8ad3… |
+| references/benchmarks/reopening_v2_approved/mix_report.json | 2396 | d57b31f9d7bc327f… |
+| references/benchmarks/reopening_v2_approved/production.json | 204 | d82a6c7e22cedb34… |
+| references/benchmarks/reopening_v2_approved/stills/f000.png | 645634 | f35592deaea06755… |
+| references/benchmarks/reopening_v2_approved/stills/f050.png | 729784 | 1198a5e06e24e6d1… |
+| references/benchmarks/reopening_v2_approved/stills/f124.png | 697303 | 80ad7292b966ca79… |
+| references/benchmarks/reopening_v2_approved/stills/f190.png | 730671 | 96bdf73caf6641d5… |
+| references/benchmarks/reopening_v2_approved/stills/f230.png | 734949 | a2fe06342f8ee3bc… |
+| references/benchmarks/reopening_v2_approved/stills/f258.png | 724781 | 2be59acf22a032d1… |
 | references/frames/short01_0060.jpg | 79735 | 258939744921e355… |
 | references/frames/short01_0180.jpg | 52321 | db7c91ff7537f262… |
 | references/frames/short02_0060.jpg | 37769 | 62dba6e82a915493… |
