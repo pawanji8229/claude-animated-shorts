@@ -168,6 +168,12 @@ const localToWorld = (l: V3, s: V3 = SHIP0): V3 => [s[0] - l[2], s[1] + l[1], s[
 /** stack: 2 layers of 3 x 2; the crane lifts the top-front block (index LIFT) */
 export const stackBlocks = (): { n: number; p: V3 }[] => Array.from({ length: 12 }, (_, i) => { const lay = Math.floor(i / 6), j = i % 6; return { n: 1172 + i * 13, p: [STACK[0] + (j % 3) * 1.08 - 1.08, Y0 + 0.3 + lay * 0.6, STACK[2] + Math.floor(j / 3) * 0.78 - 0.39] as V3 }; }).filter((_, i) => i < 10);
 export const LIFT = 7;
+/** second stack of numbered blocks already brought to the quay, waiting for the next lifts */
+export const STACK2: V3 = [-34.4, Y0, 25.2];
+export const stack2Blocks = (): { n: number; p: V3 }[] => Array.from({ length: 15 }, (_, i) => { const lay = Math.floor(i / 6), j = i % 6; return { n: 1302 + i * 11, p: [STACK2[0] + (j % 3) * 1.08 - 1.08, Y0 + 0.3 + lay * 0.6, STACK2[2] + Math.floor(j / 3) * 0.78 - 0.39] as V3 }; });
+/** a flatbed truck brings more numbered blocks along the quay from the dismantling site and parks behind the stacks */
+export const QTRUCK = { x: -37.6, z0: 76, z1: 33.5, t0: 788, t1: 850 };
+export const quayTruckAt = (f: number) => { const u = smooth(QTRUCK.t0, QTRUCK.t1, f), z = lerp(QTRUCK.z0, QTRUCK.z1, u); return { pos: [QTRUCK.x, Y0, z] as V3, spin: (QTRUCK.z0 - z) / 0.45 }; };
 const yawTo = (p: V3) => Math.atan2(-(p[2] - CRANE[2]), p[0] - CRANE[0]);
 const radTo = (p: V3) => Math.hypot(p[0] - CRANE[0], p[2] - CRANE[2]) - 0.8;
 export const craneAt = (f: number): CraneState & { carrying: boolean; released: boolean } => {
@@ -220,6 +226,8 @@ export const londonSoundEvents = (): SoundEvent[] => {
     if (p.walkIn) for (let f = p.walkIn.t0 + 1; f <= p.walkIn.t1; f++) { const g = (q: number) => Math.hypot(londonPersonAt(i, q)[0] - p.walkIn!.from[0], londonPersonAt(i, q)[2] - p.walkIn!.from[2]) / 0.7; for (const off of [0, 0.5]) if (Math.floor(g(f - 1) - off) !== Math.floor(g(f) - off)) ev.push({ frame: f, kind: "step_stone", x: -0.5, gain: 0.35, note: "dismantling crew walk in" }); }
     for (const e of personEvents(p.P, i)) if (!p.walkIn || e.frame > p.walkIn.t1) ev.push({ frame: e.frame, kind: e.kind, x: -0.3 + 0.1 * (i % 4), gain: 1, note: e.note });
   });
+  ev.push({ frame: 796, kind: "truck_pass", x: -0.5, gain: 0.45, note: "flatbed truck with more numbered blocks rolls along the quay" });
+  ev.push({ frame: 846, kind: "air_brake", x: -0.4, gain: 0.4, note: "truck stops behind the stacks" });
   ev.push({ frame: 792, kind: "crane_winch", x: 0.3, gain: 0.55, note: "quay crane slews over the stack" });
   ev.push({ frame: 838, kind: "chain_rattle", x: 0.2, gain: 0.5, note: "hook lowered to the block" });
   ev.push({ frame: 852, kind: "chain_rattle", x: 0.15, gain: 0.55, note: "slings hooked round the block" });

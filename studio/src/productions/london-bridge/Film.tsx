@@ -22,7 +22,8 @@ export const LondonBridgeFull: React.FC = () => {
     <AbsoluteFill style={{ backgroundColor: "#1a120c" }}>
       <Sequence {...span(0, XF.hookLondon[1])} layout="none"><LondonBridgeFilm maxFrame={XF.hookLondon[1] + 4} /></Sequence>
       <Sequence {...span(XF.hookLondon[0], XF.londonSea[1])} layout="none"><Fade o={xfade(XF.hookLondon, f)}><LondonSet from={XF.hookLondon[0]} /></Fade></Sequence>
-      <Sequence {...span(XF.londonSea[0], XF.seaWorks[1])} layout="none"><Fade o={xfade(XF.londonSea, f)}><SeaSet from={XF.londonSea[0]} /></Fade></Sequence>
+      <Sequence {...span(XF.londonSea[0], XF.oceanLock[1])} layout="none"><Fade o={xfade(XF.londonSea, f)}><SeaSet from={XF.londonSea[0]} mode="ocean" /></Fade></Sequence>
+      <Sequence {...span(XF.oceanLock[0], XF.seaWorks[1])} layout="none"><Fade o={xfade(XF.oceanLock, f)}><SeaSet from={XF.oceanLock[0]} mode="lock" /></Fade></Sequence>
       <Sequence {...span(REOPEN_FROM, FILM_FRAMES)} layout="none"><ReopeningFilm /></Sequence>
       <Sequence {...span(XF.seaWorks[0], XF.worksReopen[1])} layout="none"><Fade o={xfade(XF.seaWorks, f) * (1 - xfade(XF.worksReopen, f))}><DesertWorks from={XF.seaWorks[0]} /></Fade></Sequence>
       <Sequence {...span(XF.loop[0], FILM_FRAMES)} layout="none"><Freeze frame={0}><Fade o={xfade(XF.loop, f)}><LondonBridgeFilm /></Fade></Freeze></Sequence>

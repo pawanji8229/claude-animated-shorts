@@ -7,7 +7,7 @@ export const SW = { london: 356, sea: 984, works: 1064, reopen: REOPEN_FROM } as
 /** v2 transitions: true opacity cross-dissolves between two simultaneously rendered worlds (no curtains, no cuts).
  *  [a, b) = frames where both worlds are on screen; the incoming world's opacity eases 0 -> 1 across the window. */
 export const XF = {
-  hookLondon: [344, 368], londonSea: [972, 996], seaWorks: [1052, 1076],
+  hookLondon: [344, 368], londonSea: [972, 996], oceanLock: [1010, 1026], seaWorks: [1052, 1076],
   worksReopen: [REOPEN_FROM, REOPEN_FROM + 18],   // the Reopening is already underneath; the works layer fades OUT (matched camera)
   loop: [1747, FILM_FRAMES],                     // end -> frozen opening image (frame 0) fades IN, so frame 1770 ~ frame 0
 } as const;

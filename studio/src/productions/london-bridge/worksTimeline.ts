@@ -37,7 +37,9 @@ export const trucksAt = (f: number) => [0, 1, 2].map((i) => {
 
 // ---------------- rebuild (1139-1272) ----------------
 export const buildClip = (f: number) => lerp(-0.2, BR.deck + 1.9, smooth(1148, 1262, f));  // granite facing grows over the core
-export const scaffoldDown = (f: number) => smooth(1238, 1272, f);
+/** the scaffold on the outer spans stays standing (no sinking); it is struck while the camera is held tight under the arch on Hal */
+export const SCAFFOLD_OFF = 1340;
+export const scaffoldUp = (f: number) => f < SCAFFOLD_OFF;
 export const mixerDrum = (f: number) => f * 0.12;
 export const MCRANE: V3 = [-15.5, 0, 9.5], MC_RY = 0.3, MC_REACH = 0.9 + Math.cos(0.95) * 12.6;
 /** slewing centre of the truck crane and the hook's ground point for a slew angle */
@@ -145,7 +147,6 @@ export const worksSoundEvents = (): SoundEvent[] => {
   ev.push({ frame: 1142, kind: "concrete_mixer", x: 0.6, gain: 0.6, note: "concrete mixer drum churning" });
   for (let f = CYC0 + 1; f < CYC0 + 3 * CYC; f++) { const c0 = ((f - 1 - CYC0) / CYC) % 1, c1 = ((f - CYC0) / CYC) % 1; if (c0 < 0.06 && c1 >= 0.06) ev.push({ frame: f, kind: "crane_winch", x: -0.5, gain: 0.45, note: "truck crane winch lifts a block off the stack" }); if (c0 < 0.5 && c1 >= 0.5) ev.push({ frame: f, kind: "stone_thud", x: -0.4, gain: 0.7, note: "granite block set into the facing" }); }
   CREW.forEach((p, i) => { for (const e of personEvents(p.P, i)) ev.push({ frame: e.frame, kind: e.kind, x: Math.max(-1, Math.min(1, p.pos[0] / 12)), gain: 1, note: e.note }); });
-  for (const f of [1238, 1247, 1255]) ev.push({ frame: f, kind: "scaffold_clatter", x: (f % 3) * 0.3 - 0.3, gain: 0.6, note: "scaffold poles come down" });
   ev.push({ frame: 1276, kind: "fabric_swish_big", x: -0.2, gain: 0.7, note: "Hal's proud ta-da at the finished bridge" });
   ev.push({ frame: 1300, kind: "tumble_roll_2", x: 0.1, gain: 0.5, note: "tumbleweed rolls along the dry channel" });
   ev.push({ frame: 1358, kind: "freeze_sting", x: 0, gain: 0.45, note: "Hal freezes: no river" });

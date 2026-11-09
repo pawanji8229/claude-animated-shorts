@@ -15,7 +15,7 @@ import { Bridge2, BRIDGE_LEN, PIER_X } from "../../desert/Bridge";
 import { V3, rng, smooth } from "../../lib/math";
 import { SetRig, RenderAfterMount, Toon, cardWorld, TAU } from "./common";
 import * as L from "./londonTimeline";
-import { CargoShip, FoamWake, GraniteBlock, QuayCrane, Rod, latticePairs, rippleNormal, struts } from "./assets";
+import { CargoShip, FoamWake, GraniteBlock, QuayCrane, Rod, Truck5, latticePairs, rippleNormal, struts } from "./assets";
 
 const cnv = (w: number, h: number, draw: (g: CanvasRenderingContext2D, r: () => number) => void, seed = 1) => {
   const c = document.createElement("canvas"); c.width = w; c.height = h; const g = c.getContext("2d")!; draw(g, rng(seed));
@@ -221,8 +221,10 @@ export const LondonSet: React.FC<{ from: number }> = ({ from }) => {
           {/* numbered blocks: dismantling stack beside the abutment + loading stack at the quay */}
           {Array.from({ length: 14 }, (_, i) => <GraniteBlock key={i} n={1031 + i * 7 + (i % 3) * 113} p={[-39.2 + (i % 5) * 1.08, L.Y0 + 0.3 + Math.floor(i / 10) * 0.6, 5.5 + (Math.floor(i / 5) % 2) * -0.8]} ry={0.03 * (i % 3) - 0.03} />)}
           {L.stackBlocks().map((b, i) => L.stackHas(i, f) && <GraniteBlock key={i} n={b.n} p={b.p} />)}
+          {L.stack2Blocks().map((b, i) => <GraniteBlock key={`s2${i}`} n={b.n} p={b.p} ry={0.02 * ((i % 3) - 1)} />)}
+          {(() => { const t = L.quayTruckAt(f); return <group position={t.pos} rotation={[0, Math.PI / 2, 0]}><Truck5 c={1} spin={t.spin} cargo={[1405, 1412, 1419, 1426, 1433, 1440]} /></group>; })()}
           <QuayCrane base={L.CRANE} s={cr} blockN={L.stackBlocks()[L.LIFT].n} />
-          <group position={ship}><CargoShip cargo={L.shipCargo(f)} open lights={1} /></group>
+          <group position={ship}><CargoShip cargo={L.shipCargo(f)} cargo2={9} open lights={1} /></group>
           <group position={[ship[0], L.RIVER_Y, ship[2] - 10.2]}><FoamWake len={26} width={9} travel={ship[2] - L.SHIP0[2]} k={Math.min(1, sp * 5)} /></group>
           {L.mooring(f).map(([a, b], i) => <Rod key={i} a={a} b={b} r={0.03} m={M.rope} shadow={false} />)}
           {/* people */}

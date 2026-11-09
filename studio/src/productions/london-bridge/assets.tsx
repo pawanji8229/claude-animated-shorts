@@ -166,7 +166,7 @@ const RAIL = (x0: number, x1: number, y: (x: number) => number, z: (x: number) =
 };
 /** 1960s general-cargo ship, original design. Local +x = bow, waterline y=0; the group is turned so bow -> world +z.
  *  `cargo` = granite blocks in the forward hold (London loading adds one at a time); `open` shows open holds. */
-export const CargoShip: React.FC<{ cargo: number; open: boolean; lights?: number }> = ({ cargo, open, lights = 1 }) => {
+export const CargoShip: React.FC<{ cargo: number; open: boolean; lights?: number; cargo2?: number }> = ({ cargo, open, lights = 1, cargo2 = 0 }) => {
   const G = shipGeo(), m = shipMats();
   const rigging = useMemo(() => {
     const top1: V3 = [0.6, shipDeckY(0.6) + 7.2, 0], top2: V3 = [8.4, shipDeckY(8.4) + 6.2, 0], bow: V3 = [11.4, shipDeckY(11.4) + 0.5, 0], stern: V3 = [-6.0, shipDeckY(-6) + 4.6, 0];
@@ -181,7 +181,8 @@ export const CargoShip: React.FC<{ cargo: number; open: boolean; lights?: number
   }, [m]);
   const ports = useMemo(() => { const P: { p: V3; s: number }[] = []; for (const s of [-1, 1]) for (let x = -9.3; x <= -6.1; x += 0.55) P.push({ p: [x, shipDeckY(x) - 0.48, s * (shipHalfBeam(x) * 1.035 + 0.01)], s }); for (const s of [-1, 1]) for (let x = 8.9; x <= 10.4; x += 0.5) P.push({ p: [x, shipDeckY(x) - 0.45, s * (shipHalfBeam(x) * (1.03 + 0.16 * (x - 4) / 7.6 * 0.6) + 0.01)], s }); return P; }, []);
   const sx = -7.6, sy = shipDeckY(-7.6);
-  const blocks = Array.from({ length: cargo }, (_, i) => { const H = HOLDS[0], col = i % 4, row = Math.floor(i / 4) % 3, lay = Math.floor(i / 12); return { n: 1031 + i * 17, p: [H.x0 + 0.75 + col * 1.25, HOLD_FLOOR + 0.3 + lay * 0.6, -0.8 + row * 0.8] as V3 }; });
+  const blocks = Array.from({ length: cargo }, (_, i) => { const H = HOLDS[0], col = i % 4, row = Math.floor(i / 4) % 3, lay = Math.floor(i / 12); return { n: 1031 + i * 17, p: [H.x0 + 0.75 + col * 1.25, HOLD_FLOOR + 0.3 + lay * 0.6, -0.8 + row * 0.8] as V3 }; })
+    .concat(Array.from({ length: cargo2 }, (_, i) => { const H = HOLDS[1], col = i % 3, row = Math.floor(i / 3) % 3, lay = Math.floor(i / 9); return { n: 1607 + i * 19, p: [H.x0 + 0.75 + col * 1.25, HOLD_FLOOR + 0.3 + lay * 0.6, -0.8 + row * 0.8] as V3 }; }));
   return (
     <group rotation={[0, -Math.PI / 2, 0]}>
       <mesh geometry={G.hull} material={m.hull} castShadow receiveShadow><Ink k={1.0} /></mesh>

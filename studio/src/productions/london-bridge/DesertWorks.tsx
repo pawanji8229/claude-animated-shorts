@@ -35,10 +35,10 @@ export const DesertWorks: React.FC<{ from: number }> = ({ from }) => {
   const halP = W.halWorksAt(f);
   const c = W.camWorks(f, W.halWorksVisible(f) && f > 1285 && f < 1405 ? [halP[0], halP[1] + 1.0, halP[2]] : undefined);
   const m = useMats();
-  const trucks = W.trucksAt(f), mc = W.mcraneAt(f), down = W.scaffoldDown(f);
+  const trucks = W.trucksAt(f), mc = W.mcraneAt(f);
   const scaffold = useMemo(() => {
     const geo = new THREE.CylinderGeometry(0.05, 0.05, 1, 5), mesh = new THREE.InstancedMesh(geo, m.steel, 1400), o = new THREE.Object3D(); let n = 0;
-    for (let x = -BRIDGE_LEN / 2 + 1; x < BRIDGE_LEN / 2 - 1 && n < 1380; x += 1.6) for (let lv = 0; lv < 5; lv++) {
+    for (let x = -BRIDGE_LEN / 2 + 1; x < BRIDGE_LEN / 2 - 1 && n < 1380; x += 1.6) if (Math.abs(x) > BR.chanBank + 1.2) for (let lv = 0; lv < 5; lv++) {   // outer spans only: the channel stays clear for the excavators
       const y = lv * 1.9; o.rotation.set(0, 0, 0); o.scale.set(1, 1.9, 1); o.position.set(x, y + 0.95, BR.width / 2 + 0.9); o.updateMatrix(); mesh.setMatrixAt(n++, o.matrix);
       o.position.set(x, y + 0.95, BR.width / 2 + 1.7); o.updateMatrix(); mesh.setMatrixAt(n++, o.matrix);
       o.rotation.set(0, 0, Math.PI / 2); o.scale.set(1, 1.6, 1); o.position.set(x + 0.8, y + 1.9, BR.width / 2 + 1.3); o.updateMatrix(); mesh.setMatrixAt(n++, o.matrix);
@@ -61,7 +61,7 @@ export const DesertWorks: React.FC<{ from: number }> = ({ from }) => {
             {trucks.map((t) => <group key={t.i} position={t.pos} rotation={[0, t.ry, 0]}><Truck5 c={t.i} spin={t.spin} cargo={cargo[t.i]} /></group>)}
             {trucks.map((t) => dust.slice(0, 12).map((d) => { const back = (d + (f % 3) / 3) * 0.9, a = Math.max(0, 1 - back / 11) * Math.min(1, Math.abs(t.speed) / 6); return a > 0.02 ? <sprite key={`${t.i}-${d}`} position={[t.pos[0] - 4.6 - back, t.pos[1] + 0.5 + back * 0.12, t.pos[2] + Math.sin(d * 2.1) * 0.6]} scale={[(1.8 + back * 0.5) * (0.6 + 0.4 * a), (1.4 + back * 0.4) * (0.6 + 0.4 * a), 1]} material={m.dust} /> : null; }))}
             {/* rebuild: scaffold (comes down), truck crane setting blocks, mixer truck, block stack */}
-            {f < 1290 && <group position={[0, -down * 9.5, 0]}><primitive object={scaffold} /></group>}
+            {W.scaffoldUp(f) && <primitive object={scaffold} />}
             <group position={[W.MCRANE[0], groundY(W.MCRANE[0], W.MCRANE[2]), W.MCRANE[2]]} rotation={[0, W.MC_RY, 0]}>
               <TruckCrane yaw={mc.yaw} hookDrop={mc.hookDrop} carrying={mc.carrying} blockN={2101 + mc.n * 11} blockSpin={mc.blockSpin} />
             </group>
