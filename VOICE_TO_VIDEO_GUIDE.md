@@ -38,6 +38,10 @@ Tip: attaching your script as a text file removes all transcription guesswork (A
   frames and is reported honestly, never auto-"approved".
 - GitHub is not used (account suspended). Everything stays in the session; you download ZIP backups.
 
+## Your approved quality reference
+The 9.7 s Reopening Short you approved is saved in `references/benchmarks/reopening_v2_approved/`. Every new video is
+built and checked against it (look, movement, crowd life, narration-first sound, seamless loop).
+
 ## Voice clarity and crowds (always on)
 - Your narration is always the clearest sound. Every effect is set relative to your voice, backgrounds dip smoothly
   while you speak, and the mixer checks every single word: if anything masks a word it is turned down around that word.

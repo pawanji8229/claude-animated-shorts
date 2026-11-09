@@ -17,6 +17,21 @@ Full human guide: `VOICE_TO_VIDEO_GUIDE.md`. State of the project: `PROJECT_HAND
 - Never claim a render/QC/delivery that did not happen. If blocked, say exactly what blocks it.
 - Check rendered frames (contact sheets, stills), not just code, before calling anything finished.
 
+## 0b. APPROVED QUALITY BENCHMARK (official reference — approved by the user 2026-11-09)
+`references/benchmarks/reopening_v2_approved/` — the approved 9.7 s "Reopening" Short (`approved_reopening_540x960.mp4`,
+stills, contact sheet, QC report, mix report, cue sheet, crowd check, `benchmark.json`). Source: production
+`studio/productions/reopening/` + `studio/src/productions/reopening/` at git tag `approved-reopening-v2`.
+- Every new MAKE VIDEO must look, move and sound at least this good: same earless odo5 character design and acting
+  style, subtle face glow, detailed lit 3D world, smooth continuous camera, independent crowd + staggered photography,
+  narration-first mix with rich but controlled effects, seamless loop, no captions. Targets in `benchmark.json`
+  ("future_productions_must_match_or_beat").
+- Before delivering, put 2–3 key stills of the new video next to `stills/` of the benchmark and compare honestly
+  (character finish, glow, environment detail, lighting, crowd life); compare `mix_report.json` numbers.
+- NEVER edit or re-render the approved production. When changing shared code (odo5, CardSprite, Post, crowdLife,
+  DesertWorld, mixer), keep defaults backward-compatible (new behaviour behind optional props/flags) so the benchmark
+  stays reproducible; if a shared change could alter it, render 1–2 benchmark stills and compare to `stills/` first.
+- Do not start a render until the user has provided the voiceover for that production.
+
 ## 1. Start (new session or after restore)
 1. If the project is missing, ask for the latest backup ZIP, unzip it into the working directory.
 2. `bash studio/pipeline/setup.sh` (node deps, `.venv` with numpy/scipy/pocketsphinx, headless browser, typecheck).

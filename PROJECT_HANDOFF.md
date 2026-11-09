@@ -21,13 +21,20 @@
   - `src/hall/` — Long Workshop world (+ HallDetail clutter) and "Awkward Encounter" take.
   - `productions/<id>/` — per-video inputs, analysis, storyboard, audio stems, renders, QC.
 
+## Approved quality benchmark
+- `references/benchmarks/reopening_v2_approved/` — the user-approved 9.7 s Reopening Short (2026-11-09) is the official
+  TwistFrame quality reference (video, stills, QC/mix reports, `benchmark.json`); source at git tag `approved-reopening-v2`.
+  Never edit or re-render it; new productions must match or beat it.
+
 ## Status (at handoff)
 - London Bridge film: transcript/storyboard (full 59 s), Act 1 (frames 0–309) built and repaired; awaiting user
   approval of the repaired Act 1 stills before rendering Act 1 video and Batches B–E (Acts 2–7 not yet built).
 - Pipeline verified end-to-end on `productions/test-hook` (9.9 s sample of the London Bridge narration).
 - Voice-to-video loop test `productions/reopening` (9.69 s line "And in 1971, London Bridge reopened…"): new
   original scene (reopening ceremony, crowd with flash cameras, boats, bunting, confetti), audio → test → full render
-  → QC → backup run through the stage scripts. See `productions/reopening/qc/QC_REPORT.md`.
+  → QC → backup run through the stage scripts. v2 (independent crowd + narration-first mix) **APPROVED by the user
+  2026-11-09** and frozen as the quality benchmark. Next: new productions from new voiceovers (no render until the
+  user supplies one).
 
 ## Automated vs Claude-authored
 | automated by scripts | needs Claude |
