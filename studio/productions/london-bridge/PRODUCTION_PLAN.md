@@ -32,4 +32,4 @@ sounds, check-crowd gate, QC incl. glitch + intelligibility + loop.
   mix: −16.1 LUFS / −1.1 dBTP, every word ≥ 15.3 dB above all background (35 smooth guard dips), crowd −34 LU, sfx −18 LU.
 - Crowd gates: new London + Arizona groups PASS (max hand correlation 0.55); approved Reopening crowd PASS (unchanged).
 - Short test at 1080×1920 over frames 340–399 (includes a world switch inside a batch): all pipeline checks PASS.
-- Full render started at 1080×1920 (batches of 150, resumable). Speed ≈ 6.4 s/frame.
+- Full render complete at 1080×1920 (1771 frames). Visual QC found hard-edged truck dust at 1064–1159 → soft textured dust, batch 1050–1199 re-rendered. Final QC: 19/19 PASS. Deliverables in `studio/previews/london-bridge-full/`.

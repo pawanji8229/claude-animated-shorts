@@ -18,3 +18,7 @@ __pycache__/
 # render intermediates (pipeline)
 studio/productions/*/render/
 studio/productions/*/qc/_lb/
+
+# London Bridge full deliverables: >100 MB / stems, kept on disk + in backup ZIP, not in git
+studio/previews/london-bridge-full/london_bridge_full_1080x1920.mp4
+studio/previews/london-bridge-full/london_bridge_audio_stems.zip
