@@ -34,6 +34,6 @@ const joined = audio ? out.replace(/\.mp4$/, "_video.mp4") : out;
 execFileSync("ffmpeg", ["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", list, "-c", "copy", joined], { stdio: "inherit" });
 if (audio) {
   const dur = ((b - a + 1) / cfg.video.fps).toFixed(4);
-  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", joined, "-i", audio, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-b:a", cfg.audio.aacBitrate, "-t", dur, "-movflags", "+faststart", out], { stdio: "inherit" });
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", joined, "-ss", (a / cfg.video.fps).toFixed(4), "-i", audio, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-b:a", cfg.audio.aacBitrate, "-t", dur, "-movflags", "+faststart", out], { stdio: "inherit" });
 }
 console.log(`wrote ${out}`);
