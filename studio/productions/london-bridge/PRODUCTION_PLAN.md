@@ -11,9 +11,9 @@ camera keeps moving; the world behind is swapped at the peak.
 
 | frames | world | narration | content |
 |---|---|---|---|
-| 0–339 | Desert hook (existing Act 1, `desert/LondonBridgeFilm`) | 1–4 | car, Hal ta-da, reveal, dry riverbed cringe; camera cranes to the sky |
-| 333–347 | veil: clouds | — | camera rises through cloud |
-| 340–984 | London (new `london/LondonSet`) | 5–10 | dusk Thames, old bridge + new bridge works, embankment blueprint, cheque with clerk, dismantling (chalk numbers, crane), ship loading & departure |
+| 0–355 | Desert hook (existing Act 1, `desert/LondonBridgeFilm`) | 1–4 | car, Hal ta-da, reveal, dry riverbed cringe; camera cranes to the sky |
+| 345–367 | veil: clouds | — | camera rises through cloud |
+| 356–984 | London (new `london/LondonSet`) | 5–10 | dusk Thames, old bridge + new bridge works, embankment blueprint, cheque with clerk, dismantling (chalk numbers, crane), ship loading & departure |
 | 978–992 | veil: sea fog | — | |
 | 985–1063 | Sea + Panama (new `sea/SeaSet`) | 11 | cargo ship of numbered blocks on open ocean, then through canal lock gates |
 | 1057–1071 | veil: heat haze | — | |
@@ -25,3 +25,11 @@ camera keeps moving; the world behind is swapped at the peak.
 ## Rules carried from the benchmark
 earless odo5 characters + face glow, crowdLife for every group (crews too), narration-first mixer, event-derived
 sounds, check-crowd gate, QC incl. glitch + intelligibility + loop.
+
+## Status log
+- Built: London set + timeline, Sea/Panama set, Arizona works set + timeline, veils, full composition `LondonBridgeFull`.
+- Audio: 218 event-derived cues, ambience timeline desert → London river → sea → desert → festival crowd; narration-first
+  mix: −16.1 LUFS / −1.1 dBTP, every word ≥ 15.3 dB above all background (35 smooth guard dips), crowd −34 LU, sfx −18 LU.
+- Crowd gates: new London + Arizona groups PASS (max hand correlation 0.55); approved Reopening crowd PASS (unchanged).
+- Short test at 1080×1920 over frames 340–399 (includes a world switch inside a batch): all pipeline checks PASS.
+- Full render started at 1080×1920 (batches of 150, resumable). Speed ≈ 6.4 s/frame.
