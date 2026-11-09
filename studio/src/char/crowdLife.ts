@@ -27,7 +27,9 @@ export type Clip =
   | { kind: "hat"; t0: number; t1: number; side: 1 | -1 }
   | { kind: "lapel"; t0: number; t1: number; side: 1 | -1 }
   | { kind: "look"; t0: number; t1: number; x: number; y: number }
-  | { kind: "point"; t0: number; t1: number; side: 1 | -1; dir: P2 };
+  | { kind: "point"; t0: number; t1: number; side: 1 | -1; dir: P2 }
+  /** a work task with the right-hand tool: strokes at `rate` per second toward a card-px target (relative to the R shoulder) */
+  | { kind: "work"; t0: number; t1: number; tool: "hammer" | "chalk" | "wrench" | "shovel"; rate: number; target: P2; amp?: number };
 
 export type Persona = {
   seed: number; costume: Costume;
@@ -35,6 +37,7 @@ export type Persona = {
   breathe: number; sway: number; swayAmp: number; // integer cycles per loop + amplitude (rad)
   mood: Mouth5; eyes: Eyes5; brow: number; temper: number; // temper scales gesture amplitude (0.6 calm .. 1.3 lively)
   camera?: { flash: "cube" | "gun" | "none" };
+  holdR?: Odo5Pose["holdR"];
   clips: Clip[];
 };
 export type LifeCtx = { loop: number; subjectX: (f: number) => number }; // subjectX = lookX toward the main subject
@@ -147,6 +150,17 @@ export const personPose = (P: Persona, f: number, ctx: LifeCtx, faceRight = 0): 
       if (c.kind === "hat") headRoll += -0.05 * w * c.side; else lookY = lerp(lookY, -0.5, w * 0.7);
     } else if (c.kind === "look") {
       const w = env(f, c.t0, c.t1, 7, 10); lookX = lerp(lookX, c.x, w); lookY = lerp(lookY, c.y, w); brow += 0.15 * w * (c.y > 0 ? 1 : 0);
+    } else if (c.kind === "work") {
+      const w = env(f, c.t0, c.t1, 8, 10); if (w <= 0) continue;
+      const ph = ((f - c.t0) / 30) * c.rate + hash01(P.seed, 31), cyc = ph - Math.floor(ph), A = (c.amp ?? 1) * T;
+      let hand: P2 = c.target, rot = 0;
+      if (c.tool === "hammer") { const up = cyc < 0.62 ? sm(0, 0.62, cyc) : 1 - sm(0.62, 0.74, cyc); hand = [c.target[0] - 10 * up * A, c.target[1] - 120 * up * A]; rot = -0.4 + 2.2 * up; squash += 0.05 * w * (cyc > 0.7 && cyc < 0.8 ? 1 : 0); }
+      else if (c.tool === "chalk") { hand = [c.target[0] + 14 * Math.cos(TAU * cyc) * A, c.target[1] + 8 * Math.sin(TAU * 2 * cyc) * A]; rot = 2.6; lookY = lerp(lookY, -0.4, w); }
+      else if (c.tool === "wrench") { const a = Math.sin(TAU * cyc) * 0.6 * A; hand = [c.target[0] + 26 * Math.cos(a), c.target[1] + 26 * Math.sin(a)]; rot = 1.6 + a; }
+      else { const dig = Math.sin(TAU * cyc); hand = [c.target[0] + 30 * dig * A, c.target[1] - 40 * Math.max(0, dig) * A]; rot = 0.3 + 0.5 * dig; bodyRoll += 0.03 * dig * w; }
+      armR = mixArm(armR, { hand, elbow: [hand[0] * 0.4 + 40, hand[1] * 0.4 + 40], shape: "grip", rot, bend: 1 }, w);
+      armL = mixArm(armL, { hand: [-c.target[0] * 0.2 + 40, c.target[1] + 20], elbow: [-30, 80], shape: c.tool === "shovel" ? "grip" : "open", rot: -0.6, bend: -1 }, w * 0.8);
+      lookX = lerp(lookX, 0.2, w); mouth = w > 0.5 && P.mood !== "flat" ? "flat" : mouth;
     } else if (c.kind === "point") {
       const w = env(f, c.t0, c.t1, 7, 9); if (w <= 0) continue;
       // dir = hand offset from that shoulder in screen px (e.g. [-170, -110] = up and out to the left for side -1)
@@ -162,7 +176,7 @@ export const personPose = (P: Persona, f: number, ctx: LifeCtx, faceRight = 0): 
     costume: P.costume, view: "front", breathe, squash, rim: 0.4, lids: 0.3,
     eyes, mouth, mouthW, worry, browL: brow, browR: brow - 0.05 + 0.1 * hash01(P.seed, 8), blink,
     lookX: Math.max(-1, Math.min(1, lookX)), lookY: Math.max(-1, Math.min(1, lookY)),
-    armL, armR, headRoll, bodyRoll, camera, hairLag: 0.15 * pn(P.seed + 1, t, [2, 3]),
+    armL, armR, headRoll, bodyRoll, camera, holdR: P.holdR, hairLag: 0.15 * pn(P.seed + 1, t, [2, 3]),
   });
 };
 
@@ -183,6 +197,11 @@ export const personEvents = (P: Persona, who: number): LifeEvent[] => {
     } else if (c.kind === "clap") {
       // one clap per palm contact (cos phase minimum), skipping the envelope ramps
       for (let f = c.t0 + 6; f < c.t1 - 6; f++) { const ph = ((f - c.t0) / 30) * c.rate, ph1 = ((f + 1 - c.t0) / 30) * c.rate; if (Math.floor(ph1) > Math.floor(ph)) ev.push({ frame: f + 1, kind: "clap_soft", who, note: `person ${who} claps` }); }
+    } else if (c.kind === "work") {
+      // one sound per stroke: hammer impact / chalk stroke / ratchet click / shovel bite
+      const kind = { hammer: "hammer_hit", chalk: "chalk_scratch", wrench: "ratchet", shovel: "shovel_dig" }[c.tool];
+      const off = { hammer: 0.76, chalk: 0.0, wrench: 0.25, shovel: 0.2 }[c.tool];
+      for (let f = c.t0 + 8; f < c.t1 - 8; f++) { const ph = ((f - c.t0) / 30) * c.rate + hash01(P.seed, 31) - off, ph1 = ((f + 1 - c.t0) / 30) * c.rate + hash01(P.seed, 31) - off; if (Math.floor(ph1) > Math.floor(ph)) ev.push({ frame: f + 1, kind, who, note: `person ${who} ${c.tool}` }); }
     } else if (c.kind === "hat" || c.kind === "lapel" || c.kind === "wave") {
       ev.push({ frame: c.t0 + 2, kind: "cloth_soft", who, note: `person ${who} ${c.kind}` });
     }

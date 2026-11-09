@@ -15,10 +15,12 @@ import numpy as np
 from dsp import SR, ns, rng, pan, st, place, make_ir, convolve_st, write_wav, read_wav, integrated, true_peak, lp, bp
 import desert_sfx as S
 import crowd_sfx as C
+import london_sfx as LS
 
 ap = argparse.ArgumentParser(); ap.add_argument("narration"); ap.add_argument("events"); ap.add_argument("outdir"); ap.add_argument("duration", nargs="?", default="full")
 ap.add_argument("--ambience", default="desert"); ap.add_argument("--music", default="desert_guitar"); ap.add_argument("--loop", action="store_true")
 ap.add_argument("--analysis", default=None)
+ap.add_argument("--ambience-timeline", default=None, help='JSON [[frame, preset], ...] crossfaded at each switch (overrides --ambience)')
 A = ap.parse_args()
 CFG = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "twistframe.config.json")))["audio"]
 MIX = CFG.get("mix", {})
@@ -49,18 +51,29 @@ duck = lambda depth_db: 10 ** (depth_db * env / 20)
 
 # ---- event levels: dB of the event's PEAK relative to the narration peak; stem; description ----
 REL = {
-    "step_sand": (-12, "sfx", "shoes on sand"), "turn_scuff": (-16, "sfx", "foot reposition on sand"),
-    "fabric_swish_big": (-17, "sfx", "suit sleeves sweep"), "fabric_swish": (-23, "sfx", "suit fabric movement"), "cloth_soft": (-28, "sfx", "quiet clothing rustle"),
+    "step_sand": (-14, "sfx", "shoes on sand"), "turn_scuff": (-16, "sfx", "foot reposition on sand"),
+    "fabric_swish_big": (-20, "sfx", "suit sleeves sweep"), "fabric_swish": (-25, "sfx", "suit fabric movement"), "cloth_soft": (-31, "sfx", "quiet clothing rustle"),
     "wallet_pat": (-14, "sfx", "hand pats leather wallet"), "coin_jingle": (-22, "sfx", "coins in wallet"),
-    "whoosh_reveal": (-13, "sfx", "camera rise / reveal"), "pebble_whistle": (-26, "sfx", "pebble falling (subtle whistle)"),
-    "pebble_clack": (-9, "sfx", "pebble hits baked mud"), "freeze_sting": (-19, "sfx", "comic freeze tick"),
-    "gulp": (-15, "sfx", "nervous gulp"), "hawk": (-23, "sfx", "distant hawk cry"),
+    "whoosh_reveal": (-18, "sfx", "camera rise / reveal"), "pebble_whistle": (-26, "sfx", "pebble falling (subtle whistle)"),
+    "pebble_clack": (-12, "sfx", "pebble hits baked mud"), "freeze_sting": (-21, "sfx", "comic freeze tick"),
+    "gulp": (-18, "sfx", "nervous gulp"), "hawk": (-23, "sfx", "distant hawk cry"),
     "tumble_roll_1": (-14, "sfx", "tumbleweed rolling across foreground"), "tumble_roll_2": (-20, "sfx", "tumbleweed rolling away"),
     "vulture_flap": (-24, "sfx", "vulture wing shuffle"),
     "car_arrive": (-6, "sfx", "1960s convertible V8 approaching, decelerating"), "brake_squeak": (-18, "sfx", "brakes squeak"),
-    "engine_off": (-12, "sfx", "ignition off + cooling ticks"), "door_open": (-14, "sfx", "car door latch + hinge"), "door_close": (-8, "sfx", "car door shuts"),
+    "engine_off": (-15, "sfx", "ignition off + cooling ticks"), "door_open": (-16, "sfx", "car door latch + hinge"), "door_close": (-12, "sfx", "car door shuts"),
     "shutter": (-15, "sfx", "SLR shutter (mirror slap + curtain)"), "film_advance": (-25, "sfx", "thumb winds on the film"),
     "flash_pop": (-23, "sfx", "flashcube / flash gun pop"), "boat_pass": (-18, "sfx", "small motor boat passing (Doppler)"),
+    "step_stone": (-15, "sfx", "shoes on stone paving"), "paper_unroll": (-20, "sfx", "blueprint unrolls"), "paper_rustle": (-24, "sfx", "paper rustle"),
+    "yawn": (-18, "sfx", "Hal's yawn (synthesised voice, wordless)"), "idea_ding": (-20, "sfx", "soft idea bell"), "pen_scratch": (-24, "sfx", "pen on cheque"),
+    "stamp_thunk": (-12, "sfx", "rubber stamp thunk"), "crate_slide": (-18, "sfx", "wooden crate slides"), "register_ring": (-22, "sfx", "cash-register ding (synth)"),
+    "bell_chime": (-24, "sfx", "distant city clock bell (original)"), "gull": (-25, "sfx", "gull cry"), "chalk_scratch": (-24, "sfx", "chalk on granite"),
+    "hammer_hit": (-17, "sfx", "hammer strike"), "ratchet": (-24, "sfx", "wrench ratchet"), "shovel_dig": (-18, "sfx", "shovel bites soil"),
+    "crane_winch": (-22, "sfx", "crane winch motor"), "chain_rattle": (-20, "sfx", "lifting chain"), "stone_thud": (-15, "sfx", "granite block set down"),
+    "ship_horn": (-17, "sfx", "cargo ship horn"), "ship_engine": (-22, "sfx", "ship diesel thump"), "bow_splash": (-22, "sfx", "bow splash"),
+    "lock_gate": (-22, "sfx", "lock gate motors + clunk"), "water_rush": (-20, "sfx", "rushing water"), "splash_big": (-17, "sfx", "flood front splash"),
+    "truck_pass": (-18, "sfx", "1960s diesel flatbed passing"), "air_brake": (-22, "sfx", "air brake hiss"), "concrete_mixer": (-24, "sfx", "concrete mixer drum"),
+    "scaffold_clatter": (-20, "sfx", "scaffold poles clatter"), "excavator": (-18, "sfx", "excavator diesel + hydraulics"), "bucket_scrape": (-19, "sfx", "bucket scrapes the channel bed"),
+    "dirt_dump": (-20, "sfx", "soil dumped on the bank"), "wind_gust": (-16, "sfx", "desert dust gust"),
     "clap_soft": (-23, "crowd", "single soft clap"), "cheer": (-27, "crowd", "distant crowd cheer"), "crowd_ooh": (-29, "crowd", "distant crowd 'ooh'"),
 }
 GEN = {
@@ -70,9 +83,12 @@ GEN = {
     "pebble_clack": S.pebble_clack, "freeze_sting": S.freeze_tick, "gulp": S.gulp, "hawk": lambda r: lp(S.hawk(r), 2600, 2), "vulture_flap": S.vulture_flap,
     "car_arrive": S.car_arrive, "brake_squeak": S.brake_squeak, "engine_off": S.engine_idle_off, "door_open": S.door_open, "door_close": S.door_close,
     "shutter": lambda r: C.shutter(r, advance=False), "film_advance": C.film_advance, "flash_pop": C.flash_pop, "boat_pass": C.boat_pass,
+    **{k: getattr(LS, k) for k in ["step_stone", "paper_unroll", "paper_rustle", "yawn", "idea_ding", "pen_scratch", "stamp_thunk", "crate_slide", "register_ring", "bell_chime",
+        "gull", "chalk_scratch", "hammer_hit", "ratchet", "shovel_dig", "crane_winch", "chain_rattle", "stone_thud", "ship_horn", "ship_engine", "bow_splash", "lock_gate",
+        "water_rush", "splash_big", "truck_pass", "air_brake", "concrete_mixer", "scaffold_clatter", "excavator", "bucket_scrape", "dirt_dump", "wind_gust"]},
     "clap_soft": C.clap_soft, "cheer": lambda r: C.cheer(r, people=8), "crowd_ooh": C.crowd_ooh,
 }
-OFFSET = {"whoosh_reveal": -0.6, "boat_pass": -2.0}   # generator pre-rolls (s) so the peak lands on the event frame
+OFFSET = {"whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
 FIXED_PAN = {"car_arrive": -0.6}
 
 ev = json.load(open(evp))["events"]
@@ -113,7 +129,28 @@ def bed(gen, seed, rel_lu):
     x = x[:, :N]; return x * db(NI + rel_lu - integrated(x))
 amb = np.zeros((2, N)); mus = np.zeros((2, N))
 def bedrow(desc, gen, rel): rows.append([0, "0.000", f"{DUR:.3f}", desc + (" (continuous, loop-safe)" if XF else " (continuous)"), gen, "bed", f"{rel:+.0f} LU re narration", "stereo wide"])
-if A.ambience == "desert":
+def amb_preset(name):
+    """returns (ambience stereo, crowd stereo) beds for one preset over the whole duration"""
+    a = np.zeros((2, N)); cr = np.zeros((2, N))
+    if name == "desert": a += bed(S.desert_wind, 11, -23) + bed(S.cicadas, 12, -31)
+    elif name == "crowd": cr += bed(C.crowd_murmur, 16, -28); a += bed(C.river_bed, 17, -25) + bed(S.desert_wind, 11, -30)
+    elif name == "london": a += bed(LS.london_bed, 18, -24)
+    elif name == "sea": a += bed(LS.sea_bed, 19, -22)
+    elif name == "room":
+        from sfx_gen import breeze; a += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26)
+    return a, cr
+if A.ambience_timeline:
+    TL = json.loads(A.ambience_timeline); XFS = ns(0.5)
+    cache = {}
+    for i, (fr, name) in enumerate(TL):
+        if name not in cache: cache[name] = amb_preset(name)
+        a0 = ns(fr / FPS); a1 = ns(TL[i + 1][0] / FPS) if i + 1 < len(TL) else N
+        w = np.zeros(N); w[max(0, a0 - XFS):min(N, a1 + XFS)] = 1.0
+        if i > 0: w[max(0, a0 - XFS):min(N, a0 + XFS)] = np.sin(np.linspace(0, np.pi / 2, min(N, a0 + XFS) - max(0, a0 - XFS))) ** 2
+        if i + 1 < len(TL): w[max(0, a1 - XFS):min(N, a1 + XFS)] = np.cos(np.linspace(0, np.pi / 2, min(N, a1 + XFS) - max(0, a1 - XFS))) ** 2
+        amb += cache[name][0] * w[None, :]; stems["crowd"] += cache[name][1] * w[None, :]
+        rows.append([fr, f"{fr / FPS:.3f}", f"{(TL[i + 1][0] / FPS if i + 1 < len(TL) else DUR):.3f}", f"ambience segment: {name} (0.5 s equal-power crossfades)", f"ambience_{name}", "bed", "see preset", "stereo wide"])
+elif A.ambience == "desert":
     amb += bed(S.desert_wind, 11, -23); amb += bed(S.cicadas, 12, -31); bedrow("desert wind + sand hiss", "desert_wind", -23); bedrow("faint cicadas", "cicadas", -31)
 elif A.ambience == "crowd":
     stems["crowd"] += bed(C.crowd_murmur, 16, -28); amb += bed(C.river_bed, 17, -25); amb += bed(S.desert_wind, 11, -30)

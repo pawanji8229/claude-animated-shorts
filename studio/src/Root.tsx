@@ -9,6 +9,8 @@ import { Hall10 } from "./hall/Hall10";
 import { Take10 } from "./hall/Take10";
 import { LondonBridgeFilm } from "./desert/LondonBridgeFilm";
 import { ReopeningFilm } from "./productions/reopening/Film";
+import { LondonBridgeFull } from "./productions/london-bridge/Film";
+import { FILM_FRAMES as LB_FULL_FRAMES } from "./productions/london-bridge/timeline";
 import { FILM_FRAMES as REOPENING_FRAMES } from "./productions/reopening/scene";
 import { FILM_FRAMES } from "./desert/desertHook";
 import { DUR_TAKE } from "./hall/take10";
@@ -53,5 +55,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ReopeningPreview" component={ReopeningFilm} durationInFrames={REOPENING_FRAMES} fps={FPS} width={540} height={960} />
     <Composition id="Reopening" component={ReopeningFilm} durationInFrames={REOPENING_FRAMES} fps={FPS} width={1080} height={1920} />
     <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={3000} height={2200} />
+      <Composition id="LondonBridgeFullPreview" component={LondonBridgeFull} durationInFrames={LB_FULL_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="LondonBridgeFull" component={LondonBridgeFull} durationInFrames={LB_FULL_FRAMES} fps={30} width={1080} height={1920} />
   </>
 );

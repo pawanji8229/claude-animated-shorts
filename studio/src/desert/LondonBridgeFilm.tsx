@@ -36,8 +36,8 @@ const RenderAfterMount: React.FC<{ f: number }> = ({ f }) => {
 
 /** `withAudio`: plays the synced mix inside Remotion (Studio preview). Batch renders keep it off and the master
  *  audio is muxed once after concatenation, so batch joins can never introduce audio gaps. */
-export const LondonBridgeFilm: React.FC<{ envOnly?: boolean; frameOverride?: number; camOverride?: Cam; withAudio?: boolean }> = ({ envOnly, frameOverride, camOverride, withAudio }) => {
-  const f0 = useCurrentFrame(), f = Math.min(frameOverride ?? f0, HOOK_END);
+export const LondonBridgeFilm: React.FC<{ envOnly?: boolean; frameOverride?: number; camOverride?: Cam; withAudio?: boolean; maxFrame?: number }> = ({ envOnly, frameOverride, camOverride, withAudio, maxFrame }) => {
+  const f0 = useCurrentFrame(), f = Math.min(frameOverride ?? f0, maxFrame ?? HOOK_END);
   const { width, height } = useVideoConfig();
   const hi = height >= 1500, k = height / 1920;
   const c: Cam = camOverride ?? camHook(f);
@@ -65,7 +65,7 @@ export const LondonBridgeFilm: React.FC<{ envOnly?: boolean; frameOverride?: num
             </>
           )}
         </InkCtx.Provider>
-        <Post params={{ focusDist: c.focus, focusRange: 3.5, maxBlur: 0.22, bloom: 0.7, threshold: 1.7, exposure: 1.0, vignette: 0.55, ss: 2, contrast: 1.15, saturation: 1.08, lift: 0.012, warmCool: 0.8, ao: 0.6, aoRadius: 0.6 }} />
+        <Post params={{ focusDist: c.focus, focusRange: 3.5, maxBlur: 0.22, bloom: 0.7, threshold: 1.7, exposure: 1.0, vignette: 0.55, ss: hi ? 1 : 2, contrast: 1.15, saturation: 1.08, lift: 0.012, warmCool: 0.8, ao: 0.6, aoRadius: 0.6 }} />
         <RenderAfterMount f={f} />
       </ThreeCanvas>
     </AbsoluteFill>

@@ -47,6 +47,8 @@ export type Odo5Pose = {
   headRoll?: number; bodyRoll?: number;
   /** optional hand-held 1970s camera: blend 0 = hanging on its strap at the chest, 1 = at the point between the hands */
   camera?: { blend: number; flash: "cube" | "gun" | "none"; tiltRad?: number };
+  /** optional tool held in the screen-right hand (drawn along the forearm, ink style) */
+  holdR?: "hammer" | "chalk" | "wrench" | "pen" | "umbrella" | "shovel";
 };
 const A = (hand: [number, number], shape: Hand5 = "relaxed", bend = 1, rot = 0, behind = false, elbow?: [number, number]): ArmPose => ({ hand, bend, shape, rot, behind, elbow });
 export const REST_L = A([-34, 194], "relaxed", -1, 0.15), REST_R = A([34, 194], "relaxed", 1, -0.15);
@@ -388,6 +390,18 @@ export const cameraPx5 = (p: Odo5Pose): P => {
   const x = hang[0] + (mid[0] - hang[0]) * k - 300, y = hang[1] + (mid[1] - hang[1]) * k - SOLE5, a = p.bodyRoll ?? 0;
   return [300 + x * Math.cos(a) - y * Math.sin(a), SOLE5 + x * Math.sin(a) + y * Math.cos(a)];
 };
+/** hand tools: drawn from the fist outward along the hand direction (rot 0 = pointing down) */
+const drawTool = (g: G, c: Pal, at: P, rot: number, tool: NonNullable<Odo5Pose["holdR"]>, mask: boolean) => {
+  g.save(); g.translate(at[0], at[1]); g.rotate(-rot);
+  const wood = mask ? "#5a5a5a" : "#9a6a3a", steel = mask ? "#7a7a7a" : "#8f969e", dark = mask ? "#3a3a3a" : "#2a2a30";
+  if (tool === "hammer") { inked(g, c, () => { g.beginPath(); g.roundRect(-5, -10, 10, 74, 4); }, wood, 3, 2); inked(g, c, () => { g.beginPath(); g.roundRect(-22, 56, 44, 18, 3); }, steel, 3, 2); }
+  else if (tool === "chalk") { inked(g, c, () => { g.beginPath(); g.roundRect(-4, 6, 8, 26, 3); }, mask ? "#dddddd" : "#f4f1e8", 2, 1); }
+  else if (tool === "wrench") { inked(g, c, () => { g.beginPath(); g.roundRect(-5, -6, 10, 66, 4); g.moveTo(-14, 56); g.arc(0, 66, 14, Math.PI * 1.2, Math.PI * 1.8, true); }, steel, 3, 2); }
+  else if (tool === "pen") { inked(g, c, () => { g.beginPath(); g.moveTo(-4, -6); g.lineTo(4, -6); g.lineTo(3, 38); g.lineTo(0, 46); g.lineTo(-3, 38); g.closePath(); }, dark, 2, 1); }
+  else if (tool === "umbrella") { inked(g, c, () => { g.beginPath(); g.roundRect(-4, -12, 8, 150, 3); }, dark, 3, 2); inked(g, c, () => { g.beginPath(); g.moveTo(-12, 90); g.quadraticCurveTo(0, 150, 12, 90); g.lineTo(5, 150); g.lineTo(-5, 150); g.closePath(); }, dark, 3, 2); }
+  else if (tool === "shovel") { inked(g, c, () => { g.beginPath(); g.roundRect(-5, -40, 10, 150, 4); }, wood, 3, 2); inked(g, c, () => { g.beginPath(); g.moveTo(-20, 104); g.lineTo(20, 104); g.lineTo(16, 150); g.quadraticCurveTo(0, 164, -16, 150); g.closePath(); }, steel, 3, 2); }
+  g.restore();
+};
 /** 1970s 35 mm camera (body, lens barrel, viewfinder hump, optional flashcube / flash gun) + neck strap, ink style */
 const drawCamera5 = (g: G, c: Pal, p: Odo5Pose, top: number, mask: boolean) => {
   const cam = p.camera!; const [x, y] = cameraPx5({ ...p, bodyRoll: 0 }); const k = Math.min(1, Math.max(0, cam.blend));
@@ -485,6 +499,7 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
       const el: P = ap.elbow ? [o[0] + ap.elbow[0], o[1] + ap.elbow[1]] : ik(o, hd, 108, 100, ap.bend);
       limb(g, [o, el, hd], 14.5, c.limb);
       const dir = Math.atan2(hd[0] - el[0], hd[1] - el[1]);
+      if (s > 0 && p.holdR) drawTool(g, c, hd, dir + ap.rot, p.holdR, mask);
       drawHand(g, c, hd, dir + ap.rot, ap.shape, s > 0 ? -1 : 1, false);
     };
     // arms that pass behind the head are drawn first

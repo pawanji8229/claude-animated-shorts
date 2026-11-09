@@ -42,7 +42,7 @@
     "music": -10
    },
    "note": "narration-priority: event peaks set re narration peak, beds in LU re narration loudness; per-word speech-band masking guard",
-   "peakLimitAllowanceDb": 2.0
+   "peakLimitAllowanceDb": 3.5
   }
  },
  "style": {

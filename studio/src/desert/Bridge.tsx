@@ -130,7 +130,10 @@ const ringGeometry = (i: number, w: number, thick: number) => {
   void s; return g;
 };
 
-export const Bridge2: React.FC<{ glow?: number }> = ({ glow = 1 }) => {
+/** optional (all default off -> identical to the approved renders): `clipY` shows only stone below that height
+ *  (rebuild progress), `tint` multiplies the stone colour (soot), `concrete` renders the plain concrete core. */
+export const Bridge2: React.FC<{ glow?: number; clipY?: number; tint?: string; concrete?: boolean }> = ({ glow = 1, clipY, tint, concrete }) => {
+  const plane = useMemo(() => new THREE.Plane(new THREE.Vector3(0, -1, 0), 100), []);
   const R = useMemo(() => {
     const std = (o: THREE.MeshStandardMaterialParameters) => new THREE.MeshStandardMaterial({ roughness: 0.88, metalness: 0, ...o });
     const gA = toTex(granite(41, 50)), gB = toTex(granite(42, 44)), vs = toTex(voussoir()), as = toTex(asphalt()); as.repeat.set(1 / 4, 1 / 4);
@@ -142,6 +145,9 @@ export const Bridge2: React.FC<{ glow?: number }> = ({ glow = 1 }) => {
       iron: std({ color: "#25262b", metalness: 0.55, roughness: 0.45 }),
       lamp: new THREE.MeshBasicMaterial({ color: new THREE.Color(2.2 * glow, 1.7 * glow, 1.0 * glow), toneMapped: false }),
     };
+    if (concrete) { const cc = std({ color: "#a9a59d", roughness: 0.95 }); mats.wall = cc; mats.dark = cc; mats.vous = std({ color: "#9d9991", roughness: 0.95, side: THREE.DoubleSide }); }
+    if (tint) for (const m of [mats.wall, mats.dark, mats.vous]) m.color.multiply(new THREE.Color(tint));
+    if (clipY !== undefined) for (const m of Object.values(mats)) m.clippingPlanes = [plane];
     const body = bodyGeometry();
     const rings = ARCH_C.flatMap((_, i) => [-1, 1].map((sz) => ({ g: ringGeometry(i, 0.82, 0.14), sz })));
     // pier pilasters, rusticated bases, cutwaters + caps (box-projected UVs, all overlap only inside solid stone)
@@ -186,7 +192,8 @@ export const Bridge2: React.FC<{ glow?: number }> = ({ glow = 1 }) => {
     // kerbs
     for (const sz of [-1, 1]) pieces.push({ g: boxUV(new THREE.BoxGeometry(BRIDGE_LEN, 0.18, 1.1), TILE), m: mats.dark, p: [0, BR2.deck + 0.09, sz * (BR2.width / 2 - 1.05)] });
     return { mats, body, rings, pieces, pedX };
-  }, [glow]);
+  }, [glow, concrete, tint, clipY === undefined]);
+  plane.constant = clipY ?? 100;
   // instanced dentils under the cornice + balusters
   const inst = useMemo(() => {
     const out: THREE.InstancedMesh[] = [];

@@ -15,9 +15,9 @@ import { MeshReflectorMaterial } from "@react-three/drei";
 import { PIER_X, ARCH_C, BRIDGE_LEN as BRIDGE_LEN2, BR2 } from "./Bridge";
 
 /** Water filling the dug channel (opening day): reflective, slightly green-blue; edge meets the banks at y=-0.62. */
-const ChannelWater: React.FC = () => (
-  <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.62, 0]} receiveShadow>
-    <planeGeometry args={[14.6, 320]} />
+const ChannelWater: React.FC<{ front?: number }> = ({ front }) => (
+  <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.62, front === undefined ? 0 : (front - 160) / 2]} receiveShadow>
+    <planeGeometry args={[14.6, front === undefined ? 320 : Math.max(0.5, front + 160)]} />
     <MeshReflectorMaterial color="#3f93a8" roughness={0.92} metalness={0.05} mirror={0.45} blur={[300, 90]} resolution={512} mixBlur={0.9} mixStrength={1.6} mixContrast={1.05} depthScale={0.3} minDepthThreshold={0.4} maxDepthThreshold={1.2} />
   </mesh>
 );
@@ -312,11 +312,13 @@ export type DesertProps = { f: number; shadowRes: number; tumble: { p: [number, 
   /** opening-day variant: water in the dug channel, festive bunting, no construction leftovers; `loopT` 0..1 drives periodic motion */
   water?: boolean; festive?: boolean; leftovers?: boolean; loopT?: number;
   /** extra rectangles [x0, x1, z0, z1] kept free of scattered props (e.g. around a production's camera) */
-  clearZones?: [number, number, number, number][] };
+  clearZones?: [number, number, number, number][];
+  /** rebuild: granite facing visible below `build.clipY` around a plain concrete core; `waterY` raises the channel water (flooding) */
+  build?: { clipY: number; core: boolean }; waterY?: number; waterFront?: number; noBridge?: boolean; children?: React.ReactNode };
 
 /** areas kept clear for the action, the bridge footprint and the channel floor */
 export const avoidZone = (x: number, z: number) => (Math.abs(x) < 31 && Math.abs(z) < 6) || (Math.abs(x) < BR.chanBank && z > -60) || (x > -14 && x < -5 && z > 5.5 && z < 13) || (x < -8 && z > 7 && z < 14);
-export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebble, car, carPath = [], water = false, festive = false, leftovers = true, loopT = 0, clearZones = [] }) => {
+export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebble, car, carPath = [], water = false, festive = false, leftovers = true, loopT = 0, clearZones = [], build, waterY, waterFront, noBridge, children }) => {
   const zonesKey = JSON.stringify(clearZones);
   const avoid = useMemo(() => (x: number, z: number) => avoidZone(x, z) || clearZones.some(([a, b, c, d]) => x > a && x < b && z > c && z < d), [zonesKey]); // eslint-disable-line
   const m = useMats();
@@ -357,9 +359,10 @@ export const DesertWorld: React.FC<DesertProps> = ({ f, shadowRes, tumble, pebbl
       <Sky m={m} sunDir={sunDir} />
       <Ground m={m} />
       <Mesas m={m} />
-      <Bridge2 />
+      {!noBridge && (build ? <><Bridge2 clipY={build.clipY} />{build.core && <group scale={[0.996, 0.996, 0.94]}><Bridge2 concrete glow={0} /></group>}</> : <Bridge2 />)}
+      {children}
       <DesertDetail f={f} gy={groundY} avoid={avoid} carPath={carPath} leftovers={leftovers} />
-      {water && <ChannelWater />}
+      {water && <group position={[0, (waterY ?? -0.62) + 0.62, 0]}><ChannelWater front={waterFront} /></group>}
       {festive && <Bunting t={loopT} />}
       {all.map((q, i) => q.kind === "saguaro" ? <Saguaro key={i} m={m} p={q.p} h={3 + q.s * 2.6} arms={1 + (q.seed % 3)} seed={q.seed} />
         : q.kind === "pear" ? <PricklyPear key={i} m={m} p={q.p} seed={q.seed} />

@@ -113,7 +113,7 @@ export const ReopeningFilm: React.FC = () => {
           <CardSprite W={W5} H={H5} sole={SOLE5} cardH={1.55} pos={HAL} camPos={c.pos} texScale={hi ? 2 : 1.3} albedo={0.82} fill={0.82} fillColor="#fff2e2" contact={0.9} draw={(g) => drawOdo5(g, hp)} drawMask={(g) => drawOdo5(g, hp, true)} />
           <sprite position={hHead} scale={[0.95, 0.95, 1]}><spriteMaterial map={halo} transparent opacity={0.14} blending={THREE.AdditiveBlending} depthWrite={false} toneMapped={false} /></sprite>
         </InkCtx.Provider>
-        <Post params={{ focusDist: c.focus, focusRange: 4.5, maxBlur: 0.2, bloom: 0.75, threshold: 1.6, exposure: 1.0, vignette: 0.55, ss: 2, contrast: 1.15, saturation: 1.1, lift: 0.012, warmCool: 0.8, ao: 0.6, aoRadius: 0.6 }} />
+        <Post params={{ focusDist: c.focus, focusRange: 4.5, maxBlur: 0.2, bloom: 0.75, threshold: 1.6, exposure: 1.0, vignette: 0.55, ss: hi ? 1 : 2, contrast: 1.15, saturation: 1.1, lift: 0.012, warmCool: 0.8, ao: 0.6, aoRadius: 0.6 }} />
         <RenderAfterMount f={f} />
       </ThreeCanvas>
     </AbsoluteFill>

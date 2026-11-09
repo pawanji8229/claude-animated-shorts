@@ -27,7 +27,9 @@ case "$stage" in
     npx tsx scripts/export-events.ts "$mod" "$P/events.json"
     amb=$(node -e "console.log(require('./twistframe.config.json').audio.ambiencePreset)"); mus=$(node -e "console.log(require('./twistframe.config.json').audio.musicPreset)")
     [ -f "$P/production.json" ] && amb=$(node -e "console.log(require('$P/production.json').ambience ?? '$amb')") && mus=$(node -e "console.log(require('$P/production.json').music ?? '$mus')")
-    (cd audio && "$PY" mix_events.py "$nar" "$P/events.json" "$P/audio" full --ambience "$amb" --music "$mus" --loop);;
+    tl=""; [ -f "$P/production.json" ] && tl=$(node -e "const p=require('$P/production.json'); if (p.ambienceTimeline) console.log(JSON.stringify(p.ambienceTimeline))")
+    if [ -n "$tl" ]; then (cd audio && "$PY" mix_events.py "$nar" "$P/events.json" "$P/audio" full --ambience "$amb" --music "$mus" --loop --ambience-timeline "$tl");
+    else (cd audio && "$PY" mix_events.py "$nar" "$P/events.json" "$P/audio" full --ambience "$amb" --music "$mus" --loop); fi;;
   test)
     comp="$3"; fr="${4:-0-59}"; nar=$(ls "$P"/input/narration.* | head -1)
     node pipeline/render_batches.mjs --comp "$comp" --frames "$fr" --batch 30 --out "$P/render/test.mp4" --audio "$P/audio/mix.wav"
