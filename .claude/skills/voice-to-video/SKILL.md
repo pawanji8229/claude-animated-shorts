@@ -20,7 +20,8 @@ Full human guide: `VOICE_TO_VIDEO_GUIDE.md`. State of the project: `PROJECT_HAND
 ## 0b. APPROVED QUALITY BENCHMARK (official reference — approved by the user 2026-11-09)
 `references/benchmarks/reopening_v2_approved/` — the approved 9.7 s "Reopening" Short (`approved_reopening_540x960.mp4`,
 stills, contact sheet, QC report, mix report, cue sheet, crowd check, `benchmark.json`). Source: production
-`studio/productions/reopening/` + `studio/src/productions/reopening/` at git tag `approved-reopening-v2`.
+`studio/productions/reopening/` + `studio/src/productions/reopening/` (git tag `approved-reopening-v2` in the
+working repo; backup ZIPs carry the benchmark folder + full source instead of `.git`).
 - Every new MAKE VIDEO must look, move and sound at least this good: same earless odo5 character design and acting
   style, subtle face glow, detailed lit 3D world, smooth continuous camera, independent crowd + staggered photography,
   narration-first mix with rich but controlled effects, seamless loop, no captions. Targets in `benchmark.json`
