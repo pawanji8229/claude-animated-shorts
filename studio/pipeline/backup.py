@@ -12,7 +12,8 @@ def skip(rel):
     if any(p in SKIP_DIRS for p in parts): return True
     if rel.startswith(os.path.join("studio", "out")) and not renders: return True
     if rel.endswith(".zip"): return True
-    if rel.endswith(".mp4") and not renders and "previews" not in parts: return True
+    if rel.endswith(".mp4") and not renders and "previews" not in parts and "benchmarks" not in parts:  # our own renders only; never private reference videos
+        return True
     return False
 rows = []
 with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED, compresslevel=6) as z:

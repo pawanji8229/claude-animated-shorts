@@ -1,6 +1,6 @@
 # Asset manifest
 
-Generated 2026-11-09T02:04:54.247188+00:00 — 302 files.
+Generated 2026-11-09T02:06:09.351298+00:00 — 304 files.
 
 | path | bytes | sha256 |
 |---|---|---|
@@ -26,10 +26,12 @@ Generated 2026-11-09T02:04:54.247188+00:00 — 302 files.
 | references/VIDEO_MANIFEST.md | 3509 | de80d811e8a22e09… |
 | references/benchmarks/reopening_v2_approved/QC_REPORT.md | 5095 | 2cb0874f13a3b98c… |
 | references/benchmarks/reopening_v2_approved/README.md | 2402 | 41095ff9098c0f9b… |
+| references/benchmarks/reopening_v2_approved/approved_reopening_540x960.mp4 | 8683534 | 198933eb2ef336d5… |
 | references/benchmarks/reopening_v2_approved/benchmark.json | 2806 | 29ae8d18c59444a9… |
 | references/benchmarks/reopening_v2_approved/contact_sheet.png | 2173565 | 295b5ba0abef18d8… |
 | references/benchmarks/reopening_v2_approved/crowd_check.txt | 832 | fc11531d4f37ca9d… |
 | references/benchmarks/reopening_v2_approved/cue_sheet.md | 8026 | b5b62152c99a8ad3… |
+| references/benchmarks/reopening_v2_approved/loop_boundary_test.mp4 | 2739285 | cc32fde32989dcf5… |
 | references/benchmarks/reopening_v2_approved/mix_report.json | 2396 | d57b31f9d7bc327f… |
 | references/benchmarks/reopening_v2_approved/production.json | 204 | d82a6c7e22cedb34… |
 | references/benchmarks/reopening_v2_approved/stills/f000.png | 645634 | f35592deaea06755… |
@@ -116,7 +118,7 @@ Generated 2026-11-09T02:04:54.247188+00:00 — 302 files.
 | studio/package-lock.json | 182359 | 58915101bb7df6c1… |
 | studio/package.json | 1292 | e608eff014d3050e… |
 | studio/pipeline/analyze_audio.py | 7772 | cbbf3a8f68dc317f… |
-| studio/pipeline/backup.py | 1941 | e464e13741195ff0… |
+| studio/pipeline/backup.py | 2035 | 8c3e199135fb6cfc… |
 | studio/pipeline/make_video.sh | 3502 | 13ea1b377407e3b0… |
 | studio/pipeline/qc.py | 9667 | 3e9e163ac400b010… |
 | studio/pipeline/render_batches.mjs | 3066 | 4d6b4457a96d44f5… |
