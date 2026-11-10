@@ -9,7 +9,11 @@ Project: `claude-animated-shorts/` (Remotion 4 + three.js + R3F in `studio/`). C
 Full human guide: `VOICE_TO_VIDEO_GUIDE.md`. State of the project: `PROJECT_HANDOFF.md`.
 
 ## 0. Ground rules (never break)
-- Do NOT use GitHub / GitHub Actions while the user's account is suspended. Commit locally only; deliver ZIPs.
+- GitHub (restored 2026-11-10): commit source to a dedicated branch per production and push it; never push to or
+  overwrite `main` and never force-push without asking. Large renders/backups never go into ordinary commits: deliver
+  them as Actions artifacts / release assets / ZIPs. Never trigger expensive Actions jobs on ordinary pushes.
+- Pipeline V3 (`studio/docs/PIPELINE_V3.md`, measured numbers in `studio/benchmarks/BENCHMARKS.md`) is the default for
+  NEW productions. London Bridge V2 and the approved Reopening are final: never modify or re-render them.
 - The narration is the master clock: never trim, speed, pitch, re-order or rewrite it. Only one uniform master gain.
 - No captions, subtitles, text overlays, watermarks, logos, end cards or black frames. In-world signage only.
 - Original characters/stories/sounds. Reference material is style guidance only. Synthesised SFX must be described as
@@ -45,8 +49,16 @@ P=studio/pipeline
 bash $P/make_video.sh init   <id> <voice.mp3|wav> [transcript.txt]   # AUTOMATED: ffprobe, pauses, ASR, uncertainty flags
 #   CLAUDE: productions/<id>/STORYBOARD.md (+ SOURCE_NOTES.md for facts) and the scene code (see §3)
 bash $P/make_video.sh audio  <id> src/productions/<id>/scene.ts       # AUTOMATED: crowd check, events -> stems, narration-priority mix, cue sheet, mix_report
-bash $P/make_video.sh test   <id> <PreviewComposition> 0-59           # AUTOMATED: 2 batches, join, mux, objective QC
-bash $P/make_video.sh render <id> <Composition>                       # AUTOMATED: all frames in resumable batches + mux
+# V3 render ladder (never re-render the whole final film to diagnose a simple problem):
+node $P/render_fast.mjs --comp <Comp> --frames <key ranges> --profile quick --out out/<id>_A.mp4   # A: 270x480 story actions / motion
+node $P/render_fast.mjs --comp <Comp> --frames 0-<N-1> --profile story --audio productions/<id>/audio/mix.wav --out out/<id>_B.mp4   # B: 540x960 full film
+python3 $P/validate_motion.py out/<id>_B.mp4 out/<id>_val --transitions <dissolve ranges> --expected <flash frames>   # pops/cuts/freezes
+node $P/audit_scenes.mjs <Comp> <one frame per scene>                                # placeholders, triangles, textures
+# C: final 1080x1920 - locally (resumable):
+node $P/render_fast.mjs --comp <Comp> --frames 0-<N-1> --profile final --audio productions/<id>/audio/mix.wav --out productions/<id>/render/final.mp4 --resume
+#    or on GitHub (free runners, public repo): edit studio/render-request.json on the production branch
+#    (composition, frames, workers 4-8, profile final, audio path) and commit -> Actions -> final-* artifact
+bash $P/make_video.sh render <id> <Composition>                       # LEGACY renderer (double render) - old productions only
 bash $P/make_video.sh qc     <id>                                     # AUTOMATED: full QC + loop-boundary test clip
 bash $P/make_video.sh backup <id>                                     # AUTOMATED: project ZIP + ASSET_MANIFEST.md
 ```
@@ -76,6 +88,20 @@ tool failures needing the user, or changes to the voiceover/creative direction.
 - Render 4+ stills across the loop (not only the key beats) before `test`: check the hero stays in frame at every
   phase of the camera sway, and look for HDR hot spots (a low sun glinting off glossy water/metal blooms into a
   white blob — fix with rougher materials or by moving the light, never by hiding the problem in the grade).
+
+## 3b. Pipeline V3 scene rules (new productions)
+- Build worlds from the CC0 library (`src/lib/library/`): `Model` (LOD via `lodFrom`), `Instanced` + `scatter`,
+  `Building` (assembled modular facades), `KitPart`, `Pier`, `Fence`, `Ground`/`PbrBox`/`usePbr` (real-size PBR tiling),
+  `HdriEnvironment` (image-based light + sky), `Water` (no reflection pass). Pattern: `src/showcase/LibraryShowcase.tsx`.
+  Look at `studio/assets/contact_sheet.png` to choose assets; add new ones with `pipeline/assets/fetch_polyhaven.py` +
+  `optimize_library.mjs` (registry entry with origin + licence is mandatory; CC0 or explicitly licensed only).
+- Every canvas: `dpr={quality().dpr}`, shadows from `quality().shadowMap`, `<Post ss={quality().ss}>` - previews then
+  really render fewer pixels (Remotion `--scale` alone does not reduce 3D cost).
+- Render once per frame (`__singleRender`, default in `render_fast`): every motion must be a pure function of the
+  frame number - no state accumulated in `useFrame`, no `performance.now()`/`Math.random()` in scene code.
+- Hero machines/vehicles: prefer library models; the procedural `Truck5`/`Excavator5`/`TruckCrane` are flagged by the
+  audit as primitive-built - keep them out of close-ups until detailed replacements exist.
+- Concurrency 1 per machine (SwiftShader already uses all cores); parallelise across GitHub runners instead.
 
 ## 4. Locked visual rules
 - Flat 2D illustrated characters (Canvas2D cards) in perspective-rich, detailed, motivated 3D worlds.

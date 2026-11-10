@@ -6,7 +6,7 @@ Excludes node_modules, .venv, .git, render batches and scratch output; includes 
 import hashlib, os, sys, zipfile, datetime
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 out = os.path.abspath(sys.argv[1]); renders = "--with-renders" in sys.argv
-SKIP_DIRS = {"node_modules", ".venv", ".git", "__pycache__", "batches", ".remotion"}
+SKIP_DIRS = {"node_modules", ".venv", ".git", "__pycache__", "batches", ".remotion", "assets_src"}  # assets_src: raw CC0 downloads, re-fetch with pipeline/assets/fetch_polyhaven.py
 def skip(rel):
     parts = rel.split(os.sep)
     if any(p in SKIP_DIRS for p in parts): return True

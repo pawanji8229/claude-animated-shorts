@@ -22,7 +22,9 @@
   "delayRenderTimeoutMs": 400000,
   "browserExecutable": "",
   "previewComposition": "LondonBridgePreview",
-  "finalComposition": "LondonBridge"
+  "finalComposition": "LondonBridge",
+  "concurrency": 1,
+  "_concurrencyNote": "Measured pipeline v3: SwiftShader already uses all cores for one tab; 2-4 tabs are slower (6.7 -> 7.7/8.9/9.7 s/frame)."
  },
  "audio": {
   "sampleRate": 48000,
