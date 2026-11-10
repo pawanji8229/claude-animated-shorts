@@ -59,7 +59,9 @@ jobs:
           fi
           cat "$GITHUB_OUTPUT"
       - id: split
-        run: echo "matrix=$(node studio/pipeline/split_ranges.mjs '${{ steps.req.outputs.frames }}' '${{ steps.req.outputs.workers }}')" >> "$GITHUB_OUTPUT"
+        # 2 chunks per runner + max-parallel = workers: a runner that finishes an easy chunk takes the next one
+        # (measured with equal 1-chunk-per-runner splits: 17.1 / 10.5 / 5.0 / 14.0 min - scenes differ a lot in cost)
+        run: echo "matrix=$(node studio/pipeline/split_ranges.mjs '${{ steps.req.outputs.frames }}' "$(( ${{ steps.req.outputs.workers }} * 2 ))")" >> "$GITHUB_OUTPUT"
 
   render:
     needs: plan
@@ -67,6 +69,7 @@ jobs:
     timeout-minutes: 300
     strategy:
       fail-fast: false
+      max-parallel: ${{ fromJSON(needs.plan.outputs.workers) }}
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
     defaults:
       run: { working-directory: studio }
@@ -123,8 +126,14 @@ jobs:
       run: { working-directory: studio }
     steps:
       - uses: actions/checkout@v4
-      - name: ffmpeg
-        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg)
+      - name: ffmpeg (static build, ~10 s; apt took 2.3 min)
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            curl -sSL https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz | tar -xJ -C /tmp \
+              && sudo cp /tmp/ffmpeg-*-amd64-static/ffmpeg /tmp/ffmpeg-*-amd64-static/ffprobe /usr/local/bin/ \
+              || (sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg)
+          fi
+          ffmpeg -version | head -1
       - uses: actions/download-artifact@v4
         with: { pattern: chunk-*, path: studio/chunks, merge-multiple: true }
       - name: Join chunks (+ audio)
