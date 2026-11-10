@@ -1,0 +1,87 @@
+{
+ "file": "/home/user/claude-animated-shorts/studio/productions/test-hook/render/test.mp4",
+ "checks": [
+  {
+   "check": "video codec H.264",
+   "pass": true,
+   "hard": true,
+   "detail": "h264"
+  },
+  {
+   "check": "audio track AAC",
+   "pass": true,
+   "hard": true,
+   "detail": "aac"
+  },
+  {
+   "check": "9:16 resolution",
+   "pass": true,
+   "hard": true,
+   "detail": "540x960"
+  },
+  {
+   "check": "30 fps",
+   "pass": true,
+   "hard": true,
+   "detail": "30.0"
+  },
+  {
+   "check": "frame count = narration frames",
+   "pass": true,
+   "hard": true,
+   "detail": "60 vs 60"
+  },
+  {
+   "check": "duration = narration",
+   "pass": true,
+   "hard": true,
+   "detail": "video 2.000s vs narration 9.927s"
+  },
+  {
+   "check": "audio duration matches video",
+   "pass": true,
+   "hard": true,
+   "detail": "audio 2.000s"
+  },
+  {
+   "check": "no black frames",
+   "pass": true,
+   "hard": true,
+   "detail": "0 black runs []"
+  },
+  {
+   "check": "no frozen/duplicated runs",
+   "pass": true,
+   "hard": false,
+   "detail": "0 freeze(s) at []"
+  },
+  {
+   "check": "loudness near target",
+   "pass": true,
+   "hard": false,
+   "detail": "I=-14.8 LUFS (target -16.0)"
+  },
+  {
+   "check": "no clipping (true peak <= -1 dBTP)",
+   "pass": true,
+   "hard": true,
+   "detail": "TP=-1.1 dBTP"
+  },
+  {
+   "check": "narration in sync (|offset| <= 1 frame)",
+   "pass": true,
+   "hard": true,
+   "detail": "offset 0 ms"
+  }
+ ],
+ "manual_visual_inspection_required": [
+  "character has NO ears in every view",
+  "head/torso join clean, no floating parts",
+  "hands/fingers/elbows plausible; feet planted (no slide)",
+  "bridge/architecture: no stretching, z-fighting, flicker or popping",
+  "environment detail & lighting vs style bible",
+  "camera continuity feel (no perceived jumps)",
+  "sound events match visible actions"
+ ],
+ "result": "PASS (automatic checks) \u2014 visual review still required"
+}
