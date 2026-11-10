@@ -1,7 +1,7 @@
 // short3 "The Office That Moved" — one composition, 1564 frames (52.11 s). Two sets (EXT city block, INT switchboard)
 // joined only by true opacity cross-dissolves (both layers render across the window; no curtains, no cuts):
 //   INT 0-135 -> EXT hook (building mid-move) -> time-dissolve 241-259 to 1930 (same camera, world rewinds) -> EXT story
-//   -> INT 1213-1340 "meanwhile" -> EXT finished move -> INT 1530-1563, which plays frames -34..-1 of the INT timeline
+//   -> INT 1213-1340 "meanwhile" -> EXT finished move -> INT 1528-1563 (dissolve complete by 1552), which plays frames -36..-1 of the INT timeline
 //   so its motion flows straight into frame 0 (seamless loop, no freeze, no black frame). No on-screen text.
 import React from "react";
 import { AbsoluteFill, Sequence, useCurrentFrame } from "remotion";
@@ -12,7 +12,7 @@ import { FILM_FRAMES } from "./world";
 const Fade: React.FC<{ o: number; children: React.ReactNode }> = ({ o, children }) => <AbsoluteFill style={{ opacity: o }}>{children}</AbsoluteFill>;
 const span = (a: number, b: number) => ({ from: a, durationInFrames: b - a });
 const xf = (a: number, b: number, f: number) => { const t = Math.min(1, Math.max(0, (f - a + 1) / (b - a))); return t * t * (3 - 2 * t); };
-export const XF = { intExt: [113, 135], past: [241, 259], extInt: [1213, 1235], intExt2: [1322, 1340], loop: [1530, FILM_FRAMES] } as const;
+export const XF = { intExt: [113, 135], past: [241, 259], extInt: [1213, 1235], intExt2: [1322, 1340], loop: [1528, 1552] } as const;
 
 export const Short3Film: React.FC = () => {
   const f = useCurrentFrame();
