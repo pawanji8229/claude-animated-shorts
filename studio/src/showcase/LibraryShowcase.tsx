@@ -54,30 +54,31 @@ const Sun: React.FC<{ pos: V3; color?: string; intensity?: number; span?: number
 const hi = () => true;
 
 // ---------------------------------------------------------------- 1. character close-up (study at night)
-const camA = camPath([{ f: 0, pos: [0.85, 1.3, 1.55], look: [0.0, 0.95, -1.3], fov: 40 }, { f: SHOT + XF, pos: [0.55, 1.26, 1.05], look: [0.0, 0.98, -1.35], fov: 38 }], 4);
+const camA = camPath([{ f: 0, pos: [1.1, 1.45, 2.3], look: [0.0, 0.95, -1.4], fov: 44 }, { f: SHOT + XF, pos: [0.75, 1.38, 1.6], look: [0.0, 0.98, -1.45], fov: 42 }], 4);
 const ShotStudy: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) => {
   const cf = f * (SHOT + XF) / (len + XF);
   const c = camA(cf, [0.05, 1.2, -1.75]);
   const hal: Odo5Pose = pose5({ costume: COSTUME.hal, lookX: 0.15 + 0.1 * Math.sin(f / 14), lookY: -0.05, mouth: f > 26 ? "smile" : "awkward", blink: f % 52 > 47, browL: 0.65, browR: 0.1 });
   return (
-    <Shot label="closeup" c={c} fog={["#1a1612", 8, 30]} bg="#120f0c" post={{ exposure: 1.05, bloom: 0.7, threshold: 1.3 }}>
-      <HdriEnvironment id="cobblestone_street_night" intensity={0.35} />
-      <ambientLight intensity={0.08} />
+    <Shot label="closeup" c={c} fog={["#2a2219", 10, 40]} bg="#1c1712" post={{ exposure: 1.25, bloom: 0.6, threshold: 1.5, vignette: 0.35 }}>
+      <HdriEnvironment id="cobblestone_street_night" intensity={0.9} />
+      <ambientLight intensity={0.18} />
+      <directionalLight position={[2.5, 3.2, 3]} color="#ffe2c2" intensity={1.4} />
       <pointLight position={[-0.55, 1.35, -0.75]} color="#ffb768" intensity={5.5} distance={7} decay={1.6} castShadow shadow-mapSize={[1024, 1024]} />
-      <Sun pos={[4, 6, 3]} color="#9fb6ff" intensity={0.6} span={5} />
+      <Sun pos={[-3, 5, 4]} color="#b9c9ff" intensity={1.1} span={5} />
       <Ground tex="wood_floor_deck" size={[12, 12]} tile={2.2} />
-      <PbrBox tex="plastered_stone_wall" size={[9, 3.6, 0.25]} pos={[0, 1.8, -2.4]} tile={2.5} />
+      <PbrBox tex="red_brick_03" size={[9, 3.6, 0.25]} pos={[0, 1.8, -2.4]} tile={1.6} />
       <PbrBox tex="plastered_stone_wall" size={[0.25, 3.6, 7]} pos={[-3.0, 1.8, 0.6]} tile={2.5} />
       <Model id="WoodenTable_01" pos={[0, 0, -0.95]} />
       <Model id="Lantern_01" pos={[-0.55, 0.55, -0.85]} rot={[0, 0.4, 0]} />
-      <Model id="metal_toolbox" pos={[0.45, 0.55, -1.05]} rot={[0, -0.3, 0]} />
+      <Model id="metal_toolbox" pos={[0.72, 0.55, -0.85]} rot={[0, -0.6, 0]} />
       <Model id="desk_lamp_arm_01" pos={[0.7, 0.55, -1.2]} rot={[0, 2.4, 0]} height={0.55} />
       <Model id="Shelf_01" pos={[1.6, 0, -2.15]} />
       <Model id="ArmChair_01" pos={[-1.9, 0, -0.9]} rot={[0, 0.7, 0]} />
       <Model id="potted_plant_01" pos={[-2.3, 0, -1.95]} height={1.1} />
       <Model id="cardboard_box_01" pos={[1.25, 0, -1.4]} rot={[0, 0.5, 0]} />
       <Model id="Barrel_01" pos={[2.25, 0, -0.9]} />
-      <Toon pose={hal} pos={[0.05, 0, -1.75]} cam={c.pos} hi={hi()} light={3.5} />
+      <Toon pose={hal} pos={[0.0, 0, -1.55]} cam={c.pos} hi={hi()} light={4.5} />
     </Shot>
   );
 };
@@ -88,7 +89,7 @@ const lamps = [-24, -12, 0, 12].flatMap((z) => [[-4.9, z], [4.9, z + 6]] as [num
 const ShotStreet: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) => {
   const cf = f * (SHOT + XF) / (len + XF);
   const c = camB(cf, [-1.2, 1.2, 2]);
-  const walk = f / 30, halX = -1.7, halZ = 4.2 - walk * 1.05;
+  const walk = f / 30, halX = -0.9, halZ = 4.6 - walk * 1.05;
   const hal = pose5({ costume: COSTUME.hal, view: "side", gait: walk * 1.05 / 0.72, walk: 1, stride: 0.72, lean: 0.04, mouth: "smile" });
   const trees = useMemo(() => [-18, -6, 6].map((z) => ({ p: [-5.6, 0.15, z] as V3, ry: z, s: 1 })), []);
   return (
@@ -117,7 +118,7 @@ const ShotStreet: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) =>
 // ---------------------------------------------------------------- 3. construction site
 const camC = camPath([{ f: 0, pos: [11, 4.2, 13], look: [0, 1.6, 0], fov: 46 }, { f: SHOT + XF, pos: [8.5, 3.6, 13.5], look: [-0.5, 1.6, 0], fov: 44 }], 4);
 const excQ = (f: number): ExcQ => { const ph = (f % 60) / 60, dig = Math.sin(ph * Math.PI * 2);
-  return { yaw: -0.5 + 0.5 * smooth(0.45, 0.7, ph) - 0.5 * smooth(0.9, 1, ph), boom: 0.3 + 0.25 * dig, stick: 1.3 - 0.4 * dig, bucket: 0.6 + 0.7 * Math.max(0, dig), track: 0 }; };
+  return { yaw: -0.5 + 0.5 * smooth(0.4, 0.62, ph) - 0.5 * smooth(0.72, 1, ph), boom: 0.3 + 0.25 * dig, stick: 1.3 - 0.4 * dig, bucket: 0.6 + 0.7 * Math.max(0, dig), track: 0 }; };
 const ShotSite: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) => {
   const cf = f * (SHOT + XF) / (len + XF);
   const c = camC(cf, [0, 1.5, 0]);

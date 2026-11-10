@@ -77,6 +77,8 @@ jobs:
       - name: System libraries for headless Chrome + fonts
         working-directory: .
         run: |
+          # skip apt entirely when the runner image already has everything (a slow mirror once cost 9 minutes)
+          if dpkg -s libnss3 libgbm1 libxkbcommon0 fonts-dejavu-core >/dev/null 2>&1 && command -v ffmpeg >/dev/null; then echo "system libraries present"; exit 0; fi
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends libnss3 libgbm1 libxkbcommon0 libasound2t64 fonts-dejavu-core ffmpeg \
             || sudo apt-get install -y --no-install-recommends libnss3 libgbm1 libxkbcommon0 libasound2 fonts-dejavu-core ffmpeg
@@ -121,9 +123,8 @@ jobs:
       run: { working-directory: studio }
     steps:
       - uses: actions/checkout@v4
-      - name: ffmpeg + python deps for QC
-        run: |
-          sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg
+      - name: ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg)
       - uses: actions/download-artifact@v4
         with: { pattern: chunk-*, path: studio/chunks, merge-multiple: true }
       - name: Join chunks (+ audio)
