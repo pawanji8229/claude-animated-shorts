@@ -10,6 +10,7 @@ import { execFileSync } from "node:child_process";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import { NodeIO } from "@gltf-transform/core";
+import { ALL_EXTENSIONS } from "@gltf-transform/extensions";
 import { getBounds } from "@gltf-transform/functions";
 import sharp from "sharp";
 
@@ -17,7 +18,7 @@ const ROOT = new URL("../..", import.meta.url).pathname, REG = join(ROOT, "asset
 const reg = JSON.parse(readFileSync(REG, "utf8")), only = process.argv.slice(2);
 const budget = (e) => { const c = e.categories.join(" ");
   return /ships/.test(c) ? 60000 : /trees/.test(c) ? 45000 : /buildings|structures/.test(c) && !/props/.test(c) ? 50000 : /rocks|nature|ground cover/.test(c) ? 12000 : 15000; };
-const io = new NodeIO();
+const io = new NodeIO().registerExtensions(ALL_EXTENSIONS);
 for (const [id, e] of Object.entries(reg.assets)) {
   if (only.length && !only.includes(id)) continue;
   if (e.type === "model") {
