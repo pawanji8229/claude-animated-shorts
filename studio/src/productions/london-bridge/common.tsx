@@ -8,6 +8,7 @@ import { CardSprite } from "../../char/CardSprite";
 import { drawOdo5, headCenterPx5, W5, H5, SOLE5, type Odo5Pose } from "../../char/odo5";
 import { glow } from "../../hall/hallTextures";
 import { V3 } from "../../lib/math";
+import { SINGLE_RENDER } from "../../lib/renderFlags";
 
 export type Cam = { pos: V3; look: V3; fov: number; focus: number };
 export const TAU = Math.PI * 2;
@@ -24,7 +25,7 @@ export const SetRig: React.FC<{ c: Cam; bg: string; fog: [string, number, number
   });
   return null;
 };
-export const RenderAfterMount: React.FC<{ f: number }> = ({ f }) => { const advance = useThree((s) => s.advance); useEffect(() => { advance(performance.now()); }, [f, advance]); return null; };
+export const RenderAfterMount: React.FC<{ f: number }> = ({ f }) => { const advance = useThree((s) => s.advance); useEffect(() => { if (!SINGLE_RENDER) advance(performance.now()); }, [f, advance]); return null; };
 
 /** card-px point -> world (cards face the camera around the vertical axis) */
 export const cardWorld = (pos: V3, cam: V3, px: [number, number], cardH: number, push = 0): V3 => {

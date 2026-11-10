@@ -1,0 +1,6 @@
+{
+  "_doc": "Render quality profiles (pipeline/render_fast.mjs --profile <name>). 'scale' multiplies the composition size (a 1080x1920 composition at 0.5 = 540x960). 'quality' is passed to scenes as inputProps.__quality so library scenes can pick shadow-map size / supersampling / post passes. Profile A is for checking story actions, B for approving timing and transitions, C for delivery.",
+  "quick": { "label": "A - quick test", "scale": 0.3334, "quality": "quick", "crf": 26, "x264Preset": "veryfast", "everyNth": 1, "stills": true, "note": "360x640; render only selected frames/short ranges (--frames or --stills)" },
+  "story": { "label": "B - full story preview", "scale": 0.5, "quality": "story", "crf": 22, "x264Preset": "veryfast", "note": "540x960, complete narration and scene sequence" },
+  "final": { "label": "C - final production", "scale": 1, "quality": "final", "crf": 17, "x264Preset": "medium", "note": "1080x1920, 30 fps, all assets/lighting/effects" }
+}

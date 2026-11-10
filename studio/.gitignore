@@ -1,3 +1,6 @@
 node_modules/
 out/
 .remotion/
+
+# raw third-party downloads (re-fetch with pipeline/assets/fetch_polyhaven.py; optimized copies live in public/lib)
+assets_src/

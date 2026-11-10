@@ -11,6 +11,11 @@
 import React, { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
+import { getInputProps } from "remotion";
+
+// Opt-in profiling (pipeline/bench): pass inputProps {__bench: true}. Times each GPU stage with gl.finish() and logs
+// "[bench] {...}" to the browser console. Without the prop nothing changes (no finish() stalls, no extra renders).
+const BENCH = (() => { try { return !!(getInputProps() as { __bench?: boolean }).__bench; } catch { return false; } })();
 
 export type PostParams = {
   focusDist: number; // world units from camera
@@ -147,6 +152,7 @@ const makeRT = (w: number, h: number, depth = false) => {
 export const Post: React.FC<{ params: PostParams }> = ({ params }) => {
   const { gl, scene, camera, size } = useThree();
   const W = size.width, H = size.height, ss = params.ss;
+  if (BENCH) (window as unknown as { __postBody: number }).__postBody = performance.now();
   const res = useMemo(() => {
     const quadGeo = new THREE.PlaneGeometry(2, 2);
     const qScene = new THREE.Scene();
@@ -185,7 +191,18 @@ export const Post: React.FC<{ params: PostParams }> = ({ params }) => {
     const prevTM = gl.toneMapping; gl.toneMapping = THREE.NoToneMapping;
     gl.autoClear = true;
     // 1. scene
+    const ctx = gl.getContext(), now = () => performance.now(), px = new Uint8Array(4);
+    const sync = () => { ctx.readPixels(0, 0, 1, 1, ctx.RGBA, ctx.UNSIGNED_BYTE, px); };   // readback forces the deferred software-GPU work to complete (finish() does not under SwiftShader)
+    let tb0 = 0, tb1 = 0, tb2 = 0;
+    if (BENCH) { gl.setRenderTarget(null); sync(); tb0 = now(); }
     gl.setRenderTarget(sceneRT); gl.clear(); gl.render(scene, camera);
+    if (BENCH) {
+      gl.setRenderTarget(null); sync(); tb1 = now();
+      const calls = gl.info.render.calls, tris = gl.info.render.triangles, au = gl.shadowMap.autoUpdate;
+      gl.shadowMap.autoUpdate = false; gl.setRenderTarget(sceneRT); gl.clear(); gl.render(scene, camera); gl.shadowMap.autoUpdate = au;   // same image, shadow maps reused
+      gl.setRenderTarget(null); sync(); tb2 = now();
+      (window as unknown as { __benchStage: object }).__benchStage = { calls, tris };
+    }
     // 2. DOF blur levels
     downInto(sceneRT, half[0], false); blurInto(half[0], half[1], 1.2);
     downInto(half[0], quarter[0], false); blurInto(quarter[0], quarter[1], 1.6); blurInto(quarter[0], quarter[1], 1.6);
@@ -206,6 +223,10 @@ export const Post: React.FC<{ params: PostParams }> = ({ params }) => {
     u.contrast.value = params.contrast ?? 1; u.saturation.value = params.saturation ?? 1; u.lift.value = params.lift ?? 0; u.warmCool.value = params.warmCool ?? 1;
     pass(comp, null);
     gl.toneMapping = prevTM;
+    if (BENCH) { sync(); const t3 = now(); const st = (window as unknown as { __benchStage: { calls: number; tris: number } }).__benchStage;
+      const mem = gl.info.memory, prog = gl.info.programs?.length ?? -1, w = window as unknown as { __postBody?: number; __lastPostEnd?: number };
+      const sincePrev = w.__lastPostEnd ? +(t3 - w.__lastPostEnd).toFixed(0) : null; w.__lastPostEnd = t3;
+      console.log("[bench] " + JSON.stringify({ bodyToFrame: w.__postBody ? +(tb0 - w.__postBody).toFixed(1) : null, sincePrevCanvasEnd: sincePrev, programs: prog, textures: mem.textures, geometries: mem.geometries, sceneWithShadows: +(tb1 - tb0).toFixed(1), sceneNoShadowUpdate: +(tb2 - tb1).toFixed(1), post: +(t3 - tb2).toFixed(1), ss, W, H, calls: st.calls, tris: st.tris })); }
   }, 1);
   return null;
 };

@@ -15,6 +15,7 @@ import { glow } from "../hall/hallTextures";
 import { DesertWorld } from "./DesertWorld";
 import { camHook, halAt, halPose, pebbleAt, tumbleweeds, HOOK_END, carAt, CAR_PATH, halVisible } from "./desertHook";
 import { V3 } from "../lib/math";
+import { SINGLE_RENDER } from "../lib/renderFlags";
 
 type Cam = { pos: V3; look: V3; fov: number; focus: number };
 const Rig: React.FC<{ c: Cam }> = ({ c }) => {
@@ -30,7 +31,7 @@ const Rig: React.FC<{ c: Cam }> = ({ c }) => {
 };
 const RenderAfterMount: React.FC<{ f: number }> = ({ f }) => {
   const advance = useThree((s) => s.advance);
-  useEffect(() => { advance(performance.now()); }, [f, advance]);
+  useEffect(() => { if (!SINGLE_RENDER) advance(performance.now()); }, [f, advance]);
   return null;
 };
 

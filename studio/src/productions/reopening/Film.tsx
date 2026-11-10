@@ -24,7 +24,7 @@ const Rig: React.FC<{ f: number }> = ({ f }) => {
   });
   return null;
 };
-const RenderAfterMount: React.FC<{ f: number }> = ({ f }) => { const advance = useThree((s) => s.advance); useEffect(() => { advance(performance.now()); }, [f, advance]); return null; };
+const RenderAfterMount: React.FC<{ f: number }> = ({ f }) => { const advance = useThree((s) => s.advance); useEffect(() => { if (!SINGLE_RENDER) advance(performance.now()); }, [f, advance]); return null; };
 
 const headWorld = (pos: V3, cam: V3, px: [number, number], cardH: number, push = 0): V3 => {
   const yaw = Math.atan2(cam[0] - pos[0], cam[2] - pos[2]), s = cardH / H5;
@@ -120,4 +120,5 @@ export const ReopeningFilm: React.FC = () => {
   );
 };
 import { groundY as groundY0 } from "../../desert/DesertWorld";
+import { SINGLE_RENDER } from "../../lib/renderFlags";
 void PX5;

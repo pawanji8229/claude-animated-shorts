@@ -1,0 +1,122 @@
+name: Render (parallel matrix)
+
+# MANUAL ONLY (Actions -> "Render (parallel matrix)" -> Run workflow). Never runs on push or pull_request.
+# Splits a composition's frame range across N GitHub-hosted runners (4 vCPU / 16 GB each, no GPU: WebGL runs on
+# SwiftShader), uploads every finished chunk as its own artifact the moment it is done, then joins the chunks
+# (stream copy, identical encoder settings), optionally muxes the narration-first mix, checks the result and
+# uploads the MP4. A failed chunk never discards the others: use "Re-run failed jobs".
+on:
+  workflow_dispatch:
+    inputs:
+      composition: { description: "Composition id", type: string, default: "LibraryShowcase" }
+      frames: { description: "Frame range a-b", type: string, default: "0-236" }
+      workers: { description: "Parallel runners", type: choice, options: ["1", "2", "4", "6", "8"], default: "2" }
+      profile: { description: "Quality profile", type: choice, options: ["quick", "story", "final"], default: "final" }
+      audio: { description: "Optional repo path of the mix WAV to mux (blank = silent)", type: string, default: "" }
+
+permissions:
+  contents: read
+
+concurrency:
+  group: render-matrix-${{ github.ref }}-${{ inputs.composition }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.split.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: studio/pipeline }
+      - id: split
+        run: echo "matrix=$(node studio/pipeline/split_ranges.mjs '${{ inputs.frames }}' '${{ inputs.workers }}')" >> "$GITHUB_OUTPUT"
+
+  render:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    defaults:
+      run: { working-directory: studio }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: studio/package-lock.json }
+      - name: System libraries for headless Chrome + fonts
+        working-directory: .
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libnss3 libgbm1 libxkbcommon0 libasound2t64 fonts-dejavu-core ffmpeg \
+            || sudo apt-get install -y --no-install-recommends libnss3 libgbm1 libxkbcommon0 libasound2 fonts-dejavu-core ffmpeg
+      - name: Cache Remotion browser
+        uses: actions/cache@v4
+        with:
+          path: studio/node_modules/.remotion
+          key: remotion-browser-${{ hashFiles('studio/package-lock.json') }}
+      - run: npm ci
+      - run: npx remotion browser ensure
+      - name: Render chunk ${{ matrix.idx }} (${{ matrix.from }}-${{ matrix.to }})
+        run: |
+          START=$(date +%s)
+          node pipeline/render_fast.mjs --comp "${{ inputs.composition }}" --frames "${{ matrix.from }}-${{ matrix.to }}" \
+            --profile "${{ inputs.profile }}" --batch 60 --concurrency "$(nproc)" --out "out/chunk_${{ matrix.idx }}.mp4" --resume
+          END=$(date +%s)
+          N=$(( ${{ matrix.to }} - ${{ matrix.from }} + 1 ))
+          echo "{\"idx\":${{ matrix.idx }},\"from\":${{ matrix.from }},\"to\":${{ matrix.to }},\"frames\":$N,\"seconds\":$((END-START)),\"cpus\":$(nproc)}" > "out/chunk_${{ matrix.idx }}.json"
+          cat "out/chunk_${{ matrix.idx }}.json"
+      - name: Upload finished chunk
+        uses: actions/upload-artifact@v4
+        with:
+          name: chunk-${{ matrix.idx }}
+          path: |
+            studio/out/chunk_${{ matrix.idx }}.mp4
+            studio/out/chunk_${{ matrix.idx }}.json
+            studio/out/render_fast.log.jsonl
+          retention-days: 7
+      - name: Keep finished batches if the chunk failed or timed out
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@v4
+        with:
+          name: partial-batches-${{ matrix.idx }}
+          path: studio/out/batches/b_*.mp4
+          retention-days: 7
+          if-no-files-found: ignore
+
+  assemble:
+    needs: render
+    runs-on: ubuntu-latest
+    defaults:
+      run: { working-directory: studio }
+    steps:
+      - uses: actions/checkout@v4
+      - name: ffmpeg + python deps for QC
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg
+      - uses: actions/download-artifact@v4
+        with: { pattern: chunk-*, path: studio/chunks, merge-multiple: true }
+      - name: Join chunks (+ audio)
+        run: |
+          ls chunks/*.mp4 | sort -t_ -k2 -n > /dev/null
+          for f in $(ls chunks/chunk_*.mp4 | sed -E 's/.*chunk_([0-9]+)\.mp4/\1 &/' | sort -n | cut -d' ' -f2); do echo "file '$PWD/$f'"; done > chunks/list.txt
+          cat chunks/list.txt
+          ffmpeg -v error -y -f concat -safe 0 -i chunks/list.txt -c copy out_video.mp4
+          if [ -n "${{ inputs.audio }}" ]; then
+            ffmpeg -v error -y -i out_video.mp4 -i "${{ inputs.audio }}" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 320k -shortest -movflags +faststart final.mp4
+          else mv out_video.mp4 final.mp4; fi
+      - name: Check frame count, black and frozen frames
+        run: |
+          A=$(echo '${{ inputs.frames }}' | cut -d- -f1); B=$(echo '${{ inputs.frames }}' | cut -d- -f2); WANT=$((B-A+1))
+          GOT=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 final.mp4 | tr -d ,)
+          echo "frames: got $GOT want $WANT"; test "$GOT" = "$WANT"
+          ffmpeg -v info -i final.mp4 -vf "blackdetect=d=0.1:pix_th=0.05,freezedetect=n=0.001:d=1" -an -f null - 2>&1 | grep -E "black_start|freeze_start" && echo "WARNING: black/frozen segment found" || echo "no black or frozen segments"
+          cat chunks/chunk_*.json | tee timings.jsonl
+      - uses: actions/upload-artifact@v4
+        with:
+          name: final-${{ inputs.composition }}-${{ inputs.profile }}-${{ inputs.workers }}w
+          path: |
+            studio/final.mp4
+            studio/timings.jsonl
+          retention-days: 14

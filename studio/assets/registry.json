@@ -1,0 +1,1579 @@
+{
+ "_doc": "Origin and license of every third-party asset in the TwistFrame library.",
+ "assets": {
+  "ArmChair_01": {
+   "authors": [
+    "Kirill Sannikov"
+   ],
+   "categories": [
+    "furniture",
+    "seating"
+   ],
+   "dimensionsMm": [
+    848.4309017658234,
+    765.7602727413177,
+    1065.087635157397
+   ],
+   "license": "CC0-1.0",
+   "name": "Arm Chair 01",
+   "page": "https://polyhaven.com/a/ArmChair_01",
+   "polycountOriginal": 5626,
+   "raw": "assets_src/models/ArmChair_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "Barrel_01": {
+   "authors": [
+    "Jorge Camacho"
+   ],
+   "categories": [
+    "industrial",
+    "containers"
+   ],
+   "dimensionsMm": [
+    563.0351305007935,
+    563.0352199077606,
+    880.0000050105155
+   ],
+   "license": "CC0-1.0",
+   "name": "Barrel_01",
+   "page": "https://polyhaven.com/a/Barrel_01",
+   "polycountOriginal": 2682,
+   "raw": "assets_src/models/Barrel_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "CoffeeTable_01": {
+   "authors": [
+    "Fernando Quinn"
+   ],
+   "categories": [
+    "furniture",
+    "table"
+   ],
+   "dimensionsMm": [
+    1540.0111079216003,
+    972.847044467926,
+    523.237330140546
+   ],
+   "license": "CC0-1.0",
+   "name": "Coffee Table 01",
+   "page": "https://polyhaven.com/a/CoffeeTable_01",
+   "polycountOriginal": 10404,
+   "raw": "assets_src/models/CoffeeTable_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "Lantern_01": {
+   "authors": [
+    "Rajil Jose Macatangay"
+   ],
+   "categories": [
+    "props",
+    "lighting"
+   ],
+   "dimensionsMm": [
+    122.08568677306175,
+    97.18310832977295,
+    294.2466139793396
+   ],
+   "license": "CC0-1.0",
+   "name": "Lantern 01",
+   "page": "https://polyhaven.com/a/Lantern_01",
+   "polycountOriginal": 33902,
+   "raw": "assets_src/models/Lantern_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "Shelf_01": {
+   "authors": [
+    "Gabriel Radi\u0107"
+   ],
+   "categories": [
+    "furniture",
+    "shelves"
+   ],
+   "dimensionsMm": [
+    1003.443717956543,
+    256.9795063869833,
+    2080.310344696045
+   ],
+   "license": "CC0-1.0",
+   "name": "Shelf 01",
+   "page": "https://polyhaven.com/a/Shelf_01",
+   "polycountOriginal": 182,
+   "raw": "assets_src/models/Shelf_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "Sofa_01": {
+   "authors": [
+    "Kirill Sannikov"
+   ],
+   "categories": [
+    "furniture",
+    "seating"
+   ],
+   "dimensionsMm": [
+    1571.4675784111023,
+    658.0145359039307,
+    796.515051391907
+   ],
+   "license": "CC0-1.0",
+   "name": "Sofa 01",
+   "page": "https://polyhaven.com/a/Sofa_01",
+   "polycountOriginal": 4101,
+   "raw": "assets_src/models/Sofa_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "WoodenChair_01": {
+   "authors": [
+    "Jake Mobley"
+   ],
+   "categories": [
+    "furniture",
+    "seating"
+   ],
+   "dimensionsMm": [
+    688.1728172302246,
+    658.4618389606476,
+    2273.514856118709
+   ],
+   "license": "CC0-1.0",
+   "name": "Wooden Chair 01",
+   "page": "https://polyhaven.com/a/WoodenChair_01",
+   "polycountOriginal": 19992,
+   "raw": "assets_src/models/WoodenChair_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "WoodenTable_01": {
+   "authors": [
+    "Ethan Place"
+   ],
+   "categories": [
+    "furniture"
+   ],
+   "dimensionsMm": [
+    1799.6479272842407,
+    657.1746468544006,
+    548.8492709302584
+   ],
+   "license": "CC0-1.0",
+   "name": "Wooden Table 01",
+   "page": "https://polyhaven.com/a/WoodenTable_01",
+   "polycountOriginal": 952,
+   "raw": "assets_src/models/WoodenTable_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "asphalt_02": {
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "categories": [
+    "terrain",
+    "road",
+    "man made",
+    "outdoor",
+    "floor"
+   ],
+   "dimensionsMm": [
+    3000.000238418579,
+    3000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/asphalt_02/arm.jpg",
+    "diff": "assets_src/textures/asphalt_02/diff.jpg",
+    "nor": "assets_src/textures/asphalt_02/nor.jpg",
+    "rough": "assets_src/textures/asphalt_02/rough.jpg"
+   },
+   "name": "Asphalt 02",
+   "page": "https://polyhaven.com/a/asphalt_02",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "belfast_sunset_puresky": {
+   "authors": [
+    "Greg Zaal",
+    "Dimitrios Savva",
+    "Jarod Guest"
+   ],
+   "categories": [
+    "natural light",
+    "outdoor",
+    "nature",
+    "low contrast",
+    "partly cloudy",
+    "sunrise-sunset",
+    "skies",
+    "pure skies"
+   ],
+   "license": "CC0-1.0",
+   "name": "Belfast Sunset (Pure Sky)",
+   "page": "https://polyhaven.com/a/belfast_sunset_puresky",
+   "raw": "assets_src/hdri/belfast_sunset_puresky_1k.hdr",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "hdri"
+  },
+  "boulder_01": {
+   "authors": [
+    "Rico Cilliers"
+   ],
+   "categories": [
+    "rocks",
+    "nature",
+    "collection: verdant_trail"
+   ],
+   "dimensionsMm": [
+    1272.6830840110779,
+    1830.7338953018188,
+    1003.8918256759644
+   ],
+   "license": "CC0-1.0",
+   "name": "Boulder 01",
+   "page": "https://polyhaven.com/a/boulder_01",
+   "polycountOriginal": 123976,
+   "raw": "assets_src/models/boulder_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "brown_planks_05": {
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "categories": [
+    "wood",
+    "outdoor",
+    "indoor",
+    "clean",
+    "wall",
+    "man made"
+   ],
+   "dimensionsMm": [
+    1000,
+    1000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/brown_planks_05/arm.jpg",
+    "diff": "assets_src/textures/brown_planks_05/diff.jpg",
+    "nor": "assets_src/textures/brown_planks_05/nor.jpg",
+    "rough": "assets_src/textures/brown_planks_05/rough.jpg"
+   },
+   "name": "Brown Planks 05",
+   "page": "https://polyhaven.com/a/brown_planks_05",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "brushed_concrete": {
+   "authors": [
+    "Dario Barresi",
+    "Dimitrios Savva"
+   ],
+   "categories": [
+    "man made",
+    "dirty",
+    "floor",
+    "plaster-concrete",
+    "concrete"
+   ],
+   "dimensionsMm": [
+    2500,
+    2500
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/brushed_concrete/arm.jpg",
+    "diff": "assets_src/textures/brushed_concrete/diff.jpg",
+    "nor": "assets_src/textures/brushed_concrete/nor.jpg",
+    "rough": "assets_src/textures/brushed_concrete/rough.jpg"
+   },
+   "name": "Brushed Concrete ",
+   "page": "https://polyhaven.com/a/brushed_concrete",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "cardboard_box_01": {
+   "authors": [
+    "Rahul Chaudhary"
+   ],
+   "categories": [
+    "industrial",
+    "containers",
+    "collection: the_shed"
+   ],
+   "dimensionsMm": [
+    387.02359795570374,
+    515.8704221248627,
+    341.7995423078537
+   ],
+   "license": "CC0-1.0",
+   "name": "Cardboard Box 01",
+   "page": "https://polyhaven.com/a/cardboard_box_01",
+   "polycountOriginal": 16952,
+   "raw": "assets_src/models/cardboard_box_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "clay_roof_tiles": {
+   "authors": [
+    "Amal Kumar"
+   ],
+   "categories": [
+    "roofing"
+   ],
+   "dimensionsMm": [
+    4000,
+    4000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/clay_roof_tiles/arm.jpg",
+    "diff": "assets_src/textures/clay_roof_tiles/diff.jpg",
+    "nor": "assets_src/textures/clay_roof_tiles/nor.jpg",
+    "rough": "assets_src/textures/clay_roof_tiles/rough.jpg"
+   },
+   "name": "Clay Roof Tiles",
+   "page": "https://polyhaven.com/a/clay_roof_tiles",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "coast_sand_01": {
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "categories": [
+    "outdoor",
+    "terrain",
+    "sand",
+    "natural",
+    "aerial",
+    "collection: smugglers_cove",
+    "collection: verdant_trail"
+   ],
+   "dimensionsMm": [
+    15000,
+    15000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/coast_sand_01/arm.jpg",
+    "diff": "assets_src/textures/coast_sand_01/diff.jpg",
+    "nor": "assets_src/textures/coast_sand_01/nor.jpg",
+    "rough": "assets_src/textures/coast_sand_01/rough.jpg"
+   },
+   "name": "Coast Sand 01",
+   "page": "https://polyhaven.com/a/coast_sand_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "cobblestone_floor_01": {
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "categories": [
+    "outdoor",
+    "floor",
+    "man made",
+    "dirty",
+    "cobblestone"
+   ],
+   "dimensionsMm": [
+    1000,
+    1000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/cobblestone_floor_01/arm.jpg",
+    "diff": "assets_src/textures/cobblestone_floor_01/diff.jpg",
+    "nor": "assets_src/textures/cobblestone_floor_01/nor.jpg",
+    "rough": "assets_src/textures/cobblestone_floor_01/rough.jpg"
+   },
+   "name": "Cobblestone Floor 01",
+   "page": "https://polyhaven.com/a/cobblestone_floor_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "cobblestone_street_night": {
+   "authors": [
+    "Greg Zaal",
+    "Jenelle van Heerden"
+   ],
+   "categories": [
+    "outdoor",
+    "night",
+    "urban",
+    "artificial light",
+    "high contrast",
+    "clear"
+   ],
+   "license": "CC0-1.0",
+   "name": "Cobblestone Street Night",
+   "page": "https://polyhaven.com/a/cobblestone_street_night",
+   "raw": "assets_src/hdri/cobblestone_street_night_1k.hdr",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "hdri"
+  },
+  "concrete_block_wall": {
+   "authors": [
+    "Charlotte Baglioni"
+   ],
+   "categories": [
+    "wall",
+    "man made",
+    "concrete",
+    "plaster-concrete"
+   ],
+   "dimensionsMm": [
+    2000,
+    2000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/concrete_block_wall/arm.jpg",
+    "diff": "assets_src/textures/concrete_block_wall/diff.jpg",
+    "nor": "assets_src/textures/concrete_block_wall/nor.jpg",
+    "rough": "assets_src/textures/concrete_block_wall/rough.jpg"
+   },
+   "name": "Concrete Block Wall",
+   "page": "https://polyhaven.com/a/concrete_block_wall",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "concrete_road_barrier": {
+   "authors": [
+    "Amal Kumar"
+   ],
+   "categories": [
+    "industrial",
+    "structures",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    1545.3570485115051,
+    640.9457623958588,
+    835.279269143939
+   ],
+   "license": "CC0-1.0",
+   "name": "Concrete Road Barrier",
+   "page": "https://polyhaven.com/a/concrete_road_barrier",
+   "polycountOriginal": 80776,
+   "raw": "assets_src/models/concrete_road_barrier",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "covered_car": {
+   "authors": [
+    "MP"
+   ],
+   "categories": [
+    "props",
+    "industrial",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    1788.962960243225,
+    4380.25426864624,
+    1411.1130833625793
+   ],
+   "license": "CC0-1.0",
+   "name": "Covered Car",
+   "page": "https://polyhaven.com/a/covered_car",
+   "polycountOriginal": 12592,
+   "raw": "assets_src/models/covered_car",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "dead_tree_trunk_02": {
+   "authors": [
+    "Jenelle van Heerden",
+    "Rico Cilliers"
+   ],
+   "categories": [
+    "nature",
+    "plants",
+    "trees",
+    "collection: verdant_trail"
+   ],
+   "dimensionsMm": [
+    4053.7197589874268,
+    1056.6102862358093,
+    1055.4723739624023
+   ],
+   "license": "CC0-1.0",
+   "name": "Dead Tree Trunk 02",
+   "page": "https://polyhaven.com/a/dead_tree_trunk_02",
+   "polycountOriginal": 155864,
+   "raw": "assets_src/models/dead_tree_trunk_02",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "desk_lamp_arm_01": {
+   "authors": [
+    "Yann Kervran",
+    "Kuutti Siitonen"
+   ],
+   "categories": [
+    "lighting",
+    "rigged",
+    "collection: the_shed"
+   ],
+   "dimensionsMm": [
+    617.3093914985657,
+    408.02252292633057,
+    879.0190517902374
+   ],
+   "license": "CC0-1.0",
+   "name": "Desk Lamp Arm 01",
+   "page": "https://polyhaven.com/a/desk_lamp_arm_01",
+   "polycountOriginal": 25710,
+   "raw": "assets_src/models/desk_lamp_arm_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "dry_ground_rocks": {
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "categories": [
+    "terrain",
+    "outdoor",
+    "natural"
+   ],
+   "dimensionsMm": [
+    4000,
+    4000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/dry_ground_rocks/arm.jpg",
+    "diff": "assets_src/textures/dry_ground_rocks/diff.jpg",
+    "nor": "assets_src/textures/dry_ground_rocks/nor.jpg",
+    "rough": "assets_src/textures/dry_ground_rocks/rough.jpg"
+   },
+   "name": "Dry Ground Rocks",
+   "page": "https://polyhaven.com/a/dry_ground_rocks",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "dutch_ship_medium": {
+   "authors": [
+    "James Ray Cock",
+    "Rico Cilliers",
+    "Nicol\u00f2 Zubbini"
+   ],
+   "categories": [
+    "ships",
+    "collection: smugglers_cove"
+   ],
+   "dimensionsMm": [
+    6808.822154998779,
+    24070.354461669922,
+    24657.122135162354
+   ],
+   "license": "CC0-1.0",
+   "name": "Dutch Ship Medium",
+   "page": "https://polyhaven.com/a/dutch_ship_medium",
+   "polycountOriginal": 69162,
+   "raw": "assets_src/models/dutch_ship_medium",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "fire_hydrant": {
+   "authors": [
+    "Gon\u00e7alo Fel\u00edcio"
+   ],
+   "categories": [
+    "industrial",
+    "structures",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    874.623566865921,
+    317.74356961250305,
+    799.4560238003032
+   ],
+   "license": "CC0-1.0",
+   "name": "Fire Hydrant",
+   "page": "https://polyhaven.com/a/fire_hydrant",
+   "polycountOriginal": 86316,
+   "raw": "assets_src/models/fire_hydrant",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "gravel": {
+   "authors": [
+    "Dimitrios Savva"
+   ],
+   "categories": [
+    "floor",
+    "outdoor"
+   ],
+   "dimensionsMm": [
+    2000,
+    2000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/gravel/arm.jpg",
+    "diff": "assets_src/textures/gravel/diff.jpg",
+    "nor": "assets_src/textures/gravel/nor.jpg",
+    "rough": "assets_src/textures/gravel/rough.jpg"
+   },
+   "name": "Gravel",
+   "page": "https://polyhaven.com/a/gravel",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "hand_truck": {
+   "authors": [
+    "Mutanzom3D"
+   ],
+   "categories": [
+    "collection: project_lighthouse",
+    "industrial",
+    "props"
+   ],
+   "dimensionsMm": [
+    593.2528674602509,
+    692.5271153450012,
+    1402.51275151968
+   ],
+   "license": "CC0-1.0",
+   "name": "Hand Truck",
+   "page": "https://polyhaven.com/a/hand_truck",
+   "polycountOriginal": 13220,
+   "raw": "assets_src/models/hand_truck",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "industrial_storage_cart": {
+   "authors": [
+    "Jule Bielitz"
+   ],
+   "categories": [
+    "collection: project_lighthouse",
+    "table",
+    "furniture",
+    "industrial"
+   ],
+   "dimensionsMm": [
+    1603.3486723899841,
+    1102.7454733848572,
+    1377.3844093084335
+   ],
+   "license": "CC0-1.0",
+   "name": "Industrial Storage Cart",
+   "page": "https://polyhaven.com/a/industrial_storage_cart",
+   "polycountOriginal": 18902,
+   "raw": "assets_src/models/industrial_storage_cart",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "jacaranda_tree": {
+   "authors": [
+    "Rob Tuytel",
+    "Rico Cilliers"
+   ],
+   "categories": [
+    "nature",
+    "plants",
+    "trees",
+    "collection: verdant_trail"
+   ],
+   "dimensionsMm": [
+    24169.849395751953,
+    18028.766632080078,
+    19829.095542430878
+   ],
+   "license": "CC0-1.0",
+   "name": "Jacaranda Tree",
+   "page": "https://polyhaven.com/a/jacaranda_tree",
+   "polycountOriginal": 312356,
+   "raw": "assets_src/models/jacaranda_tree",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "kloofendal_48d_partly_cloudy_puresky": {
+   "authors": [
+    "Greg Zaal",
+    "Jarod Guest"
+   ],
+   "categories": [
+    "outdoor",
+    "skies",
+    "nature",
+    "midday",
+    "partly cloudy",
+    "high contrast",
+    "natural light",
+    "pure skies"
+   ],
+   "license": "CC0-1.0",
+   "name": "Kloofendal 48d Partly Cloudy (Pure Sky)",
+   "page": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+   "raw": "assets_src/hdri/kloofendal_48d_partly_cloudy_puresky_1k.hdr",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "hdri"
+  },
+  "ladder_sectioned_01": {
+   "authors": [
+    "MP"
+   ],
+   "categories": [
+    "industrial",
+    "tools",
+    "collection: the_shed"
+   ],
+   "dimensionsMm": [
+    661.5026593208313,
+    177.62134224176407,
+    2134.558429243043
+   ],
+   "license": "CC0-1.0",
+   "name": "Ladder Sectioned 01",
+   "page": "https://polyhaven.com/a/ladder_sectioned_01",
+   "polycountOriginal": 29140,
+   "raw": "assets_src/models/ladder_sectioned_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "lifebuoy": {
+   "authors": [
+    "Hank Kaamura"
+   ],
+   "categories": [
+    "collection: project_lighthouse",
+    "wall decoration",
+    "industrial"
+   ],
+   "dimensionsMm": [
+    783.1282019615173,
+    155.11851012706757,
+    841.1934077739716
+   ],
+   "license": "CC0-1.0",
+   "name": "Lifebuoy",
+   "page": "https://polyhaven.com/a/lifebuoy",
+   "polycountOriginal": 10728,
+   "raw": "assets_src/models/lifebuoy",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "metal_jerrycan": {
+   "authors": [
+    "Sean Buckley"
+   ],
+   "categories": [
+    "collection: project_lighthouse",
+    "props",
+    "containers"
+   ],
+   "dimensionsMm": [
+    350.3298610448837,
+    171.74389213323593,
+    455.1599698197606
+   ],
+   "license": "CC0-1.0",
+   "name": "Metal Jerrycan",
+   "page": "https://polyhaven.com/a/metal_jerrycan",
+   "polycountOriginal": 20022,
+   "raw": "assets_src/models/metal_jerrycan",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "metal_toolbox": {
+   "authors": [
+    "Mateusz Sadek"
+   ],
+   "categories": [
+    "collection: project_lighthouse",
+    "containers",
+    "tools",
+    "industrial"
+   ],
+   "dimensionsMm": [
+    400.0099003314972,
+    292.32875257730484,
+    347.10586071014404
+   ],
+   "license": "CC0-1.0",
+   "name": "Metal Toolbox",
+   "page": "https://polyhaven.com/a/metal_toolbox",
+   "polycountOriginal": 14228,
+   "raw": "assets_src/models/metal_toolbox",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "metal_trash_can": {
+   "authors": [
+    "GurJas Studios"
+   ],
+   "categories": [
+    "industrial",
+    "containers",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    1846.9352722167969,
+    556.2898814678192,
+    906.1697272554738
+   ],
+   "license": "CC0-1.0",
+   "name": "Metal Trash Can",
+   "page": "https://polyhaven.com/a/metal_trash_can",
+   "polycountOriginal": 13960,
+   "raw": "assets_src/models/metal_trash_can",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "modular_chainlink_fence": {
+   "authors": [
+    "James Ray Cock",
+    "Amal Kumar"
+   ],
+   "categories": [
+    "structures",
+    "industrial",
+    "buildings",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    8115.001916885376,
+    2149.1531878709793,
+    2522.9129791259766
+   ],
+   "license": "CC0-1.0",
+   "name": "Modular Chainlink Fence",
+   "page": "https://polyhaven.com/a/modular_chainlink_fence",
+   "polycountOriginal": 89232,
+   "raw": "assets_src/models/modular_chainlink_fence",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "modular_fire_escape": {
+   "authors": [
+    "Juniix"
+   ],
+   "categories": [
+    "industrial",
+    "structures",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    6661.200046539307,
+    1420.7648038864136,
+    9756.551027297974
+   ],
+   "license": "CC0-1.0",
+   "name": "Modular Fire Escape",
+   "page": "https://polyhaven.com/a/modular_fire_escape",
+   "polycountOriginal": 11322,
+   "raw": "assets_src/models/modular_fire_escape",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "modular_street_seating": {
+   "authors": [
+    "Stuart Attenborrow"
+   ],
+   "categories": [
+    "furniture",
+    "seating",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    4339.9999141693115,
+    770.3700959682465,
+    950.000050743509
+   ],
+   "license": "CC0-1.0",
+   "name": "Modular Street Seating",
+   "page": "https://polyhaven.com/a/modular_street_seating",
+   "polycountOriginal": 25156,
+   "raw": "assets_src/models/modular_street_seating",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "modular_urban_apartments_facade": {
+   "authors": [
+    "James Ray Cock"
+   ],
+   "categories": [
+    "collection: hidden_alley",
+    "structures",
+    "buildings"
+   ],
+   "dimensionsMm": [
+    51529.99687194824,
+    6664.999693632126,
+    17000
+   ],
+   "license": "CC0-1.0",
+   "name": "Modular Urban Apartments Facade",
+   "page": "https://polyhaven.com/a/modular_urban_apartments_facade",
+   "polycountOriginal": 118215,
+   "raw": "assets_src/models/modular_urban_apartments_facade",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "modular_wooden_pier": {
+   "authors": [
+    "Rico Cilliers"
+   ],
+   "categories": [
+    "structures",
+    "collection: smugglers_cove"
+   ],
+   "dimensionsMm": [
+    3101.5628576278687,
+    19026.371479034424,
+    7515.67667722702
+   ],
+   "license": "CC0-1.0",
+   "name": "Modular Wooden Pier",
+   "page": "https://polyhaven.com/a/modular_wooden_pier",
+   "polycountOriginal": 84780,
+   "raw": "assets_src/models/modular_wooden_pier",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "namaqualand_boulder_02": {
+   "authors": [
+    "Greg Zaal",
+    "Rico Cilliers"
+   ],
+   "categories": [
+    "nature",
+    "rocks",
+    "collection: namaqualand"
+   ],
+   "dimensionsMm": [
+    2533.2456827163696,
+    1234.761118888855,
+    883.3709806203842
+   ],
+   "license": "CC0-1.0",
+   "name": "Namaqualand Boulder 02",
+   "page": "https://polyhaven.com/a/namaqualand_boulder_02",
+   "polycountOriginal": 183681,
+   "raw": "assets_src/models/namaqualand_boulder_02",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "old_military_crate": {
+   "authors": [
+    "Jack Mava"
+   ],
+   "categories": [
+    "collection: project_lighthouse",
+    "containers",
+    "props"
+   ],
+   "dimensionsMm": [
+    1815.3856992721558,
+    979.0960550308228,
+    300.932839512825
+   ],
+   "license": "CC0-1.0",
+   "name": "Old Military Crate",
+   "page": "https://polyhaven.com/a/old_military_crate",
+   "polycountOriginal": 10476,
+   "raw": "assets_src/models/old_military_crate",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "old_tyre": {
+   "authors": [
+    "MP"
+   ],
+   "categories": [
+    "industrial",
+    "props",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    600.0000238418579,
+    164.99999910593033,
+    600.0000238418579
+   ],
+   "license": "CC0-1.0",
+   "name": "Old Tyre",
+   "page": "https://polyhaven.com/a/old_tyre",
+   "polycountOriginal": 2880,
+   "raw": "assets_src/models/old_tyre",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "overhead_crane": {
+   "authors": [
+    "Timothy3D"
+   ],
+   "categories": [
+    "collection: project_lighthouse",
+    "industrial",
+    "tools"
+   ],
+   "dimensionsMm": [
+    12491.660118103027,
+    4000.000476837158,
+    5132.581472396851
+   ],
+   "license": "CC0-1.0",
+   "name": "Overhead Crane",
+   "page": "https://polyhaven.com/a/overhead_crane",
+   "polycountOriginal": 89964,
+   "raw": "assets_src/models/overhead_crane",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "painted_metal_shutter": {
+   "authors": [
+    "Dario Barresi",
+    "Rico Cilliers",
+    "Charlotte Baglioni"
+   ],
+   "categories": [
+    "man made",
+    "metal"
+   ],
+   "dimensionsMm": [
+    2000,
+    2000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/painted_metal_shutter/arm.jpg",
+    "diff": "assets_src/textures/painted_metal_shutter/diff.jpg",
+    "nor": "assets_src/textures/painted_metal_shutter/nor.jpg",
+    "rough": "assets_src/textures/painted_metal_shutter/rough.jpg"
+   },
+   "name": "Painted Metal Shutter",
+   "page": "https://polyhaven.com/a/painted_metal_shutter",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "plastered_stone_wall": {
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "categories": [
+    "wall",
+    "man made",
+    "plaster-concrete",
+    "rock"
+   ],
+   "dimensionsMm": [
+    2500,
+    2500
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/plastered_stone_wall/arm.jpg",
+    "diff": "assets_src/textures/plastered_stone_wall/diff.jpg",
+    "nor": "assets_src/textures/plastered_stone_wall/nor.jpg",
+    "rough": "assets_src/textures/plastered_stone_wall/rough.jpg"
+   },
+   "name": "Plastered Stone Wall",
+   "page": "https://polyhaven.com/a/plastered_stone_wall",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "potted_plant_01": {
+   "authors": [
+    "Rico Cilliers"
+   ],
+   "categories": [
+    "decorative",
+    "plants",
+    "potted plants",
+    "nature"
+   ],
+   "dimensionsMm": [
+    588.9185070991516,
+    636.6117596626282,
+    1350.7787585258484
+   ],
+   "license": "CC0-1.0",
+   "name": "Potted Plant 01",
+   "page": "https://polyhaven.com/a/potted_plant_01",
+   "polycountOriginal": 96030,
+   "raw": "assets_src/models/potted_plant_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "quiver_tree_01": {
+   "authors": [
+    "James Ray Cock",
+    "Dario Barresi",
+    "Rico Cilliers"
+   ],
+   "categories": [
+    "nature",
+    "plants",
+    "trees",
+    "collection: namaqualand"
+   ],
+   "dimensionsMm": [
+    1181.235671043396,
+    968.5054421424866,
+    2715.5103981494904
+   ],
+   "license": "CC0-1.0",
+   "name": "Quiver Tree 01",
+   "page": "https://polyhaven.com/a/quiver_tree_01",
+   "polycountOriginal": 269522,
+   "raw": "assets_src/models/quiver_tree_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "qwantani_dusk_2_puresky": {
+   "authors": [
+    "Greg Zaal",
+    "Jarod Guest"
+   ],
+   "categories": [
+    "outdoor",
+    "natural light",
+    "nature",
+    "skies",
+    "clear",
+    "low contrast",
+    "sunrise-sunset",
+    "partly cloudy",
+    "pure skies"
+   ],
+   "license": "CC0-1.0",
+   "name": "Qwantani Dusk 2 (Pure Sky)",
+   "page": "https://polyhaven.com/a/qwantani_dusk_2_puresky",
+   "raw": "assets_src/hdri/qwantani_dusk_2_puresky_1k.hdr",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "hdri"
+  },
+  "red_brick_03": {
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "categories": [
+    "outdoor",
+    "wall",
+    "clean",
+    "man made",
+    "brick"
+   ],
+   "dimensionsMm": [
+    1000,
+    1000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/red_brick_03/arm.jpg",
+    "diff": "assets_src/textures/red_brick_03/diff.jpg",
+    "nor": "assets_src/textures/red_brick_03/nor.jpg",
+    "rough": "assets_src/textures/red_brick_03/rough.jpg"
+   },
+   "name": "Red Brick 03",
+   "page": "https://polyhaven.com/a/red_brick_03",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "red_sandstone_wall": {
+   "authors": [
+    "Amal Kumar"
+   ],
+   "categories": [
+    "man made",
+    "wall",
+    "outdoor",
+    "dirty",
+    "sandstone"
+   ],
+   "dimensionsMm": [
+    2000,
+    2000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/red_sandstone_wall/arm.jpg",
+    "diff": "assets_src/textures/red_sandstone_wall/diff.jpg",
+    "nor": "assets_src/textures/red_sandstone_wall/nor.jpg",
+    "rough": "assets_src/textures/red_sandstone_wall/rough.jpg"
+   },
+   "name": "Red Sandstone Wall",
+   "page": "https://polyhaven.com/a/red_sandstone_wall",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "rock_07": {
+   "authors": [
+    "Jenelle van Heerden"
+   ],
+   "categories": [
+    "rocks",
+    "nature",
+    "collection: verdant_trail"
+   ],
+   "dimensionsMm": [
+    169.10234838724136,
+    320.554181933403,
+    143.77418451476842
+   ],
+   "license": "CC0-1.0",
+   "name": "Rock 07",
+   "page": "https://polyhaven.com/a/rock_07",
+   "polycountOriginal": 27830,
+   "raw": "assets_src/models/rock_07",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "rock_moss_set_01": {
+   "authors": [
+    "Kless Gyzen"
+   ],
+   "categories": [
+    "rocks",
+    "nature",
+    "collection: pine_forest"
+   ],
+   "dimensionsMm": [
+    8004.603862762451,
+    6948.764801025391,
+    1768.319845199585
+   ],
+   "license": "CC0-1.0",
+   "name": "Rock Moss Set 01",
+   "page": "https://polyhaven.com/a/rock_moss_set_01",
+   "polycountOriginal": 63127,
+   "raw": "assets_src/models/rock_moss_set_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "rusty_metal_02": {
+   "authors": [
+    "Rob Tuytel"
+   ],
+   "categories": [
+    "metal",
+    "man made",
+    "dirty",
+    "wall",
+    "indoor",
+    "outdoor"
+   ],
+   "dimensionsMm": [
+    1000,
+    1000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/rusty_metal_02/arm.jpg",
+    "diff": "assets_src/textures/rusty_metal_02/diff.jpg",
+    "nor": "assets_src/textures/rusty_metal_02/nor.jpg",
+    "rough": "assets_src/textures/rusty_metal_02/rough.jpg"
+   },
+   "name": "Rusty Metal 02",
+   "page": "https://polyhaven.com/a/rusty_metal_02",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "shrub_03": {
+   "authors": [
+    "Rico Cilliers"
+   ],
+   "categories": [
+    "nature",
+    "plants",
+    "ground cover",
+    "collection: verdant_trail"
+   ],
+   "dimensionsMm": [
+    1366.9319450855255,
+    151.20302885770798,
+    402.78380597010255
+   ],
+   "license": "CC0-1.0",
+   "name": "Shrub 03",
+   "page": "https://polyhaven.com/a/shrub_03",
+   "polycountOriginal": 16955,
+   "raw": "assets_src/models/shrub_03",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "sledgehammer_01": {
+   "authors": [
+    "Dylan Guzman"
+   ],
+   "categories": [
+    "props",
+    "tools",
+    "industrial",
+    "collection: the_shed"
+   ],
+   "dimensionsMm": [
+    208.48701149225235,
+    90.47714620828629,
+    1005.6212544441223
+   ],
+   "license": "CC0-1.0",
+   "name": "Sledgehammer 01",
+   "page": "https://polyhaven.com/a/sledgehammer_01",
+   "polycountOriginal": 2596,
+   "raw": "assets_src/models/sledgehammer_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "small_harbour_sunset": {
+   "authors": [
+    "Greg Zaal",
+    "Jarod Guest"
+   ],
+   "categories": [
+    "outdoor",
+    "skies",
+    "natural light",
+    "sunrise-sunset",
+    "nature",
+    "clear",
+    "medium contrast"
+   ],
+   "license": "CC0-1.0",
+   "name": "Small Harbour Sunset",
+   "page": "https://polyhaven.com/a/small_harbour_sunset",
+   "raw": "assets_src/hdri/small_harbour_sunset_1k.hdr",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "hdri"
+  },
+  "sparse_grass": {
+   "authors": [
+    "Amal Kumar"
+   ],
+   "categories": [
+    "floor",
+    "natural"
+   ],
+   "dimensionsMm": [
+    2000,
+    2000
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/sparse_grass/arm.jpg",
+    "diff": "assets_src/textures/sparse_grass/diff.jpg",
+    "nor": "assets_src/textures/sparse_grass/nor.jpg",
+    "rough": "assets_src/textures/sparse_grass/rough.jpg"
+   },
+   "name": "Sparse Grass",
+   "page": "https://polyhaven.com/a/sparse_grass",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "stony_dirt_path": {
+   "authors": [
+    "eye-candy.xyz"
+   ],
+   "categories": [
+    "dirty",
+    "floor",
+    "outdoor",
+    "natural"
+   ],
+   "dimensionsMm": [
+    2170.0000762939453,
+    2170.0000762939453
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/stony_dirt_path/arm.jpg",
+    "diff": "assets_src/textures/stony_dirt_path/diff.jpg",
+    "nor": "assets_src/textures/stony_dirt_path/nor.jpg",
+    "rough": "assets_src/textures/stony_dirt_path/rough.jpg"
+   },
+   "name": "Stony Dirt Path",
+   "page": "https://polyhaven.com/a/stony_dirt_path",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "street_lamp_01": {
+   "authors": [
+    "Josh Dean"
+   ],
+   "categories": [
+    "lighting",
+    "industrial",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    704.3362259864807,
+    386.49316132068634,
+    3870.5554008483887
+   ],
+   "license": "CC0-1.0",
+   "name": "Street Lamp 01",
+   "page": "https://polyhaven.com/a/street_lamp_01",
+   "polycountOriginal": 30610,
+   "raw": "assets_src/models/street_lamp_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "street_lamp_02": {
+   "authors": [
+    "Josh Dean"
+   ],
+   "categories": [
+    "lighting",
+    "industrial",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    386.49316132068634,
+    806.7893021069672,
+    1675.0419437885284
+   ],
+   "license": "CC0-1.0",
+   "name": "Street Lamp 02",
+   "page": "https://polyhaven.com/a/street_lamp_02",
+   "polycountOriginal": 20338,
+   "raw": "assets_src/models/street_lamp_02",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "utility_box_01": {
+   "authors": [
+    "James Ray Cock"
+   ],
+   "categories": [
+    "industrial",
+    "structures",
+    "collection: hidden_alley"
+   ],
+   "dimensionsMm": [
+    520.0002193450928,
+    431.999996304512,
+    1120.3334331512451
+   ],
+   "license": "CC0-1.0",
+   "name": "Utility Box 01",
+   "page": "https://polyhaven.com/a/utility_box_01",
+   "polycountOriginal": 4404,
+   "raw": "assets_src/models/utility_box_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  },
+  "wood_floor_deck": {
+   "authors": [
+    "Dimitrios Savva"
+   ],
+   "categories": [
+    "man made",
+    "wood",
+    "floor",
+    "outdoor"
+   ],
+   "dimensionsMm": [
+    1799.9999523162842,
+    1799.9999523162842
+   ],
+   "license": "CC0-1.0",
+   "maps": {
+    "arm": "assets_src/textures/wood_floor_deck/arm.jpg",
+    "diff": "assets_src/textures/wood_floor_deck/diff.jpg",
+    "nor": "assets_src/textures/wood_floor_deck/nor.jpg",
+    "rough": "assets_src/textures/wood_floor_deck/rough.jpg"
+   },
+   "name": "Wood Floor Deck",
+   "page": "https://polyhaven.com/a/wood_floor_deck",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "texture"
+  },
+  "wooden_lantern_01": {
+   "authors": [
+    "James Ray Cock"
+   ],
+   "categories": [
+    "props",
+    "lighting",
+    "collection: smugglers_cove"
+   ],
+   "dimensionsMm": [
+    221.04809433221817,
+    234.72441732883453,
+    530.1365610212088
+   ],
+   "license": "CC0-1.0",
+   "name": "Wooden Lantern 01",
+   "page": "https://polyhaven.com/a/wooden_lantern_01",
+   "polycountOriginal": 8321,
+   "raw": "assets_src/models/wooden_lantern_01",
+   "resolution": "1k",
+   "source": "Poly Haven",
+   "type": "model"
+  }
+ }
+}

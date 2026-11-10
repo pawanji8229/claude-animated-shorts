@@ -1,5 +1,7 @@
 import React from "react";
-import { Composition } from "remotion";
+import { AbsoluteFill, Composition, useCurrentFrame } from "remotion";
+import { LibraryShowcase, ShowcaseShot, SHOWCASE_FRAMES, SHOT, XF } from "./showcase/LibraryShowcase";
+const BenchBlank: React.FC = () => { const f = useCurrentFrame(); return <AbsoluteFill style={{ background: `hsl(${f % 360},40%,50%)` }} />; };
 import { InventorWalkIn, inventorSchema } from "./inventor/InventorWalkIn";
 import { DURATION, FPS } from "./inventor/timeline";
 import { NightShift10, nightShiftSchema } from "./inventor/NightShift10";
@@ -57,5 +59,10 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Sheet2D" component={Sheet2D} durationInFrames={1} fps={FPS} width={3000} height={2200} />
       <Composition id="LondonBridgeFullPreview" component={LondonBridgeFull} durationInFrames={LB_FULL_FRAMES} fps={30} width={540} height={960} />
     <Composition id="LondonBridgeFull" component={LondonBridgeFull} durationInFrames={LB_FULL_FRAMES} fps={30} width={1080} height={1920} />
+    {/* pipeline v3: CC0 library showcase / benchmark film (5 shot types + dissolves) and single shots */}
+    <Composition id="LibraryShowcase" component={LibraryShowcase} durationInFrames={SHOWCASE_FRAMES} fps={30} width={1080} height={1920} />
+    {[0, 1, 2, 3, 4].map((i) => <Composition key={i} id={`ShowcaseShot${i}`} component={ShowcaseShot} durationInFrames={SHOT + XF} fps={30} width={1080} height={1920} defaultProps={{ shot: i }} />)}
+    {/* pipeline/bench: per-frame Remotion+Chromium overhead with no 3D at all */}
+    <Composition id="BenchBlank" component={BenchBlank} durationInFrames={300} fps={30} width={1080} height={1920} />
   </>
 );
