@@ -1,0 +1,10 @@
+import { bundle } from "@remotion/bundler";
+import { openBrowser, renderStill, selectComposition } from "@remotion/renderer";
+import { resolve } from "node:path";
+const [, , out, order] = process.argv, frames = order.split(",").map(Number), ip = { __singleRender: true };
+const exe = "/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell";
+const serveUrl = await bundle({ entryPoint: resolve("src/index.ts") });
+const browser = await openBrowser("chrome", { browserExecutable: exe, chromiumOptions: { gl: "swangle" } });
+const composition = await selectComposition({ serveUrl, id: "LibraryShowcase", inputProps: ip, puppeteerInstance: browser });
+for (const f of frames) await renderStill({ composition, serveUrl, inputProps: ip, frame: f, output: `${out}/f${f}.png`, scale: 0.5, puppeteerInstance: browser, chromiumOptions: { gl: "swangle" }, timeoutInMilliseconds: 300000 });
+await browser.close({ silent: true }); console.log("done", out);

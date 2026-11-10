@@ -55,8 +55,9 @@ const hi = () => true;
 
 // ---------------------------------------------------------------- 1. character close-up (study at night)
 const camA = camPath([{ f: 0, pos: [0.85, 1.3, 1.55], look: [0.0, 0.95, -1.3], fov: 40 }, { f: SHOT + XF, pos: [0.55, 1.26, 1.05], look: [0.0, 0.98, -1.35], fov: 38 }], 4);
-const ShotStudy: React.FC<{ f: number }> = ({ f }) => {
-  const c = camA(f, [0.05, 1.2, -1.75]);
+const ShotStudy: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) => {
+  const cf = f * (SHOT + XF) / (len + XF);
+  const c = camA(cf, [0.05, 1.2, -1.75]);
   const hal: Odo5Pose = pose5({ costume: COSTUME.hal, lookX: 0.15 + 0.1 * Math.sin(f / 14), lookY: -0.05, mouth: f > 26 ? "smile" : "awkward", blink: f % 52 > 47, browL: 0.65, browR: 0.1 });
   return (
     <Shot label="closeup" c={c} fog={["#1a1612", 8, 30]} bg="#120f0c" post={{ exposure: 1.05, bloom: 0.7, threshold: 1.3 }}>
@@ -84,8 +85,9 @@ const ShotStudy: React.FC<{ f: number }> = ({ f }) => {
 // ---------------------------------------------------------------- 2. city street at dusk
 const camB = camPath([{ f: 0, pos: [0.6, 1.75, 10.5], look: [-0.6, 3.4, -10], fov: 56 }, { f: SHOT + XF, pos: [0.3, 1.75, 7.8], look: [-0.7, 3.4, -12], fov: 54 }], 4);
 const lamps = [-24, -12, 0, 12].flatMap((z) => [[-4.9, z], [4.9, z + 6]] as [number, number][]);
-const ShotStreet: React.FC<{ f: number }> = ({ f }) => {
-  const c = camB(f, [-1.2, 1.2, 2]);
+const ShotStreet: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) => {
+  const cf = f * (SHOT + XF) / (len + XF);
+  const c = camB(cf, [-1.2, 1.2, 2]);
   const walk = f / 30, halX = -1.7, halZ = 4.2 - walk * 1.05;
   const hal = pose5({ costume: COSTUME.hal, view: "side", gait: walk * 1.05 / 0.72, walk: 1, stride: 0.72, lean: 0.04, mouth: "smile" });
   const trees = useMemo(() => [-18, -6, 6].map((z) => ({ p: [-5.6, 0.15, z] as V3, ry: z, s: 1 })), []);
@@ -116,8 +118,9 @@ const ShotStreet: React.FC<{ f: number }> = ({ f }) => {
 const camC = camPath([{ f: 0, pos: [11, 4.2, 13], look: [0, 1.6, 0], fov: 46 }, { f: SHOT + XF, pos: [8.5, 3.6, 13.5], look: [-0.5, 1.6, 0], fov: 44 }], 4);
 const excQ = (f: number): ExcQ => { const ph = (f % 60) / 60, dig = Math.sin(ph * Math.PI * 2);
   return { yaw: -0.5 + 0.5 * smooth(0.45, 0.7, ph) - 0.5 * smooth(0.9, 1, ph), boom: 0.3 + 0.25 * dig, stick: 1.3 - 0.4 * dig, bucket: 0.6 + 0.7 * Math.max(0, dig), track: 0 }; };
-const ShotSite: React.FC<{ f: number }> = ({ f }) => {
-  const c = camC(f, [0, 1.5, 0]);
+const ShotSite: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) => {
+  const cf = f * (SHOT + XF) / (len + XF);
+  const c = camC(cf, [0, 1.5, 0]);
   const barrels = useMemo(() => scatter(31, 7, [5, -6, 9, -2], 0.75, [0.95, 1.05]), []);
   const rocks = useMemo(() => scatter(7, 14, [-14, -12, 14, 6], 2.5, [0.5, 1.3], [[-6, -4, 8, 6]]), []);
   const worker = pose5({ costume: COSTUME.workerA, lookX: -0.5, mouth: "smile", blink: f % 47 > 43 });
@@ -145,8 +148,9 @@ const ShotSite: React.FC<{ f: number }> = ({ f }) => {
 
 // ---------------------------------------------------------------- 4. harbour: water + ship
 const camD = camPath([{ f: 0, pos: [-10.5, 3.4, 9.5], look: [3, 3.6, -9], fov: 50 }, { f: SHOT + XF, pos: [-9.5, 3.2, 7.5], look: [3.5, 3.7, -9.5], fov: 48 }], 4);
-const ShotHarbour: React.FC<{ f: number }> = ({ f }) => {
-  const c = camD(f, [6, 4, -6]); const t = f / 30;
+const ShotHarbour: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) => {
+  const cf = f * (SHOT + XF) / (len + XF);
+  const c = camD(cf, [6, 4, -6]); const t = f / 30;
   const bob = 0.12 * Math.sin(t * 1.3), roll = 0.025 * Math.sin(t * 1.1 + 0.6), pitch = 0.012 * Math.sin(t * 0.9);
   const hal = pose5({ costume: COSTUME.hal, lookX: 0.6, mouth: "smile", armR: { hand: [60, -150], elbow: [80, -30], shape: "open", rot: 0.3 + 0.35 * Math.sin(f / 3.2), bend: 1 } });
   const crates = useMemo(() => [[-4.0, 2.2], [-3.4, 1.4], [-4.1, 0.8]].map(([x, z], i) => ({ p: [x, 1.8, z] as V3, ry: i * 0.6, s: 1 })), []);
@@ -169,8 +173,9 @@ const ShotHarbour: React.FC<{ f: number }> = ({ f }) => {
 // ---------------------------------------------------------------- 5. crowd on a plaza
 const camE = camPath([{ f: 0, pos: [0.4, 1.7, 8.6], look: [0, 1.35, 0], fov: 42 }, { f: SHOT + XF, pos: [-0.3, 1.65, 7.6], look: [0, 1.35, 0], fov: 41 }], 4);
 const SPOTS: [number, number][] = [[-2.6, 0.3], [-1.4, -0.2], [-0.3, 0.4], [0.9, -0.1], [2.1, 0.35], [-2.0, -1.4], [-0.8, -1.2], [0.4, -1.5], [1.5, -1.3], [2.7, -1.1]];
-const ShotCrowd: React.FC<{ f: number }> = ({ f }) => {
-  const c = camE(f, [0, 1.3, 0]);
+const ShotCrowd: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) => {
+  const cf = f * (SHOT + XF) / (len + XF);
+  const c = camE(cf, [0, 1.3, 0]);
   return (
     <Shot label="crowd" c={c} fog={["#bfa6a0", 25, 140]} post={{ exposure: 1.0, bloom: 0.6, threshold: 1.4 }}>
       <HdriEnvironment id="qwantani_dusk_2_puresky" intensity={0.95} background rotationY={1.4} />
@@ -185,17 +190,18 @@ const ShotCrowd: React.FC<{ f: number }> = ({ f }) => {
   );
 };
 
-const SHOTS_LIST = [ShotStudy, ShotStreet, ShotSite, ShotHarbour, ShotCrowd];
+const SHOTS_LIST: React.FC<{ f: number; len?: number }>[] = [ShotStudy, ShotStreet, ShotSite, ShotHarbour, ShotCrowd];
+export const showcaseFrames = (len: number) => len * SHOTS + XF;
 /** one shot alone (for benchmarks and quick tests), frame numbers local to the shot */
 export const ShowcaseShot: React.FC<{ shot: number }> = ({ shot }) => { const f = useCurrentFrame(); const S = SHOTS_LIST[shot]; return <AbsoluteFill style={{ background: "#000" }}><S f={f} /></AbsoluteFill>; };
 /** the whole showcase: shots dissolve into each other over XF frames (opacity cross-dissolve, no cuts) */
-export const LibraryShowcase: React.FC = () => {
-  const f = useCurrentFrame();
+export const LibraryShowcase: React.FC<{ shotLen?: number }> = ({ shotLen = SHOT }) => {
+  const f = useCurrentFrame(), SHOT_ = shotLen;
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      {SHOTS_LIST.map((S, i) => { const from = i * SHOT, dur = SHOT + XF; const o = i === 0 ? 1 : smooth(from, from + XF, f);
-        return <Sequence key={i} from={from} durationInFrames={dur} layout="none"><AbsoluteFill style={{ opacity: o }}><ShotLocal S={S} /></AbsoluteFill></Sequence>; })}
+      {SHOTS_LIST.map((S, i) => { const from = i * SHOT_, dur = SHOT_ + XF; const o = i === 0 ? 1 : smooth(from, from + XF, f);
+        return <Sequence key={i} from={from} durationInFrames={dur} layout="none"><AbsoluteFill style={{ opacity: o }}><ShotLocal S={S} len={SHOT_} /></AbsoluteFill></Sequence>; })}
     </AbsoluteFill>
   );
 };
-const ShotLocal: React.FC<{ S: React.FC<{ f: number }> }> = ({ S }) => { const f = useCurrentFrame(); return <S f={f} />; };
+const ShotLocal: React.FC<{ S: React.FC<{ f: number; len?: number }>; len: number }> = ({ S, len }) => { const f = useCurrentFrame(); return <S f={f} len={len} />; };

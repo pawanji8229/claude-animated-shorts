@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Composition, useCurrentFrame } from "remotion";
-import { LibraryShowcase, ShowcaseShot, SHOWCASE_FRAMES, SHOT, XF } from "./showcase/LibraryShowcase";
+import { LibraryShowcase, ShowcaseShot, SHOWCASE_FRAMES, SHOT, XF, showcaseFrames } from "./showcase/LibraryShowcase";
 import { AssetViewer } from "./showcase/AssetViewer";
 const BenchBlank: React.FC = () => { const f = useCurrentFrame(); return <AbsoluteFill style={{ background: `hsl(${f % 360},40%,50%)` }} />; };
 import { InventorWalkIn, inventorSchema } from "./inventor/InventorWalkIn";
@@ -62,6 +62,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="LondonBridgeFull" component={LondonBridgeFull} durationInFrames={LB_FULL_FRAMES} fps={30} width={1080} height={1920} />
     {/* pipeline v3: CC0 library showcase / benchmark film (5 shot types + dissolves) and single shots */}
     <Composition id="LibraryShowcase" component={LibraryShowcase} durationInFrames={SHOWCASE_FRAMES} fps={30} width={1080} height={1920} />
+    {/* 15.4 s version (90-frame shots) for the GitHub Actions matrix test */}
+    <Composition id="LibraryShowcase15" component={LibraryShowcase} durationInFrames={showcaseFrames(90)} fps={30} width={1080} height={1920} defaultProps={{ shotLen: 90 }} />
     {[0, 1, 2, 3, 4].map((i) => <Composition key={i} id={`ShowcaseShot${i}`} component={ShowcaseShot} durationInFrames={SHOT + XF} fps={30} width={1080} height={1920} defaultProps={{ shot: i }} />)}
     <Composition id="AssetViewer" component={AssetViewer} durationInFrames={1} fps={30} width={720} height={720} defaultProps={{ id: "Barrel_01" }} />
     {/* pipeline/bench: per-frame Remotion+Chromium overhead with no 3D at all */}

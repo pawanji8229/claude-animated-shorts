@@ -12,6 +12,7 @@ import React, { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 import { getInputProps } from "remotion";
+import { SINGLE_RENDER } from "./renderFlags";
 
 // Opt-in profiling (pipeline/bench): pass inputProps {__bench: true}. Times each GPU stage with gl.finish() and logs
 // "[bench] {...}" to the browser console. Without the prop nothing changes (no finish() stalls, no extra renders).
@@ -177,6 +178,10 @@ export const Post: React.FC<{ params: PostParams }> = ({ params }) => {
   }, [W, H, ss]);
   useEffect(() => () => { [res.sceneRT, ...res.half, ...res.quarter, ...res.pyr.flat()].forEach((r) => r.dispose()); }, [res]);
 
+  // Single-render determinism: camera rigs move the camera in a layout effect, but its matrixWorld is only refreshed
+  // inside gl.render(). MeshReflectorMaterial builds its mirror camera in a priority-0 useFrame BEFORE that, so with one
+  // render per frame the reflection used last frame's camera (the legacy double render hid this). Refresh it first.
+  useFrame(() => { if (SINGLE_RENDER) { camera.updateMatrixWorld(); scene.updateMatrixWorld(); } }, -1);
   useFrame(() => {
     const { qScene, qCam, quad, sceneRT, half, quarter, pyr, blur, down, comp } = res;
     const pass = (m: THREE.ShaderMaterial, target: THREE.WebGLRenderTarget | null) => { quad.material = m; gl.setRenderTarget(target); gl.render(qScene, qCam); };
