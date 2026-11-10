@@ -89,7 +89,8 @@ Same 60 frames (London Bridge 1100–1159, 1080×1920), same machine, end to end
 |---|---|---|---|---|
 | #1 | 2 / 2 | 25.4 and 27.7 min (231 frames each) | 38.5 min, including a 9 min apt mirror stall | 462 frames, verified |
 | #2 | 4 / 4 | 17.1, 10.5, 5.0, 14.0 min (unbalanced: scene costs differ) | **20.8 min** | 462 frames, validator PASS |
-| #3 | 4 / 8 (balanced queue) | see below | see below | see below |
+| #3 | 4 / 8 (balanced queue) | 8 chunks: 5.7, 10.7, 5.1, 6.1, 3.7, 2.8, 7.5, 3.9 min (45.3 runner-min total) | 22.2 min (apt mirror stalls of 3-8 min on 4 runners ate the balancing gain) | 462/462 frames, 8 chunk digests verified, no black/frozen segments |
+| #4 | 4 / 8, static ffmpeg (apt skipped) | see below | see below | see below |
 
 - **Verified:** artifact SHA-256 matches GitHub's digest, 462 frames, 1080×1920, 30 fps. `validate_motion.py` found 0 cuts and 0 freezes.
 - **Run #1 found a real flaw:** a 6-frame excavator swing. It was fixed and run #2 passed.
