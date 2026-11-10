@@ -59,7 +59,7 @@ export const usePbr = (id: AssetId, repeat: [number, number] = [1, 1], o: { tint
   const t = useTextureSet(id);
   return useMemo(() => {
     if (!t) return null; const key = `${id}|${repeat}|${JSON.stringify(o)}`; if (matCache.has(key)) return matCache.get(key)!;
-    const rep = (x?: THREE.Texture) => { if (!x) return undefined; const c = x.clone(); c.repeat.set(repeat[0], repeat[1]); c.needsUpdate = true; return c; };
+    const rep = (x?: THREE.Texture): THREE.Texture | null => { if (!x) return null; const c = x.clone(); c.repeat.set(repeat[0], repeat[1]); c.needsUpdate = true; return c; };
     const mat = new THREE.MeshStandardMaterial({ map: rep(t.diff), normalMap: rep(t.nor), roughnessMap: rep(t.rough ?? t.arm), roughness: o.roughness ?? 1, metalness: o.metalness ?? 0,
       color: new THREE.Color(o.tint ?? "#ffffff"), normalScale: new THREE.Vector2(o.normalScale ?? 1, o.normalScale ?? 1) });
     if (t.arm && !t.rough) { mat.aoMap = rep(t.arm); }

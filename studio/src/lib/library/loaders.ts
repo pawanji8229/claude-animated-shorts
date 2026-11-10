@@ -1,25 +1,40 @@
 // Asset loading for the TwistFrame library. Every load is wrapped in Remotion's delayRender so no frame is captured
 // before its models/textures exist, and cached per browser tab (a GLB is fetched + parsed once, then every <Model>
 // shares its geometry and materials; clones only copy the node tree).
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { GLTFLoader, type GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 import { continueRender, delayRender, staticFile } from "remotion";
 import { MANIFEST, type AssetId } from "./manifest";
 
-const cache = new Map<string, Promise<unknown>>();
-const once = <T,>(key: string, make: () => Promise<T>): Promise<T> => { if (!cache.has(key)) cache.set(key, make()); return cache.get(key) as Promise<T>; };
+const cache = new Map<string, Promise<unknown>>(), done = new Map<string, unknown>();
+const once = <T,>(key: string, make: () => Promise<T>): Promise<T> => {
+  if (!cache.has(key)) cache.set(key, make().then((v) => { done.set(key, v); return v; }));
+  return cache.get(key) as Promise<T>;
+};
 const url = (p: string) => staticFile(p.replace(/^public\//, ""));
 
-/** suspend-free hook: returns null until loaded, holding a delayRender handle meanwhile */
+/** Load inside a <ThreeCanvas>. Returns the asset synchronously when already cached in this tab; otherwise null while
+ *  a delayRender handle blocks capture. With frameloop="never" R3F only draws on frame changes, so once the asset
+ *  arrives we advance one draw ourselves and only THEN release the frame (else the screenshot shows the empty scene). */
 export function useAsset<T>(key: string, make: () => Promise<T>): T | null {
-  const [v, setV] = useState<T | null>(null);
+  const [v, setV] = useState<T | null>(() => (done.has(key) ? (done.get(key) as T) : null));
+  const advance = useThree((s) => s.advance);
+  const handle = useRef<number | null>(null);
   useEffect(() => {
-    let live = true; const h = delayRender(`asset ${key}`, { timeoutInMilliseconds: 300000 });
-    once(key, make).then((x) => { if (live) setV(x); continueRender(h); }, (e) => { console.error(e); continueRender(h); throw e; });
+    if (done.has(key)) { setV(done.get(key) as T); return; }
+    let live = true; handle.current = delayRender(`asset ${key}`, { timeoutInMilliseconds: 300000 });
+    once(key, make).then((x) => { if (live) setV(x); else if (handle.current !== null) { continueRender(handle.current); handle.current = null; } },
+      (e) => { console.error(`[asset] ${key} failed`, e); if (handle.current !== null) { continueRender(handle.current); handle.current = null; } });
     return () => { live = false; };
   }, [key]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (v === null || handle.current === null) return;
+    const h = handle.current; handle.current = null;
+    requestAnimationFrame(() => { advance(performance.now()); continueRender(h); });   // draw the scene with the asset, then allow capture
+  }, [v, advance]);
   return v;
 }
 

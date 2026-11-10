@@ -21,7 +21,24 @@
    "raw": "assets_src/models/ArmChair_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/ArmChair_01.glb",
+   "trisOptimized": 5626,
+   "primitives": 1,
+   "glbBytes": 525400,
+   "boundsM": {
+    "min": [
+     -0.424,
+     0,
+     -0.417
+    ],
+    "max": [
+     0.424,
+     1.065,
+     0.348
+    ]
+   },
+   "simplifyRatio": 1
   },
   "Barrel_01": {
    "authors": [
@@ -43,7 +60,24 @@
    "raw": "assets_src/models/Barrel_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/Barrel_01.glb",
+   "trisOptimized": 2682,
+   "primitives": 1,
+   "glbBytes": 410152,
+   "boundsM": {
+    "min": [
+     -0.282,
+     -0.007,
+     -0.282
+    ],
+    "max": [
+     0.282,
+     0.873,
+     0.282
+    ]
+   },
+   "simplifyRatio": 1
   },
   "CoffeeTable_01": {
    "authors": [
@@ -65,7 +99,26 @@
    "raw": "assets_src/models/CoffeeTable_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/CoffeeTable_01.glb",
+   "trisOptimized": 10404,
+   "primitives": 1,
+   "glbBytes": 593188,
+   "boundsM": {
+    "min": [
+     -0.77,
+     0.002,
+     -0.486
+    ],
+    "max": [
+     0.77,
+     0.525,
+     0.486
+    ]
+   },
+   "simplifyRatio": 1,
+   "lod1": "public/lib/models/CoffeeTable_01_lod1.glb",
+   "lod1Tris": 2601
   },
   "Lantern_01": {
    "authors": [
@@ -87,11 +140,30 @@
    "raw": "assets_src/models/Lantern_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/Lantern_01.glb",
+   "trisOptimized": 14999,
+   "primitives": 2,
+   "glbBytes": 681116,
+   "boundsM": {
+    "min": [
+     -0.061,
+     0,
+     -0.048
+    ],
+    "max": [
+     0.061,
+     0.294,
+     0.049
+    ]
+   },
+   "simplifyRatio": 0.4425,
+   "lod1": "public/lib/models/Lantern_01_lod1.glb",
+   "lod1Tris": 3736
   },
   "Shelf_01": {
    "authors": [
-    "Gabriel Radi\u0107"
+    "Gabriel Radić"
    ],
    "categories": [
     "furniture",
@@ -109,7 +181,24 @@
    "raw": "assets_src/models/Shelf_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/Shelf_01.glb",
+   "trisOptimized": 182,
+   "primitives": 1,
+   "glbBytes": 332968,
+   "boundsM": {
+    "min": [
+     -0.502,
+     0,
+     0
+    ],
+    "max": [
+     0.502,
+     2.08,
+     0.257
+    ]
+   },
+   "simplifyRatio": 1
   },
   "Sofa_01": {
    "authors": [
@@ -131,7 +220,24 @@
    "raw": "assets_src/models/Sofa_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/Sofa_01.glb",
+   "trisOptimized": 4101,
+   "primitives": 1,
+   "glbBytes": 279160,
+   "boundsM": {
+    "min": [
+     -0.778,
+     -0.001,
+     -0.361
+    ],
+    "max": [
+     0.793,
+     0.796,
+     0.297
+    ]
+   },
+   "simplifyRatio": 1
   },
   "WoodenChair_01": {
    "authors": [
@@ -153,7 +259,26 @@
    "raw": "assets_src/models/WoodenChair_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/WoodenChair_01.glb",
+   "trisOptimized": 14998,
+   "primitives": 1,
+   "glbBytes": 672564,
+   "boundsM": {
+    "min": [
+     -0.344,
+     -0.001,
+     -0.367
+    ],
+    "max": [
+     0.344,
+     2.272,
+     0.291
+    ]
+   },
+   "simplifyRatio": 0.7503,
+   "lod1": "public/lib/models/WoodenChair_01_lod1.glb",
+   "lod1Tris": 3749
   },
   "WoodenTable_01": {
    "authors": [
@@ -174,7 +299,24 @@
    "raw": "assets_src/models/WoodenTable_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/WoodenTable_01.glb",
+   "trisOptimized": 952,
+   "primitives": 1,
+   "glbBytes": 262832,
+   "boundsM": {
+    "min": [
+     -0.9,
+     0,
+     -0.329
+    ],
+    "max": [
+     0.9,
+     0.549,
+     0.329
+    ]
+   },
+   "simplifyRatio": 1
   },
   "asphalt_02": {
    "authors": [
@@ -202,7 +344,13 @@
    "page": "https://polyhaven.com/a/asphalt_02",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/asphalt_02/arm.webp",
+    "diff": "public/lib/textures/asphalt_02/diff.webp",
+    "nor": "public/lib/textures/asphalt_02/nor.webp",
+    "rough": "public/lib/textures/asphalt_02/rough.webp"
+   }
   },
   "belfast_sunset_puresky": {
    "authors": [
@@ -226,7 +374,8 @@
    "raw": "assets_src/hdri/belfast_sunset_puresky_1k.hdr",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "hdri"
+   "type": "hdri",
+   "file": "public/lib/hdri/belfast_sunset_puresky_1k.hdr"
   },
   "boulder_01": {
    "authors": [
@@ -249,7 +398,28 @@
    "raw": "assets_src/models/boulder_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/boulder_01.glb",
+   "trisOptimized": 54122,
+   "primitives": 1,
+   "glbBytes": 2773368,
+   "boundsM": {
+    "min": [
+     -0.748,
+     -0.074,
+     -0.946
+    ],
+    "max": [
+     0.524,
+     0.93,
+     0.882
+    ]
+   },
+   "simplifyRatio": 0.1815,
+   "simplifyError": "0.12",
+   "trisSource": 66122,
+   "lod1": "public/lib/models/boulder_01_lod1.glb",
+   "lod1Tris": 51478
   },
   "brown_planks_05": {
    "authors": [
@@ -278,7 +448,13 @@
    "page": "https://polyhaven.com/a/brown_planks_05",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/brown_planks_05/arm.webp",
+    "diff": "public/lib/textures/brown_planks_05/diff.webp",
+    "nor": "public/lib/textures/brown_planks_05/nor.webp",
+    "rough": "public/lib/textures/brown_planks_05/rough.webp"
+   }
   },
   "brushed_concrete": {
    "authors": [
@@ -307,7 +483,13 @@
    "page": "https://polyhaven.com/a/brushed_concrete",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/brushed_concrete/arm.webp",
+    "diff": "public/lib/textures/brushed_concrete/diff.webp",
+    "nor": "public/lib/textures/brushed_concrete/nor.webp",
+    "rough": "public/lib/textures/brushed_concrete/rough.webp"
+   }
   },
   "cardboard_box_01": {
    "authors": [
@@ -330,7 +512,26 @@
    "raw": "assets_src/models/cardboard_box_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/cardboard_box_01.glb",
+   "trisOptimized": 15000,
+   "primitives": 1,
+   "glbBytes": 564188,
+   "boundsM": {
+    "min": [
+     -0.192,
+     -0.007,
+     -0.225
+    ],
+    "max": [
+     0.195,
+     0.335,
+     0.291
+    ]
+   },
+   "simplifyRatio": 0.8849,
+   "lod1": "public/lib/models/cardboard_box_01_lod1.glb",
+   "lod1Tris": 3750
   },
   "clay_roof_tiles": {
    "authors": [
@@ -354,7 +555,13 @@
    "page": "https://polyhaven.com/a/clay_roof_tiles",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/clay_roof_tiles/arm.webp",
+    "diff": "public/lib/textures/clay_roof_tiles/diff.webp",
+    "nor": "public/lib/textures/clay_roof_tiles/nor.webp",
+    "rough": "public/lib/textures/clay_roof_tiles/rough.webp"
+   }
   },
   "coast_sand_01": {
    "authors": [
@@ -384,7 +591,13 @@
    "page": "https://polyhaven.com/a/coast_sand_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/coast_sand_01/arm.webp",
+    "diff": "public/lib/textures/coast_sand_01/diff.webp",
+    "nor": "public/lib/textures/coast_sand_01/nor.webp",
+    "rough": "public/lib/textures/coast_sand_01/rough.webp"
+   }
   },
   "cobblestone_floor_01": {
    "authors": [
@@ -412,7 +625,13 @@
    "page": "https://polyhaven.com/a/cobblestone_floor_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/cobblestone_floor_01/arm.webp",
+    "diff": "public/lib/textures/cobblestone_floor_01/diff.webp",
+    "nor": "public/lib/textures/cobblestone_floor_01/nor.webp",
+    "rough": "public/lib/textures/cobblestone_floor_01/rough.webp"
+   }
   },
   "cobblestone_street_night": {
    "authors": [
@@ -433,7 +652,8 @@
    "raw": "assets_src/hdri/cobblestone_street_night_1k.hdr",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "hdri"
+   "type": "hdri",
+   "file": "public/lib/hdri/cobblestone_street_night_1k.hdr"
   },
   "concrete_block_wall": {
    "authors": [
@@ -460,7 +680,13 @@
    "page": "https://polyhaven.com/a/concrete_block_wall",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/concrete_block_wall/arm.webp",
+    "diff": "public/lib/textures/concrete_block_wall/diff.webp",
+    "nor": "public/lib/textures/concrete_block_wall/nor.webp",
+    "rough": "public/lib/textures/concrete_block_wall/rough.webp"
+   }
   },
   "concrete_road_barrier": {
    "authors": [
@@ -483,7 +709,28 @@
    "raw": "assets_src/models/concrete_road_barrier",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/concrete_road_barrier.glb",
+   "trisOptimized": 49996,
+   "primitives": 1,
+   "glbBytes": 1528364,
+   "boundsM": {
+    "min": [
+     -0.775,
+     -0.008,
+     -0.295
+    ],
+    "max": [
+     0.771,
+     0.823,
+     0.344
+    ]
+   },
+   "simplifyRatio": 0.8206,
+   "simplifyError": "0.01",
+   "trisSource": 60928,
+   "lod1": "public/lib/models/concrete_road_barrier_lod1.glb",
+   "lod1Tris": 12498
   },
   "covered_car": {
    "authors": [
@@ -506,7 +753,26 @@
    "raw": "assets_src/models/covered_car",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/covered_car.glb",
+   "trisOptimized": 12592,
+   "primitives": 1,
+   "glbBytes": 638060,
+   "boundsM": {
+    "min": [
+     -0.847,
+     0,
+     -2.166
+    ],
+    "max": [
+     0.942,
+     1.411,
+     2.214
+    ]
+   },
+   "simplifyRatio": 1,
+   "lod1": "public/lib/models/covered_car_lod1.glb",
+   "lod1Tris": 3111
   },
   "dead_tree_trunk_02": {
    "authors": [
@@ -531,7 +797,26 @@
    "raw": "assets_src/models/dead_tree_trunk_02",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/dead_tree_trunk_02.glb",
+   "trisOptimized": 23996,
+   "primitives": 1,
+   "glbBytes": 1253840,
+   "boundsM": {
+    "min": [
+     -1.924,
+     -0.328,
+     -0.501
+    ],
+    "max": [
+     2.127,
+     0.726,
+     0.554
+    ]
+   },
+   "simplifyRatio": 0.2887,
+   "lod1": "public/lib/models/dead_tree_trunk_02_lod1.glb",
+   "lod1Tris": 5992
   },
   "desk_lamp_arm_01": {
    "authors": [
@@ -555,7 +840,26 @@
    "raw": "assets_src/models/desk_lamp_arm_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/desk_lamp_arm_01.glb",
+   "trisOptimized": 14059,
+   "primitives": 2,
+   "glbBytes": 821072,
+   "boundsM": {
+    "min": [
+     -0.118,
+     -0.088,
+     -0.297
+    ],
+    "max": [
+     0.083,
+     0.805,
+     0.317
+    ]
+   },
+   "simplifyRatio": 0.5834,
+   "lod1": "public/lib/models/desk_lamp_arm_01_lod1.glb",
+   "lod1Tris": 3545
   },
   "dry_ground_rocks": {
    "authors": [
@@ -581,13 +885,19 @@
    "page": "https://polyhaven.com/a/dry_ground_rocks",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/dry_ground_rocks/arm.webp",
+    "diff": "public/lib/textures/dry_ground_rocks/diff.webp",
+    "nor": "public/lib/textures/dry_ground_rocks/nor.webp",
+    "rough": "public/lib/textures/dry_ground_rocks/rough.webp"
+   }
   },
   "dutch_ship_medium": {
    "authors": [
     "James Ray Cock",
     "Rico Cilliers",
-    "Nicol\u00f2 Zubbini"
+    "Nicolò Zubbini"
    ],
    "categories": [
     "ships",
@@ -605,11 +915,30 @@
    "raw": "assets_src/models/dutch_ship_medium",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/dutch_ship_medium.glb",
+   "trisOptimized": 59995,
+   "primitives": 3,
+   "glbBytes": 3244532,
+   "boundsM": {
+    "min": [
+     -10.326,
+     -2,
+     -3.488
+    ],
+    "max": [
+     13.745,
+     22.657,
+     3.321
+    ]
+   },
+   "simplifyRatio": 0.8675,
+   "lod1": "public/lib/models/dutch_ship_medium_lod1.glb",
+   "lod1Tris": 16583
   },
   "fire_hydrant": {
    "authors": [
-    "Gon\u00e7alo Fel\u00edcio"
+    "Gonçalo Felício"
    ],
    "categories": [
     "industrial",
@@ -628,7 +957,159 @@
    "raw": "assets_src/models/fire_hydrant",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/fire_hydrant.glb",
+   "trisOptimized": 49988,
+   "primitives": 14,
+   "glbBytes": 1806352,
+   "boundsM": {
+    "min": [
+     -0.442,
+     0,
+     -0.127
+    ],
+    "max": [
+     0.433,
+     0.799,
+     0.191
+    ]
+   },
+   "simplifyRatio": 0.5793,
+   "simplifyError": "0.01",
+   "trisSource": 86316,
+   "kitPieces": [
+    {
+     "name": "fire_hydrant",
+     "min": [
+      -0.428,
+      0,
+      -0.127
+     ],
+     "max": [
+      -0.174,
+      0.799,
+      0.157
+     ]
+    },
+    {
+     "name": "fire_hydrant_cap_01",
+     "min": [
+      -0.426,
+      0.306,
+      0.106
+     ],
+     "max": [
+      -0.174,
+      0.555,
+      0.191
+     ]
+    },
+    {
+     "name": "fire_hydrant_cap_02",
+     "min": [
+      -0.224,
+      0.523,
+      0.023
+     ],
+     "max": [
+      -0.167,
+      0.597,
+      0.095
+     ]
+    },
+    {
+     "name": "fire_hydrant_cap_03",
+     "min": [
+      -0.442,
+      0.508,
+      0.016
+     ],
+     "max": [
+      -0.375,
+      0.608,
+      0.11
+     ]
+    },
+    {
+     "name": "fire_hydrant_chain",
+     "min": [
+      -0.431,
+      0.195,
+      0.046
+     ],
+     "max": [
+      -0.177,
+      0.58,
+      0.169
+     ]
+    },
+    {
+     "name": "fire_hydrant_aged",
+     "min": [
+      0.172,
+      0,
+      -0.127
+     ],
+     "max": [
+      0.426,
+      0.799,
+      0.157
+     ]
+    },
+    {
+     "name": "fire_hydrant_cap_01_aged",
+     "min": [
+      0.174,
+      0.306,
+      0.106
+     ],
+     "max": [
+      0.426,
+      0.555,
+      0.191
+     ]
+    },
+    {
+     "name": "fire_hydrant_cap_02_aged",
+     "min": [
+      0.376,
+      0.523,
+      0.023
+     ],
+     "max": [
+      0.433,
+      0.597,
+      0.095
+     ]
+    },
+    {
+     "name": "fire_hydrant_cap_03_aged",
+     "min": [
+      0.158,
+      0.508,
+      0.016
+     ],
+     "max": [
+      0.225,
+      0.608,
+      0.11
+     ]
+    },
+    {
+     "name": "fire_hydrant_chain_aged",
+     "min": [
+      0.169,
+      0.195,
+      0.046
+     ],
+     "max": [
+      0.423,
+      0.58,
+      0.169
+     ]
+    }
+   ],
+   "kit": true
   },
   "gravel": {
    "authors": [
@@ -653,7 +1134,13 @@
    "page": "https://polyhaven.com/a/gravel",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/gravel/arm.webp",
+    "diff": "public/lib/textures/gravel/diff.webp",
+    "nor": "public/lib/textures/gravel/nor.webp",
+    "rough": "public/lib/textures/gravel/rough.webp"
+   }
   },
   "hand_truck": {
    "authors": [
@@ -676,7 +1163,26 @@
    "raw": "assets_src/models/hand_truck",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/hand_truck.glb",
+   "trisOptimized": 13220,
+   "primitives": 1,
+   "glbBytes": 1019372,
+   "boundsM": {
+    "min": [
+     -0.297,
+     0,
+     -0.096
+    ],
+    "max": [
+     0.297,
+     1.402,
+     0.597
+    ]
+   },
+   "simplifyRatio": 1,
+   "lod1": "public/lib/models/hand_truck_lod1.glb",
+   "lod1Tris": 5368
   },
   "industrial_storage_cart": {
    "authors": [
@@ -700,7 +1206,26 @@
    "raw": "assets_src/models/industrial_storage_cart",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/industrial_storage_cart.glb",
+   "trisOptimized": 14970,
+   "primitives": 1,
+   "glbBytes": 723488,
+   "boundsM": {
+    "min": [
+     -0.802,
+     0.002,
+     -0.551
+    ],
+    "max": [
+     0.802,
+     1.38,
+     0.551
+    ]
+   },
+   "simplifyRatio": 0.7936,
+   "lod1": "public/lib/models/industrial_storage_cart_lod1.glb",
+   "lod1Tris": 6147
   },
   "jacaranda_tree": {
    "authors": [
@@ -725,7 +1250,28 @@
    "raw": "assets_src/models/jacaranda_tree",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/jacaranda_tree.glb",
+   "trisOptimized": 54934,
+   "primitives": 3,
+   "glbBytes": 5329008,
+   "boundsM": {
+    "min": [
+     -12.721,
+     -0.147,
+     -9.943
+    ],
+    "max": [
+     11.222,
+     19.179,
+     8.908
+    ]
+   },
+   "simplifyRatio": 0.0116,
+   "simplifyError": "0.12",
+   "trisSource": 3863832,
+   "lod1": "public/lib/models/jacaranda_tree_lod1.glb",
+   "lod1Tris": 23509
   },
   "kloofendal_48d_partly_cloudy_puresky": {
    "authors": [
@@ -748,7 +1294,8 @@
    "raw": "assets_src/hdri/kloofendal_48d_partly_cloudy_puresky_1k.hdr",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "hdri"
+   "type": "hdri",
+   "file": "public/lib/hdri/kloofendal_48d_partly_cloudy_puresky_1k.hdr"
   },
   "ladder_sectioned_01": {
    "authors": [
@@ -771,7 +1318,26 @@
    "raw": "assets_src/models/ladder_sectioned_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/ladder_sectioned_01.glb",
+   "trisOptimized": 15001,
+   "primitives": 1,
+   "glbBytes": 722176,
+   "boundsM": {
+    "min": [
+     -0.301,
+     0,
+     -0.096
+    ],
+    "max": [
+     0.361,
+     2.134,
+     0.081
+    ]
+   },
+   "simplifyRatio": 0.5148,
+   "lod1": "public/lib/models/ladder_sectioned_01_lod1.glb",
+   "lod1Tris": 3749
   },
   "lifebuoy": {
    "authors": [
@@ -794,7 +1360,26 @@
    "raw": "assets_src/models/lifebuoy",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/lifebuoy.glb",
+   "trisOptimized": 10728,
+   "primitives": 1,
+   "glbBytes": 694336,
+   "boundsM": {
+    "min": [
+     -0.39,
+     -0.462,
+     -0.071
+    ],
+    "max": [
+     0.393,
+     0.379,
+     0.084
+    ]
+   },
+   "simplifyRatio": 1,
+   "lod1": "public/lib/models/lifebuoy_lod1.glb",
+   "lod1Tris": 2682
   },
   "metal_jerrycan": {
    "authors": [
@@ -817,7 +1402,26 @@
    "raw": "assets_src/models/metal_jerrycan",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/metal_jerrycan.glb",
+   "trisOptimized": 14999,
+   "primitives": 1,
+   "glbBytes": 794848,
+   "boundsM": {
+    "min": [
+     -0.17,
+     0,
+     -0.089
+    ],
+    "max": [
+     0.18,
+     0.455,
+     0.083
+    ]
+   },
+   "simplifyRatio": 0.7492,
+   "lod1": "public/lib/models/metal_jerrycan_lod1.glb",
+   "lod1Tris": 3749
   },
   "metal_toolbox": {
    "authors": [
@@ -841,7 +1445,26 @@
    "raw": "assets_src/models/metal_toolbox",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/metal_toolbox.glb",
+   "trisOptimized": 14228,
+   "primitives": 1,
+   "glbBytes": 816800,
+   "boundsM": {
+    "min": [
+     -0.2,
+     0,
+     -0.157
+    ],
+    "max": [
+     0.2,
+     0.305,
+     0.114
+    ]
+   },
+   "simplifyRatio": 1,
+   "lod1": "public/lib/models/metal_toolbox_lod1.glb",
+   "lod1Tris": 3557
   },
   "metal_trash_can": {
    "authors": [
@@ -864,7 +1487,133 @@
    "raw": "assets_src/models/metal_trash_can",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/metal_trash_can.glb",
+   "trisOptimized": 13960,
+   "primitives": 8,
+   "glbBytes": 1141364,
+   "boundsM": {
+    "min": [
+     -0.953,
+     0,
+     -0.278
+    ],
+    "max": [
+     0.825,
+     0.906,
+     0.278
+    ]
+   },
+   "simplifyRatio": 1,
+   "simplifyError": null,
+   "trisSource": 13960,
+   "kitPieces": [
+    {
+     "name": "metal_trash_can_handle_left",
+     "min": [
+      0.174,
+      0.642,
+      -0.093
+     ],
+     "max": [
+      0.247,
+      0.732,
+      0.093
+     ]
+    },
+    {
+     "name": "metal_trash_can_lid",
+     "min": [
+      0.047,
+      0.008,
+      -0.278
+     ],
+     "max": [
+      0.231,
+      0.548,
+      0.278
+     ]
+    },
+    {
+     "name": "metal_trash_can",
+     "min": [
+      0.193,
+      0,
+      -0.276
+     ],
+     "max": [
+      0.807,
+      0.906,
+      0.276
+     ]
+    },
+    {
+     "name": "metal_trash_can_handle_right",
+     "min": [
+      0.753,
+      0.642,
+      -0.093
+     ],
+     "max": [
+      0.825,
+      0.732,
+      0.093
+     ]
+    },
+    {
+     "name": "metal_trash_can_rust",
+     "min": [
+      -0.805,
+      0,
+      -0.274
+     ],
+     "max": [
+      -0.193,
+      0.906,
+      0.274
+     ]
+    },
+    {
+     "name": "metal_trash_can_rust_handle_left",
+     "min": [
+      -0.825,
+      0.642,
+      -0.093
+     ],
+     "max": [
+      -0.753,
+      0.742,
+      0.093
+     ]
+    },
+    {
+     "name": "metal_trash_can_rust_handle_right",
+     "min": [
+      -0.236,
+      0.557,
+      -0.093
+     ],
+     "max": [
+      -0.179,
+      0.658,
+      0.093
+     ]
+    },
+    {
+     "name": "metal_trash_can_rust_lid",
+     "min": [
+      -0.953,
+      0.008,
+      -0.269
+     ],
+     "max": [
+      -0.769,
+      0.548,
+      0.275
+     ]
+    }
+   ],
+   "kit": true
   },
   "modular_chainlink_fence": {
    "authors": [
@@ -889,7 +1638,289 @@
    "raw": "assets_src/models/modular_chainlink_fence",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/modular_chainlink_fence.glb",
+   "trisOptimized": 49968,
+   "primitives": 26,
+   "glbBytes": 2691160,
+   "boundsM": {
+    "min": [
+     -6.04,
+     0,
+     -2.075
+    ],
+    "max": [
+     2.075,
+     2.523,
+     0.074
+    ]
+   },
+   "simplifyRatio": 0.5603,
+   "simplifyError": "0.01",
+   "trisSource": 89232,
+   "kitPieces": [
+    {
+     "name": "modular_chainlink_fence_door_latch",
+     "min": [
+      1.237,
+      1.125,
+      -0.034
+     ],
+     "max": [
+      1.494,
+      1.155,
+      0.034
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_door_gate",
+     "min": [
+      0.524,
+      0.131,
+      -0.025
+     ],
+     "max": [
+      1.476,
+      1.947,
+      0.025
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_corner_outer",
+     "min": [
+      -4.074,
+      0,
+      -1.04
+     ],
+     "max": [
+      -2.96,
+      2.523,
+      0.074
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_start_01_corner_01",
+     "min": [
+      1.926,
+      0,
+      -1.074
+     ],
+     "max": [
+      2.075,
+      2.522,
+      -0.926
+     ]
+    },
+    {
+     "name": "modular_chainlink_post_middle",
+     "min": [
+      0.925,
+      0,
+      -1.074
+     ],
+     "max": [
+      1.075,
+      2.522,
+      -0.926
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_end_01",
+     "min": [
+      -0.075,
+      0,
+      -1.074
+     ],
+     "max": [
+      0.074,
+      2.522,
+      -0.926
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_end_02",
+     "min": [
+      -0.074,
+      0,
+      -2.074
+     ],
+     "max": [
+      0.075,
+      2.522,
+      -1.926
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_door_frame",
+     "min": [
+      0.044,
+      0,
+      -0.074
+     ],
+     "max": [
+      1.954,
+      2.522,
+      0.074
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_bar_bracket_01",
+     "min": [
+      -2.075,
+      1.39,
+      -2.04
+     ],
+     "max": [
+      -1.96,
+      1.41,
+      -1.96
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_post_bracket_02",
+     "min": [
+      -2.073,
+      0.088,
+      -2.04
+     ],
+     "max": [
+      -1.927,
+      0.112,
+      -1.96
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_bar_bracket_02",
+     "min": [
+      -2.075,
+      1.19,
+      -2.04
+     ],
+     "max": [
+      -1.925,
+      1.21,
+      -1.96
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_post_bracket_01",
+     "min": [
+      -2.072,
+      0.288,
+      -2.04
+     ],
+     "max": [
+      -1.96,
+      0.312,
+      -1.96
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_double",
+     "min": [
+      -1.952,
+      0.06,
+      -0.023
+     ],
+     "max": [
+      -0.038,
+      2.43,
+      0.025
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence",
+     "min": [
+      -2.962,
+      0.06,
+      -0.023
+     ],
+     "max": [
+      -2.028,
+      2.43,
+      0.025
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_post_bracket_03",
+     "min": [
+      -2.04,
+      0.488,
+      -2.073
+     ],
+     "max": [
+      -1.927,
+      0.512,
+      -1.96
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_bar_bracket_03",
+     "min": [
+      -2.04,
+      1.59,
+      -2.075
+     ],
+     "max": [
+      -1.925,
+      1.61,
+      -1.96
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_post",
+     "min": [
+      -1.075,
+      0,
+      -1.075
+     ],
+     "max": [
+      -0.925,
+      2.522,
+      -0.925
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_corner_support",
+     "min": [
+      -2.04,
+      0.135,
+      -2.04
+     ],
+     "max": [
+      -0.96,
+      1.035,
+      -1.96
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_corner_inner",
+     "min": [
+      -6.04,
+      0,
+      -1.04
+     ],
+     "max": [
+      -4.926,
+      2.523,
+      0.074
+     ]
+    },
+    {
+     "name": "modular_chainlink_fence_start_01_corner_02",
+     "min": [
+      1.925,
+      0,
+      -2.075
+     ],
+     "max": [
+      2.074,
+      2.522,
+      -1.926
+     ]
+    }
+   ],
+   "kit": true
   },
   "modular_fire_escape": {
    "authors": [
@@ -912,7 +1943,120 @@
    "raw": "assets_src/models/modular_fire_escape",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/modular_fire_escape.glb",
+   "trisOptimized": 11322,
+   "primitives": 7,
+   "glbBytes": 1082780,
+   "boundsM": {
+    "min": [
+     -2.401,
+     -3.649,
+     -0.785
+    ],
+    "max": [
+     4.26,
+     6.108,
+     0.636
+    ]
+   },
+   "simplifyRatio": 1,
+   "simplifyError": null,
+   "trisSource": 11322,
+   "kitPieces": [
+    {
+     "name": "modular_fire_escape_railing_middle",
+     "min": [
+      -2.36,
+      5.124,
+      -0.785
+     ],
+     "max": [
+      2.351,
+      6.108,
+      0.602
+     ]
+    },
+    {
+     "name": "modular_fire_escape_platform_railing",
+     "min": [
+      -0.84,
+      5.004,
+      -0.14
+     ],
+     "max": [
+      1.394,
+      5.989,
+      0.591
+     ]
+    },
+    {
+     "name": "modular_fire_escape_platform_middle",
+     "min": [
+      -2.401,
+      3.351,
+      -0.767
+     ],
+     "max": [
+      2.392,
+      4.124,
+      0.598
+     ]
+    },
+    {
+     "name": "modular_fire_escape_stairs",
+     "min": [
+      -1.608,
+      -0.897,
+      -0.767
+     ],
+     "max": [
+      1.387,
+      3.108,
+      0.605
+     ]
+    },
+    {
+     "name": "modular_fire_escape_ladder_bottom",
+     "min": [
+      3.485,
+      -2.138,
+      0.571
+     ],
+     "max": [
+      4.26,
+      4.328,
+      0.636
+     ]
+    },
+    {
+     "name": "modular_fire_escape_railing_bottom",
+     "min": [
+      -2.36,
+      -1.876,
+      -0.785
+     ],
+     "max": [
+      2.351,
+      -0.892,
+      0.623
+     ]
+    },
+    {
+     "name": "modular_fire_escape_platform_bottom",
+     "min": [
+      -2.401,
+      -3.649,
+      -0.767
+     ],
+     "max": [
+      2.392,
+      -2.876,
+      0.598
+     ]
+    }
+   ],
+   "kit": true
   },
   "modular_street_seating": {
    "authors": [
@@ -935,7 +2079,237 @@
    "raw": "assets_src/models/modular_street_seating",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/modular_street_seating.glb",
+   "trisOptimized": 16127,
+   "primitives": 16,
+   "glbBytes": 1426912,
+   "boundsM": {
+    "min": [
+     -2.36,
+     0,
+     -0.37
+    ],
+    "max": [
+     1.98,
+     0.95,
+     0.4
+    ]
+   },
+   "simplifyRatio": 0.5963,
+   "simplifyError": "0.01",
+   "trisSource": 25156,
+   "kitPieces": [
+    {
+     "name": "crossbar",
+     "min": [
+      -2.092,
+      0.145,
+      -0.02
+     ],
+     "max": [
+      -0.23,
+      0.185,
+      0.02
+     ]
+    },
+    {
+     "name": "legs_double",
+     "min": [
+      -0.092,
+      0,
+      -0.3
+     ],
+     "max": [
+      0.092,
+      0.45,
+      0.3
+     ]
+    },
+    {
+     "name": "legs_single",
+     "min": [
+      -2.36,
+      0,
+      -0.3
+     ],
+     "max": [
+      -2.228,
+      0.45,
+      0.3
+     ]
+    },
+    {
+     "name": "suspended_support_01",
+     "min": [
+      -1.213,
+      0.124,
+      -0.284
+     ],
+     "max": [
+      -1.107,
+      0.325,
+      0.284
+     ]
+    },
+    {
+     "name": "suspended_support_02",
+     "min": [
+      0.948,
+      0.124,
+      -0.3
+     ],
+     "max": [
+      1.132,
+      0.35,
+      0.3
+     ]
+    },
+    {
+     "name": "back_support_r",
+     "min": [
+      -2.18,
+      0.425,
+      -0.37
+     ],
+     "max": [
+      -2.05,
+      0.867,
+      -0.197
+     ]
+    },
+    {
+     "name": "back_support_l",
+     "min": [
+      -0.27,
+      0.425,
+      -0.37
+     ],
+     "max": [
+      -0.14,
+      0.867,
+      -0.197
+     ]
+    },
+    {
+     "name": "arm_rest_01",
+     "min": [
+      -2.36,
+      0.55,
+      -0.299
+     ],
+     "max": [
+      -2.28,
+      0.78,
+      0.3
+     ]
+    },
+    {
+     "name": "arm_rest_02",
+     "min": [
+      -0.04,
+      0.55,
+      -0.299
+     ],
+     "max": [
+      0.04,
+      0.717,
+      0.148
+     ]
+    },
+    {
+     "name": "seat",
+     "min": [
+      -2.08,
+      0.425,
+      -0.3
+     ],
+     "max": [
+      -0.24,
+      0.45,
+      0.3
+     ]
+    },
+    {
+     "name": "seat_back",
+     "min": [
+      -2,
+      0.499,
+      -0.36
+     ],
+     "max": [
+      -0.32,
+      0.862,
+      -0.273
+     ]
+    },
+    {
+     "name": "connector_60",
+     "min": [
+      0.94,
+      0.725,
+      -0.249
+     ],
+     "max": [
+      1.545,
+      0.75,
+      0.4
+     ]
+    },
+    {
+     "name": "connector_45",
+     "min": [
+      0.14,
+      0.925,
+      -0.228
+     ],
+     "max": [
+      0.634,
+      0.95,
+      0.4
+     ]
+    },
+    {
+     "name": "connector_90",
+     "min": [
+      0.14,
+      0.725,
+      -0.3
+     ],
+     "max": [
+      0.84,
+      0.75,
+      0.4
+     ]
+    },
+    {
+     "name": "connector_30",
+     "min": [
+      0.74,
+      0.925,
+      -0.213
+     ],
+     "max": [
+      1.089,
+      0.95,
+      0.4
+     ]
+    },
+    {
+     "name": "seat_bench",
+     "min": [
+      0.14,
+      0.425,
+      -0.3
+     ],
+     "max": [
+      1.98,
+      0.45,
+      0.3
+     ]
+    }
+   ],
+   "kit": true
   },
   "modular_urban_apartments_facade": {
    "authors": [
@@ -958,7 +2332,1940 @@
    "raw": "assets_src/models/modular_urban_apartments_facade",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/modular_urban_apartments_facade.glb",
+   "trisOptimized": 73781,
+   "primitives": 192,
+   "glbBytes": 4375892,
+   "boundsM": {
+    "min": [
+     -24.53,
+     -2,
+     -6.24
+    ],
+    "max": [
+     27,
+     15,
+     0.425
+    ]
+   },
+   "simplifyRatio": 0.1852,
+   "simplifyError": "0.12",
+   "trisSource": 270045,
+   "kitPieces": [
+    {
+     "name": "door_angled_small_01",
+     "min": [
+      4.838,
+      0,
+      -1.193
+     ],
+     "max": [
+      6.193,
+      2.81,
+      0.162
+     ]
+    },
+    {
+     "name": "door_centered_small_01",
+     "min": [
+      12.76,
+      0,
+      -0.24
+     ],
+     "max": [
+      14.24,
+      2.81,
+      0.198
+     ]
+    },
+    {
+     "name": "door_centered_large_01",
+     "min": [
+      8.46,
+      0,
+      -0.24
+     ],
+     "max": [
+      10.54,
+      2.81,
+      0.198
+     ]
+    },
+    {
+     "name": "door_angled_large_01",
+     "min": [
+      1.126,
+      0,
+      -1.905
+     ],
+     "max": [
+      2.905,
+      2.81,
+      -0.126
+     ]
+    },
+    {
+     "name": "door_offset_small_01",
+     "min": [
+      21.69,
+      0,
+      -0.2
+     ],
+     "max": [
+      22.81,
+      2.26,
+      0.03
+     ]
+    },
+    {
+     "name": "door_offset_small_02",
+     "min": [
+      20.19,
+      0,
+      -2.2
+     ],
+     "max": [
+      21.31,
+      2.26,
+      -1.97
+     ]
+    },
+    {
+     "name": "door_centered_small_02",
+     "min": [
+      16.94,
+      0,
+      -0.2
+     ],
+     "max": [
+      18.06,
+      2.26,
+      0.03
+     ]
+    },
+    {
+     "name": "door_window_small_01",
+     "min": [
+      24.19,
+      4,
+      -0.24
+     ],
+     "max": [
+      26.81,
+      6.3,
+      0.148
+     ]
+    },
+    {
+     "name": "door_window_small_05",
+     "min": [
+      24.19,
+      8,
+      -0.24
+     ],
+     "max": [
+      26.81,
+      10.3,
+      0.148
+     ]
+    },
+    {
+     "name": "door_window_small_09",
+     "min": [
+      24.33,
+      12,
+      -0.214
+     ],
+     "max": [
+      26.81,
+      14.26,
+      0.04
+     ]
+    },
+    {
+     "name": "door_window_small_03",
+     "min": [
+      24.19,
+      4,
+      -4.24
+     ],
+     "max": [
+      26.99,
+      6.81,
+      -3.802
+     ]
+    },
+    {
+     "name": "door_window_small_07",
+     "min": [
+      24.19,
+      8,
+      -4.24
+     ],
+     "max": [
+      26.99,
+      10.81,
+      -3.802
+     ]
+    },
+    {
+     "name": "door_window_small_011",
+     "min": [
+      24.33,
+      12,
+      -4.24
+     ],
+     "max": [
+      26.99,
+      14.81,
+      -3.802
+     ]
+    },
+    {
+     "name": "door_offset_small_04",
+     "min": [
+      20.01,
+      0,
+      -6.24
+     ],
+     "max": [
+      21.49,
+      2.81,
+      -5.802
+     ]
+    },
+    {
+     "name": "door_offset_small_03",
+     "min": [
+      21.51,
+      0,
+      -4.24
+     ],
+     "max": [
+      22.99,
+      2.81,
+      -3.802
+     ]
+    },
+    {
+     "name": "door_window_small_02",
+     "min": [
+      24.19,
+      4,
+      -2.24
+     ],
+     "max": [
+      26.81,
+      6.3,
+      -1.852
+     ]
+    },
+    {
+     "name": "door_window_small_04",
+     "min": [
+      24.01,
+      4,
+      -6.24
+     ],
+     "max": [
+      26.81,
+      6.81,
+      -5.802
+     ]
+    },
+    {
+     "name": "door_window_small_06",
+     "min": [
+      24.19,
+      8,
+      -2.24
+     ],
+     "max": [
+      26.81,
+      10.3,
+      -1.852
+     ]
+    },
+    {
+     "name": "door_window_small_08",
+     "min": [
+      24.01,
+      8,
+      -6.24
+     ],
+     "max": [
+      26.81,
+      10.81,
+      -5.802
+     ]
+    },
+    {
+     "name": "door_window_small_010",
+     "min": [
+      24.19,
+      12,
+      -2.214
+     ],
+     "max": [
+      26.67,
+      14.26,
+      -1.96
+     ]
+    },
+    {
+     "name": "door_window_small_012",
+     "min": [
+      24.01,
+      12,
+      -6.24
+     ],
+     "max": [
+      26.67,
+      14.81,
+      -5.802
+     ]
+    },
+    {
+     "name": "cornice_end_02",
+     "min": [
+      -23.9,
+      3.4,
+      -0.1
+     ],
+     "max": [
+      -23.76,
+      3.6,
+      0.04
+     ]
+    },
+    {
+     "name": "cornice_end_01",
+     "min": [
+      -24.24,
+      3.4,
+      -0.1
+     ],
+     "max": [
+      -24.1,
+      3.6,
+      0.04
+     ]
+    },
+    {
+     "name": "cornice_standard_standard_01",
+     "min": [
+      -3,
+      3.4,
+      0.01
+     ],
+     "max": [
+      0,
+      3.6,
+      0.027
+     ]
+    },
+    {
+     "name": "cornice_standard_angled_large_01",
+     "min": [
+      -11.04,
+      3.4,
+      -3
+     ],
+     "max": [
+      -8,
+      3.6,
+      0.04
+     ]
+    },
+    {
+     "name": "cornice_standard_angled_small_01",
+     "min": [
+      -17.04,
+      3.4,
+      -2
+     ],
+     "max": [
+      -15,
+      3.6,
+      0.04
+     ]
+    },
+    {
+     "name": "cornice_standard_corner_large_01",
+     "min": [
+      -7.04,
+      3.4,
+      -3
+     ],
+     "max": [
+      -4,
+      3.6,
+      0.04
+     ]
+    },
+    {
+     "name": "cornice_standard_corner_large_02",
+     "min": [
+      -7,
+      3.4,
+      -3.997
+     ],
+     "max": [
+      -4.001,
+      3.6,
+      -1
+     ]
+    },
+    {
+     "name": "cornice_standard_corner_small_01",
+     "min": [
+      -14.04,
+      3.4,
+      -2
+     ],
+     "max": [
+      -12,
+      3.6,
+      0.04
+     ]
+    },
+    {
+     "name": "cornice_standard_corner_small_02",
+     "min": [
+      -14,
+      3.4,
+      -3.997
+     ],
+     "max": [
+      -12.001,
+      3.6,
+      -2
+     ]
+    },
+    {
+     "name": "cornice_pier_angled_01",
+     "min": [
+      -18.247,
+      3.4,
+      -0.177
+     ],
+     "max": [
+      -17.75,
+      3.6,
+      0.1
+     ]
+    },
+    {
+     "name": "cornice_pier_corner_01",
+     "min": [
+      -20.1,
+      3.4,
+      -0.25
+     ],
+     "max": [
+      -19.75,
+      3.6,
+      0.1
+     ]
+    },
+    {
+     "name": "cornice_pier_standard_01",
+     "min": [
+      -22.175,
+      3.4,
+      0
+     ],
+     "max": [
+      -21.825,
+      3.6,
+      0.1
+     ]
+    },
+    {
+     "name": "cornice_pier_corner_02",
+     "min": [
+      -20.35,
+      3.4,
+      -2
+     ],
+     "max": [
+      -20,
+      3.6,
+      -1.65
+     ]
+    },
+    {
+     "name": "crown_standard_angled_large_01",
+     "min": [
+      -11.33,
+      4,
+      -3
+     ],
+     "max": [
+      -8,
+      4.75,
+      0.33
+     ]
+    },
+    {
+     "name": "crown_standard_standard_01",
+     "min": [
+      -3,
+      4,
+      -0.1
+     ],
+     "max": [
+      0,
+      4.75,
+      0.33
+     ]
+    },
+    {
+     "name": "crown_standard_angled_small_01",
+     "min": [
+      -17.33,
+      4,
+      -2
+     ],
+     "max": [
+      -15,
+      4.75,
+      0.33
+     ]
+    },
+    {
+     "name": "crown_end_02",
+     "min": [
+      -23.9,
+      4,
+      -0.1
+     ],
+     "max": [
+      -23.47,
+      4.75,
+      0.33
+     ]
+    },
+    {
+     "name": "crown_end_01",
+     "min": [
+      -24.53,
+      4,
+      -0.1
+     ],
+     "max": [
+      -24.1,
+      4.75,
+      0.33
+     ]
+    },
+    {
+     "name": "crown_standard_corner_large_01",
+     "min": [
+      -7.33,
+      4,
+      -3
+     ],
+     "max": [
+      -4,
+      4.75,
+      0.33
+     ]
+    },
+    {
+     "name": "crown_standard_corner_large_02",
+     "min": [
+      -7,
+      4,
+      -4.1
+     ],
+     "max": [
+      -3.9,
+      4.75,
+      -1
+     ]
+    },
+    {
+     "name": "crown_standard_corner_small_01",
+     "min": [
+      -14.33,
+      4,
+      -2
+     ],
+     "max": [
+      -12,
+      4.75,
+      0.33
+     ]
+    },
+    {
+     "name": "crown_standard_corner_small_02",
+     "min": [
+      -14,
+      4,
+      -4.1
+     ],
+     "max": [
+      -11.9,
+      4.75,
+      -2
+     ]
+    },
+    {
+     "name": "crown_pier_pedestal_01",
+     "min": [
+      -22.355,
+      3.945,
+      -0.1
+     ],
+     "max": [
+      -21.645,
+      4.78,
+      0.425
+     ]
+    },
+    {
+     "name": "crown_pier_corner_01",
+     "min": [
+      -20.425,
+      3.945,
+      -0.43
+     ],
+     "max": [
+      -19.57,
+      4.78,
+      0.425
+     ]
+    },
+    {
+     "name": "crown_pier_angled_01",
+     "min": [
+      -18.626,
+      3.945,
+      -0.401
+     ],
+     "max": [
+      -17.554,
+      4.78,
+      0.424
+     ]
+    },
+    {
+     "name": "crown_pier_corner_02",
+     "min": [
+      -20.53,
+      3.945,
+      -2.1
+     ],
+     "max": [
+      -19.9,
+      4.78,
+      -1.47
+     ]
+    },
+    {
+     "name": "dado_end_02",
+     "min": [
+      -23.9,
+      -1,
+      -0.04
+     ],
+     "max": [
+      -23.76,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_end_01",
+     "min": [
+      -24.24,
+      -1,
+      -0.04
+     ],
+     "max": [
+      -24.1,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_door_centered_large_01",
+     "min": [
+      8,
+      -1,
+      -0.04
+     ],
+     "max": [
+      11,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_door_centered_small_01",
+     "min": [
+      12,
+      -1,
+      -0.04
+     ],
+     "max": [
+      15,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_door_angled_large_01",
+     "min": [
+      0.96,
+      -1,
+      -3
+     ],
+     "max": [
+      4,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_door_angled_small_01",
+     "min": [
+      4.96,
+      -1,
+      -2
+     ],
+     "max": [
+      7,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_door_centered_small_02",
+     "min": [
+      16,
+      -1,
+      -0.04
+     ],
+     "max": [
+      19,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_door_offset_small_01",
+     "min": [
+      20,
+      -1,
+      -0.04
+     ],
+     "max": [
+      23,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_door_offset_small_02",
+     "min": [
+      20,
+      -1,
+      -2.04
+     ],
+     "max": [
+      23,
+      -0.5,
+      -1.96
+     ]
+    },
+    {
+     "name": "dado_door_window_small_01",
+     "min": [
+      24,
+      -1,
+      -0.04
+     ],
+     "max": [
+      27,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_standard_standard_01",
+     "min": [
+      -3,
+      -0.95,
+      0.02
+     ],
+     "max": [
+      0,
+      -0.52,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_standard_angled_large_01",
+     "min": [
+      -11.04,
+      -1,
+      -3
+     ],
+     "max": [
+      -8,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_standard_angled_small_01",
+     "min": [
+      -17.04,
+      -1,
+      -2
+     ],
+     "max": [
+      -15,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_standard_corner_large_01",
+     "min": [
+      -7.04,
+      -1,
+      -3
+     ],
+     "max": [
+      -4,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_standard_corner_large_02",
+     "min": [
+      -7,
+      -1,
+      -4
+     ],
+     "max": [
+      -4,
+      -0.5,
+      -1
+     ]
+    },
+    {
+     "name": "dado_standard_corner_small_01",
+     "min": [
+      -14.04,
+      -1,
+      -2
+     ],
+     "max": [
+      -12,
+      -0.5,
+      0.04
+     ]
+    },
+    {
+     "name": "dado_standard_corner_small_02",
+     "min": [
+      -14,
+      -1,
+      -4
+     ],
+     "max": [
+      -12,
+      -0.5,
+      -2
+     ]
+    },
+    {
+     "name": "dado_pier_pedestal_01",
+     "min": [
+      -22.2,
+      -1,
+      0
+     ],
+     "max": [
+      -21.8,
+      -0.46,
+      0.13
+     ]
+    },
+    {
+     "name": "dado_pier_angled_01",
+     "min": [
+      -18.29,
+      -1,
+      -0.219
+     ],
+     "max": [
+      -17.72,
+      -0.46,
+      0.13
+     ]
+    },
+    {
+     "name": "dado_pier_corner_01",
+     "min": [
+      -20.13,
+      -1,
+      -0.28
+     ],
+     "max": [
+      -19.72,
+      -0.46,
+      0.13
+     ]
+    },
+    {
+     "name": "dado_pier_corner_02",
+     "min": [
+      -20.38,
+      -1,
+      -2
+     ],
+     "max": [
+      -20,
+      -0.46,
+      -1.62
+     ]
+    },
+    {
+     "name": "wall_door_centered_large_01",
+     "min": [
+      8,
+      0,
+      0
+     ],
+     "max": [
+      11,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_door_angled_large_01",
+     "min": [
+      1,
+      0,
+      -3
+     ],
+     "max": [
+      4,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_door_angled_small_01",
+     "min": [
+      5,
+      0,
+      -2
+     ],
+     "max": [
+      7,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_angled_large_01",
+     "min": [
+      1,
+      4,
+      -3
+     ],
+     "max": [
+      4,
+      7,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_angled_small_01",
+     "min": [
+      5,
+      4,
+      -2
+     ],
+     "max": [
+      7,
+      7,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_centered_large_01",
+     "min": [
+      8,
+      4,
+      0
+     ],
+     "max": [
+      11,
+      7,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_centered_large_02",
+     "min": [
+      8,
+      8,
+      0
+     ],
+     "max": [
+      11,
+      11,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_angled_small_02",
+     "min": [
+      5,
+      8,
+      -2
+     ],
+     "max": [
+      7,
+      11,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_angled_large_02",
+     "min": [
+      1,
+      8,
+      -3
+     ],
+     "max": [
+      4,
+      11,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_centered_large_03",
+     "min": [
+      8,
+      12,
+      -0.18
+     ],
+     "max": [
+      11,
+      15,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_centered_double_03",
+     "min": [
+      16,
+      12,
+      -0.18
+     ],
+     "max": [
+      19,
+      15,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_centered_double_02",
+     "min": [
+      16,
+      8,
+      0
+     ],
+     "max": [
+      19,
+      11,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_centered_double_01",
+     "min": [
+      16,
+      4,
+      0
+     ],
+     "max": [
+      19,
+      7,
+      0
+     ]
+    },
+    {
+     "name": "wall_door_centered_small_01",
+     "min": [
+      12,
+      0,
+      0
+     ],
+     "max": [
+      15,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_door_centered_small_02",
+     "min": [
+      16,
+      0,
+      0
+     ],
+     "max": [
+      19,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_centered_small_02",
+     "min": [
+      12,
+      8,
+      0
+     ],
+     "max": [
+      15,
+      11,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_centered_small_03",
+     "min": [
+      12,
+      12,
+      -0.18
+     ],
+     "max": [
+      15,
+      15,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_centered_small_01",
+     "min": [
+      12,
+      4,
+      0
+     ],
+     "max": [
+      15,
+      7,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_offset_small_05",
+     "min": [
+      20,
+      12,
+      -0.18
+     ],
+     "max": [
+      23,
+      15,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_offset_small_03",
+     "min": [
+      20,
+      8,
+      0
+     ],
+     "max": [
+      23,
+      11,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_offset_small_01",
+     "min": [
+      20,
+      4,
+      0
+     ],
+     "max": [
+      23,
+      7,
+      0
+     ]
+    },
+    {
+     "name": "wall_window_offset_small_06",
+     "min": [
+      20,
+      12,
+      -2.18
+     ],
+     "max": [
+      23,
+      15,
+      -2
+     ]
+    },
+    {
+     "name": "wall_window_offset_small_04",
+     "min": [
+      20,
+      8,
+      -2
+     ],
+     "max": [
+      23,
+      11,
+      -2
+     ]
+    },
+    {
+     "name": "wall_window_offset_small_02",
+     "min": [
+      20,
+      4,
+      -2
+     ],
+     "max": [
+      23,
+      7,
+      -2
+     ]
+    },
+    {
+     "name": "wall_door_offset_small_01",
+     "min": [
+      20,
+      0,
+      0
+     ],
+     "max": [
+      23,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_door_offset_small_02",
+     "min": [
+      20,
+      0,
+      -2
+     ],
+     "max": [
+      23,
+      3,
+      -2
+     ]
+    },
+    {
+     "name": "wall_door_window_small_010",
+     "min": [
+      24,
+      12,
+      -2.18
+     ],
+     "max": [
+      27,
+      15,
+      -2
+     ]
+    },
+    {
+     "name": "wall_door_window_small_06",
+     "min": [
+      24,
+      8,
+      -2
+     ],
+     "max": [
+      27,
+      11,
+      -2
+     ]
+    },
+    {
+     "name": "wall_door_window_small_02",
+     "min": [
+      24,
+      4,
+      -2
+     ],
+     "max": [
+      27,
+      7,
+      -2
+     ]
+    },
+    {
+     "name": "wall_door_window_small_01",
+     "min": [
+      24,
+      4,
+      0
+     ],
+     "max": [
+      27,
+      7,
+      0
+     ]
+    },
+    {
+     "name": "wall_door_window_small_05",
+     "min": [
+      24,
+      8,
+      0
+     ],
+     "max": [
+      27,
+      11,
+      0
+     ]
+    },
+    {
+     "name": "wall_door_window_small_09",
+     "min": [
+      24,
+      12,
+      -0.18
+     ],
+     "max": [
+      27,
+      15,
+      0
+     ]
+    },
+    {
+     "name": "wall_door_window_small_013",
+     "min": [
+      24,
+      12,
+      -6.18
+     ],
+     "max": [
+      27,
+      15,
+      -6
+     ]
+    },
+    {
+     "name": "wall_door_window_small_08",
+     "min": [
+      24,
+      8,
+      -6
+     ],
+     "max": [
+      27,
+      11,
+      -6
+     ]
+    },
+    {
+     "name": "wall_door_window_small_04",
+     "min": [
+      24,
+      4,
+      -6
+     ],
+     "max": [
+      27,
+      7,
+      -6
+     ]
+    },
+    {
+     "name": "wall_door_window_small_012",
+     "min": [
+      24,
+      12,
+      -4.18
+     ],
+     "max": [
+      27,
+      15,
+      -4
+     ]
+    },
+    {
+     "name": "wall_door_window_small_07",
+     "min": [
+      24,
+      8,
+      -4
+     ],
+     "max": [
+      27,
+      11,
+      -4
+     ]
+    },
+    {
+     "name": "wall_door_window_small_03",
+     "min": [
+      24,
+      4,
+      -4
+     ],
+     "max": [
+      27,
+      7,
+      -4
+     ]
+    },
+    {
+     "name": "wall_standard_standard_01",
+     "min": [
+      -3,
+      0,
+      0
+     ],
+     "max": [
+      0,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_standard_angled_large_01",
+     "min": [
+      -11,
+      0,
+      -3
+     ],
+     "max": [
+      -8,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_standard_angled_small_01",
+     "min": [
+      -17,
+      0,
+      -2
+     ],
+     "max": [
+      -15,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_standard_corner_large_01",
+     "min": [
+      -7,
+      0,
+      -3
+     ],
+     "max": [
+      -4,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_standard_corner_large_02",
+     "min": [
+      -7,
+      0,
+      -4
+     ],
+     "max": [
+      -4,
+      3,
+      -1
+     ]
+    },
+    {
+     "name": "wall_standard_corner_small_01",
+     "min": [
+      -14,
+      0,
+      -2
+     ],
+     "max": [
+      -12,
+      3,
+      0
+     ]
+    },
+    {
+     "name": "wall_standard_corner_small_02",
+     "min": [
+      -14,
+      0,
+      -4
+     ],
+     "max": [
+      -12,
+      3,
+      -2
+     ]
+    },
+    {
+     "name": "wall_door_offset_small_04",
+     "min": [
+      20,
+      0,
+      -6
+     ],
+     "max": [
+      23,
+      3,
+      -6
+     ]
+    },
+    {
+     "name": "wall_door_offset_small_03",
+     "min": [
+      20,
+      0,
+      -4
+     ],
+     "max": [
+      23,
+      3,
+      -4
+     ]
+    },
+    {
+     "name": "wall_pier_angled_01",
+     "min": [
+      -18.173,
+      0,
+      -0.141
+     ],
+     "max": [
+      -17.8,
+      3,
+      0.05
+     ]
+    },
+    {
+     "name": "wall_pier_corner_01",
+     "min": [
+      -20.05,
+      0,
+      -0.2
+     ],
+     "max": [
+      -19.8,
+      3,
+      0.05
+     ]
+    },
+    {
+     "name": "wall_pier_corner_02",
+     "min": [
+      -20.3,
+      0,
+      -2
+     ],
+     "max": [
+      -20,
+      3,
+      -1.7
+     ]
+    },
+    {
+     "name": "wall_pier_standard_01",
+     "min": [
+      -22.125,
+      0,
+      0
+     ],
+     "max": [
+      -21.875,
+      3,
+      0.05
+     ]
+    },
+    {
+     "name": "base_end_02",
+     "min": [
+      -23.9,
+      -2,
+      0
+     ],
+     "max": [
+      -23.7,
+      -1.25,
+      0.2
+     ]
+    },
+    {
+     "name": "base_end_01",
+     "min": [
+      -24.3,
+      -2,
+      0
+     ],
+     "max": [
+      -24.1,
+      -1.25,
+      0.2
+     ]
+    },
+    {
+     "name": "base_standard_01",
+     "min": [
+      -3,
+      -2,
+      0.198
+     ],
+     "max": [
+      0,
+      -1.252,
+      0.2
+     ]
+    },
+    {
+     "name": "base_angled_large_01",
+     "min": [
+      -11.2,
+      -2,
+      -3
+     ],
+     "max": [
+      -8,
+      -1.25,
+      0.2
+     ]
+    },
+    {
+     "name": "base_angled_small_01",
+     "min": [
+      -17.2,
+      -2,
+      -2
+     ],
+     "max": [
+      -15,
+      -1.25,
+      0.2
+     ]
+    },
+    {
+     "name": "base_corner_large_02",
+     "min": [
+      -7,
+      -2,
+      -4
+     ],
+     "max": [
+      -4,
+      -1.25,
+      -1
+     ]
+    },
+    {
+     "name": "base_corner_large_01",
+     "min": [
+      -7.2,
+      -2,
+      -3
+     ],
+     "max": [
+      -4,
+      -1.25,
+      0.2
+     ]
+    },
+    {
+     "name": "base_corner_small_02",
+     "min": [
+      -14,
+      -2,
+      -4
+     ],
+     "max": [
+      -12,
+      -1.25,
+      -2
+     ]
+    },
+    {
+     "name": "base_corner_small_01",
+     "min": [
+      -14.2,
+      -2,
+      -2
+     ],
+     "max": [
+      -12,
+      -1.25,
+      0.2
+     ]
+    },
+    {
+     "name": "window_centered_large_02",
+     "min": [
+      8.44,
+      8.302,
+      -0.24
+     ],
+     "max": [
+      10.56,
+      10.3,
+      0.148
+     ]
+    },
+    {
+     "name": "window_angled_small_02",
+     "min": [
+      5,
+      8.302,
+      -1.066
+     ],
+     "max": [
+      6.066,
+      10.3,
+      0
+     ]
+    },
+    {
+     "name": "window_angled_large_02",
+     "min": [
+      1.182,
+      8.302,
+      -1.884
+     ],
+     "max": [
+      2.955,
+      10.3,
+      -0.111
+     ]
+    },
+    {
+     "name": "window_centered_large_01",
+     "min": [
+      8.44,
+      4,
+      -0.24
+     ],
+     "max": [
+      10.56,
+      6.3,
+      0.148
+     ]
+    },
+    {
+     "name": "window_angled_small_01",
+     "min": [
+      5,
+      4,
+      -1.066
+     ],
+     "max": [
+      6.066,
+      6.3,
+      0
+     ]
+    },
+    {
+     "name": "window_angled_large_01",
+     "min": [
+      1.147,
+      4,
+      -1.919
+     ],
+     "max": [
+      2.919,
+      6.3,
+      -0.147
+     ]
+    },
+    {
+     "name": "window_centered_large_03",
+     "min": [
+      8.63,
+      12.453,
+      -0.164
+     ],
+     "max": [
+      10.37,
+      14.138,
+      0.04
+     ]
+    },
+    {
+     "name": "window_centered_double_02",
+     "min": [
+      16.19,
+      8.302,
+      -0.24
+     ],
+     "max": [
+      18.81,
+      10.3,
+      0.148
+     ]
+    },
+    {
+     "name": "window_centered_double_01",
+     "min": [
+      16.19,
+      4,
+      -0.24
+     ],
+     "max": [
+      18.81,
+      6.3,
+      0.148
+     ]
+    },
+    {
+     "name": "window_centered_double_03",
+     "min": [
+      16.33,
+      12.453,
+      -0.214
+     ],
+     "max": [
+      18.67,
+      14.138,
+      0.04
+     ]
+    },
+    {
+     "name": "window_offset_small_03",
+     "min": [
+      21.69,
+      8.302,
+      -0.24
+     ],
+     "max": [
+      22.81,
+      10.3,
+      0.148
+     ]
+    },
+    {
+     "name": "window_offset_small_01",
+     "min": [
+      21.69,
+      4,
+      -0.24
+     ],
+     "max": [
+      22.81,
+      6.3,
+      0.148
+     ]
+    },
+    {
+     "name": "window_offset_small_05",
+     "min": [
+      21.83,
+      12.453,
+      -0.214
+     ],
+     "max": [
+      22.67,
+      14.138,
+      0.04
+     ]
+    },
+    {
+     "name": "window_offset_small_04",
+     "min": [
+      20.19,
+      8.302,
+      -2.24
+     ],
+     "max": [
+      21.31,
+      10.3,
+      -1.852
+     ]
+    },
+    {
+     "name": "window_offset_small_02",
+     "min": [
+      20.19,
+      4,
+      -2.24
+     ],
+     "max": [
+      21.31,
+      6.3,
+      -1.852
+     ]
+    },
+    {
+     "name": "window_offset_small_06",
+     "min": [
+      20.33,
+      12.453,
+      -2.214
+     ],
+     "max": [
+      21.17,
+      14.138,
+      -1.96
+     ]
+    },
+    {
+     "name": "window_centered_small_02",
+     "min": [
+      12.94,
+      8.302,
+      -0.24
+     ],
+     "max": [
+      14.06,
+      10.3,
+      0.148
+     ]
+    },
+    {
+     "name": "window_centered_small_01",
+     "min": [
+      12.94,
+      4,
+      -0.24
+     ],
+     "max": [
+      14.06,
+      6.3,
+      0.148
+     ]
+    },
+    {
+     "name": "window_centered_small_03",
+     "min": [
+      13.08,
+      12.453,
+      -0.214
+     ],
+     "max": [
+      13.92,
+      14.138,
+      0.04
+     ]
+    }
+   ],
+   "kit": true
   },
   "modular_wooden_pier": {
    "authors": [
@@ -980,7 +4287,120 @@
    "raw": "assets_src/models/modular_wooden_pier",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/modular_wooden_pier.glb",
+   "trisOptimized": 49989,
+   "primitives": 12,
+   "glbBytes": 2731508,
+   "boundsM": {
+    "min": [
+     -1.527,
+     -0.994,
+     -11.974
+    ],
+    "max": [
+     1.575,
+     6.522,
+     7.052
+    ]
+   },
+   "simplifyRatio": 0.5898,
+   "simplifyError": "0.01",
+   "trisSource": 84780,
+   "kitPieces": [
+    {
+     "name": "modular_wooden_pier_poles",
+     "min": [
+      -1.073,
+      -0.701,
+      3.971
+     ],
+     "max": [
+      1.139,
+      3.148,
+      7.052
+     ]
+    },
+    {
+     "name": "modular_wooden_pier_planks",
+     "min": [
+      -1.236,
+      2.594,
+      1.09
+     ],
+     "max": [
+      1.288,
+      2.674,
+      3.292
+     ]
+    },
+    {
+     "name": "modular_wooden_pier_section_01",
+     "min": [
+      -1.185,
+      -0.565,
+      -3.086
+     ],
+     "max": [
+      1.305,
+      3.7,
+      0.431
+     ]
+    },
+    {
+     "name": "modular_wooden_pier_section_02",
+     "min": [
+      -1.239,
+      -0.938,
+      -6.014
+     ],
+     "max": [
+      1.268,
+      2.9,
+      -2.622
+     ]
+    },
+    {
+     "name": "modular_wooden_pier_section_03",
+     "min": [
+      -1.239,
+      -0.671,
+      -8.928
+     ],
+     "max": [
+      1.268,
+      3.166,
+      -5.535
+     ]
+    },
+    {
+     "name": "modular_wooden_pier_section_05",
+     "min": [
+      -1.527,
+      -0.48,
+      -5.997
+     ],
+     "max": [
+      1.575,
+      6.522,
+      -5.533
+     ]
+    },
+    {
+     "name": "modular_wooden_pier_section_04",
+     "min": [
+      -1.26,
+      -0.994,
+      -11.974
+     ],
+     "max": [
+      1.198,
+      3.164,
+      -8.816
+     ]
+    }
+   ],
+   "kit": true
   },
   "namaqualand_boulder_02": {
    "authors": [
@@ -1004,7 +4424,26 @@
    "raw": "assets_src/models/namaqualand_boulder_02",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/namaqualand_boulder_02.glb",
+   "trisOptimized": 6394,
+   "primitives": 1,
+   "glbBytes": 767964,
+   "boundsM": {
+    "min": [
+     -1.178,
+     -0.059,
+     -0.607
+    ],
+    "max": [
+     1.348,
+     0.821,
+     0.622
+    ]
+   },
+   "simplifyRatio": 0.0653,
+   "lod1": "public/lib/models/namaqualand_boulder_02_lod1.glb",
+   "lod1Tris": 1598
   },
   "old_military_crate": {
    "authors": [
@@ -1027,7 +4466,159 @@
    "raw": "assets_src/models/old_military_crate",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/old_military_crate.glb",
+   "trisOptimized": 10476,
+   "primitives": 5,
+   "glbBytes": 597432,
+   "boundsM": {
+    "min": [
+     -0.913,
+     0,
+     -0.667
+    ],
+    "max": [
+     0.902,
+     0.301,
+     0.309
+    ]
+   },
+   "simplifyRatio": 1,
+   "simplifyError": null,
+   "trisSource": 10476,
+   "kitPieces": [
+    {
+     "name": "old_military_crate_lid_a",
+     "min": [
+      -0.885,
+      0.244,
+      -0.229
+     ],
+     "max": [
+      -0.115,
+      0.301,
+      0.233
+     ]
+    },
+    {
+     "name": "old_military_crate_loop_a",
+     "min": [
+      -0.718,
+      0.206,
+      0.22
+     ],
+     "max": [
+      -0.282,
+      0.269,
+      0.226
+     ]
+    },
+    {
+     "name": "old_military_crate_latch_a",
+     "min": [
+      -0.708,
+      0.125,
+      0.218
+     ],
+     "max": [
+      -0.292,
+      0.236,
+      0.238
+     ]
+    },
+    {
+     "name": "old_military_crate_cloth_a",
+     "min": [
+      -0.913,
+      0.046,
+      -0.188
+     ],
+     "max": [
+      -0.196,
+      0.258,
+      0.309
+     ]
+    },
+    {
+     "name": "old_military_crate_a",
+     "min": [
+      -0.902,
+      0,
+      -0.229
+     ],
+     "max": [
+      -0.098,
+      0.258,
+      0.219
+     ]
+    },
+    {
+     "name": "old_military_crate_lid_b",
+     "min": [
+      0.115,
+      0.123,
+      -0.667
+     ],
+     "max": [
+      0.885,
+      0.258,
+      -0.215
+     ]
+    },
+    {
+     "name": "old_military_crate_loop_b",
+     "min": [
+      0.282,
+      0.153,
+      0.221
+     ],
+     "max": [
+      0.718,
+      0.213,
+      0.247
+     ]
+    },
+    {
+     "name": "old_military_crate_latch_b",
+     "min": [
+      0.292,
+      0.125,
+      0.218
+     ],
+     "max": [
+      0.708,
+      0.236,
+      0.238
+     ]
+    },
+    {
+     "name": "old_military_crate_cloth_b",
+     "min": [
+      0.087,
+      0.046,
+      -0.188
+     ],
+     "max": [
+      0.804,
+      0.258,
+      0.309
+     ]
+    },
+    {
+     "name": "old_military_crate_b",
+     "min": [
+      0.098,
+      0,
+      -0.229
+     ],
+     "max": [
+      0.902,
+      0.258,
+      0.219
+     ]
+    }
+   ],
+   "kit": true
   },
   "old_tyre": {
    "authors": [
@@ -1050,7 +4641,24 @@
    "raw": "assets_src/models/old_tyre",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/old_tyre.glb",
+   "trisOptimized": 2880,
+   "primitives": 1,
+   "glbBytes": 424652,
+   "boundsM": {
+    "min": [
+     -0.3,
+     -0.3,
+     -0.083
+    ],
+    "max": [
+     0.3,
+     0.3,
+     0.082
+    ]
+   },
+   "simplifyRatio": 1
   },
   "overhead_crane": {
    "authors": [
@@ -1073,7 +4681,26 @@
    "raw": "assets_src/models/overhead_crane",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/overhead_crane.glb",
+   "trisOptimized": 14946,
+   "primitives": 2,
+   "glbBytes": 1398120,
+   "boundsM": {
+    "min": [
+     -6.246,
+     -3.884,
+     -0.955
+    ],
+    "max": [
+     6.246,
+     1.211,
+     3.045
+    ]
+   },
+   "simplifyRatio": 0.1667,
+   "lod1": "public/lib/models/overhead_crane_lod1.glb",
+   "lod1Tris": 10027
   },
   "painted_metal_shutter": {
    "authors": [
@@ -1100,7 +4727,13 @@
    "page": "https://polyhaven.com/a/painted_metal_shutter",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/painted_metal_shutter/arm.webp",
+    "diff": "public/lib/textures/painted_metal_shutter/diff.webp",
+    "nor": "public/lib/textures/painted_metal_shutter/nor.webp",
+    "rough": "public/lib/textures/painted_metal_shutter/rough.webp"
+   }
   },
   "plastered_stone_wall": {
    "authors": [
@@ -1127,7 +4760,13 @@
    "page": "https://polyhaven.com/a/plastered_stone_wall",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/plastered_stone_wall/arm.webp",
+    "diff": "public/lib/textures/plastered_stone_wall/diff.webp",
+    "nor": "public/lib/textures/plastered_stone_wall/nor.webp",
+    "rough": "public/lib/textures/plastered_stone_wall/rough.webp"
+   }
   },
   "potted_plant_01": {
    "authors": [
@@ -1151,7 +4790,26 @@
    "raw": "assets_src/models/potted_plant_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/potted_plant_01.glb",
+   "trisOptimized": 21994,
+   "primitives": 2,
+   "glbBytes": 1292440,
+   "boundsM": {
+    "min": [
+     -0.338,
+     0,
+     -0.364
+    ],
+    "max": [
+     0.249,
+     1.336,
+     0.27
+    ]
+   },
+   "simplifyRatio": 0.125,
+   "lod1": "public/lib/models/potted_plant_01_lod1.glb",
+   "lod1Tris": 6326
   },
   "quiver_tree_01": {
    "authors": [
@@ -1177,7 +4835,26 @@
    "raw": "assets_src/models/quiver_tree_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/quiver_tree_01.glb",
+   "trisOptimized": 25064,
+   "primitives": 2,
+   "glbBytes": 1464544,
+   "boundsM": {
+    "min": [
+     -0.547,
+     -0.042,
+     -0.465
+    ],
+    "max": [
+     0.634,
+     2.674,
+     0.502
+    ]
+   },
+   "simplifyRatio": 0.167,
+   "lod1": "public/lib/models/quiver_tree_01_lod1.glb",
+   "lod1Tris": 6262
   },
   "qwantani_dusk_2_puresky": {
    "authors": [
@@ -1201,7 +4878,8 @@
    "raw": "assets_src/hdri/qwantani_dusk_2_puresky_1k.hdr",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "hdri"
+   "type": "hdri",
+   "file": "public/lib/hdri/qwantani_dusk_2_puresky_1k.hdr"
   },
   "red_brick_03": {
    "authors": [
@@ -1229,7 +4907,13 @@
    "page": "https://polyhaven.com/a/red_brick_03",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/red_brick_03/arm.webp",
+    "diff": "public/lib/textures/red_brick_03/diff.webp",
+    "nor": "public/lib/textures/red_brick_03/nor.webp",
+    "rough": "public/lib/textures/red_brick_03/rough.webp"
+   }
   },
   "red_sandstone_wall": {
    "authors": [
@@ -1257,7 +4941,13 @@
    "page": "https://polyhaven.com/a/red_sandstone_wall",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/red_sandstone_wall/arm.webp",
+    "diff": "public/lib/textures/red_sandstone_wall/diff.webp",
+    "nor": "public/lib/textures/red_sandstone_wall/nor.webp",
+    "rough": "public/lib/textures/red_sandstone_wall/rough.webp"
+   }
   },
   "rock_07": {
    "authors": [
@@ -1280,7 +4970,26 @@
    "raw": "assets_src/models/rock_07",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/rock_07.glb",
+   "trisOptimized": 6400,
+   "primitives": 1,
+   "glbBytes": 481548,
+   "boundsM": {
+    "min": [
+     -0.088,
+     -0.002,
+     -0.178
+    ],
+    "max": [
+     0.081,
+     0.142,
+     0.142
+    ]
+   },
+   "simplifyRatio": 0.4312,
+   "lod1": "public/lib/models/rock_07_lod1.glb",
+   "lod1Tris": 1598
   },
   "rock_moss_set_01": {
    "authors": [
@@ -1303,7 +5012,107 @@
    "raw": "assets_src/models/rock_moss_set_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/rock_moss_set_01.glb",
+   "trisOptimized": 11994,
+   "primitives": 6,
+   "glbBytes": 583680,
+   "boundsM": {
+    "min": [
+     -3.914,
+     -0.657,
+     -3.819
+    ],
+    "max": [
+     4.091,
+     1.107,
+     3.125
+    ]
+   },
+   "simplifyRatio": 0.1901,
+   "simplifyError": "0.01",
+   "trisSource": 63127,
+   "kitPieces": [
+    {
+     "name": "rock_moss_set_01_rock01",
+     "min": [
+      -3.914,
+      -0.657,
+      -3.819
+     ],
+     "max": [
+      -1.676,
+      0.816,
+      -0.455
+     ]
+    },
+    {
+     "name": "rock_moss_set_01_rock02",
+     "min": [
+      -1.266,
+      -0.466,
+      -3.751
+     ],
+     "max": [
+      1.382,
+      0.796,
+      -0.513
+     ]
+    },
+    {
+     "name": "rock_moss_set_01_rock03",
+     "min": [
+      1.982,
+      -0.406,
+      -3.145
+     ],
+     "max": [
+      4.091,
+      0.689,
+      -1.067
+     ]
+    },
+    {
+     "name": "rock_moss_set_01_rock04",
+     "min": [
+      -3.65,
+      -0.656,
+      0.69
+     ],
+     "max": [
+      -1.523,
+      1.107,
+      2.652
+     ]
+    },
+    {
+     "name": "rock_moss_set_01_rock05",
+     "min": [
+      -0.708,
+      -0.573,
+      0.127
+     ],
+     "max": [
+      1.106,
+      0.632,
+      3.125
+     ]
+    },
+    {
+     "name": "rock_moss_set_01_rock06",
+     "min": [
+      1.599,
+      -0.528,
+      0.101
+     ],
+     "max": [
+      3.725,
+      0.731,
+      2.854
+     ]
+    }
+   ],
+   "kit": true
   },
   "rusty_metal_02": {
    "authors": [
@@ -1332,7 +5141,13 @@
    "page": "https://polyhaven.com/a/rusty_metal_02",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/rusty_metal_02/arm.webp",
+    "diff": "public/lib/textures/rusty_metal_02/diff.webp",
+    "nor": "public/lib/textures/rusty_metal_02/nor.webp",
+    "rough": "public/lib/textures/rusty_metal_02/rough.webp"
+   }
   },
   "shrub_03": {
    "authors": [
@@ -1356,7 +5171,81 @@
    "raw": "assets_src/models/shrub_03",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/shrub_03.glb",
+   "trisOptimized": 8287,
+   "primitives": 4,
+   "glbBytes": 426496,
+   "boundsM": {
+    "min": [
+     -0.074,
+     -0.002,
+     -0.073
+    ],
+    "max": [
+     1.293,
+     0.401,
+     0.078
+    ]
+   },
+   "simplifyRatio": 1,
+   "simplifyError": null,
+   "trisSource": 8287,
+   "kitPieces": [
+    {
+     "name": "shrub_03_a",
+     "min": [
+      -0.074,
+      -0.002,
+      -0.073
+     ],
+     "max": [
+      0.127,
+      0.401,
+      0.078
+     ]
+    },
+    {
+     "name": "shrub_03_b",
+     "min": [
+      0.365,
+      -0.001,
+      -0.062
+     ],
+     "max": [
+      0.549,
+      0.352,
+      0.06
+     ]
+    },
+    {
+     "name": "shrub_03_c",
+     "min": [
+      0.816,
+      -0.001,
+      -0.053
+     ],
+     "max": [
+      0.912,
+      0.304,
+      0.06
+     ]
+    },
+    {
+     "name": "shrub_03_d",
+     "min": [
+      1.181,
+      -0.001,
+      -0.035
+     ],
+     "max": [
+      1.293,
+      0.255,
+      0.054
+     ]
+    }
+   ],
+   "kit": true
   },
   "sledgehammer_01": {
    "authors": [
@@ -1380,7 +5269,24 @@
    "raw": "assets_src/models/sledgehammer_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/sledgehammer_01.glb",
+   "trisOptimized": 2596,
+   "primitives": 1,
+   "glbBytes": 285052,
+   "boundsM": {
+    "min": [
+     -0.104,
+     -0.747,
+     -0.045
+    ],
+    "max": [
+     0.104,
+     0.259,
+     0.045
+    ]
+   },
+   "simplifyRatio": 1
   },
   "small_harbour_sunset": {
    "authors": [
@@ -1402,7 +5308,8 @@
    "raw": "assets_src/hdri/small_harbour_sunset_1k.hdr",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "hdri"
+   "type": "hdri",
+   "file": "public/lib/hdri/small_harbour_sunset_1k.hdr"
   },
   "sparse_grass": {
    "authors": [
@@ -1427,7 +5334,13 @@
    "page": "https://polyhaven.com/a/sparse_grass",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/sparse_grass/arm.webp",
+    "diff": "public/lib/textures/sparse_grass/diff.webp",
+    "nor": "public/lib/textures/sparse_grass/nor.webp",
+    "rough": "public/lib/textures/sparse_grass/rough.webp"
+   }
   },
   "stony_dirt_path": {
    "authors": [
@@ -1454,7 +5367,13 @@
    "page": "https://polyhaven.com/a/stony_dirt_path",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/stony_dirt_path/arm.webp",
+    "diff": "public/lib/textures/stony_dirt_path/diff.webp",
+    "nor": "public/lib/textures/stony_dirt_path/nor.webp",
+    "rough": "public/lib/textures/stony_dirt_path/rough.webp"
+   }
   },
   "street_lamp_01": {
    "authors": [
@@ -1477,7 +5396,26 @@
    "raw": "assets_src/models/street_lamp_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/street_lamp_01.glb",
+   "trisOptimized": 14998,
+   "primitives": 2,
+   "glbBytes": 541420,
+   "boundsM": {
+    "min": [
+     -0.352,
+     0,
+     -0.193
+    ],
+    "max": [
+     0.352,
+     3.871,
+     0.193
+    ]
+   },
+   "simplifyRatio": 0.49,
+   "lod1": "public/lib/models/street_lamp_01_lod1.glb",
+   "lod1Tris": 3748
   },
   "street_lamp_02": {
    "authors": [
@@ -1500,7 +5438,26 @@
    "raw": "assets_src/models/street_lamp_02",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/street_lamp_02.glb",
+   "trisOptimized": 14997,
+   "primitives": 2,
+   "glbBytes": 570096,
+   "boundsM": {
+    "min": [
+     -0.193,
+     -0.395,
+     0
+    ],
+    "max": [
+     0.193,
+     1.28,
+     0.807
+    ]
+   },
+   "simplifyRatio": 0.7375,
+   "lod1": "public/lib/models/street_lamp_02_lod1.glb",
+   "lod1Tris": 3747
   },
   "utility_box_01": {
    "authors": [
@@ -1523,7 +5480,24 @@
    "raw": "assets_src/models/utility_box_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/utility_box_01.glb",
+   "trisOptimized": 4404,
+   "primitives": 1,
+   "glbBytes": 326900,
+   "boundsM": {
+    "min": [
+     -0.26,
+     0,
+     -0.21
+    ],
+    "max": [
+     0.26,
+     1.12,
+     0.222
+    ]
+   },
+   "simplifyRatio": 1
   },
   "wood_floor_deck": {
    "authors": [
@@ -1550,7 +5524,13 @@
    "page": "https://polyhaven.com/a/wood_floor_deck",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "texture"
+   "type": "texture",
+   "files": {
+    "arm": "public/lib/textures/wood_floor_deck/arm.webp",
+    "diff": "public/lib/textures/wood_floor_deck/diff.webp",
+    "nor": "public/lib/textures/wood_floor_deck/nor.webp",
+    "rough": "public/lib/textures/wood_floor_deck/rough.webp"
+   }
   },
   "wooden_lantern_01": {
    "authors": [
@@ -1573,7 +5553,26 @@
    "raw": "assets_src/models/wooden_lantern_01",
    "resolution": "1k",
    "source": "Poly Haven",
-   "type": "model"
+   "type": "model",
+   "file": "public/lib/models/wooden_lantern_01.glb",
+   "trisOptimized": 8321,
+   "primitives": 2,
+   "glbBytes": 673092,
+   "boundsM": {
+    "min": [
+     -0.111,
+     -0.011,
+     -0.111
+    ],
+    "max": [
+     0.111,
+     0.519,
+     0.124
+    ]
+   },
+   "simplifyRatio": 1,
+   "lod1": "public/lib/models/wooden_lantern_01_lod1.glb",
+   "lod1Tris": 2116
   }
  }
 }

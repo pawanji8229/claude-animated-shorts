@@ -17,6 +17,7 @@ import { COSTUME, pose5, type Odo5Pose } from "../char/odo5";
 import { CROWD, crowdPose } from "../productions/reopening/scene";
 import { Ground, HdriEnvironment, Instanced, Model, PbrBox, Water, scatter } from "../lib/library/components";
 import { quality } from "../lib/library/quality";
+import { Building, Fence, KitPart, Pier } from "../lib/library/kits";
 import { SceneAudit } from "../lib/library/SceneAudit";
 
 type V3 = [number, number, number];
@@ -53,9 +54,9 @@ const Sun: React.FC<{ pos: V3; color?: string; intensity?: number; span?: number
 const hi = () => true;
 
 // ---------------------------------------------------------------- 1. character close-up (study at night)
-const camA = camPath([{ f: 0, pos: [0.9, 1.42, 2.5], look: [0.05, 1.05, -0.5], fov: 36 }, { f: SHOT + XF, pos: [0.55, 1.36, 1.75], look: [0.0, 1.08, -0.5], fov: 34 }], 4);
+const camA = camPath([{ f: 0, pos: [0.85, 1.3, 1.55], look: [0.0, 0.95, -1.3], fov: 40 }, { f: SHOT + XF, pos: [0.55, 1.26, 1.05], look: [0.0, 0.98, -1.35], fov: 38 }], 4);
 const ShotStudy: React.FC<{ f: number }> = ({ f }) => {
-  const c = camA(f, [0.1, 1.2, -0.35]);
+  const c = camA(f, [0.05, 1.2, -1.75]);
   const hal: Odo5Pose = pose5({ costume: COSTUME.hal, lookX: 0.15 + 0.1 * Math.sin(f / 14), lookY: -0.05, mouth: f > 26 ? "smile" : "awkward", blink: f % 52 > 47, browL: 0.65, browR: 0.1 });
   return (
     <Shot label="closeup" c={c} fog={["#1a1612", 8, 30]} bg="#120f0c" post={{ exposure: 1.05, bloom: 0.7, threshold: 1.3 }}>
@@ -70,22 +71,22 @@ const ShotStudy: React.FC<{ f: number }> = ({ f }) => {
       <Model id="Lantern_01" pos={[-0.55, 0.55, -0.85]} rot={[0, 0.4, 0]} />
       <Model id="metal_toolbox" pos={[0.45, 0.55, -1.05]} rot={[0, -0.3, 0]} />
       <Model id="desk_lamp_arm_01" pos={[0.7, 0.55, -1.2]} rot={[0, 2.4, 0]} height={0.55} />
-      <Model id="Shelf_01" pos={[1.9, 0, -2.15]} />
+      <Model id="Shelf_01" pos={[1.6, 0, -2.15]} />
       <Model id="ArmChair_01" pos={[-1.9, 0, -0.9]} rot={[0, 0.7, 0]} />
       <Model id="potted_plant_01" pos={[-2.3, 0, -1.95]} height={1.1} />
       <Model id="cardboard_box_01" pos={[1.25, 0, -1.4]} rot={[0, 0.5, 0]} />
       <Model id="Barrel_01" pos={[2.25, 0, -0.9]} />
-      <Toon pose={hal} pos={[0.1, 0, -0.35]} cam={c.pos} hi={hi()} light={3.5} />
+      <Toon pose={hal} pos={[0.05, 0, -1.75]} cam={c.pos} hi={hi()} light={3.5} />
     </Shot>
   );
 };
 
 // ---------------------------------------------------------------- 2. city street at dusk
-const camB = camPath([{ f: 0, pos: [1.4, 1.65, 9], look: [-0.6, 2.2, -6], fov: 50 }, { f: SHOT + XF, pos: [1.0, 1.7, 5.2], look: [-0.9, 2.3, -9], fov: 48 }], 4);
+const camB = camPath([{ f: 0, pos: [0.6, 1.75, 10.5], look: [-0.6, 3.4, -10], fov: 56 }, { f: SHOT + XF, pos: [0.3, 1.75, 7.8], look: [-0.7, 3.4, -12], fov: 54 }], 4);
 const lamps = [-24, -12, 0, 12].flatMap((z) => [[-4.9, z], [4.9, z + 6]] as [number, number][]);
 const ShotStreet: React.FC<{ f: number }> = ({ f }) => {
   const c = camB(f, [-1.2, 1.2, 2]);
-  const walk = f / 30, halX = -3.3, halZ = 4 - walk * 1.05;
+  const walk = f / 30, halX = -1.7, halZ = 4.2 - walk * 1.05;
   const hal = pose5({ costume: COSTUME.hal, view: "side", gait: walk * 1.05 / 0.72, walk: 1, stride: 0.72, lean: 0.04, mouth: "smile" });
   const trees = useMemo(() => [-18, -6, 6].map((z) => ({ p: [-5.6, 0.15, z] as V3, ry: z, s: 1 })), []);
   return (
@@ -95,14 +96,14 @@ const ShotStreet: React.FC<{ f: number }> = ({ f }) => {
       <Ground tex="asphalt_02" size={[9, 90]} tile={4} pos={[0, 0, -20]} />
       <PbrBox tex="cobblestone_floor_01" size={[3.6, 0.16, 90]} pos={[-6.3, 0.08, -20]} tile={1.6} />
       <PbrBox tex="cobblestone_floor_01" size={[3.6, 0.16, 90]} pos={[6.3, 0.08, -20]} tile={1.6} />
-      <Model id="modular_urban_apartments_facade" pos={[-8.4, 0.16, -14]} rot={[0, Math.PI / 2, 0]} />
-      <Model id="modular_urban_apartments_facade" pos={[8.4, 0.16, -14]} rot={[0, -Math.PI / 2, 0]} lodFrom={c.pos} />
+      {[0, 1, 2].map((k) => <Building key={`L${k}`} bays={6} floors={4 + (k % 2)} seed={k * 3 + 1} pos={[-8.1, 0.16, -4 - k * 18.4]} rotY={Math.PI / 2} />)}
+      {[0, 1, 2].map((k) => <Building key={`R${k}`} bays={6} floors={3 + ((k + 1) % 3)} seed={k * 5 + 2} pos={[8.1, 0.16, 2 - k * 18.4]} rotY={-Math.PI / 2} sideTex="red_sandstone_wall" />)}
       {lamps.map(([x, z], i) => <Model key={i} id="street_lamp_01" pos={[x, 0.16, z]} rot={[0, x < 0 ? 0 : Math.PI, 0]} lodFrom={c.pos} />)}
       {lamps.map(([x, z], i) => <pointLight key={`l${i}`} position={[x * 0.88, 3.7, z]} color="#ffbf73" intensity={2.2} distance={9} decay={1.7} />)}
-      <Model id="fire_hydrant" pos={[-5.0, 0.16, 1.5]} height={0.8} />
-      <Model id="metal_trash_can" pos={[-6.9, 0.16, -3.5]} rot={[0, Math.PI / 2, 0]} />
-      <Model id="modular_street_seating" pos={[-7.2, 0.16, -9]} rot={[0, Math.PI / 2, 0]} lodFrom={c.pos} />
-      <Model id="covered_car" pos={[3.3, 0, -6]} rot={[0, 0.02, 0]} />
+      <KitPart id="fire_hydrant" match={/^fire_hydrant(_cap_0\d|_chain)?$/} pos={[-5.0, 0.16, 1.5]} />
+      <KitPart id="metal_trash_can" match={/^metal_trash_can_rust(_handle_(left|right))?$/} pos={[-6.9, 0.16, -3.5]} rot={[0, Math.PI / 2, 0]} />
+      <Model id="Barrel_01" pos={[6.9, 0.16, -9]} />
+      <Model id="covered_car" pos={[3.0, 0, -3]} rot={[0, 0.02, 0]} />
       <Model id="concrete_road_barrier" pos={[2.6, 0, 3.2]} rot={[0, 1.4, 0]} />
       <Model id="utility_box_01" pos={[6.0, 0.16, 0.5]} rot={[0, -Math.PI / 2, 0]} />
       <Instanced id="jacaranda_tree" items={trees} height={6.5} />
@@ -128,7 +129,7 @@ const ShotSite: React.FC<{ f: number }> = ({ f }) => {
       <group position={[-2, 0, -1]} rotation={[0, 0.6, 0]}><Excavator5 q={excQ(f)} /></group>
       <group position={[4.5, 0, 3.5]} rotation={[0, -2.6, 0]}><Truck5 c={1} spin={0} cargo={[2101, 2112, 2123, 2134, 2145, 2156]} /></group>
       {[0, 1, 2, 3].map((i) => <Model key={i} id="concrete_road_barrier" pos={[-5 + i * 1.6, 0, 6.5]} rot={[0, 0.03 * i, 0]} />)}
-      <Model id="modular_chainlink_fence" pos={[0, 0, -8]} lodFrom={c.pos} />
+      <Fence n={9} pos={[-9, 0, -8]} />
       <Instanced id="Barrel_01" items={barrels} />
       <Instanced id="namaqualand_boulder_02" items={rocks} height={0.9} lod={1} />
       <Model id="ladder_sectioned_01" pos={[6.2, 0, -1.3]} rot={[-0.25, -0.4, 0]} />
@@ -143,24 +144,24 @@ const ShotSite: React.FC<{ f: number }> = ({ f }) => {
 };
 
 // ---------------------------------------------------------------- 4. harbour: water + ship
-const camD = camPath([{ f: 0, pos: [-9, 3.0, 17], look: [6, 4.5, -6], fov: 48 }, { f: SHOT + XF, pos: [-7.5, 2.8, 14.5], look: [6.5, 4.6, -7], fov: 46 }], 4);
+const camD = camPath([{ f: 0, pos: [-10.5, 3.4, 9.5], look: [3, 3.6, -9], fov: 50 }, { f: SHOT + XF, pos: [-9.5, 3.2, 7.5], look: [3.5, 3.7, -9.5], fov: 48 }], 4);
 const ShotHarbour: React.FC<{ f: number }> = ({ f }) => {
   const c = camD(f, [6, 4, -6]); const t = f / 30;
   const bob = 0.12 * Math.sin(t * 1.3), roll = 0.025 * Math.sin(t * 1.1 + 0.6), pitch = 0.012 * Math.sin(t * 0.9);
   const hal = pose5({ costume: COSTUME.hal, lookX: 0.6, mouth: "smile", armR: { hand: [60, -150], elbow: [80, -30], shape: "open", rot: 0.3 + 0.35 * Math.sin(f / 3.2), bend: 1 } });
-  const crates = useMemo(() => [[-3.2, 3.2], [-2.6, 4.1], [-3.4, 4.6]].map(([x, z], i) => ({ p: [x, 1.25, z] as V3, ry: i * 0.6, s: 1 })), []);
+  const crates = useMemo(() => [[-4.0, 2.2], [-3.4, 1.4], [-4.1, 0.8]].map(([x, z], i) => ({ p: [x, 1.8, z] as V3, ry: i * 0.6, s: 1 })), []);
   return (
     <Shot label="water_ship" c={c} fog={["#e6b892", 60, 260]} post={{ exposure: 1.0, bloom: 0.7, threshold: 1.4 }}>
       <HdriEnvironment id="small_harbour_sunset" intensity={1.0} background rotationY={-0.8} />
       <Sun pos={[-40, 18, -60]} color="#ffbe86" intensity={2.4} span={22} target={[2, 0, -4]} />
       <Water t={t} size={[220, 220]} seg={150} pos={[0, 0, -40]} normalTex={rippleNormal()} amp={0.12} shallow="#3d7f86" deep="#123b52" />
       <group position={[7, bob, -8]} rotation={[pitch, -0.6, roll]}><Model id="dutch_ship_medium" pos={[0, -1.3, 0]} height={22} /></group>
-      <Model id="modular_wooden_pier" pos={[-3.5, 0, 2]} rot={[0, 0, 0]} />
-      <Instanced id="old_military_crate" items={crates} />
-      <Model id="Barrel_01" pos={[-4.1, 1.25, 1.2]} />
-      <Model id="lifebuoy" pos={[-1.75, 1.25, 0.6]} rot={[0, -1.2, 0]} />
-      <Model id="wooden_lantern_01" pos={[-1.9, 1.25, 3.0]} />
-      <Toon pose={hal} pos={[-2.5, 1.25, 6.2]} cam={c.pos} hi={hi()} light={1.2} />
+      <Pier n={5} pos={[-3.5, -0.9, 6]} />
+      {crates.map((it, i) => <KitPart key={i} id="old_military_crate" match={i % 2 ? /_b$/ : /_a$/} pos={it.p} rot={[0, it.ry ?? 0, 0]} />)}
+      <Model id="Barrel_01" pos={[-2.6, 1.8, -1.5]} />
+      <Model id="lifebuoy" pos={[-2.3, 1.8, 3.2]} rot={[0, -1.2, 0]} />
+      <Model id="wooden_lantern_01" pos={[-2.4, 1.8, -4.0]} />
+      <Toon pose={hal} pos={[-3.2, 1.8, -6.5]} cam={c.pos} hi={hi()} light={1.2} />
     </Shot>
   );
 };
@@ -175,10 +176,10 @@ const ShotCrowd: React.FC<{ f: number }> = ({ f }) => {
       <HdriEnvironment id="qwantani_dusk_2_puresky" intensity={0.95} background rotationY={1.4} />
       <Sun pos={[-20, 14, -18]} color="#ffcf9c" intensity={2.0} span={14} />
       <Ground tex="cobblestone_floor_01" size={[60, 60]} tile={1.8} />
-      <Model id="modular_urban_apartments_facade" pos={[0, 0, -11]} rot={[0, 0, 0]} lodFrom={c.pos} />
+      <Building bays={7} floors={4} seed={4} pos={[0, 0, -10]} />
+      <Building bays={4} floors={5} seed={9} pos={[-14, 0, -8]} rotY={0.5} sideTex="red_sandstone_wall" />
       {[-6, 6].map((x) => <Model key={x} id="street_lamp_02" pos={[x, 0, -3]} />)}
       {[-4.5, 4.5].map((x) => <Model key={`p${x}`} id="potted_plant_01" pos={[x, 0, -4]} height={1.2} />)}
-      <Model id="modular_street_seating" pos={[0, 0, -5.5]} lodFrom={c.pos} />
       {SPOTS.map(([x, z], i) => <Toon key={i} pose={crowdPose(i, (f * 1.0 + i * 23) % 280)} pos={[x, 0, z]} cam={c.pos} h={CROWD[i].h} hi={hi()} halo={0.1} />)}
     </Shot>
   );
