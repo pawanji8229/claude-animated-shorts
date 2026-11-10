@@ -151,8 +151,9 @@ const makeRT = (w: number, h: number, depth = false) => {
 };
 
 export const Post: React.FC<{ params: PostParams }> = ({ params }) => {
-  const { gl, scene, camera, size } = useThree();
-  const W = size.width, H = size.height, ss = params.ss;
+  const { gl, scene, camera, size } = useThree(); const dpr = useThree((st) => st.viewport.dpr);
+  // render targets follow the real drawing buffer (CSS size x dpr), so lower-dpr previews really render fewer pixels
+  const W = Math.round(size.width * dpr), H = Math.round(size.height * dpr), ss = params.ss;
   if (BENCH) (window as unknown as { __postBody: number }).__postBody = performance.now();
   const res = useMemo(() => {
     const quadGeo = new THREE.PlaneGeometry(2, 2);

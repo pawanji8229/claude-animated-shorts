@@ -36,10 +36,10 @@ const Rig: React.FC<{ c: Cam; fog?: [string, number, number]; bg?: string }> = (
 const Shot: React.FC<{ c: Cam; children: React.ReactNode; post?: Partial<React.ComponentProps<typeof Post>["params"]>; fog?: [string, number, number]; bg?: string; label?: string }> = ({ c, children, post, fog, bg, label = "shot" }) => {
   const { width, height } = useVideoConfig(); const q = quality();
   return (
-    <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.05, far: 600 }}>
+    <ThreeCanvas width={width} height={height} dpr={q.dpr} shadows={{ type: THREE.PCFSoftShadowMap }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.05, far: 600 }}>
       <Rig c={c} fog={fog} bg={bg} />
       <SceneAudit label={label} />
-      <InkCtx.Provider value={2.8 * (height / 1920)}>{children}</InkCtx.Provider>
+      <InkCtx.Provider value={2.8 * (height / 1920) * q.dpr}>{children}</InkCtx.Provider>
       <Post params={{ focusDist: c.focus, focusRange: 6, maxBlur: q.dof ? 0.1 : 0, bloom: 0.5, threshold: 1.6, exposure: 1.0, vignette: 0.45, ss: q.ss, contrast: 1.1, saturation: 1.1, lift: 0.01, warmCool: 0.5, ao: q.ao, aoRadius: 0.5, ...post }} />
     </ThreeCanvas>
   );
@@ -78,7 +78,7 @@ const ShotStudy: React.FC<{ f: number; len?: number }> = ({ f, len = SHOT }) => 
       <Model id="potted_plant_01" pos={[-2.3, 0, -1.95]} height={1.1} />
       <Model id="cardboard_box_01" pos={[1.25, 0, -1.4]} rot={[0, 0.5, 0]} />
       <Model id="Barrel_01" pos={[2.25, 0, -0.9]} />
-      <Toon pose={hal} pos={[0.0, 0, -1.55]} cam={c.pos} hi={hi()} light={4.5} />
+      <Toon pose={hal} pos={[0.0, 0, -1.55]} cam={c.pos} hi={hi()} light={2.2} />
     </Shot>
   );
 };
