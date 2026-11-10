@@ -30,6 +30,10 @@ const inputProps = { __singleRender: !has("legacy-double-render"), __quality: pr
 const dir = join(dirname(out), "batches"); mkdirSync(dir, { recursive: true });
 const log = join(dirname(out), "render_fast.log.jsonl");
 const T = () => performance.now();
+// ffmpeg for joining/muxing: system ffmpeg if present, else Remotion's own build (installed by npm ci, verified by the
+// sha512 integrity hash in package-lock.json) - no third-party binary download needed on CI runners.
+const hasSys = process.env.TF_FFMPEG === "remotion" ? false : (() => { try { execFileSync("ffmpeg", ["-version"], { stdio: "ignore" }); return true; } catch { return false; } })();
+const ff = (args) => hasSys ? execFileSync("ffmpeg", args, { stdio: "inherit" }) : execFileSync("npx", ["remotion", "ffmpeg", ...args], { stdio: "inherit" });
 let t = T();
 const serveUrl = await bundle({ entryPoint: resolve("src/index.ts") });
 const bundleMs = T() - t; t = T();
@@ -53,9 +57,9 @@ for (let s = a; s <= b; s += batch) {
 await browser.close({ silent: true });
 const list = join(dir, "concat.txt"); writeFileSync(list, parts.map((p) => `file '${p}'`).join("\n"));
 const joined = audio ? out.replace(/\.mp4$/, "_video.mp4") : out;
-execFileSync("ffmpeg", ["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", list, "-c", "copy", joined], { stdio: "inherit" });
+ff(["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", list, "-c", "copy", joined]);
 if (audio) {
   const dur = ((b - a + 1) / cfg.video.fps).toFixed(4);
-  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", joined, "-ss", (a / cfg.video.fps).toFixed(4), "-i", audio, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-b:a", cfg.audio.aacBitrate, "-t", dur, "-movflags", "+faststart", out], { stdio: "inherit" });
+  ff(["-v", "error", "-y", "-i", joined, "-ss", (a / cfg.video.fps).toFixed(4), "-i", audio, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-b:a", cfg.audio.aacBitrate, "-t", dur, "-movflags", "+faststart", out]);
 }
 console.log(`wrote ${out}`);

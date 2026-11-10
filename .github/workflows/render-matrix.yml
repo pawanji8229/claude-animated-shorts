@@ -80,13 +80,9 @@ jobs:
       - name: System libraries for headless Chrome + fonts
         working-directory: .
         run: |
-          # ffmpeg: static build (2 s) instead of apt (apt mirror stalls of 3-9 min were measured on several runners)
-          if ! command -v ffmpeg >/dev/null; then
-            curl -sSL https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz | tar -xJ -C /tmp \
-              && sudo cp /tmp/ffmpeg-*-amd64-static/ffmpeg /tmp/ffmpeg-*-amd64-static/ffprobe /usr/local/bin/ || true
-          fi
-          # browser libraries ship with the runner image; apt only if something is actually missing
-          if dpkg -s libnss3 libgbm1 libxkbcommon0 fonts-dejavu-core >/dev/null 2>&1 && command -v ffmpeg >/dev/null; then echo "system libraries present"; exit 0; fi
+          # browser libraries ship with the runner image -> no apt (apt mirror stalls of 3-9 min were measured).
+          # ffmpeg is NOT needed here: render_fast.mjs joins batches with Remotion's own ffmpeg (npm, sha512-verified).
+          if dpkg -s libnss3 libgbm1 libxkbcommon0 fonts-dejavu-core >/dev/null 2>&1; then echo "system libraries present"; exit 0; fi
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends libnss3 libgbm1 libxkbcommon0 libasound2t64 fonts-dejavu-core ffmpeg \
             || sudo apt-get install -y --no-install-recommends libnss3 libgbm1 libxkbcommon0 libasound2 fonts-dejavu-core ffmpeg
@@ -131,14 +127,8 @@ jobs:
       run: { working-directory: studio }
     steps:
       - uses: actions/checkout@v4
-      - name: ffmpeg (static build, ~10 s; apt took 2.3 min)
-        run: |
-          if ! command -v ffmpeg >/dev/null; then
-            curl -sSL https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz | tar -xJ -C /tmp \
-              && sudo cp /tmp/ffmpeg-*-amd64-static/ffmpeg /tmp/ffmpeg-*-amd64-static/ffprobe /usr/local/bin/ \
-              || (sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg)
-          fi
-          ffmpeg -version | head -1
+      - name: ffmpeg from Ubuntu's signed archive (needed once, for blackdetect/freezedetect checks)
+        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg)
       - uses: actions/download-artifact@v4
         with: { pattern: chunk-*, path: studio/chunks, merge-multiple: true }
       - name: Join chunks (+ audio)
