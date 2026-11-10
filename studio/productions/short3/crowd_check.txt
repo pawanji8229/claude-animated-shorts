@@ -1,0 +1,6 @@
+PASS hand motion not synchronised (max pairwise correlation <= 0.6) — max r = 0.48 (people 12 & 33)
+PASS never most of the crowd gesturing at once — max 4/37 people moving arms in one frame (frame 179)
+PASS shutters individually timed (>= 6 frames apart) — 0 shutters at  (min gap Infinity)
+PASS no simultaneous flashes (>= 8 frames apart) — 0 flashes at  (min gap Infinity)
+PASS camera raises start at different times (>= 10 frames apart) — raise starts 
+PASS some people do not photograph — 0/37 photographers

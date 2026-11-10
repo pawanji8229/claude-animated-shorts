@@ -1,0 +1,1098 @@
+{
+ "fps": 30,
+ "frames": 1564,
+ "events": [
+  {
+   "frame": 2,
+   "kind": "phone_ring",
+   "x": -0.8,
+   "gain": 0.7,
+   "note": "operator 0 line lamp + ringer"
+  },
+  {
+   "frame": 19,
+   "kind": "plug_click",
+   "x": 0,
+   "gain": 0.8,
+   "note": "operator 3 plugs the answering cord"
+  },
+  {
+   "frame": 22,
+   "kind": "key_click",
+   "x": 0,
+   "gain": 0.6,
+   "note": "operator 3 throws the talk key"
+  },
+  {
+   "frame": 34,
+   "kind": "plug_click",
+   "x": -0.8,
+   "gain": 0.8,
+   "note": "operator 0 plugs the answering cord"
+  },
+  {
+   "frame": 37,
+   "kind": "key_click",
+   "x": -0.8,
+   "gain": 0.6,
+   "note": "operator 0 throws the talk key"
+  },
+  {
+   "frame": 41,
+   "kind": "plug_click",
+   "x": 0.5599999999999999,
+   "gain": 0.55,
+   "note": "operator 5 pulls the cord"
+  },
+  {
+   "frame": 47,
+   "kind": "plug_click",
+   "x": 0.27999999999999997,
+   "gain": 0.55,
+   "note": "operator 4 pulls the cord"
+  },
+  {
+   "frame": 55,
+   "kind": "phone_ring",
+   "x": 0.5599999999999999,
+   "gain": 0.45,
+   "note": "operator 5 line lamp + ringer"
+  },
+  {
+   "frame": 61,
+   "kind": "phone_ring",
+   "x": 0.27999999999999997,
+   "gain": 0.45,
+   "note": "operator 4 line lamp + ringer"
+  },
+  {
+   "frame": 79,
+   "kind": "plug_click",
+   "x": -0.5599999999999999,
+   "gain": 0.55,
+   "note": "operator 1 pulls the cord"
+  },
+  {
+   "frame": 79,
+   "kind": "plug_click",
+   "x": -0.27999999999999997,
+   "gain": 0.55,
+   "note": "operator 2 pulls the cord"
+  },
+  {
+   "frame": 87,
+   "kind": "plug_click",
+   "x": 0.5599999999999999,
+   "gain": 0.8,
+   "note": "operator 5 plugs the answering cord"
+  },
+  {
+   "frame": 90,
+   "kind": "key_click",
+   "x": 0.5599999999999999,
+   "gain": 0.6,
+   "note": "operator 5 throws the talk key"
+  },
+  {
+   "frame": 93,
+   "kind": "phone_ring",
+   "x": -0.5599999999999999,
+   "gain": 0.45,
+   "note": "operator 1 line lamp + ringer"
+  },
+  {
+   "frame": 93,
+   "kind": "phone_ring",
+   "x": -0.27999999999999997,
+   "gain": 0.45,
+   "note": "operator 2 line lamp + ringer"
+  },
+  {
+   "frame": 93,
+   "kind": "plug_click",
+   "x": 0.27999999999999997,
+   "gain": 0.8,
+   "note": "operator 4 plugs the answering cord"
+  },
+  {
+   "frame": 96,
+   "kind": "key_click",
+   "x": 0.27999999999999997,
+   "gain": 0.6,
+   "note": "operator 4 throws the talk key"
+  },
+  {
+   "frame": 114,
+   "kind": "plug_click",
+   "x": 0,
+   "gain": 0.55,
+   "note": "operator 3 pulls the cord"
+  },
+  {
+   "frame": 116,
+   "kind": "jack_pull",
+   "x": -0.625,
+   "gain": 0.6,
+   "note": "jack 0 bar stroke"
+  },
+  {
+   "frame": 118,
+   "kind": "building_groan",
+   "x": 0.1,
+   "gain": 0.8,
+   "note": "11,000 tons creeping on rollers"
+  },
+  {
+   "frame": 128,
+   "kind": "jack_pull",
+   "x": -0.125,
+   "gain": 0.6,
+   "note": "jack 2 bar stroke"
+  },
+  {
+   "frame": 140,
+   "kind": "jack_pull",
+   "x": 0.375,
+   "gain": 0.6,
+   "note": "jack 4 bar stroke"
+  },
+  {
+   "frame": 142,
+   "kind": "jack_pull",
+   "x": -0.625,
+   "gain": 0.6,
+   "note": "jack 0 bar stroke"
+  },
+  {
+   "frame": 150,
+   "kind": "roller_creak",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "rollers under load"
+  },
+  {
+   "frame": 154,
+   "kind": "jack_pull",
+   "x": -0.125,
+   "gain": 0.6,
+   "note": "jack 2 bar stroke"
+  },
+  {
+   "frame": 166,
+   "kind": "jack_pull",
+   "x": 0.375,
+   "gain": 0.6,
+   "note": "jack 4 bar stroke"
+  },
+  {
+   "frame": 168,
+   "kind": "jack_pull",
+   "x": -0.625,
+   "gain": 0.6,
+   "note": "jack 0 bar stroke"
+  },
+  {
+   "frame": 180,
+   "kind": "jack_pull",
+   "x": -0.125,
+   "gain": 0.6,
+   "note": "jack 2 bar stroke"
+  },
+  {
+   "frame": 192,
+   "kind": "jack_pull",
+   "x": 0.375,
+   "gain": 0.6,
+   "note": "jack 4 bar stroke"
+  },
+  {
+   "frame": 194,
+   "kind": "jack_pull",
+   "x": -0.625,
+   "gain": 0.6,
+   "note": "jack 0 bar stroke"
+  },
+  {
+   "frame": 205,
+   "kind": "roller_creak",
+   "x": 0.2,
+   "gain": 0.7,
+   "note": "rollers under load"
+  },
+  {
+   "frame": 206,
+   "kind": "jack_pull",
+   "x": -0.125,
+   "gain": 0.6,
+   "note": "jack 2 bar stroke"
+  },
+  {
+   "frame": 214,
+   "kind": "typewriter",
+   "x": 0,
+   "gain": 0.5,
+   "note": "the clerk inside types on, unaware"
+  },
+  {
+   "frame": 218,
+   "kind": "jack_pull",
+   "x": 0.375,
+   "gain": 0.6,
+   "note": "jack 4 bar stroke"
+  },
+  {
+   "frame": 220,
+   "kind": "jack_pull",
+   "x": -0.625,
+   "gain": 0.6,
+   "note": "jack 0 bar stroke"
+  },
+  {
+   "frame": 232,
+   "kind": "jack_pull",
+   "x": -0.125,
+   "gain": 0.6,
+   "note": "jack 2 bar stroke"
+  },
+  {
+   "frame": 279,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 284,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 285,
+   "kind": "streetcar_bell",
+   "x": 0.7,
+   "gain": 0.8,
+   "note": "distant streetcar bell (1930 street)"
+  },
+  {
+   "frame": 289,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 292,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 296,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 300,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 303,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 308,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 313,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 329,
+   "kind": "step_stone",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "Brightwater's shoes on the paving"
+  },
+  {
+   "frame": 337,
+   "kind": "paper_unroll",
+   "x": 0,
+   "gain": 0.9,
+   "note": "blueprint unrolls"
+  },
+  {
+   "frame": 420,
+   "kind": "streetcar_bell",
+   "x": -0.6,
+   "gain": 0.6,
+   "note": "streetcar bell further off"
+  },
+  {
+   "frame": 447,
+   "kind": "paper_rustle",
+   "x": 0,
+   "gain": 0.7,
+   "note": "blueprint lowered"
+  },
+  {
+   "frame": 458,
+   "kind": "freeze_sting",
+   "x": 0,
+   "gain": 0.8,
+   "note": "comic freeze"
+  },
+  {
+   "frame": 470,
+   "kind": "gulp",
+   "x": 0,
+   "gain": 0.7,
+   "note": "nervous gulp"
+  },
+  {
+   "frame": 505,
+   "kind": "whoosh_reveal",
+   "x": 0,
+   "gain": 0.6,
+   "note": "camera rises over the block"
+  },
+  {
+   "frame": 534,
+   "kind": "rope_creak",
+   "x": 0.3,
+   "gain": 0.8,
+   "note": "the footprint rope tightens"
+  },
+  {
+   "frame": 602,
+   "kind": "crawler_crane",
+   "x": 0.6,
+   "gain": 1,
+   "note": "crawler crane rolls in"
+  },
+  {
+   "frame": 646,
+   "kind": "chain_rattle",
+   "x": 0.4,
+   "gain": 0.5,
+   "note": "the ball's chain sways"
+  },
+  {
+   "frame": 658,
+   "kind": "brake_squeak",
+   "x": 0.3,
+   "gain": 0.6,
+   "note": "crane stops"
+  },
+  {
+   "frame": 690,
+   "kind": "crawler_crane",
+   "x": 0.7,
+   "gain": 0.8,
+   "note": "crane backs away"
+  },
+  {
+   "frame": 716,
+   "kind": "paper_unroll",
+   "x": 0.3,
+   "gain": 0.8,
+   "note": "plans unrolled on the trestle"
+  },
+  {
+   "frame": 745,
+   "kind": "idea_ding",
+   "x": 0,
+   "gain": 0.6,
+   "note": "the idea lands"
+  },
+  {
+   "frame": 800,
+   "kind": "typewriter",
+   "x": -0.5,
+   "gain": 0.55,
+   "note": "typing behind a window"
+  },
+  {
+   "frame": 822,
+   "kind": "phone_ring",
+   "x": 0.3,
+   "gain": 0.35,
+   "note": "a phone rings inside"
+  },
+  {
+   "frame": 846,
+   "kind": "typewriter",
+   "x": 0.5,
+   "gain": 0.5,
+   "note": "typing behind a window"
+  },
+  {
+   "frame": 892,
+   "kind": "timber_thud",
+   "x": -0.5833333333333334,
+   "gain": 0.8,
+   "note": "crib 1 set down"
+  },
+  {
+   "frame": 899,
+   "kind": "timber_thud",
+   "x": -0.4666666666666666,
+   "gain": 0.8,
+   "note": "crib 2 set down"
+  },
+  {
+   "frame": 905,
+   "kind": "timber_thud",
+   "x": -0.35,
+   "gain": 0.8,
+   "note": "crib 3 set down"
+  },
+  {
+   "frame": 909,
+   "kind": "timber_thud",
+   "x": -0.2333333333333333,
+   "gain": 0.8,
+   "note": "crib 4 set down"
+  },
+  {
+   "frame": 910,
+   "kind": "steel_clank",
+   "x": 0.2,
+   "gain": 0.8,
+   "note": "steel I-beams slid under"
+  },
+  {
+   "frame": 914,
+   "kind": "timber_thud",
+   "x": -0.11666666666666665,
+   "gain": 0.8,
+   "note": "crib 5 set down"
+  },
+  {
+   "frame": 918,
+   "kind": "timber_thud",
+   "x": 0,
+   "gain": 0.8,
+   "note": "crib 6 set down"
+  },
+  {
+   "frame": 921,
+   "kind": "steel_clank",
+   "x": 0.2,
+   "gain": 0.8,
+   "note": "rollers set"
+  },
+  {
+   "frame": 922,
+   "kind": "timber_thud",
+   "x": 0.11666666666666665,
+   "gain": 0.8,
+   "note": "crib 7 set down"
+  },
+  {
+   "frame": 927,
+   "kind": "timber_thud",
+   "x": 0.2333333333333333,
+   "gain": 0.8,
+   "note": "crib 8 set down"
+  },
+  {
+   "frame": 931,
+   "kind": "timber_thud",
+   "x": 0.35,
+   "gain": 0.8,
+   "note": "crib 9 set down"
+  },
+  {
+   "frame": 934,
+   "kind": "jack_pull",
+   "x": 0.2,
+   "gain": 0.8,
+   "note": "jacks braced"
+  },
+  {
+   "frame": 937,
+   "kind": "timber_thud",
+   "x": 0.4666666666666666,
+   "gain": 0.8,
+   "note": "crib 10 set down"
+  },
+  {
+   "frame": 944,
+   "kind": "timber_thud",
+   "x": 0.5833333333333334,
+   "gain": 0.8,
+   "note": "crib 11 set down"
+  },
+  {
+   "frame": 964,
+   "kind": "timber_thud",
+   "x": 0.7,
+   "gain": 0.8,
+   "note": "crib 12 set down"
+  },
+  {
+   "frame": 971,
+   "kind": "building_groan",
+   "x": 0,
+   "gain": 1,
+   "note": "the whole building starts to move"
+  },
+  {
+   "frame": 979,
+   "kind": "jack_pull",
+   "x": 0.125,
+   "gain": 0.55,
+   "note": "worker 3 pushes his jack bar"
+  },
+  {
+   "frame": 981,
+   "kind": "roller_creak",
+   "x": 0.009999999999999426,
+   "gain": 0.8,
+   "note": "rollers turn"
+  },
+  {
+   "frame": 998,
+   "kind": "jack_pull",
+   "x": 0.375,
+   "gain": 0.55,
+   "note": "worker 4 pushes his jack bar"
+  },
+  {
+   "frame": 1000,
+   "kind": "jack_pull",
+   "x": -0.625,
+   "gain": 0.55,
+   "note": "worker 0 pushes his jack bar"
+  },
+  {
+   "frame": 1012,
+   "kind": "jack_pull",
+   "x": -0.125,
+   "gain": 0.55,
+   "note": "worker 2 pushes his jack bar"
+  },
+  {
+   "frame": 1017,
+   "kind": "jack_pull",
+   "x": 0.625,
+   "gain": 0.55,
+   "note": "worker 5 pushes his jack bar"
+  },
+  {
+   "frame": 1019,
+   "kind": "jack_pull",
+   "x": -0.375,
+   "gain": 0.55,
+   "note": "worker 1 pushes his jack bar"
+  },
+  {
+   "frame": 1021,
+   "kind": "roller_creak",
+   "x": 0.4099999999999994,
+   "gain": 0.8,
+   "note": "rollers turn"
+  },
+  {
+   "frame": 1031,
+   "kind": "jack_pull",
+   "x": 0.125,
+   "gain": 0.55,
+   "note": "worker 3 pushes his jack bar"
+  },
+  {
+   "frame": 1050,
+   "kind": "jack_pull",
+   "x": 0.375,
+   "gain": 0.55,
+   "note": "worker 4 pushes his jack bar"
+  },
+  {
+   "frame": 1052,
+   "kind": "jack_pull",
+   "x": -0.625,
+   "gain": 0.55,
+   "note": "worker 0 pushes his jack bar"
+  },
+  {
+   "frame": 1061,
+   "kind": "roller_creak",
+   "x": 0.009999999999999426,
+   "gain": 0.8,
+   "note": "rollers turn"
+  },
+  {
+   "frame": 1064,
+   "kind": "jack_pull",
+   "x": -0.125,
+   "gain": 0.55,
+   "note": "worker 2 pushes his jack bar"
+  },
+  {
+   "frame": 1069,
+   "kind": "jack_pull",
+   "x": 0.625,
+   "gain": 0.55,
+   "note": "worker 5 pushes his jack bar"
+  },
+  {
+   "frame": 1071,
+   "kind": "jack_pull",
+   "x": -0.375,
+   "gain": 0.55,
+   "note": "worker 1 pushes his jack bar"
+  },
+  {
+   "frame": 1083,
+   "kind": "jack_pull",
+   "x": 0.125,
+   "gain": 0.55,
+   "note": "worker 3 pushes his jack bar"
+  },
+  {
+   "frame": 1106,
+   "kind": "building_groan",
+   "x": 0,
+   "gain": 0.7,
+   "note": "moving 16 m back"
+  },
+  {
+   "frame": 1142,
+   "kind": "roller_creak",
+   "x": 0,
+   "gain": 0.6,
+   "note": "turning on the pivot"
+  },
+  {
+   "frame": 1178,
+   "kind": "roller_creak",
+   "x": 0,
+   "gain": 0.6,
+   "note": "moving 30 m sideways"
+  },
+  {
+   "frame": 1231,
+   "kind": "plug_click",
+   "x": -0.5599999999999999,
+   "gain": 0.55,
+   "note": "operator 1 pulls the cord"
+  },
+  {
+   "frame": 1231,
+   "kind": "plug_click",
+   "x": 0.5599999999999999,
+   "gain": 0.55,
+   "note": "operator 5 pulls the cord"
+  },
+  {
+   "frame": 1234,
+   "kind": "plug_click",
+   "x": -0.8,
+   "gain": 0.8,
+   "note": "operator 0 plugs the answering cord"
+  },
+  {
+   "frame": 1234,
+   "kind": "plug_click",
+   "x": 0.27999999999999997,
+   "gain": 0.8,
+   "note": "operator 4 plugs the answering cord"
+  },
+  {
+   "frame": 1237,
+   "kind": "key_click",
+   "x": -0.8,
+   "gain": 0.6,
+   "note": "operator 0 throws the talk key"
+  },
+  {
+   "frame": 1237,
+   "kind": "key_click",
+   "x": 0.27999999999999997,
+   "gain": 0.6,
+   "note": "operator 4 throws the talk key"
+  },
+  {
+   "frame": 1242,
+   "kind": "plug_click",
+   "x": 0,
+   "gain": 0.55,
+   "note": "operator 3 pulls the cord"
+  },
+  {
+   "frame": 1245,
+   "kind": "phone_ring",
+   "x": -0.5599999999999999,
+   "gain": 0.45,
+   "note": "operator 1 line lamp + ringer"
+  },
+  {
+   "frame": 1245,
+   "kind": "phone_ring",
+   "x": 0.5599999999999999,
+   "gain": 0.45,
+   "note": "operator 5 line lamp + ringer"
+  },
+  {
+   "frame": 1256,
+   "kind": "phone_ring",
+   "x": 0,
+   "gain": 0.45,
+   "note": "operator 3 line lamp + ringer"
+  },
+  {
+   "frame": 1277,
+   "kind": "plug_click",
+   "x": -0.5599999999999999,
+   "gain": 0.8,
+   "note": "operator 1 plugs the answering cord"
+  },
+  {
+   "frame": 1277,
+   "kind": "plug_click",
+   "x": 0.5599999999999999,
+   "gain": 0.8,
+   "note": "operator 5 plugs the answering cord"
+  },
+  {
+   "frame": 1280,
+   "kind": "key_click",
+   "x": -0.5599999999999999,
+   "gain": 0.6,
+   "note": "operator 1 throws the talk key"
+  },
+  {
+   "frame": 1280,
+   "kind": "key_click",
+   "x": 0.5599999999999999,
+   "gain": 0.6,
+   "note": "operator 5 throws the talk key"
+  },
+  {
+   "frame": 1283,
+   "kind": "plug_click",
+   "x": -0.27999999999999997,
+   "gain": 0.55,
+   "note": "operator 2 pulls the cord"
+  },
+  {
+   "frame": 1288,
+   "kind": "plug_click",
+   "x": 0,
+   "gain": 0.8,
+   "note": "operator 3 plugs the answering cord"
+  },
+  {
+   "frame": 1291,
+   "kind": "key_click",
+   "x": 0,
+   "gain": 0.6,
+   "note": "operator 3 throws the talk key"
+  },
+  {
+   "frame": 1297,
+   "kind": "phone_ring",
+   "x": -0.27999999999999997,
+   "gain": 0.45,
+   "note": "operator 2 line lamp + ringer"
+  },
+  {
+   "frame": 1329,
+   "kind": "plug_click",
+   "x": -0.27999999999999997,
+   "gain": 0.8,
+   "note": "operator 2 plugs the answering cord"
+  },
+  {
+   "frame": 1332,
+   "kind": "key_click",
+   "x": -0.27999999999999997,
+   "gain": 0.6,
+   "note": "operator 2 throws the talk key"
+  },
+  {
+   "frame": 1346,
+   "kind": "steel_clank",
+   "x": -0.4,
+   "gain": 0.6,
+   "note": "new HQ column set"
+  },
+  {
+   "frame": 1378,
+   "kind": "steel_clank",
+   "x": -0.15000000000000002,
+   "gain": 0.6,
+   "note": "new HQ column set"
+  },
+  {
+   "frame": 1404,
+   "kind": "steel_clank",
+   "x": 0.09999999999999998,
+   "gain": 0.6,
+   "note": "new HQ column set"
+  },
+  {
+   "frame": 1430,
+   "kind": "steel_clank",
+   "x": 0.35,
+   "gain": 0.6,
+   "note": "new HQ column set"
+  },
+  {
+   "frame": 1458,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 0 walks to the door"
+  },
+  {
+   "frame": 1467,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 0 walks to the door"
+  },
+  {
+   "frame": 1476,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 0 walks to the door"
+  },
+  {
+   "frame": 1477,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 1 walks to the door"
+  },
+  {
+   "frame": 1485,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 0 walks to the door"
+  },
+  {
+   "frame": 1486,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 1 walks to the door"
+  },
+  {
+   "frame": 1492,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 2 walks to the door"
+  },
+  {
+   "frame": 1494,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 0 walks to the door"
+  },
+  {
+   "frame": 1495,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 1 walks to the door"
+  },
+  {
+   "frame": 1501,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 2 walks to the door"
+  },
+  {
+   "frame": 1503,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 0 walks to the door"
+  },
+  {
+   "frame": 1504,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 1 walks to the door"
+  },
+  {
+   "frame": 1505,
+   "kind": "office_door",
+   "x": 0.2,
+   "gain": 0.7,
+   "note": "the entrance door opens and closes"
+  },
+  {
+   "frame": 1506,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 3 walks to the door"
+  },
+  {
+   "frame": 1510,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 2 walks to the door"
+  },
+  {
+   "frame": 1512,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 0 walks to the door"
+  },
+  {
+   "frame": 1513,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 1 walks to the door"
+  },
+  {
+   "frame": 1515,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 3 walks to the door"
+  },
+  {
+   "frame": 1519,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 2 walks to the door"
+  },
+  {
+   "frame": 1521,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 0 walks to the door"
+  },
+  {
+   "frame": 1522,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 1 walks to the door"
+  },
+  {
+   "frame": 1524,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 3 walks to the door"
+  },
+  {
+   "frame": 1528,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 2 walks to the door"
+  },
+  {
+   "frame": 1531,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 1 walks to the door"
+  },
+  {
+   "frame": 1533,
+   "kind": "step_stone",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 3 walks to the door"
+  },
+  {
+   "frame": 1537,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 2 walks to the door"
+  },
+  {
+   "frame": 1540,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 1 walks to the door"
+  },
+  {
+   "frame": 1542,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 3 walks to the door"
+  },
+  {
+   "frame": 1546,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 2 walks to the door"
+  },
+  {
+   "frame": 1551,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 3 walks to the door"
+  },
+  {
+   "frame": 1555,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 2 walks to the door"
+  },
+  {
+   "frame": 1560,
+   "kind": "plug_click",
+   "x": 0.27999999999999997,
+   "gain": 0.8,
+   "note": "operator 4 plugs the answering cord"
+  },
+  {
+   "frame": 1560,
+   "kind": "plank_step",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "staff member 3 walks to the door"
+  },
+  {
+   "frame": 1563,
+   "kind": "key_click",
+   "x": 0.27999999999999997,
+   "gain": 0.6,
+   "note": "operator 4 throws the talk key"
+  }
+ ]
+}

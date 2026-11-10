@@ -16,6 +16,7 @@ from dsp import SR, ns, rng, pan, st, place, make_ir, convolve_st, write_wav, re
 import desert_sfx as S
 import crowd_sfx as C
 import london_sfx as LS
+import office_sfx as O
 
 ap = argparse.ArgumentParser(); ap.add_argument("narration"); ap.add_argument("events"); ap.add_argument("outdir"); ap.add_argument("duration", nargs="?", default="full")
 ap.add_argument("--ambience", default="desert"); ap.add_argument("--music", default="desert_guitar"); ap.add_argument("--loop", action="store_true")
@@ -75,6 +76,12 @@ REL = {
     "scaffold_clatter": (-20, "sfx", "scaffold poles clatter"), "excavator": (-18, "sfx", "excavator diesel + hydraulics"), "bucket_scrape": (-19, "sfx", "bucket scrapes the channel bed"),
     "dirt_dump": (-20, "sfx", "soil dumped on the bank"), "wind_gust": (-16, "sfx", "desert dust gust"),
     "clap_soft": (-23, "crowd", "single soft clap"), "cheer": (-27, "crowd", "distant crowd cheer"), "crowd_ooh": (-29, "crowd", "distant crowd 'ooh'"),
+    # short3 (1930 office move) - original synthesised sounds
+    "phone_ring": (-24, "sfx", "1930 desk telephone ringer (twin gongs)"), "plug_click": (-24, "sfx", "switchboard cord plug"), "key_click": (-28, "sfx", "switchboard key"),
+    "typewriter": (-27, "sfx", "typewriter burst"), "coffee_clink": (-24, "sfx", "coffee cup on saucer"), "office_door": (-20, "sfx", "office door"),
+    "roller_creak": (-19, "sfx", "steel rollers under load"), "jack_pull": (-22, "sfx", "screw-jack bar pull"), "timber_thud": (-17, "sfx", "timber crib placed"),
+    "steel_clank": (-20, "sfx", "steel I-beam clank"), "building_groan": (-18, "sfx", "deep structural groan"), "streetcar_bell": (-25, "sfx", "distant streetcar bell"),
+    "crawler_crane": (-15, "sfx", "crawler crane engine + tracks"), "plank_step": (-15, "sfx", "shoes on wooden gangway"), "rope_creak": (-27, "sfx", "rope creak")
 }
 GEN = {
     "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
@@ -87,8 +94,11 @@ GEN = {
         "gull", "chalk_scratch", "hammer_hit", "ratchet", "shovel_dig", "crane_winch", "chain_rattle", "stone_thud", "ship_horn", "ship_engine", "bow_splash", "lock_gate",
         "water_rush", "splash_big", "truck_pass", "air_brake", "concrete_mixer", "scaffold_clatter", "excavator", "bucket_scrape", "dirt_dump", "wind_gust"]},
     "clap_soft": C.clap_soft, "cheer": lambda r: C.cheer(r, people=8), "crowd_ooh": C.crowd_ooh,
+    "phone_ring": O.phone_ring, "plug_click": O.plug_click, "key_click": O.key_click, "typewriter": O.typewriter, "coffee_clink": O.coffee_clink,
+    "office_door": O.office_door, "roller_creak": O.roller_creak, "jack_pull": O.jack_pull, "timber_thud": O.timber_thud, "steel_clank": O.steel_clank,
+    "building_groan": O.building_groan, "streetcar_bell": O.streetcar_bell, "crawler_crane": O.crawler_crane, "plank_step": O.plank_step, "rope_creak": O.rope_creak
 }
-OFFSET = {"whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
+OFFSET = {"crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
 FIXED_PAN = {"car_arrive": -0.6}
 
 ev = json.load(open(evp))["events"]
@@ -136,6 +146,8 @@ def amb_preset(name):
     elif name == "crowd": cr += bed(C.crowd_murmur, 16, -28); a += bed(C.river_bed, 17, -25) + bed(S.desert_wind, 11, -30)
     elif name == "london": a += bed(LS.london_bed, 18, -24)
     elif name == "sea": a += bed(LS.sea_bed, 19, -22)
+    elif name == "city1930": a += bed(O.city1930_bed, 21, -25)
+    elif name == "office": a += bed(O.office_bed, 22, -27)
     elif name == "room":
         from sfx_gen import breeze; a += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26)
     return a, cr
@@ -160,6 +172,8 @@ elif A.ambience == "room":
     amb += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26); bedrow("interior room tone", "room_tone", -26)
 elif A.ambience == "sea":
     amb += bed(C.river_bed, 15, -21); bedrow("sea / water bed", "water_bed", -21)
+if A.music == "office_piano":
+    mus += bed(O.office_piano, 23, -24); bedrow("sparse soft 1930s-style piano + brushes (original)", "music", -24)
 if A.music == "desert_guitar":
     mus += bed(S.desert_guitar, 13, -21); bedrow("sparse plucked desert guitar motif (original)", "music", -21)
 if not A.loop:
