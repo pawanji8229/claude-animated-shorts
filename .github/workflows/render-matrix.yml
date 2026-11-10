@@ -1,10 +1,14 @@
 name: Render (parallel matrix)
 
-# MANUAL ONLY (Actions -> "Render (parallel matrix)" -> Run workflow). Never runs on push or pull_request.
+# MANUAL ONLY. Two deliberate ways to start it (ordinary code pushes never do):
+#   1. Actions -> "Render (parallel matrix)" -> Run workflow (available once this file is on the default branch)
+#   2. edit studio/render-request.json on an experimental/** or render/** branch (works from the GitHub phone app);
+#      the run uses the composition / frames / workers / profile / audio written in that file.
 # Splits a composition's frame range across N GitHub-hosted runners (4 vCPU / 16 GB each, no GPU: WebGL runs on
 # SwiftShader), uploads every finished chunk as its own artifact the moment it is done, then joins the chunks
 # (stream copy, identical encoder settings), optionally muxes the narration-first mix, checks the result and
 # uploads the MP4. A failed chunk never discards the others: use "Re-run failed jobs".
+# Concurrency 1 per runner: SwiftShader already spreads one tab over all 4 vCPUs; measured: 2 tabs are slower.
 on:
   workflow_dispatch:
     inputs:
@@ -13,12 +17,15 @@ on:
       workers: { description: "Parallel runners", type: choice, options: ["1", "2", "4", "6", "8"], default: "2" }
       profile: { description: "Quality profile", type: choice, options: ["quick", "story", "final"], default: "final" }
       audio: { description: "Optional repo path of the mix WAV to mux (blank = silent)", type: string, default: "" }
+  push:
+    branches: ["experimental/**", "render/**"]
+    paths: ["studio/render-request.json"]
 
 permissions:
   contents: read
 
 concurrency:
-  group: render-matrix-${{ github.ref }}-${{ inputs.composition }}
+  group: render-matrix-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -26,11 +33,33 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.split.outputs.matrix }}
+      composition: ${{ steps.req.outputs.composition }}
+      frames: ${{ steps.req.outputs.frames }}
+      workers: ${{ steps.req.outputs.workers }}
+      profile: ${{ steps.req.outputs.profile }}
+      audio: ${{ steps.req.outputs.audio }}
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: studio/pipeline }
+        with:
+          sparse-checkout: |
+            studio/pipeline
+            studio/render-request.json
+      - id: req
+        env:
+          IN_COMP: ${{ inputs.composition }}
+          IN_FRAMES: ${{ inputs.frames }}
+          IN_WORKERS: ${{ inputs.workers }}
+          IN_PROFILE: ${{ inputs.profile }}
+          IN_AUDIO: ${{ inputs.audio }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            node -e 'const r=require("./studio/render-request.json"); for (const k of ["composition","frames","workers","profile","audio"]) console.log(`${k}=${r[k] ?? ""}`)' >> "$GITHUB_OUTPUT"
+          else
+            printf 'composition=%s\nframes=%s\nworkers=%s\nprofile=%s\naudio=%s\n' "$IN_COMP" "$IN_FRAMES" "$IN_WORKERS" "$IN_PROFILE" "$IN_AUDIO" >> "$GITHUB_OUTPUT"
+          fi
+          cat "$GITHUB_OUTPUT"
       - id: split
-        run: echo "matrix=$(node studio/pipeline/split_ranges.mjs '${{ inputs.frames }}' '${{ inputs.workers }}')" >> "$GITHUB_OUTPUT"
+        run: echo "matrix=$(node studio/pipeline/split_ranges.mjs '${{ steps.req.outputs.frames }}' '${{ steps.req.outputs.workers }}')" >> "$GITHUB_OUTPUT"
 
   render:
     needs: plan
@@ -61,8 +90,8 @@ jobs:
       - name: Render chunk ${{ matrix.idx }} (${{ matrix.from }}-${{ matrix.to }})
         run: |
           START=$(date +%s)
-          node pipeline/render_fast.mjs --comp "${{ inputs.composition }}" --frames "${{ matrix.from }}-${{ matrix.to }}" \
-            --profile "${{ inputs.profile }}" --batch 60 --concurrency "$(nproc)" --out "out/chunk_${{ matrix.idx }}.mp4" --resume
+          node pipeline/render_fast.mjs --comp "${{ needs.plan.outputs.composition }}" --frames "${{ matrix.from }}-${{ matrix.to }}" \
+            --profile "${{ needs.plan.outputs.profile }}" --batch 60 --concurrency 1 --out "out/chunk_${{ matrix.idx }}.mp4" --resume
           END=$(date +%s)
           N=$(( ${{ matrix.to }} - ${{ matrix.from }} + 1 ))
           echo "{\"idx\":${{ matrix.idx }},\"from\":${{ matrix.from }},\"to\":${{ matrix.to }},\"frames\":$N,\"seconds\":$((END-START)),\"cpus\":$(nproc)}" > "out/chunk_${{ matrix.idx }}.json"
@@ -86,7 +115,7 @@ jobs:
           if-no-files-found: ignore
 
   assemble:
-    needs: render
+    needs: [plan, render]
     runs-on: ubuntu-latest
     defaults:
       run: { working-directory: studio }
@@ -103,19 +132,19 @@ jobs:
           for f in $(ls chunks/chunk_*.mp4 | sed -E 's/.*chunk_([0-9]+)\.mp4/\1 &/' | sort -n | cut -d' ' -f2); do echo "file '$PWD/$f'"; done > chunks/list.txt
           cat chunks/list.txt
           ffmpeg -v error -y -f concat -safe 0 -i chunks/list.txt -c copy out_video.mp4
-          if [ -n "${{ inputs.audio }}" ]; then
-            ffmpeg -v error -y -i out_video.mp4 -i "${{ inputs.audio }}" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 320k -shortest -movflags +faststart final.mp4
+          if [ -n "${{ needs.plan.outputs.audio }}" ]; then
+            ffmpeg -v error -y -i out_video.mp4 -i "${{ needs.plan.outputs.audio }}" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 320k -shortest -movflags +faststart final.mp4
           else mv out_video.mp4 final.mp4; fi
       - name: Check frame count, black and frozen frames
         run: |
-          A=$(echo '${{ inputs.frames }}' | cut -d- -f1); B=$(echo '${{ inputs.frames }}' | cut -d- -f2); WANT=$((B-A+1))
+          A=$(echo '${{ needs.plan.outputs.frames }}' | cut -d- -f1); B=$(echo '${{ needs.plan.outputs.frames }}' | cut -d- -f2); WANT=$((B-A+1))
           GOT=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 final.mp4 | tr -d ,)
           echo "frames: got $GOT want $WANT"; test "$GOT" = "$WANT"
           ffmpeg -v info -i final.mp4 -vf "blackdetect=d=0.1:pix_th=0.05,freezedetect=n=0.001:d=1" -an -f null - 2>&1 | grep -E "black_start|freeze_start" && echo "WARNING: black/frozen segment found" || echo "no black or frozen segments"
           cat chunks/chunk_*.json | tee timings.jsonl
       - uses: actions/upload-artifact@v4
         with:
-          name: final-${{ inputs.composition }}-${{ inputs.profile }}-${{ inputs.workers }}w
+          name: final-${{ needs.plan.outputs.composition }}-${{ needs.plan.outputs.profile }}-${{ needs.plan.outputs.workers }}w
           path: |
             studio/final.mp4
             studio/timings.jsonl

@@ -1,0 +1,9 @@
+{
+  "_doc": "Editing this file on an experimental/** or render/** branch starts the parallel matrix render (.github/workflows/render-matrix.yml). Results: Actions tab -> run -> Artifacts -> final-*.",
+  "composition": "LibraryShowcase15",
+  "frames": "0-461",
+  "workers": "2",
+  "profile": "final",
+  "audio": "",
+  "request": 1
+}
