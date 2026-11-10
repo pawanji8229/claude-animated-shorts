@@ -90,7 +90,18 @@ Same 60 frames (London Bridge 1100–1159, 1080×1920), same machine, end to end
 | #1 | 2 / 2 | 25.4 and 27.7 min (231 frames each) | 38.5 min, including a 9 min apt mirror stall | 462 frames, verified |
 | #2 | 4 / 4 | 17.1, 10.5, 5.0, 14.0 min (unbalanced: scene costs differ) | **20.8 min** | 462 frames, validator PASS |
 | #3 | 4 / 8 (balanced queue) | 8 chunks: 5.7, 10.7, 5.1, 6.1, 3.7, 2.8, 7.5, 3.9 min (45.3 runner-min total) | 22.2 min (apt mirror stalls of 3-8 min on 4 runners ate the balancing gain) | 462/462 frames, 8 chunk digests verified, no black/frozen segments |
-| #4 | 4 / 8, static ffmpeg (apt skipped) | see below | see below | see below |
+| #4 | 4 / 8, apt skipped | 8 chunks: 6.1, 9.8, 6.4, 3.1, 3.7, 3.6, 4.6, 3.9 min (41.2 runner-min); system-library step 1 s | **12.9 min** | 462/462 frames, digests verified, no black/frozen segments; downloaded file verified (sha256 matches GitHub digest), validator PASS - this is the delivered `previews/v3-showcase/twistframe_v3_showcase_1080x1920.mp4` |
+
+**Run #3 vs #4** (identical content, 4 workers / 8 chunks): wall time 22.2 -> 12.9 min (-42 %); rendering itself was the same
+(45.3 vs 41.2 runner-minutes, ~5.4-5.9 s/frame); the whole difference was setup overhead (apt mirror stalls of 3-8 min on
+4 runners in run #3, 1 s in run #4). Effective throughput of run #4: 462 frames / 12.9 min = **0.60 frames/s = 1.68 s per
+frame of wall time** at 1080x1920 (vs 5.5-9.5 s/frame on this 4-core machine).
+
+**ffmpeg supply chain (final design, after run #4).** Run #4 fetched a static ffmpeg from johnvansickle.com (widely used,
+but an unpinned "release" URL with only MD5 sums). It was replaced: render jobs now join/mux with **Remotion's own ffmpeg**
+(`@remotion/compositor-linux-x64-gnu` 4.0.541, installed by `npm ci` and verified against the sha512 integrity hash in
+`package-lock.json`; tested here: concat, AAC encode, mux all work), and the assemble job uses **Ubuntu's signed apt
+ffmpeg** (needed once for blackdetect/freezedetect, which Remotion's build does not include). No third-party binary.
 
 - **Verified:** artifact SHA-256 matches GitHub's digest, 462 frames, 1080×1920, 30 fps. `validate_motion.py` found 0 cuts and 0 freezes.
 - **Run #1 found a real flaw:** a 6-frame excavator swing. It was fixed and run #2 passed.
@@ -104,7 +115,7 @@ Rendering estimates come from the measured rates; authoring time is the uncertai
 |---|---|---|---|
 | analysis, sound and mix, QC | about 2 min | about 2 min | about 2 min |
 | story preview (B, full film) | rendered at full cost | about 40 min (1.3 s/frame) | about 8–10 min |
-| final render (C) | about 4.7 h (9.5 s/frame) | about 2.7 h (5.5 s/frame) for London Bridge-type scenes; 1.5–2 h for library scenes | **about 25–30 min** (1771 × 6.1 s / 8 + setup) |
+| final render (C) | about 4.7 h (9.5 s/frame) | about 2.7 h (5.5 s/frame) for London Bridge-type scenes; 1.5–2 h for library scenes | 4 runners: **about 50 min** (run #4 rate: 1.68 s of wall time per frame); 8 runners: **about 25–30 min** (estimate) |
 | total for London Bridge V2 | about 8 h including fixes and re-renders | | |
 
 - **Render time:** the 1–2 hour target is achievable **for rendering** with 8 parallel runners.
