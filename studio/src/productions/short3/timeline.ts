@@ -93,18 +93,17 @@ const camMain = camPath([
   { f: 492, pos: [3.85, 1.45, 13.9], look: [2.6, 1.38, 11.6], fov: 25 },     // cringe close-up (face fills the upper third)
   // crane-up: the new footprint's stakes + rope run straight through the old walls; the crawler crane is coming
   { f: 520, pos: [8.0, 6.0, 20.5], look: [1.0, 3.0, 6.0], fov: 42 },
-  { f: 575, pos: [16.0, 27.0, 27.6], look: [-1.0, 1.0, -2.0], fov: 56 },    // high 3/4: the roped footprint wraps around the old block
-  { f: 612, pos: [17.0, 15.0, 22.6], look: [10.0, 3.0, 8.0], fov: 56 },       // (inside the far phone-wire line: the wires stay behind the lens)       // descending toward the street as the crane rolls up
+  { f: 575, pos: [10.0, 25.0, 25.0], look: [-1.0, 1.0, -2.0], fov: 56 },    // high 3/4: the roped footprint wraps around the old block
+  { f: 618, pos: [-1.0, 11.0, 17.8], look: [14.0, 4.0, 13.5], fov: 54 },       // descending into the street (wires behind the lens or >= 4 m ahead)       // descending toward the street as the crane rolls up
   // the crane at street level: rolls up, ball swinging; Brightwater runs out waving it off; it backs away
-  { f: 646, pos: [10.8, 2.2, 24.6], look: [14.5, 4.4, 15.5], fov: 58 },     // the crane rolls up, ball swinging over the sidewalk
-  { f: 676, pos: [11.5, 1.1, 23.5], look: [7.6, 4.3, 13.0], fov: 66 },    // low: Brightwater waving, the ball + boom looming over him
+  { f: 648, pos: [-4.0, 2.2, 17.8], look: [16.0, 5.0, 13.7], fov: 54 },     // the crane rolls up, ball swinging over the sidewalk; Brightwater runs out
+  { f: 676, pos: [1.5, 1.0, 18.2], look: [8.0, 4.0, 13.0], fov: 60 },    // low: Brightwater waving, the ball + boom looming over him
   // engineer at the trestle: plans, the idea (two-shot faces)
   { f: 718, pos: [5.0, 1.55, 15.8], look: [4.4, 1.25, 11.0], fov: 48 },
   { f: 760, pos: [4.9, 1.5, 15.2], look: [4.4, 1.3, 11.0], fov: 44 },
   // lateral track along the facade windows (hundreds still inside)
-  { f: 774, pos: [4.2, 4.6, 11.6], look: [3.6, 5.6, 9.0], fov: 48 },          // pushes in low past the trestle (phone wires stay behind the lens) ...
-  { f: 792, pos: [3.4, 9.8, 11.6], look: [3.0, 10.0, 9.0], fov: 48 },         // ... rises straight up the facade to a lit window ...
-  { f: 828, pos: [-3.0, 11.2, 13.9], look: [-3.4, 11.0, 9.0], fov: 48 },      // ... and pulls back above the wires, tracking along the lit windows
+  { f: 792, pos: [3.4, 9.6, 17.2], look: [3.0, 9.8, 9.0], fov: 48 },          // rises from the engineer straight up the facade (in front of the phone wires) ...
+  { f: 828, pos: [-3.0, 11.2, 13.9], look: [-3.4, 11.0, 9.0], fov: 48 },      // ... and tracks along the lit windows, above the wires
   { f: 856, pos: [-9.5, 12.0, 13.9], look: [-9.8, 11.8, 9.0], fov: 48 },
   // support: the truck has pulled up, crew carries timber to the cribs (wide, then close at the hands)
   { f: 900, pos: [-4.5, 2.6, 21.5], look: [-12.0, 1.2, 13.5], fov: 50 },   // truck at the kerb, crew shouldering timbers
