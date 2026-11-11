@@ -83,7 +83,8 @@ const HOOK_DZ = 6.52, HOOK_DY = -0.62;   // building z in the flash-forward at t
 const camMain = camPath([
   { f: 250, pos: [-2.56, 13.8 + HOOK_DY, 14.0 + HOOK_DZ], look: [-3.43, 13.8 + HOOK_DY, 2.5 + HOOK_DZ], fov: 20 },
   { f: 259, pos: [-2.56, 13.8 + HOOK_DY, 14.0 + HOOK_DZ], look: [-3.43, 13.8 + HOOK_DY, 2.5 + HOOK_DZ], fov: 20 },
-  { f: 278, pos: [4.8, 7.4, 19.8], look: [1.6, 4.0, 9.0], fov: 32 },
+  { f: 263, pos: [-2.56, 13.8 + HOOK_DY, 14.0 + HOOK_DZ], look: [-3.43, 13.8 + HOOK_DY, 2.5 + HOOK_DZ], fov: 20 },
+  { f: 283, pos: [3.6, 8.2, 19.8], look: [0.9, 4.6, 9.0], fov: 30 },
   // 1930: drop to the street, the entrance; Brightwater bursts out with the plans
   { f: 296, pos: [4.0, 1.95, 16.6], look: [0.4, 2.3, 8.2], fov: 40 },
   { f: 330, pos: [5.4, 1.45, 16.4], look: [2.0, 1.25, 10.8], fov: 38 },     // Brightwater + the squeezed clerks in the doorway
@@ -128,7 +129,9 @@ const camMain = camPath([
 
 /** the 1930 layer of the hook->1930 time dissolve sees the camera locked to the BUILDING (same window in register),
  *  so the two eras never show two buildings side by side; it eases back to the plain path by frame 262. */
-const camBase = (f: number): Cam => (f < T.past0 ? camHook(f) : camMain(f));
+const hookHold = (): Cam => { const c = camHook(T.past0 - 1); return { ...c, pos: [c.pos[0], c.pos[1] + HOOK_DY, c.pos[2] + HOOK_DZ], look: [c.look[0], c.look[1] + HOOK_DY, c.look[2] + HOOK_DZ] }; };
+/** after the time-dissolve the camera eases out of the held window framing (camMain's smoothing already moves at 259) */
+const camBase = (f: number): Cam => (f < T.past0 ? camHook(f) : f < T.past0 + 12 ? camMix(hookHold(), camMain(f), smooth(T.past0, T.past0 + 12, f)) : camMain(f));
 export const camExt = (f: number): Cam => {
   const base = camBase(f);
   if (f >= 1222 && f < 1362) return camMix(base, camW(camPose(f), camThrough(f)), smooth(1222, 1238, f) * (1 - smooth(1346, 1360, f)));
