@@ -24,6 +24,11 @@ export const cylGeo = (rt: number, rb: number, h: number, seg = 16, open = false
   for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * c, uv.getY(i) * h); return g;
 };
 
+/** give a merged (non-indexed) geometry a trivial index. Ink's hull calls three's toCreasedNormals(), which REWRITES the
+ *  normals of a non-indexed geometry in place: without this, every kit mesh was shaded with fully smoothed normals
+ *  (soft light/dark patches with hard edges at wall-piece boundaries and triangle diagonals). Indexed -> it copies. */
+const indexed = (g: THREE.BufferGeometry) => { if (!g.index) { const n = g.attributes.position.count, ix = new Uint32Array(n); for (let i = 0; i < n; i++) ix[i] = i; g.setIndex(new THREE.BufferAttribute(ix, 1)); } return g; };
+
 export class Kit {
   private parts = new Map<string, { mat: THREE.Material; opt: Opt; geos: THREE.BufferGeometry[] }>();
   add(mat: THREE.Material, g: THREE.BufferGeometry, p: V3 = [0, 0, 0], r: V3 = [0, 0, 0], s: V3 = [1, 1, 1], opt: Opt = {}) {
@@ -67,7 +72,7 @@ export class Kit {
   merge(k: Kit, p: V3 = [0, 0, 0], r: V3 = [0, 0, 0], s: V3 = [1, 1, 1]) { for (const e of k.parts.values()) for (const g of e.geos) this.add(e.mat, g, p, r, s, e.opt); return this; }
   private built: { geo: THREE.BufferGeometry; mat: THREE.Material; opt: Opt }[] | null = null;
   /** merged geometry per material (cached: every canvas that renders this kit shares the same buffers) */
-  build() { return (this.built ??= [...this.parts.values()].map((e) => ({ geo: mergeGeometries(e.geos, false)!, mat: e.mat, opt: e.opt }))); }
+  build() { return (this.built ??= [...this.parts.values()].map((e) => ({ geo: indexed(mergeGeometries(e.geos, false)!), mat: e.mat, opt: e.opt }))); }
 }
 
 /** render a built kit (memoise the kit with useMemo in the caller) */
