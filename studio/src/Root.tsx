@@ -2,6 +2,7 @@ import React from "react";
 import { Composition } from "remotion";
 import { Short3Film } from "./productions/short3/Film";
 import { S3Bench } from "./productions/short3/Bench";
+import { S3Audit } from "./productions/short3/Audit";
 import { FILM_FRAMES as S3_FRAMES } from "./productions/short3/world";
 import { InventorWalkIn, inventorSchema } from "./inventor/InventorWalkIn";
 import { DURATION, FPS } from "./inventor/timeline";
@@ -61,6 +62,7 @@ export const RemotionRoot: React.FC = () => (
       <Composition id="LondonBridgeFullPreview" component={LondonBridgeFull} durationInFrames={LB_FULL_FRAMES} fps={30} width={540} height={960} />
     <Composition id="LondonBridgeFull" component={LondonBridgeFull} durationInFrames={LB_FULL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Short3Preview" component={Short3Film} durationInFrames={S3_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="S3Audit" component={S3Audit} durationInFrames={1} fps={30} width={64} height={64} />
     <Composition id="S3Bench" component={S3Bench} durationInFrames={64} fps={30} width={540} height={960} />
     <Composition id="Short3" component={Short3Film} durationInFrames={S3_FRAMES} fps={30} width={1080} height={1920} />
   </>

@@ -15,33 +15,41 @@ const SW = (SIDEWALK[0] + SIDEWALK[1]) / 2;     // sidewalk centre line (z) in f
 
 // ================================================================ EXT camera (one smooth path; dissolves cover the time jumps)
 // Pace: every beat moves with purpose (push-ins on faces, tracking with action, cranes for reveals); never inside meshes.
-export const camExt = camPath([
+const camHook = camPath([
   // hook (flash-forward, building mid-move: front face at z ~ 3): low at the jacks + rollers, rise up the facade
   { f: 108, pos: [6.8, 0.95, 10.2], look: [1.2, 0.7, 4.6], fov: 44 },
-  { f: 140, pos: [5.8, 4.2, 11.6], look: [1.8, 5.2, 3.2], fov: 42 },
-  { f: 178, pos: [4.6, 13.6, 13.4], look: [3.43, 13.75, 2.5], fov: 24 },     // telephoto into a floor-3 window: the clerk works on, unaware
-  { f: 241, pos: [4.3, 13.8, 14.0], look: [3.43, 13.8, 2.5], fov: 20 },
+  { f: 132, pos: [6.0, 2.6, 11.2], look: [1.6, 3.4, 3.2], fov: 42 },
+  { f: 162, pos: [5.2, 8.6, 12.6], look: [2.6, 10.0, 3.0], fov: 32 },
+  { f: 192, pos: [4.6, 13.6, 13.4], look: [3.43, 13.75, 2.5], fov: 24 },     // telephoto into a floor-3 window: the clerk works on, unaware
+  { f: 228, pos: [4.35, 13.78, 13.9], look: [3.43, 13.8, 2.5], fov: 20 },
+  { f: 262, pos: [4.3, 13.8, 14.0], look: [3.43, 13.8, 2.5], fov: 20 },      // (held: the time dissolve is building-locked, see camExtLayer)
+], 5);
+const HOOK_DZ = 6.52, HOOK_DY = -0.62;   // building z in the flash-forward at the dissolve (1930 coords = hook coords + this)
+const camMain = camPath([
+  { f: 250, pos: [4.3, 13.8 + HOOK_DY, 14.0 + HOOK_DZ], look: [3.43, 13.8 + HOOK_DY, 2.5 + HOOK_DZ], fov: 20 },
+  { f: 259, pos: [4.3, 13.8 + HOOK_DY, 14.0 + HOOK_DZ], look: [3.43, 13.8 + HOOK_DY, 2.5 + HOOK_DZ], fov: 20 },
+  { f: 278, pos: [4.8, 7.4, 19.8], look: [1.6, 4.0, 9.0], fov: 32 },
   // 1930: drop to the street, the entrance; Brightwater bursts out with the plans
-  { f: 259, pos: [4.6, 12.0, 16.4], look: [2.0, 9.0, 9.0], fov: 34 },
-  { f: 292, pos: [4.0, 1.95, 16.6], look: [0.4, 2.3, 8.2], fov: 40 },
+  { f: 296, pos: [4.0, 1.95, 16.6], look: [0.4, 2.3, 8.2], fov: 40 },
   { f: 330, pos: [5.4, 1.45, 16.4], look: [2.0, 1.25, 10.8], fov: 38 },     // Brightwater + the squeezed clerks in the doorway
   { f: 390, pos: [4.9, 1.42, 15.4], look: [2.4, 1.3, 11.5], fov: 32 },
   { f: 440, pos: [4.4, 1.42, 14.6], look: [2.55, 1.35, 11.6], fov: 28 },
   { f: 492, pos: [3.85, 1.45, 13.9], look: [2.6, 1.38, 11.6], fov: 25 },     // cringe close-up (face fills the upper third)
   // crane-up: the new footprint's stakes + rope run straight through the old walls; the crawler crane is coming
   { f: 520, pos: [8.0, 6.0, 20.5], look: [1.0, 3.0, 6.0], fov: 42 },
-  { f: 575, pos: [6.0, 26.0, 25.6], look: [1.0, 0.0, 1.0], fov: 46 },
-  { f: 628, pos: [10.0, 30.0, 25.6], look: [4.0, 0.0, 4.0], fov: 46 },
+  { f: 575, pos: [16.0, 27.0, 27.6], look: [-1.0, 1.0, -2.0], fov: 56 },    // high 3/4: the roped footprint wraps around the old block
+  { f: 628, pos: [20.0, 24.0, 27.6], look: [1.0, 2.0, 0.0], fov: 56 },
   // the crane at street level: rolls up, ball swinging; Brightwater runs out waving it off; it backs away
-  { f: 646, pos: [6.0, 2.6, 24.6], look: [15.5, 4.6, 16.3], fov: 56 },     // the crane rolls up, ball swinging over the sidewalk
-  { f: 676, pos: [8.6, 1.15, 18.8], look: [10.4, 3.4, 12.6], fov: 64 },    // low: Brightwater waving, the ball + boom looming over him
-  { f: 704, pos: [8.2, 1.4, 17.8], look: [10.0, 2.6, 12.8], fov: 50 },
+  { f: 646, pos: [9.5, 2.2, 24.8], look: [16.5, 4.4, 16.3], fov: 58 },     // the crane rolls up, ball swinging over the sidewalk
+  { f: 676, pos: [11.5, 1.1, 23.5], look: [6.6, 4.3, 13.0], fov: 66 },    // low: Brightwater waving, the ball + boom looming over him
+  { f: 704, pos: [11.0, 1.3, 21.6], look: [7.6, 2.6, 12.8], fov: 56 },
   // engineer at the trestle: plans, the idea (two-shot faces)
-  { f: 718, pos: [4.7, 1.6, 18.8], look: [3.95, 1.25, 11.3], fov: 37 },
-  { f: 760, pos: [4.5, 1.55, 17.4], look: [3.95, 1.3, 11.3], fov: 35 },
+  { f: 718, pos: [5.0, 1.55, 15.8], look: [4.4, 1.25, 11.0], fov: 48 },
+  { f: 760, pos: [4.9, 1.5, 15.2], look: [4.4, 1.3, 11.0], fov: 44 },
   // lateral track along the facade windows (hundreds still inside)
-  { f: 790, pos: [-9.5, 10.2, 17.5], look: [-7.5, 9.8, 9.0], fov: 50 },
-  { f: 866, pos: [9.0, 11.0, 17.5], look: [7.6, 10.6, 9.0], fov: 50 },
+  { f: 790, pos: [-9.5, 10.1, 13.9], look: [-8.2, 9.9, 9.0], fov: 48 },
+  { f: 828, pos: [0.0, 11.9, 13.9], look: [0.6, 11.8, 9.0], fov: 48 },
+  { f: 866, pos: [9.0, 13.7, 13.9], look: [8.4, 13.6, 9.0], fov: 48 },
   // support: the truck has pulled up, crew carries timber to the cribs (wide, then close at the hands)
   { f: 884, pos: [-4.0, 2.4, 22.0], look: [-12.0, 1.2, 13.5], fov: 50 },   // truck at the kerb, crew shouldering timbers
   { f: 925, pos: [6.4, 1.3, 15.0], look: [0.8, 0.6, 10.2], fov: 42 },
@@ -50,8 +58,8 @@ export const camExt = camPath([
   { f: 1000, pos: [6.6, 1.25, 14.6], look: [0.6, 0.9, 9.6], fov: 42 },
   { f: 1080, pos: [4.6, 1.6, 13.8], look: [-1.4, 1.3, 7.8], fov: 42 },
   // aerial over the street: slide back, turn 90 deg, slide sideways (time-lapse)
-  { f: 1112, pos: [10.0, 40.0, 25.8], look: [-8.0, 0.0, -6.0], fov: 50 },
-  { f: 1213, pos: [2.0, 44.0, 25.8], look: [-17.0, 0.0, -12.0], fov: 50 },
+  { f: 1112, pos: [6.0, 62.0, 26.4], look: [-10.0, 0.0, -8.0], fov: 54 },
+  { f: 1213, pos: [-4.0, 66.0, 26.4], look: [-18.0, 0.0, -12.0], fov: 54 },
   // (INT 1213-1340) then: finished, new position + the new HQ steel rising on the old site
   { f: 1330, pos: [10.0, 11.0, 23.5], look: [-16.0, 6.0, -12.0], fov: 46 },
   { f: 1447, pos: [2.0, 7.5, 18.0], look: [-19.0, 5.0, -15.0], fov: 42 },
@@ -59,6 +67,14 @@ export const camExt = camPath([
   { f: 1465, pos: [-8.0, 2.3, -8.5], look: [-19.5, 1.8, -15.5], fov: 42 },
   { f: 1530, pos: [-9.6, 2.2, -10.4], look: [-20.0, 1.9, -15.8], fov: 38 },
 ], 5);
+
+/** the 1930 layer of the hook->1930 time dissolve sees the camera locked to the BUILDING (same window in register),
+ *  so the two eras never show two buildings side by side; it eases back to the plain path by frame 262. */
+export const camExt = (f: number): Cam => (f < T.past0 ? camHook(f) : camMain(f));
+export const camExtLayer = (f: number, timeLayer: boolean): Cam => {
+  if (!timeLayer || f >= T.past0) return camExt(f);
+  const c = camHook(f); return { ...c, pos: [c.pos[0], c.pos[1] + HOOK_DY, c.pos[2] + HOOK_DZ], look: [c.look[0], c.look[1] + HOOK_DY, c.look[2] + HOOK_DZ] };
+};
 
 // ================================================================ rig / equipment schedule
 /** 0 none .. 1 complete; cribbing is carried in one by one during "workers carefully supported the building".
@@ -96,13 +112,25 @@ export const CRANE_Z = STREET[0] + 3.3;
 export const craneAt = (f: number) => {
   const off = { on: false, x: 90, z: CRANE_Z, phase: 0, yaw: 0, swing: 0, swingZ: 0, rope: 8.5 };
   if (f < 540 || f > T.windows0 + 30) return off;
-  const X = (g: number) => lerp(lerp(48, 17, smooth(540, T.wreckWave - 6, g)), 64, smooth(T.wreckBack + 4, T.windows0 + 26, g));
+  const X = (g: number) => lerp(lerp(28, 17, smooth(540, T.wreckWave - 6, g)), 40, smooth(T.wreckBack - 4, T.windows0 + 20, g));
   const x = X(f), v = X(f + 1) - x, a = X(f + 1) - 2 * x + X(f - 1);
-  const yaw = -0.5 * (smooth(T.wreckWave - 24, T.wreckWave - 4, f) - smooth(T.wreckWave + 18, T.wreckBack + 6, f));
-  const yawV = -0.5 * ((smooth(T.wreckWave - 23, T.wreckWave - 3, f) - smooth(T.wreckWave + 19, T.wreckBack + 7, f)) - (smooth(T.wreckWave - 24, T.wreckWave - 4, f) - smooth(T.wreckWave + 18, T.wreckBack + 6, f)));
-  const swing = 0.16 * Math.sin(f * 0.105) * (0.35 + Math.min(1, Math.abs(v) * 3)) - a * 40 - v * 0.25, swingZ = 0.12 * Math.sin(f * 0.09 + 1) + yawV * 6;
-  return { on: true, x, z: CRANE_Z, phase: 48 - x, yaw, swing, swingZ, rope: 8.5 };
+  const Y = (g: number) => -0.24 * (smooth(T.wreckWave - 24, T.wreckWave - 4, g) - smooth(T.wreckWave + 18, T.wreckBack, g));
+  const yaw = Y(f), yawV = Y(f + 1) - Y(f);
+  void v; void a; void yawV; const sw = craneSwing(f);
+  return { on: true, x, z: CRANE_Z, phase: 28 - x, yaw, swing: sw[0], swingZ: sw[1], rope: 8.5 };
 };
+/** wrecking-ball pendulum (rope 8.5 m), integrated deterministically from frame 540: driven by the crane's travel
+ *  acceleration (fore-aft) and the slew acceleration at the boom tip (sideways), lightly damped; plus a tiny wind sway */
+const SWING: [number, number][] = (() => {
+  const X = (g: number) => lerp(lerp(28, 17, smooth(540, T.wreckWave - 6, g)), 40, smooth(T.wreckBack - 4, T.windows0 + 20, g));
+  const Y = (g: number) => -0.24 * (smooth(T.wreckWave - 24, T.wreckWave - 4, g) - smooth(T.wreckWave + 18, T.wreckBack, g));
+  const L = 8.5, gr = 9.81, dt = 1 / 30, out: [number, number][] = []; let th = 0.05, w = 0, ph = 0, pw = 0;
+  for (let g = 540; g <= 830; g++) { out.push([th, ph]);
+    const ax = -(X(g + 1) - 2 * X(g) + X(g - 1)) / (dt * dt), az = 10.7 * (Y(g + 1) - 2 * Y(g) + Y(g - 1)) / (dt * dt);   // crane forward = -x world
+    for (let k = 0; k < 4; k++) { const h = dt / 4; w += (-(gr / L) * Math.sin(th) - 0.9 * w - (ax / L) * Math.cos(th) + 0.02 * Math.sin(g * 0.07)) * h; th += w * h;
+      pw += (-(gr / L) * Math.sin(ph) - 0.9 * pw - (az / L) * Math.cos(ph)) * h; ph += pw * h; } }
+  return out; })();
+export const craneSwing = (f: number): [number, number] => SWING[Math.max(0, Math.min(SWING.length - 1, Math.round(f) - 540))];
 
 // ================================================================ characters
 export type Placed = { pose: Odo5Pose; pos: V3; h: number; flip?: boolean; light?: number; halo?: number; carry?: { a: V3; b: V3 } };

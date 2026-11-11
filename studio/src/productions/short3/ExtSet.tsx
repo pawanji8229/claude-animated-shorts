@@ -64,11 +64,11 @@ export const ExtSet: React.FC<{ from: number; worldMin?: number }> = ({ from, wo
   const f = useCurrentFrame() + from, wf = Math.max(f, worldMin ?? -1e9);   // wf = world time (a time-dissolve layer can start later than the camera)
   const { width, height } = useVideoConfig();
   const hi = height >= 1500, k = height / 1920;
-  const c = TL.camExt(f);
+  const c = TL.camExtLayer(f, worldMin !== undefined && f < 262);
   const M = archMats();
   const b = bldAt(wf), rig = TL.rigBuild(wf), lift = rig > 0.5 ? 0.62 : 0;
   const sun = sunAt(wf), sunPos: V3 = [lerp(-58, -80, sun), lerp(96, 46, sun), lerp(42, 26, sun)];
-  const people = TL.extPeople(wf, c.pos), win = TL.windowPeople(wf), peds = L.pedsAt(wf);
+  const people = TL.extPeople(wf, c.pos), win = TL.windowPeople(f < T.past0 + 30 ? f : wf), peds = L.pedsAt(wf);
   const cr = TL.craneAt(wf), hq = TL.hqRise(wf), stakes = TL.stakesOn(wf), truck = L.truckAt(wf), stc = L.streetcarAt(wf);
   const toBld = (lp: V3): V3 => { const cs = Math.cos(b.ry), sn = Math.sin(b.ry); return [b.p[0] + lp[0] * cs + lp[2] * sn, lp[1] + lift, b.p[2] - lp[0] * sn + lp[2] * cs]; };
   return (
@@ -102,8 +102,9 @@ export const ExtSet: React.FC<{ from: number; worldMin?: number }> = ({ from, wo
           {/* footprint of the planned new HQ: stakes + rope at knee height, running straight through the old walls */}
           {stakes > 0 && <group>{TL.stakePoints().map((p, i, a) => { const q = a[(i + 1) % a.length]; const vis = i / a.length < stakes; return vis ? <group key={i}>
             <mesh position={[p[0], 0.45, p[2]]} material={M.timber} castShadow><boxGeometry args={[0.07, 0.9, 0.07]} /><Ink k={0.5} /></mesh>
-            <mesh position={[p[0], 0.93, p[2]]} material={M.red}><boxGeometry args={[0.09, 0.08, 0.09]} /></mesh>
-            <Rod a={[p[0], 0.75, p[2]]} b={[q[0], 0.75, q[2]]} r={0.014} m={M.cream} shadow={false} />
+            <mesh position={[p[0] + 0.12, 0.84, p[2]]} material={M.red}><boxGeometry args={[0.24, 0.14, 0.01]} /></mesh>
+            <Rod a={[p[0], 0.75, p[2]]} b={[q[0], 0.75, q[2]]} r={0.03} m={M.cream} shadow={false} />
+            <Rod a={[p[0], 0.06, p[2]]} b={[q[0], 0.06, q[2]]} r={0.06} m={M.red} shadow={false} />
           </group> : null; })}</group>}
           {/* new HQ steel frame rising on the old site */}
           {hq > 0 && <HQSteel hq={hq} />}

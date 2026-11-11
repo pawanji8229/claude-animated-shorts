@@ -80,3 +80,32 @@ export const KitMesh: React.FC<{ kit: Kit; inkScale?: number }> = ({ kit, inkSca
     {p.opt.ink !== false && <Ink k={(p.opt.ink ?? 0.7) * inkScale} />}
   </mesh>)}</>;
 };
+
+/** z-fighting audit: finds faces of DIFFERENT parts that lie in the same axis-aligned plane, face the same way (not
+ *  undersides) and truly overlap (triangle-triangle SAT test) -> both visible at the same depth -> flicker. */
+export const auditCoplanar = (kit: Kit, minArea = 4e-4, opts: { skip?: (ax: number, sgn: number, plane: number) => boolean } = {}) => {
+  type Tri = { pid: number; p: [number, number][]; a0: number; a1: number; b0: number; b1: number };
+  const groups = new Map<string, Tri[]>(); let pid = 0;
+  const parts = (kit as unknown as { parts: Map<string, { geos: THREE.BufferGeometry[] }> }).parts;
+  for (const e of parts.values()) for (const g of e.geos) { pid++;
+    const pos = g.attributes.position as THREE.BufferAttribute;
+    for (let i = 0; i < pos.count; i += 3) {
+      const A = new THREE.Vector3().fromBufferAttribute(pos, i), B = new THREE.Vector3().fromBufferAttribute(pos, i + 1), C = new THREE.Vector3().fromBufferAttribute(pos, i + 2);
+      const n = B.clone().sub(A).cross(C.clone().sub(A)); const len = n.length(); if (len < 1e-9) continue; n.divideScalar(len);
+      const ax = Math.abs(n.x) > 0.999 ? 0 : Math.abs(n.y) > 0.999 ? 1 : Math.abs(n.z) > 0.999 ? 2 : -1; if (ax < 0) continue;
+      const sgn = Math.sign([n.x, n.y, n.z][ax]); if (ax === 1 && sgn < 0) continue;            // undersides are never seen
+      if (opts.skip?.(ax, sgn, [A.x, A.y, A.z][ax])) continue;
+      const pl = Math.round([A.x, A.y, A.z][ax] * 1000) / 1000, u = (ax + 1) % 3, v = (ax + 2) % 3;
+      const p = [A, B, C].map((q) => { const c = [q.x, q.y, q.z]; return [c[u], c[v]] as [number, number]; });
+      const t: Tri = { pid, p, a0: Math.min(p[0][0], p[1][0], p[2][0]), a1: Math.max(p[0][0], p[1][0], p[2][0]), b0: Math.min(p[0][1], p[1][1], p[2][1]), b1: Math.max(p[0][1], p[1][1], p[2][1]) };
+      const key = `${ax}|${sgn}|${pl}`; (groups.get(key) ?? groups.set(key, []).get(key)!).push(t);
+    } }
+  const sep = (P: [number, number][], Q: [number, number][]) => { for (const S of [P, Q]) for (let i = 0; i < 3; i++) { const a = S[i], b = S[(i + 1) % 3], nx = b[1] - a[1], ny = a[0] - b[0];
+    const pr = (T: [number, number][]) => T.map((q) => q[0] * nx + q[1] * ny); const x = pr(P), y = pr(Q); if (Math.max(...x) <= Math.min(...y) + 1e-4 || Math.max(...y) <= Math.min(...x) + 1e-4) return true; } return false; };
+  const hits: { plane: string; area: number; at: [number, number] }[] = [];
+  for (const [g, ts] of groups) { ts.sort((p, q) => p.a0 - q.a0);
+    for (let i = 0; i < ts.length; i++) for (let j = i + 1; j < ts.length && ts[j].a0 < ts[i].a1; j++) { const p = ts[i], q = ts[j]; if (p.pid === q.pid) continue;
+      const w = Math.min(p.a1, q.a1) - Math.max(p.a0, q.a0), h = Math.min(p.b1, q.b1) - Math.max(p.b0, q.b0);
+      if (w > 0.004 && h > 0.004 && w * h > minArea && !sep(p.p, q.p)) { const [ax, sg, pl] = g.split("|"); hits.push({ plane: `${"xyz"[+ax]}${sg === "1" ? "+" : "-"}=${pl}`, area: +(w * h).toFixed(4), at: [+(Math.max(p.a0, q.a0)).toFixed(2), +(Math.max(p.b0, q.b0)).toFixed(2)] }); } } }
+  return hits.sort((a, b) => b.area - a.area);
+};

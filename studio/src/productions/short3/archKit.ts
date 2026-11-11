@@ -118,7 +118,7 @@ export type WinStyle = { frame: THREE.Material; panes: 1 | 2 | 3; blind: number;
 export const windowUnit = (k: Kit, M: AM, cx: number, y0: number, w: number, h: number, s: WinStyle, depth = 0.17) => {
   const zf = -depth, F = s.frame, xa = cx - w / 2, xb = cx + w / 2;
   // outer frame (jambs + head + sub-sill) sits inside the reveal, 1 cm clear of the reveal faces
-  k.span(F, [xa + 0.01, y0 + 0.02, zf - 0.06], [xa + 0.09, y0 + h - 0.01, zf + 0.05]); k.span(F, [xb - 0.09, y0 + 0.02, zf - 0.06], [xb - 0.01, y0 + h - 0.01, zf + 0.05]);
+  k.span(F, [xa + 0.01, y0 + 0.08, zf - 0.06], [xa + 0.09, y0 + h - 0.1, zf + 0.05]); k.span(F, [xb - 0.09, y0 + 0.08, zf - 0.06], [xb - 0.01, y0 + h - 0.1, zf + 0.05]);
   k.span(F, [xa + 0.01, y0 + h - 0.1, zf - 0.06], [xb - 0.01, y0 + h - 0.01, zf + 0.05]);
   k.span(F, [xa + 0.01, y0 + 0.02, zf - 0.06], [xb - 0.01, y0 + 0.08, zf + 0.07]);
   const iw = w - 0.18, x0 = cx - iw / 2, ya = y0 + 0.08, yt = y0 + h - 0.1, ih = yt - ya, half = ih / 2;

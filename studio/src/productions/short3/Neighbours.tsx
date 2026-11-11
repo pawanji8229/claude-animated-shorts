@@ -56,7 +56,7 @@ const shopfront = (k: Kit, M: AM, s: NSpec, sh: Shop, w: number, H0: number) => 
   // display windows: stall riser, glass, mullions, prism transom; recessed door (left or centre)
   const dW = 1.1, dX = s.seed % 2 ? 0.55 : w / 2 - dW / 2, y0 = 0.62, yT = H0 - 1.25;
   for (const [a, b] of [[0.36, dX], [dX + dW, w - 0.36]] as [number, number][]) { if (b - a < 0.3) continue;
-    k.span(M.frameGreen, [a, 0.16, -0.08], [b, y0, 0.06]); k.span(M.frameGreen, [a, y0 - 0.04, -0.1], [b, y0, 0.08]);
+    k.span(M.frameGreen, [a, 0.16, -0.08], [b, y0, 0.06]); k.span(M.frameGreen, [a, y0 - 0.04, -0.1], [b, y0 + 0.02, 0.08]);
     k.plane(M.glass, b - a - 0.08, yT - y0, [(a + b) / 2, (y0 + yT) / 2, -0.03]);
     for (let m = 1; m < Math.round((b - a) / 1.3); m++) { const x = a + ((b - a) * m) / Math.round((b - a) / 1.3); k.span(M.frameGreen, [x - 0.03, y0, -0.06], [x + 0.03, yT, 0.0]); }
     k.span(M.frameGreen, [a, yT, -0.07], [b, yT + 0.08, 0.02]); k.plane(M.frosted, b - a - 0.08, H0 - 0.68 - yT - 0.08, [(a + b) / 2, (yT + 0.08 + H0 - 0.68) / 2, -0.03]);

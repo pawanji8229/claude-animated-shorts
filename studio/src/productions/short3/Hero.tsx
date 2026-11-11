@@ -105,8 +105,9 @@ const interiors = (M: AM) => {
   }
   // core (stairs, lifts, corridors — unlit, closes every view through the building)
   const LZ0 = 2.1, LX = BW / FRONT_BAYS * 1.5 - 0.06;   // lobby: x within bays 2-4, z from the core front to the facade
-  k.span(M.plasterC, [-hx + 3.0, BASE_H - 0.05, -hz + ROOM_D], [hx - 3.0, floorY(1) - 0.3, LZ0], { ink: false });
-  k.span(M.plasterC, [-hx + 3.0, floorY(1) - 0.3, -hz + ROOM_D], [hx - 3.0, BH - 0.6, hz - ROOM_D], { ink: false });
+  const CI = 0.14;   // core inset: never coplanar with a room's back wall
+  k.span(M.plasterC, [-hx + 3.0 + CI, BASE_H - 0.05, -hz + ROOM_D + CI], [hx - 3.0 - CI, floorY(1) - 0.3, LZ0 - 0.12], { ink: false });
+  k.span(M.plasterC, [-hx + 3.0 + CI, floorY(1) - 0.3, -hz + ROOM_D + CI], [hx - 3.0 - CI, BH - 0.6, hz - ROOM_D - CI], { ink: false });
   // ground-storey lobby behind the entrance (lit): marble floor, walls, elevator doors, reception desk + phone
   const LH = FLOOR_H - 0.32;
   k.span(M.sandTrim, [-LX, BASE_H - 0.05, LZ0], [LX, BASE_H + 0.02, hz - 0.02], { ink: false });                        // marble floor
