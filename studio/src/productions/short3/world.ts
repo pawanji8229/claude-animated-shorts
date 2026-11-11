@@ -38,7 +38,7 @@ export const NEW_HQ = { x0: -14.5, x1: 14.5, z0: -15, z1: 11 };   // footprint o
 export const sunAt = (f: number) => f >= T.aerial0 ? smooth(T.aerial0, T.slide3End, f) : 0; // 0 noon -> 1 late afternoon (held after the move)
 
 /** sun position (offset from the scene centre, world space) - shared by both sets */
-export const sunWorld = (f: number): V3 => { const s = sunAt(f); return [lerp(-58, -80, s), lerp(96, 46, s), lerp(42, 26, s)]; };
+export const sunWorld = (f: number): V3 => { const s = sunAt(f); return [lerp(-58, 42, s), lerp(96, 66, s), lerp(42, 58, s)]; };   // swings with the 90 deg turn: same light on the front (and through the windows) after the move as at frame 0
 
 /** opacity cross-dissolves between the two sets (frames) */
 export const XF = { intExt: [102, 110], past: [241, 259], extInt: [1280, 1288], intExt2: [1316, 1324], loop: [1553, 1561] } as const;
