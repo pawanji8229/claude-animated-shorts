@@ -13,7 +13,7 @@ import { InkCtx } from "../../inventor/Workshop";
 import { V3, lerp } from "../../lib/math";
 import { SetRig, RenderAfterMount, Toon, cardWorld } from "../london-bridge/common";
 import { headCenterPx5, shoulderPx5, HEAD5 } from "../../char/odo5";
-import { BW, BD, T } from "./world";
+import { BW, BD, T, bldAt, sunWorld, sunAt } from "./world";
 import * as TL from "./timeline";
 import { Kit, KitMesh, once } from "./kit";
 import { archMats, wallRect, windowUnit } from "./archKit";
@@ -25,12 +25,15 @@ import { SkyEnv } from "./SkyEnv";
 import { DeskPhone, switchboardKit, PlugCord, POS_W } from "./Phone";
 import * as Lf from "./life";
 
-export const Y0 = floorY(2);                                   // room floor (building-local)
+export const Y0 = floorY(2);
+/** the room's window blinds; bays 1-3 have the lower sash fully raised (the camera flies through them). The hero facade uses the same. */
+export { ROOM_BLINDS } from "./Hero";
+import { ROOM_BLINDS } from "./Hero";                                   // room floor (building-local)
 const RX0 = -11.4, RX1 = 5.0, RZ0 = 2.0, RZ1 = BD / 2 - 0.5, CEIL = 3.38;
 export const BOARD = { x: -10.75, z0: 2.95 };
 export const DESK_M: V3 = [-6.0, Y0, 5.6], DESK_F: V3 = [-2.9, Y0, 5.0], PHONE_M: V3 = [-5.62, Y0 + 0.775, 5.32];
 
-const roomKit = () => once("intRoom", () => {
+export const roomKit = (withWall = true) => once(withWall ? "intRoom" : "intRoomNoWall", () => {
   const M = archMats(), k = new Kit(), y = Y0;
   k.span(M.floorWood, [RX0, y - 0.06, RZ0], [RX1, y + 0.02, RZ1], { ink: false });
   k.span(M.ceiling, [RX0, y + CEIL, RZ0], [RX1, y + CEIL + 0.06, RZ1], { ink: false });
@@ -46,8 +49,11 @@ const roomKit = () => once("intRoom", () => {
   // window wall: plaster wall with openings (face-local, outer face z = BD/2), detailed windows, stools, radiators
   const fw = new Kit(), cxs = Array.from({ length: 7 }, (_, b) => -BW / 2 + (BW / 7) * (b + 0.5));
   const holes = cxs.map((cx) => ({ x0: cx - WIN_W / 2, x1: cx + WIN_W / 2, y0: y + SILL, y1: y + SILL + WIN_H }));
-  wallRect(fw, M.plaster, RX0 - 0.12, RX1 + 0.12, y - 0.06, y + CEIL + 0.06, -0.5, 0, holes, { ink: false });
-  cxs.forEach((cx, b) => { if (cx + WIN_W / 2 < RX0 || cx - WIN_W / 2 > RX1) return; windowUnit(fw, M, cx, y + SILL, WIN_W, WIN_H, { frame: M.frameGreen, panes: 2, blind: [0.25, 0.0, 0.35, 0.0, 0.2][b] ?? 0, open: b === 2 ? 0.45 : 0 });
+  // INT: the full window wall (plaster, 0.5 m) + windows. EXT: the hero facade supplies wall + windows; the room only adds a
+  // 2 cm plaster lining on its inner face (so both sets show the same plaster wall from inside) + the stools and radiators
+  if (withWall) wallRect(fw, M.plaster, RX0 - 0.12, RX1 + 0.12, y - 0.06, y + CEIL + 0.06, -0.5, 0, holes, { ink: false });
+  else wallRect(fw, M.plaster, RX0, RX1, y + 0.02, y + CEIL, -0.52, -0.5, holes, { ink: false });
+  cxs.forEach((cx, b) => { if (cx + WIN_W / 2 < RX0 || cx - WIN_W / 2 > RX1) return; if (withWall) windowUnit(fw, M, cx, y + SILL, WIN_W, WIN_H, { frame: M.frameGreen, panes: 2, blind: ROOM_BLINDS[b] ?? 0, open: b >= 1 && b <= 3 ? 1.0 : 0 });
     fw.span(M.furn, [cx - WIN_W / 2 - 0.1, y + SILL - 0.04, -0.62], [cx + WIN_W / 2 + 0.1, y + SILL + 0.01, -0.48]);
     // cast-iron column radiator + pipes
     for (let c = 0; c < 12; c++) fw.span(M.ironPaint, [cx - 0.55 + c * 0.093, y + 0.08, -0.78], [cx - 0.55 + c * 0.093 + 0.07, y + 0.62, -0.62]);
@@ -90,67 +96,87 @@ const pendantKit = () => once("pendant", () => { const M = archMats(), k = new K
 const fanKit = () => once("fan", () => { const M = archMats(), k = new Kit(); for (let b = 0; b < 4; b++) { const a = (b / 4) * Math.PI * 2; k.box(M.timberDk, [0.62, 0.012, 0.13], [Math.cos(a) * 0.42, 0, -Math.sin(a) * 0.42], [0, a, 0.08]); } k.lathe(M.brass, [[0, 0.06], [0.12, 0.04], [0.12, -0.04], [0.05, -0.08], [0, -0.08]], [0, 0, 0], 16); return k; });
 const headsetKit = () => once("headset", () => { const M = archMats(), k = new Kit(); k.torus(M.black, 1.0, 0.035, [0, 0, 0], [0, 0, 0], Math.PI, { ink: 0.3 }); k.cyl(M.black, 0.16, 0.16, 0.08, [1.0, -0.02, 0], [0, 0, Math.PI / 2], 14, { ink: 0.4 }); return k; });
 
-/** the building pose used for the interior: hook = the flash-forward creep; "meanwhile" = mid-move creep; loop end = hook */
-const intBld = (f: number) => { if (f < T.past0) return { p: [0, 0, -6.0 - 0.5 * (f / T.hookEnd)] as V3, ry: 0, sway: 1 }; return { p: [0, 0, -3.0 - 0.004 * (f - T.int2_0)] as V3, ry: 0, sway: 1 }; };
+/** building pose for the interior (matches the EXT set exactly, incl. the 0.62 m ride on cribbing + rollers):
+ *  hook / loop pre-roll = the flash-forward creep; "meanwhile" (1213-1340) = the building at its new position (turned 90 deg) */
+export const intPose = (f: number): { p: V3; ry: number; sway: number } => {
+  if (f < T.past0) return { p: [0, TL.LIFT_H, -6.0 - 0.5 * (f / T.hookEnd)], ry: 0, sway: 1 };
+  const b = bldAt(f); return { p: [b.p[0], TL.liftAt(f), b.p[2]], ry: b.ry, sway: 0.5 };
+};
+export const toWorld = TL.toWorld, toLocal = TL.toLocal;
 
-export const IntSet: React.FC<{ from: number }> = ({ from }) => {
-  const fRaw = useCurrentFrame() + from, f = fRaw;            // negative frames = the loop pre-roll that flows into frame 0
-  const { width, height } = useVideoConfig();
-  const hi = height >= 1500, k = height / 1920;
-  const b = intBld(f), cl = TL.camInt(f < 0 ? 1564 + f : f);
-  const W = (p: V3): V3 => [b.p[0] + p[0], p[1], b.p[2] + p[2]];          // building-local -> world (no rotation inside)
-  const c = { ...cl, pos: W([cl.pos[0], cl.pos[1] + Y0, cl.pos[2]]), look: W([cl.look[0], cl.look[1] + Y0, cl.look[2]]) };
-  const tw = f < 0 ? 1564 + f : f;                              // timeline frame for the acting (loop pre-roll = end of film)
+/** the switchboard room + everyone in it, in building-local coordinates (placed by the caller's pose group).
+ *  Used by the INT set and - with the facade's own window wall - by the EXT set, so a camera can fly through a window
+ *  from one set into the other and both show the same room. camL = camera position in building-local coordinates. */
+export const Room: React.FC<{ f: number; tw: number; camL: V3; hi: boolean; wall: boolean; sway: number; people?: boolean }> = ({ f, tw, camL, hi, wall, sway: swayAmp, people = true }) => {
   const ops = Array.from({ length: 5 }, (_, i) => TL.opAt(i, tw));
   const mab = TL.mabelAt(tw), fin = TL.finchAt(tw);
-  const sway = (s: number) => Math.sin(f * 0.07 + s) * 0.035 * b.sway;
+  const sway = (s: number) => Math.sin(f * 0.07 + s) * 0.035 * swayAmp;
   const M = archMats();
+  const mabPos: V3 = [DESK_M[0], Y0 - 0.02, DESK_M[2] + 0.82];
   // handset in Mabel's hand (screen-left hand near her ear), else in the cradle
-  const mabPos = W([DESK_M[0], Y0 - 0.02, DESK_M[2] + 0.82]);
   const held = mab.lift > 0.02 ? (() => { const sh = shoulderPx5(mab.pose, -1), hp: [number, number] = [sh[0] + mab.pose.armL.hand[0], sh[1] + mab.pose.armL.hand[1]];
-    const hw = cardWorld(mabPos, c.pos, hp, 1.5, 0.08), cradle = W([PHONE_M[0], PHONE_M[1] + 0.228, PHONE_M[2] - 0.02]); const yaw = Math.atan2(c.pos[0] - mabPos[0], c.pos[2] - mabPos[2]);
+    const hw = cardWorld(mabPos, camL, hp, 1.5, 0.08), cradle: V3 = [PHONE_M[0], PHONE_M[1] + 0.228, PHONE_M[2] - 0.02]; const yaw = Math.atan2(camL[0] - mabPos[0], camL[2] - mabPos[2]);
     const u = Math.min(1, mab.lift); return { p: [lerp(cradle[0], hw[0], u), lerp(cradle[1], hw[1], u), lerp(cradle[2], hw[2], u)] as V3, r: [0, yaw, lerp(0, -Math.PI / 2 + 0.3, u)] as V3 }; })() : null;
+  return (<group>
+    {[[-8.6, 4.2], [-4.0, 4.4], [0.4, 4.6]].map(([x, z], i) => <pointLight key={i} position={[x, Y0 + CEIL - 1.1, z]} color="#ffd9a8" intensity={5} distance={8} decay={1.6} />)}
+    <pointLight position={[-6.2, Y0 + 1.9, 4.0]} color="#ffe8cc" intensity={2.5} distance={5} decay={1.6} />
+    <pointLight position={[DESK_M[0] - 0.5, Y0 + 1.15, DESK_M[2] + 0.1]} color="#ffd59a" intensity={1.6} distance={2.2} decay={1.8} />
+    <KitMesh kit={roomKit(wall)} />
+    <group position={[BOARD.x, Y0, BOARD.z0]}><KitMesh kit={switchboardKit(5)} />
+      {ops.map((o, i) => o.cords.map((cd, j) => <PlugCord key={`${i}${j}`} from={[0.0, 0.9, i * POS_W + 0.15 + cd.slot * 0.1]} to={[-0.42, cd.y, i * POS_W + 0.1 + cd.col * 0.04]} />))}
+      {ops.map((o, i) => <mesh key={`l${i}`} position={[-0.41, 1.12 + (i % 2) * 0.3, i * POS_W + 0.5]} material={o.ring ? M.lamp : M.lampDim} scale={o.ring || o.plugged ? 1 : 0.6}><sphereGeometry args={[0.022, 8, 6]} /></mesh>)}
+    </group>
+    {[[-8.6, 4.2], [-4.0, 4.4], [0.4, 4.6]].map(([x, z], i) => <group key={i} position={[x, Y0 + CEIL, z]} rotation={[sway(i * 1.7), 0, sway(i * 2.3 + 1)]}><KitMesh kit={pendantKit()} /></group>)}
+    <group position={[-6.6, Y0 + CEIL - 0.42, 6.9]}><mesh position={[0, 0.2, 0]} material={M.brass}><cylinderGeometry args={[0.015, 0.015, 0.4, 6]} /></mesh><group rotation={[0, f * 0.16, 0]}><KitMesh kit={fanKit()} /></group></group>
+    {/* coffee cup on Mabel's desk: the surface trembles with the move */}
+    <group position={[DESK_M[0] - 0.12, Y0 + 0.78, DESK_M[2] + 0.05]}><mesh position={[0, 0.045, 0]} material={M.frameWhite} castShadow><cylinderGeometry args={[0.042, 0.034, 0.09, 16, 1, true]} /></mesh><mesh position={[0, 0.002, 0]} material={M.frameWhite}><cylinderGeometry args={[0.07, 0.07, 0.006, 16]} /></mesh>
+      <mesh position={[0, 0.075 + Math.sin(f * 1.3) * 0.002 * swayAmp, 0]} rotation={[-Math.PI / 2 + Math.sin(f * 0.9) * 0.05 * swayAmp, 0, 0]}><circleGeometry args={[0.039, 16]} /><meshStandardMaterial color="#3a2414" roughness={0.15} /></mesh></group>
+    <DeskPhone p={PHONE_M} ry={-0.35} ring={mab.ring} f={f} held={held} />
+    {people && <>
+      {/* operators with headsets */}
+      {ops.map((o, i) => { const pos: V3 = [BOARD.x + 0.85, Y0 + 0.05, BOARD.z0 + POS_W * (i + 0.5)]; const hc = headCenterPx5(o.pose), hw = cardWorld(pos, camL, hc, 1.48, 0.03), r = (HEAD5.rx / 1000) * 1.48 * 1.04, yaw = Math.atan2(camL[0] - pos[0], camL[2] - pos[2]);
+        return <group key={i}><Toon pose={o.pose} pos={pos} cam={camL} h={1.48} hi={hi} light={i === 0 ? 1.5 : 0.8} halo={0.1} />
+          <group position={hw} rotation={[0, yaw, 0]} scale={[r, r, r]}><KitMesh kit={headsetKit()} inkScale={0.6} /></group></group>; })}
+      <Toon pose={mab.pose} pos={mabPos} cam={camL} h={1.5} hi={hi} light={2.5} halo={0.14} />
+      <Toon pose={fin.pose} pos={[DESK_F[0] + 0.1, Y0 - 0.04, DESK_F[2] + 0.76]} cam={camL} h={1.52} hi={hi} light={1.2} halo={0.1} />
+    </>}
+  </group>);
+};
+
+export const IntSet: React.FC<{ from: number }> = ({ from }) => {
+  const f = useCurrentFrame() + from;                         // negative frames = the loop pre-roll that flows into frame 0
+  const { width, height } = useVideoConfig();
+  const hi = height >= 1500, k = height / 1920;
+  const tw = f < 0 ? 1564 + f : f;                              // timeline frame for the acting (loop pre-roll = end of film)
+  const pose = intPose(f), cl = TL.camIntAt(tw, Y0);
+  const W = (l: V3) => toWorld(pose, l);
+  const c = { ...cl, pos: W([cl.pos[0], cl.pos[1] + Y0, cl.pos[2]]), look: W([cl.look[0], cl.look[1] + Y0, cl.look[2]]) };
+  const camL: V3 = [cl.pos[0], cl.pos[1] + Y0, cl.pos[2]];
+  const sunP = sunWorld(f);
   return (
     <AbsoluteFill style={{ backgroundColor: "#2a2018" }}>
       <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.05, far: 900 }}>
         <SetRig c={c} bg="#9ec3e6" fog={["#cdd8e0", 120, 600]} env={0.3} />
-        <SkyEnv intensity={0.5} />
+        <SkyEnv intensity={0.5} warm={sunAt(Math.max(0, f))} />
         <InkCtx.Provider value={2.6 * k}>
           <mesh><sphereGeometry args={[800, 32, 16]} /><meshBasicMaterial side={THREE.BackSide} fog={false} depthWrite={false} color="#a3c6ea" /></mesh>
           <hemisphereLight args={["#ffeed6", "#6a5440", 0.75]} />
-          <directionalLight position={[c.pos[0] - 40, 90, c.pos[2] + 55]} color="#fff2dc" intensity={3.0} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-14} shadow-camera-right={14} shadow-camera-top={14} shadow-camera-bottom={-14} shadow-camera-far={300} shadow-bias={-0.0003} shadow-normalBias={0.03} />
-          {[[-8.6, 4.2], [-4.0, 4.4], [0.4, 4.6]].map(([x, z], i) => <pointLight key={i} position={W([x, Y0 + CEIL - 1.1, z])} color="#ffd9a8" intensity={5} distance={8} decay={1.6} />)}
-          <pointLight position={W([-6.2, Y0 + 1.9, 4.0])} color="#ffe8cc" intensity={2.5} distance={5} decay={1.6} />
-          <pointLight position={W([DESK_M[0] - 0.5, Y0 + 1.15, DESK_M[2] + 0.1])} color="#ffd59a" intensity={1.6} distance={2.2} decay={1.8} />
+          {/* the same sun as the EXT set (direction in world space), shadow box centred on the room */}
+          <directionalLight position={[pose.p[0] + sunP[0], sunP[1], pose.p[2] + sunP[2]]} color={new THREE.Color().lerpColors(new THREE.Color("#fff3df"), new THREE.Color("#ffc890"), sunAt(Math.max(0, f)))} intensity={3.0} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-14} shadow-camera-right={14} shadow-camera-top={14} shadow-camera-bottom={-14} shadow-camera-far={300} shadow-bias={-0.0003} shadow-normalBias={0.03}>
+            <object3D attach="target" position={[pose.p[0], 0, pose.p[2]]} />
+          </directionalLight>
           {/* the real street outside */}
           <StreetStatic /><StreetBuildings /><Skyline />
           {Lf.PARKED.map((p, i) => <group key={`pk${i}`} position={p.p} rotation={[0, p.ry, 0]}><Car30 color={p.color} spin={0} /></group>)}
           {Lf.carsAt(tw).map((p, i) => <group key={`car${i}`} position={p.p} rotation={[0, p.ry, 0]}><Car30 color={p.color} spin={p.spin} /></group>)}
           {Lf.streetcarAt(tw) && (() => { const s = Lf.streetcarAt(tw)!; return <group position={s.p} rotation={[0, s.ry, 0]}><Streetcar wireY={WIRE_Y + 0.13} /></group>; })()}
           {/* the room, carried by the building */}
-          <group position={b.p}>
-            <KitMesh kit={roomKit()} />
-            <group position={[BOARD.x, Y0, BOARD.z0]}><KitMesh kit={switchboardKit(5)} />
-              {ops.map((o, i) => o.cords.map((cd, j) => <PlugCord key={`${i}${j}`} from={[0.0, 0.9, i * POS_W + 0.15 + cd.slot * 0.1]} to={[-0.42, cd.y, i * POS_W + 0.1 + cd.col * 0.04]} />))}
-              {ops.map((o, i) => <mesh key={`l${i}`} position={[-0.41, 1.12 + (i % 2) * 0.3, i * POS_W + 0.5]} material={o.ring ? M.lamp : M.lampDim} scale={o.ring || o.plugged ? 1 : 0.6}><sphereGeometry args={[0.022, 8, 6]} /></mesh>)}
-            </group>
-            {[[-8.6, 4.2], [-4.0, 4.4], [0.4, 4.6]].map(([x, z], i) => <group key={i} position={[x, Y0 + CEIL, z]} rotation={[sway(i * 1.7), 0, sway(i * 2.3 + 1)]}><KitMesh kit={pendantKit()} /></group>)}
-            <group position={[-6.6, Y0 + CEIL - 0.42, 6.9]}><mesh position={[0, 0.2, 0]} material={M.brass}><cylinderGeometry args={[0.015, 0.015, 0.4, 6]} /></mesh><group rotation={[0, f * 0.16, 0]}><KitMesh kit={fanKit()} /></group></group>
-            {/* coffee cup on Mabel's desk: the surface trembles with the move */}
-            <group position={[DESK_M[0] - 0.12, Y0 + 0.78, DESK_M[2] + 0.05]}><mesh position={[0, 0.045, 0]} material={M.frameWhite} castShadow><cylinderGeometry args={[0.042, 0.034, 0.09, 16, 1, true]} /></mesh><mesh position={[0, 0.002, 0]} material={M.frameWhite}><cylinderGeometry args={[0.07, 0.07, 0.006, 16]} /></mesh>
-              <mesh position={[0, 0.075 + Math.sin(f * 1.3) * 0.002, 0]} rotation={[-Math.PI / 2 + Math.sin(f * 0.9) * 0.05, 0, 0]}><circleGeometry args={[0.039, 16]} /><meshStandardMaterial color="#3a2414" roughness={0.15} /></mesh></group>
-            <DeskPhone p={PHONE_M} ry={-0.35} ring={mab.ring} f={f} held={held ? { p: [held.p[0] - b.p[0], held.p[1], held.p[2] - b.p[2]], r: held.r } : null} />
-          </group>
-          {/* operators with headsets */}
-          {ops.map((o, i) => { const pos = W([BOARD.x + 0.85, Y0 + 0.05, BOARD.z0 + POS_W * (i + 0.5)]); const hc = headCenterPx5(o.pose), hw = cardWorld(pos, c.pos, hc, 1.48, 0.03), r = (HEAD5.rx / 1000) * 1.48 * 1.04, yaw = Math.atan2(c.pos[0] - pos[0], c.pos[2] - pos[2]);
-            return <group key={i}><Toon pose={o.pose} pos={pos} cam={c.pos} h={1.48} hi={hi} light={i === 0 ? 1.5 : 0.8} halo={0.1} />
-              <group position={hw} rotation={[0, yaw, 0]} scale={[r, r, r]}><KitMesh kit={headsetKit()} inkScale={0.6} /></group></group>; })}
-          <Toon pose={mab.pose} pos={mabPos} cam={c.pos} h={1.5} hi={hi} light={2.5} halo={0.14} />
-          <Toon pose={fin.pose} pos={W([DESK_F[0] + 0.1, Y0 - 0.04, DESK_F[2] + 0.76])} cam={c.pos} h={1.52} hi={hi} light={1.2} halo={0.1} />
+          <group position={pose.p} rotation={[0, pose.ry, 0]}><Room f={f} tw={tw} camL={camL} hi={hi} wall sway={pose.sway} /></group>
         </InkCtx.Provider>
-        <Post params={{ focusDist: c.focus, focusRange: 1.8, maxBlur: 0.2, bloom: 0.55, threshold: 1.65, exposure: 1.18, vignette: 0.5, ss: hi ? 1 : 2, contrast: 1.1, saturation: 1.05, lift: 0.012, warmCool: 0.68, ao: 0.65, aoRadius: 0.45 }} />
+        <Post params={INT_POST(c.focus, hi)} />
         <RenderAfterMount f={f} />
       </ThreeCanvas>
     </AbsoluteFill>
   );
 };
+export const INT_POST = (focus: number, hi: boolean) => ({ focusDist: focus, focusRange: 1.8, maxBlur: 0.2, bloom: 0.55, threshold: 1.65, exposure: 1.18, vignette: 0.5, ss: hi ? 1 : 2, contrast: 1.1, saturation: 1.05, lift: 0.012, warmCool: 0.68, ao: 0.65, aoRadius: 0.45 });

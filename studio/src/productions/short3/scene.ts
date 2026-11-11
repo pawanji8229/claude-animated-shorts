@@ -23,10 +23,10 @@ export const soundEvents = (): SoundEvent[] => {
       if (o.plug && !prev.plug) add(f, "plug_click", x * 0.5 - 0.3, 0.7, `operator ${i} plugs the cord into the jack`);
       if (o.unplugF && !prev.unplugF) add(f, "plug_click", x * 0.5 - 0.3, 0.5, `operator ${i} pulls the cord`);
       if (o.plug && !prev.plug) add(f + 4, "key_click", x * 0.5 - 0.3, 0.5, `operator ${i} throws the talk key`); });
-    if (f % 26 === 7 && (f < 120 || (f > 1213 && f < 1290) || f > 1530)) add(f, "typewriter", 0.45, 0.45, "Mr Finch types");
+    if (f % 26 === 7 && (f < 120 || (f > 1280 && f < 1330) || f > 1550)) add(f, "typewriter", 0.45, 0.45, "Mr Finch types");
   }
-  for (const f of [1238, 1250]) add(f, "phone_ring", 0.15, 1.0, "Mabel's desk telephone rings (handset rattles)");
-  for (let f = 1240; f < 1340; f++) { const a = mabelAt(f), b = mabelAt(f - 1); if (a.lift > 0 && b.lift === 0) add(f + 2, "plug_click", 0.1, 0.9, "she lifts the handset off the cradle"); }
+  for (const f of [1284, 1296]) add(f, "phone_ring", 0.15, 1.0, "Mabel's desk telephone rings (handset rattles)");
+  for (let f = 1280; f < 1340; f++) { const a = mabelAt(f), b = mabelAt(f - 1); if (a.lift > 0 && b.lift === 0) add(f + 2, "plug_click", 0.1, 0.9, "she lifts the handset off the cradle"); }
   add(54, "coffee_clink", 0.1, 0.4, "cup trembles on the saucer (the building creeps)");
   // ---- hook EXT (flash-forward): rollers groan, jacks pulled stroke by stroke
   add(118, "building_groan", 0.1, 0.8, "the building creeping on rollers"); add(148, "roller_creak", -0.1, 0.9, "rollers under load"); add(205, "roller_creak", 0.2, 0.6, "rollers under load");

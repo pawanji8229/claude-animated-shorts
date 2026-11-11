@@ -37,5 +37,8 @@ export const pulse = (f: number) => 0.5 - 0.5 * Math.cos(Math.PI * 2 * clamp01((
 export const NEW_HQ = { x0: -14.5, x1: 14.5, z0: -15, z1: 11 };   // footprint of the planned bigger headquarters
 export const sunAt = (f: number) => f >= T.aerial0 && f < T.slide3End ? smooth(T.aerial0, T.slide3End, f) : f >= T.ext3_0 ? 1 : 0; // 0 noon -> 1 late afternoon
 
+/** sun position (offset from the scene centre, world space) - shared by both sets */
+export const sunWorld = (f: number): V3 => { const s = sunAt(f); return [lerp(-58, -80, s), lerp(96, 46, s), lerp(42, 26, s)]; };
+
 /** opacity cross-dissolves between the two sets (frames) */
-export const XF = { intExt: [113, 135], past: [241, 259], extInt: [1213, 1235], intExt2: [1322, 1340], loop: [1528, 1552] } as const;
+export const XF = { intExt: [102, 110], past: [241, 259], extInt: [1280, 1288], intExt2: [1316, 1324], loop: [1553, 1561] } as const;

@@ -12,27 +12,29 @@ export const LANE_NEAR = STREET[0] + 3.0, LANE_FAR = STREET[1] - 1.45;
 const R_CAR = 0.34;
 
 // ---------------------------------------------------------------- traffic
-type CarRun = { t0: number; dir: 1 | -1; v: number; color: string; lane: number };
+type CarRun = { t0: number; dir: 1 | -1; v: number; color: string; lane: number; era?: "hook" };
 const RUNS: CarRun[] = [
-  // flash-forward hook + 1930 street (heavy-ish midday traffic), pauses while the wrecking crane occupies the street
-  { t0: 100, dir: 1, v: 7.5, color: "#1f2a3a", lane: LANE_NEAR }, { t0: 150, dir: -1, v: 7.0, color: "#3a2a22", lane: LANE_FAR },
-  { t0: 262, dir: 1, v: 7.5, color: "#2a3a2a", lane: LANE_NEAR }, { t0: 318, dir: -1, v: 7.0, color: "#141416", lane: LANE_FAR },
-  { t0: 372, dir: 1, v: 7.5, color: "#5a1f1c", lane: LANE_NEAR }, { t0: 430, dir: -1, v: 7.0, color: "#22304a", lane: LANE_FAR },
-  { t0: 470, dir: 1, v: 7.5, color: "#141416", lane: LANE_NEAR }, { t0: 535, dir: -1, v: 7.0, color: "#4a3a2a", lane: LANE_FAR },
-  { t0: 712, dir: -1, v: 7.0, color: "#2f3f2f", lane: LANE_FAR }, { t0: 765, dir: 1, v: 7.5, color: "#1f2a3a", lane: LANE_NEAR },
-  { t0: 800, dir: -1, v: 7.0, color: "#3a1e2a", lane: LANE_FAR }, { t0: 905, dir: -1, v: 7.0, color: "#141416", lane: LANE_FAR },
-  { t0: 975, dir: 1, v: 7.5, color: "#5a4a2a", lane: LANE_NEAR }, { t0: 1035, dir: -1, v: 7.0, color: "#22304a", lane: LANE_FAR },
+  // flash-forward hook (its own era: only while the hook is on screen)
+  { t0: 100, dir: 1, v: 7.5, color: "#1f2a3a", lane: LANE_NEAR, era: "hook" }, { t0: 150, dir: -1, v: 7.0, color: "#3a2a22", lane: LANE_FAR, era: "hook" },
+  // 1930: the near lane is closed (sawhorses) while the street-level camera works there and the crawler crane occupies it,
+  // so 1930 traffic uses the far lane; near-lane traffic returns once the crane has backed out (it then passes the parked truck)
+  // (no far-lane car crosses x -5..25 during the low wave-off shot 640-712, so nothing drives through that camera)
+  { t0: 205, dir: -1, v: 7.0, color: "#2a3a2a", lane: LANE_FAR }, { t0: 262, dir: -1, v: 7.0, color: "#141416", lane: LANE_FAR },
+  { t0: 482, dir: -1, v: 7.0, color: "#5a1f1c", lane: LANE_FAR }, { t0: 535, dir: -1, v: 7.0, color: "#22304a", lane: LANE_FAR },
+  { t0: 600, dir: -1, v: 7.0, color: "#4a3a2a", lane: LANE_FAR },
+  { t0: 712, dir: -1, v: 7.0, color: "#2f3f2f", lane: LANE_FAR }, { t0: 800, dir: -1, v: 7.0, color: "#3a1e2a", lane: LANE_FAR },
+  { t0: 905, dir: -1, v: 7.0, color: "#141416", lane: LANE_FAR }, { t0: 1035, dir: -1, v: 7.0, color: "#22304a", lane: LANE_FAR },
   { t0: 1330, dir: 1, v: 7.5, color: "#2a3a2a", lane: LANE_NEAR }, { t0: 1395, dir: -1, v: 7.0, color: "#5a1f1c", lane: LANE_FAR },
   { t0: 1460, dir: 1, v: 7.5, color: "#141416", lane: LANE_NEAR }, { t0: 1500, dir: -1, v: 7.0, color: "#1f2a3a", lane: LANE_FAR },
 ];
 export type CarState = { p: V3; ry: number; spin: number; color: string };
 export const carsAt = (f: number): CarState[] => RUNS.flatMap((c) => {
-  const t = (f - c.t0) / 30; if (t < 0) return []; const x = -c.dir * 80 + c.dir * c.v * t; if (Math.abs(x) > 82) return [];
+  const t = (f - c.t0) / 30; if (t < 0 || (c.era === "hook") !== (f < T.past0)) return []; const x = -c.dir * 80 + c.dir * c.v * t; if (Math.abs(x) > 82) return [];
   return [{ p: [x, 0.02, c.lane] as V3, ry: c.dir > 0 ? 0 : Math.PI, spin: (c.v * t) / R_CAR, color: c.color }];
 });
 export const PARKED: CarState[] = [
-  { p: [26, 0.02, STREET[0] + 1.05], ry: Math.PI, spin: 0, color: "#2a2a30" }, { p: [33.5, 0.02, STREET[0] + 1.05], ry: Math.PI, spin: 0, color: "#4a3324" },
-  { p: [-58, 0.02, STREET[0] + 1.05], ry: Math.PI, spin: 0, color: "#5a2a24" },
+  { p: [-33, 0.02, STREET[0] + 0.95], ry: Math.PI, spin: 0, color: "#2a2a30" }, { p: [-40.5, 0.02, STREET[0] + 0.95], ry: Math.PI, spin: 0, color: "#4a3324" },
+  { p: [-58, 0.02, STREET[0] + 0.95], ry: Math.PI, spin: 0, color: "#5a2a24" },
 ];
 /** streetcar passes (bell cues at 285 and 420 sit inside these runs) */
 const CARS_ST: { t0: number; dir: 1 | -1 }[] = [{ t0: 255, dir: -1 }, { t0: 395, dir: 1 }, { t0: 1340, dir: -1 }];
@@ -41,7 +43,7 @@ export const streetcarAt = (f: number): { p: V3; ry: number } | null => {
   return null;
 };
 /** timber truck: drives in along the near lane, parks by the site gate, crew unloads it during the support beat */
-export const TRUCK_PARK: V3 = [-14.0, 0.02, STREET[0] + 1.0];
+export const TRUCK_PARK: V3 = [-14.0, 0.02, STREET[0] + 0.95];
 export const truckAt = (f: number): { p: V3; spin: number; load: number } | null => {
   if (f < 830 || f > T.aerial0 + 10) return null;
   const u = smooth(830, 884, f), x = lerp(-78, TRUCK_PARK[0], 1 - (1 - u) * (1 - u)), z = lerp(LANE_NEAR, TRUCK_PARK[2], smooth(862, 884, f));

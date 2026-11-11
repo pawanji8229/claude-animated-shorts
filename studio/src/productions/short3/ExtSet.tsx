@@ -11,7 +11,9 @@ import { InkCtx, Ink } from "../../inventor/Workshop";
 import { V3, rng, smooth, lerp } from "../../lib/math";
 import { SetRig, RenderAfterMount, Toon } from "../london-bridge/common";
 import { Rod } from "../london-bridge/assets";
-import { BW, BD, BH, NEW_HQ, T, bldAt, sunAt } from "./world";
+import { BW, BD, BH, NEW_HQ, T, bldAt, sunAt, sunWorld } from "./world";
+import { Room, Y0, INT_POST } from "./IntSet";
+import { toLocal } from "./timeline";
 import * as TL from "./timeline";
 import { Kit, KitMesh, once } from "./kit";
 import { archMats } from "./archKit";
@@ -66,8 +68,14 @@ export const ExtSet: React.FC<{ from: number; worldMin?: number }> = ({ from, wo
   const hi = height >= 1500, k = height / 1920;
   const c = TL.camExtLayer(f, worldMin !== undefined && f < 262);
   const M = archMats();
-  const b = bldAt(wf), rig = TL.rigBuild(wf), lift = rig > 0.5 ? 0.62 : 0;
-  const sun = sunAt(wf), sunPos: V3 = [lerp(-58, -80, sun), lerp(96, 46, sun), lerp(42, 26, sun)];
+  const b = bldAt(wf), rig = TL.rigBuild(wf), lift = TL.liftAt(wf);
+  const sun = sunAt(wf), sunPos: V3 = sunWorld(wf);
+  const pose = { p: [b.p[0], lift, b.p[2]] as V3, ry: b.ry }, camL = toLocal(pose, c.pos);
+  const roomPeople = Math.hypot(camL[0] + 3.2, camL[1] - Y0 - 1.5, camL[2] - 5.2) < 45;   // the switchboard room's people (only when close enough to read)
+  // camera inside the switchboard room (fly-through windows): grade + ambient match the INT set exactly, so the set swap is invisible
+  const ins = camL[0] > -11.6 && camL[0] < 5.2 && camL[1] > Y0 && camL[1] < Y0 + 3.4 ? smooth(9.3, 8.2, camL[2]) : 0;
+  const EXT_POST = { focusDist: c.focus, focusRange: 7, maxBlur: 0.14, bloom: 0.5, threshold: 1.7, exposure: 1.24, vignette: 0.4, ss: hi ? 1 : 2, contrast: 1.1, saturation: 1.06, lift: 0.01, warmCool: 0.55 + sun * 0.3, ao: 0.65, aoRadius: 0.6 };
+  const IP = INT_POST(c.focus, hi) as Record<string, number>, post = Object.fromEntries(Object.entries(EXT_POST).map(([k2, v]) => [k2, lerp(v as number, IP[k2] ?? (v as number), ins)])) as typeof EXT_POST;
   const people = TL.extPeople(wf, c.pos), win = TL.windowPeople(f < T.past0 + 30 ? f : wf), peds = L.pedsAt(wf);
   const cr = TL.craneAt(wf), hq = TL.hqRise(wf), stakes = TL.stakesOn(wf), truck = L.truckAt(wf), stc = L.streetcarAt(wf);
   const toBld = (lp: V3): V3 => { const cs = Math.cos(b.ry), sn = Math.sin(b.ry); return [b.p[0] + lp[0] * cs + lp[2] * sn, lp[1] + lift, b.p[2] - lp[0] * sn + lp[2] * cs]; };
@@ -75,16 +83,16 @@ export const ExtSet: React.FC<{ from: number; worldMin?: number }> = ({ from, wo
     <AbsoluteFill style={{ backgroundColor: "#9ec3e6" }}>
       <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.1, far: 1400 }}>
         <SetRig c={c} bg="#9ec3e6" fog={["#cdd8e0", 110, 560]} env={0.3} />
-        <SkyEnv intensity={0.6} warm={sun} />
+        <SkyEnv intensity={lerp(0.6, 0.5, ins)} warm={sun} />
         <InkCtx.Provider value={2.6 * k}>
           <mesh><sphereGeometry args={[900, 32, 16]} /><meshBasicMaterial side={THREE.BackSide} fog={false} depthWrite={false} color="#9fc4ea" /></mesh>
-          <hemisphereLight args={["#dbe8ff", "#a48c6c", 1.35]} />
+          <hemisphereLight args={[new THREE.Color("#dbe8ff").lerp(new THREE.Color("#ffeed6"), ins), new THREE.Color("#a48c6c").lerp(new THREE.Color("#6a5440"), ins), lerp(1.35, 0.75, ins)]} />
           <directionalLight position={sunPos} color={new THREE.Color().lerpColors(new THREE.Color("#fff3df"), new THREE.Color("#ffc890"), sun)} intensity={3.0} castShadow
             shadow-mapSize={[hi ? 4096 : 2048, hi ? 4096 : 2048]} shadow-camera-left={-55} shadow-camera-right={55} shadow-camera-top={55} shadow-camera-bottom={-55} shadow-camera-far={320} shadow-bias={-0.0003} shadow-normalBias={0.04} />
           <StreetStatic /><StreetBuildings /><Skyline />
           {/* the office block + its moving rig, positioned by the move path */}
           <group position={[b.p[0], 0, b.p[2]]} rotation={[0, b.ry, 0]}>
-            <group position={[0, lift, 0]}><HeroBuilding /></group>
+            <group position={[0, lift, 0]}><HeroBuilding /><Room f={f} tw={wf} camL={camL} hi={hi} wall={false} sway={b.moving ? 1 : 0} people={roomPeople} /></group>
             {rig > 0 && <MoveRig f={wf} build={rig} rollAngle={TL.rollerAngle(wf)} />}
           </group>
           {/* flag on the roof */}
@@ -126,7 +134,7 @@ export const ExtSet: React.FC<{ from: number; worldMin?: number }> = ({ from, wo
           {cr.on && (() => { const cs = Math.cos(cr.yaw), sn = Math.sin(cr.yaw), lx = 1.45 * cs + 0.62 * sn, lz = -1.45 * sn + 0.62 * cs; return <Toon pose={TL.craneOperator(wf)} pos={[cr.x - lx, 1.78, cr.z - lz]} cam={c.pos} h={1.45} hi={hi} halo={0.1} light={1.5} />; })()}
           {peds.map((p, i) => <Toon key={`pd${i}`} pose={p.pose} pos={p.pos} cam={c.pos} h={p.h} hi={hi} halo={p.halo ?? 0.08} flip={p.flip} />)}
         </InkCtx.Provider>
-        <Post params={{ focusDist: c.focus, focusRange: 7, maxBlur: 0.14, bloom: 0.5, threshold: 1.7, exposure: 1.24, vignette: 0.4, ss: hi ? 1 : 2, contrast: 1.1, saturation: 1.06, lift: 0.01, warmCool: 0.55 + sun * 0.3, ao: 0.65, aoRadius: 0.6 }} />
+        <Post params={{ ...post, ss: hi ? 1 : 2 }} />
         <RenderAfterMount f={f} />
       </ThreeCanvas>
     </AbsoluteFill>

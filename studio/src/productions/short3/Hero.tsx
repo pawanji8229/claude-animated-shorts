@@ -77,7 +77,8 @@ const face = (M: AM, W: number, bays: number, kind: "front" | "side" | "back", s
   for (let i = 0; i < FLOORS; i++) for (let b = 0; b < bays; b++) {
     if (ent && i === 0 && b === 3) continue;
     const back = kind === "back", blind = back ? 0.35 + r() * 0.6 : r() < 0.45 ? 0.15 + r() * 0.45 : 0, open = !back && r() < 0.18 ? 0.5 + r() * 0.5 : 0;
-    windowUnit(k, M, cxs[b], floorY(i) + SILL, WIN_W, WIN_H, { frame: M.frameGreen, panes: 2, blind, blindMat: r() < 0.25 ? M.blindGreen : M.blind, open });
+    const room = kind === "front" && i === ROOM_FLOOR && b <= 4, bm = r() < 0.25 ? M.blindGreen : M.blind;   // switchboard-room windows = exactly as seen inside
+    windowUnit(k, M, cxs[b], floorY(i) + SILL, WIN_W, WIN_H, { frame: M.frameGreen, panes: 2, blind: room ? ROOM_BLINDS[b] : blind, blindMat: room ? M.blind : bm, open: room ? (b >= 1 && b <= 3 ? 1.0 : 0) : open });
   }
   // fire escape (east side) over bays 1..3
   if (fire) fireEscape(k, M, cxs[1] - 1.0, cxs[3] + 1.0, Array.from({ length: FLOORS - 1 }, (_, i) => floorY(i + 1)), 1.2);
@@ -87,27 +88,32 @@ const face = (M: AM, W: number, bays: number, kind: "front" | "side" | "back", s
 };
 
 /** furnished office strips behind the windows (building-local), plus a dark core */
+export const ROOM_FLOOR = 2, ROOM_Z0 = 2.0, ROOM_BLINDS = [0.25, 0.0, 0.35, 0.0, 0.2];   // the switchboard room (built by IntSet) lives here
 const interiors = (M: AM) => {
   const k = new Kit(), hx = BW / 2 - T_WALL, hz = BD / 2 - T_WALL, fbw = BW / FRONT_BAYS, sbw = (BD - 2 * T_WALL) / SIDE_BAYS;
   for (let i = 0; i < FLOORS; i++) {
     const y = floorY(i), H = FLOOR_H;
     // front strip: z from hz (window wall) back ROOM_D ; bays every fbw, glazed partition every 2 bays
     const fk = new Kit();
-    for (let b = 0; b < FRONT_BAYS; b++) { if (i === 0 && b >= 2 && b <= 4) continue; const x0 = -hx + (b === 0 ? 0 : b * fbw - 0.0) - (b === 0 ? 0 : 0), x1 = b === FRONT_BAYS - 1 ? hx : -BW / 2 + (b + 1) * fbw; officeBay(fk, M, Math.max(-hx, -BW / 2 + b * fbw), Math.min(hx, x1), y, H, ROOM_D, 100 + i * 10 + b, { partitionL: b % 2 === 0 && b > 0 }); void x0; }
+    for (let b = 0; b < FRONT_BAYS; b++) { if (i === 0 && b >= 2 && b <= 4) continue; if (i === ROOM_FLOOR && b <= 4) continue; /* floor 2 bays 0-4 = the switchboard room (IntSet Room) */ const x0 = -hx + (b === 0 ? 0 : b * fbw - 0.0) - (b === 0 ? 0 : 0), x1 = b === FRONT_BAYS - 1 ? hx : -BW / 2 + (b + 1) * fbw; officeBay(fk, M, Math.max(-hx, -BW / 2 + b * fbw), Math.min(hx, x1), y, H, ROOM_D, 100 + i * 10 + b, { partitionL: b % 2 === 0 && b > 0 }); void x0; }
     k.merge(fk, [0, 0, hz]);
     // back strip
     const bk = new Kit(); for (let b = 0; b < FRONT_BAYS; b++) officeBay(bk, M, Math.max(-hx, -BW / 2 + b * fbw), Math.min(hx, -BW / 2 + (b + 1) * fbw), y, H, ROOM_D, 400 + i * 10 + b, { partitionL: b % 2 === 0 && b > 0 });
     k.merge(bk, [0, 0, -hz], [0, Math.PI, 0]);
     // side strips (between the front and back strips): x from hx inward 3.0, z in [-(hz - ROOM_D), hz - ROOM_D]
     for (const s of [-1, 1]) { const sk = new Kit(), span = hz - ROOM_D;
-      for (let b = 0; b < SIDE_BAYS; b++) { const a = -hz + b * sbw, c = a + sbw; const x0 = Math.max(-span, a), x1 = Math.min(span, c); if (x1 - x0 < 0.6) continue; officeBay(sk, M, x0, x1, y, H, 3.0, 700 + i * 10 + b + (s > 0 ? 50 : 0), { partitionL: b > 0 }); }
+      for (let b = 0; b < SIDE_BAYS; b++) { const a = -hz + b * sbw, c = a + sbw; const x0 = Math.max(-span, a), x1 = Math.min(span, c); if (x1 - x0 < 0.6) continue; if (i === ROOM_FLOOR && s < 0 && x1 > ROOM_Z0 - 0.1) continue; officeBay(sk, M, x0, x1, y, H, 3.0, 700 + i * 10 + b + (s > 0 ? 50 : 0), { partitionL: b > 0 }); }
       k.merge(sk, [s * hx, 0, 0], [0, s * Math.PI / 2, 0]); }
   }
   // core (stairs, lifts, corridors — unlit, closes every view through the building)
   const LZ0 = 2.1, LX = BW / FRONT_BAYS * 1.5 - 0.06;   // lobby: x within bays 2-4, z from the core front to the facade
   const CI = 0.14;   // core inset: never coplanar with a room's back wall
   k.span(M.plasterC, [-hx + 3.0 + CI, BASE_H - 0.05, -hz + ROOM_D + CI], [hx - 3.0 - CI, floorY(1) - 0.3, LZ0 - 0.12], { ink: false });
-  k.span(M.plasterC, [-hx + 3.0 + CI, floorY(1) - 0.3, -hz + ROOM_D + CI], [hx - 3.0 - CI, BH - 0.6, hz - ROOM_D - CI], { ink: false });
+  // (on floor 2 the core stops short of the switchboard room, which occupies x -11.4..5, z 2..8.5)
+  const cy0 = floorY(ROOM_FLOOR) - 0.1, cy1 = floorY(ROOM_FLOOR + 1) - 0.1;
+  k.span(M.plasterC, [-hx + 3.0 + CI, floorY(1) - 0.3, -hz + ROOM_D + CI], [hx - 3.0 - CI, cy0, hz - ROOM_D - CI], { ink: false });
+  k.span(M.plasterC, [-hx + 3.0 + CI, cy0, -hz + ROOM_D + CI], [hx - 3.0 - CI, cy1, ROOM_Z0 - 0.26], { ink: false });
+  k.span(M.plasterC, [-hx + 3.0 + CI, cy1, -hz + ROOM_D + CI], [hx - 3.0 - CI, BH - 0.6, hz - ROOM_D - CI], { ink: false });
   // ground-storey lobby behind the entrance (lit): marble floor, walls, elevator doors, reception desk + phone
   const LH = FLOOR_H - 0.32;
   k.span(M.sandTrim, [-LX, BASE_H - 0.05, LZ0], [LX, BASE_H + 0.02, hz - 0.02], { ink: false });                        // marble floor
