@@ -48,7 +48,7 @@ export type Odo5Pose = {
   /** optional hand-held 1970s camera: blend 0 = hanging on its strap at the chest, 1 = at the point between the hands */
   camera?: { blend: number; flash: "cube" | "gun" | "none"; tiltRad?: number };
   /** optional tool held in the screen-right hand (drawn along the forearm, ink style) */
-  holdR?: "hammer" | "chalk" | "wrench" | "pen" | "umbrella" | "shovel";
+  holdR?: "hammer" | "chalk" | "wrench" | "pen" | "umbrella" | "shovel" | "cup";
 };
 const A = (hand: [number, number], shape: Hand5 = "relaxed", bend = 1, rot = 0, behind = false, elbow?: [number, number]): ArmPose => ({ hand, bend, shape, rot, behind, elbow });
 export const REST_L = A([-34, 194], "relaxed", -1, 0.15), REST_R = A([34, 194], "relaxed", 1, -0.15);
@@ -395,6 +395,10 @@ const drawTool = (g: G, c: Pal, at: P, rot: number, tool: NonNullable<Odo5Pose["
   g.save(); g.translate(at[0], at[1]); g.rotate(-rot);
   const wood = mask ? "#5a5a5a" : "#9a6a3a", steel = mask ? "#7a7a7a" : "#8f969e", dark = mask ? "#3a3a3a" : "#2a2a30";
   if (tool === "hammer") { inked(g, c, () => { g.beginPath(); g.roundRect(-5, -10, 10, 74, 4); }, wood, 3, 2); inked(g, c, () => { g.beginPath(); g.roundRect(-22, 56, 44, 18, 3); }, steel, 3, 2); }
+  else if (tool === "cup") { g.rotate(rot); g.scale(1.9, 1.9); const china = mask ? "#e2e2e2" : "#f2eee4"; // coffee cup, always upright, handle toward the fist
+    inked(g, c, () => { g.beginPath(); g.ellipse(-14, -12, 7, 9, 0, 0, Math.PI * 2); }, china, 2.5, 1.5);
+    inked(g, c, () => { g.beginPath(); g.moveTo(-36, -26); g.lineTo(-12, -26); g.lineTo(-15, -2); g.quadraticCurveTo(-24, 3, -33, -2); g.closePath(); }, china, 3, 2);
+    if (!mask) { g.fillStyle = "#4a2c18"; g.beginPath(); g.ellipse(-24, -25, 11, 2.4, 0, 0, Math.PI * 2); g.fill(); } }
   else if (tool === "chalk") { inked(g, c, () => { g.beginPath(); g.roundRect(-4, 6, 8, 26, 3); }, mask ? "#dddddd" : "#f4f1e8", 2, 1); }
   else if (tool === "wrench") { inked(g, c, () => { g.beginPath(); g.roundRect(-5, -6, 10, 66, 4); g.moveTo(-14, 56); g.arc(0, 66, 14, Math.PI * 1.2, Math.PI * 1.8, true); }, steel, 3, 2); }
   else if (tool === "pen") { inked(g, c, () => { g.beginPath(); g.moveTo(-4, -6); g.lineTo(4, -6); g.lineTo(3, 38); g.lineTo(0, 46); g.lineTo(-3, 38); g.closePath(); }, dark, 2, 1); }

@@ -30,8 +30,8 @@ const camHook = camPath([
   HL(146, [-6.3, 10.0, 13.4], [-6.0, 9.3, 4.8], 46),          // pulled back: Mabel framed in her window, the facade around her
   HL(178, [-0.6, 4.1, 18.0], [-1.6, 1.25, 10.2], 50),          // crane down + back (3/4): the block rides on cribbing + rollers, the crew turns the jacks
   { f: 208, pos: [-2.6, 12.2, 11.4], look: [-3.43, 13.5, 2.5], fov: 28 },   // (rises in FRONT of the phone wires: they stay behind the lens)    // crane up to a clerk on floor 3 who works on, unaware (telephoto)
-  { f: 228, pos: [-2.51, 13.78, 13.9], look: [-3.43, 13.8, 2.5], fov: 20 },
-  { f: 262, pos: [-2.56, 13.8, 14.0], look: [-3.43, 13.8, 2.5], fov: 20 },     // (held: the time dissolve is building-locked, see camExtLayer)
+  { f: 228, pos: [-2.75, 14.4, 10.2], look: [-3.43, 14.35, 2.3], fov: 22 },
+  { f: 262, pos: [-2.95, 14.42, 8.8], look: [-3.43, 14.35, 2.3], fov: 22 },     // (held: the time dissolve is building-locked, see camExtLayer)
 ], 5);
 // ---- building-local <-> world (the building pose incl. its ride on the rig) - shared by both sets
 export type Pose = { p: V3; ry: number };
@@ -83,9 +83,9 @@ export const camIntAt = (f: number, y0: number): Cam => {
 };
 const HOOK_DZ = 6.52, HOOK_DY = -0.62;   // building z in the flash-forward at the dissolve (1930 coords = hook coords + this)
 const camMain = camPath([
-  { f: 250, pos: [-2.56, 13.8 + HOOK_DY, 14.0 + HOOK_DZ], look: [-3.43, 13.8 + HOOK_DY, 2.5 + HOOK_DZ], fov: 20 },
-  { f: 259, pos: [-2.56, 13.8 + HOOK_DY, 14.0 + HOOK_DZ], look: [-3.43, 13.8 + HOOK_DY, 2.5 + HOOK_DZ], fov: 20 },
-  { f: 263, pos: [-2.56, 13.8 + HOOK_DY, 14.0 + HOOK_DZ], look: [-3.43, 13.8 + HOOK_DY, 2.5 + HOOK_DZ], fov: 20 },
+  { f: 250, pos: [-2.95, 14.42 + HOOK_DY, 8.8 + HOOK_DZ], look: [-3.43, 14.35 + HOOK_DY, 2.3 + HOOK_DZ], fov: 22 },
+  { f: 259, pos: [-2.95, 14.42 + HOOK_DY, 8.8 + HOOK_DZ], look: [-3.43, 14.35 + HOOK_DY, 2.3 + HOOK_DZ], fov: 22 },
+  { f: 263, pos: [-2.95, 14.42 + HOOK_DY, 8.8 + HOOK_DZ], look: [-3.43, 14.35 + HOOK_DY, 2.3 + HOOK_DZ], fov: 22 },
   { f: 283, pos: [3.6, 8.2, 19.8], look: [0.9, 4.6, 9.0], fov: 30 },
   // 1930: drop to the street, the entrance; Brightwater bursts out with the plans
   { f: 296, pos: [4.0, 1.95, 16.6], look: [0.4, 2.3, 8.2], fov: 40 },
@@ -379,7 +379,7 @@ export const windowPeople = (f: number): { pose: Odo5Pose; local: V3; h: number 
   const hook = f >= 110 && f < T.past0, track = f >= T.windows0 - 6 && f < T.support0 + 6;
   if (!hook && !track) return [];
   return WIN_PEOPLE.filter((w) => (track || (w.floor >= 2 && w.floor <= 4)) && !(w.floor === 0 && w.bay === 3) && !(w.floor === OUT_WIN.floor && w.bay <= 4)).map((w, i) => ({ pose: winFace(w, i, f, hook), h: w.h,
-    local: [-BW / 2 + (BW / 7) * (w.bay + 0.5) + w.dx, BASE_H + w.floor * FLOOR_H + 0.05, BD / 2 - 0.5] as V3 }));
+    local: [-BW / 2 + (BW / 7) * (w.bay + 0.5) + (w.floor === COFFEE.floor && w.bay === COFFEE.bay ? 0.42 : w.dx), BASE_H + w.floor * FLOOR_H + 0.05, BD / 2 - 0.5] as V3 }));
 };
 /** window faces: in the hook almost nobody notices (bored / working), the coffee clerk gives the window a side-eye;
  *  during "hundreds still inside" everyone reacts differently (confused, side-eye, waving, suspicious, unbothered) */
@@ -389,6 +389,10 @@ const winFace = (w: WinPerson, i: number, f: number, hook: boolean): Odo5Pose =>
   const base = personPose(w.persona, f % 520, CTX), coffee = w.floor === COFFEE.floor && w.bay === COFFEE.bay;
   const name: FaceName = hook ? (coffee ? (f > 196 ? "sideEyeR" : f > 150 ? "content" : "focused") : HOOK_FACES[i % HOOK_FACES.length]) : TRACK_FACES[(i * 5) % TRACK_FACES.length];
   const p = withFace(base, FACES[name], f, 60 + i);
+  if (hook && coffee) { // calm sips: the cup comes up, a slow sip, back down to rest at the chest (the move goes unnoticed)
+    const ph = ((f - 120) % 84 + 84) % 84, up = ph < 16 ? smooth(0, 16, ph) : ph < 40 ? 1 : 1 - smooth(40, 58, ph);
+    return { ...p, holdR: "cup", armR: { hand: [lerp(34, -6, up), lerp(40, -78, up)], elbow: [lerp(64, 60, up), lerp(70, 10, up)], shape: "grip", rot: lerp(0.2, -1.2, up), bend: 1 }, lookY: lerp(p.lookY ?? 0, -0.15, up) } as Odo5Pose;
+  }
   const waves = !hook && i % 7 === 2, wv = Math.sin(f * 0.5 + i) * 18;
   return waves ? { ...p, armR: { hand: [70 + wv, -140], elbow: [90, -40], shape: "open", rot: 0.3, bend: 1 } } : p;
 };
