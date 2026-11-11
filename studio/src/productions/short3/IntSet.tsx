@@ -31,6 +31,7 @@ export { ROOM_BLINDS } from "./Hero";
 import { ROOM_BLINDS } from "./Hero";                                   // room floor (building-local)
 const RX0 = -11.4, RX1 = 5.0, RZ0 = 2.0, RZ1 = BD / 2 - 0.5, CEIL = 3.38;
 export const BOARD = { x: -10.75, z0: 2.95 };
+export const MABEL_SEAT: V3 = [-6.0, floorY(2) - 0.02, 5.6 - 0.82];   // room side of her desk, facing the windows
 export const DESK_M: V3 = [-6.0, Y0, 5.6], DESK_F: V3 = [-2.9, Y0, 5.0], PHONE_M: V3 = [-5.62, Y0 + 0.775, 5.32];
 
 export const roomKit = (withWall = true) => once(withWall ? "intRoom" : "intRoomNoWall", () => {
@@ -57,7 +58,7 @@ export const roomKit = (withWall = true) => once(withWall ? "intRoom" : "intRoom
     fw.span(M.furn, [cx - WIN_W / 2 - 0.1, y + SILL - 0.04, -0.62], [cx + WIN_W / 2 + 0.1, y + SILL + 0.01, -0.48]);
     // cast-iron column radiator + pipes
     for (let c = 0; c < 12; c++) fw.span(M.ironPaint, [cx - 0.55 + c * 0.093, y + 0.08, -0.78], [cx - 0.55 + c * 0.093 + 0.07, y + 0.62, -0.62]);
-    fw.span(M.ironPaint, [cx - 0.58, y + 0.08, -0.75], [cx + 0.58, y + 0.13, -0.65]); fw.span(M.ironPaint, [cx - 0.58, y + 0.57, -0.75], [cx + 0.58, y + 0.62, -0.65]);
+    fw.span(M.ironPaint, [cx - 0.58, y + 0.095, -0.75], [cx + 0.58, y + 0.14, -0.65]); fw.span(M.ironPaint, [cx - 0.58, y + 0.56, -0.75], [cx + 0.58, y + 0.605, -0.65]);
     fw.cyl(M.ironPaint, 0.025, 0.025, 0.1, [cx - 0.62, y + 0.06, -0.7], [0, 0, 0], 8); fw.cyl(M.brass, 0.03, 0.03, 0.04, [cx + 0.62, y + 0.6, -0.7], [0, 0, Math.PI / 2], 8, { ink: false }); });
   k.merge(fw, [0, 0, BD / 2]);
   // Mabel's desk (+ chair, blotter, in/out tray, lamp, papers), Mr Finch's desk (+ typewriter)
@@ -75,8 +76,8 @@ export const roomKit = (withWall = true) => once(withWall ? "intRoom" : "intRoom
   k.cyl(M.black, 0.035, 0.035, 0.5, [tw[0], tw[1] + 0.2, tw[2] + 0.17], [0, 0, Math.PI / 2], 12); k.span(M.paper, [tw[0] - 0.15, tw[1] + 0.2, tw[2] + 0.18], [tw[0] + 0.15, tw[1] + 0.42, tw[2] + 0.19], { ink: false });
   for (let r = 0; r < 4; r++) for (let c = 0; c < 10; c++) k.cyl(M.cream, 0.011, 0.011, 0.012, [tw[0] - 0.19 + c * 0.042 + r * 0.01, tw[1] + 0.07 + r * 0.012, tw[2] - 0.17 + r * 0.045], [0, 0, 0], 8, { ink: false });
   // chairs
-  const chair = (p: V3) => { k.span(M.furn, [p[0] - 0.24, y + 0.46, p[2] - 0.22], [p[0] + 0.24, y + 0.51, p[2] + 0.22]); k.span(M.furn, [p[0] - 0.24, y + 0.51, p[2] + 0.19], [p[0] + 0.24, y + 1.0, p[2] + 0.23]); k.cyl(M.ironPaint, 0.03, 0.03, 0.42, [p[0], y + 0.25, p[2]], [0, 0, 0], 8); for (let a = 0; a < 4; a++) k.rod(M.ironPaint, [p[0], y + 0.05, p[2]], [p[0] + Math.cos(a * 1.57 + 0.78) * 0.3, y + 0.02, p[2] + Math.sin(a * 1.57 + 0.78) * 0.3], 0.02, 6); };
-  chair([DESK_M[0], 0, DESK_M[2] + 0.75]); chair([DESK_F[0] + 0.1, 0, DESK_F[2] + 0.7]);
+  const chair = (p: V3, back = 1) => { k.span(M.furn, [p[0] - 0.24, y + 0.46, p[2] - 0.22], [p[0] + 0.24, y + 0.51, p[2] + 0.22]); k.span(M.furn, [p[0] - 0.24, y + 0.51, p[2] + (back > 0 ? 0.19 : -0.23)], [p[0] + 0.24, y + 1.0, p[2] + (back > 0 ? 0.23 : -0.19)]); k.cyl(M.ironPaint, 0.03, 0.03, 0.42, [p[0], y + 0.25, p[2]], [0, 0, 0], 8); for (let a = 0; a < 4; a++) k.rod(M.ironPaint, [p[0], y + 0.05, p[2]], [p[0] + Math.cos(a * 1.57 + 0.78) * 0.3, y + 0.02, p[2] + Math.sin(a * 1.57 + 0.78) * 0.3], 0.02, 6); };
+  chair([DESK_M[0], 0, DESK_M[2] - 0.75], -1);   // Mabel sits on the room side, facing the windows chair([DESK_F[0] + 0.1, 0, DESK_F[2] + 0.7]);
   // operators' stools
   for (let i = 0; i < 5; i++) { const z = BOARD.z0 + POS_W * (i + 0.5), x = BOARD.x + 0.85; k.cyl(M.furn, 0.19, 0.19, 0.05, [x, y + 0.66, z], [0, 0, 0], 16); for (let a = 0; a < 3; a++) k.rod(M.ironPaint, [x, y + 0.64, z], [x + Math.cos(a * 2.1) * 0.24, y + 0.02, z + Math.sin(a * 2.1) * 0.24], 0.015, 6); k.torus(M.ironPaint, 0.19, 0.012, [x, y + 0.3, z], [Math.PI / 2, 0, 0]); }
   // filing cabinets, coat rack + hats, water cooler, wall clock, pictures, palm, wastebasket
@@ -112,7 +113,7 @@ export const Room: React.FC<{ f: number; tw: number; camL: V3; hi: boolean; wall
   const mab = TL.mabelAt(tw), fin = TL.finchAt(tw);
   const sway = (s: number) => Math.sin(f * 0.07 + s) * 0.035 * swayAmp;
   const M = archMats();
-  const mabPos: V3 = [DESK_M[0], Y0 - 0.02, DESK_M[2] + 0.82];
+  const mabPos: V3 = MABEL_SEAT;
   // handset in Mabel's hand (screen-left hand near her ear), else in the cradle
   const held = mab.lift > 0.02 ? (() => { const sh = shoulderPx5(mab.pose, -1), hp: [number, number] = [sh[0] + mab.pose.armL.hand[0], sh[1] + mab.pose.armL.hand[1]];
     const hw = cardWorld(mabPos, camL, hp, 1.5, 0.08), cradle: V3 = [PHONE_M[0], PHONE_M[1] + 0.228, PHONE_M[2] - 0.02]; const yaw = Math.atan2(camL[0] - mabPos[0], camL[2] - mabPos[2]);

@@ -24,10 +24,10 @@ export const LIFT_H = 0.62;   // the building rides this high on cribbing + roll
 const HL = (f: number, pos: V3, look: V3, fov: number) => ({ f, pos: [pos[0], pos[1] + LIFT_H, pos[2] + hookBz(f)] as V3, look: [look[0], look[1] + LIFT_H, look[2] + hookBz(f)] as V3, fov });
 export const OUT_WIN = { floor: 2, bay: 2 };          // the window the camera flies through (sash fully raised in both sets); floor 2 bays 0-4 = the switchboard room
 const camHook = camPath([
-  HL(100, [-3.6, 10.2, 7.9], [-6.0, 9.95, 6.2], 42),          // = the opening move at frame 100 (Mabel, by the windows)
-  HL(116, [-3.45, 10.05, 8.75], [-6.2, 9.8, 7.0], 44),        // crab sideways out through the raised sash of bay 2 ...
-  HL(128, [-3.3, 10.0, 9.9], [-6.4, 9.6, 7.4], 46),           // ... still looking back at her: outside, the facade at an angle
-  HL(146, [-2.6, 9.6, 12.4], [-5.4, 8.0, 8.6], 48),
+  HL(100, [-6.4, 10.2, 7.3], [-6.2, 9.95, 4.8], 42),          // = the opening move at frame 100: Mabel across her desk
+  HL(116, [-6.7, 10.05, 8.6], [-6.0, 9.9, 4.8], 44),          // pull straight back out through the raised sash of bay 1 ...
+  HL(128, [-6.86, 10.0, 9.9], [-5.9, 9.7, 4.8], 46),          // ... the window frame grows round her: outside, the facade
+  HL(146, [-6.3, 10.0, 13.4], [-6.0, 9.3, 4.8], 46),          // pulled back: Mabel framed in her window, the facade around her
   HL(178, [-0.6, 4.1, 19.0], [-1.6, 1.25, 11.2], 50),          // crane down + back (3/4): the block rides on cribbing + rollers, the crew turns the jacks
   { f: 208, pos: [-2.6, 12.2, 13.0], look: [-3.43, 13.5, 2.5], fov: 26 },    // crane up to a clerk on floor 3 who works on, unaware (telephoto)
   { f: 228, pos: [-2.51, 13.78, 13.9], look: [-3.43, 13.8, 2.5], fov: 20 },
@@ -48,10 +48,10 @@ const camThrough = camPath([
   { f: 1250, pos: [-3.43, 10.3, 14.2], look: [-3.6, 10.0, 4.0], fov: 46 },
   { f: 1262, pos: [-3.43, 10.0, 11.2], look: [-4.2, 9.9, 4.0], fov: 46 },
   { f: 1272, pos: [-3.43, 9.97, 9.4], look: [-5.0, 9.6, 5.0], fov: 46 },          // in through the raised sash of bay 2
-  { f: 1288, pos: [-4.2, 10.15, 7.6], look: [-5.6, 9.65, 5.3], fov: 40 },         // the desk telephone rings
-  { f: 1304, pos: [-5.2, 10.25, 7.5], look: [-6.0, 9.95, 5.7], fov: 40 },         // Mabel lifts the handset
-  { f: 1326, pos: [-6.5, 9.97, 8.6], look: [-6.0, 9.95, 5.6], fov: 44 },         // talking; the camera eases back ...
-  { f: 1336, pos: [-6.86, 9.97, 9.8], look: [-6.1, 9.85, 5.2], fov: 46 },         // ... out through the raised sash of bay 1 behind her
+  { f: 1288, pos: [-4.4, 10.15, 7.4], look: [-5.6, 9.7, 5.1], fov: 40 },         // the desk telephone rings
+  { f: 1304, pos: [-5.3, 10.2, 7.3], look: [-6.0, 9.95, 4.9], fov: 40 },         // Mabel lifts the handset
+  { f: 1326, pos: [-6.6, 9.97, 8.6], look: [-6.0, 9.9, 4.8], fov: 44 },         // talking; the camera eases back ...
+  { f: 1336, pos: [-6.86, 9.97, 9.8], look: [-6.1, 9.85, 4.6], fov: 46 },         // ... out through the raised sash of bay 1 behind her
   { f: 1350, pos: [-6.86, 10.7, 13.6], look: [-6.2, 9.5, 5.0], fov: 48 },         // the facade, then the building in its new place
 ], 5);
 // ROOM: the loop fly-in (staff walk in at the new entrance, the camera rises in through bay 3) flowing straight into the
@@ -64,9 +64,10 @@ const camRoom = camPath([
   { f: 1558, pos: [0.0, 10.0, 8.6], look: [-6.0, 9.85, 5.8], fov: 50 },           // diagonally in through the raised sash of bay 3
   { f: 1564, pos: [-0.6, 10.1, 7.95], look: [-7.5, 9.85, 5.6], fov: 50 },         // = FRAME 0: along the windows, down the room
   { f: 1576, pos: [-1.2, 10.15, 7.6], look: [-8.2, 9.88, 5.6], fov: 50 },
-  { f: 1614, pos: [-2.4, 10.2, 7.4], look: [-8.5, 9.9, 5.6], fov: 47 },          // operators at the far end, Mabel ahead
-  { f: 1664, pos: [-3.6, 10.2, 7.9], look: [-6.0, 9.95, 6.2], fov: 42 },          // frame 100 (= hook key): Mabel
-  { f: 1680, pos: [-3.45, 10.05, 8.75], look: [-6.2, 9.8, 7.0], fov: 44 },        // frame 116 (= hook key)
+  { f: 1614, pos: [-2.4, 10.2, 7.4], look: [-7.6, 9.9, 4.6], fov: 47 },          // operators at the far end, Mabel ahead
+  { f: 1640, pos: [-4.6, 10.2, 7.3], look: [-6.4, 9.92, 4.6], fov: 44 },
+  { f: 1664, pos: [-6.4, 10.2, 7.3], look: [-6.2, 9.95, 4.8], fov: 42 },          // frame 100 (= hook key): Mabel
+  { f: 1680, pos: [-6.7, 10.05, 8.6], look: [-6.0, 9.9, 4.8], fov: 44 },          // frame 116 (= hook key)
 ], 5);
 /** INT camera in room-local coordinates (y relative to the room floor y0) */
 export const camIntAt = (f: number, y0: number): Cam => {

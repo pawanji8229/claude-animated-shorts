@@ -29,7 +29,7 @@ const roomOk = (l: number[]): string | null => {
   const inside = l[0] > -11.3 && l[0] < 4.9 && l[2] > 2.1 && l[2] < 8.45 && y > 0.3 && y < 3.2;
   if (!inWin && !inside) return null;
   const near = (x: number, z: number, r: number) => Math.hypot(l[0] - x, l[2] - z) < r;
-  if (near(-6.0, 6.42, 0.7)) return "Mabel"; if (near(-2.8, 5.76, 0.7)) return "Finch";
+  if (near(-6.0, 4.78, 0.7)) return "Mabel"; if (near(-2.8, 5.76, 0.7)) return "Finch";
   if (l[0] < -9.4) return "operators/switchboard";
   if (y < 1.05 && ((Math.abs(l[0] + 6) < 0.95 && Math.abs(l[2] - 5.6) < 0.6) || (Math.abs(l[0] + 2.9) < 0.9 && Math.abs(l[2] - 5.0) < 0.6))) return "desk";
   return "";
