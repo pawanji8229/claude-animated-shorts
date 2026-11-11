@@ -140,15 +140,15 @@ const camBase = (f: number): Cam => (f < T.past0 ? camHook(f) : f < T.past0 + 12
 // camThrough at 1236 where both coincide.
 const camAerial = camPath([
   { f: 1100, pos: [9.0, 13.0, 23.0], look: [-3.0, 5.0, -8.0], fov: 52 },
-  { f: 1130, pos: [18.0, 29.0, 18.0], look: [-2.0, 6.0, -14.0], fov: 56 },
-  { f: 1156, pos: [15.0, 38.0, 6.0], look: [-2.0, 7.0, -17.0], fov: 56 },      // over the alley (clear of the neighbour's roof)
-  { f: 1180, pos: [24.0, 35.5, -8.0], look: [-4.0, 8.0, -16.0], fov: 56 },
-  { f: 1206, pos: [25.0, 23.0, -13.0], look: [2.0, 10.0, -13.0], fov: 50 },
-  { f: 1236, pos: [19.5, 12.82, -12.4], look: [4.0, 10.92, -12.57], fov: 46 },   // + the slide (-30 m x) = camThrough(1236)
-  { f: 1250, pos: [14.2, 10.92, -12.57], look: [4.0, 10.62, -12.4], fov: 46 },
+  { f: 1130, pos: [18.0, 46.0, 34.0], look: [-1.0, 12.0, -11.0], fov: 54 },     // up and back: the whole block, street, the roped footprint
+  { f: 1160, pos: [22.0, 50.0, 28.0], look: [0.0, 12.0, -16.0], fov: 54 },      // world-fixed: the block turns in front of the lens
+  { f: 1184, pos: [22.0, 52.0, 18.0], look: [-6.0, 11.0, -16.0], fov: 54 },
+  { f: 1204, pos: [16.0, 40.0, 4.0], look: [-18.0, 11.0, -15.0], fov: 52 },     // pan with the sideways slide, swing round to the new front
+  { f: 1220, pos: [2.0, 23.0, -7.0], look: [-25.0, 10.0, -13.0], fov: 48 },
+  { f: 1236, pos: [-10.5, 12.82, -12.4], look: [-26.0, 10.92, -12.57], fov: 46 },   // = camThrough(1236) (building at rest)
+  { f: 1250, pos: [-15.8, 10.92, -12.57], look: [-26.0, 10.62, -12.4], fov: 46 },
 ], 5);
-const camFollowW = (f: number): Cam => { const c = camAerial(f), dx = smooth(1170, 1222, f) * (bldAt(f).p[0] - bldAt(T.rotEnd).p[0]);
-  return { ...c, pos: [c.pos[0] + dx, c.pos[1], c.pos[2]], look: [c.look[0] + dx, c.look[1], c.look[2]] }; };
+const camFollowW = (f: number): Cam => camAerial(f);
 export const camExt = (f: number): Cam => {
   const base = camBase(f);
   if (f >= 1092 && f < 1362) { const th = camW(camPose(f), camThrough(f));
