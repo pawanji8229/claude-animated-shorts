@@ -57,8 +57,10 @@ const camThrough = camPath([
 // ROOM: the loop fly-in (staff walk in at the new entrance, the camera rises in through bay 3) flowing straight into the
 // opening shot (frames 1564+ = frames 0+): an orbit through the switchboard room past the operators and Finch to Mabel.
 const camRoom = camPath([
-  { f: 1484, pos: [6.4, 4.4, 19.0], look: [0.0, 2.0, 10.5], fov: 42 },           // staff walk in; Brightwater tips his hat
-  { f: 1514, pos: [4.4, 9.2, 14.6], look: [-0.5, 9.9, 7.0], fov: 46 },           // rising to the switchboard-room windows
+  { f: 1462, pos: [9.0, 4.6, 31.0], look: [-1.5, 1.2, 14.5], fov: 40 },           // = camMain(1462) building-local (seamless hand-over)
+  { f: 1484, pos: [4.5, 4.4, 30.0], look: [-2.5, 1.2, 14.8], fov: 40 },          // staff walk in; Brightwater tips his hat (all in frame)
+  { f: 1498, pos: [4.2, 5.8, 24.0], look: [-2.0, 2.8, 12.6], fov: 42 },           // following them to the door, then rising
+  { f: 1516, pos: [4.4, 9.2, 14.6], look: [-0.5, 9.9, 7.0], fov: 46 },           // rising to the switchboard-room windows
   { f: 1534, pos: [2.4, 9.95, 11.6], look: [-2.5, 9.9, 6.5], fov: 48 },
   { f: 1548, pos: [1.0, 9.98, 9.8], look: [-4.5, 9.9, 6.0], fov: 49 },
   { f: 1558, pos: [0.0, 10.0, 8.6], look: [-6.0, 9.85, 5.8], fov: 50 },           // diagonally in through the raised sash of bay 3
@@ -122,9 +124,9 @@ const camMain = camPath([
   // (1236-1350 inside / through the building: camThrough) then: finished - the old site with the new HQ steel rising,
   // a slow orbit round to the building standing in its new position, down to the staff walking in at the new entrance
   { f: 1356, pos: [-14.6, 11.4, -9.0], look: [-25.0, 9.6, -10.0], fov: 50 },
-  { f: 1392, pos: [-2.0, 13.6, -7.0], look: [-24.0, 8.0, -12.0], fov: 50 },      // pulling back high over the old site (steel rising below)
-  { f: 1428, pos: [2.0, 13.4, -17.5], look: [-22.0, 6.0, -15.0], fov: 48 },
-  { f: 1462, pos: [-8.0, 6.0, -21.0], look: [-20.5, 2.0, -15.5], fov: 44 },      // down past the steel's south edge to the new entrance
+  { f: 1392, pos: [-3.0, 16.0, -8.0], look: [-22.0, 6.0, -14.0], fov: 50 },      // pulling back high over the old site (steel rising below, 6 m clear of its top)
+  { f: 1428, pos: [2.0, 12.0, -24.0], look: [-18.0, 3.0, -16.0], fov: 46 },      // round the steel's south side (outside its footprint)
+  { f: 1462, pos: [1.0, 4.6, -25.0], look: [-15.5, 1.2, -14.5], fov: 40 },       // low: the staff walk back to the new entrance, Brightwater at the door
 ], 5);
 
 /** the 1930 layer of the hook->1930 time dissolve sees the camera locked to the BUILDING (same window in register),
@@ -152,7 +154,7 @@ export const camExt = (f: number): Cam => {
   if (f >= 1092 && f < 1362) { const th = camW(camPose(f), camThrough(f));
     if (f < 1300) return camMix(camMix(base, camFollowW(f), smooth(1092, 1112, f)), th, smooth(1228, 1248, f));
     return camMix(base, th, 1 - smooth(1346, 1360, f)); }
-  if (f >= 1474) return camMix(base, camW(camPose(f), camRoom(f)), smooth(1474, 1490, f));
+  if (f >= 1450) return camMix(base, camW(camPose(f), camRoom(f)), smooth(1450, 1480, f));
   return base;
 };
 export const camExtLayer = (f: number, timeLayer: boolean): Cam => {
