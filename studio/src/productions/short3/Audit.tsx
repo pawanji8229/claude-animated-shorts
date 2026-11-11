@@ -8,9 +8,11 @@ import { useStreetKit } from "./Street";
 import { useStreetBuildings } from "./Neighbours";
 import { auditCoplanar, Kit } from "./kit";
 import { switchboardKit, phoneBaseKit } from "./Phone";
+import { roomKit } from "./IntSet";
 const Run: React.FC = () => {
   useEffect(() => {
-    const kits: [string, Kit][] = [["hero", useHeroKit()], ["street", useStreetKit()], ["switchboard", switchboardKit(5)], ["phone", phoneBaseKit()], ...useStreetBuildings().map((b, i) => [`neighbour${i}`, b.kit] as [string, Kit])];
+    const heroRoom = new Kit(); heroRoom.merge(useHeroKit()); heroRoom.merge(roomKit(false));   // EXT: the switchboard room inside the hero
+    const kits: [string, Kit][] = [["heroRoom", heroRoom], ["roomINT", roomKit(true)], ["street", useStreetKit()], ["switchboard", switchboardKit(5)], ["phone", phoneBaseKit()], ...useStreetBuildings().map((b, i) => [`neighbour${i}`, b.kit] as [string, Kit])];
     // faces pressed against a facade from outside (back faces of sills, lintels, cornices at z = 0, facing -z) are buried in the wall
     const skip = (n: string) => (ax: number, sgn: number, pl: number) => n.startsWith("neighbour") && ax === 2 && sgn < 0 && Math.abs(pl) < 0.01;
     for (const [n, k] of kits) { const h = auditCoplanar(k, 4e-4, { skip: skip(n) }); const uniq = [...new Map(h.map((x) => [x.plane + x.at.join(","), x])).values()];
