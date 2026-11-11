@@ -132,9 +132,26 @@ const camMain = camPath([
 const hookHold = (): Cam => { const c = camHook(T.past0 - 1); return { ...c, pos: [c.pos[0], c.pos[1] + HOOK_DY, c.pos[2] + HOOK_DZ], look: [c.look[0], c.look[1] + HOOK_DY, c.look[2] + HOOK_DZ] }; };
 /** after the time-dissolve the camera eases out of the held window framing (camMain's smoothing already moves at 259) */
 const camBase = (f: number): Cam => (f < T.past0 ? camHook(f) : f < T.past0 + 12 ? camMix(hookHold(), camMain(f), smooth(T.past0, T.past0 + 12, f)) : camMain(f));
+// AERIAL (time-lapse move, weeks in seconds): the camera holds high over the corner while the block slides back and
+// turns in front of it (world-fixed: the move reads against the city), then catches up with the sideways slide (follow
+// weight 0 -> 1, translation only, never a spin) and descends to window bay 3, handing over to the building-locked
+// camThrough at 1236 where both coincide.
+const camAerial = camPath([
+  { f: 1100, pos: [9.0, 13.0, 23.0], look: [-3.0, 5.0, -8.0], fov: 52 },
+  { f: 1130, pos: [18.0, 29.0, 18.0], look: [-2.0, 6.0, -14.0], fov: 56 },
+  { f: 1156, pos: [15.0, 38.0, 6.0], look: [-2.0, 7.0, -17.0], fov: 56 },      // over the alley (clear of the neighbour's roof)
+  { f: 1180, pos: [24.0, 35.5, -8.0], look: [-4.0, 8.0, -16.0], fov: 56 },
+  { f: 1206, pos: [25.0, 23.0, -13.0], look: [2.0, 10.0, -13.0], fov: 50 },
+  { f: 1236, pos: [19.5, 12.82, -12.4], look: [4.0, 10.92, -12.57], fov: 46 },   // + the slide (-30 m x) = camThrough(1236)
+  { f: 1250, pos: [14.2, 10.92, -12.57], look: [4.0, 10.62, -12.4], fov: 46 },
+], 5);
+const camFollowW = (f: number): Cam => { const c = camAerial(f), dx = smooth(1170, 1222, f) * (bldAt(f).p[0] - bldAt(T.rotEnd).p[0]);
+  return { ...c, pos: [c.pos[0] + dx, c.pos[1], c.pos[2]], look: [c.look[0] + dx, c.look[1], c.look[2]] }; };
 export const camExt = (f: number): Cam => {
   const base = camBase(f);
-  if (f >= 1222 && f < 1362) return camMix(base, camW(camPose(f), camThrough(f)), smooth(1222, 1238, f) * (1 - smooth(1346, 1360, f)));
+  if (f >= 1092 && f < 1362) { const th = camW(camPose(f), camThrough(f));
+    if (f < 1300) return camMix(camMix(base, camFollowW(f), smooth(1092, 1112, f)), th, smooth(1228, 1248, f));
+    return camMix(base, th, 1 - smooth(1346, 1360, f)); }
   if (f >= 1474) return camMix(base, camW(camPose(f), camRoom(f)), smooth(1474, 1490, f));
   return base;
 };

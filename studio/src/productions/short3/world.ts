@@ -17,7 +17,7 @@ export const T = {
   exec0: 262, blue0: 335, blueUp: 365, problem: 449, cringe0: 458,
   craneUp0: 501, footprint0: 520, wreck0: 600, wreckWave: 648, wreckBack: 690,
   engineer0: 690, point0: 712, idea: 745,
-  windows0: 785, support0: 870, jacks0: 960, creep0: 971, aerial0: 1100, slide1End: 1140, rotEnd: 1176, slide3End: 1213,
+  windows0: 785, support0: 870, jacks0: 960, creep0: 971, aerial0: 1100, slide1End: 1140, rotEnd: 1176, slide3End: 1236,
   int2_0: 1213, int2_1: 1235, ext3_0: 1322, ext3_1: 1340, gang0: 1450, loop0: 1530,
 } as const;
 
@@ -35,7 +35,7 @@ export const bldAt = (f: number): { p: V3; ry: number; moving: number } => {
 /** jack-to-jack micro steps: the building advances in small pulses while the jacks are turned (visible "creep") */
 export const pulse = (f: number) => 0.5 - 0.5 * Math.cos(Math.PI * 2 * clamp01(((f % 18) / 18)));
 export const NEW_HQ = { x0: -14.5, x1: 14.5, z0: -15, z1: 11 };   // footprint of the planned bigger headquarters
-export const sunAt = (f: number) => f >= T.aerial0 && f < T.slide3End ? smooth(T.aerial0, T.slide3End, f) : f >= T.ext3_0 ? 1 : 0; // 0 noon -> 1 late afternoon
+export const sunAt = (f: number) => f >= T.aerial0 ? smooth(T.aerial0, T.slide3End, f) : 0; // 0 noon -> 1 late afternoon (held after the move)
 
 /** sun position (offset from the scene centre, world space) - shared by both sets */
 export const sunWorld = (f: number): V3 => { const s = sunAt(f); return [lerp(-58, -80, s), lerp(96, 46, s), lerp(42, 26, s)]; };
