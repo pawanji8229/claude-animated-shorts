@@ -28,8 +28,8 @@ const camHook = camPath([
   HL(116, [-6.7, 10.05, 8.6], [-6.0, 9.9, 4.8], 44),          // pull straight back out through the raised sash of bay 1 ...
   HL(128, [-6.86, 10.0, 9.9], [-5.9, 9.7, 4.8], 46),          // ... the window frame grows round her: outside, the facade
   HL(146, [-6.3, 10.0, 13.4], [-6.0, 9.3, 4.8], 46),          // pulled back: Mabel framed in her window, the facade around her
-  HL(178, [-0.6, 4.1, 19.0], [-1.6, 1.25, 11.2], 50),          // crane down + back (3/4): the block rides on cribbing + rollers, the crew turns the jacks
-  { f: 208, pos: [-2.6, 12.2, 13.0], look: [-3.43, 13.5, 2.5], fov: 26 },    // crane up to a clerk on floor 3 who works on, unaware (telephoto)
+  HL(178, [-0.6, 4.1, 18.0], [-1.6, 1.25, 10.2], 50),          // crane down + back (3/4): the block rides on cribbing + rollers, the crew turns the jacks
+  { f: 208, pos: [-2.6, 12.2, 11.4], look: [-3.43, 13.5, 2.5], fov: 28 },   // (rises in FRONT of the phone wires: they stay behind the lens)    // crane up to a clerk on floor 3 who works on, unaware (telephoto)
   { f: 228, pos: [-2.51, 13.78, 13.9], look: [-3.43, 13.8, 2.5], fov: 20 },
   { f: 262, pos: [-2.56, 13.8, 14.0], look: [-3.43, 13.8, 2.5], fov: 20 },     // (held: the time dissolve is building-locked, see camExtLayer)
 ], 5);
@@ -94,7 +94,7 @@ const camMain = camPath([
   // crane-up: the new footprint's stakes + rope run straight through the old walls; the crawler crane is coming
   { f: 520, pos: [8.0, 6.0, 20.5], look: [1.0, 3.0, 6.0], fov: 42 },
   { f: 575, pos: [16.0, 27.0, 27.6], look: [-1.0, 1.0, -2.0], fov: 56 },    // high 3/4: the roped footprint wraps around the old block
-  { f: 612, pos: [17.0, 15.0, 27.4], look: [10.0, 3.0, 8.0], fov: 56 },       // descending toward the street as the crane rolls up
+  { f: 612, pos: [17.0, 15.0, 22.6], look: [10.0, 3.0, 8.0], fov: 56 },       // (inside the far phone-wire line: the wires stay behind the lens)       // descending toward the street as the crane rolls up
   // the crane at street level: rolls up, ball swinging; Brightwater runs out waving it off; it backs away
   { f: 646, pos: [10.8, 2.2, 24.6], look: [14.5, 4.4, 15.5], fov: 58 },     // the crane rolls up, ball swinging over the sidewalk
   { f: 676, pos: [11.5, 1.1, 23.5], look: [7.6, 4.3, 13.0], fov: 66 },    // low: Brightwater waving, the ball + boom looming over him
@@ -102,8 +102,9 @@ const camMain = camPath([
   { f: 718, pos: [5.0, 1.55, 15.8], look: [4.4, 1.25, 11.0], fov: 48 },
   { f: 760, pos: [4.9, 1.5, 15.2], look: [4.4, 1.3, 11.0], fov: 44 },
   // lateral track along the facade windows (hundreds still inside)
-  { f: 790, pos: [3.5, 9.0, 14.2], look: [3.0, 9.0, 9.0], fov: 48 },          // rises from the engineer straight up the facade ...
-  { f: 828, pos: [-3.0, 11.0, 13.9], look: [-3.4, 11.0, 9.0], fov: 48 },      // ... and tracks along the lit windows
+  { f: 774, pos: [4.2, 4.6, 11.6], look: [3.6, 5.6, 9.0], fov: 48 },          // pushes in low past the trestle (phone wires stay behind the lens) ...
+  { f: 792, pos: [3.4, 9.8, 11.6], look: [3.0, 10.0, 9.0], fov: 48 },         // ... rises straight up the facade to a lit window ...
+  { f: 828, pos: [-3.0, 11.2, 13.9], look: [-3.4, 11.0, 9.0], fov: 48 },      // ... and pulls back above the wires, tracking along the lit windows
   { f: 856, pos: [-9.5, 12.0, 13.9], look: [-9.8, 11.8, 9.0], fov: 48 },
   // support: the truck has pulled up, crew carries timber to the cribs (wide, then close at the hands)
   { f: 900, pos: [-4.5, 2.6, 21.5], look: [-12.0, 1.2, 13.5], fov: 50 },   // truck at the kerb, crew shouldering timbers
