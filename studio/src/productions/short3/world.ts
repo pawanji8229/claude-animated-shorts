@@ -34,5 +34,8 @@ export const bldAt = (f: number): { p: V3; ry: number; moving: number } => {
 };
 /** jack-to-jack micro steps: the building advances in small pulses while the jacks are turned (visible "creep") */
 export const pulse = (f: number) => 0.5 - 0.5 * Math.cos(Math.PI * 2 * clamp01(((f % 18) / 18)));
-export const NEW_HQ = { x0: -16, x1: 16, z0: -13, z1: 11 };   // footprint of the planned bigger headquarters
+export const NEW_HQ = { x0: -14.5, x1: 14.5, z0: -15, z1: 11 };   // footprint of the planned bigger headquarters
 export const sunAt = (f: number) => f >= T.aerial0 && f < T.slide3End ? smooth(T.aerial0, T.slide3End, f) : f >= T.ext3_0 ? 1 : 0; // 0 noon -> 1 late afternoon
+
+/** opacity cross-dissolves between the two sets (frames) */
+export const XF = { intExt: [113, 135], past: [241, 259], extInt: [1213, 1235], intExt2: [1322, 1340], loop: [1528, 1552] } as const;

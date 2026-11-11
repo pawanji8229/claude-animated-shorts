@@ -1,0 +1,4 @@
+Textures in this folder are from Poly Haven (https://polyhaven.com), released under CC0 1.0 (public domain).
+red_brick_03, large_sandstone_blocks_01, concrete_pavement, asphalt_01, gravel_road, tarred_gravel, large_red_bricks,
+factory_brick, dark_brick_wall, brick_wall_006, old_planks_02, rusty_painted_metal, rusty_metal_02, beige_wall_001,
+old_wood_floor, dark_wood. Maps: _diff (albedo), _nor_gl (OpenGL normal), _rough (roughness).

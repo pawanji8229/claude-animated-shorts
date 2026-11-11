@@ -1,130 +1,156 @@
-// short3 INT: the switchboard floor inside the moving building. Six operators (independent call rhythms) behind a low
-// 1930 cord board (keyshelf with cord pairs + lamps, sloped jack field, cords that arc up when plugged), wood floor,
-// plaster walls with wainscot, three tall windows whose street view slides as the building creeps, pendant lights,
-// wall clock, filing cabinets, coat stand, plant. A clerk walks a memo past during "meanwhile". No text.
-import React, { useMemo } from "react";
+// short3 INT: the switchboard office on the third floor of the moving building. The room is built in building-local
+// coordinates and placed by the move path, so the windows look out on the REAL street (buildings, traffic, people)
+// sliding by as the building creeps. Five operators (headsets, own call rhythms) at an oak cord switchboard; Mabel at
+// her desk with a late-1920s desk telephone (dial, cradle, handset, cord) that rings and is answered; Mr. Finch typing.
+// Room: wood floor, wainscot, plaster, picture rail, ceiling beams, schoolhouse pendants (sway with the move), ceiling
+// fan, cast-iron radiators, window stools, filing cabinets, coat rack + hats, water cooler, wall clock, palm.
+import React from "react";
 import * as THREE from "three";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import { ThreeCanvas } from "@remotion/three";
 import { Post } from "../../lib/Post";
-import { InkCtx, Ink } from "../../inventor/Workshop";
-import { V3, rng, smooth, lerp } from "../../lib/math";
-import { SetRig, RenderAfterMount, Toon, TAU } from "../london-bridge/common";
-import { pose5, COSTUME } from "../../char/odo5";
-import { bldAt } from "./world";
+import { InkCtx } from "../../inventor/Workshop";
+import { V3, lerp } from "../../lib/math";
+import { SetRig, RenderAfterMount, Toon, cardWorld } from "../london-bridge/common";
+import { headCenterPx5, shoulderPx5, HEAD5 } from "../../char/odo5";
+import { BW, BD, T } from "./world";
 import * as TL from "./timeline";
+import { Kit, KitMesh, once } from "./kit";
+import { archMats, wallRect, windowUnit } from "./archKit";
+import { floorY, SILL, WIN_W, WIN_H } from "./Hero";
+import { StreetStatic, Skyline, WIRE_Y } from "./Street";
+import { StreetBuildings } from "./Neighbours";
+import { Car30, Streetcar } from "./Vehicles";
+import { SkyEnv } from "./SkyEnv";
+import { DeskPhone, switchboardKit, PlugCord, POS_W } from "./Phone";
+import * as Lf from "./life";
 
-const cnv = (w: number, h: number, draw: (g: CanvasRenderingContext2D, r: () => number) => void, seed = 1) => {
-  const c = document.createElement("canvas"); c.width = w; c.height = h; const g = c.getContext("2d")!; draw(g, rng(seed));
-  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 8; return t;
-};
-const planks = () => cnv(512, 512, (g, r) => { for (let i = 0; i < 8; i++) { let y = 0; while (y < 512) { const l = 120 + r() * 220; g.fillStyle = `hsl(${26 + r() * 8},${38 + r() * 12}%,${28 + r() * 10}%)`; g.fillRect(i * 64, y, 62, l); for (let k = 0; k < 10; k++) { g.fillStyle = `rgba(${r() < 0.5 ? "255,220,170" : "40,20,10"},0.08)`; g.fillRect(i * 64 + r() * 60, y + r() * l, 1.5, 20 + r() * 40); } g.fillStyle = "rgba(20,10,5,0.7)"; g.fillRect(i * 64, y + l - 2, 62, 2); y += l; } g.fillStyle = "rgba(20,10,5,0.7)"; g.fillRect(i * 64 + 62, 0, 2, 512); } }, 71);
-const plaster = () => cnv(256, 256, (g, r) => { g.fillStyle = "#d9c9a6"; g.fillRect(0, 0, 256, 256); for (let i = 0; i < 4000; i++) { g.fillStyle = `rgba(${r() < 0.5 ? "255,250,235" : "120,100,70"},${r() * 0.06})`; g.fillRect(r() * 256, r() * 256, 2, 2); } }, 72);
-const streetView = () => cnv(2048, 768, (g, r) => {                                   // what the windows see: buildings across a street, in midday haze
-  const gr = g.createLinearGradient(0, 0, 0, 768); gr.addColorStop(0, "#9ec3e6"); gr.addColorStop(0.6, "#d6e3ec"); gr.addColorStop(1, "#cfc6b4"); g.fillStyle = gr; g.fillRect(0, 0, 2048, 768);
-  let x = 0; while (x < 2048) { const w = 140 + r() * 220, h = 260 + r() * 380, base = ["#8a5f4a", "#9b8a72", "#6e5650", "#a89a84"][Math.floor(r() * 4)];
-    g.fillStyle = base; g.fillRect(x, 768 - h, w, h); g.fillStyle = "rgba(240,230,210,0.5)"; g.fillRect(x, 768 - h, w, 10);
-    for (let yy = 768 - h + 30; yy < 700; yy += 46) for (let xx = x + 14; xx < x + w - 24; xx += 34) { g.fillStyle = r() < 0.3 ? "#e8d6a8" : "#4d5866"; g.fillRect(xx, yy, 18, 26); }
-    x += w + 6; }
-  g.fillStyle = "rgba(200,210,220,0.25)"; g.fillRect(0, 0, 2048, 768);                     // haze
-}, 73);
+export const Y0 = floorY(2);                                   // room floor (building-local)
+const RX0 = -11.4, RX1 = 5.0, RZ0 = 2.0, RZ1 = BD / 2 - 0.5, CEIL = 3.38;
+export const BOARD = { x: -10.75, z0: 2.95 };
+export const DESK_M: V3 = [-6.0, Y0, 5.6], DESK_F: V3 = [-2.9, Y0, 5.0], PHONE_M: V3 = [-5.62, Y0 + 0.775, 5.32];
+
+const roomKit = () => once("intRoom", () => {
+  const M = archMats(), k = new Kit(), y = Y0;
+  k.span(M.floorWood, [RX0, y - 0.06, RZ0], [RX1, y + 0.02, RZ1], { ink: false });
+  k.span(M.ceiling, [RX0, y + CEIL, RZ0], [RX1, y + CEIL + 0.06, RZ1], { ink: false });
+  for (const z of [3.9, 6.3]) k.span(M.ceiling, [RX0, y + CEIL - 0.22, z - 0.16], [RX1, y + CEIL, z + 0.16]);
+  // walls (back, sides) with wainscot + picture rail
+  const wall = (a: V3, b: V3) => k.span(M.plaster, a, b, { ink: false });
+  wall([RX0, y, RZ0 - 0.12], [RX1, y + CEIL, RZ0]); wall([RX0 - 0.12, y, RZ0], [RX0, y + CEIL, RZ1]); wall([RX1, y, RZ0], [RX1 + 0.12, y + CEIL, RZ1]);
+  k.span(M.wainscot, [RX0, y + 0.02, RZ0], [RX1, y + 1.0, RZ0 + 0.03], { ink: false }); k.span(M.wainscot, [RX1 - 0.03, y + 0.02, RZ0], [RX1, y + 1.0, RZ1], { ink: false });
+  k.span(M.wainscot, [RX0, y + 2.42, RZ0], [RX1, y + 2.47, RZ0 + 0.03], { ink: false });
+  // door to the corridor (frosted glass upper panel + transom) on the back wall
+  k.span(M.frameBrown, [-1.6, y, RZ0], [-0.5, y + 2.25, RZ0 + 0.06]); k.plane(M.frosted, 0.8, 0.9, [-1.05, y + 1.65, RZ0 + 0.065]); k.span(M.brass, [-0.7, y + 1.05, RZ0 + 0.06], [-0.64, y + 1.1, RZ0 + 0.11], { ink: false });
+  k.span(M.frameBrown, [-1.65, y + 2.25, RZ0], [-0.45, y + 2.3, RZ0 + 0.08]); k.plane(M.frosted, 1.0, 0.4, [-1.05, y + 2.55, RZ0 + 0.03]);
+  // window wall: plaster wall with openings (face-local, outer face z = BD/2), detailed windows, stools, radiators
+  const fw = new Kit(), cxs = Array.from({ length: 7 }, (_, b) => -BW / 2 + (BW / 7) * (b + 0.5));
+  const holes = cxs.map((cx) => ({ x0: cx - WIN_W / 2, x1: cx + WIN_W / 2, y0: y + SILL, y1: y + SILL + WIN_H }));
+  wallRect(fw, M.plaster, RX0 - 0.12, RX1 + 0.12, y - 0.06, y + CEIL + 0.06, -0.5, 0, holes, { ink: false });
+  cxs.forEach((cx, b) => { if (cx + WIN_W / 2 < RX0 || cx - WIN_W / 2 > RX1) return; windowUnit(fw, M, cx, y + SILL, WIN_W, WIN_H, { frame: M.frameGreen, panes: 2, blind: [0.25, 0.0, 0.35, 0.0, 0.2][b] ?? 0, open: b === 2 ? 0.45 : 0 });
+    fw.span(M.furn, [cx - WIN_W / 2 - 0.1, y + SILL - 0.04, -0.62], [cx + WIN_W / 2 + 0.1, y + SILL + 0.01, -0.48]);
+    // cast-iron column radiator + pipes
+    for (let c = 0; c < 12; c++) fw.span(M.ironPaint, [cx - 0.55 + c * 0.093, y + 0.08, -0.78], [cx - 0.55 + c * 0.093 + 0.07, y + 0.62, -0.62]);
+    fw.span(M.ironPaint, [cx - 0.58, y + 0.08, -0.75], [cx + 0.58, y + 0.13, -0.65]); fw.span(M.ironPaint, [cx - 0.58, y + 0.57, -0.75], [cx + 0.58, y + 0.62, -0.65]);
+    fw.cyl(M.ironPaint, 0.025, 0.025, 0.1, [cx - 0.62, y + 0.06, -0.7], [0, 0, 0], 8); fw.cyl(M.brass, 0.03, 0.03, 0.04, [cx + 0.62, y + 0.6, -0.7], [0, 0, Math.PI / 2], 8, { ink: false }); });
+  k.merge(fw, [0, 0, BD / 2]);
+  // Mabel's desk (+ chair, blotter, in/out tray, lamp, papers), Mr Finch's desk (+ typewriter)
+  const desk = (p: V3, w = 1.5) => { k.span(M.furn, [p[0] - w / 2, y + 0.73, p[2] - 0.4], [p[0] + w / 2, y + 0.78, p[2] + 0.4]); k.span(M.furn, [p[0] - w / 2 + 0.03, y, p[2] - 0.37], [p[0] - w / 2 + 0.5, y + 0.73, p[2] + 0.37]); k.span(M.furn, [p[0] + w / 2 - 0.5, y, p[2] - 0.37], [p[0] + w / 2 - 0.03, y + 0.73, p[2] + 0.37]);
+    for (const s of [-1, 1]) for (let d = 0; d < 3; d++) { const x = p[0] + s * (w / 2 - 0.265); k.span(M.timberDk, [x - 0.2, y + 0.08 + d * 0.22, p[2] - 0.375], [x + 0.2, y + 0.26 + d * 0.22, p[2] - 0.37], { ink: 0.3 }); k.span(M.brass, [x - 0.05, y + 0.16 + d * 0.22, p[2] - 0.385], [x + 0.05, y + 0.18 + d * 0.22, p[2] - 0.37], { ink: false }); }
+    k.span(M.furn, [p[0] - w / 2 + 0.5, y + 0.3, p[2] + 0.33], [p[0] + w / 2 - 0.5, y + 0.73, p[2] + 0.36]); };
+  desk(DESK_M); desk(DESK_F, 1.4);
+  k.span(M.green, [DESK_M[0] - 0.42, y + 0.78, DESK_M[2] - 0.28], [DESK_M[0] + 0.25, y + 0.787, DESK_M[2] + 0.18], { ink: false });
+  for (let s = 0; s < 4; s++) k.span(M.paper, [DESK_M[0] - 0.36 + s * 0.005, y + 0.787 + s * 0.003, DESK_M[2] - 0.22], [DESK_M[0] - 0.1 + s * 0.005, y + 0.79 + s * 0.003, DESK_M[2] + 0.1], { ink: false });
+  k.span(M.brass, [DESK_M[0] + 0.32, y + 0.78, DESK_M[2] - 0.1], [DESK_M[0] + 0.62, y + 0.83, DESK_M[2] + 0.18]); for (let s = 0; s < 6; s++) k.span(M.paper, [DESK_M[0] + 0.34, y + 0.785 + s * 0.006, DESK_M[2] - 0.08], [DESK_M[0] + 0.6, y + 0.79 + s * 0.006, DESK_M[2] + 0.16], { ink: false });
+  const lamp = (x: number, z: number) => { k.cyl(M.brass, 0.07, 0.08, 0.02, [x, y + 0.79, z], [0, 0, 0], 14); k.rod(M.brass, [x, y + 0.79, z], [x, y + 1.18, z], 0.012, 6); k.lathe(M.green, [[0.02, 0], [0.14, -0.06], [0.15, -0.08], [0.0, -0.02]], [x, y + 1.24, z + 0.05], 18, [0.3, 0, 0]); k.sphere(M.lampDim, 0.035, [x, y + 1.19, z + 0.06], [1, 1, 1], { ink: false }); };
+  lamp(DESK_M[0] - 0.55, DESK_M[2] + 0.22); lamp(DESK_F[0] + 0.5, DESK_F[2] + 0.2);
+  const tw: V3 = [DESK_F[0] - 0.1, y + 0.78, DESK_F[2] - 0.05];
+  k.span(M.black, [tw[0] - 0.24, tw[1], tw[2] - 0.2], [tw[0] + 0.24, tw[1] + 0.09, tw[2] + 0.18]); k.span(M.black, [tw[0] - 0.22, tw[1] + 0.09, tw[2] + 0.02], [tw[0] + 0.22, tw[1] + 0.18, tw[2] + 0.2]);
+  k.cyl(M.black, 0.035, 0.035, 0.5, [tw[0], tw[1] + 0.2, tw[2] + 0.17], [0, 0, Math.PI / 2], 12); k.span(M.paper, [tw[0] - 0.15, tw[1] + 0.2, tw[2] + 0.18], [tw[0] + 0.15, tw[1] + 0.42, tw[2] + 0.19], { ink: false });
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 10; c++) k.cyl(M.cream, 0.011, 0.011, 0.012, [tw[0] - 0.19 + c * 0.042 + r * 0.01, tw[1] + 0.07 + r * 0.012, tw[2] - 0.17 + r * 0.045], [0, 0, 0], 8, { ink: false });
+  // chairs
+  const chair = (p: V3) => { k.span(M.furn, [p[0] - 0.24, y + 0.46, p[2] - 0.22], [p[0] + 0.24, y + 0.51, p[2] + 0.22]); k.span(M.furn, [p[0] - 0.24, y + 0.51, p[2] + 0.19], [p[0] + 0.24, y + 1.0, p[2] + 0.23]); k.cyl(M.ironPaint, 0.03, 0.03, 0.42, [p[0], y + 0.25, p[2]], [0, 0, 0], 8); for (let a = 0; a < 4; a++) k.rod(M.ironPaint, [p[0], y + 0.05, p[2]], [p[0] + Math.cos(a * 1.57 + 0.78) * 0.3, y + 0.02, p[2] + Math.sin(a * 1.57 + 0.78) * 0.3], 0.02, 6); };
+  chair([DESK_M[0], 0, DESK_M[2] + 0.75]); chair([DESK_F[0] + 0.1, 0, DESK_F[2] + 0.7]);
+  // operators' stools
+  for (let i = 0; i < 5; i++) { const z = BOARD.z0 + POS_W * (i + 0.5), x = BOARD.x + 0.85; k.cyl(M.furn, 0.19, 0.19, 0.05, [x, y + 0.66, z], [0, 0, 0], 16); for (let a = 0; a < 3; a++) k.rod(M.ironPaint, [x, y + 0.64, z], [x + Math.cos(a * 2.1) * 0.24, y + 0.02, z + Math.sin(a * 2.1) * 0.24], 0.015, 6); k.torus(M.ironPaint, 0.19, 0.012, [x, y + 0.3, z], [Math.PI / 2, 0, 0]); }
+  // filing cabinets, coat rack + hats, water cooler, wall clock, pictures, palm, wastebasket
+  for (let c = 0; c < 4; c++) { const x = 0.5 + c * 0.58; k.span(M.ironPaint, [x, y, RZ0 + 0.02], [x + 0.55, y + 1.32, RZ0 + 0.66]); for (let d = 0; d < 4; d++) { k.span(M.ironPaint, [x + 0.03, y + 0.06 + d * 0.32, RZ0 + 0.66], [x + 0.52, y + 0.34 + d * 0.32, RZ0 + 0.68], { ink: 0.3 }); k.span(M.brass, [x + 0.22, y + 0.24 + d * 0.32, RZ0 + 0.68], [x + 0.33, y + 0.26 + d * 0.32, RZ0 + 0.7], { ink: false }); } }
+  const cr: V3 = [4.3, y, 2.7]; k.cyl(M.timberDk, 0.03, 0.04, 1.85, [cr[0], y + 0.93, cr[2]], [0, 0, 0], 8); for (let a = 0; a < 4; a++) { k.rod(M.timberDk, [cr[0], y + 0.05, cr[2]], [cr[0] + Math.cos(a * 1.57) * 0.3, y + 0.0, cr[2] + Math.sin(a * 1.57) * 0.3], 0.02, 6); k.rod(M.brass, [cr[0], y + 1.75, cr[2]], [cr[0] + Math.cos(a * 1.57 + 0.4) * 0.22, y + 1.85, cr[2] + Math.sin(a * 1.57 + 0.4) * 0.22], 0.01, 5); }
+  k.lathe(M.black, [[0, 0], [0.16, 0], [0.16, 0.02], [0.1, 0.03], [0.1, 0.12], [0, 0.13]], [cr[0] + 0.2, y + 1.82, cr[2] + 0.08], 16); k.lathe(M.frameBrown, [[0, 0], [0.17, 0], [0.17, 0.02], [0.1, 0.03], [0.09, 0.11], [0, 0.12]], [cr[0] - 0.18, y + 1.8, cr[2] - 0.1], 16);
+  const wc: V3 = [4.4, y, 3.7]; k.span(M.frameWhite, [wc[0] - 0.2, y, wc[2] - 0.2], [wc[0] + 0.2, y + 0.95, wc[2] + 0.2]); k.span(M.chrome, [wc[0] - 0.03, y + 0.75, wc[2] - 0.25], [wc[0] + 0.03, y + 0.8, wc[2] - 0.2], { ink: false });
+  k.lathe(new THREE.MeshPhysicalMaterial({ color: "#bfe0f2", transparent: true, opacity: 0.45, roughness: 0.05, transmission: 0, depthWrite: false }), [[0, 0], [0.15, 0.02], [0.16, 0.3], [0.12, 0.42], [0.05, 0.46], [0.05, 0.5], [0, 0.5]], [wc[0], y + 0.95, wc[2]], 20, [0, 0, 0], { ink: 0.4 });
+  const clk: V3 = [-4.6, y + 2.75, RZ0 + 0.03]; k.cyl(M.timberDk, 0.3, 0.3, 0.06, clk, [Math.PI / 2, 0, 0], 28); k.cyl(M.cream, 0.25, 0.25, 0.02, [clk[0], clk[1], clk[2] + 0.04], [Math.PI / 2, 0, 0], 28, { ink: false });
+  for (let h = 0; h < 12; h++) { const a = (h / 12) * Math.PI * 2; k.span(M.black, [clk[0] + Math.sin(a) * 0.21 - 0.008, clk[1] + Math.cos(a) * 0.21 - 0.02, clk[2] + 0.05], [clk[0] + Math.sin(a) * 0.21 + 0.008, clk[1] + Math.cos(a) * 0.21 + 0.02, clk[2] + 0.055], { ink: false }); }
+  for (const [x, w, h] of [[-8.5, 0.7, 0.5], [-7.4, 0.45, 0.6], [2.8, 0.8, 0.55]] as [number, number, number][]) { k.span(M.frameBrown, [x - w / 2, y + 1.55, RZ0 + 0.0], [x + w / 2, y + 1.55 + h, RZ0 + 0.04]); k.span([M.plasterB, M.curtainB, M.green][Math.round(x) % 3 < 0 ? 0 : Math.round(x) % 3], [x - w / 2 + 0.05, y + 1.6, RZ0 + 0.04], [x + w / 2 - 0.05, y + 1.5 + h, RZ0 + 0.05], { ink: false }); }
+  const palm: V3 = [4.3, y, 7.6]; k.lathe(M.frameBrown, [[0, 0], [0.18, 0], [0.24, 0.4], [0.26, 0.45], [0, 0.45]], palm, 16); for (let l = 0; l < 9; l++) { const a = (l / 9) * Math.PI * 2; k.rod(M.green, [palm[0], y + 0.42, palm[2]], [palm[0] + Math.cos(a) * 0.55, y + 1.0 + (l % 3) * 0.18, palm[2] + Math.sin(a) * 0.55], 0.025, 5); k.sphere(M.green, 0.12, [palm[0] + Math.cos(a) * 0.55, y + 1.0 + (l % 3) * 0.18, palm[2] + Math.sin(a) * 0.55], [2.0, 0.25, 0.9]); }
+  k.lathe(M.ironPaint, [[0, 0], [0.15, 0], [0.18, 0.35], [0, 0.35]], [DESK_M[0] + 0.95, y, DESK_M[2] + 0.2], 14); for (let p = 0; p < 3; p++) k.sphere(M.paper, 0.06, [DESK_M[0] + 0.95 + (p - 1) * 0.05, y + 0.33, DESK_M[2] + 0.2], [1, 0.7, 1], { ink: false });
+  return k;
+});
+const pendantKit = () => once("pendant", () => { const M = archMats(), k = new Kit(); k.rod(M.brass, [0, 0, 0], [0, -0.75, 0], 0.01, 6); k.lathe(M.brass, [[0, 0], [0.07, 0], [0.07, -0.05], [0.04, -0.08], [0, -0.08]], [0, -0.73, 0], 14); k.sphere(M.lamp, 0.18, [0, -0.97, 0], [1, 1.05, 1], { ink: 0.4 }); return k; });
+const fanKit = () => once("fan", () => { const M = archMats(), k = new Kit(); for (let b = 0; b < 4; b++) { const a = (b / 4) * Math.PI * 2; k.box(M.timberDk, [0.62, 0.012, 0.13], [Math.cos(a) * 0.42, 0, -Math.sin(a) * 0.42], [0, a, 0.08]); } k.lathe(M.brass, [[0, 0.06], [0.12, 0.04], [0.12, -0.04], [0.05, -0.08], [0, -0.08]], [0, 0, 0], 16); return k; });
+const headsetKit = () => once("headset", () => { const M = archMats(), k = new Kit(); k.torus(M.black, 1.0, 0.035, [0, 0, 0], [0, 0, 0], Math.PI, { ink: 0.3 }); k.cyl(M.black, 0.16, 0.16, 0.08, [1.0, -0.02, 0], [0, 0, Math.PI / 2], 14, { ink: 0.4 }); return k; });
+
+/** the building pose used for the interior: hook = the flash-forward creep; "meanwhile" = mid-move creep; loop end = hook */
+const intBld = (f: number) => { if (f < T.past0) return { p: [0, 0, -6.0 - 0.5 * (f / T.hookEnd)] as V3, ry: 0, sway: 1 }; return { p: [0, 0, -3.0 - 0.004 * (f - T.int2_0)] as V3, ry: 0, sway: 1 }; };
 
 export const IntSet: React.FC<{ from: number }> = ({ from }) => {
-  const f = useCurrentFrame() + from;
+  const fRaw = useCurrentFrame() + from, f = fRaw;            // negative frames = the loop pre-roll that flows into frame 0
   const { width, height } = useVideoConfig();
   const hi = height >= 1500, k = height / 1920;
-  const c = TL.camInt(f < 0 ? 1564 + f : f);   // negative frames = the loop pre-roll that flows into frame 0
-  const M = useMemo(() => {
-    const fl = planks(); fl.repeat.set(4, 2.5);
-    const sv = streetView(); sv.wrapS = THREE.RepeatWrapping;
-    return {
-      floor: new THREE.MeshStandardMaterial({ map: fl, roughness: 0.6 }),
-      wall: new THREE.MeshStandardMaterial({ map: plaster(), roughness: 0.95 }),
-      wains: new THREE.MeshStandardMaterial({ color: "#5a3a22", roughness: 0.55 }),
-      wood: new THREE.MeshStandardMaterial({ color: "#6b4426", roughness: 0.5 }),
-      woodDark: new THREE.MeshStandardMaterial({ color: "#3d2616", roughness: 0.55 }),
-      panel: new THREE.MeshStandardMaterial({ color: "#1d1d1b", roughness: 0.6 }),
-      brass: new THREE.MeshStandardMaterial({ color: "#c09a4a", metalness: 0.8, roughness: 0.3 }),
-      cord: new THREE.MeshStandardMaterial({ color: "#2a1c14", roughness: 0.6 }),
-      lampOn: new THREE.MeshBasicMaterial({ color: new THREE.Color(2.2, 1.6, 0.6) }), lampOff: new THREE.MeshStandardMaterial({ color: "#5a4a30", roughness: 0.4 }),
-      view: new THREE.MeshBasicMaterial({ map: sv, toneMapped: true }), frame: new THREE.MeshStandardMaterial({ color: "#e8e0cc", roughness: 0.6 }),
-      pendant: new THREE.MeshBasicMaterial({ color: new THREE.Color(2.0, 1.75, 1.3) }), steel: new THREE.MeshStandardMaterial({ color: "#6a6e66", metalness: 0.4, roughness: 0.5 }),
-      clockFace: new THREE.MeshStandardMaterial({ color: "#f2ead8", roughness: 0.5 }), black: new THREE.MeshStandardMaterial({ color: "#151515" }),
-      leaf: new THREE.MeshStandardMaterial({ color: "#4e7a3a", roughness: 0.9 }), pot: new THREE.MeshStandardMaterial({ color: "#a0583a", roughness: 0.8 }),
-    };
-  }, []);
-  // window view slides with the building's travel (and creeps in the hook)
-  const b = bldAt(f); M.view.map!.offset.x = (-(b.p[2]) * 0.02 + b.p[0] * 0.02) % 1;
-  const ops = TL.OPS_X.map((x, i) => ({ x, ...TL.opAt(i, f) }));
-  const memo = f >= 1236 && f < 1330 ? smooth(1236, 1320, f) : -1;                     // clerk crossing behind the operators
-  const memoPose = pose5({ costume: { ...COSTUME.clerk, hat: null }, view: "side", gait: (f - 1236) * 0.045, walk: memo >= 0 ? 1 : 0, stride: 0.72, lean: 0.04, armR: { hand: [40, 60], elbow: [60, 90], shape: "grip", rot: 0.2, bend: 1 } });
-  const clockA = (f / 30) * (TAU / 60);
+  const b = intBld(f), cl = TL.camInt(f < 0 ? 1564 + f : f);
+  const W = (p: V3): V3 => [b.p[0] + p[0], p[1], b.p[2] + p[2]];          // building-local -> world (no rotation inside)
+  const c = { ...cl, pos: W([cl.pos[0], cl.pos[1] + Y0, cl.pos[2]]), look: W([cl.look[0], cl.look[1] + Y0, cl.look[2]]) };
+  const tw = f < 0 ? 1564 + f : f;                              // timeline frame for the acting (loop pre-roll = end of film)
+  const ops = Array.from({ length: 5 }, (_, i) => TL.opAt(i, tw));
+  const mab = TL.mabelAt(tw), fin = TL.finchAt(tw);
+  const sway = (s: number) => Math.sin(f * 0.07 + s) * 0.035 * b.sway;
+  const M = archMats();
+  // handset in Mabel's hand (screen-left hand near her ear), else in the cradle
+  const mabPos = W([DESK_M[0], Y0 - 0.02, DESK_M[2] + 0.82]);
+  const held = mab.lift > 0.02 ? (() => { const sh = shoulderPx5(mab.pose, -1), hp: [number, number] = [sh[0] + mab.pose.armL.hand[0], sh[1] + mab.pose.armL.hand[1]];
+    const hw = cardWorld(mabPos, c.pos, hp, 1.5, 0.08), cradle = W([PHONE_M[0], PHONE_M[1] + 0.228, PHONE_M[2] - 0.02]); const yaw = Math.atan2(c.pos[0] - mabPos[0], c.pos[2] - mabPos[2]);
+    const u = Math.min(1, mab.lift); return { p: [lerp(cradle[0], hw[0], u), lerp(cradle[1], hw[1], u), lerp(cradle[2], hw[2], u)] as V3, r: [0, yaw, lerp(0, -Math.PI / 2 + 0.3, u)] as V3 }; })() : null;
   return (
     <AbsoluteFill style={{ backgroundColor: "#2a2018" }}>
-      <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.05, far: 200 }}>
-        <SetRig c={c} bg="#2a2018" fog={["#3a2e22", 14, 40]} env={0.35} />
-        <InkCtx.Provider value={2.8 * k}>
-          <hemisphereLight args={["#ffe9c8", "#5a4632", 0.9]} />
-          <directionalLight position={[-3, 5, -6]} color="#fff2dc" intensity={2.2} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-8} shadow-camera-right={8} shadow-camera-top={6} shadow-camera-bottom={-4} shadow-bias={-0.0004} />
-          {[-3, 0, 3].map((x) => <pointLight key={x} position={[x, 3.1, 1.2]} color="#ffd9a6" intensity={4.5} distance={7} decay={1.6} />)}
-          {/* room */}
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 1.5]} material={M.floor} receiveShadow><planeGeometry args={[16, 10]} /></mesh>
-          <mesh position={[0, 0.5, -1.8]} material={M.wall} receiveShadow><boxGeometry args={[16, 1.0, 0.1]} /></mesh>
-          <mesh position={[0, 3.45, -1.8]} material={M.wall} receiveShadow><boxGeometry args={[16, 0.7, 0.1]} /></mesh>
-          {[-6.2, -1.8, 1.8, 6.2].map((x, i) => <mesh key={x} position={[x, 2.05, -1.8]} material={M.wall} receiveShadow><boxGeometry args={[i === 0 || i === 3 ? 3.6 : 1.8, 2.1, 0.1]} /></mesh>)}
-          <mesh position={[0, 0.5, -1.72]} material={M.wains}><boxGeometry args={[16, 1.0, 0.06]} /></mesh>
-          <mesh position={[0, 1.02, -1.68]} material={M.woodDark}><boxGeometry args={[16, 0.06, 0.1]} /></mesh>
-          <mesh position={[0, 3.8, 1.5]} rotation={[Math.PI / 2, 0, 0]} material={M.wall}><planeGeometry args={[16, 10]} /></mesh>
-          {/* three tall windows with the moving street view behind them */}
-          {[-3.6, 0, 3.6].map((x, i) => <group key={x} position={[x, 2.05, -1.78]}>
-            <mesh position={[0, 0, -0.6]} material={M.view}><planeGeometry args={[2.6, 2.4]} /></mesh>
-            {[-0.85, 0.85].map((s) => <mesh key={s} position={[s, 0, 0]} material={M.frame} castShadow><boxGeometry args={[0.1, 2.1, 0.14]} /><Ink k={0.5} /></mesh>)}
-            {[-1.05, 0, 1.05].map((y) => <mesh key={y} position={[0, y, 0]} material={M.frame}><boxGeometry args={[1.8, 0.08, 0.14]} /></mesh>)}
-            <mesh position={[0, 0, 0.02]} material={M.frame}><boxGeometry args={[0.05, 2.1, 0.08]} /></mesh>
-            <mesh position={[0, -1.14, 0.12]} material={M.wood}><boxGeometry args={[2.0, 0.06, 0.3]} /></mesh>
-            {i === 1 && <mesh position={[0.5, -1.03, 0.14]} material={M.pot}><cylinderGeometry args={[0.09, 0.07, 0.16, 12]} /></mesh>}
-          </group>)}
-          {/* the hole behind the windows (so the view plane is the only thing seen) */}
-          <mesh position={[0, 2.05, -2.6]} material={M.view}><planeGeometry args={[16, 3]} /></mesh>
-          {/* wall clock (time passing) */}
-          <group position={[5.6, 2.9, -1.72]}>
-            <mesh rotation={[Math.PI / 2, 0, 0]} material={M.woodDark}><cylinderGeometry args={[0.32, 0.32, 0.06, 28]} /></mesh>
-            <mesh position={[0, 0, 0.035]} rotation={[Math.PI / 2, 0, 0]} material={M.clockFace}><cylinderGeometry args={[0.27, 0.27, 0.02, 28]} /></mesh>
-            {[clockA, clockA * 12].map((a, i) => <mesh key={i} position={[Math.sin(a) * (i ? 0.1 : 0.08), Math.cos(a) * (i ? 0.1 : 0.08), 0.06]} rotation={[0, 0, -a]} material={M.black}><boxGeometry args={[0.015, i ? 0.2 : 0.15, 0.01]} /></mesh>)}
+      <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.05, far: 900 }}>
+        <SetRig c={c} bg="#9ec3e6" fog={["#cdd8e0", 120, 600]} env={0.3} />
+        <SkyEnv intensity={0.5} />
+        <InkCtx.Provider value={2.6 * k}>
+          <mesh><sphereGeometry args={[800, 32, 16]} /><meshBasicMaterial side={THREE.BackSide} fog={false} depthWrite={false} color="#a3c6ea" /></mesh>
+          <hemisphereLight args={["#ffeed6", "#6a5440", 0.75]} />
+          <directionalLight position={[c.pos[0] - 40, 90, c.pos[2] + 55]} color="#fff2dc" intensity={3.0} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-14} shadow-camera-right={14} shadow-camera-top={14} shadow-camera-bottom={-14} shadow-camera-far={300} shadow-bias={-0.0003} shadow-normalBias={0.03} />
+          {[[-8.6, 4.2], [-4.0, 4.4], [0.4, 4.6]].map(([x, z], i) => <pointLight key={i} position={W([x, Y0 + CEIL - 1.1, z])} color="#ffd9a8" intensity={5} distance={8} decay={1.6} />)}
+          <pointLight position={W([-6.2, Y0 + 1.9, 4.0])} color="#ffe8cc" intensity={2.5} distance={5} decay={1.6} />
+          <pointLight position={W([DESK_M[0] - 0.5, Y0 + 1.15, DESK_M[2] + 0.1])} color="#ffd59a" intensity={1.6} distance={2.2} decay={1.8} />
+          {/* the real street outside */}
+          <StreetStatic /><StreetBuildings /><Skyline />
+          {Lf.PARKED.map((p, i) => <group key={`pk${i}`} position={p.p} rotation={[0, p.ry, 0]}><Car30 color={p.color} spin={0} /></group>)}
+          {Lf.carsAt(tw).map((p, i) => <group key={`car${i}`} position={p.p} rotation={[0, p.ry, 0]}><Car30 color={p.color} spin={p.spin} /></group>)}
+          {Lf.streetcarAt(tw) && (() => { const s = Lf.streetcarAt(tw)!; return <group position={s.p} rotation={[0, s.ry, 0]}><Streetcar wireY={WIRE_Y + 0.13} /></group>; })()}
+          {/* the room, carried by the building */}
+          <group position={b.p}>
+            <KitMesh kit={roomKit()} />
+            <group position={[BOARD.x, Y0, BOARD.z0]}><KitMesh kit={switchboardKit(5)} />
+              {ops.map((o, i) => o.cords.map((cd, j) => <PlugCord key={`${i}${j}`} from={[0.0, 0.9, i * POS_W + 0.15 + cd.slot * 0.1]} to={[-0.42, cd.y, i * POS_W + 0.1 + cd.col * 0.04]} />))}
+              {ops.map((o, i) => <mesh key={`l${i}`} position={[-0.41, 1.12 + (i % 2) * 0.3, i * POS_W + 0.5]} material={o.ring ? M.lamp : M.lampDim} scale={o.ring || o.plugged ? 1 : 0.6}><sphereGeometry args={[0.022, 8, 6]} /></mesh>)}
+            </group>
+            {[[-8.6, 4.2], [-4.0, 4.4], [0.4, 4.6]].map(([x, z], i) => <group key={i} position={[x, Y0 + CEIL, z]} rotation={[sway(i * 1.7), 0, sway(i * 2.3 + 1)]}><KitMesh kit={pendantKit()} /></group>)}
+            <group position={[-6.6, Y0 + CEIL - 0.42, 6.9]}><mesh position={[0, 0.2, 0]} material={M.brass}><cylinderGeometry args={[0.015, 0.015, 0.4, 6]} /></mesh><group rotation={[0, f * 0.16, 0]}><KitMesh kit={fanKit()} /></group></group>
+            {/* coffee cup on Mabel's desk: the surface trembles with the move */}
+            <group position={[DESK_M[0] - 0.12, Y0 + 0.78, DESK_M[2] + 0.05]}><mesh position={[0, 0.045, 0]} material={M.frameWhite} castShadow><cylinderGeometry args={[0.042, 0.034, 0.09, 16, 1, true]} /></mesh><mesh position={[0, 0.002, 0]} material={M.frameWhite}><cylinderGeometry args={[0.07, 0.07, 0.006, 16]} /></mesh>
+              <mesh position={[0, 0.075 + Math.sin(f * 1.3) * 0.002, 0]} rotation={[-Math.PI / 2 + Math.sin(f * 0.9) * 0.05, 0, 0]}><circleGeometry args={[0.039, 16]} /><meshStandardMaterial color="#3a2414" roughness={0.15} /></mesh></group>
+            <DeskPhone p={PHONE_M} ry={-0.35} ring={mab.ring} f={f} held={held ? { p: [held.p[0] - b.p[0], held.p[1], held.p[2] - b.p[2]], r: held.r } : null} />
           </group>
-          {/* filing cabinets, coat stand, plant */}
-          {[-6.4, -5.8].map((x) => <mesh key={x} position={[x, 0.7, -1.4]} material={M.steel} castShadow><boxGeometry args={[0.55, 1.4, 0.6]} /><Ink k={0.6} /></mesh>)}
-          <group position={[6.2, 0, -1.2]}><mesh position={[0, 0.9, 0]} material={M.woodDark}><cylinderGeometry args={[0.03, 0.05, 1.8, 8]} /></mesh><mesh position={[0, 0.02, 0]} material={M.woodDark}><cylinderGeometry args={[0.25, 0.25, 0.04, 12]} /></mesh></group>
-          <group position={[-6.6, 0, 0.4]}><mesh position={[0, 0.25, 0]} material={M.pot} castShadow><cylinderGeometry args={[0.25, 0.2, 0.5, 14]} /></mesh>{[0, 1, 2, 3].map((j) => <mesh key={j} position={[Math.cos(j * 1.6) * 0.18, 0.75 + j * 0.12, Math.sin(j * 1.6) * 0.18]} material={M.leaf} castShadow><icosahedronGeometry args={[0.28, 1]} /></mesh>)}</group>
-          {/* pendant lights */}
-          {[-3, 0, 3].map((x) => <group key={x} position={[x, 3.8, 1.0]}><mesh position={[0, -0.4, 0]} material={M.black}><cylinderGeometry args={[0.01, 0.01, 0.8, 6]} /></mesh><mesh position={[0, -0.85, 0]} material={M.brass}><coneGeometry args={[0.28, 0.2, 18, 1, true]} /></mesh><mesh position={[0, -0.9, 0]} material={M.pendant}><sphereGeometry args={[0.1, 12, 8]} /></mesh></group>)}
-          {/* operators (cards) behind the low cord board */}
-          {ops.map((o, i) => <Toon key={i} pose={o.pose} pos={[o.x, 0.02, -0.4]} cam={c.pos} h={1.5} hi={hi} light={i === 0 ? 3.5 : 1.2} halo={i === 0 ? 0.14 : 0.1} />)}
-          {/* memo clerk crossing behind them */}
-          {memo >= 0 && <Toon pose={memoPose} pos={[lerp(-7, 7, memo), 0, -1.15]} cam={c.pos} h={1.55} hi={hi} halo={0.08} />}
-          {/* the cord board: cabinet, sloped keyshelf with cord pairs + lamps, upright jack field facing the operators */}
-          <group position={[0, 0, 0.35]}>
-            <mesh position={[0, 0.38, 0]} material={M.wood} castShadow receiveShadow><boxGeometry args={[11, 0.76, 0.7]} /><Ink k={0.8} /></mesh>
-            <mesh position={[0, 0.79, -0.05]} rotation={[-0.18, 0, 0]} material={M.woodDark} castShadow><boxGeometry args={[11, 0.06, 0.6]} /><Ink k={0.6} /></mesh>
-            {TL.OPS_X.map((x, i) => <group key={i} position={[x, 0.83, -0.05]}>
-              {Array.from({ length: 6 }, (_, j) => <group key={j} position={[-0.42 + j * 0.17, 0, 0]}>
-                <mesh position={[0, 0.03, 0.1]} material={M.brass}><cylinderGeometry args={[0.018, 0.018, 0.06, 8]} /></mesh>
-                <mesh position={[0, 0.03, -0.12]} material={(ops[i].ring && j === i % 6) || (ops[i].plugged && j === (i + 2) % 6) ? M.lampOn : M.lampOff}><sphereGeometry args={[0.02, 8, 6]} /></mesh>
-              </group>)}
-              {/* plugged cord arcs up to the jack field */}
-              {ops[i].plugged && <Cord from={[-0.1, 0.05, 0.1]} to={[0.12, 0.1, 0.33]} m={M.cord} />}
-            </group>)}
-            <mesh position={[0, 0.9, 0.3]} rotation={[-0.5, 0, 0]} material={M.panel} castShadow><boxGeometry args={[11, 0.26, 0.06]} /><Ink k={0.7} /></mesh>
-            {TL.OPS_X.flatMap((x) => Array.from({ length: 12 }, (_, j) => <mesh key={`${x}${j}`} position={[x - 0.55 + j * 0.1, 0.94, 0.3]} rotation={[-0.5, 0, 0]} material={M.brass}><cylinderGeometry args={[0.012, 0.012, 0.02, 6]} /></mesh>))}
-          </group>
+          {/* operators with headsets */}
+          {ops.map((o, i) => { const pos = W([BOARD.x + 0.85, Y0 + 0.05, BOARD.z0 + POS_W * (i + 0.5)]); const hc = headCenterPx5(o.pose), hw = cardWorld(pos, c.pos, hc, 1.48, 0.03), r = (HEAD5.rx / 1000) * 1.48 * 1.04, yaw = Math.atan2(c.pos[0] - pos[0], c.pos[2] - pos[2]);
+            return <group key={i}><Toon pose={o.pose} pos={pos} cam={c.pos} h={1.48} hi={hi} light={i === 0 ? 1.5 : 0.8} halo={0.1} />
+              <group position={hw} rotation={[0, yaw, 0]} scale={[r, r, r]}><KitMesh kit={headsetKit()} inkScale={0.6} /></group></group>; })}
+          <Toon pose={mab.pose} pos={mabPos} cam={c.pos} h={1.5} hi={hi} light={2.5} halo={0.14} />
+          <Toon pose={fin.pose} pos={W([DESK_F[0] + 0.1, Y0 - 0.04, DESK_F[2] + 0.76])} cam={c.pos} h={1.52} hi={hi} light={1.2} halo={0.1} />
         </InkCtx.Provider>
-        <Post params={{ focusDist: c.focus, focusRange: 1.4, maxBlur: 0.22, bloom: 0.7, threshold: 1.6, exposure: 1.1, vignette: 0.55, ss: hi ? 1 : 2, contrast: 1.12, saturation: 1.06, lift: 0.015, warmCool: 0.7, ao: 0.6, aoRadius: 0.4 }} />
+        <Post params={{ focusDist: c.focus, focusRange: 1.8, maxBlur: 0.2, bloom: 0.55, threshold: 1.65, exposure: 1.18, vignette: 0.5, ss: hi ? 1 : 2, contrast: 1.1, saturation: 1.05, lift: 0.012, warmCool: 0.68, ao: 0.65, aoRadius: 0.45 }} />
         <RenderAfterMount f={f} />
       </ThreeCanvas>
     </AbsoluteFill>
   );
-};
-const Cord: React.FC<{ from: V3; to: V3; m: THREE.Material }> = ({ from, to, m }) => {
-  const geo = useMemo(() => new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(...from), new THREE.Vector3((from[0] + to[0]) / 2, Math.max(from[1], to[1]) + 0.25, (from[2] + to[2]) / 2), new THREE.Vector3(...to)]), 16, 0.008, 6), [from, to]);
-  return <mesh geometry={geo} material={m} />;
 };

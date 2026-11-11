@@ -8,14 +8,17 @@ import { AbsoluteFill, Sequence, useCurrentFrame } from "remotion";
 import { ExtSet } from "./ExtSet";
 import { IntSet } from "./IntSet";
 import { FILM_FRAMES } from "./world";
+import { useTexReady } from "./tex";
 
 const Fade: React.FC<{ o: number; children: React.ReactNode }> = ({ o, children }) => <AbsoluteFill style={{ opacity: o }}>{children}</AbsoluteFill>;
 const span = (a: number, b: number) => ({ from: a, durationInFrames: b - a });
 const xf = (a: number, b: number, f: number) => { const t = Math.min(1, Math.max(0, (f - a + 1) / (b - a))); return t * t * (3 - 2 * t); };
-export const XF = { intExt: [113, 135], past: [241, 259], extInt: [1213, 1235], intExt2: [1322, 1340], loop: [1528, 1552] } as const;
+export { XF } from "./world";
+import { XF } from "./world";
 
 export const Short3Film: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useCurrentFrame(); const ready = useTexReady();
+  if (!ready) return <AbsoluteFill style={{ backgroundColor: "#2a2018" }} />;
   return (
     <AbsoluteFill style={{ backgroundColor: "#2a2018" }}>
       <Sequence {...span(0, XF.intExt[1])} layout="none"><IntSet from={0} /></Sequence>
