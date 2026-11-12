@@ -15,8 +15,8 @@ export const camMain = camPath([
   K(76, [-4.6, 1.3, 7.6], [-0.4, 2.5, 1.8], 50),                  //     rising push toward No. 58
   K(112, [-2.6, 1.2, 7.8], [-0.8, 2.6, 2.2], 50),                // S02 he looks left / right
   K(152, [-1.0, 1.0, 7.4], [0.6, 2.6, 1.6], 56),               //     the pigeons burst up as he steps in...
-  K(170, [-0.4, 1.0, 6.8], [1.6, 6.0, 0.8], 58),                 //     dolly in, tilting up
-  K(186, [0.4, 1.0, 5.8], [0.2, 3.6, 0.0], 56),                  //     the upper windows
+  K(180, [-0.4, 1.0, 6.8], [1.3, 4.6, 0.8], 58),                 //     dolly in, tilting up
+  K(196, [0.4, 1.0, 5.8], [0.2, 3.6, 0.0], 56),                  //     the upper windows
   K(222, [0.5, 0.95, 4.8], [0.1, 3.0, 0.0], 56),                 // S03 push in to the black parlour window
   K(256, [0.4, 0.95, 4.2], [0.1, 2.9, 0.0], 56),             //     his confused face in the foreground
   K(284, [-2.6, 2.5, 4.4], [-6.2, 3.3, 0.0], 44),              // S04 slide to No. 56's window (curtains)
@@ -73,7 +73,7 @@ export type Placed = { pose: Odo5Pose; pos: V3; h: number; flip?: boolean; halo?
 const WALK_Z = 3.7, LAND: V3 = [0.15, SW_Y, 2.25];
 const gaitPose = (c: Costume, d: number, walking: number, extra: Partial<Odo5Pose> = {}) => pose5({ costume: c, view: walking > 0.02 ? "side" : "front", gait: d / 0.95, walk: walking, stride: 0.95, lean: 0.05 * walking, ...extra });
 const heroFace = faceTrack([
-  [0, "content"], [72, "neutral"], [80, "oneBrowUp"], [100, "xSideEyeL"], [116, "xSideEyeR"], [134, "suspSquint"], [158, "doubleTake"], [176, "focused"], [214, "tinyConfused"],
+  [0, "content"], [72, "neutral"], [80, "oneBrowUp"], [100, "xSideEyeL"], [116, "xSideEyeR"], [134, "suspSquint"], [173, "doubleTake"], [186, "focused"], [214, "tinyConfused"],
   [270, "suspSquint"], [284, "frozenSmile"], [312, "xSideEyeL"], [330, "focused"], [346, "uncomfyGrin"], [358, "comicSerious"], [392, "hugeShock"], [420, "panic"],
   [1064, "content"], [1100, "bored"], [1384, "suspSquint"], [1398, "uncomfyGrin"], [1410, "embarrassed"], [1424, "content"],
 ] as [number, FaceName][], 6);

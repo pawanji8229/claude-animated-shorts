@@ -14,7 +14,7 @@ const no60 = ROW.find((p) => p.side > 0 && p.x > 3) ?? ROW[0];
 const CORNICE_Y = levels(no60.s).eave + 0.78, CORNICE_X = no60.x;
 type Pig = { home: [number, number]; seed: number; tk: number; land: number; perch: V3 };
 export const PIGEONS: Pig[] = Array.from({ length: 5 }, (_, i) => { const r = rng(300 + i * 7);
-  return { home: [0.9 + i * 0.62 + r() * 0.25, 2.75 + r() * 0.85], seed: i * 13 + 5, tk: 156 + [0, 5, 2, 9, 13][i], land: 1356 + [0, 7, 3, 11, 15][i],
+  return { home: [0.9 + i * 0.62 + r() * 0.25, 2.75 + r() * 0.85], seed: i * 13 + 5, tk: 172 + [0, 5, 2, 9, 13][i], land: 1356 + [0, 7, 3, 11, 15][i],
     perch: [CORNICE_X - 1.6 + i * 0.75 + r() * 0.2, CORNICE_Y, 0.3] as V3 }; });
 const GROUND_FROM = (p: Pig) => p.land + 34;          // walking again after landing
 /** ground wander (periodic, continuous across the loop seam): slow loops around the home spot */

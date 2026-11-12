@@ -68,7 +68,7 @@ export const soundEvents = (): SoundEvent[] => {
   PIGEONS.forEach((p, i) => { const b0 = pigeonsAt(p.tk)[i].pos, c0 = camAt(p.tk), d0 = Math.hypot(b0[0] - c0.pos[0], b0[2] - c0.pos[2]);
     if (d0 < 22) add(p.tk, "pigeon_takeoff", panOf(p.tk, b0[0]), Math.max(0.25, 1 - d0 / 22), `pigeon ${i} bursts up as the hero steps in`);
     const fl = p.land + 28, b1 = pigeonsAt(fl)[i].pos, c1 = camAt(fl), d1 = Math.hypot(b1[0] - c1.pos[0], b1[2] - c1.pos[2]); if (d1 < 22 && outside(fl)) add(fl, "pigeon_flutter", panOf(fl, b1[0]), Math.max(0.25, 1 - d1 / 22), `pigeon ${i} lands`); });
-  for (const f of [18, 70, 122, 1410, 1446]) add(f, "pigeon_coo", panOf(f, 2.0), 0.8, "a pigeon coos on the sidewalk");
+  for (const f of [74, 1421, 1461]) add(f, "pigeon_coo", panOf(f, 2.0), 0.8, "a pigeon coos on the sidewalk");
   // ---- street extras: distant horn, the hero's sleeves on big gestures
   for (const f of [250, 1124]) add(f, "far_horn", f < 500 ? 0.6 : -0.6, 1.0, "a car horn two streets away");
   for (const f of [392, 1398]) add(f, "cloth_soft", 0, 1.0, "the hero's jacket on a big gesture");
