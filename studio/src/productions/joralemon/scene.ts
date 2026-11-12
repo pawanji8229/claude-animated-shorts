@@ -53,7 +53,7 @@ export const soundEvents = (): SoundEvent[] => {
   add(1036, "crane_winch", 0, 0.7, "machinery lowered into the shell"); for (const f of [1044, 1054]) add(f, "steel_clank", 0, 0.7, "steel and fan housing set in place");
   // ---- reveal 2 (today): fans, airflow, the train under the street; the glimpse below the pedestrians
   add(1150, "whoosh_reveal", 0, 0.5, "reveal 2: the facade dissolves"); for (const f of [1170, 1205]) add(f, "fan_hum", 0, 0.9, "fans + air drawn up the shaft");
-  add(1262, "train_rumble", -0.2, 1.0, "a train passes beneath No. 58"); add(1352, "fan_hum", 0, 0.45, "machinery glimpsed under the street"); add(1356, "train_rumble", 0.1, 0.35, "distant train under the sidewalk");
+  add(1270, "train_rumble", -0.2, 1.0, "a train passes beneath No. 58"); add(1352, "fan_hum", 0, 0.45, "machinery glimpsed under the street"); add(1356, "train_rumble", 0.1, 0.35, "distant train under the sidewalk");
   void groundCut;
   return ev.sort((a, b) => a.frame - b.frame);
 };

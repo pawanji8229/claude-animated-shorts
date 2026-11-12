@@ -64,7 +64,9 @@ const groundKits = () => once("jGround", () => { const M = jMats(), solid = new 
   solid.span(M.concrete, [X0, -0.6, FAR_WALK[1] - AREA_Z - 0.25], [X1, SW_Y - 0.001, FAR_WALK[1] + 40], { ink: false, cast: false });
   for (const [x, z] of [[-9, 9.6], [22, 8.2]] as [number, number][]) { const k = Math.abs(x) < 15 ? cutK : solid; k.cyl(M.castIron, 0.36, 0.36, 0.014, [x, 0.006, z], [0, 0, 0], 24, { ink: 0.3 }); for (let i = -2; i <= 2; i++) k.span(M.castIron, [x - 0.28, 0.012, z + i * 0.11 - 0.015], [x + 0.28, 0.017, z + i * 0.11 + 0.015], { ink: false }); }
   // beyond the ends of the block: back ground far below the fog
-  solid.span(M.concrete, [X0 - 200, -0.7, -60], [X1 + 200, -0.05, 120], { ink: false, cast: false });
+  { const o = { ink: false, cast: false } as const, y0 = -0.7, y1 = -0.05;   // with a hole under the cutaway box (so the cut ground opens onto the underground)
+    solid.span(M.concrete, [X0 - 200, y0, -60], [-15, y1, 120], o); solid.span(M.concrete, [15, y0, -60], [X1 + 200, y1, 120], o);
+    solid.span(M.concrete, [-15, y0, -60], [15, y1, -4.5], o); solid.span(M.concrete, [-15, y0, 17], [15, y1, 120], o); }
   return { solid, cutK }; });
 export const Ground: React.FC<{ cut: boolean }> = ({ cut }) => { const G = groundKits(); return <><KitMesh kit={G.solid} />{cut ? <CutKitMesh kit={G.cutK} kind="ground" /> : <KitMesh kit={G.cutK} />}</>; };
 

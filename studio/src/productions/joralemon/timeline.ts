@@ -49,7 +49,9 @@ export const camMain = camPath([
   K(1202, [0.3, 3.0, 2.2], [0.0, 0.0, -3.5], 60),                 //     in and down toward the shaft
   K(1236, [1.4, -6.5, 4.4], [-0.8, -10.5, -3.4], 58),               //     down the shaft past the stair
   K(1266, [-2.0, -18.5, 15.0], [-2.5, -19.4, 5.0], 54),            //     the train beneath
-  K(1304, [5.6, 1.6, 7.7], [2.0, 2.4, 1.6], 48),                  // S14 up to the street
+  K(1286, [0.8, -6.5, 11.2], [-0.5, -19.0, 6.0], 60),             //     crane up over the cut street, still looking down at the train
+  K(1298, [2.4, 1.4, 10.8], [1.0, -6.0, 6.0], 56),               //     up through the open street as it closes
+  K(1316, [5.6, 1.6, 7.7], [2.0, 2.4, 1.6], 48),                  // S14 up to the street
   K(1350, [2.0, 1.35, 7.4], [-1.5, 2.4, 0.8], 50),                //     tracking with the pedestrians (+ a glimpse below)
   K(1396, [-3.4, 1.25, 7.4], [-2.2, 2.4, 2.0], 44),               //     his side-eye
   K(1432, [-7.6, 1.2, 7.2], [-0.8, 3.7, 0.4], 49),               // S15 back to the opening composition

@@ -115,10 +115,14 @@ export const Train: React.FC<{ x: number; era: "1907" | "now"; n?: number; dir?:
 // ---------------------------------------------------------------- airflow (streaks drawn from the tunnel up the shaft, through the fans, up the duct)
 const AIR: V3[] = [[-9, TUN.y + 0.6, ZT - 0.6], [-2, TUN.y + 0.8, ZT - 1.4], [0, SHAFT.y0 + 0.6, 0.4], [0, -8, -1.5], [0.2, AREA_Y + 0.6, -2.4], [0, 3.2, -5.2], [0, 3.6, -8.6], [0, 9, -8.2], [0, 13.5, -8.2]];
 const airPath = (() => { const c = new THREE.CatmullRomCurve3(AIR.map((p) => new THREE.Vector3(...p)), false, "centripetal"); return c; })();
-const streakMat = () => once("streak", () => new THREE.MeshBasicMaterial({ color: "#bfe8ff", transparent: true, opacity: 0.55, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false, side: THREE.DoubleSide }));
-export const Airflow: React.FC<{ f: number; amt: number }> = ({ f, amt }) => { const geo = useMemo(() => new THREE.PlaneGeometry(0.06, 0.9), []);
+/** soft wisp: alpha fades along the length and across the width (reads as moving air, not as a hard line) */
+const wispTex = () => once("wispTex", () => { const c = document.createElement("canvas"); c.width = 32; c.height = 256; const g = c.getContext("2d")!;
+  for (let y = 0; y < 256; y++) { const v = Math.sin((y / 255) * Math.PI) ** 1.6; const grd = g.createLinearGradient(0, 0, 32, 0); grd.addColorStop(0, "rgba(255,255,255,0)"); grd.addColorStop(0.5, `rgba(255,255,255,${v})`); grd.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = grd; g.fillRect(0, y, 32, 1); }
+  return new THREE.CanvasTexture(c); });
+const streakMat = () => once("streak", () => new THREE.MeshBasicMaterial({ color: "#cfeeff", map: wispTex(), transparent: true, opacity: 0.2, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false, side: THREE.DoubleSide }));
+export const Airflow: React.FC<{ f: number; amt: number }> = ({ f, amt }) => { const geo = useMemo(() => new THREE.PlaneGeometry(0.16, 1.6), []);
   if (amt <= 0.01) return null; const r = rng(3);
-  return <>{Array.from({ length: 70 }, (_, i) => { const lane = r(), off: V3 = [(r() - 0.5) * 1.6, (r() - 0.5) * 0.8, (r() - 0.5) * 1.2]; const u = ((f * 0.0065 + i / 70) % 1);
+  return <>{Array.from({ length: 46 }, (_, i) => { const lane = r(), off: V3 = [(r() - 0.5) * 1.6, (r() - 0.5) * 0.8, (r() - 0.5) * 1.2]; const u = ((f * 0.0065 + i / 46) % 1);
     const p = airPath.getPointAt(u), t = airPath.getTangentAt(u); const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), t);
     const fade = Math.min(1, u * 8, (1 - u) * 8) * amt; void lane;
     return <mesh key={i} geometry={geo} material={streakMat()} position={[p.x + off[0], p.y + off[1], p.z + off[2]]} quaternion={q} scale={[1, 0.6 + fade * 0.6, 1]} visible={fade > 0.05} />; })}</>;
