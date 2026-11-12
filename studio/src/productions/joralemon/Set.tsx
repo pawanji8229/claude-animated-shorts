@@ -24,7 +24,7 @@ import { heroAt, type Placed } from "./timeline";
 import * as L from "./life";
 import { jMats } from "./mats";
 
-export type SetProps = { era: Era; camAt: (f: number) => Cam; frameOverride?: number };
+export type SetProps = { era: Era; camAt: (f: number) => Cam; frameOverride?: number; hideHero?: boolean; extra?: (c: Cam, hi: boolean, f: number) => React.ReactNode };
 export const SUN: [number, number, number] = [-38, 62, 46];
 /** No. 58 being converted (1907, scene 11): rooms emptied -> stripped to brick -> steel -> machinery lowered in -> walkways */
 const Conversion: React.FC<{ f: number }> = ({ f }) => { const K = ventKits();
@@ -38,7 +38,7 @@ const Conversion: React.FC<{ f: number }> = ({ f }) => { const K = ventKits();
     {[[-1.2, 3.2, -3], [1.4, 5.5, -8], [0, 1.0, -6]].map((p, i) => <pointLight key={i} position={p as [number, number, number]} color="#ffe0b0" intensity={9 * smooth(1010, 1024, f)} distance={10} decay={1.5} />)}
   </group>);
 };
-export const JSet: React.FC<SetProps> = ({ era, camAt, frameOverride }) => {
+export const JSet: React.FC<SetProps> = ({ era, camAt, frameOverride, hideHero, extra }) => {
   const cur = useCurrentFrame(); const f = frameOverride ?? cur; const { width, height } = useVideoConfig();
   const hi = height >= 1500, k = height / 1920, c = camAt(f), M = jMats();
   const cutY = facadeCut(f), gc = groundCut(f); setCut(cutY, gc);
@@ -46,7 +46,7 @@ export const JSet: React.FC<SetProps> = ({ era, camAt, frameOverride }) => {
   const post = { focusDist: c.focus, focusRange: 8, maxBlur: 0.12, bloom: 0.45, threshold: 1.7, exposure: lerp(1.32, 1.24, warm) + under * 0.2, vignette: 0.38, ss: hi ? 1 : 2, contrast: 1.08, saturation: lerp(1.05, 0.9, warm), lift: 0.012, warmCool: lerp(0.5, 0.95, warm), ao: 0.7, aoRadius: 0.55 };
   const toon = (p: Placed | null | undefined, key: string) => p ? <Toon key={key} pose={p.pose} pos={p.pos} cam={c.pos} h={p.h} hi={hi} halo={p.halo ?? 0.1} light={p.light ?? 0} flip={p.flip} /> : null;
   const now = era === "now", w1907 = era === "1907";
-  const hero = now ? heroAt(f) : null, front = tunnelFront(f), lift = w1907 ? L.fanLift(f) : null, lorry = w1907 ? L.lorryAt(f) : null, cy = now ? L.cyclistAt(f) : null;
+  const hero = now && !hideHero ? heroAt(f) : null, front = tunnelFront(f), lift = w1907 ? L.fanLift(f) : null, lorry = w1907 ? L.lorryAt(f) : null, cy = now ? L.cyclistAt(f) : null;
   return (
     <AbsoluteFill style={{ backgroundColor: "#a9c7e6" }}>
       <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.08, far: 900 }}>
@@ -83,6 +83,7 @@ export const JSet: React.FC<SetProps> = ({ era, camAt, frameOverride }) => {
           {now && L.dogsAt(f).map((d, i) => <DogToon key={`dog${i}`} pos={d.pos} cam={c.pos} phase={d.phase} flip={d.flip} hi={hi} />)}
           {now && L.leashes(f).map((l, i) => <Rod key={`lsh${i}`} a={l.a} b={l.b} r={0.008} m={M.drapeRed} shadow={false} />)}
           {toon(hero, "hero")}
+          {extra?.(c, hi, f)}
           {/* ---- 1847: the family */}
           {era === "1847" && L.familyAt(f).map((p, i) => toon(p, `fam${i}`))}
           {/* ---- 1907: works, tunnel gang, lorry + fan, derrick, engineer, residents, conversion crew, the imagined plant */}

@@ -10,8 +10,8 @@
 export const W5 = 600, H5 = 1000, SOLE5 = 975, CARD_H5 = 1.55;
 export const PX5 = CARD_H5 / H5;
 
-export type Eyes5 = "lid" | "wide" | "squint" | "wince";
-export type Mouth5 = "awkward" | "yikes" | "o" | "smile" | "flat" | "wobble";
+export type Eyes5 = "lid" | "wide" | "squint" | "wince" | "dot" | "huge";
+export type Mouth5 = "awkward" | "yikes" | "o" | "smile" | "flat" | "wobble" | "grin" | "frown" | "smirk" | "zigzag" | "gasp";
 export type Hand5 = "relaxed" | "fist" | "grip" | "open" | "thumb";
 export type ArmPose = { hand: [number, number]; bend: number; shape: Hand5; rot: number; behind?: boolean; elbow?: [number, number] };
 /** Costume = palette overrides + accessory switches; the rig, proportions and line style stay identical. */
@@ -49,6 +49,9 @@ export type Odo5Pose = {
   camera?: { blend: number; flash: "cube" | "gun" | "none"; tiltRad?: number };
   /** optional tool held in the screen-right hand (drawn along the forearm, ink style) */
   holdR?: "hammer" | "chalk" | "wrench" | "pen" | "umbrella" | "shovel" | "cup" | "bag" | "grocery" | "briefcase" | "book";
+  /** optional exaggeration controls (absent -> identical to earlier renders): brow travel multiplier, eye size, side-eye
+   *  (-1..1: pupils pushed into the corners + flat "unimpressed" lids), per-eye modes, mouth tilt (rad) / offset (px) */
+  fx?: { browAmp?: number; eyeScale?: number; sideEye?: number; eyeL?: Eyes5; eyeR?: Eyes5; mouthTilt?: number; mouthY?: number; jaw?: number };
 };
 const A = (hand: [number, number], shape: Hand5 = "relaxed", bend = 1, rot = 0, behind = false, elbow?: [number, number]): ArmPose => ({ hand, bend, shape, rot, behind, elbow });
 export const REST_L = A([-34, 194], "relaxed", -1, 0.15), REST_R = A([34, 194], "relaxed", 1, -0.15);
@@ -204,7 +207,8 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
   const ex = p.lookX * 9, ey = cy - 4 - 8 * p.lookY;
   const eyeX = (s: number) => cx + fx + s * 46 * sp;
   if (cos.goggles && !mask) { g.save(); headPath(g, cx, cy)(); g.clip(); g.beginPath(); g.ellipse(cx, cy + 120, 185, 250, 0, Math.PI * 1.25, Math.PI * 1.75); g.lineWidth = 15; g.strokeStyle = c.strap; g.stroke(); g.restore(); }
-  const gy = cy - 94;
+  const browPx = p.fx ? Math.max(p.browL, p.browR) * 16 * (p.fx.browAmp ?? 1) + ((p.fx.eyeScale ?? 1) - 1) * 14 : 0;
+  const gy = cy - 94 - (cos.goggles ? Math.max(0, browPx - 14) * 0.85 : 0);   // goggles ride up on the forehead when the brows shoot up (fx only)
   const lens = (x: number) => {
     inked(g, c, () => { g.beginPath(); g.arc(x, gy, 27, 0, Math.PI * 2); }, c.brass, 4, 3);
     g.beginPath(); g.arc(x, gy, 17, 0, Math.PI * 2); g.fillStyle = c.lens; g.fill(); g.lineWidth = 3.5; g.strokeStyle = c.ink; g.stroke();
@@ -219,7 +223,7 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
 
   // brows: lift + inner "worry" raise, tapered
   const brow = (s: number, lift: number) => {
-    const x = eyeX(s), y = ey - 42 - lift * 16;
+    const x = eyeX(s), y = ey - 42 - lift * 16 * (p.fx?.browAmp ?? 1) - (p.fx?.eyeScale ? (p.fx.eyeScale - 1) * 14 : 0);
     const inner = -p.worry * 16, outer = p.worry * 6;
     const xi = x - s * 24 * sp, xo = x + s * 24 * sp;
     taper(g, [[xi, y + 4 + inner], [x, y - 6 - Math.max(0, lift) * 5 + inner * 0.4], [xo, y + 6 + outer]], 11.5, c.ink, 0.35);
@@ -231,6 +235,22 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
     const x = eyeX(s);
     if (p.blink && mode !== "squint") { taper(g, [[x - 13, ey], [x, ey + 4], [x + 13, ey]], 6, c.ink, 0.4); return; }
     if (mode === "squint") { taper(g, [[x - 15, ey + 6], [x, ey - 7], [x + 15, ey + 6]], 7.5, c.ink, 0.4); return; } // ^ shape
+    const es = p.fx?.eyeScale ?? 1, se = p.fx?.sideEye;
+    if (mode === "dot") { g.beginPath(); g.arc(x + ex * 0.4, ey + 2, 5.2 * es, 0, Math.PI * 2); g.fillStyle = c.ink; g.fill(); return; }
+    if (mode === "huge") {
+      inked(g, c, () => { g.beginPath(); g.ellipse(x, ey - 4, (22 * sp + 4) * es, 27 * es, 0, 0, Math.PI * 2); }, c.teeth, 3, 2.5);
+      g.beginPath(); g.arc(x + ex * 0.8 + (se ?? 0) * 12, ey - 2, 5.5 * p.pupil * es, 0, Math.PI * 2); g.fillStyle = c.ink; g.fill();
+      if (!mask) { g.beginPath(); g.arc(x + ex * 0.8 + (se ?? 0) * 12 - 2.5, ey - 5, 1.8 * es, 0, Math.PI * 2); g.fillStyle = "#fff"; g.fill(); }
+      return;
+    }
+    if (se !== undefined && mode === "lid") { // extreme side-eye: pupil jammed into the corner, flat upper lid, raised lower lid
+      const px = x + se * 9 * es; g.beginPath(); g.ellipse(px, ey + 1, 9.5 * es, 12 * es, 0, 0, Math.PI * 2); g.fillStyle = c.ink; g.fill();
+      if (!mask) { g.beginPath(); g.arc(px - 2.5, ey - 3, 2.6, 0, Math.PI * 2); g.fillStyle = "#fff"; g.fill(); }
+      const lidY = ey - 13 + p.lids * 13; g.beginPath(); g.rect(x - 20, ey - 26, 40, lidY - (ey - 26)); g.fillStyle = c.face; g.fill();
+      g.beginPath(); g.rect(x - 20, ey + 9 * es, 40, 18); g.fillStyle = c.face; g.fill();
+      taper(g, [[x - 18, lidY + 0.5], [x + 18, lidY + 0.5]], 7, c.ink, 0.5); taper(g, [[x - 14, ey + 9 * es], [x + 14, ey + 8 * es]], 3.5, c.ink, 0.4);
+      return;
+    }
     if (mode === "wide") {
       inked(g, c, () => { g.beginPath(); g.ellipse(x, ey, 17 * sp + 3, 20, 0, 0, Math.PI * 2); }, c.teeth, 2.5, 2);
       g.beginPath(); g.arc(x + ex * 0.6, ey + 1, 6.5 * p.pupil, 0, Math.PI * 2); g.fillStyle = c.ink; g.fill();
@@ -242,12 +262,15 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
     g.beginPath(); g.rect(x - 18, ey - 22, 36, lidY - (ey - 22)); g.fillStyle = c.face; g.fill();
     taper(g, [[x - 17, lidY + 1], [x, lidY - 1.5], [x + 17, lidY + 2]], 6.5, c.ink, 0.5);
   };
-  const eL: Eyes5 = p.eyes === "wince" ? "squint" : p.eyes, eR: Eyes5 = p.eyes === "wince" ? "wide" : p.eyes;
-  eye(-1, eL); eye(1, eR);
+  const eL: Eyes5 = p.fx?.eyeL ?? (p.eyes === "wince" ? "squint" : p.eyes), eR: Eyes5 = p.fx?.eyeR ?? (p.eyes === "wince" ? "wide" : p.eyes);
+  const esc = p.fx?.eyeScale ?? 1;
+  for (const [s2, m2] of [[-1, eL], [1, eR]] as [number, Eyes5][]) { if (esc !== 1 && m2 !== "huge" && m2 !== "dot") { g.save(); g.translate(eyeX(s2), ey); g.scale(esc, esc); g.translate(-eyeX(s2), -ey); eye(s2, m2); g.restore(); } else eye(s2, m2); }
   if (p.eyes === "lid" && p.lids > 0.3) for (const s of side ? [1] : [-1, 1]) taper(g, [[eyeX(s) - 9, ey + 20], [eyeX(s) + 1, ey + 23], [eyeX(s) + 9, ey + 20]], 3, c.ink, 0.3);
 
   // mouth
-  const mx = cx + fx + (side ? 8 : 6), my = cy + 64, mw = p.mouthW;
+  const mx0 = cx + fx + (side ? 8 : 6), my0 = cy + 64 + (p.fx?.mouthY ?? 0), mw = p.mouthW, tilt = p.fx?.mouthTilt ?? 0;
+  if (tilt) { g.save(); g.translate(mx0, my0); g.rotate(tilt); g.translate(-mx0, -my0); }
+  const mx = mx0, my = my0;
   if (cos.stache) { for (const sgn of side ? [1] : [-1, 1]) taper(g, [[mx + sgn * 4, my - 14], [mx + sgn * 18 * sp, my - 17], [mx + sgn * 34 * sp, my - 10]], 7, c.ink, 0.3); }
   switch (p.mouth) {
     case "awkward": taper(g, [[mx - 26 * sp * mw, my + 4], [mx - 10 * sp, my + 1], [mx + 4 * sp, my + 4], [mx + 18 * sp * mw, my - 4], [mx + 24 * sp * mw, my - 10]], 7, c.ink, 0.35); break;
@@ -266,8 +289,21 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
     }
     case "o": inked(g, c, () => { g.beginPath(); g.ellipse(mx, my + 2, 9 * sp + 3, 12, 0, 0, Math.PI * 2); }, c.mouth, 3.5, 2); break;
     case "smile": inked(g, c, () => { g.beginPath(); g.moveTo(mx - 24 * sp, my - 4); g.quadraticCurveTo(mx, my + 30, mx + 24 * sp, my - 6); g.quadraticCurveTo(mx, my + 6, mx - 24 * sp, my - 4); }, c.mouth, 3.5, 2); break;
+    case "grin": { // frozen forced smile: wide, corners up, two rows of teeth
+      const w = 46 * sp * mw, h = 17;
+      const shape = () => { g.beginPath(); g.moveTo(-w, -8); g.quadraticCurveTo(0, -h * 0.5, w, -8); g.quadraticCurveTo(w * 0.7, h * 1.1, 0, h); g.quadraticCurveTo(-w * 0.7, h * 1.1, -w, -8); g.closePath(); };
+      g.save(); g.translate(mx, my); inked(g, c, shape, c.teeth, 3.5, 2.5); g.save(); shape(); g.clip();
+      g.beginPath(); g.moveTo(-w, 0); g.quadraticCurveTo(0, 7, w, 0); g.lineWidth = 2.4; g.strokeStyle = c.ink; g.stroke();
+      for (const t of [-0.72, -0.48, -0.24, 0, 0.24, 0.48, 0.72]) { g.beginPath(); g.moveTo(t * w, -h); g.lineTo(t * w, h); g.lineWidth = 2; g.stroke(); }
+      g.restore(); for (const s of [-1, 1]) taper(g, [[s * w, -8], [s * (w + 7), -15]], 4, c.ink, 0.4); g.restore(); break; }
+    case "frown": taper(g, [[mx - 24 * sp * mw, my + 9], [mx - 10 * sp, my - 2], [mx + 10 * sp, my - 2], [mx + 24 * sp * mw, my + 9]], 7, c.ink, 0.35); break;
+    case "smirk": taper(g, [[mx - 20 * sp * mw, my + 2], [mx + 4 * sp, my + 3], [mx + 18 * sp * mw, my - 5], [mx + 26 * sp * mw, my - 14]], 7, c.ink, 0.35); break;
+    case "zigzag": taper(g, [[mx - 26 * sp * mw, my], [mx - 15 * sp, my - 7], [mx - 5 * sp, my + 6], [mx + 6 * sp, my - 7], [mx + 16 * sp, my + 6], [mx + 26 * sp * mw, my - 3]], 6, c.ink, 0.35); break;
+    case "gasp": { const j = p.fx?.jaw ?? 1; inked(g, c, () => { g.beginPath(); g.ellipse(mx, my + 8 * j, (15 * sp + 4) * mw, 22 * j, 0, 0, Math.PI * 2); }, c.mouth, 3.5, 2);
+      if (!mask) { g.save(); g.beginPath(); g.ellipse(mx, my + 8 * j, (15 * sp + 4) * mw, 22 * j, 0, 0, Math.PI * 2); g.clip(); g.beginPath(); g.ellipse(mx + 2, my + 24 * j, 12 * mw, 10, 0, 0, Math.PI * 2); g.fillStyle = c.tongue; g.fill(); g.restore(); } break; }
     default: taper(g, [[mx - 18 * sp, my], [mx + 18 * sp, my - 2]], 6, c.ink, 0.4);
   }
+  if (tilt) g.restore();
   if (p.sweat > 0.02) {
     const sx = cx + (side ? -34 : 112), sy = cy - 44 + (1 - p.sweat) * -10 + p.sweat * 6;
     g.save(); g.globalAlpha = Math.min(1, p.sweat * 1.5);
