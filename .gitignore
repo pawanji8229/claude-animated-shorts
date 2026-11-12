@@ -1,0 +1,24 @@
+# Do not commit proprietary/private source video references
+private_reference_videos/
+private_reference_sheets/
+*.mp4
+*.mov
+*.mkv
+# Our own original low-res test render is allowed (small, for phone review)
+!studio/previews/*.mp4
+!studio/previews/*/*.mp4
+# Build outputs
+node_modules/
+studio/out/
+
+# python env (recreated by studio/pipeline/setup.sh)
+.venv/
+__pycache__/
+
+# render intermediates (pipeline)
+studio/productions/*/render/
+studio/productions/*/qc/_lb/
+
+# London Bridge full deliverables: >100 MB / stems, kept on disk + in backup ZIP, not in git
+studio/previews/london-bridge-full/london_bridge_full_1080x1920.mp4
+studio/previews/london-bridge-full/london_bridge_audio_stems.zip

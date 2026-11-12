@@ -164,3 +164,37 @@ lighting 5-6, ink 6, textures 5-6, characters 7, depth 6-7, composition 6-7 (fro
 - Golden rim light done as an offset outer copy turns every hat into a picture frame: inner rim only, head/torso only.
 - Balcony/railing rails at chest height through characters: put the lens ~2.5 m up so rails cross legs, not torsos.
 - Flat holds read as freezes in QA (frozen span ≥12 f): every hold needs a creeping push-in.
+
+---
+
+<!-- Added by integration of claude_cinematic_shorts_GITHUB_SAFE_with_5_script_studies.zip. Everything above this line is the original upstream skill, unchanged. -->
+
+> Additive customization. **Do not replace or delete** the original bridge skill's pipeline, values, or references. This section changes the operating brief for the user's Android-only workflow. Five user-supplied reference MP4s were frame-sampled and technically verified in ChatGPT. See `references/OBSERVED_VIDEO_STYLE.md`, `references/MASTER_STYLE_BIBLE.md`, and `references/VIDEO_MANIFEST.md`. The Gemini report is secondary.
+
+## Mobile cinematic reference override (user project)
+- User runs Claude Code through Android browser/app and controls renders using GitHub Actions. Do not demand a PC. The original skill is not automatically a complete cloud-renderable project; build missing wrappers and validate.
+- Style goal is CINEMATIC, detailed stylized animation. Use HYBRID_2_5D outlined flat/planar characters inside detailed perspective-rich sets as the primary mode confirmed in uploaded frame samples. A true volumetric 3D cartoon character is a secondary comparison option. Explicitly tell the user which was implemented.
+- Gemini secondary study contains **five** video reports: warm inventor workshop, neon arcade, stormy sailing ship, clinical corporate office and sunlit Western set. Treat estimated numerical settings (ratios, lens equivalents, shader values, audio timecodes) as unverified hypotheses.
+- Overall reusable direction: rounded expressive silhouettes; simplified face/limb design; bevelled hero props; strong motivated lighting; colored ambient fill; scene-specific palettes; smooth camera glides; focused narration and precisely placed original sound effects.
+- Lighting profiles: tungsten/amber workshop, neon cyan/magenta night, blue/moonlit maritime with lantern accents, cool fluorescent office, dusty daylight exterior. See separate report for suggested HEX values.
+- Conflicts: upstream default **no captions**, but the actual inspected clips visibly use **white captions with dark outline/shadow**. Default `captions: true` (composition prop) in this adapted format, with an explicit OFF switch (`--props='{"captions":false}'` or the workflow input) for the original upstream no-captions mode. Upstream uses NEUTRAL tonemap/grade; Gemini suggests ACES; test before switching. Upstream 2D card approach != actual 3D rigged pill-head geometry.
+- Correct code typo in Gemini suggestion: `const springConfig = { damping: 12, stiffness: 120, mass: 0.8 };`.
+- Create three quality-test stills, one 5–12 sec motion test, then longer video. 9:16, 30fps, preview 540x960, final 1080x1920 by default (the bridge 2K rule applies to bridge-pipeline jobs). GPU-less GL: `--gl=swangle` is verified for `studio/` (Remotion 4.0.541, three 0.180) and set in `studio/remotion.config.ts`; still re-validate after any dependency upgrade and never promise one-click success untested.
+- Keep reference MP4s/private frames **out of public GitHub repos**. This project should create original scripts, characters, music and visuals, not clone channel-identifying details.
+- Five MP4s were provided in the ChatGPT conversation and visually frame-sampled. Read `references/OBSERVED_VIDEO_STYLE.md` and `references/VIDEO_MANIFEST.md` for verified observations and metadata; do not claim to have directly accessed the MP4s from Claude Code unless those files were separately uploaded to the private cloud environment.
+- Read `references/MASTER_STYLE_BIBLE.md`, `references/OBSERVED_VIDEO_STYLE.md`, and `references/VIDEO_MANIFEST.md` before making any video. Use the Gemini report as secondary context. The inspected clips feature planar outlined faces in perspective-rich sets, not photorealistic 3D characters. The clips visibly contain white-on-dark outlined captions; caption settings are configurable. Read `ALL_CLAUDE_PROMPTS.md` for the stepwise prompts.
+
+## Narrative-reference addendum — five user-provided scripts
+- Read `references/SCRIPT_NARRATIVE_ANALYSIS.md` as a structural writing reference, after `MASTER_STYLE_BIBLE.md` and before creating each new voiceover script.
+- The five narration topics are storm oil, office isolation, hypnagogia, Pachinko, and thermal expansion in railway tracks. The **fifth narration is not the fifth source MP4** (Western story). The storm oil and rail texts are incomplete.
+- Extract only high-level storytelling patterns: visual mystery → human conflict → increasing stakes → evidence-based explanatory shift → accurate original payoff. Do not reuse exact dialogue, sequences, source sound or narration.
+- Mandatory research catches: dramatic claims about giant storm waves, categorical claims about Japanese labor/gambling law, Edison anecdote and fixed railway-joint spacing are not established fact without independent verification.
+- Refer to prompts 20–23 in `ALL_CLAUDE_PROMPTS.md` for narrative audit, original beat sheet, script drafting, and script QA.
+
+## Working project, docs map and corrections (added during integration)
+- Runnable code: `studio/` (Remotion 4 + three.js + React Three Fiber). First composition `InventorWalkIn` (1080x1920) / `InventorWalkInPreview` (540x960), 5 s, 30 fps. See `studio/README.md`.
+- Cloud render from a phone: `.github/workflows/render-video.yml` (manual `workflow_dispatch`, standard `ubuntu-latest` runner, MP4 + stills uploaded as an artifact). Phone steps: `docs/ANDROID_RENDER_GUIDE.md`.
+- Ink on 3D props in `studio/` uses `studio/src/lib/Ink.tsx` (guarded screen-space inverted hull), not drei `<Outlines>`.
+- Character cards: Canvas2D drawing redrawn per frame from deterministic state, yaw-only billboard, lit `MeshStandardMaterial` + small emissive floor, alpha-tested shadow caster, contact blob (`studio/src/inventor/Inventor.tsx`).
+- Reference docs added: `references/MASTER_STYLE_BIBLE.md`, `references/OBSERVED_VIDEO_STYLE.md`, `references/VIDEO_MANIFEST.md`, `references/SCRIPT_NARRATIVE_ANALYSIS.md`, `references/GEMINI_REFERENCE_ANALYSIS.md`, `references/COMPANION_SKILL_MOBILE.md` (the ZIP's consolidated skill, kept as reference only), `ALL_CLAUDE_PROMPTS.md`.
+- Technical corrections to those docs are listed in `references/REFERENCE_CORRECTIONS.md` and marked **[corrected]** inline.
