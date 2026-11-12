@@ -1,7 +1,8 @@
 // joralemon scene module for the audio pipeline: FPS, FILM_FRAMES and soundEvents() DERIVED from the same animation
 // functions the picture uses (footsteps from walked distance, tool hits from the swing phase, vehicles at their pass,
 // trains when they cross, machinery while it is on screen) - no sound without a visible cause.
-import { FPS, FILM_FRAMES, XF, eraAt, facadeCut, groundCut } from "./world";
+import { FPS, FILM_FRAMES, XF, eraAt, facadeCut, groundCut, trainNowHead, UNDER_ON, TUN } from "./world";
+import { PIGEONS, pigeonsAt } from "./fauna";
 import { camAt, heroAt } from "./timeline";
 import { PEDS, RUNS, CREW_PLAN, fanLift, cyclistAt } from "./life";
 
@@ -53,7 +54,28 @@ export const soundEvents = (): SoundEvent[] => {
   add(1036, "crane_winch", 0, 0.7, "machinery lowered into the shell"); for (const f of [1044, 1054]) add(f, "steel_clank", 0, 0.7, "steel and fan housing set in place");
   // ---- reveal 2 (today): fans, airflow, the train under the street; the glimpse below the pedestrians
   add(1150, "whoosh_reveal", 0, 0.5, "reveal 2: the facade dissolves"); for (const f of [1170, 1205]) add(f, "fan_hum", 0, 0.9, "fans + air drawn up the shaft");
-  add(1270, "train_rumble", -0.2, 1.0, "a train passes beneath No. 58"); add(1352, "fan_hum", 0, 0.45, "machinery glimpsed under the street"); add(1356, "train_rumble", 0.1, 0.35, "distant train under the sidewalk");
+  // ---- the dive (today): fans, the shaft, the panel worker's wrench, the EXIT lamp, the train in the tube, the air back up
+  for (const f of [1186, 1336]) add(f, "fan_hum", 0, 0.9, "passing the fans (in and back out)");
+  for (const f of [1214, 1221]) add(f, "ratchet", -0.3, 0.7, "the panel worker turns a valve with his wrench"); add(1229, "cloth_soft", -0.3, 1.0, "he whips round (double-take)");
+  add(1236, "sign_hum", 0, 1.0, "the EXIT lamp over the doorway"); for (const [f, x] of [[1240, -0.4], [1258, 0.5], [1296, -0.2]] as [number, number][]) add(f, "tunnel_drip", x, 1.0, "water dripping in the tube");
+  add(1232, "train_now_pass", 0, 1.0, "today's train: approach, pass, muffled as we climb the shaft"); add(1284, "brake_squeal", 0.2, 1.0, "the train brakes for the curve");
+  add(1300, "air_rush", 0, 1.0, "piston wind rushes up the shaft with the camera");
+  { const JOINTS = Array.from({ length: 9 }, (_, i) => -40 + i * 11.9), AX = [-6.25, -4.35, 4.35, 6.25];   // rail joints; axles about each car centre
+    for (let f = 1255; f < 1314; f++) { const c = camAt(f); if (!UNDER_ON(f) || Math.hypot(c.pos[1] - TUN.y, c.pos[2] - TUN.z) > TUN.r) continue;
+      for (let car = 0; car < 5; car++) for (const ax of AX) { const xa = trainNowHead(f) - 7.8 - car * 16 + ax, xb = trainNowHead(f + 1) - 7.8 - car * 16 + ax;
+        for (const j of JOINTS) if (xa < j && xb >= j && Math.abs(j - c.pos[0]) < 16) add(f, "rail_clack", panOf(f, j), Math.max(0.2, 1 - Math.abs(j - c.pos[0]) / 16), `axle over the rail joint at x ${j.toFixed(1)}`); } } }
+  // ---- pigeons (today): take-off claps, landing flutters, coos while they peck near the camera
+  PIGEONS.forEach((p, i) => { const b0 = pigeonsAt(p.tk)[i].pos, c0 = camAt(p.tk), d0 = Math.hypot(b0[0] - c0.pos[0], b0[2] - c0.pos[2]);
+    if (d0 < 22) add(p.tk, "pigeon_takeoff", panOf(p.tk, b0[0]), Math.max(0.25, 1 - d0 / 22), `pigeon ${i} bursts up as the hero steps in`);
+    const fl = p.land + 28, b1 = pigeonsAt(fl)[i].pos, c1 = camAt(fl), d1 = Math.hypot(b1[0] - c1.pos[0], b1[2] - c1.pos[2]); if (d1 < 22 && outside(fl)) add(fl, "pigeon_flutter", panOf(fl, b1[0]), Math.max(0.25, 1 - d1 / 22), `pigeon ${i} lands`); });
+  for (const f of [18, 70, 122, 1410, 1446]) add(f, "pigeon_coo", panOf(f, 2.0), 0.8, "a pigeon coos on the sidewalk");
+  // ---- street extras: distant horn, the hero's sleeves on big gestures
+  for (const f of [250, 1124]) add(f, "far_horn", f < 500 ? 0.6 : -0.6, 1.0, "a car horn two streets away");
+  for (const f of [392, 1398]) add(f, "cloth_soft", 0, 1.0, "the hero's jacket on a big gesture");
+  // ---- 1907 tunnel works under the street (only while the cut shows them): shield rams, ring segments, muck car
+  for (const f of [612, 640]) if (groundCut(f) > 0.3) add(f, "shield_hiss", -0.2, 0.8, "the shield's hydraulic rams shove forward");
+  for (let f = 606; f < 662; f += 12) if (groundCut(f) > 0.3) add(f, "ring_clank", -0.3 + (f - 606) / 90, 0.6, "an iron ring segment swung into place");
+  for (const f of [604, 638]) if (groundCut(f) > 0.3) add(f, "muck_cart", -0.4, 0.7, "the navvy pushes the muck car back from the face");
   void groundCut;
   return ev.sort((a, b) => a.frame - b.frame);
 };

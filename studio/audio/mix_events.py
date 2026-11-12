@@ -87,7 +87,12 @@ REL = {
     "car_pass": (-19, "sfx", "modern car passing (tyres + engine)"), "bike_tick": (-27, "sfx", "bicycle freewheel"), "dog_paws": (-24, "sfx", "dog paws + tag"),
     "fan_hum": (-17, "sfx", "ventilation fan hum"), "fan_spinup": (-19, "sfx", "fan starting"), "train_rumble": (-14, "sfx", "subway train under the street"),
     "train_old": (-15, "sfx", "1907 train in the new tunnel"), "time_shimmer": (-22, "sfx", "era dissolve shimmer"), "mystery_accent": (-21, "sfx", "soft mysterious accent"),
-    "reject_buzz": (-20, "sfx", "comic rejection slide"), "leaves": (-24, "sfx", "breeze in the plane trees")
+    "reject_buzz": (-20, "sfx", "comic rejection slide"), "leaves": (-24, "sfx", "breeze in the plane trees"),
+    "train_now_pass": (-11, "sfx", "today's train approaching + passing in the tube (rumble, wheel roar, motor whine, reverb)"), "rail_clack": (-18, "sfx", "wheelset over a rail joint"),
+    "brake_squeal": (-27, "sfx", "gentle brake squeal"), "air_rush": (-19, "sfx", "piston wind up the shaft"), "tunnel_drip": (-31, "sfx", "water drip in the tunnel"),
+    "sign_hum": (-33, "sfx", "EXIT lamp buzz"), "pigeon_takeoff": (-19, "sfx", "pigeon wing claps + flutter"), "pigeon_flutter": (-23, "sfx", "pigeon landing flutter"),
+    "pigeon_coo": (-30, "sfx", "pigeon coo"), "parcel_thud": (-22, "sfx", "parcel set down"), "hazard_tick": (-34, "sfx", "hazard relay click"), "far_horn": (-31, "sfx", "distant car horn"),
+    "shield_hiss": (-22, "sfx", "shield rams hiss + clunk"), "ring_clank": (-21, "sfx", "iron ring segment clank"), "muck_cart": (-23, "sfx", "muck car rolling")
 }
 GEN = {
     "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
@@ -103,7 +108,9 @@ GEN = {
     "phone_ring": O.phone_ring, "plug_click": O.plug_click, "key_click": O.key_click, "typewriter": O.typewriter, "coffee_clink": O.coffee_clink,
     "office_door": O.office_door, "roller_creak": O.roller_creak, "jack_pull": O.jack_pull, "timber_thud": O.timber_thud, "steel_clank": O.steel_clank,
     "building_groan": O.building_groan, "streetcar_bell": O.streetcar_bell, "crawler_crane": O.crawler_crane, "plank_step": O.plank_step, "rope_creak": O.rope_creak,
-    **{k: getattr(J, k) for k in ["car_pass", "bike_tick", "dog_paws", "fan_hum", "fan_spinup", "train_rumble", "train_old", "time_shimmer", "mystery_accent", "reject_buzz", "leaves"]}
+    **{k: getattr(J, k) for k in ["car_pass", "bike_tick", "dog_paws", "fan_hum", "fan_spinup", "train_rumble", "train_old", "time_shimmer", "mystery_accent", "reject_buzz", "leaves",
+        "train_now_pass", "rail_clack", "brake_squeal", "air_rush", "tunnel_drip", "sign_hum", "pigeon_takeoff", "pigeon_flutter", "pigeon_coo", "parcel_thud", "hazard_tick", "far_horn",
+        "shield_hiss", "ring_clank", "muck_cart"]}
 }
 OFFSET = {"car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
 FIXED_PAN = {"car_arrive": -0.6}
