@@ -13,9 +13,9 @@ export const camMain = camPath([
   OPEN,
   K(40, [-7.0, 1.2, 7.4], [-1.4, 2.9, 1.5], 50),                 // S01 low tracking along the sidewalk
   K(76, [-4.6, 1.35, 7.6], [-0.9, 2.9, 1.6], 48),                  //     rising push toward No. 58
-  K(112, [-2.9, 1.45, 7.6], [-0.7, 2.5, 2.2], 46),                // S02 he looks left / right
-  K(152, [-1.2, 1.7, 7.0], [0.0, 2.9, 1.5], 46),                 //     dolly in, tilting up
-  K(186, [0.4, 1.1, 5.6], [0.2, 4.2, 0.0], 54),                  //     the upper windows
+  K(112, [-2.6, 1.2, 7.8], [-0.8, 2.6, 2.2], 50),                // S02 he looks left / right
+  K(152, [-1.0, 1.0, 7.4], [-0.3, 3.2, 1.0], 54),                 //     dolly in, tilting up
+  K(186, [0.4, 1.0, 5.8], [0.2, 3.6, 0.0], 56),                  //     the upper windows
   K(222, [0.5, 0.95, 4.8], [0.1, 3.0, 0.0], 56),                 // S03 push in to the black parlour window
   K(256, [0.4, 0.95, 4.2], [0.1, 2.9, 0.0], 56),             //     his confused face in the foreground
   K(284, [-2.6, 2.5, 4.4], [-6.2, 3.3, 0.0], 44),              // S04 slide to No. 56's window (curtains)

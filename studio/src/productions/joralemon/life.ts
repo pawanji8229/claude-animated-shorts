@@ -29,7 +29,7 @@ const mkPeds = (): Ped[] => { const r = rng(808), out: Ped[] = [];
   add(222, -5.5, 1, 4.45, undefined, { v: 1.05, dog: true, face: "bored" });         // dog walker
   add(1360, 9, -1, 4.25, "cup", { face: "content" }); add(1300, -9, 1, 4.3, "briefcase", { face: "deadpan" }); add(1335, 12, -1, 3.95, "grocery", { face: "bored" });
   add(1110, -12, 1, 4.25); add(1180, 10, -1, 4.0, "cup"); add(20, 11, -1, 4.25, "briefcase"); add(1430, -14, 1, 4.25, "grocery");
-  add(160, 12, -1, 4.25, "cup"); add(230, -12, 1, 4.0); add(N - 120, -12, 1, 4.3, "cup"); add(N - 60, 9, -1, 4.0, "grocery"); add(N - 200, 16, -1, 15.2, "bag");
+  add(160, 12, -1, 4.25, "cup"); add(230, -12, 1, 4.0); add(N - 60, 9, -1, 15.2, "grocery"); add(N - 200, 16, -1, 15.2, "bag");
   // far sidewalk (z 15.1 / 15.6)
   for (const [t0, dir] of [[0, 1], [140, -1], [260, 1], [380, -1], [1080, 1], [1200, -1], [1290, 1], [1390, -1]] as [number, 1 | -1][]) add(t0, dir > 0 ? -22 : 22, dir, r() < 0.5 ? 15.15 : 15.6, r() < 0.3 ? "bag" : r() < 0.5 ? "briefcase" : undefined);
   return out; };
