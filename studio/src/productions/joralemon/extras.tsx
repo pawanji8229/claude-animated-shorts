@@ -33,7 +33,7 @@ export const DogToon: React.FC<{ pos: V3; cam: V3; phase: number; flip: boolean;
 // ---------------------------------------------------------------- the imagined plant (design preview: blue ghost + bright edges)
 const plantKit = () => once("plant", () => { const M = jMats(), k = new Kit(), G = M.ghost, w = W58 + 2.6;
   k.span(G, [-w / 2, 0, -12], [w / 2, 15.5, 0.8], { ink: false });
-  for (let y = 1.2; y < 15; y += 0.55) k.span(G, [-w / 2 + 0.4, y, 0.8], [w / 2 - 0.4, y + 0.2, 1.3], { ink: false });            // louvre bands
+  for (let y = 1.4; y < 15; y += 1.25) k.span(G, [-w / 2 + 0.4, y, 0.8], [w / 2 - 0.4, y + 0.2, 1.3], { ink: false });            // louvre bands
   for (const x of [-2.6, 2.6]) k.cyl(G, 1.0, 1.15, 9, [x, 20, -4], [0, 0, 0], 18, { ink: false });                                       // stacks
   for (const x of [-1.6, 0, 1.6]) k.cyl(G, 0.35, 0.35, 16, [x, 8, 1.6], [0, 0, 0], 12, { ink: false });                                  // exposed pipes
   for (const [x, y] of [[-2.4, 4], [2.4, 4], [0, 10]]) { k.cyl(G, 1.3, 1.3, 0.6, [x, y, 1.6], [Math.PI / 2, 0, 0], 24, { ink: false }); }  // fan housings on the front
@@ -45,7 +45,7 @@ const edgesOf = (k: Kit) => { const parts = k.build(), segs: number[] = []; for 
 export const GhostPlant: React.FC<{ grow: number; fold: number; f: number }> = ({ grow, fold, f }) => { const K = plantKit(), edges = useMemo(() => edgesOf(K), [K]), M = jMats();
   const sy = Math.max(0.001, grow * (1 - fold)), o = clamp01(grow * 1.6) * (1 - fold), flick = 0.92 + Math.sin(f * 0.7) * 0.04;
   if (sy <= 0.002 || o <= 0.01) return null;
-  (M.ghost as THREE.MeshBasicMaterial).opacity = 0.2 * o * flick; (M.ghostLine as THREE.MeshBasicMaterial).opacity = 0.85 * o;
+  (M.ghost as THREE.MeshBasicMaterial).opacity = 0.13 * o * flick; (M.ghostLine as THREE.MeshBasicMaterial).opacity = 0.85 * o;
   return <group scale={[1 + fold * 0.15, sy, 1 + fold * 0.15]}><KitMesh kit={K} /><lineSegments geometry={edges} material={M.ghostLine} /></group>; };
 
 // ---------------------------------------------------------------- 1907 fan unit + foundation; trestle with plan, X, model

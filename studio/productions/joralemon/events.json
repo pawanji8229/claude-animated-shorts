@@ -10,20 +10,6 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 2,
-   "kind": "step_stone",
-   "x": -0.41896982514354625,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
-   "frame": 2,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 3,
    "kind": "step_stone",
    "x": -0.85,
@@ -31,11 +17,11 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 3,
+   "frame": 4,
    "kind": "step_stone",
    "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 6,
@@ -52,25 +38,18 @@
    "note": "pedestrian 6 footstep"
   },
   {
+   "frame": 6,
+   "kind": "step_stone",
+   "x": -0.8087201297997666,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
    "frame": 10,
    "kind": "step_stone",
    "x": -0.7896062855268325,
    "gain": 0.45,
    "note": "pedestrian 9 footstep"
-  },
-  {
-   "frame": 10,
-   "kind": "step_stone",
-   "x": -0.31794281857357454,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
-   "frame": 10,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
   },
   {
    "frame": 11,
@@ -82,9 +61,9 @@
   {
    "frame": 11,
    "kind": "step_stone",
-   "x": -0.8307092595656047,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 12,
@@ -92,6 +71,13 @@
    "x": -0.85,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 15,
+   "kind": "step_stone",
+   "x": -0.7029585010470233,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 16,
@@ -110,9 +96,9 @@
   {
    "frame": 17,
    "kind": "step_stone",
-   "x": -0.2273767743522951,
+   "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 18,
@@ -129,20 +115,6 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 18,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
-   "frame": 20,
-   "kind": "step_stone",
-   "x": -0.71674272305739,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
    "frame": 24,
    "kind": "step_stone",
    "x": -0.6571186744119788,
@@ -152,9 +124,16 @@
   {
    "frame": 24,
    "kind": "step_stone",
-   "x": -0.13934223582769553,
+   "x": -0.5991904666875811,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 24,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 25,
@@ -171,13 +150,6 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 25,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 26,
    "kind": "step_stone",
    "x": -0.85,
@@ -185,16 +157,9 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 28,
-   "kind": "step_stone",
-   "x": -0.6214966065101674,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
    "frame": 30,
    "kind": "step_stone",
-   "x": -0.5458635243844331,
+   "x": -0.5458642957251223,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
   },
@@ -206,6 +171,13 @@
    "note": "a breeze moves the plane-tree leaves (visible sway)"
   },
   {
+   "frame": 31,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
    "frame": 32,
    "kind": "step_stone",
    "x": -0.85,
@@ -213,18 +185,11 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 32,
-   "kind": "step_stone",
-   "x": -0.04799779723680797,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 33,
    "kind": "step_stone",
-   "x": -0.85,
+   "x": -0.5075501657842119,
    "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 34,
@@ -236,23 +201,23 @@
   {
    "frame": 35,
    "kind": "step_stone",
-   "x": 0.03491405216814244,
+   "x": 0.034892098237133094,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 36,
    "kind": "step_stone",
-   "x": -0.4428886679494089,
+   "x": -0.44292350975464406,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
-   "frame": 36,
+   "frame": 38,
    "kind": "step_stone",
-   "x": -0.5392884881833043,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 39,
@@ -262,13 +227,6 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 39,
-   "kind": "step_stone",
-   "x": 0.018968756378738183,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 41,
    "kind": "step_stone",
    "x": -0.85,
@@ -276,32 +234,25 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 41,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 42,
    "kind": "step_stone",
-   "x": -0.34997393988543424,
+   "x": -0.35024974705441503,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
-   "frame": 44,
+   "frame": 42,
    "kind": "step_stone",
-   "x": 0.09635486554207817,
-   "gain": 0.45,
-   "note": "pedestrian 6 footstep"
+   "x": -0.4368949268205789,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 44,
    "kind": "step_stone",
-   "x": -0.4746513491676672,
+   "x": 0.09590600025998423,
    "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "note": "pedestrian 6 footstep"
   },
   {
    "frame": 44,
@@ -311,11 +262,11 @@
    "note": "a car passes along Joralemon Street"
   },
   {
-   "frame": 46,
+   "frame": 45,
    "kind": "step_stone",
-   "x": 0.07239096096364217,
+   "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 47,
@@ -327,7 +278,7 @@
   {
    "frame": 48,
    "kind": "step_stone",
-   "x": -0.26638900557284634,
+   "x": -0.26733937440242633,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
   },
@@ -339,30 +290,30 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 49,
+   "frame": 51,
    "kind": "step_stone",
-   "x": -0.85,
+   "x": -0.387647865009614,
    "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 52,
    "kind": "step_stone",
-   "x": -0.42509535050128405,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 54,
    "kind": "step_stone",
-   "x": -0.1894815144537678,
+   "x": -0.19140115551752487,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
    "frame": 54,
    "kind": "step_stone",
-   "x": 0.1427831869078751,
+   "x": 0.140863545844118,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
@@ -374,25 +325,11 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 54,
-   "kind": "step_stone",
-   "x": 0.12098670983924531,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 56,
    "kind": "step_stone",
-   "x": 0.6832006464283572,
+   "x": 0.6809742457016669,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
-  },
-  {
-   "frame": 56,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
   },
   {
    "frame": 57,
@@ -404,21 +341,35 @@
   {
    "frame": 59,
    "kind": "step_stone",
-   "x": 0.5971326712943547,
+   "x": 0.5945358890279334,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
   {
+   "frame": 59,
+   "kind": "step_stone",
+   "x": -0.3540785367882777,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 59,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
    "frame": 60,
    "kind": "step_stone",
-   "x": -0.11620671028013523,
+   "x": -0.11889197047233939,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
    "frame": 60,
    "kind": "bike_tick",
-   "x": 0.1925503518667574,
+   "x": 0.18986509167455323,
    "gain": 0.8,
    "note": "the cyclist freewheels past"
   },
@@ -430,39 +381,25 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 61,
-   "kind": "step_stone",
-   "x": -0.3788661148398627,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 61,
-   "kind": "step_stone",
-   "x": 0.1579607824140924,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 63,
    "kind": "step_stone",
-   "x": 0.17552757076611572,
+   "x": 0.17272048952403365,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 63,
    "kind": "step_stone",
-   "x": 0.6057844321041972,
+   "x": 0.6029773508621151,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
    "frame": 63,
    "kind": "step_stone",
-   "x": 0.7645085651573967,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
+   "x": 0.7080095148989031,
+   "gain": 0.25,
+   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 64,
@@ -472,30 +409,30 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 64,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 66,
    "kind": "step_stone",
-   "x": -0.04605850194996741,
+   "x": -0.04871672170973943,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
+   "frame": 66,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
    "frame": 68,
    "kind": "step_stone",
-   "x": 0.1947642763215847,
+   "x": -0.3168137131763091,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 69,
    "kind": "step_stone",
-   "x": 0.5018983665934779,
+   "x": 0.4997145384801114,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
@@ -507,18 +444,25 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 69,
+   "frame": 71,
    "kind": "step_stone",
-   "x": -0.33833407072057414,
+   "x": 0.5173046776876685,
    "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 71,
+   "kind": "step_stone",
+   "x": 0.6241299582004292,
+   "gain": 0.25,
    "note": "pedestrian 14 footstep"
   },
   {
    "frame": 71,
    "kind": "step_stone",
-   "x": 0.5189817530701917,
-   "gain": 0.45,
-   "note": "pedestrian 7 footstep"
+   "x": 0.8018136699547425,
+   "gain": 0.25,
+   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 72,
@@ -528,25 +472,18 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 72,
+   "frame": 73,
    "kind": "step_stone",
-   "x": 0.6732221256511193,
+   "x": 0.21343815034576297,
    "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
-   "frame": 72,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 6 footstep"
   },
   {
    "frame": 73,
    "kind": "step_stone",
-   "x": 0.21446834754668329,
-   "gain": 0.45,
-   "note": "pedestrian 6 footstep"
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 76,
@@ -556,32 +493,32 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 76,
-   "kind": "step_stone",
-   "x": 0.2420378781049338,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 77,
    "kind": "step_stone",
-   "x": -0.2918892614421335,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "x": -0.2702297705072962,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 78,
    "kind": "step_stone",
-   "x": 0.44861160170183223,
+   "x": 0.4495952216111974,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
    "frame": 79,
    "kind": "step_stone",
-   "x": 0.41553514320042667,
+   "x": 0.4169455396706094,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 79,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 80,
@@ -593,37 +530,23 @@
   {
    "frame": 80,
    "kind": "step_stone",
-   "x": 0.5995624452613083,
-   "gain": 0.45,
+   "x": 0.5402824474818867,
+   "gain": 0.25,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 80,
+   "kind": "step_stone",
+   "x": 0.7218948398959375,
+   "gain": 0.25,
    "note": "pedestrian 15 footstep"
-  },
-  {
-   "frame": 80,
-   "kind": "step_stone",
-   "x": 0.7777684952976799,
-   "gain": 0.25,
-   "note": "pedestrian 16 footstep"
-  },
-  {
-   "frame": 80,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
   },
   {
    "frame": 82,
    "kind": "step_stone",
-   "x": 0.259075130889399,
+   "x": 0.2617249676860398,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
-  },
-  {
-   "frame": 83,
-   "kind": "step_stone",
-   "x": 0.2896710049524199,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
   },
   {
    "frame": 84,
@@ -633,18 +556,25 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 85,
+   "frame": 86,
    "kind": "step_stone",
-   "x": -0.2380599336256931,
+   "x": 0.3789617147403665,
    "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "note": "pedestrian 7 footstep"
   },
   {
    "frame": 86,
    "kind": "step_stone",
-   "x": 0.3748343506476242,
-   "gain": 0.45,
-   "note": "pedestrian 7 footstep"
+   "x": -0.2138183248069299,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 86,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 87,
@@ -654,39 +584,25 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 87,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 88,
    "kind": "step_stone",
-   "x": 0.3468758477663507,
+   "x": 0.3516702403717913,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
   {
    "frame": 88,
    "kind": "step_stone",
-   "x": 0.7122014659335001,
+   "x": 0.4725360814282702,
    "gain": 0.25,
-   "note": "pedestrian 16 footstep"
+   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 89,
    "kind": "step_stone",
-   "x": 0.5242055087358749,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
-   "frame": 90,
-   "kind": "step_stone",
-   "x": 0.3412010014396301,
+   "x": 0.6498214996651405,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 91,
@@ -698,23 +614,23 @@
   {
    "frame": 92,
    "kind": "step_stone",
-   "x": 0.31658947831647105,
+   "x": 0.3226581103332155,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 93,
    "kind": "step_stone",
-   "x": 0.31332668242743944,
+   "x": 0.31971804667049536,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
    "frame": 93,
    "kind": "step_stone",
-   "x": -0.18017095611753411,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 95,
@@ -726,28 +642,21 @@
   {
    "frame": 95,
    "kind": "step_stone",
-   "x": -0.85,
+   "x": -0.15355688783337096,
    "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 96,
    "kind": "step_stone",
-   "x": 0.6491447437207546,
+   "x": 0.4069619347512959,
    "gain": 0.25,
-   "note": "pedestrian 16 footstep"
-  },
-  {
-   "frame": 97,
-   "kind": "step_stone",
-   "x": 0.393865970807522,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 98,
    "kind": "step_stone",
-   "x": 0.27406866896222176,
+   "x": 0.28224975483628595,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
@@ -761,30 +670,30 @@
   {
    "frame": 98,
    "kind": "step_stone",
-   "x": 0.45138124367297044,
-   "gain": 0.45,
+   "x": 0.580061911698503,
+   "gain": 0.25,
    "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 100,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 101,
    "kind": "step_stone",
-   "x": 0.369215060288941,
+   "x": 0.3787195251829714,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 101,
    "kind": "step_stone",
-   "x": 0.2428452671131699,
+   "x": 0.25234973200720034,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
-  },
-  {
-   "frame": 101,
-   "kind": "step_stone",
-   "x": -0.12231298126694164,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 102,
@@ -801,25 +710,18 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 103,
+   "frame": 104,
    "kind": "step_stone",
-   "x": -0.85,
+   "x": 0.34092402434730634,
    "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 14 footstep"
   },
   {
-   "frame": 105,
+   "frame": 104,
    "kind": "step_stone",
-   "x": 0.576175635988314,
+   "x": -0.09348950683135433,
    "gain": 0.25,
-   "note": "pedestrian 16 footstep"
-  },
-  {
-   "frame": 105,
-   "kind": "step_stone",
-   "x": 0.451993835581396,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 106,
@@ -829,23 +731,30 @@
    "note": "pedestrian 9 footstep"
   },
   {
+   "frame": 106,
+   "kind": "step_stone",
+   "x": 0.5170142930008673,
+   "gain": 0.25,
+   "note": "pedestrian 15 footstep"
+  },
+  {
    "frame": 107,
    "kind": "step_stone",
-   "x": 0.37536573931829537,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 108,
    "kind": "step_stone",
-   "x": 0.1973325806745547,
+   "x": 0.21113997646740548,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
   {
    "frame": 108,
    "kind": "step_stone",
-   "x": 0.17803310166132336,
+   "x": 0.19184049745417417,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
@@ -857,32 +766,18 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 110,
-   "kind": "step_stone",
-   "x": -0.06215319404950046,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 110,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 111,
    "kind": "step_stone",
-   "x": 0.4215962126814314,
+   "x": 0.4378853432212593,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 112,
    "kind": "step_stone",
-   "x": 0.4982563087842562,
+   "x": 0.2719680479773238,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 113,
@@ -894,28 +789,35 @@
   {
    "frame": 113,
    "kind": "step_stone",
-   "x": 0.5054002032489053,
+   "x": -0.03710435798782006,
    "gain": 0.25,
-   "note": "pedestrian 16 footstep"
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 114,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 115,
    "kind": "step_stone",
-   "x": 0.10805421275479686,
+   "x": 0.1282316307450407,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
    "frame": 115,
    "kind": "step_stone",
-   "x": 0.3011326467136362,
-   "gain": 0.45,
+   "x": 0.44180964685534846,
+   "gain": 0.25,
    "note": "pedestrian 15 footstep"
   },
   {
    "frame": 117,
    "kind": "step_stone",
-   "x": 0.1196059711618442,
+   "x": 0.1419314235414161,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
@@ -927,59 +829,45 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 118,
-   "kind": "step_stone",
-   "x": -0.016097387928894258,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 118,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
-   "frame": 119,
-   "kind": "step_stone",
-   "x": 0.5389249111785229,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 121,
    "kind": "step_stone",
-   "x": 0.4630594422746059,
+   "x": 0.4899468780083826,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 121,
    "kind": "step_stone",
+   "x": 0.18864794620764846,
+   "gain": 0.25,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 121,
+   "kind": "step_stone",
    "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 9 footstep"
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 122,
    "kind": "step_stone",
-   "x": 0.4172521279306407,
+   "x": 0.013144527396775593,
    "gain": 0.25,
-   "note": "pedestrian 16 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 123,
    "kind": "step_stone",
-   "x": 0.02157192144962043,
+   "x": 0.050811257038273716,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
    "frame": 124,
    "kind": "step_stone",
-   "x": 0.20941436432895477,
-   "gain": 0.45,
+   "x": 0.3603333627006727,
+   "gain": 0.25,
    "note": "pedestrian 15 footstep"
   },
   {
@@ -997,73 +885,66 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 126,
-   "kind": "step_stone",
-   "x": 0.023757187832374137,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 126,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 127,
    "kind": "step_stone",
-   "x": 0.02386896020738365,
+   "x": 0.05779914063617577,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
   {
-   "frame": 127,
+   "frame": 128,
    "kind": "step_stone",
-   "x": 0.5800031241725959,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
-   "frame": 127,
-   "kind": "step_stone",
-   "x": 0.85,
+   "x": -0.804412009768924,
    "gain": 0.25,
    "note": "pedestrian 22 footstep"
   },
   {
+   "frame": 129,
+   "kind": "step_stone",
+   "x": 0.10976773857686656,
+   "gain": 0.25,
+   "note": "pedestrian 14 footstep"
+  },
+  {
    "frame": 130,
    "kind": "step_stone",
-   "x": 0.49346895618999725,
+   "x": 0.5307862822394988,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 130,
    "kind": "step_stone",
-   "x": -0.05769486279897725,
+   "x": -0.020377536749475806,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
-   "frame": 130,
+   "frame": 131,
    "kind": "step_stone",
-   "x": 0.3338042420962635,
+   "x": 0.057953085416238025,
    "gain": 0.25,
-   "note": "pedestrian 16 footstep"
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 132,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
   },
   {
    "frame": 133,
    "kind": "step_stone",
-   "x": -0.85,
+   "x": -0.8417788334497897,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
   },
   {
    "frame": 133,
    "kind": "step_stone",
-   "x": 0.11292562003469146,
-   "gain": 0.45,
+   "x": 0.27390452399650994,
+   "gain": 0.25,
    "note": "pedestrian 15 footstep"
   },
   {
@@ -1074,95 +955,74 @@
    "note": "pedestrian 10 footstep"
   },
   {
-   "frame": 134,
+   "frame": 135,
    "kind": "step_stone",
-   "x": 0.060750654343477976,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 134,
-   "kind": "step_stone",
-   "x": 0.6138534101221019,
+   "x": -0.7567592022601995,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
-   "frame": 134,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 137,
    "kind": "step_stone",
-   "x": -0.0755990431627689,
+   "x": -0.03142939836368369,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
   {
    "frame": 137,
    "kind": "step_stone",
-   "x": 0.85,
+   "x": 0.02807159684663657,
    "gain": 0.25,
-   "note": "pedestrian 22 footstep"
+   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 138,
    "kind": "step_stone",
-   "x": -0.14906257294511074,
+   "x": -0.10408927989063475,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
-   "frame": 139,
-   "kind": "step_stone",
-   "x": 0.2389347839393372,
-   "gain": 0.25,
-   "note": "pedestrian 16 footstep"
-  },
-  {
    "frame": 140,
    "kind": "step_stone",
-   "x": 0.5260276080280843,
+   "x": 0.5724390144540066,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
+   "frame": 140,
+   "kind": "step_stone",
+   "x": 0.09977964039581222,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
    "frame": 141,
    "kind": "step_stone",
-   "x": -0.8418784846065105,
+   "x": -0.7948406416856213,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
   },
   {
    "frame": 141,
    "kind": "step_stone",
-   "x": 0.027444621847398733,
-   "gain": 0.45,
+   "x": 0.19498204691975637,
+   "gain": 0.25,
    "note": "pedestrian 15 footstep"
   },
   {
    "frame": 141,
    "kind": "step_stone",
-   "x": 0.6483911944212019,
+   "x": -0.7168361183389812,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
-   "frame": 141,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 142,
    "kind": "step_stone",
-   "x": 0.09864063926104887,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
   },
   {
    "frame": 143,
@@ -1174,64 +1034,57 @@
   {
    "frame": 145,
    "kind": "step_stone",
-   "x": -0.2268800331303936,
+   "x": -0.17805745706258067,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
+   "frame": 145,
+   "kind": "step_stone",
+   "x": -0.0546458491470711,
+   "gain": 0.25,
+   "note": "pedestrian 14 footstep"
+  },
+  {
    "frame": 146,
    "kind": "step_stone",
-   "x": -0.16228677440418152,
+   "x": -0.11322350095431245,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
   {
-   "frame": 147,
+   "frame": 148,
    "kind": "step_stone",
-   "x": 0.1578190349015164,
+   "x": 0.13634827619170817,
    "gain": 0.25,
-   "note": "pedestrian 16 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
-   "frame": 147,
+   "frame": 148,
    "kind": "step_stone",
-   "x": 0.85,
+   "x": -0.6704678994387626,
    "gain": 0.25,
    "note": "pedestrian 22 footstep"
   },
   {
    "frame": 149,
    "kind": "step_stone",
-   "x": 0.5598971020254365,
+   "x": 0.6090943151397766,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 149,
    "kind": "step_stone",
-   "x": -0.7975016203593867,
+   "x": -0.7483044072450467,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 149,
-   "kind": "step_stone",
-   "x": 0.6917451586585908,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
-   "frame": 149,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 150,
    "kind": "step_stone",
-   "x": -0.06382028193972522,
-   "gain": 0.45,
+   "x": 0.10570299540680372,
+   "gain": 0.25,
    "note": "pedestrian 15 footstep"
   },
   {
@@ -1244,91 +1097,77 @@
   {
    "frame": 151,
    "kind": "step_stone",
-   "x": 0.1465919674193859,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 153,
-   "kind": "step_stone",
-   "x": -0.31080172331022504,
-   "gain": 0.45,
-   "note": "pedestrian 7 footstep"
-  },
-  {
-   "frame": 155,
-   "kind": "step_stone",
-   "x": -0.15243308689511473,
-   "gain": 0.75,
-   "note": "the hero's shoes on the bluestone sidewalk"
-  },
-  {
-   "frame": 156,
-   "kind": "step_stone",
-   "x": -0.2506629385914945,
-   "gain": 0.45,
-   "note": "pedestrian 5 footstep"
-  },
-  {
-   "frame": 156,
-   "kind": "step_stone",
-   "x": 0.07320109456628723,
-   "gain": 0.25,
-   "note": "pedestrian 16 footstep"
-  },
-  {
-   "frame": 156,
-   "kind": "step_stone",
-   "x": 0.7343492495220061,
+   "x": 0.85,
    "gain": 0.25,
    "note": "pedestrian 21 footstep"
   },
   {
+   "frame": 153,
+   "kind": "step_stone",
+   "x": -0.26304132812943215,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 153,
+   "kind": "step_stone",
+   "x": -0.13783660373794956,
+   "gain": 0.25,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 155,
+   "kind": "step_stone",
+   "x": -0.10617769692762113,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 155,
+   "kind": "step_stone",
+   "x": -0.624942407348507,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 156,
+   "kind": "step_stone",
+   "x": -0.20536387501960862,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
    "frame": 157,
    "kind": "step_stone",
-   "x": -0.747471999311977,
+   "x": -0.7032628315334217,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
   },
   {
    "frame": 157,
    "kind": "step_stone",
-   "x": 0.85,
+   "x": 0.17594253684819308,
    "gain": 0.25,
-   "note": "pedestrian 22 footstep"
-  },
-  {
-   "frame": 157,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 159,
    "kind": "step_stone",
-   "x": 0.6057367642267356,
+   "x": 0.6473846272784989,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 159,
    "kind": "step_stone",
-   "x": 0.195081249739696,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 159,
-   "kind": "step_stone",
-   "x": -0.1480736227733695,
-   "gain": 0.45,
+   "x": 0.01407382242986184,
+   "gain": 0.25,
    "note": "pedestrian 15 footstep"
   },
   {
    "frame": 160,
    "kind": "step_stone",
-   "x": -0.37988833584698106,
+   "x": -0.33969762285461896,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
@@ -1342,259 +1181,238 @@
   {
    "frame": 161,
    "kind": "step_stone",
-   "x": -0.10822736315371782,
+   "x": -0.06959931209945301,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
-   "frame": 163,
+   "frame": 161,
    "kind": "step_stone",
-   "x": 0.7805100622719877,
+   "x": -0.22386892377644138,
+   "gain": 0.25,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 161,
+   "kind": "step_stone",
+   "x": 0.85,
    "gain": 0.25,
    "note": "pedestrian 21 footstep"
   },
   {
-   "frame": 164,
+   "frame": 162,
    "kind": "step_stone",
-   "x": -0.6999841699404311,
-   "gain": 0.45,
-   "note": "pedestrian 11 footstep"
-  },
-  {
-   "frame": 164,
-   "kind": "step_stone",
-   "x": 0.00300750399767157,
-   "gain": 0.25,
-   "note": "pedestrian 16 footstep"
-  },
-  {
-   "frame": 166,
-   "kind": "step_stone",
-   "x": -0.331715262149103,
-   "gain": 0.45,
-   "note": "pedestrian 5 footstep"
-  },
-  {
-   "frame": 167,
-   "kind": "step_stone",
-   "x": -0.06108078828811209,
-   "gain": 0.75,
-   "note": "the hero's shoes on the bluestone sidewalk"
-  },
-  {
-   "frame": 167,
-   "kind": "step_stone",
-   "x": 0.247731884895227,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 167,
-   "kind": "step_stone",
-   "x": 0.7740467742923114,
+   "x": -0.5819872120544364,
    "gain": 0.25,
    "note": "pedestrian 22 footstep"
   },
   {
+   "frame": 164,
+   "kind": "step_stone",
+   "x": -0.6665658119706507,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 166,
+   "kind": "step_stone",
+   "x": -0.3020810109638257,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 166,
+   "kind": "step_stone",
+   "x": 0.21170741090938372,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 167,
+   "kind": "step_stone",
+   "x": -0.03339251050668871,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
    "frame": 168,
    "kind": "step_stone",
-   "x": 0.652678760402651,
+   "x": 0.6784032124835925,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 168,
    "kind": "step_stone",
-   "x": -0.45511171310017634,
+   "x": -0.4293872610192348,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
    "frame": 168,
    "kind": "step_stone",
-   "x": -0.22701831860289615,
-   "gain": 0.45,
+   "x": -0.08079428437048655,
+   "gain": 0.25,
    "note": "pedestrian 15 footstep"
   },
   {
    "frame": 169,
    "kind": "step_stone",
-   "x": 0.7771912169221867,
+   "x": 0.8009476028521411,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
   {
-   "frame": 171,
+   "frame": 169,
    "kind": "step_stone",
-   "x": 0.836789964358025,
+   "x": -0.5400335011443468,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 170,
+   "kind": "step_stone",
+   "x": -0.322530878201244,
+   "gain": 0.25,
+   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 172,
    "kind": "step_stone",
-   "x": -0.6422231079428287,
+   "x": -0.6242602447076439,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
   },
   {
    "frame": 173,
    "kind": "step_stone",
-   "x": -0.01700442383723082,
+   "x": -0.0008904700938297608,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
    "frame": 175,
    "kind": "step_stone",
-   "x": -0.39969441395502,
+   "x": -0.3870751309703622,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
   {
    "frame": 175,
    "kind": "step_stone",
-   "x": -0.5179182775706997,
+   "x": -0.5052989945860421,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
-   "frame": 175,
+   "frame": 176,
    "kind": "step_stone",
-   "x": 0.30406283307416304,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "x": -0.16178357069582566,
+   "gain": 0.25,
+   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 176,
    "kind": "step_stone",
-   "x": -0.29328147727020026,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
+   "x": -0.4948130029087599,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 178,
    "kind": "step_stone",
-   "x": 0.7103015214617546,
+   "x": 0.718366536214529,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 178,
    "kind": "step_stone",
-   "x": 0.7083497113303882,
+   "x": 0.7164147260831625,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
   {
    "frame": 180,
    "kind": "step_stone",
-   "x": -0.5807763398611955,
+   "x": -0.5751746890849171,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
   },
   {
    "frame": 183,
    "kind": "step_stone",
-   "x": -0.5862153481998961,
+   "x": -0.5833499866795332,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
-   "frame": 183,
-   "kind": "step_stone",
-   "x": 0.36410515260982884,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
    "frame": 185,
    "kind": "step_stone",
-   "x": -0.46970822684782715,
+   "x": -0.46804867786604337,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
   {
-   "frame": 185,
-   "kind": "step_stone",
-   "x": -0.3633723157313679,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 186,
    "kind": "step_stone",
-   "x": 0.6511350741687056,
+   "x": 0.6523549128279994,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
   {
    "frame": 187,
    "kind": "step_stone",
-   "x": 0.767163739108769,
+   "x": 0.768037530827616,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 187,
    "kind": "step_stone",
-   "x": -0.5239183947491007,
+   "x": -0.5230446030302537,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
   },
   {
    "frame": 190,
    "kind": "step_stone",
-   "x": -0.6428704496267464,
+   "x": -0.6426025960585046,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
   {
-   "frame": 191,
-   "kind": "step_stone",
-   "x": 0.42792238941710536,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 194,
-   "kind": "step_stone",
-   "x": -0.42877344962341163,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 195,
    "kind": "step_stone",
-   "x": -0.5339717612414971,
+   "x": -0.5339576850628468,
    "gain": 0.45,
    "note": "pedestrian 5 footstep"
   },
   {
    "frame": 195,
    "kind": "step_stone",
-   "x": 0.5911296931384453,
+   "x": 0.5911437693170957,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
   {
    "frame": 195,
    "kind": "step_stone",
-   "x": -0.4555576790974724,
+   "x": -0.45554360291882207,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
   },
   {
    "frame": 197,
    "kind": "step_stone",
-   "x": 0.8356058792263132,
+   "x": 0.835607679439096,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
   },
   {
    "frame": 197,
    "kind": "step_stone",
-   "x": -0.6969786200897176,
+   "x": -0.6969768198769349,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
   },
@@ -1606,25 +1424,11 @@
    "note": "a car passes along Joralemon Street"
   },
   {
-   "frame": 200,
-   "kind": "step_stone",
-   "x": 0.5033956980427138,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
    "frame": 203,
    "kind": "step_stone",
    "x": -0.38484567808791076,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
-  },
-  {
-   "frame": 203,
-   "kind": "step_stone",
-   "x": -0.49094275515114366,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 204,
@@ -1655,13 +1459,6 @@
    "note": "pedestrian 6 footstep"
   },
   {
-   "frame": 208,
-   "kind": "step_stone",
-   "x": 0.571728386357299,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
    "frame": 210,
    "kind": "step_stone",
    "x": -0.32267374920528774,
@@ -1674,13 +1471,6 @@
    "x": 0.3,
    "gain": 0.7,
    "note": "a breeze moves the plane-tree leaves (visible sway)"
-  },
-  {
-   "frame": 211,
-   "kind": "step_stone",
-   "x": -0.5458178859683275,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 212,
@@ -1711,13 +1501,6 @@
    "note": "pedestrian 6 footstep"
   },
   {
-   "frame": 216,
-   "kind": "step_stone",
-   "x": 0.6390018051483287,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
    "frame": 218,
    "kind": "step_stone",
    "x": -0.25314371097852867,
@@ -1730,13 +1513,6 @@
    "x": -0.85,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
-  },
-  {
-   "frame": 220,
-   "kind": "step_stone",
-   "x": -0.6097097359297696,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 221,
@@ -1767,13 +1543,6 @@
    "note": "pedestrian 5 footstep"
   },
   {
-   "frame": 224,
-   "kind": "step_stone",
-   "x": 0.703882735744438,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
    "frame": 225,
    "kind": "dog_paws",
    "x": -0.7837253663831055,
@@ -1802,13 +1571,6 @@
    "note": "pedestrian 7 footstep"
   },
   {
-   "frame": 229,
-   "kind": "step_stone",
-   "x": -0.6762726148596342,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 230,
    "kind": "step_stone",
    "x": 0.36234332939651126,
@@ -1821,13 +1583,6 @@
    "x": 0.85,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
-  },
-  {
-   "frame": 232,
-   "kind": "step_stone",
-   "x": 0.7673495168153718,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 233,
@@ -1872,13 +1627,6 @@
    "note": "pedestrian 12 footstep"
   },
   {
-   "frame": 238,
-   "kind": "step_stone",
-   "x": -0.7435080322775885,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 239,
    "kind": "step_stone",
    "x": 0.30002512683393445,
@@ -1891,13 +1639,6 @@
    "x": -0.061990644316732534,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
-  },
-  {
-   "frame": 241,
-   "kind": "step_stone",
-   "x": 0.8385336334388963,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 242,
@@ -1928,13 +1669,6 @@
    "note": "pedestrian 6 footstep"
   },
   {
-   "frame": 246,
-   "kind": "step_stone",
-   "x": -0.8031001168050734,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 247,
    "kind": "dog_paws",
    "x": -0.6549892716032633,
@@ -1961,13 +1695,6 @@
    "x": 0.005938773551438699,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
-  },
-  {
-   "frame": 249,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 250,
@@ -2005,13 +1732,6 @@
    "note": "pedestrian 4 footstep"
   },
   {
-   "frame": 255,
-   "kind": "step_stone",
-   "x": -0.8425431877084244,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 256,
    "kind": "step_stone",
    "x": 0.2212451277323275,
@@ -2038,13 +1758,6 @@
    "x": -0.85,
    "gain": 0.45,
    "note": "pedestrian 7 footstep"
-  },
-  {
-   "frame": 257,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 261,
@@ -2082,13 +1795,6 @@
    "note": "pedestrian 12 footstep"
   },
   {
-   "frame": 264,
-   "kind": "step_stone",
-   "x": -0.690156380667739,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 265,
    "kind": "step_stone",
    "x": -0.85,
@@ -2101,13 +1807,6 @@
    "x": 0.4089984686608082,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
-  },
-  {
-   "frame": 265,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 266,
@@ -2159,20 +1858,6 @@
    "note": "pedestrian 12 footstep"
   },
   {
-   "frame": 273,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 273,
-   "kind": "step_stone",
-   "x": -0.33422684976611383,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 274,
    "kind": "step_stone",
    "x": 0.7743427909006124,
@@ -2213,13 +1898,6 @@
    "x": 0.85,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
-  },
-  {
-   "frame": 281,
-   "kind": "step_stone",
-   "x": -0.12571529326205524,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 282,
@@ -2285,13 +1963,6 @@
    "note": "pedestrian 12 footstep"
   },
   {
-   "frame": 290,
-   "kind": "step_stone",
-   "x": -0.3400970303697884,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 291,
    "kind": "step_stone",
    "x": 0.684683413388777,
@@ -2341,13 +2012,6 @@
    "note": "pedestrian 4 footstep"
   },
   {
-   "frame": 298,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
    "frame": 299,
    "kind": "step_stone",
    "x": 0.85,
@@ -2360,13 +2024,6 @@
    "x": -0.85,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
-  },
-  {
-   "frame": 299,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 300,
@@ -2385,13 +2042,6 @@
   {
    "frame": 302,
    "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 7 footstep"
-  },
-  {
-   "frame": 302,
-   "kind": "step_stone",
    "x": 0.6160650102275675,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
@@ -2402,13 +2052,6 @@
    "x": 0.4716381360458297,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
-  },
-  {
-   "frame": 306,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 307,
@@ -2423,13 +2066,6 @@
    "x": -0.85,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
-  },
-  {
-   "frame": 308,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 309,
@@ -2481,25 +2117,11 @@
    "note": "pedestrian 13 footstep"
   },
   {
-   "frame": 314,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
    "frame": 316,
    "kind": "step_stone",
    "x": 0.85,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
-  },
-  {
-   "frame": 316,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 317,
@@ -2549,13 +2171,6 @@
    "x": 0.85,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
-  },
-  {
-   "frame": 325,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 326,
@@ -2628,13 +2243,6 @@
    "note": "the dog trots beside its walker"
   },
   {
-   "frame": 334,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 15 footstep"
-  },
-  {
    "frame": 335,
    "kind": "step_stone",
    "x": -0.061388496460543375,
@@ -2665,7 +2273,7 @@
   {
    "frame": 341,
    "kind": "step_stone",
-   "x": -0.004487919369580373,
+   "x": -0.004488999015835364,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
@@ -2675,6 +2283,13 @@
    "x": 0.85,
    "gain": 0.45,
    "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 341,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 342,
@@ -2688,21 +2303,28 @@
    "kind": "step_stone",
    "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 16 footstep"
+   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 342,
    "kind": "step_stone",
-   "x": 0.6104517729379199,
+   "x": 0.85,
    "gain": 0.25,
-   "note": "pedestrian 24 footstep"
+   "note": "pedestrian 23 footstep"
   },
   {
    "frame": 343,
    "kind": "step_stone",
-   "x": -0.21365977214207743,
+   "x": -0.213667894603962,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 344,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 344,
@@ -2719,16 +2341,30 @@
    "note": "pedestrian 13 footstep"
   },
   {
+   "frame": 345,
+   "kind": "step_stone",
+   "x": -0.12122474856169395,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 346,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
    "frame": 347,
    "kind": "step_stone",
-   "x": 0.19842957507143988,
+   "x": 0.19833958547831085,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
   {
    "frame": 348,
    "kind": "step_stone",
-   "x": -0.28188985264168753,
+   "x": 0.85,
    "gain": 0.25,
    "note": "pedestrian 22 footstep"
   },
@@ -2740,44 +2376,23 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 350,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 17 footstep"
-  },
-  {
-   "frame": 350,
-   "kind": "step_stone",
-   "x": 0.48388566143878603,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
-   "frame": 350,
-   "kind": "step_stone",
-   "x": 0.44213749638309113,
-   "gain": 0.25,
-   "note": "pedestrian 24 footstep"
-  },
-  {
    "frame": 351,
    "kind": "step_stone",
-   "x": 0.7145956512491387,
+   "x": 0.7141633251968802,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
   {
    "frame": 352,
    "kind": "step_stone",
-   "x": -0.0808887769042502,
+   "x": -0.08147838716683951,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
   {
    "frame": 352,
    "kind": "step_stone",
-   "x": -0.3884229834086661,
+   "x": -0.3890125936712554,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
@@ -2789,18 +2404,53 @@
    "note": "pedestrian 13 footstep"
   },
   {
+   "frame": 352,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 353,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
    "frame": 355,
    "kind": "step_stone",
-   "x": 0.058052657138970044,
+   "x": 0.056778519932525646,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
   {
    "frame": 355,
    "kind": "dog_paws",
-   "x": 0.06911122309574981,
+   "x": 0.0685216128331605,
    "gain": 0.7,
    "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 355,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 355,
+   "kind": "step_stone",
+   "x": -0.29679822226224817,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 355,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 356,
@@ -2810,37 +2460,9 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 358,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 17 footstep"
-  },
-  {
-   "frame": 358,
-   "kind": "step_stone",
-   "x": -0.4377407813388241,
-   "gain": 0.25,
-   "note": "pedestrian 22 footstep"
-  },
-  {
-   "frame": 358,
-   "kind": "step_stone",
-   "x": 0.47957859222798804,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
-   "frame": 358,
-   "kind": "step_stone",
-   "x": 0.3137992661127708,
-   "gain": 0.25,
-   "note": "pedestrian 24 footstep"
-  },
-  {
    "frame": 359,
    "kind": "step_stone",
-   "x": 0.5963306348685847,
+   "x": 0.5937640571300649,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
@@ -2854,21 +2476,21 @@
   {
    "frame": 361,
    "kind": "step_stone",
-   "x": -0.5113875564308547,
+   "x": -0.5145967279902747,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
   {
    "frame": 363,
    "kind": "step_stone",
-   "x": -0.08581725953204218,
+   "x": -0.08950890757597359,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
   {
    "frame": 364,
    "kind": "step_stone",
-   "x": -0.054345758539777723,
+   "x": -0.05817742899644316,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
@@ -2889,21 +2511,21 @@
   {
    "frame": 368,
    "kind": "step_stone",
-   "x": 0.4964304296686061,
+   "x": 0.4930531015801436,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
   {
    "frame": 370,
    "kind": "step_stone",
-   "x": -0.6046924601896425,
+   "x": -0.6071082850703595,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
   {
    "frame": 372,
    "kind": "step_stone",
-   "x": -0.13596832221521912,
+   "x": -0.13693364000131483,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
@@ -2917,7 +2539,7 @@
   {
    "frame": 374,
    "kind": "step_stone",
-   "x": -0.05402241439909857,
+   "x": -0.053139974165659805,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
@@ -2931,21 +2553,21 @@
   {
    "frame": 377,
    "kind": "dog_paws",
-   "x": 0.09597758560090143,
+   "x": 0.09686002583434021,
    "gain": 0.7,
    "note": "the dog trots beside its walker"
   },
   {
    "frame": 377,
    "kind": "step_stone",
-   "x": 0.4099600309517169,
+   "x": 0.4140284532700575,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
   {
    "frame": 378,
    "kind": "step_stone",
-   "x": -0.6781742803872787,
+   "x": -0.6730175297432774,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
@@ -2959,35 +2581,35 @@
   {
    "frame": 381,
    "kind": "step_stone",
-   "x": -0.2189429972741351,
+   "x": -0.210692084292916,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
   {
    "frame": 383,
    "kind": "step_stone",
-   "x": -0.8487017244264442,
+   "x": -0.8386446499917352,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
   },
   {
    "frame": 385,
    "kind": "step_stone",
-   "x": -0.008238826586354822,
+   "x": 0.003366868254497219,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
   {
    "frame": 385,
    "kind": "step_stone",
-   "x": 0.34040435256495233,
+   "x": 0.3520100474058044,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
   {
    "frame": 387,
    "kind": "step_stone",
-   "x": -0.7525899565841363,
+   "x": -0.7396987682331068,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
@@ -3001,16 +2623,30 @@
   {
    "frame": 390,
    "kind": "step_stone",
-   "x": -0.29320839606761157,
+   "x": -0.2788472431336482,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
   {
    "frame": 390,
    "kind": "step_stone",
-   "x": -0.8006755676505225,
+   "x": -0.7863144147165593,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 392,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 392,
+   "kind": "step_stone",
+   "x": 0.4874615790316756,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
   },
   {
    "frame": 392,
@@ -3022,9 +2658,16 @@
   {
    "frame": 394,
    "kind": "step_stone",
-   "x": 0.26970813832187934,
+   "x": 0.2853190344984868,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 394,
+   "kind": "step_stone",
+   "x": -0.6323641013119762,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
   },
   {
    "frame": 395,
@@ -3036,58 +2679,51 @@
   {
    "frame": 396,
    "kind": "step_stone",
-   "x": 0.049355891324883994,
+   "x": 0.06534862714950895,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
   {
    "frame": 396,
    "kind": "step_stone",
-   "x": -0.8195583505797157,
+   "x": -0.8035656147550907,
    "gain": 0.45,
    "note": "pedestrian 10 footstep"
   },
   {
    "frame": 396,
    "kind": "step_stone",
-   "x": -0.06375662615761296,
+   "x": 0.85,
    "gain": 0.25,
-   "note": "pedestrian 24 footstep"
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 398,
    "kind": "step_stone",
-   "x": -0.3537683967734771,
+   "x": -0.3375260992372715,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
   {
    "frame": 398,
    "kind": "step_stone",
-   "x": -0.7411644824910892,
+   "x": -0.7249221849548837,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
   },
   {
    "frame": 399,
    "kind": "dog_paws",
-   "x": 0.199355891324884,
+   "x": 0.21534862714950895,
    "gain": 0.7,
    "note": "the dog trots beside its walker"
   },
   {
-   "frame": 399,
-   "kind": "step_stone",
-   "x": -0.7911444784825602,
-   "gain": 0.25,
-   "note": "pedestrian 22 footstep"
-  },
-  {
    "frame": 401,
    "kind": "step_stone",
-   "x": 0.85,
+   "x": -0.7915044082678228,
    "gain": 0.25,
-   "note": "pedestrian 18 footstep"
+   "note": "pedestrian 16 footstep"
   },
   {
    "frame": 402,
@@ -3099,30 +2735,30 @@
   {
    "frame": 402,
    "kind": "step_stone",
-   "x": 0.2112766887456976,
+   "x": 0.22766749340641523,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
   {
-   "frame": 404,
+   "frame": 402,
    "kind": "step_stone",
-   "x": -0.6612665589308088,
-   "gain": 0.25,
-   "note": "pedestrian 17 footstep"
-  },
-  {
-   "frame": 404,
-   "kind": "step_stone",
-   "x": 0.7528316679437403,
+   "x": 0.41980812374232485,
    "gain": 0.25,
    "note": "pedestrian 23 footstep"
   },
   {
-   "frame": 404,
+   "frame": 403,
    "kind": "step_stone",
-   "x": -0.12612683426372778,
+   "x": -0.6905683334393532,
    "gain": 0.25,
-   "note": "pedestrian 24 footstep"
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 403,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 404,
@@ -3141,37 +2777,23 @@
   {
    "frame": 405,
    "kind": "step_stone",
-   "x": -0.6859609748217346,
+   "x": -0.6697699408379143,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
   },
   {
    "frame": 406,
    "kind": "step_stone",
-   "x": 0.10845629916110351,
+   "x": 0.12451490184613341,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
   {
    "frame": 407,
    "kind": "step_stone",
-   "x": -0.41713812344013673,
+   "x": -0.40124735074473045,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
-  },
-  {
-   "frame": 408,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.25,
-   "note": "pedestrian 18 footstep"
-  },
-  {
-   "frame": 409,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 410,
@@ -3181,32 +2803,32 @@
    "note": "pedestrian 11 footstep"
   },
   {
+   "frame": 410,
+   "kind": "step_stone",
+   "x": -0.7235333198240811,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 410,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
    "frame": 411,
    "kind": "step_stone",
-   "x": 0.15138103313690227,
+   "x": 0.1662315675873112,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
   {
    "frame": 412,
    "kind": "step_stone",
-   "x": -0.5953323296178269,
-   "gain": 0.25,
-   "note": "pedestrian 17 footstep"
-  },
-  {
-   "frame": 412,
-   "kind": "step_stone",
-   "x": 0.8199174854588666,
+   "x": 0.35652719394117655,
    "gain": 0.25,
    "note": "pedestrian 23 footstep"
-  },
-  {
-   "frame": 412,
-   "kind": "step_stone",
-   "x": -0.18307217780812388,
-   "gain": 0.25,
-   "note": "pedestrian 24 footstep"
   },
   {
    "frame": 413,
@@ -3218,28 +2840,28 @@
   {
    "frame": 413,
    "kind": "step_stone",
-   "x": -0.617381182251118,
+   "x": -0.603267759940121,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
   },
   {
+   "frame": 413,
+   "kind": "step_stone",
+   "x": -0.7506037205620913,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
    "frame": 415,
    "kind": "step_stone",
-   "x": -0.4669642690001417,
+   "x": -0.45371692821990806,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
   {
-   "frame": 416,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.25,
-   "note": "pedestrian 18 footstep"
-  },
-  {
    "frame": 417,
    "kind": "step_stone",
-   "x": 0.18401843665128603,
+   "x": 0.19629006887863518,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
@@ -3253,35 +2875,28 @@
   {
    "frame": 419,
    "kind": "step_stone",
-   "x": -0.85,
+   "x": -0.6503437300929518,
    "gain": 0.25,
-   "note": "pedestrian 22 footstep"
+   "note": "pedestrian 16 footstep"
   },
   {
    "frame": 420,
    "kind": "dog_paws",
-   "x": 0.334018436651286,
+   "x": 0.34629006887863517,
    "gain": 0.7,
    "note": "the dog trots beside its walker"
   },
   {
    "frame": 420,
    "kind": "step_stone",
-   "x": 0.09928931341261593,
+   "x": 0.1099418532568154,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
   {
-   "frame": 420,
-   "kind": "step_stone",
-   "x": -0.23392896558765244,
-   "gain": 0.25,
-   "note": "pedestrian 24 footstep"
-  },
-  {
    "frame": 421,
    "kind": "step_stone",
-   "x": -0.5429982965598822,
+   "x": -0.5329146208433991,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
   },
@@ -3293,9 +2908,23 @@
    "note": "pedestrian 10 footstep"
   },
   {
+   "frame": 422,
+   "kind": "step_stone",
+   "x": 0.29927893628539176,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 423,
+   "kind": "step_stone",
+   "x": -0.8048582446000013,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
    "frame": 424,
    "kind": "step_stone",
-   "x": -0.5172222222222224,
+   "x": -0.5088888888888891,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
@@ -3309,23 +2938,30 @@
   {
    "frame": 428,
    "kind": "step_stone",
-   "x": 0.2669576195325985,
+   "x": 0.27297174635506566,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
   {
    "frame": 428,
    "kind": "step_stone",
-   "x": 0.05570445810689634,
+   "x": 0.06171858492936352,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
   {
    "frame": 428,
    "kind": "step_stone",
-   "x": -0.4762830053012537,
+   "x": -0.4702688784787865,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 428,
+   "kind": "step_stone",
+   "x": -0.5746828948855626,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
   },
   {
    "frame": 431,
@@ -3337,9 +2973,23 @@
   {
    "frame": 432,
    "kind": "step_stone",
-   "x": -0.5616845002260402,
+   "x": -0.5577896668173602,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 432,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 432,
+   "kind": "step_stone",
+   "x": 0.24326365956918447,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
   },
   {
    "frame": 433,
@@ -3351,21 +3001,28 @@
   {
    "frame": 436,
    "kind": "step_stone",
-   "x": -0.40244824000697665,
+   "x": -0.4002812655867614,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
   },
   {
    "frame": 437,
    "kind": "step_stone",
-   "x": 0.0036146410069762963,
+   "x": 0.0054295048069898265,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
   {
+   "frame": 437,
+   "kind": "step_stone",
+   "x": -0.5010130879321644,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
    "frame": 439,
    "kind": "step_stone",
-   "x": 0.34551580175361923,
+   "x": 0.34673275672463505,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
@@ -3379,7 +3036,7 @@
   {
    "frame": 441,
    "kind": "step_stone",
-   "x": -0.6172849600948346,
+   "x": -0.6165233067298898,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
@@ -3393,23 +3050,44 @@
   {
    "frame": 442,
    "kind": "dog_paws",
-   "x": 0.4955158017536192,
+   "x": 0.49673275672463507,
    "gain": 0.7,
    "note": "the dog trots beside its walker"
   },
   {
+   "frame": 442,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 442,
+   "kind": "step_stone",
+   "x": 0.18264679461418895,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
    "frame": 443,
    "kind": "step_stone",
-   "x": -0.34275959564869257,
+   "x": -0.3423199544890451,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
   },
   {
    "frame": 446,
    "kind": "step_stone",
-   "x": -0.056109874674259506,
+   "x": -0.05594937436959436,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 446,
+   "kind": "step_stone",
+   "x": -0.4324330800329755,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
   },
   {
    "frame": 446,
@@ -3428,28 +3106,28 @@
   {
    "frame": 450,
    "kind": "step_stone",
-   "x": -0.6800789879505512,
+   "x": -0.6800526586337008,
    "gain": 0.45,
    "note": "pedestrian 3 footstep"
   },
   {
    "frame": 450,
    "kind": "step_stone",
-   "x": 0.413254345382782,
+   "x": 0.4132806746996324,
    "gain": 0.45,
    "note": "pedestrian 4 footstep"
   },
   {
    "frame": 451,
    "kind": "step_stone",
-   "x": -0.27919190034400715,
+   "x": -0.27917705492341444,
    "gain": 0.45,
    "note": "pedestrian 13 footstep"
   },
   {
    "frame": 454,
    "kind": "step_stone",
-   "x": -0.11313295400337624,
+   "x": -0.11313145871264446,
    "gain": 0.45,
    "note": "pedestrian 12 footstep"
   },
@@ -3832,7 +3510,7 @@
    "note": "tunnel gang"
   },
   {
-   "frame": 668,
+   "frame": 676,
    "kind": "train_old",
    "x": -0.3,
    "gain": 0.9,
@@ -3862,7 +3540,7 @@
   {
    "frame": 717,
    "kind": "shovel_dig",
-   "x": -0.7659679486295946,
+   "x": -0.302259170092982,
    "gain": 0.45,
    "note": "crewman 0: shovel"
   },
@@ -3876,14 +3554,14 @@
   {
    "frame": 719,
    "kind": "hammer_hit",
-   "x": -0.4763941519811832,
+   "x": -0.041375301352399675,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
   {
    "frame": 719,
    "kind": "ratchet",
-   "x": 0.25693918135215005,
+   "x": 0.6919580319809336,
    "gain": 0.45,
    "note": "crewman 2: wrench"
   },
@@ -3897,7 +3575,7 @@
   {
    "frame": 721,
    "kind": "hammer_hit",
-   "x": 0.4166494827795176,
+   "x": 0.8164747752391981,
    "gain": 0.45,
    "note": "crewman 4: hammer"
   },
@@ -3911,7 +3589,7 @@
   {
    "frame": 742,
    "kind": "hammer_hit",
-   "x": -0.4350994047895352,
+   "x": -0.5205371209051584,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
@@ -3932,14 +3610,14 @@
   {
    "frame": 750,
    "kind": "shovel_dig",
-   "x": -0.4821682011418273,
+   "x": -0.7482696409874218,
    "gain": 0.45,
    "note": "crewman 0: shovel"
   },
   {
    "frame": 751,
    "kind": "hammer_hit",
-   "x": 0.7635967386739506,
+   "x": 0.4757724947853588,
    "gain": 0.45,
    "note": "crewman 4: hammer"
   },
@@ -3967,14 +3645,14 @@
   {
    "frame": 762,
    "kind": "ratchet",
-   "x": 0.85,
+   "x": 0.7252426127428865,
    "gain": 0.45,
    "note": "crewman 2: wrench"
   },
   {
    "frame": 765,
    "kind": "hammer_hit",
-   "x": 0.5357539639934071,
+   "x": 0.12916723529522348,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
@@ -3995,7 +3673,7 @@
   {
    "frame": 775,
    "kind": "shovel_dig",
-   "x": -0.5654625774949277,
+   "x": -0.7326968888948642,
    "gain": 0.45,
    "note": "crewman 3: shovel"
   },
@@ -4009,14 +3687,14 @@
   {
    "frame": 784,
    "kind": "shovel_dig",
-   "x": 0.3316064808174149,
+   "x": 0.38909504447374793,
    "gain": 0.45,
    "note": "crewman 0: shovel"
   },
   {
    "frame": 788,
    "kind": "hammer_hit",
-   "x": 0.5766494802421658,
+   "x": 0.6719691412830366,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
@@ -4044,7 +3722,7 @@
   {
    "frame": 811,
    "kind": "hammer_hit",
-   "x": 0.3032524925058497,
+   "x": 0.22649465128276858,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
@@ -4058,7 +3736,7 @@
   {
    "frame": 817,
    "kind": "shovel_dig",
-   "x": -0.030079266189506626,
+   "x": -0.16264083484239822,
    "gain": 0.45,
    "note": "crewman 0: shovel"
   },
@@ -4072,28 +3750,28 @@
   {
    "frame": 834,
    "kind": "hammer_hit",
-   "x": 0.21546041089032061,
+   "x": -0.07202715784914371,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
   {
    "frame": 841,
    "kind": "hammer_hit",
-   "x": 0.85,
+   "x": 0.7681147161698809,
    "gain": 0.45,
    "note": "crewman 4: hammer"
   },
   {
    "frame": 847,
    "kind": "ratchet",
-   "x": 0.85,
+   "x": 0.566089845919648,
    "gain": 0.45,
    "note": "crewman 2: wrench"
   },
   {
    "frame": 850,
    "kind": "shovel_dig",
-   "x": -0.09919210446671045,
+   "x": -0.4797055135391703,
    "gain": 0.45,
    "note": "crewman 0: shovel"
   },
@@ -4107,7 +3785,7 @@
   {
    "frame": 857,
    "kind": "hammer_hit",
-   "x": 0.20037572679355894,
+   "x": -0.19969264327664724,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
@@ -4121,21 +3799,21 @@
   {
    "frame": 871,
    "kind": "hammer_hit",
-   "x": 0.85,
+   "x": 0.6780405597304723,
    "gain": 0.45,
    "note": "crewman 4: hammer"
   },
   {
    "frame": 880,
    "kind": "hammer_hit",
-   "x": 0.21595590966263922,
+   "x": -0.22899318937095095,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
   {
    "frame": 884,
    "kind": "shovel_dig",
-   "x": -0.07664467467126945,
+   "x": -0.5308064302602095,
    "gain": 0.45,
    "note": "crewman 0: shovel"
   },
@@ -4156,21 +3834,21 @@
   {
    "frame": 890,
    "kind": "ratchet",
-   "x": 0.85,
+   "x": 0.5009204062475422,
    "gain": 0.45,
    "note": "crewman 2: wrench"
   },
   {
    "frame": 901,
    "kind": "hammer_hit",
-   "x": 0.85,
+   "x": 0.6775217939324797,
    "gain": 0.45,
    "note": "crewman 4: hammer"
   },
   {
    "frame": 903,
    "kind": "hammer_hit",
-   "x": 0.2957236020894473,
+   "x": -0.2126805063464818,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
@@ -4184,7 +3862,7 @@
   {
    "frame": 917,
    "kind": "shovel_dig",
-   "x": 0.13976557200868425,
+   "x": -0.27102033914216145,
    "gain": 0.45,
    "note": "crewman 0: shovel"
   },
@@ -4198,7 +3876,7 @@
   {
    "frame": 927,
    "kind": "hammer_hit",
-   "x": 0.5743435450020531,
+   "x": 0.3235430804831294,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
@@ -4233,7 +3911,7 @@
   {
    "frame": 938,
    "kind": "shovel_dig",
-   "x": -0.5758861505692587,
+   "x": -0.6693223473461446,
    "gain": 0.45,
    "note": "crewman 3: shovel"
   },
@@ -4261,14 +3939,14 @@
   {
    "frame": 950,
    "kind": "shovel_dig",
-   "x": 0.4073416743635665,
+   "x": 0.39627057708605373,
    "gain": 0.45,
    "note": "crewman 0: shovel"
   },
   {
    "frame": 950,
    "kind": "hammer_hit",
-   "x": 0.7073416743635664,
+   "x": 0.6962705770860538,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
@@ -4289,7 +3967,7 @@
   {
    "frame": 966,
    "kind": "shovel_dig",
-   "x": -0.7508189929638936,
+   "x": -0.5781061591773401,
    "gain": 0.45,
    "note": "crewman 3: shovel"
   },
@@ -4303,7 +3981,7 @@
   {
    "frame": 973,
    "kind": "hammer_hit",
-   "x": 0.40561432836140554,
+   "x": 0.6737475208254868,
    "gain": 0.45,
    "note": "crewman 1: hammer"
   },
@@ -4406,18 +4084,18 @@
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
+   "frame": 1075,
+   "kind": "step_stone",
+   "x": -0.6729474642983476,
+   "gain": 0.25,
+   "note": "pedestrian 19 footstep"
+  },
+  {
    "frame": 1078,
    "kind": "step_stone",
    "x": -0.35772180762409894,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
-  },
-  {
-   "frame": 1079,
-   "kind": "step_stone",
-   "x": -0.5259385100306057,
-   "gain": 0.25,
-   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1083,
@@ -4427,18 +4105,18 @@
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
+   "frame": 1084,
+   "kind": "step_stone",
+   "x": -0.6237628747397412,
+   "gain": 0.25,
+   "note": "pedestrian 19 footstep"
+  },
+  {
    "frame": 1088,
    "kind": "step_stone",
    "x": -0.1059650045006959,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
-  },
-  {
-   "frame": 1088,
-   "kind": "step_stone",
-   "x": -0.5181559382705093,
-   "gain": 0.25,
-   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1093,
@@ -4448,11 +4126,11 @@
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
-   "frame": 1097,
+   "frame": 1093,
    "kind": "step_stone",
-   "x": -0.609294357902649,
+   "x": -0.675424555735271,
    "gain": 0.25,
-   "note": "pedestrian 20 footstep"
+   "note": "pedestrian 19 footstep"
   },
   {
    "frame": 1098,
@@ -4462,18 +4140,18 @@
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
+   "frame": 1102,
+   "kind": "step_stone",
+   "x": -0.8073942682468385,
+   "gain": 0.25,
+   "note": "pedestrian 19 footstep"
+  },
+  {
    "frame": 1103,
    "kind": "step_stone",
    "x": 0.06086904925776304,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
-  },
-  {
-   "frame": 1106,
-   "kind": "step_stone",
-   "x": -0.7625633694236117,
-   "gain": 0.25,
-   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1108,
@@ -4490,18 +4168,18 @@
    "note": "a breeze moves the plane-tree leaves (visible sway)"
   },
   {
+   "frame": 1111,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 19 footstep"
+  },
+  {
    "frame": 1113,
    "kind": "step_stone",
    "x": 0.10221279418318552,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
-  },
-  {
-   "frame": 1115,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1118,
@@ -4511,18 +4189,18 @@
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
+   "frame": 1120,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 19 footstep"
+  },
+  {
    "frame": 1123,
    "kind": "step_stone",
    "x": 0.1392893565869874,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
-  },
-  {
-   "frame": 1125,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1128,
@@ -4532,18 +4210,18 @@
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
+   "frame": 1129,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 19 footstep"
+  },
+  {
    "frame": 1133,
    "kind": "step_stone",
    "x": 0.21447342148904505,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
-  },
-  {
-   "frame": 1134,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1138,
@@ -4558,13 +4236,6 @@
    "x": 0.3535153411604284,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
-  },
-  {
-   "frame": 1143,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1148,
@@ -4784,18 +4455,18 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 1309,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.25,
-   "note": "pedestrian 16 footstep"
-  },
-  {
    "frame": 1310,
    "kind": "step_stone",
    "x": 0.23985075789081814,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1310,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 1313,
@@ -4812,11 +4483,11 @@
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
-   "frame": 1317,
+   "frame": 1319,
    "kind": "step_stone",
    "x": 0.85,
    "gain": 0.25,
-   "note": "pedestrian 16 footstep"
+   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 1320,
@@ -4840,13 +4511,6 @@
    "note": "the hero's shoes on the bluestone sidewalk"
   },
   {
-   "frame": 1326,
-   "kind": "step_stone",
-   "x": 0.85,
-   "gain": 0.25,
-   "note": "pedestrian 16 footstep"
-  },
-  {
    "frame": 1328,
    "kind": "step_stone",
    "x": 0.18890384659753587,
@@ -4859,6 +4523,13 @@
    "x": 0.3074584985377696,
    "gain": 0.45,
    "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1328,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 15 footstep"
   },
   {
    "frame": 1330,
@@ -5022,13 +4693,6 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 1366,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 1367,
    "kind": "step_stone",
    "x": -0.7285354092770419,
@@ -5071,11 +4735,11 @@
    "note": "the cyclist freewheels past"
   },
   {
-   "frame": 1373,
+   "frame": 1374,
    "kind": "step_stone",
    "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1377,
@@ -5099,11 +4763,11 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 1381,
+   "frame": 1383,
    "kind": "step_stone",
    "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1386,
@@ -5120,25 +4784,18 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 1387,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 1388,
-   "kind": "step_stone",
-   "x": -0.7967139395633414,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 1390,
    "kind": "step_stone",
    "x": 0.24501398218902004,
    "gain": 0.45,
    "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1392,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1395,
@@ -5148,25 +4805,11 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 1395,
-   "kind": "step_stone",
-   "x": -0.7417270425921201,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 1396,
    "kind": "step_stone",
    "x": -0.5124702069811012,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
-  },
-  {
-   "frame": 1396,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 1400,
@@ -5176,25 +4819,18 @@
    "note": "pedestrian 8 footstep"
   },
   {
+   "frame": 1401,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
    "frame": 1402,
    "kind": "step_stone",
    "x": 0.07409646458839607,
    "gain": 0.45,
    "note": "pedestrian 9 footstep"
-  },
-  {
-   "frame": 1402,
-   "kind": "step_stone",
-   "x": -0.7021867917388201,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
-   "frame": 1404,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
   },
   {
    "frame": 1405,
@@ -5220,16 +4856,9 @@
   {
    "frame": 1410,
    "kind": "step_stone",
-   "x": -0.6847908071288692,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
-   "frame": 1412,
-   "kind": "step_stone",
    "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1413,
@@ -5253,11 +4882,11 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 1417,
+   "frame": 1419,
    "kind": "step_stone",
-   "x": -0.6844792068699744,
+   "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1420,
@@ -5275,17 +4904,17 @@
   },
   {
    "frame": 1420,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 1420,
    "kind": "leaves",
    "x": 0.3,
    "gain": 0.7,
    "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 1421,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 1424,
@@ -5302,13 +4931,6 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 1424,
-   "kind": "step_stone",
-   "x": -0.6835615963406445,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 1426,
    "kind": "step_stone",
    "x": -0.49764702933365773,
@@ -5319,8 +4941,15 @@
    "frame": 1428,
    "kind": "step_stone",
    "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1428,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 1430,
@@ -5337,13 +4966,6 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 1430,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 1432,
    "kind": "step_stone",
    "x": -0.6180925279285998,
@@ -5358,13 +4980,6 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 1432,
-   "kind": "step_stone",
-   "x": -0.6661199704983519,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
    "frame": 1434,
    "kind": "step_stone",
    "x": -0.49724882559998,
@@ -5372,18 +4987,18 @@
    "note": "pedestrian 6 footstep"
   },
   {
-   "frame": 1437,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 1437,
+   "frame": 1435,
    "kind": "step_stone",
    "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 1436,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1438,
@@ -5407,11 +5022,11 @@
    "note": "pedestrian 9 footstep"
   },
   {
-   "frame": 1439,
+   "frame": 1442,
    "kind": "step_stone",
-   "x": -0.632818498264032,
+   "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 1444,
@@ -5431,15 +5046,8 @@
    "frame": 1445,
    "kind": "step_stone",
    "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 1445,
-   "kind": "step_stone",
-   "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 23 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1446,
@@ -5456,11 +5064,11 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 1446,
+   "frame": 1449,
    "kind": "step_stone",
-   "x": -0.588430280738635,
+   "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 1450,
@@ -5475,20 +5083,6 @@
    "x": -0.4084560472313685,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
-  },
-  {
-   "frame": 1453,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 1453,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
   },
   {
    "frame": 1454,
@@ -5507,9 +5101,9 @@
   {
    "frame": 1454,
    "kind": "step_stone",
-   "x": -0.5313303498921788,
+   "x": -0.85,
    "gain": 0.25,
-   "note": "pedestrian 21 footstep"
+   "note": "pedestrian 20 footstep"
   },
   {
    "frame": 1456,
@@ -5517,6 +5111,13 @@
    "x": -0.85,
    "gain": 0.75,
    "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1456,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   },
   {
    "frame": 1461,
@@ -5533,27 +5134,6 @@
    "note": "pedestrian 11 footstep"
   },
   {
-   "frame": 1461,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.45,
-   "note": "pedestrian 14 footstep"
-  },
-  {
-   "frame": 1461,
-   "kind": "step_stone",
-   "x": -0.4809127127537904,
-   "gain": 0.25,
-   "note": "pedestrian 21 footstep"
-  },
-  {
-   "frame": 1461,
-   "kind": "step_stone",
-   "x": -0.85,
-   "gain": 0.25,
-   "note": "pedestrian 23 footstep"
-  },
-  {
    "frame": 1462,
    "kind": "step_stone",
    "x": -0.85,
@@ -5566,6 +5146,20 @@
    "x": -0.35294281506285835,
    "gain": 0.45,
    "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1463,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1463,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
   }
  ]
 }

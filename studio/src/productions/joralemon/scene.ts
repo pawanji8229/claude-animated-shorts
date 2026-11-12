@@ -38,7 +38,7 @@ export const soundEvents = (): SoundEvent[] => {
     if (c.tool) for (let f = c.t0 + 50; f < 980; f++) { const ph = (f * c.rate) / 30 + i * 0.37, fr = ph - Math.floor(ph), pf = ((f - 1) * c.rate) / 30 + i * 0.37, pr = pf - Math.floor(pf);
       if (pr < 0.5 && fr >= 0.5 && outside(f)) add(f, c.tool === "hammer" ? "hammer_hit" : c.tool === "shovel" ? "shovel_dig" : "ratchet", (c.to[0] - camAt(f).look[0]) / 6, 0.45, `crewman ${i}: ${c.tool}`); } });
   for (const [f, k, n] of [[630, "shovel_dig", "tunnel gang digs at the shield"], [646, "hammer_hit", "ring bolts hammered"], [662, "shovel_dig", "tunnel gang"]] as [number, string, string][]) add(f, k, -0.2, 0.6, n);
-  add(668, "train_old", -0.3, 0.9, "the first train runs through the finished tunnel");
+  add(676, "train_old", -0.3, 0.9, "the first train runs through the finished tunnel");
   add(690, "truck_pass", -0.5, 0.6, "the lorry brings the fan"); add(712, "brake_squeak", -0.2, 0.5, "the lorry stops");
   add(718, "crane_winch", 0.4, 0.8, "the derrick winch lifts the fan"); add(722, "chain_rattle", 0.4, 0.6, "lifting chain");
   add(748, "stone_thud", 0.3, 0.8, "the fan is set down on its foundation"); for (const f of [752, 760, 768]) add(f, "ratchet", 0.3, 0.6, "bolting the fan housing");

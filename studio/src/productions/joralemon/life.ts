@@ -75,7 +75,7 @@ export const familyAt = (f: number): Placed[] => { if (eraAt(f) === "now" && f >
 // ---------------------------------------------------------------- 1907: the works
 export const ENGINEER = tint(COSTUME.clerk, { shirt: "#4a4a3a", shirtShade: "#363628", hat: "#2a2622", tie: "#7a2d22" }, "bowler");
 const CREW: Costume[] = ["#7a5a3a", "#4a5f3a", "#6c3f34", "#3c4b63", "#8a7a5a", "#5a3f5f"].map((s, i) => tint(i % 2 ? COSTUME.workerB : COSTUME.workerA, { shirt: s, shirtShade: "#2a2a2a", hat: "#3a3a3a", hatShade: "#222" }, i % 3 === 0 ? "bowler" : null));
-export const TRESTLE: V3 = [-3.2, 0, 9.0], FAN_SITE: V3 = [4.3, 0, 8.4], DERRICK_AT: V3 = [7.4, 0, 10.6], LORRY_PARK: V3 = [2.2, 0, 11.2];
+export const TRESTLE: V3 = [-3.2, 0, 9.0], FAN_SITE: V3 = [4.3, 0, 8.4], DERRICK_AT: V3 = [7.4, 0, 10.6], LORRY_PARK: V3 = [2.2, 0, 6.4];
 const worksOn = (f: number) => f >= XF.works[0] && f < XF.now[1];
 /** crew: walk in from the west with carts (588-640), then each works in place on their own rhythm */
 const CREW_X0 = -15;

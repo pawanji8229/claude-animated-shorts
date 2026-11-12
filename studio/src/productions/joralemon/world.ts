@@ -54,7 +54,7 @@ export const facadeCut = (f: number): number => {
 };
 /** the street slab + sidewalk in front of No. 58 (and No. 58's basement floor): 0 = solid, 1 = cut away (underground view) */
 export const groundCut = (f: number): number => {
-  if (f >= 596 && f < 730) return smooth(596, 618, f) * (1 - smooth(710, 728, f));        // S08: down to the tunnel works
+  if (f >= 596 && f < 736) return smooth(596, 618, f) * (1 - smooth(715, 735, f));        // S08: down to the tunnel works
   if (f >= 1176 && f < 1322) return smooth(1176, 1200, f) * (1 - smooth(1301, 1320, f));  // S13: down to the train
   if (f >= 1336 && f < 1410) return 0.82 * smooth(1336, 1356, f) * (1 - smooth(1386, 1406, f));   // S14: a glimpse under the pedestrians
   return 0;

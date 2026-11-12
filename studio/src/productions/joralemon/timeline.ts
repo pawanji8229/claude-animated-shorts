@@ -32,14 +32,15 @@ export const camMain = camPath([
   K(622, [2.5, 2.3, 15.2], [-2.5, 1.0, 6.5], 52),                  //     street level: the works arrive
   K(652, [1.0, -7.0, 14.5], [-1.5, -15.0, 5.0], 56),              //     down through the cut street
   K(678, [-3.2, -18.3, 15.5], [-3.0, -19.3, 5.0], 54),            //     the tunnel takes shape, a train runs
-  K(714, [3.5, 2.6, 14.0], [4.0, 1.6, 8.6], 50),                  // S09 up to the worksite (fan on the derrick)
-  K(740, [7.8, 2.1, 14.6], [4.2, 1.7, 8.6], 48),                  //     track round the fan
-  K(772, [-1.6, 1.7, 12.7], [-3.2, 1.3, 9.0], 44),                //     to the engineer + the model
-  K(806, [-4.2, 2.3, 13.6], [-0.8, 6.2, 0.0], 54),                // S10 the imagined plant grows
-  K(852, [-1.2, 3.0, 16.0], [0.0, 7.0, 0.0], 58),                 //     wide: elegant houses vs the eyesore
-  K(902, [4.2, 2.0, 13.8], [-0.5, 5.0, 1.0], 54),                 //     residents react (foreground)
-  K(946, [-2.0, 1.8, 11.9], [-3.2, 1.2, 9.0], 40),                //     the engineer crosses it out
-  K(984, [-2.7, 2.1, 12.5], [-0.4, 4.6, 0.0], 50),                //     ...and looks at the real house
+  K(700, [0.0, -6.0, 13.2], [-0.5, -19.0, 6.0], 60),             //     crane up in front of the cutaway, still looking down at the tunnel
+  K(720, [-1.0, 5.0, 13.4], [1.5, -3.0, 6.5], 58),               // S09 high: the street closes over the tunnel; the worksite below
+  K(744, [0.0, 3.4, 14.0], [4.6, 1.9, 8.2], 48),                 //     the fan lifted onto its foundation
+  K(784, [-1.6, 1.7, 12.7], [-3.2, 1.3, 9.0], 44),                //     to the engineer + the model
+  K(806, [-3.2, 1.9, 13.6], [-0.6, 4.6, 0.0], 54),                // S10 the imagined plant grows
+  K(850, [1.2, 1.7, 9.0], [2.3, 2.6, 3.6], 56),                 //     wide: elegant houses vs the eyesore
+  K(902, [1.7, 1.75, 9.4], [2.6, 2.8, 3.6], 56),                 //     residents react (foreground)
+  K(946, [-1.5, 2.2, 11.9], [-3.0, 0.95, 9.0], 46),                //     the engineer crosses it out
+  K(984, [-2.0, 1.55, 13.6], [-2.6, 3.4, 0.0], 54),                //     ...and looks at the real house
   K(1012, [0.9, 4.1, 7.0], [0.0, 4.3, -5.0], 58),                 // S11 the conversion cutaway
   K(1050, [0.6, 4.5, 5.2], [0.0, 4.3, -5.0], 58),
   K(1088, [-4.2, 1.45, 7.8], [-3.0, 2.0, 2.0], 46),               // S12 today: following him past the house

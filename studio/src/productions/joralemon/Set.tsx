@@ -63,7 +63,7 @@ export const JSet: React.FC<SetProps> = ({ era, camAt, frameOverride }) => {
           {w1907 && (f < 1000 ? <HomeInterior /> : <Conversion f={f} />)}
           {gc > 0.001 && era !== "1847" && <UnderStatic front={now ? 99 : front} era={now ? "now" : "1907"} />}
           {gc > 0.001 && w1907 && front < 40 && <Shield x={front} />}
-          {gc > 0.001 && <Train x={now ? -70 + (f - 1205) * 1.1 : -70 + (f - 610) * 1.25} era={now ? "now" : "1907"} />}
+          {gc > 0.001 && <Train x={now ? -70 + (f - 1205) * 1.1 : -70 + (f - 610) * 0.95} era={now ? "now" : "1907"} />}
           {now && (gc > 0.001 || cutY < 2) && <Airflow f={f} amt={Math.max(gc, cutY < 2 ? 1 : 0)} />}
           <StreetFurniture era={now ? "now" : "old"} />
           <Trees f={f} />
