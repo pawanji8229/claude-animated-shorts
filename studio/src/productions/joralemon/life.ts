@@ -68,11 +68,25 @@ export const PARKED: { p: V3; ry: number; type: CarType; color: string }[] = [
 const MOTHER = tint(COSTUME.clerk, { shirt: "#6a2f45", shirtShade: "#4f2234", collar: "#f4ecda", tie: "#6a2f45", hair: "#5a3a26" }, null);
 const FATHER = tint(COSTUME.hal, { shirt: "#3a3f52", shirtShade: "#2a2d3c", hair: "#4a3a2a", tie: "#2a2622" }, null);
 const CHILD = tint(COSTUME.odo, { shirt: "#3f7a5a", shirtShade: "#2f5f45", hair: "#8a5a32" }, null);
+const momFT = faceTrack([[0, "content"], [506, "focused"], [528, "idea"], [534, "delighted"], [560, "content"]] as [number, FaceName][], 5);
+const dadFT = faceTrack([[0, "focused"], [520, "oneBrowUp"], [540, "xSideEyeR"], [556, "content"], [572, "proud"]] as [number, FaceName][], 5);
+const kidFT = faceTrack([[0, "delighted"], [540, "talking"], [552, "delighted"]] as [number, FaceName][], 4);
+/** 1847: mother reads (a page turn with a real hand sweep, looks up and beams at her son), the boy skips across the
+ *  parlour to the door, turns and waves; father tugs the curtain twice, side-eyes the noise, then softens. */
 export const familyAt = (f: number): Placed[] => { if (eraAt(f) === "now" && f > 600) return [];
-  const turn = ((f - 470) % 70) < 8; const mom = withFace(pose5({ costume: MOTHER, holdR: "book", lookY: 0.45, armR: { hand: [-20, 40], elbow: [60, 90], shape: "grip", rot: 0.0, bend: 1 }, armL: { hand: [20, 40], elbow: [-60, 90], shape: "grip", rot: 0, bend: -1 }, blink: blinkAt(f, 4) }), FACES[turn ? "focused" : "content"], f, 41);
-  const pull = Math.sin(f * 0.11) * 0.5 + 0.5; const dad = withFace(pose5({ costume: FATHER, lookX: 0.8, lookY: -0.2, armR: { hand: [70, lerp(-150, -120, pull)], elbow: [80, -30], shape: "grip", rot: 0.2, bend: 1 }, blink: blinkAt(f, 6) }), FACES.content, f, 42);
-  const u = smooth(498, 560, f), cx = lerp(2.2, -0.55, u), cz = lerp(-6.3, -4.85, u), kid = withFace(gait(CHILD, u * 3.0, f > 498 && f < 560 ? 1 : 0, 0.5, { blink: blinkAt(f, 9) }), FACES.delighted, f, 43);
-  return [{ pose: mom, pos: [1.0, PF + 0.12, -3.85], h: 1.42, halo: 0.12, light: 0.8 }, { pose: dad, pos: [1.75, PF, -1.05], h: 1.55, halo: 0.12 }, { pose: kid, pos: [cx, PF, cz], h: 1.0, flip: true, halo: 0.12 }]; };
+  const pg = clamp01((f - 512) / 10), sweep = Math.sin(pg * Math.PI);
+  const look = smooth(526, 532, f) * (1 - smooth(556, 566, f));
+  const mom = withFace(pose5({ costume: MOTHER, holdR: "book", lookY: lerp(0.45, -0.1, look), lookX: lerp(0.1, -0.6, look), headRoll: 0.08 * look,
+    armR: { hand: [lerp(-20, 70, sweep), lerp(40, 10, sweep)], elbow: [60, 90], shape: sweep > 0.2 ? "open" : "grip", rot: lerp(0, -0.6, sweep), bend: 1 }, armL: { hand: [20, 40], elbow: [-60, 90], shape: "grip", rot: 0, bend: -1 }, blink: blinkAt(f, 4), breathe: Math.sin(f * 0.09) * 0.4 }), momFT(f), f, 41);
+  const tug = Math.max(0, Math.sin(((f - 496) / 14) * Math.PI)) * (f > 496 && f < 524 ? 1 : 0), turnD = smooth(536, 544, f);
+  const dad = withFace(pose5({ costume: FATHER, lookX: lerp(0.8, -0.7, turnD), lookY: lerp(-0.2, 0.1, turnD), lean: -0.06 * tug, headRoll: -0.06 * turnD,
+    armR: turnD > 0.6 ? { hand: [70, -20], elbow: [80, 60], shape: "relaxed", rot: 0.2, bend: 1 } : { hand: [70, -150 + 34 * tug], elbow: [80, -30 + 20 * tug], shape: "grip", rot: 0.2, bend: 1 }, blink: blinkAt(f, 6) }), dadFT(f), f, 42);
+  const u = smooth(498, 548, f), cx = lerp(2.2, -0.55, u), cz = lerp(-6.3, -4.85, u), skip = f > 498 && f < 548 ? Math.abs(Math.sin(f * 0.42)) : 0, wave = smooth(550, 556, f);
+  const kidP = f < 548 ? gait(CHILD, u * 3.0, f > 498 ? 1 : 0, 0.5, { blink: blinkAt(f, 9), squash: -0.15 * skip })
+    : pose5({ costume: CHILD, blink: blinkAt(f, 9), headRoll: 0.1 * wave, armR: { hand: [92, lerp(60, -150 + Math.sin(f * 0.9) * 22, wave)], elbow: [96, lerp(80, -40, wave)], shape: "open", rot: -0.3, bend: 1 } });
+  const kid = withFace(kidP, kidFT(f), f, 43);
+  return [{ pose: mom, pos: [1.0, PF + 0.12, -3.85], h: 1.42, halo: 0.12, light: 0.8 }, { pose: dad, pos: [1.75, PF, -1.05], h: 1.55, halo: 0.12 },
+    { pose: kid, pos: [cx, PF + skip * 0.08, cz], h: 1.0, flip: f < 548, halo: 0.12 }]; };
 
 // ---------------------------------------------------------------- 1907: the works
 export const ENGINEER = tint(COSTUME.clerk, { shirt: "#4a4a3a", shirtShade: "#363628", hat: "#2a2622", tie: "#7a2d22" }, "bowler");
