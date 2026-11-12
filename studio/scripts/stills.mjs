@@ -14,3 +14,4 @@ for (const f of frames.split(",").map(Number)) {
   console.log(`frame ${f} ${((Date.now() - t) / 1000).toFixed(1)}s`);
 }
 await browser.close({ silent: true });
+(await import("node:fs")).rmSync(serveUrl, { recursive: true, force: true });   // our own temporary webpack bundle

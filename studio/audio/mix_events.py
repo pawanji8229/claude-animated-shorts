@@ -17,6 +17,7 @@ import desert_sfx as S
 import crowd_sfx as C
 import london_sfx as LS
 import office_sfx as O
+import joralemon_sfx as J
 
 ap = argparse.ArgumentParser(); ap.add_argument("narration"); ap.add_argument("events"); ap.add_argument("outdir"); ap.add_argument("duration", nargs="?", default="full")
 ap.add_argument("--ambience", default="desert"); ap.add_argument("--music", default="desert_guitar"); ap.add_argument("--loop", action="store_true")
@@ -81,7 +82,12 @@ REL = {
     "typewriter": (-27, "sfx", "typewriter burst"), "coffee_clink": (-24, "sfx", "coffee cup on saucer"), "office_door": (-20, "sfx", "office door"),
     "roller_creak": (-19, "sfx", "steel rollers under load"), "jack_pull": (-22, "sfx", "screw-jack bar pull"), "timber_thud": (-17, "sfx", "timber crib placed"),
     "steel_clank": (-20, "sfx", "steel I-beam clank"), "building_groan": (-18, "sfx", "deep structural groan"), "streetcar_bell": (-25, "sfx", "distant streetcar bell"),
-    "crawler_crane": (-15, "sfx", "crawler crane engine + tracks"), "plank_step": (-15, "sfx", "shoes on wooden gangway"), "rope_creak": (-27, "sfx", "rope creak")
+    "crawler_crane": (-15, "sfx", "crawler crane engine + tracks"), "plank_step": (-15, "sfx", "shoes on wooden gangway"), "rope_creak": (-27, "sfx", "rope creak"),
+    # joralemon (58 Joralemon Street) - original synthesised sounds
+    "car_pass": (-19, "sfx", "modern car passing (tyres + engine)"), "bike_tick": (-27, "sfx", "bicycle freewheel"), "dog_paws": (-24, "sfx", "dog paws + tag"),
+    "fan_hum": (-17, "sfx", "ventilation fan hum"), "fan_spinup": (-19, "sfx", "fan starting"), "train_rumble": (-14, "sfx", "subway train under the street"),
+    "train_old": (-15, "sfx", "1907 train in the new tunnel"), "time_shimmer": (-22, "sfx", "era dissolve shimmer"), "mystery_accent": (-21, "sfx", "soft mysterious accent"),
+    "reject_buzz": (-20, "sfx", "comic rejection slide"), "leaves": (-24, "sfx", "breeze in the plane trees")
 }
 GEN = {
     "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
@@ -96,9 +102,10 @@ GEN = {
     "clap_soft": C.clap_soft, "cheer": lambda r: C.cheer(r, people=8), "crowd_ooh": C.crowd_ooh,
     "phone_ring": O.phone_ring, "plug_click": O.plug_click, "key_click": O.key_click, "typewriter": O.typewriter, "coffee_clink": O.coffee_clink,
     "office_door": O.office_door, "roller_creak": O.roller_creak, "jack_pull": O.jack_pull, "timber_thud": O.timber_thud, "steel_clank": O.steel_clank,
-    "building_groan": O.building_groan, "streetcar_bell": O.streetcar_bell, "crawler_crane": O.crawler_crane, "plank_step": O.plank_step, "rope_creak": O.rope_creak
+    "building_groan": O.building_groan, "streetcar_bell": O.streetcar_bell, "crawler_crane": O.crawler_crane, "plank_step": O.plank_step, "rope_creak": O.rope_creak,
+    **{k: getattr(J, k) for k in ["car_pass", "bike_tick", "dog_paws", "fan_hum", "fan_spinup", "train_rumble", "train_old", "time_shimmer", "mystery_accent", "reject_buzz", "leaves"]}
 }
-OFFSET = {"crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
+OFFSET = {"car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
 FIXED_PAN = {"car_arrive": -0.6}
 
 ev = json.load(open(evp))["events"]
@@ -148,6 +155,10 @@ def amb_preset(name):
     elif name == "sea": a += bed(LS.sea_bed, 19, -22)
     elif name == "city1930": a += bed(O.city1930_bed, 21, -25)
     elif name == "office": a += bed(O.office_bed, 22, -27)
+    elif name == "brooklyn": a += bed(J.brooklyn_bed, 23, -25)
+    elif name == "parlour": a += bed(J.parlour_bed, 24, -28)
+    elif name == "works1907": a += bed(J.works_bed, 25, -25)
+    elif name == "tunnel": a += bed(J.tunnel_bed, 26, -24)
     elif name == "room":
         from sfx_gen import breeze; a += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26)
     return a, cr

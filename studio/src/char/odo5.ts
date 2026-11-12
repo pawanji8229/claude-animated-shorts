@@ -48,7 +48,7 @@ export type Odo5Pose = {
   /** optional hand-held 1970s camera: blend 0 = hanging on its strap at the chest, 1 = at the point between the hands */
   camera?: { blend: number; flash: "cube" | "gun" | "none"; tiltRad?: number };
   /** optional tool held in the screen-right hand (drawn along the forearm, ink style) */
-  holdR?: "hammer" | "chalk" | "wrench" | "pen" | "umbrella" | "shovel" | "cup";
+  holdR?: "hammer" | "chalk" | "wrench" | "pen" | "umbrella" | "shovel" | "cup" | "bag" | "grocery" | "briefcase" | "book";
 };
 const A = (hand: [number, number], shape: Hand5 = "relaxed", bend = 1, rot = 0, behind = false, elbow?: [number, number]): ArmPose => ({ hand, bend, shape, rot, behind, elbow });
 export const REST_L = A([-34, 194], "relaxed", -1, 0.15), REST_R = A([34, 194], "relaxed", 1, -0.15);
@@ -399,6 +399,16 @@ const drawTool = (g: G, c: Pal, at: P, rot: number, tool: NonNullable<Odo5Pose["
     inked(g, c, () => { g.beginPath(); g.ellipse(-14, -12, 7, 9, 0, 0, Math.PI * 2); }, china, 2.5, 1.5);
     inked(g, c, () => { g.beginPath(); g.moveTo(-36, -26); g.lineTo(-12, -26); g.lineTo(-15, -2); g.quadraticCurveTo(-24, 3, -33, -2); g.closePath(); }, china, 3, 2);
     if (!mask) { g.fillStyle = "#4a2c18"; g.beginPath(); g.ellipse(-24, -25, 11, 2.4, 0, 0, Math.PI * 2); g.fill(); } }
+  else if (tool === "bag" || tool === "grocery") { g.rotate(rot); const kraft = mask ? "#bdbdbd" : "#c9a06a", fold = mask ? "#9a9a9a" : "#a8834e"; // paper shopping bag hanging from the fist (always upright)
+    inked(g, c, () => { g.beginPath(); g.moveTo(-10, 4); g.quadraticCurveTo(0, -16, 10, 4); }, "rgba(0,0,0,0)", 2.5, 1.5);
+    inked(g, c, () => { g.beginPath(); g.moveTo(-26, 8); g.lineTo(26, 8); g.lineTo(30, 70); g.lineTo(-30, 70); g.closePath(); }, kraft, 3, 2);
+    if (!mask) { g.fillStyle = fold; g.fillRect(-28, 60, 58, 6); }
+    if (tool === "grocery") { inked(g, c, () => { g.beginPath(); g.ellipse(-8, 4, 8, 22, -0.3, 0, Math.PI * 2); }, mask ? "#a0a0a0" : "#e8c27a", 2, 1); inked(g, c, () => { g.beginPath(); g.arc(12, 6, 11, 0, Math.PI * 2); }, mask ? "#909090" : "#5f9a3a", 2, 1); } }
+  else if (tool === "briefcase") { g.rotate(rot); const lea = mask ? "#6a6a6a" : "#5a3a24";
+    inked(g, c, () => { g.beginPath(); g.roundRect(-8, -2, 16, 10, 4); }, "rgba(0,0,0,0)", 2.5, 1.5);
+    inked(g, c, () => { g.beginPath(); g.roundRect(-38, 8, 76, 52, 5); }, lea, 3, 2); if (!mask) { g.fillStyle = "#d0a245"; g.fillRect(-4, 12, 8, 6); g.fillStyle = "rgba(0,0,0,0.25)"; g.fillRect(-38, 30, 76, 2); } }
+  else if (tool === "book") { g.rotate(rot); inked(g, c, () => { g.beginPath(); g.moveTo(-36, -4); g.lineTo(0, 4); g.lineTo(36, -4); g.lineTo(36, 34); g.lineTo(0, 42); g.lineTo(-36, 34); g.closePath(); }, mask ? "#dddddd" : "#f4ecd8", 2.5, 1.5);
+    if (!mask) { g.strokeStyle = "rgba(60,40,20,0.5)"; g.lineWidth = 1.5; for (let i = 0; i < 5; i++) { g.beginPath(); g.moveTo(-30, 6 + i * 6); g.lineTo(-6, 12 + i * 6); g.moveTo(6, 12 + i * 6); g.lineTo(30, 6 + i * 6); g.stroke(); } g.strokeStyle = "#7a2d22"; g.lineWidth = 3; g.beginPath(); g.moveTo(0, 4); g.lineTo(0, 42); g.stroke(); } }
   else if (tool === "chalk") { inked(g, c, () => { g.beginPath(); g.roundRect(-4, 6, 8, 26, 3); }, mask ? "#dddddd" : "#f4f1e8", 2, 1); }
   else if (tool === "wrench") { inked(g, c, () => { g.beginPath(); g.roundRect(-5, -6, 10, 66, 4); g.moveTo(-14, 56); g.arc(0, 66, 14, Math.PI * 1.2, Math.PI * 1.8, true); }, steel, 3, 2); }
   else if (tool === "pen") { inked(g, c, () => { g.beginPath(); g.moveTo(-4, -6); g.lineTo(4, -6); g.lineTo(3, 38); g.lineTo(0, 46); g.lineTo(-3, 38); g.closePath(); }, dark, 2, 1); }
@@ -475,6 +485,8 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
       const el: P = [o[0] + Math.sin(a.a1) * 108, o[1] + Math.cos(a.a1) * 108];
       const hd: P = [el[0] + Math.sin(a.a2) * 100, el[1] + Math.cos(a.a2) * 100];
       limb(g, [o, el, hd], isFar ? 12.5 : 14.5, isFar ? c.limbFar : c.limb);
+      // hanging props carried in the near hand while walking (opt-in: only these tools are drawn in side view)
+      if (!isFar && p.holdR && (p.holdR === "bag" || p.holdR === "grocery" || p.holdR === "briefcase" || p.holdR === "cup")) drawTool(g, c, hd, 0, p.holdR, mask);
       drawHand(g, c, hd, lantern ? 0 : a.wrist, lantern ? "grip" : "relaxed", 1, isFar, isFar ? 0.92 : 1);
     };
     arm(true);

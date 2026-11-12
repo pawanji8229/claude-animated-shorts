@@ -36,15 +36,23 @@ const frag = /* glsl */ `
 uniform vec3 color;
 void main() { gl_FragColor = vec4(color, 1.0); }`;
 
-export const InkHull: React.FC<{ px: number; color?: string; angle?: number }> = ({ px, color = "#0b0a0c", angle = Math.PI }) => {
+/** optional fade (opt-in; absent = the original opaque hull): GLSL float expression of `vW` (world position) and the
+ *  given uniforms, used as the hull's alpha - lets an outline dissolve together with a cutaway surface */
+export type InkFade = { uniforms: Record<string, THREE.IUniform>; alpha: string; decl: string };
+const vertFade = vert.replace("uniform vec2 size;", "uniform vec2 size;\nvarying vec3 vW;").replace("vec4 clip =", "vW = (modelMatrix * vec4(position, 1.0)).xyz;\n  vec4 clip =");
+export const InkHull: React.FC<{ px: number; color?: string; angle?: number; fade?: InkFade }> = ({ px, color = "#0b0a0c", angle = Math.PI, fade }) => {
   const ref = useRef<THREE.Mesh>(null);
   const size = useThree((s) => s.size);
   const mat = useMemo(
-    () => new THREE.ShaderMaterial({
+    () => fade ? new THREE.ShaderMaterial({
+      uniforms: { thickness: { value: px }, size: { value: new THREE.Vector2(1, 1) }, color: { value: new THREE.Color(color) }, ...fade.uniforms },
+      vertexShader: vertFade, fragmentShader: `uniform vec3 color; varying vec3 vW; ${fade.decl}\nvoid main() { float a = ${fade.alpha}; if (a < 0.004) discard; gl_FragColor = vec4(color, a); }`,
+      side: THREE.BackSide, toneMapped: false, transparent: true, depthWrite: false,
+    }) : new THREE.ShaderMaterial({
       uniforms: { thickness: { value: px }, size: { value: new THREE.Vector2(1, 1) }, color: { value: new THREE.Color(color) } },
       vertexShader: vert, fragmentShader: frag, side: THREE.BackSide, toneMapped: false,
     }),
-    [color],
+    [color, fade],
   );
   mat.uniforms.thickness.value = px;
   mat.uniforms.size.value.set(size.width, size.height);

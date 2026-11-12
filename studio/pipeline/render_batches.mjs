@@ -6,7 +6,8 @@
 // visible break; audio is muxed ONCE onto the joined video (no per-batch audio seams). Resumable: finished batches
 // are kept and skipped on re-run.
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, writeFileSync, readFileSync, statSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync, readFileSync, statSync, readdirSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 
 const arg = (k, d) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : d; };
@@ -19,6 +20,7 @@ if (!comp || !(b >= a)) { console.error("usage: --comp <id> --frames a-b [--batc
 const browser = [cfg.render.browserExecutable, "/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell"].find((p) => p && existsSync(p));
 const dir = join(dirname(out), "batches"); mkdirSync(dir, { recursive: true });
 const parts = [];
+const bundles = () => readdirSync(tmpdir()).filter((d) => d.startsWith("remotion-webpack-bundle-"));
 for (let s = a; s <= b; s += batch) {
   const e = Math.min(b, s + batch - 1), f = join(dir, `b_${String(s).padStart(5, "0")}-${String(e).padStart(5, "0")}.mp4`);
   parts.push(f);
@@ -26,7 +28,9 @@ for (let s = a; s <= b; s += batch) {
   const args = ["remotion", "render", "src/index.ts", comp, f, `--frames=${s}-${e}`, "--codec=h264", `--crf=${crf}`, "--pixel-format=yuv420p", `--gl=${gl}`, "--muted", `--timeout=${cfg.render.delayRenderTimeoutMs}`];
   if (browser) args.push(`--browser-executable=${browser}`);
   const t0 = Date.now(); console.log(`render ${s}-${e} ...`);
+  const before = new Set(bundles());
   execFileSync("npx", args, { stdio: ["ignore", "ignore", "inherit"] });
+  for (const d of bundles()) if (!before.has(d)) rmSync(join(tmpdir(), d), { recursive: true, force: true });   // this batch's own webpack bundle (132 MB each)
   console.log(`  done in ${((Date.now() - t0) / 1000).toFixed(0)} s`);
 }
 const list = join(dir, "concat.txt"); writeFileSync(list, parts.map((p) => `file '${p}'`).join("\n"));
