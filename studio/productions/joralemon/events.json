@@ -1,0 +1,5571 @@
+{
+ "fps": 30,
+ "frames": 1466,
+ "events": [
+  {
+   "frame": 2,
+   "kind": "step_stone",
+   "x": -0.7557201328232396,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 2,
+   "kind": "step_stone",
+   "x": -0.41896982514354625,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 2,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 3,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 3,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 6,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 6,
+   "kind": "step_stone",
+   "x": -0.2696329584956232,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 10,
+   "kind": "step_stone",
+   "x": -0.7896062855268325,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 10,
+   "kind": "step_stone",
+   "x": -0.31794281857357454,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 10,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 11,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 11,
+   "kind": "step_stone",
+   "x": -0.8307092595656047,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 12,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 16,
+   "kind": "step_stone",
+   "x": -0.157017596449323,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 17,
+   "kind": "step_stone",
+   "x": -0.8170892556699222,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 17,
+   "kind": "step_stone",
+   "x": -0.2273767743522951,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 18,
+   "kind": "step_stone",
+   "x": -0.7737713056484611,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 18,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 18,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 20,
+   "kind": "step_stone",
+   "x": -0.71674272305739,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 24,
+   "kind": "step_stone",
+   "x": -0.6571186744119788,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 24,
+   "kind": "step_stone",
+   "x": -0.13934223582769553,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 25,
+   "kind": "step_stone",
+   "x": -0.05855488056162361,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 25,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 25,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 26,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 28,
+   "kind": "step_stone",
+   "x": -0.6214966065101674,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 30,
+   "kind": "step_stone",
+   "x": -0.5458635243844331,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 30,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 32,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 32,
+   "kind": "step_stone",
+   "x": -0.04799779723680797,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 33,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 34,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 35,
+   "kind": "step_stone",
+   "x": 0.03491405216814244,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 36,
+   "kind": "step_stone",
+   "x": -0.4428886679494089,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 36,
+   "kind": "step_stone",
+   "x": -0.5392884881833043,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 39,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 39,
+   "kind": "step_stone",
+   "x": 0.018968756378738183,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 41,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 41,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 42,
+   "kind": "step_stone",
+   "x": -0.34997393988543424,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 44,
+   "kind": "step_stone",
+   "x": 0.09635486554207817,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 44,
+   "kind": "step_stone",
+   "x": -0.4746513491676672,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 44,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 46,
+   "kind": "step_stone",
+   "x": 0.07239096096364217,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 47,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 48,
+   "kind": "step_stone",
+   "x": -0.26638900557284634,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 49,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 49,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 52,
+   "kind": "step_stone",
+   "x": -0.42509535050128405,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 54,
+   "kind": "step_stone",
+   "x": -0.1894815144537678,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 54,
+   "kind": "step_stone",
+   "x": 0.1427831869078751,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 54,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 54,
+   "kind": "step_stone",
+   "x": 0.12098670983924531,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 56,
+   "kind": "step_stone",
+   "x": 0.6832006464283572,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 56,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 57,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 59,
+   "kind": "step_stone",
+   "x": 0.5971326712943547,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 60,
+   "kind": "step_stone",
+   "x": -0.11620671028013523,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 60,
+   "kind": "bike_tick",
+   "x": 0.1925503518667574,
+   "gain": 0.8,
+   "note": "the cyclist freewheels past"
+  },
+  {
+   "frame": 61,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 61,
+   "kind": "step_stone",
+   "x": -0.3788661148398627,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 61,
+   "kind": "step_stone",
+   "x": 0.1579607824140924,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 63,
+   "kind": "step_stone",
+   "x": 0.17552757076611572,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 63,
+   "kind": "step_stone",
+   "x": 0.6057844321041972,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 63,
+   "kind": "step_stone",
+   "x": 0.7645085651573967,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 64,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 64,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 66,
+   "kind": "step_stone",
+   "x": -0.04605850194996741,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 68,
+   "kind": "step_stone",
+   "x": 0.1947642763215847,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 69,
+   "kind": "step_stone",
+   "x": 0.5018983665934779,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 69,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 69,
+   "kind": "step_stone",
+   "x": -0.33833407072057414,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 71,
+   "kind": "step_stone",
+   "x": 0.5189817530701917,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 72,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 72,
+   "kind": "step_stone",
+   "x": 0.6732221256511193,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 72,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 73,
+   "kind": "step_stone",
+   "x": 0.21446834754668329,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 76,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 76,
+   "kind": "step_stone",
+   "x": 0.2420378781049338,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 77,
+   "kind": "step_stone",
+   "x": -0.2918892614421335,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 78,
+   "kind": "step_stone",
+   "x": 0.44861160170183223,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 79,
+   "kind": "step_stone",
+   "x": 0.41553514320042667,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 80,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 80,
+   "kind": "step_stone",
+   "x": 0.5995624452613083,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 80,
+   "kind": "step_stone",
+   "x": 0.7777684952976799,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 80,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 82,
+   "kind": "step_stone",
+   "x": 0.259075130889399,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 83,
+   "kind": "step_stone",
+   "x": 0.2896710049524199,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 84,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 85,
+   "kind": "step_stone",
+   "x": -0.2380599336256931,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 86,
+   "kind": "step_stone",
+   "x": 0.3748343506476242,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 87,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 87,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 88,
+   "kind": "step_stone",
+   "x": 0.3468758477663507,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 88,
+   "kind": "step_stone",
+   "x": 0.7122014659335001,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 89,
+   "kind": "step_stone",
+   "x": 0.5242055087358749,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 90,
+   "kind": "step_stone",
+   "x": 0.3412010014396301,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 91,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 92,
+   "kind": "step_stone",
+   "x": 0.31658947831647105,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 93,
+   "kind": "step_stone",
+   "x": 0.31332668242743944,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 93,
+   "kind": "step_stone",
+   "x": -0.18017095611753411,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 95,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 95,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 96,
+   "kind": "step_stone",
+   "x": 0.6491447437207546,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 97,
+   "kind": "step_stone",
+   "x": 0.393865970807522,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 98,
+   "kind": "step_stone",
+   "x": 0.27406866896222176,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 98,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 98,
+   "kind": "step_stone",
+   "x": 0.45138124367297044,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 101,
+   "kind": "step_stone",
+   "x": 0.369215060288941,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 101,
+   "kind": "step_stone",
+   "x": 0.2428452671131699,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 101,
+   "kind": "step_stone",
+   "x": -0.12231298126694164,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 102,
+   "kind": "mystery_accent",
+   "x": 0,
+   "gain": 0.8,
+   "note": "\"look carefully\": a subtle mysterious accent (he looks left/right)"
+  },
+  {
+   "frame": 103,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 103,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 105,
+   "kind": "step_stone",
+   "x": 0.576175635988314,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 105,
+   "kind": "step_stone",
+   "x": 0.451993835581396,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 106,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 107,
+   "kind": "step_stone",
+   "x": 0.37536573931829537,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 108,
+   "kind": "step_stone",
+   "x": 0.1973325806745547,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 108,
+   "kind": "step_stone",
+   "x": 0.17803310166132336,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 110,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 110,
+   "kind": "step_stone",
+   "x": -0.06215319404950046,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 110,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 111,
+   "kind": "step_stone",
+   "x": 0.4215962126814314,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 112,
+   "kind": "step_stone",
+   "x": 0.4982563087842562,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 113,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 113,
+   "kind": "step_stone",
+   "x": 0.5054002032489053,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 115,
+   "kind": "step_stone",
+   "x": 0.10805421275479686,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 115,
+   "kind": "step_stone",
+   "x": 0.3011326467136362,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 117,
+   "kind": "step_stone",
+   "x": 0.1196059711618442,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 118,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 118,
+   "kind": "step_stone",
+   "x": -0.016097387928894258,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 118,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 119,
+   "kind": "step_stone",
+   "x": 0.5389249111785229,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 121,
+   "kind": "step_stone",
+   "x": 0.4630594422746059,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 121,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 122,
+   "kind": "step_stone",
+   "x": 0.4172521279306407,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 123,
+   "kind": "step_stone",
+   "x": 0.02157192144962043,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 124,
+   "kind": "step_stone",
+   "x": 0.20941436432895477,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 125,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 126,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 126,
+   "kind": "step_stone",
+   "x": 0.023757187832374137,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 126,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 127,
+   "kind": "step_stone",
+   "x": 0.02386896020738365,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 127,
+   "kind": "step_stone",
+   "x": 0.5800031241725959,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 127,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 130,
+   "kind": "step_stone",
+   "x": 0.49346895618999725,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 130,
+   "kind": "step_stone",
+   "x": -0.05769486279897725,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 130,
+   "kind": "step_stone",
+   "x": 0.3338042420962635,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 133,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 133,
+   "kind": "step_stone",
+   "x": 0.11292562003469146,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 134,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 134,
+   "kind": "step_stone",
+   "x": 0.060750654343477976,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 134,
+   "kind": "step_stone",
+   "x": 0.6138534101221019,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 134,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 137,
+   "kind": "step_stone",
+   "x": -0.0755990431627689,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 137,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 138,
+   "kind": "step_stone",
+   "x": -0.14906257294511074,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 139,
+   "kind": "step_stone",
+   "x": 0.2389347839393372,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 140,
+   "kind": "step_stone",
+   "x": 0.5260276080280843,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 141,
+   "kind": "step_stone",
+   "x": -0.8418784846065105,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 141,
+   "kind": "step_stone",
+   "x": 0.027444621847398733,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 141,
+   "kind": "step_stone",
+   "x": 0.6483911944212019,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 141,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 142,
+   "kind": "step_stone",
+   "x": 0.09864063926104887,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 143,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 145,
+   "kind": "step_stone",
+   "x": -0.2268800331303936,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 146,
+   "kind": "step_stone",
+   "x": -0.16228677440418152,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 147,
+   "kind": "step_stone",
+   "x": 0.1578190349015164,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 147,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 149,
+   "kind": "step_stone",
+   "x": 0.5598971020254365,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 149,
+   "kind": "step_stone",
+   "x": -0.7975016203593867,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 149,
+   "kind": "step_stone",
+   "x": 0.6917451586585908,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 149,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 150,
+   "kind": "step_stone",
+   "x": -0.06382028193972522,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 151,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 151,
+   "kind": "step_stone",
+   "x": 0.1465919674193859,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 153,
+   "kind": "step_stone",
+   "x": -0.31080172331022504,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 155,
+   "kind": "step_stone",
+   "x": -0.15243308689511473,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 156,
+   "kind": "step_stone",
+   "x": -0.2506629385914945,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 156,
+   "kind": "step_stone",
+   "x": 0.07320109456628723,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 156,
+   "kind": "step_stone",
+   "x": 0.7343492495220061,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 157,
+   "kind": "step_stone",
+   "x": -0.747471999311977,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 157,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 157,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 159,
+   "kind": "step_stone",
+   "x": 0.6057367642267356,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 159,
+   "kind": "step_stone",
+   "x": 0.195081249739696,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 159,
+   "kind": "step_stone",
+   "x": -0.1480736227733695,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 160,
+   "kind": "step_stone",
+   "x": -0.37988833584698106,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 160,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 161,
+   "kind": "step_stone",
+   "x": -0.10822736315371782,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 163,
+   "kind": "step_stone",
+   "x": 0.7805100622719877,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 164,
+   "kind": "step_stone",
+   "x": -0.6999841699404311,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 164,
+   "kind": "step_stone",
+   "x": 0.00300750399767157,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 166,
+   "kind": "step_stone",
+   "x": -0.331715262149103,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 167,
+   "kind": "step_stone",
+   "x": -0.06108078828811209,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 167,
+   "kind": "step_stone",
+   "x": 0.247731884895227,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 167,
+   "kind": "step_stone",
+   "x": 0.7740467742923114,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 168,
+   "kind": "step_stone",
+   "x": 0.652678760402651,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 168,
+   "kind": "step_stone",
+   "x": -0.45511171310017634,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 168,
+   "kind": "step_stone",
+   "x": -0.22701831860289615,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 169,
+   "kind": "step_stone",
+   "x": 0.7771912169221867,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 171,
+   "kind": "step_stone",
+   "x": 0.836789964358025,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 172,
+   "kind": "step_stone",
+   "x": -0.6422231079428287,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 173,
+   "kind": "step_stone",
+   "x": -0.01700442383723082,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 175,
+   "kind": "step_stone",
+   "x": -0.39969441395502,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 175,
+   "kind": "step_stone",
+   "x": -0.5179182775706997,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 175,
+   "kind": "step_stone",
+   "x": 0.30406283307416304,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 176,
+   "kind": "step_stone",
+   "x": -0.29328147727020026,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 178,
+   "kind": "step_stone",
+   "x": 0.7103015214617546,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 178,
+   "kind": "step_stone",
+   "x": 0.7083497113303882,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 180,
+   "kind": "step_stone",
+   "x": -0.5807763398611955,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 183,
+   "kind": "step_stone",
+   "x": -0.5862153481998961,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 183,
+   "kind": "step_stone",
+   "x": 0.36410515260982884,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 185,
+   "kind": "step_stone",
+   "x": -0.46970822684782715,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 185,
+   "kind": "step_stone",
+   "x": -0.3633723157313679,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 186,
+   "kind": "step_stone",
+   "x": 0.6511350741687056,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 187,
+   "kind": "step_stone",
+   "x": 0.767163739108769,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 187,
+   "kind": "step_stone",
+   "x": -0.5239183947491007,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 190,
+   "kind": "step_stone",
+   "x": -0.6428704496267464,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 191,
+   "kind": "step_stone",
+   "x": 0.42792238941710536,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 194,
+   "kind": "step_stone",
+   "x": -0.42877344962341163,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 195,
+   "kind": "step_stone",
+   "x": -0.5339717612414971,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 195,
+   "kind": "step_stone",
+   "x": 0.5911296931384453,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 195,
+   "kind": "step_stone",
+   "x": -0.4555576790974724,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 197,
+   "kind": "step_stone",
+   "x": 0.8356058792263132,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 197,
+   "kind": "step_stone",
+   "x": -0.6969786200897176,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 197,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 200,
+   "kind": "step_stone",
+   "x": 0.5033956980427138,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 203,
+   "kind": "step_stone",
+   "x": -0.38484567808791076,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 203,
+   "kind": "step_stone",
+   "x": -0.49094275515114366,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 204,
+   "kind": "step_stone",
+   "x": -0.588607476960816,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 204,
+   "kind": "step_stone",
+   "x": 0.5340774277204441,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 205,
+   "kind": "step_stone",
+   "x": -0.7571394787885124,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 206,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 208,
+   "kind": "step_stone",
+   "x": 0.571728386357299,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 210,
+   "kind": "step_stone",
+   "x": -0.32267374920528774,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 210,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 211,
+   "kind": "step_stone",
+   "x": -0.5458178859683275,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 212,
+   "kind": "step_stone",
+   "x": -0.8099284031033968,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 213,
+   "kind": "step_stone",
+   "x": 0.47702877284935,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 214,
+   "kind": "step_stone",
+   "x": -0.6494403023871077,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 216,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 216,
+   "kind": "step_stone",
+   "x": 0.6390018051483287,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 218,
+   "kind": "step_stone",
+   "x": -0.25314371097852867,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 220,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 220,
+   "kind": "step_stone",
+   "x": -0.6097097359297696,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 221,
+   "kind": "step_stone",
+   "x": 0.4241471230606176,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 221,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 222,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 224,
+   "kind": "step_stone",
+   "x": -0.7136055917830318,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 224,
+   "kind": "step_stone",
+   "x": 0.703882735744438,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 225,
+   "kind": "dog_paws",
+   "x": -0.7837253663831055,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 225,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 226,
+   "kind": "step_stone",
+   "x": -0.18597607930180535,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 227,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 229,
+   "kind": "step_stone",
+   "x": -0.6762726148596342,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 230,
+   "kind": "step_stone",
+   "x": 0.36234332939651126,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 230,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 232,
+   "kind": "step_stone",
+   "x": 0.7673495168153718,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 233,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 233,
+   "kind": "step_stone",
+   "x": -0.773321871944595,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 233,
+   "kind": "step_stone",
+   "x": -0.1280709141462271,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 235,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 235,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 238,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 238,
+   "kind": "step_stone",
+   "x": -0.7435080322775885,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 239,
+   "kind": "step_stone",
+   "x": 0.30002512683393445,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 241,
+   "kind": "step_stone",
+   "x": -0.061990644316732534,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 241,
+   "kind": "step_stone",
+   "x": 0.8385336334388963,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 242,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 243,
+   "kind": "step_stone",
+   "x": -0.8398892778257784,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 244,
+   "kind": "step_stone",
+   "x": -0.8049892716032633,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 245,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 246,
+   "kind": "step_stone",
+   "x": -0.8031001168050734,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 247,
+   "kind": "dog_paws",
+   "x": -0.6549892716032633,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 247,
+   "kind": "step_stone",
+   "x": 0.24508520612224613,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 247,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 249,
+   "kind": "step_stone",
+   "x": 0.005938773551438699,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 249,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 250,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 252,
+   "kind": "step_stone",
+   "x": 0.7419996829474956,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 253,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 254,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 255,
+   "kind": "step_stone",
+   "x": -0.7128339142158951,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 255,
+   "kind": "step_stone",
+   "x": -0.8425431877084244,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 256,
+   "kind": "step_stone",
+   "x": 0.2212451277323275,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 256,
+   "kind": "step_stone",
+   "x": 0.10085894536711222,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 256,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 257,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 257,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 261,
+   "kind": "step_stone",
+   "x": 0.810832477307553,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 263,
+   "kind": "step_stone",
+   "x": -0.7638077064655694,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 264,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 264,
+   "kind": "step_stone",
+   "x": 0.3756282963075213,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 264,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 264,
+   "kind": "step_stone",
+   "x": -0.690156380667739,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 265,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 265,
+   "kind": "step_stone",
+   "x": 0.4089984686608082,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 265,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 266,
+   "kind": "step_stone",
+   "x": -0.34367099057184913,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 269,
+   "kind": "dog_paws",
+   "x": -0.19367099057184914,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 270,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 272,
+   "kind": "step_stone",
+   "x": -0.4097500051232081,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 272,
+   "kind": "step_stone",
+   "x": -0.6711927539095983,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 272,
+   "kind": "step_stone",
+   "x": 0.8172545882151434,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 273,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 273,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 273,
+   "kind": "step_stone",
+   "x": -0.33422684976611383,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 274,
+   "kind": "step_stone",
+   "x": 0.7743427909006124,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 276,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 277,
+   "kind": "step_stone",
+   "x": 0.22537305345505,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 278,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 279,
+   "kind": "step_stone",
+   "x": -0.4523064839942714,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 279,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 281,
+   "kind": "step_stone",
+   "x": -0.12571529326205524,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 282,
+   "kind": "step_stone",
+   "x": -0.14947241341119932,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 282,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 284,
+   "kind": "step_stone",
+   "x": -0.6444978493779825,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 287,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 287,
+   "kind": "step_stone",
+   "x": 0.3472463816230069,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 287,
+   "kind": "step_stone",
+   "x": -0.5149653543688056,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 287,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 290,
+   "kind": "dog_paws",
+   "x": 0.4972463816230069,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 290,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 290,
+   "kind": "step_stone",
+   "x": -0.3400970303697884,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 291,
+   "kind": "step_stone",
+   "x": 0.684683413388777,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 291,
+   "kind": "step_stone",
+   "x": -0.7969061065321376,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 292,
+   "kind": "step_stone",
+   "x": -0.47257353494997467,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 294,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 295,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 295,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 298,
+   "kind": "step_stone",
+   "x": -0.13403710327250792,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 298,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 299,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 299,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 299,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 300,
+   "kind": "step_stone",
+   "x": 0.13377987752859508,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 301,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 302,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 302,
+   "kind": "step_stone",
+   "x": 0.6160650102275675,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 304,
+   "kind": "step_stone",
+   "x": 0.4716381360458297,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 306,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 307,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 307,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 308,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 309,
+   "kind": "step_stone",
+   "x": -0.3662299991254741,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 309,
+   "kind": "step_stone",
+   "x": -0.1251428073978922,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 310,
+   "kind": "step_stone",
+   "x": 0.5707849790317806,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 311,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 312,
+   "kind": "step_stone",
+   "x": 0.3794369799264398,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 312,
+   "kind": "dog_paws",
+   "x": -0.21622999912547414,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 314,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 314,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 316,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 316,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 317,
+   "kind": "step_stone",
+   "x": -0.08332298298871761,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 318,
+   "kind": "step_stone",
+   "x": 0.7490402417924003,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 320,
+   "kind": "step_stone",
+   "x": -0.15045323650690134,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 321,
+   "kind": "step_stone",
+   "x": 0.4636029966367791,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 321,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 322,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 325,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 325,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 326,
+   "kind": "step_stone",
+   "x": -0.004584776325464353,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 326,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 329,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 330,
+   "kind": "step_stone",
+   "x": 0.4907722403049193,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 330,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 330,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 331,
+   "kind": "step_stone",
+   "x": 0.02371825482220465,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 333,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 333,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 334,
+   "kind": "dog_paws",
+   "x": 0.17371825482220463,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 334,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 15 footstep"
+  },
+  {
+   "frame": 335,
+   "kind": "step_stone",
+   "x": -0.061388496460543375,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 337,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 338,
+   "kind": "step_stone",
+   "x": 0.38566360994596866,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 340,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 341,
+   "kind": "step_stone",
+   "x": -0.004487919369580373,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 341,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 342,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 342,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 342,
+   "kind": "step_stone",
+   "x": 0.6104517729379199,
+   "gain": 0.25,
+   "note": "pedestrian 24 footstep"
+  },
+  {
+   "frame": 343,
+   "kind": "step_stone",
+   "x": -0.21365977214207743,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 344,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 345,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 347,
+   "kind": "step_stone",
+   "x": 0.19842957507143988,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 348,
+   "kind": "step_stone",
+   "x": -0.28188985264168753,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 349,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 350,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 17 footstep"
+  },
+  {
+   "frame": 350,
+   "kind": "step_stone",
+   "x": 0.48388566143878603,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 350,
+   "kind": "step_stone",
+   "x": 0.44213749638309113,
+   "gain": 0.25,
+   "note": "pedestrian 24 footstep"
+  },
+  {
+   "frame": 351,
+   "kind": "step_stone",
+   "x": 0.7145956512491387,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 352,
+   "kind": "step_stone",
+   "x": -0.0808887769042502,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 352,
+   "kind": "step_stone",
+   "x": -0.3884229834086661,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 352,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 355,
+   "kind": "step_stone",
+   "x": 0.058052657138970044,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 355,
+   "kind": "dog_paws",
+   "x": 0.06911122309574981,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 356,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 358,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 17 footstep"
+  },
+  {
+   "frame": 358,
+   "kind": "step_stone",
+   "x": -0.4377407813388241,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 358,
+   "kind": "step_stone",
+   "x": 0.47957859222798804,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 358,
+   "kind": "step_stone",
+   "x": 0.3137992661127708,
+   "gain": 0.25,
+   "note": "pedestrian 24 footstep"
+  },
+  {
+   "frame": 359,
+   "kind": "step_stone",
+   "x": 0.5963306348685847,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 360,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 361,
+   "kind": "step_stone",
+   "x": -0.5113875564308547,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 363,
+   "kind": "step_stone",
+   "x": -0.08581725953204218,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 364,
+   "kind": "step_stone",
+   "x": -0.054345758539777723,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 364,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 367,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 368,
+   "kind": "step_stone",
+   "x": 0.4964304296686061,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 370,
+   "kind": "step_stone",
+   "x": -0.6046924601896425,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 372,
+   "kind": "step_stone",
+   "x": -0.13596832221521912,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 372,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 374,
+   "kind": "step_stone",
+   "x": -0.05402241439909857,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 375,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 377,
+   "kind": "dog_paws",
+   "x": 0.09597758560090143,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 377,
+   "kind": "step_stone",
+   "x": 0.4099600309517169,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 378,
+   "kind": "step_stone",
+   "x": -0.6781742803872787,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 379,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 381,
+   "kind": "step_stone",
+   "x": -0.2189429972741351,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 383,
+   "kind": "step_stone",
+   "x": -0.8487017244264442,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 385,
+   "kind": "step_stone",
+   "x": -0.008238826586354822,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 385,
+   "kind": "step_stone",
+   "x": 0.34040435256495233,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 387,
+   "kind": "step_stone",
+   "x": -0.7525899565841363,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 387,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 390,
+   "kind": "step_stone",
+   "x": -0.29320839606761157,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 390,
+   "kind": "step_stone",
+   "x": -0.8006755676505225,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 392,
+   "kind": "whoosh_reveal",
+   "x": 0,
+   "gain": 0.55,
+   "note": "reveal 1: the facade starts to dissolve"
+  },
+  {
+   "frame": 394,
+   "kind": "step_stone",
+   "x": 0.26970813832187934,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 395,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 396,
+   "kind": "step_stone",
+   "x": 0.049355891324883994,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 396,
+   "kind": "step_stone",
+   "x": -0.8195583505797157,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 396,
+   "kind": "step_stone",
+   "x": -0.06375662615761296,
+   "gain": 0.25,
+   "note": "pedestrian 24 footstep"
+  },
+  {
+   "frame": 398,
+   "kind": "step_stone",
+   "x": -0.3537683967734771,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 398,
+   "kind": "step_stone",
+   "x": -0.7411644824910892,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 399,
+   "kind": "dog_paws",
+   "x": 0.199355891324884,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 399,
+   "kind": "step_stone",
+   "x": -0.7911444784825602,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 401,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 18 footstep"
+  },
+  {
+   "frame": 402,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 402,
+   "kind": "step_stone",
+   "x": 0.2112766887456976,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 404,
+   "kind": "step_stone",
+   "x": -0.6612665589308088,
+   "gain": 0.25,
+   "note": "pedestrian 17 footstep"
+  },
+  {
+   "frame": 404,
+   "kind": "step_stone",
+   "x": 0.7528316679437403,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 404,
+   "kind": "step_stone",
+   "x": -0.12612683426372778,
+   "gain": 0.25,
+   "note": "pedestrian 24 footstep"
+  },
+  {
+   "frame": 404,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.8,
+   "note": "ventilation fans behind the wall"
+  },
+  {
+   "frame": 405,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 405,
+   "kind": "step_stone",
+   "x": -0.6859609748217346,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 406,
+   "kind": "step_stone",
+   "x": 0.10845629916110351,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 407,
+   "kind": "step_stone",
+   "x": -0.41713812344013673,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 408,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 18 footstep"
+  },
+  {
+   "frame": 409,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 410,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 411,
+   "kind": "step_stone",
+   "x": 0.15138103313690227,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 412,
+   "kind": "step_stone",
+   "x": -0.5953323296178269,
+   "gain": 0.25,
+   "note": "pedestrian 17 footstep"
+  },
+  {
+   "frame": 412,
+   "kind": "step_stone",
+   "x": 0.8199174854588666,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 412,
+   "kind": "step_stone",
+   "x": -0.18307217780812388,
+   "gain": 0.25,
+   "note": "pedestrian 24 footstep"
+  },
+  {
+   "frame": 413,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 413,
+   "kind": "step_stone",
+   "x": -0.617381182251118,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 415,
+   "kind": "step_stone",
+   "x": -0.4669642690001417,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 416,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 18 footstep"
+  },
+  {
+   "frame": 417,
+   "kind": "step_stone",
+   "x": 0.18401843665128603,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 418,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 419,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 22 footstep"
+  },
+  {
+   "frame": 420,
+   "kind": "dog_paws",
+   "x": 0.334018436651286,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 420,
+   "kind": "step_stone",
+   "x": 0.09928931341261593,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 420,
+   "kind": "step_stone",
+   "x": -0.23392896558765244,
+   "gain": 0.25,
+   "note": "pedestrian 24 footstep"
+  },
+  {
+   "frame": 421,
+   "kind": "step_stone",
+   "x": -0.5429982965598822,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 422,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 424,
+   "kind": "step_stone",
+   "x": -0.5172222222222224,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 425,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 428,
+   "kind": "step_stone",
+   "x": 0.2669576195325985,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 428,
+   "kind": "step_stone",
+   "x": 0.05570445810689634,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 428,
+   "kind": "step_stone",
+   "x": -0.4762830053012537,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 431,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 432,
+   "kind": "step_stone",
+   "x": -0.5616845002260402,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 433,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 436,
+   "kind": "step_stone",
+   "x": -0.40244824000697665,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 437,
+   "kind": "step_stone",
+   "x": 0.0036146410069762963,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 439,
+   "kind": "step_stone",
+   "x": 0.34551580175361923,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 439,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 441,
+   "kind": "step_stone",
+   "x": -0.6172849600948346,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 441,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 442,
+   "kind": "dog_paws",
+   "x": 0.4955158017536192,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 443,
+   "kind": "step_stone",
+   "x": -0.34275959564869257,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 446,
+   "kind": "step_stone",
+   "x": -0.056109874674259506,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 446,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.8,
+   "note": "ventilation fans behind the wall"
+  },
+  {
+   "frame": 448,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 450,
+   "kind": "step_stone",
+   "x": -0.6800789879505512,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 450,
+   "kind": "step_stone",
+   "x": 0.413254345382782,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 451,
+   "kind": "step_stone",
+   "x": -0.27919190034400715,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 454,
+   "kind": "step_stone",
+   "x": -0.11313295400337624,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 457,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 458,
+   "kind": "step_stone",
+   "x": -0.7377777777777776,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 459,
+   "kind": "step_stone",
+   "x": -0.21685405599470778,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 460,
+   "kind": "step_stone",
+   "x": 0.4716666666666667,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 463,
+   "kind": "dog_paws",
+   "x": 0.6216666666666667,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 463,
+   "kind": "step_stone",
+   "x": -0.17781607429846158,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 466,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 466,
+   "kind": "step_stone",
+   "x": -0.162347411418127,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 467,
+   "kind": "step_stone",
+   "x": -0.802777777777778,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 470,
+   "kind": "paper_rustle",
+   "x": 0.2,
+   "gain": 0.5,
+   "note": "the mother turns a page"
+  },
+  {
+   "frame": 471,
+   "kind": "step_stone",
+   "x": 0.5358311565589785,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 472,
+   "kind": "step_stone",
+   "x": -0.24251063968451303,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 474,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 474,
+   "kind": "step_stone",
+   "x": -0.10009048455029962,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 475,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 480,
+   "kind": "step_stone",
+   "x": -0.30076619744855265,
+   "gain": 0.45,
+   "note": "pedestrian 12 footstep"
+  },
+  {
+   "frame": 481,
+   "kind": "step_stone",
+   "x": -0.0466466599675286,
+   "gain": 0.45,
+   "note": "pedestrian 13 footstep"
+  },
+  {
+   "frame": 482,
+   "kind": "step_stone",
+   "x": 0.5984590081224571,
+   "gain": 0.45,
+   "note": "pedestrian 4 footstep"
+  },
+  {
+   "frame": 483,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 10 footstep"
+  },
+  {
+   "frame": 484,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 3 footstep"
+  },
+  {
+   "frame": 485,
+   "kind": "dog_paws",
+   "x": 0.7484590081224572,
+   "gain": 0.7,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 492,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.7,
+   "note": "era dissolve"
+  },
+  {
+   "frame": 540,
+   "kind": "paper_rustle",
+   "x": 0.2,
+   "gain": 0.5,
+   "note": "the mother turns a page"
+  },
+  {
+   "frame": 572,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.7,
+   "note": "era dissolve"
+  },
+  {
+   "frame": 586,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 0 walks in"
+  },
+  {
+   "frame": 595,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 0 walks in"
+  },
+  {
+   "frame": 597,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 3 walks in"
+  },
+  {
+   "frame": 599,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 1 walks in"
+  },
+  {
+   "frame": 604,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 0 walks in"
+  },
+  {
+   "frame": 606,
+   "kind": "crate_slide",
+   "x": 0,
+   "gain": 0.45,
+   "note": "crewman 0's hand cart rumbles in"
+  },
+  {
+   "frame": 606,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 3 walks in"
+  },
+  {
+   "frame": 607,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 5 walks in"
+  },
+  {
+   "frame": 608,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 1 walks in"
+  },
+  {
+   "frame": 608,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 2 walks in"
+  },
+  {
+   "frame": 613,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 0 walks in"
+  },
+  {
+   "frame": 614,
+   "kind": "crate_slide",
+   "x": 0,
+   "gain": 0.45,
+   "note": "crewman 3's hand cart rumbles in"
+  },
+  {
+   "frame": 615,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 3 walks in"
+  },
+  {
+   "frame": 616,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 4 walks in"
+  },
+  {
+   "frame": 616,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 5 walks in"
+  },
+  {
+   "frame": 617,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 1 walks in"
+  },
+  {
+   "frame": 617,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 2 walks in"
+  },
+  {
+   "frame": 622,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 0 walks in"
+  },
+  {
+   "frame": 624,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 3 walks in"
+  },
+  {
+   "frame": 625,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 4 walks in"
+  },
+  {
+   "frame": 625,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 5 walks in"
+  },
+  {
+   "frame": 626,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 1 walks in"
+  },
+  {
+   "frame": 626,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 2 walks in"
+  },
+  {
+   "frame": 630,
+   "kind": "shovel_dig",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "tunnel gang digs at the shield"
+  },
+  {
+   "frame": 631,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 0 walks in"
+  },
+  {
+   "frame": 633,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 3 walks in"
+  },
+  {
+   "frame": 634,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 4 walks in"
+  },
+  {
+   "frame": 634,
+   "kind": "step_stone",
+   "x": 0,
+   "gain": 0.3,
+   "note": "crewman 5 walks in"
+  },
+  {
+   "frame": 646,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "ring bolts hammered"
+  },
+  {
+   "frame": 662,
+   "kind": "shovel_dig",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "tunnel gang"
+  },
+  {
+   "frame": 668,
+   "kind": "train_old",
+   "x": -0.3,
+   "gain": 0.9,
+   "note": "the first train runs through the finished tunnel"
+  },
+  {
+   "frame": 690,
+   "kind": "truck_pass",
+   "x": -0.5,
+   "gain": 0.6,
+   "note": "the lorry brings the fan"
+  },
+  {
+   "frame": 700,
+   "kind": "paper_unroll",
+   "x": -0.3,
+   "gain": 0.6,
+   "note": "the engineer spreads the plan"
+  },
+  {
+   "frame": 712,
+   "kind": "brake_squeak",
+   "x": -0.2,
+   "gain": 0.5,
+   "note": "the lorry stops"
+  },
+  {
+   "frame": 717,
+   "kind": "shovel_dig",
+   "x": -0.7659679486295946,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 718,
+   "kind": "crane_winch",
+   "x": 0.4,
+   "gain": 0.8,
+   "note": "the derrick winch lifts the fan"
+  },
+  {
+   "frame": 719,
+   "kind": "hammer_hit",
+   "x": -0.4763941519811832,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 719,
+   "kind": "ratchet",
+   "x": 0.25693918135215005,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 720,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 721,
+   "kind": "hammer_hit",
+   "x": 0.4166494827795176,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 722,
+   "kind": "chain_rattle",
+   "x": 0.4,
+   "gain": 0.6,
+   "note": "lifting chain"
+  },
+  {
+   "frame": 742,
+   "kind": "hammer_hit",
+   "x": -0.4350994047895352,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 747,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 748,
+   "kind": "stone_thud",
+   "x": 0.3,
+   "gain": 0.8,
+   "note": "the fan is set down on its foundation"
+  },
+  {
+   "frame": 750,
+   "kind": "shovel_dig",
+   "x": -0.4821682011418273,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 751,
+   "kind": "hammer_hit",
+   "x": 0.7635967386739506,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 752,
+   "kind": "ratchet",
+   "x": 0.3,
+   "gain": 0.6,
+   "note": "bolting the fan housing"
+  },
+  {
+   "frame": 756,
+   "kind": "fan_spinup",
+   "x": 0.3,
+   "gain": 0.8,
+   "note": "the fan starts turning"
+  },
+  {
+   "frame": 760,
+   "kind": "ratchet",
+   "x": 0.3,
+   "gain": 0.6,
+   "note": "bolting the fan housing"
+  },
+  {
+   "frame": 762,
+   "kind": "ratchet",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 765,
+   "kind": "hammer_hit",
+   "x": 0.5357539639934071,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 768,
+   "kind": "ratchet",
+   "x": 0.3,
+   "gain": 0.6,
+   "note": "bolting the fan housing"
+  },
+  {
+   "frame": 770,
+   "kind": "paper_rustle",
+   "x": -0.3,
+   "gain": 0.5,
+   "note": "the engineer studies the plan"
+  },
+  {
+   "frame": 775,
+   "kind": "shovel_dig",
+   "x": -0.5654625774949277,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 781,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 784,
+   "kind": "shovel_dig",
+   "x": 0.3316064808174149,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 788,
+   "kind": "hammer_hit",
+   "x": 0.5766494802421658,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 794,
+   "kind": "whoosh_reveal",
+   "x": 0,
+   "gain": 0.4,
+   "note": "the imagined plant grows (design preview)"
+  },
+  {
+   "frame": 802,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 805,
+   "kind": "ratchet",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 811,
+   "kind": "hammer_hit",
+   "x": 0.3032524925058497,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 811,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 817,
+   "kind": "shovel_dig",
+   "x": -0.030079266189506626,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 829,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 834,
+   "kind": "hammer_hit",
+   "x": 0.21546041089032061,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 841,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 847,
+   "kind": "ratchet",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 850,
+   "kind": "shovel_dig",
+   "x": -0.09919210446671045,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 850,
+   "kind": "gulp",
+   "x": -0.2,
+   "gain": 0.7,
+   "note": "the engineer grimaces"
+  },
+  {
+   "frame": 857,
+   "kind": "hammer_hit",
+   "x": 0.20037572679355894,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 857,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 871,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 880,
+   "kind": "hammer_hit",
+   "x": 0.21595590966263922,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 884,
+   "kind": "shovel_dig",
+   "x": -0.07664467467126945,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 884,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 884,
+   "kind": "cloth_soft",
+   "x": 0.4,
+   "gain": 0.8,
+   "note": "the lady turns away"
+  },
+  {
+   "frame": 890,
+   "kind": "ratchet",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 901,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 903,
+   "kind": "hammer_hit",
+   "x": 0.2957236020894473,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 911,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 917,
+   "kind": "shovel_dig",
+   "x": 0.13976557200868425,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 924,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 927,
+   "kind": "hammer_hit",
+   "x": 0.5743435450020531,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 929,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 931,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 933,
+   "kind": "ratchet",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 934,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 938,
+   "kind": "shovel_dig",
+   "x": -0.5758861505692587,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 939,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 944,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 949,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 950,
+   "kind": "shovel_dig",
+   "x": 0.4073416743635665,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 950,
+   "kind": "hammer_hit",
+   "x": 0.7073416743635664,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 950,
+   "kind": "reject_buzz",
+   "x": 0,
+   "gain": 0.7,
+   "note": "the imagined plant folds away (rejected)"
+  },
+  {
+   "frame": 961,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 966,
+   "kind": "shovel_dig",
+   "x": -0.7508189929638936,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 966,
+   "kind": "idea_ding",
+   "x": 0,
+   "gain": 0.45,
+   "note": "he looks at the real house"
+  },
+  {
+   "frame": 973,
+   "kind": "hammer_hit",
+   "x": 0.40561432836140554,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 976,
+   "kind": "ratchet",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 1004,
+   "kind": "timber_thud",
+   "x": -0.1,
+   "gain": 0.6,
+   "note": "furniture carried out down the stoop"
+  },
+  {
+   "frame": 1015,
+   "kind": "timber_thud",
+   "x": -0.1,
+   "gain": 0.6,
+   "note": "furniture carried out down the stoop"
+  },
+  {
+   "frame": 1020,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.45,
+   "note": "stripping the rooms to the brick"
+  },
+  {
+   "frame": 1028,
+   "kind": "timber_thud",
+   "x": -0.1,
+   "gain": 0.6,
+   "note": "furniture carried out down the stoop"
+  },
+  {
+   "frame": 1031,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.45,
+   "note": "stripping the rooms to the brick"
+  },
+  {
+   "frame": 1036,
+   "kind": "crane_winch",
+   "x": 0,
+   "gain": 0.7,
+   "note": "machinery lowered into the shell"
+  },
+  {
+   "frame": 1042,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.45,
+   "note": "stripping the rooms to the brick"
+  },
+  {
+   "frame": 1044,
+   "kind": "steel_clank",
+   "x": 0,
+   "gain": 0.7,
+   "note": "steel and fan housing set in place"
+  },
+  {
+   "frame": 1053,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.45,
+   "note": "stripping the rooms to the brick"
+  },
+  {
+   "frame": 1054,
+   "kind": "steel_clank",
+   "x": 0,
+   "gain": 0.7,
+   "note": "steel and fan housing set in place"
+  },
+  {
+   "frame": 1056,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.7,
+   "note": "era dissolve"
+  },
+  {
+   "frame": 1068,
+   "kind": "step_stone",
+   "x": -0.699996019784625,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1073,
+   "kind": "step_stone",
+   "x": -0.523405180457262,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1078,
+   "kind": "step_stone",
+   "x": -0.35772180762409894,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1079,
+   "kind": "step_stone",
+   "x": -0.5259385100306057,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1083,
+   "kind": "step_stone",
+   "x": -0.21575341806696127,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1088,
+   "kind": "step_stone",
+   "x": -0.1059650045006959,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1088,
+   "kind": "step_stone",
+   "x": -0.5181559382705093,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1093,
+   "kind": "step_stone",
+   "x": -0.02796284510893658,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1097,
+   "kind": "step_stone",
+   "x": -0.609294357902649,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1098,
+   "kind": "step_stone",
+   "x": 0.02524089837620765,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1103,
+   "kind": "step_stone",
+   "x": 0.06086904925776304,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1106,
+   "kind": "step_stone",
+   "x": -0.7625633694236117,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1108,
+   "kind": "step_stone",
+   "x": 0.08474130861168949,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1110,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 1113,
+   "kind": "step_stone",
+   "x": 0.10221279418318552,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1115,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1118,
+   "kind": "step_stone",
+   "x": 0.11861748412427627,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1123,
+   "kind": "step_stone",
+   "x": 0.1392893565869874,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1125,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1128,
+   "kind": "step_stone",
+   "x": 0.16956085290396525,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1133,
+   "kind": "step_stone",
+   "x": 0.21447342148904505,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1134,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1138,
+   "kind": "step_stone",
+   "x": 0.27678820085111333,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1143,
+   "kind": "step_stone",
+   "x": 0.3535153411604284,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1143,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 20 footstep"
+  },
+  {
+   "frame": 1148,
+   "kind": "step_stone",
+   "x": 0.43722607767998606,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1150,
+   "kind": "whoosh_reveal",
+   "x": 0,
+   "gain": 0.5,
+   "note": "reveal 2: the facade dissolves"
+  },
+  {
+   "frame": 1153,
+   "kind": "step_stone",
+   "x": 0.5226269315673289,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1158,
+   "kind": "step_stone",
+   "x": 0.6081677704194263,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1163,
+   "kind": "step_stone",
+   "x": 0.6937086092715233,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1168,
+   "kind": "step_stone",
+   "x": 0.7792494481236204,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1170,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.9,
+   "note": "fans + air drawn up the shaft"
+  },
+  {
+   "frame": 1173,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1177,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 1178,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1183,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1188,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1193,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1195,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1198,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1200,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1203,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1203,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1205,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.9,
+   "note": "fans + air drawn up the shaft"
+  },
+  {
+   "frame": 1208,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1210,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1210,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1214,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1262,
+   "kind": "train_rumble",
+   "x": -0.2,
+   "gain": 1,
+   "note": "a train passes beneath No. 58"
+  },
+  {
+   "frame": 1274,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1280,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1286,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1292,
+   "kind": "step_stone",
+   "x": 0.678501721066957,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1298,
+   "kind": "step_stone",
+   "x": 0.4679677465534558,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1304,
+   "kind": "step_stone",
+   "x": 0.32239060424116517,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1306,
+   "kind": "step_stone",
+   "x": 0.2539262786755781,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1309,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 1310,
+   "kind": "step_stone",
+   "x": 0.23985075789081814,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1313,
+   "kind": "step_stone",
+   "x": 0.2298098050285411,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1316,
+   "kind": "step_stone",
+   "x": 0.20015943618728985,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1317,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 1320,
+   "kind": "step_stone",
+   "x": -0.7826030143103012,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1321,
+   "kind": "step_stone",
+   "x": 0.25761819515247253,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1322,
+   "kind": "step_stone",
+   "x": 0.18702245061135359,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1326,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.25,
+   "note": "pedestrian 16 footstep"
+  },
+  {
+   "frame": 1328,
+   "kind": "step_stone",
+   "x": 0.18890384659753587,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1328,
+   "kind": "step_stone",
+   "x": 0.3074584985377696,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1330,
+   "kind": "step_stone",
+   "x": -0.5566341202949675,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1330,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 1334,
+   "kind": "step_stone",
+   "x": 0.19492759484803981,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1335,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 1336,
+   "kind": "step_stone",
+   "x": 0.3703159439734478,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1340,
+   "kind": "step_stone",
+   "x": 0.19423761793950725,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1340,
+   "kind": "step_stone",
+   "x": -0.32920931225070277,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1343,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 7 footstep"
+  },
+  {
+   "frame": 1343,
+   "kind": "step_stone",
+   "x": 0.41128303834895047,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1346,
+   "kind": "step_stone",
+   "x": 0.17686017535036988,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1348,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 1350,
+   "kind": "step_stone",
+   "x": -0.14597317455939252,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1350,
+   "kind": "step_stone",
+   "x": 0.4252605566448892,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1352,
+   "kind": "step_stone",
+   "x": 0.13813169325702726,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1352,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.45,
+   "note": "machinery glimpsed under the street"
+  },
+  {
+   "frame": 1356,
+   "kind": "train_rumble",
+   "x": 0.1,
+   "gain": 0.35,
+   "note": "distant train under the sidewalk"
+  },
+  {
+   "frame": 1358,
+   "kind": "step_stone",
+   "x": 0.08221025931467467,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1358,
+   "kind": "step_stone",
+   "x": -0.8245474102473295,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1358,
+   "kind": "step_stone",
+   "x": 0.4099573822822946,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1360,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 1360,
+   "kind": "step_stone",
+   "x": -0.014215076469041077,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1364,
+   "kind": "step_stone",
+   "x": 0.015060837277222442,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1365,
+   "kind": "step_stone",
+   "x": 0.3795674705363296,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1366,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1367,
+   "kind": "step_stone",
+   "x": -0.7285354092770419,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1370,
+   "kind": "step_stone",
+   "x": -0.05783429383221428,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1370,
+   "kind": "step_stone",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "pedestrian 5 footstep"
+  },
+  {
+   "frame": 1370,
+   "kind": "step_stone",
+   "x": 0.08862824364878936,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1372,
+   "kind": "step_stone",
+   "x": 0.3381750170991121,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1372,
+   "kind": "bike_tick",
+   "x": -0.85,
+   "gain": 0.8,
+   "note": "the cyclist freewheels past"
+  },
+  {
+   "frame": 1373,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1377,
+   "kind": "step_stone",
+   "x": -0.6415277390718398,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1380,
+   "kind": "step_stone",
+   "x": 0.1727580938501144,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1380,
+   "kind": "step_stone",
+   "x": 0.2806573070430471,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1381,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1386,
+   "kind": "step_stone",
+   "x": -0.5751292217755405,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1387,
+   "kind": "step_stone",
+   "x": 0.2241114963498755,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1387,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1388,
+   "kind": "step_stone",
+   "x": -0.7967139395633414,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1390,
+   "kind": "step_stone",
+   "x": 0.24501398218902004,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1395,
+   "kind": "step_stone",
+   "x": 0.15260522809946528,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1395,
+   "kind": "step_stone",
+   "x": -0.7417270425921201,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1396,
+   "kind": "step_stone",
+   "x": -0.5124702069811012,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1396,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1400,
+   "kind": "step_stone",
+   "x": 0.29983049250666177,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1402,
+   "kind": "step_stone",
+   "x": 0.07409646458839607,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1402,
+   "kind": "step_stone",
+   "x": -0.7021867917388201,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1404,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1405,
+   "kind": "step_stone",
+   "x": -0.4846531759716815,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1409,
+   "kind": "step_stone",
+   "x": -0.027377360820558378,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1410,
+   "kind": "step_stone",
+   "x": 0.3120145947431984,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1410,
+   "kind": "step_stone",
+   "x": -0.6847908071288692,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1412,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1413,
+   "kind": "step_stone",
+   "x": -0.21442898854352824,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1415,
+   "kind": "step_stone",
+   "x": -0.49239879419836746,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1417,
+   "kind": "step_stone",
+   "x": -0.1611581241806921,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1417,
+   "kind": "step_stone",
+   "x": -0.6844792068699744,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1420,
+   "kind": "step_stone",
+   "x": -0.365677695652413,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1420,
+   "kind": "step_stone",
+   "x": 0.2976342545089839,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1420,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1420,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 1424,
+   "kind": "step_stone",
+   "x": -0.5065032746891592,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1424,
+   "kind": "step_stone",
+   "x": -0.27828952801573137,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1424,
+   "kind": "step_stone",
+   "x": -0.6835615963406445,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1426,
+   "kind": "step_stone",
+   "x": -0.49764702933365773,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1428,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1430,
+   "kind": "step_stone",
+   "x": 0.2957424787475354,
+   "gain": 0.45,
+   "note": "pedestrian 8 footstep"
+  },
+  {
+   "frame": 1430,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 1430,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 1432,
+   "kind": "step_stone",
+   "x": -0.6180925279285998,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1432,
+   "kind": "step_stone",
+   "x": -0.39576106144700374,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1432,
+   "kind": "step_stone",
+   "x": -0.6661199704983519,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1434,
+   "kind": "step_stone",
+   "x": -0.49724882559998,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1437,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1437,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 1438,
+   "kind": "step_stone",
+   "x": -0.7260167846272472,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1438,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 1439,
+   "kind": "step_stone",
+   "x": -0.4805086035770529,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1439,
+   "kind": "step_stone",
+   "x": -0.632818498264032,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1444,
+   "kind": "step_stone",
+   "x": -0.825125600568143,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1444,
+   "kind": "step_stone",
+   "x": -0.4571715397217588,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1445,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1445,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 1446,
+   "kind": "step_stone",
+   "x": -0.5541694004160252,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1446,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 1446,
+   "kind": "step_stone",
+   "x": -0.588430280738635,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1450,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1453,
+   "kind": "step_stone",
+   "x": -0.4084560472313685,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  },
+  {
+   "frame": 1453,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1453,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 1454,
+   "kind": "step_stone",
+   "x": -0.6319826288431334,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1454,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 1454,
+   "kind": "step_stone",
+   "x": -0.5313303498921788,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1456,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1461,
+   "kind": "step_stone",
+   "x": -0.6996140060691146,
+   "gain": 0.45,
+   "note": "pedestrian 9 footstep"
+  },
+  {
+   "frame": 1461,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 11 footstep"
+  },
+  {
+   "frame": 1461,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "pedestrian 14 footstep"
+  },
+  {
+   "frame": 1461,
+   "kind": "step_stone",
+   "x": -0.4809127127537904,
+   "gain": 0.25,
+   "note": "pedestrian 21 footstep"
+  },
+  {
+   "frame": 1461,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.25,
+   "note": "pedestrian 23 footstep"
+  },
+  {
+   "frame": 1462,
+   "kind": "step_stone",
+   "x": -0.85,
+   "gain": 0.75,
+   "note": "the hero's shoes on the bluestone sidewalk"
+  },
+  {
+   "frame": 1463,
+   "kind": "step_stone",
+   "x": -0.35294281506285835,
+   "gain": 0.45,
+   "note": "pedestrian 6 footstep"
+  }
+ ]
+}
