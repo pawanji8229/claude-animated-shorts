@@ -30,7 +30,7 @@ export const cutMat = (m: THREE.Material, kind: CutKind): THREE.Material => {
     Object.assign(sh.uniforms, CUT);
     sh.vertexShader = sh.vertexShader.replace("#include <common>", "#include <common>\nvarying vec3 vWc;").replace("#include <project_vertex>", "#include <project_vertex>\nvWc = (modelMatrix * vec4(transformed, 1.0)).xyz;");
     sh.fragmentShader = sh.fragmentShader.replace("#include <common>", `#include <common>\nvarying vec3 vWc;\n${DECL}`)
-      .replace("#include <dithering_fragment>", `#include <dithering_fragment>\n  float ca = ${fn}(vWc); gl_FragColor.a *= ca;${kind === "facade" ? "\n  if (uCutY < 20.0 && uCutY > -3.0) gl_FragColor.rgb += vec3(1.0, 0.8, 0.5) * edgeLine(vWc) * 0.4;" : ""}`);
+      .replace("#include <dithering_fragment>", `#include <dithering_fragment>\n  float ca = ${fn}(vWc); gl_FragColor.a *= ca;${kind === "facade" ? "\n  if (uCutY < 20.0 && uCutY > -3.0) gl_FragColor.rgb += vec3(1.0, 0.8, 0.5) * edgeLine(vWc) * 0.0;" : ""}`);
   };
   c.customProgramCacheKey = () => `cut-${kind}-${m.type}`;
   CACHE.set(key, c); return c;

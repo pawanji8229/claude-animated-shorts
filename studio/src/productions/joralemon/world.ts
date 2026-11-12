@@ -43,8 +43,8 @@ const ramp = (a: number, b: number, f: number, from: number, to: number) => lerp
 export const facadeCut = (f: number): number => {
   const TOP = 14.5, BOT = -1.6;
   if (f < 392) return TOP;
-  if (f < 560) return ramp(392, 470, f, TOP, BOT);                          // reveal 1 (machinery), held into 1847 (parlour)
-  if (f < 600) return ramp(560, 586, f, BOT, TOP);                          // camera inside the parlour: the wall returns behind it
+  if (f < 600) return ramp(392, 470, f, TOP, BOT);                          // reveal 1 (machinery), held into 1847 (parlour)
+  if (f < 640) return ramp(600, 626, f, BOT, TOP);                          // camera inside the parlour: the wall returns behind it
   if (f < 1000) return TOP;
   if (f < 1066) return ramp(996, 1024, f, TOP, BOT);                        // the conversion cutaway (1907)
   if (f < 1100) return ramp(1066, 1090, f, BOT, TOP);                       // restored as the street returns to today

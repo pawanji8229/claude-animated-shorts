@@ -23,8 +23,8 @@ export const camMain = camPath([
   K(330, [-0.9, 2.3, 4.6], [-2.0, 2.7, 0.2], 46),                 // S05 down to the steel door
   K(352, [1.5, 1.9, 7.6], [-0.4, 2.1, 1.6], 48),                  //     wider: passers-by on the sidewalk
   K(374, [0.35, 1.72, 3.95], [0.15, 1.62, 2.25], 38),             //     "Seriously?" (his face)
-  K(404, [1.3, 4.2, 6.9], [0.3, 5.0, -2.0], 52),                  // S06 reveal 1: back + up, the wall dissolves
-  K(444, [0.6, 4.6, 4.2], [0.0, 4.4, -4.0], 54),
+  K(404, [0.9, 1.1, 8.2], [0.2, 4.6, 0.0], 58),                  // S06 reveal 1: back + up, the wall dissolves
+  K(444, [0.7, 2.2, 6.6], [0.0, 4.0, -3.0], 56),
   K(482, [0.25, 4.3, 0.9], [0.0, 3.9, -6.0], 56),                 //     at the cutaway: fans + walkways
   K(522, [0.4, 3.8, 0.1], [0.7, 3.0, -5.0], 56),                  // S07 1847: into the parlour
   K(560, [-0.3, 3.5, -0.8], [1.4, 2.5, -4.6], 58),                //     the family
