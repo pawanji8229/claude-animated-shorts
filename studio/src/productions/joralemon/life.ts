@@ -28,6 +28,8 @@ const mkPeds = (): Ped[] => { const r = rng(808), out: Ped[] = [];
   add(252, 4.5, -1, 3.95, "grocery", { v: -1.3, face: "content" });                  // neighbour with a shopping bag
   add(222, -5.5, 1, 4.45, undefined, { v: 1.05, dog: true, face: "bored" });         // dog walker
   add(1360, 9, -1, 4.25, "cup", { face: "content" }); add(1300, -9, 1, 4.3, "briefcase", { face: "deadpan" }); add(1335, 12, -1, 3.95, "grocery", { face: "bored" });
+  add(90, -18, 1, 4.1, undefined, { v: 2.9, stride: 1.25, face: "focused", h: 1.5 });   // jogger
+  add(1150, 15, -1, 4.0, "grocery", { v: -1.0, face: "talking" }); add(1150, 15.55, -1, 4.45, undefined, { v: -1.0, h: 1.04, face: "content", stride: 0.5 });   // parent + child
   add(1110, -12, 1, 4.25); add(1240, -9, 1, 4.6, "cup"); add(20, 11, -1, 4.25, "briefcase"); add(1430, -14, 1, 4.25, "grocery");
   add(160, 12, -1, 4.25, "cup"); add(230, -12, 1, 4.0); add(N - 60, 9, -1, 15.2, "grocery"); add(N - 200, 16, -1, 15.2, "bag");
   // far sidewalk (z 15.1 / 15.6)
@@ -113,7 +115,9 @@ export const fanLift = (f: number): { hook: V3; slew: number; luff: number; fanA
   return { hook: [at[0], (f < 748 ? at[1] : drop[1]) + 1.25 + back * 2.5, at[2]], slew, luff, fanAt: f < 712 ? null : at, spin: f > 754 ? (f - 754) * (0.02 + smooth(754, 790, f) * 0.18) : 0 };
 };
 /** engineer at the trestle: studies the plan, the model, imagines the plant, grimaces, crosses it out, looks at the house */
-const engFace = faceTrack([[0, "focused"], [700, "focused"], [740, "worried"], [760, "focused"], [790, "idea"], [830, "suspicious"], [848, "cringe"], [890, "disbelief"], [920, "focused"], [952, "relieved"], [970, "proud"]] as [number, FaceName][], 7);
+const ladyFT = faceTrack([[0, "content"], [846, "browsShoot"], [862, "xDisbelief"], [884, "comicSerious"]] as [number, FaceName][], 5);
+const gentFT = faceTrack([[0, "content"], [866, "xSideEyeL"], [902, "oneBrowUp"], [930, "suspSquint"]] as [number, FaceName][], 5);
+const engFace = faceTrack([[0, "focused"], [700, "focused"], [740, "worried"], [760, "focused"], [790, "idea"], [830, "suspSquint"], [848, "uncomfyGrin"], [890, "xDisbelief"], [920, "focused"], [952, "relieved"], [970, "proud"]] as [number, FaceName][], 7);
 export const engineerAt = (f: number): Placed | null => { if (!worksOn(f) || f > 1000) return null;
   const scrib = f > 922 && f < 952 ? (f - 922) / 30 : 0, writing = scrib > 0;
   const armR = writing ? { hand: [-30 + Math.sin(scrib * Math.PI * 6) * 40, 60 + Math.cos(scrib * Math.PI * 4) * 18] as [number, number], elbow: [70, 80] as [number, number], shape: "grip" as const, rot: 0.8, bend: 1 } : f > 790 && f < 845 ? { hand: [40, -40] as [number, number], elbow: [90, 40] as [number, number], shape: "open" as const, rot: -0.6, bend: 1 } : REST_R;
@@ -125,11 +129,11 @@ const GENT = tint(COSTUME.hal, { shirt: "#5a5048", shirtShade: "#463c34", hat: "
 export const residentsAt = (f: number): Placed[] => { if (!worksOn(f) || f < 770 || f > 1010) return [];
   const out: Placed[] = [];
   { const inU = smooth(776, 826, f), away = smooth(884, 940, f), x = f < 884 ? lerp(8.4, 3.2, inU) : lerp(3.2, 8.6, away), walking = (f > 776 && f < 826) || (f > 884 && f < 940);
-    const face = f < 846 ? "content" : f < 884 ? "disbelief" : "deadpan"; const p = walking ? gait(LADY, Math.abs(x - 8.4), 1, 0.66) : pose5({ costume: LADY, lookY: -0.5, lookX: -0.4 });
-    out.push({ pose: withFace(p, FACES[face as FaceName], f, 81), pos: [x, SW_Y, 4.2], h: 1.45, flip: f < 884, halo: 0.12 }); }
-  { const inU = smooth(792, 850, f), x = lerp(-9.5, 1.4, inU), walking = f > 792 && f < 850; const face: FaceName = f < 866 ? "content" : f < 930 ? "sideEyeL" : "suspicious";
+    const faceL = ladyFT(f); const p = walking ? gait(LADY, Math.abs(x - 8.4), 1, 0.66) : pose5({ costume: LADY, lookY: -0.5, lookX: -0.4 });
+    out.push({ pose: withFace(p, faceL, f, 81), pos: [x, SW_Y, 4.2], h: 1.45, flip: f < 884, halo: 0.12 }); }
+  { const inU = smooth(792, 850, f), x = lerp(-9.5, 1.4, inU), walking = f > 792 && f < 850; const faceG = gentFT(f);
     const p = walking ? gait(GENT, Math.abs(x + 9.5), 1, 0.74) : pose5({ costume: GENT, armR: { ...REST_R, shape: "grip" }, lookY: -0.3 });
-    out.push({ pose: withFace(p, FACES[face], f, 82), pos: [x, SW_Y, 4.5], h: 1.58, halo: 0.12 }); }
+    out.push({ pose: withFace(p, faceG, f, 82), pos: [x, SW_Y, 4.5], h: 1.58, halo: 0.12 }); }
   return out; };
 /** conversion crew (S11): men carry furniture out down the stoop and machinery parts in, staggered */
 export const convCrewAt = (f: number): Placed[] => { if (!worksOn(f) || f < 990 || f > 1066) return [];
@@ -176,7 +180,7 @@ export const passengersAt = (f: number, cam: V3): (Placed & { flip?: boolean })[
 /** maintenance crew (authorised staff only): one at the damper panel in the adit, one on the walkway further down */
 const CREW_HV: Costume = tint(COSTUME.workerA, { shirt: "#c9e02a", shirtShade: "#9aac1c", hat: "#f07a1a", hatShade: "#b85a10", hair: "#3a2a1e" }, "hard");
 const CREW_HV2: Costume = tint(COSTUME.workerB, { shirt: "#e8f040", shirtShade: "#b0b62a", hat: "#f2f0e8", hatShade: "#c2bfb4" }, "hard");
-const panelFace = faceTrack([[0, "focused"], [1228, "focused"], [1231, "disbelief"], [1238, "sideEyeR"], [1300, "suspicious"], [1320, "focused"]] as [number, FaceName][], 4);
+const panelFace = faceTrack([[0, "focused"], [1228, "focused"], [1231, "doubleTake"], [1238, "xSideEyeR"], [1300, "suspSquint"], [1320, "focused"]] as [number, FaceName][], 4);
 export const tunnelCrewAt = (f: number): Placed[] => { const out: Placed[] = [];
   // panel worker: checks the damper panel (wrench), turns at the passing camera (double-take), then side-eyes it
   const turn = smooth(1228, 1233, f) * (1 - smooth(1300, 1316, f)), nod = Math.sin(f * 0.21) * 0.03 * (1 - turn);

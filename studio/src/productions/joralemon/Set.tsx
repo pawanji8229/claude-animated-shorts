@@ -11,8 +11,9 @@ import { Rod } from "../london-bridge/assets";
 import { SkyEnv } from "../short3/SkyEnv";
 import { lerp, smooth } from "../../lib/math";
 const lerpHex = (a: string, b: string, t: number) => "#" + new THREE.Color(a).lerp(new THREE.Color(b), t).getHexString();
-import { type Era, facadeCut, groundCut, tunnelFront, UNDER_ON } from "./world";
+import { type Era, facadeCut, groundCut, tunnelFront, UNDER_ON, XF } from "./world";
 import { SubwayStatic, TrainNow, underAmt, Train1907, MuckCar, muckAt } from "./subway";
+import { StreetLife } from "./streetlife";
 import { setCut } from "./cut";
 import { HouseRows, House58, Ground, StreetFurniture, Trees } from "./street";
 import { VentInterior, ventKits } from "./vent58";
@@ -82,6 +83,7 @@ export const JSet: React.FC<SetProps> = ({ era, camAt, frameOverride, hideHero, 
           {now && L.pedsAt(f).map((p, i) => toon(p, `pd${i}`))}
           {now && L.dogsAt(f).map((d, i) => <DogToon key={`dog${i}`} pos={d.pos} cam={c.pos} phase={d.phase} flip={d.flip} hi={hi} />)}
           {now && L.leashes(f).map((l, i) => <Rod key={`lsh${i}`} a={l.a} b={l.b} r={0.008} m={M.drapeRed} shadow={false} />)}
+          {now && <StreetLife f={f} nowOn={f < XF.home[1] || f >= XF.now[0]} toon={toon} />}
           {toon(hero, "hero")}
           {extra?.(c, hi, f)}
           {/* ---- 1847: the family */}

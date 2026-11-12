@@ -96,7 +96,7 @@ export const LAMPS: V3[] = [...[-31, -9.8, 12, 34].map((x) => [x, SW_Y, SIDEWALK
 const furnKit = (era: "now" | "old") => once(`jFurn${era}`, () => { const M = jMats(), k = new Kit();
   for (const p of LAMPS) lampPost(k, M, p, era === "now" ? M.lamp : M.lampDim);
   for (const p of TREES) pit(k, M, p);
-  if (era === "now") { hydrant(k, M, [10.6, SW_Y, SIDEWALK[1] - 0.55]); hydrant(k, M, [-29, SW_Y, STREET[1] + 0.55]); bikeRack(k, M, [-17.5, SW_Y, SIDEWALK[1] - 0.9]); bin(k, M, [-3.9, SW_Y, SIDEWALK[1] - 0.55]); bin(k, M, [25, SW_Y, STREET[1] + 0.6]);
+  if (era === "now") { hydrant(k, M, [10.6, SW_Y, SIDEWALK[1] - 0.55]); hydrant(k, M, [-29, SW_Y, STREET[1] + 0.55]); bikeRack(k, M, [-17.5, SW_Y, SIDEWALK[1] - 0.9]); bin(k, M, [7.4, SW_Y, SIDEWALK[1] - 0.55]); bin(k, M, [25, SW_Y, STREET[1] + 0.6]);
     // signposts (blank plates: no text), parking meters
     for (const x of [-21, 15.5]) { k.cyl(M.galv, 0.03, 0.03, 2.8, [x, SW_Y + 1.4, SIDEWALK[1] - 0.45], [0, 0, 0], 8); k.span(M.cream, [x - 0.22, SW_Y + 2.2, SIDEWALK[1] - 0.47], [x + 0.22, SW_Y + 2.62, SIDEWALK[1] - 0.44]); k.span(M.red, [x - 0.2, SW_Y + 2.52, SIDEWALK[1] - 0.441], [x + 0.2, SW_Y + 2.6, SIDEWALK[1] - 0.437], { ink: false }); } }
   return k; });

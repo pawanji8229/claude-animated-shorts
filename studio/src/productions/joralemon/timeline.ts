@@ -8,13 +8,14 @@ import { SW_Y, PF, STOOP, FILM_FRAMES } from "./world";
 
 // ================================================================ camera
 const K = (f: number, pos: V3, look: V3, fov: number) => ({ f, pos, look, fov });
-const OPEN = K(0, [-9.5, 1.15, 7.4], [-0.5, 3.8, 0.5], 50);
+const OPEN = K(0, [-9.5, 1.05, 7.6], [-0.2, 2.6, 1.2], 54);
 export const camMain = camPath([
   OPEN,
-  K(40, [-7.0, 1.2, 7.4], [-1.4, 2.9, 1.5], 50),                 // S01 low tracking along the sidewalk
-  K(76, [-4.6, 1.35, 7.6], [-0.9, 2.9, 1.6], 48),                  //     rising push toward No. 58
+  K(40, [-7.0, 1.1, 7.5], [-0.8, 2.3, 1.8], 54),                 // S01 low tracking along the sidewalk
+  K(76, [-4.6, 1.3, 7.6], [-0.4, 2.5, 1.8], 50),                  //     rising push toward No. 58
   K(112, [-2.6, 1.2, 7.8], [-0.8, 2.6, 2.2], 50),                // S02 he looks left / right
-  K(152, [-1.0, 1.0, 7.4], [-0.3, 3.2, 1.0], 54),                 //     dolly in, tilting up
+  K(152, [-1.0, 1.0, 7.4], [0.6, 2.6, 1.6], 56),               //     the pigeons burst up as he steps in...
+  K(170, [-0.4, 1.0, 6.8], [1.6, 6.0, 0.8], 58),                 //     dolly in, tilting up
   K(186, [0.4, 1.0, 5.8], [0.2, 3.6, 0.0], 56),                  //     the upper windows
   K(222, [0.5, 0.95, 4.8], [0.1, 3.0, 0.0], 56),                 // S03 push in to the black parlour window
   K(256, [0.4, 0.95, 4.2], [0.1, 2.9, 0.0], 56),             //     his confused face in the foreground
@@ -61,7 +62,7 @@ export const camMain = camPath([
   K(1344, [0.3, 2.4, -1.6], [0.3, 3.0, -6.0], 60),                //     up between the fans
   K(1362, [1.2, 2.2, 6.8], [-0.6, 2.4, 0.0], 54),                 // S14 pulling back out to the street; the wall closes
   K(1396, [-3.4, 1.25, 7.4], [-2.2, 2.4, 2.0], 44),               //     his side-eye
-  K(1432, [-7.6, 1.2, 7.2], [-0.8, 3.7, 0.4], 49),               // S15 back to the opening composition
+  K(1432, [-7.6, 1.1, 7.4], [-0.4, 2.8, 1.0], 53),               // S15 back to the opening composition
   { ...OPEN, f: FILM_FRAMES - 1 },
 ], 5);
 export const camAt = (f: number): Cam => camMain(f);
@@ -72,9 +73,9 @@ export type Placed = { pose: Odo5Pose; pos: V3; h: number; flip?: boolean; halo?
 const WALK_Z = 3.7, LAND: V3 = [0.15, SW_Y, 2.25];
 const gaitPose = (c: Costume, d: number, walking: number, extra: Partial<Odo5Pose> = {}) => pose5({ costume: c, view: walking > 0.02 ? "side" : "front", gait: d / 0.95, walk: walking, stride: 0.95, lean: 0.05 * walking, ...extra });
 const heroFace = faceTrack([
-  [0, "content"], [72, "neutral"], [80, "suspicious"], [100, "sideEyeL"], [116, "sideEyeR"], [134, "suspicious"], [190, "focused"], [214, "confused"],
-  [270, "suspicious"], [284, "awkwardSmile"], [312, "sideEyeL"], [330, "focused"], [346, "awkwardSmile"], [358, "deadpan"], [392, "shocked"], [420, "panic"],
-  [1064, "content"], [1100, "bored"], [1384, "suspicious"], [1398, "cringe"], [1410, "nervousLaugh"], [1420, "content"],
+  [0, "content"], [72, "neutral"], [80, "oneBrowUp"], [100, "xSideEyeL"], [116, "xSideEyeR"], [134, "suspSquint"], [158, "doubleTake"], [176, "focused"], [214, "tinyConfused"],
+  [270, "suspSquint"], [284, "frozenSmile"], [312, "xSideEyeL"], [330, "focused"], [346, "uncomfyGrin"], [358, "comicSerious"], [392, "hugeShock"], [420, "panic"],
+  [1064, "content"], [1100, "bored"], [1384, "suspSquint"], [1398, "uncomfyGrin"], [1410, "embarrassed"], [1424, "content"],
 ] as [number, FaceName][], 6);
 /** walk along a 1-D path: constant speed with short accel/decel ramps (rampIn/rampOut frames; 0 = already walking / keeps walking) */
 const walkSeg = (f: number, f0: number, f1: number, d: number, rampIn = 8, rampOut = 10) => {
