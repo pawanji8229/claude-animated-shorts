@@ -48,15 +48,13 @@ export const facadeCut = (f: number): number => {
   if (f < 1000) return TOP;
   if (f < 1066) return ramp(996, 1024, f, TOP, BOT);                        // the conversion cutaway (1907)
   if (f < 1100) return ramp(1066, 1090, f, BOT, TOP);                       // restored as the street returns to today
-  if (f < 1290) return ramp(1150, 1196, f, TOP, BOT);                       // reveal 2 (hero shot)
-  if (f < 1330) return ramp(1290, 1312, f, BOT, TOP);
+  if (f < 1352) return ramp(1150, 1192, f, TOP, BOT);                       // reveal 2: the camera dives in (and comes back out ~1347)
+  if (f < 1390) return ramp(1352, 1378, f, BOT, TOP);                       // the wall closes again in front of the camera
   return TOP;
 };
 /** the street slab + sidewalk in front of No. 58 (and No. 58's basement floor): 0 = solid, 1 = cut away (underground view) */
 export const groundCut = (f: number): number => {
   if (f >= 596 && f < 736) return smooth(596, 618, f) * (1 - smooth(715, 735, f));        // S08: down to the tunnel works
-  if (f >= 1176 && f < 1322) return smooth(1176, 1200, f) * (1 - smooth(1301, 1320, f));  // S13: down to the train
-  if (f >= 1336 && f < 1410) return 0.82 * smooth(1336, 1356, f) * (1 - smooth(1386, 1406, f));   // S14: a glimpse under the pedestrians
   return 0;
 };
 /** S11 conversion stages: 0 parlour -> 1 emptied -> 2 bare shell -> 3 machinery installed */
@@ -64,3 +62,21 @@ export const convStage = (f: number) => clamp01((f - 1000) / 56) * 3;
 /** tunnel construction progress along x (S08): rings exist for x < tunnelFront(f) */
 export const tunnelFront = (f: number) => lerp(-16, 16, smooth(600, 660, f));
 export { smooth, clamp01, lerp };
+
+// ---- the walk-through underground (today, scene 13): an ENCLOSED route the camera can fly through (no cutaway):
+// No. 58's basement opening -> vertical shaft (emergency stair) -> horizontal adit -> emergency-exit door in a
+// concrete headwall -> the tunnel walkway (benchwall). All solid; nothing here is shown as a section.
+export const UWALK = -20.2;                                   // tunnel walkway (benchwall) top, 1.05 m above the rail head
+export const RAIL_Y = TUN.y - TUN.r + 0.95;                   // rail head
+export const SH = { x: 2.4, z0: -4.0, z1: -0.45, yb: UWALK }; // shaft inner faces (under No. 58's front rooms)
+export const ADIT = { x: 1.8, y0: UWALK, y1: -17.0, zW: 2.95 }; // adit inner faces; headwall plane zW
+export const DOOR = { x: 1.1, y1: UWALK + 2.2 };              // emergency-exit doorway in the headwall
+export const GAPX = 4.2;                                       // tunnel rings |x| < GAPX are opened for the headwall
+/** today's train (scene 13/14): head position along +x (one-way), cruising 0.42 m/frame (12.6 m/s), then braking to
+ *  0.30 m/frame over frames 1284-1322 (brake squeal), steady after. Passes the walkway camera at x = -3.4 at frame 1280. */
+const TV = (f: number) => (f < 1284 ? 0.42 : f > 1322 ? 0.3 : 0.42 - 0.12 * smooth(1284, 1322, f));
+const THEAD: number[] = (() => { const a: number[] = []; let x = -3.4; for (let f = 1280; f <= 1500; f++) { a[f - 1280] = x; x += TV(f); } return a; })();
+export const trainNowHead = (f: number) => (f <= 1280 ? -3.4 - (1280 - f) * 0.42 : THEAD[Math.min(THEAD.length - 1, Math.round(f) - 1280)] + (f - Math.round(f)) * TV(f));
+export const trainNowSpeed = (f: number) => TV(f);
+/** the underground set is mounted only while the camera can see it (scene 13-14 dive) */
+export const UNDER_ON = (f: number) => f >= 1186 && f < 1350;

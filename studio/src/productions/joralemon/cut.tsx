@@ -11,7 +11,7 @@ import { Kit } from "../short3/kit";
 import { VOID, SHAFT } from "./world";
 
 export const CUT = {
-  uCutY: { value: 99 }, uSoft: { value: 0.9 }, uGhost: { value: 0.08 },
+  uCutY: { value: 99 }, uSoft: { value: 0.9 }, uGhost: { value: 0.0 },
   uGround: { value: 0 }, uBox: { value: new THREE.Vector4(VOID.x0, VOID.x1, SHAFT.z0 - 0.5, VOID.z1) },
 };
 const DECL = `uniform float uCutY; uniform float uSoft; uniform float uGhost; uniform float uGround; uniform vec4 uBox;
@@ -30,7 +30,7 @@ export const cutMat = (m: THREE.Material, kind: CutKind): THREE.Material => {
     Object.assign(sh.uniforms, CUT);
     sh.vertexShader = sh.vertexShader.replace("#include <common>", "#include <common>\nvarying vec3 vWc;").replace("#include <project_vertex>", "#include <project_vertex>\nvWc = (modelMatrix * vec4(transformed, 1.0)).xyz;");
     sh.fragmentShader = sh.fragmentShader.replace("#include <common>", `#include <common>\nvarying vec3 vWc;\n${DECL}`)
-      .replace("#include <dithering_fragment>", `#include <dithering_fragment>\n  float ca = ${fn}(vWc); gl_FragColor.a *= ca;${kind === "facade" ? "\n  if (uCutY < 20.0 && uCutY > -3.0) gl_FragColor.rgb += vec3(1.0, 0.8, 0.5) * edgeLine(vWc) * 0.0;" : ""}`);
+      .replace("#include <dithering_fragment>", `#include <dithering_fragment>\n  float ca = ${fn}(vWc); if (ca < 0.02) discard; gl_FragColor.a *= ca;${kind === "facade" ? "\n  if (uCutY < 20.0 && uCutY > -3.0) gl_FragColor.rgb += vec3(1.0, 0.8, 0.5) * edgeLine(vWc) * 0.0;" : ""}`);
   };
   c.customProgramCacheKey = () => `cut-${kind}-${m.type}`;
   CACHE.set(key, c); return c;

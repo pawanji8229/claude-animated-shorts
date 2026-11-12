@@ -45,14 +45,21 @@ export const camMain = camPath([
   K(1050, [0.6, 4.5, 5.2], [0.0, 4.3, -5.0], 58),
   K(1088, [-4.2, 1.45, 7.8], [-3.0, 2.0, 2.0], 46),               // S12 today: following him past the house
   K(1140, [0.5, 2.7, 13.4], [0.0, 5.6, 0.0], 52),                 //     widen to the full house
-  K(1172, [0.4, 5.6, 7.2], [0.0, 4.0, -5.0], 56),                 // S13 reveal 2
-  K(1202, [0.3, 3.0, 2.2], [0.0, 0.0, -3.5], 60),                 //     in and down toward the shaft
-  K(1236, [1.4, -6.5, 4.4], [-0.8, -10.5, -3.4], 58),               //     down the shaft past the stair
-  K(1266, [-2.0, -18.5, 15.0], [-2.5, -19.4, 5.0], 54),            //     the train beneath
-  K(1286, [0.8, -6.5, 11.2], [-0.5, -19.0, 6.0], 60),             //     crane up over the cut street, still looking down at the train
-  K(1298, [2.4, 1.4, 10.8], [1.0, -6.0, 6.0], 56),               //     up through the open street as it closes
-  K(1316, [5.6, 1.6, 7.7], [2.0, 2.4, 1.6], 48),                  // S14 up to the street
-  K(1350, [2.0, 1.35, 7.4], [-1.5, 2.4, 0.8], 50),                //     tracking with the pedestrians (+ a glimpse below)
+  K(1168, [0.4, 4.4, 6.4], [0.0, 3.4, -5.0], 56),                 // S13 reveal 2: the wall dissolves, the fans
+  K(1192, [0.3, 2.5, 0.5], [0.1, -2.0, -2.6], 60),                //     in through the open front, tilting down into the shaft
+  K(1210, [0.4, -5.2, -1.8], [0.1, -14.0, -2.2], 64),             //     diving down the shaft beside the emergency stair
+  K(1228, [0.1, -18.4, -1.6], [0.0, -19.0, 3.0], 62),             //     the bottom: turn into the adit, the EXIT door ahead
+  K(1244, [0.0, -18.95, 2.3], [-7.0, -19.3, 5.2], 58),             //     through the emergency exit, turning down the tunnel
+  K(1250, [0.0, -18.95, 3.3], [-9.0, -19.3, 5.6], 56),             //     the walkway: the tunnel's depth, headlights coming
+  K(1264, [-2.0, -18.9, 3.55], [-14.0, -19.1, 6.0], 50),          //     pushing toward the approaching train
+  K(1280, [-3.0, -18.95, 3.6], [-7.0, -18.9, 6.2], 56),           //     the cab arrives level with us
+  K(1292, [-2.4, -18.9, 3.6], [2.0, -18.8, 6.6], 58),             //     pan with it: lit cars, passengers
+  K(1300, [-1.0, -18.9, 3.5], [4.0, -18.8, 5.6], 58),             //     tracking with the train...
+  K(1308, [0.0, -18.85, 2.3], [1.5, -18.6, 0.5], 60),             //     ...back through the exit door (air rushing past)
+  K(1316, [0.1, -18.45, -1.5], [0.0, -12.0, -2.2], 62),            //     into the adit, looking up the shaft
+  K(1332, [0.2, -7.0, -1.8], [0.2, 4.0, -5.0], 64),               //     riding the air up the shaft
+  K(1344, [0.3, 2.4, -1.6], [0.3, 3.0, -6.0], 60),                //     up between the fans
+  K(1362, [1.2, 2.2, 6.8], [-0.6, 2.4, 0.0], 54),                 // S14 pulling back out to the street; the wall closes
   K(1396, [-3.4, 1.25, 7.4], [-2.2, 2.4, 2.0], 44),               //     his side-eye
   K(1432, [-7.6, 1.2, 7.2], [-0.8, 3.7, 0.4], 49),               // S15 back to the opening composition
   { ...OPEN, f: FILM_FRAMES - 1 },

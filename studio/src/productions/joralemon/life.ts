@@ -5,7 +5,7 @@
 import { V3, lerp, smooth, clamp01, rng } from "../../lib/math";
 import { pose5, COSTUME, REST_L, REST_R, type Odo5Pose, type Costume } from "../../char/odo5";
 import { FACES, faceTrack, withFace, type FaceName } from "../short3/expr";
-import { SW_Y, PF, LANE, PARK_N, PARK_S, FILM_FRAMES, XF, eraAt, TUN } from "./world";
+import { SW_Y, PF, LANE, PARK_N, PARK_S, FILM_FRAMES, XF, eraAt, TUN, RAIL_Y, UWALK, ADIT, trainNowHead } from "./world";
 import type { Placed } from "./timeline";
 import type { CarType } from "./vehicles";
 
@@ -94,9 +94,13 @@ export const crewAt = (f: number): (Placed & { cart?: { p: V3; spin: number } })
     return { pose: faced, pos: [x, c.to[1] + 0.0, z] as V3, h: 1.5, flip: false, halo: 0.1, cart: c.cart ? { p: [x + 1.1, 0, z + 0.05] as V3, spin: d / 0.5 } : undefined }; }); };
 /** tunnel gang (S08): three men at the shield face */
 export const tunnelGangAt = (f: number, front: number): Placed[] => { if (!worksOn(f) || f > 720) return [];
-  return [0, 1, 2].map((i) => { const ph = (f * (0.8 + i * 0.27)) / 30 + i * 0.4, up = Math.max(0, Math.sin(ph * Math.PI * 2));
+  return [0, 1, 2].map((i): Placed => { const ph = (f * (0.8 + i * 0.27)) / 30 + i * 0.4, up = Math.max(0, Math.sin(ph * Math.PI * 2));
     const pose = withFace(pose5({ costume: CREW[(i + 2) % 6], holdR: i === 1 ? "hammer" : "shovel", armR: { hand: [50, lerp(80, -100, up)], elbow: [80, lerp(60, 0, up)], shape: "grip", rot: lerp(0.4, -2.0, up), bend: 1 }, blink: blinkAt(f, i + 40) }), FACES[up > 0.6 ? "focused" : "neutral"], f, 70 + i);
-    return { pose, pos: [front - 1.6 - i * 1.3, TUN.y - TUN.r + 0.55, TUN.z - 0.6 + i * 0.5] as V3, h: 1.45, halo: 0.1, light: 1.2 }; }); };
+    return { pose, pos: [front - 1.6 - i * 1.3, TUN.y - TUN.r + 0.55, TUN.z - 0.6 + i * 0.5] as V3, h: 1.45, halo: 0.1, light: 1.2 }; }).concat(muckNavvy(f, front)); };
+/** the navvy pushing the muck car back from the face (leaning into it on the way out, walking back for the next load) */
+const muckNavvy = (f: number, front: number): Placed[] => { if (f < 600 || f > 668) return []; const t = ((f - 600) % 34) / 34, x = front - 3.0 - Math.sin(t * Math.PI) * 5.5, out = t < 0.5;
+  const pose = withFace(gait(CREW[4], Math.abs(x) * 1.3, 1, 0.7, { lean: out ? 0.25 : 0.05, armR: { hand: [90, 20], elbow: [70, 40], shape: "grip", rot: 0, bend: 1 }, blink: blinkAt(f, 47) }), FACES[out ? "focused" : "neutral"], f, 47);
+  return [{ pose, pos: [x + (out ? 0.95 : -0.95), TUN.y - TUN.r + 0.6, TUN.z - 0.4] as V3, h: 1.45, flip: out, halo: 0.1, light: 1.2 }]; };
 /** the lorry with the fan: drives in 682-712 and parks; the derrick lifts the fan 716-748 onto its foundation */
 export const lorryAt = (f: number): { p: V3; spin: number; fanOn: boolean } | null => { if (!worksOn(f) || f < 670 || f > 1000) return null;
   const u = smooth(672, 712, f), away = smooth(770, 830, f), x = lerp(-40, LORRY_PARK[0], 1 - (1 - u) * (1 - u)) + away * away * 40; if (x > 45) return null; return { p: [x, 0, LORRY_PARK[2]], spin: (x + 40) / 0.5, fanOn: f < 716 }; };
@@ -139,3 +143,47 @@ export const shellCrewAt = (f: number): Placed[] => { if (!worksOn(f) || f < 101
     const pose = withFace(pose5({ costume: CREW[(i + 3) % 6], holdR: tool as Odo5Pose["holdR"], armR: tool ? { hand: [50, lerp(90, -110, up)], elbow: [80, lerp(60, -10, up)], shape: "grip", rot: lerp(0.4, -2.2, up), bend: 1 } : { hand: [30, -170], elbow: [60, -60], shape: "grip", rot: 3.0, bend: 1 }, lookY: tool ? 0.3 : -0.7, blink: blinkAt(f, i + 50) }), FACES[tool ? "focused" : "worried"], f, 95 + i);
     return { pose, pos: [x as number, -0.75, z as number] as V3, h: 1.5, halo: 0.12, light: 1.4 }; }); };
 export { REST_L, REST_R };
+
+// ---------------------------------------------------------------- today, underground: passengers in the train + crew
+const PAX_CAR_L = 15.6, PAX_PITCH = 16.0;
+type Pax = { c: Costume; dx: number; dz: number; seat: boolean; face: FaceName; late?: FaceName; h: number; arm: "bar" | "pole" | "rest" | "phone"; seed: number; prop?: Odo5Pose["holdR"] };
+const PAX: Pax[][] = (() => { const r = rng(5150), cars: Pax[][] = [];
+  const faces: FaceName[] = ["bored", "deadpan", "content", "talking", "bored", "focused", "deadpan", "worried", "smug", "bored"];
+  for (let c = 0; c < 5; c++) { const a: Pax[] = []; const n = 6 + Math.floor(r() * 3);
+    for (let i = 0; i < n; i++) { const base = BASES[Math.floor(r() * BASES.length)], seat = r() < 0.35;
+      const dx = -6.6 + (13.2 * (i + 0.2 + r() * 0.6)) / n, dz = seat ? -0.86 : (r() - 0.5) * 1.0;
+      a.push({ c: tint(base, { shirt: SHIRTS[Math.floor(r() * SHIRTS.length)], shirtShade: "#2a2a2a", hair: ["#3a2a1e", "#6b4a2e", "#2a2a2a", "#c9b090", "#8a5a32", "#d8d4cc"][Math.floor(r() * 6)] }, r() < 0.2 ? "bowler" : null),
+        dx, dz, seat, face: faces[Math.floor(r() * faces.length)], h: 1.4 + r() * 0.16, arm: seat ? "rest" : r() < 0.55 ? "bar" : r() < 0.5 ? "pole" : "phone", seed: 900 + c * 20 + i, prop: r() < 0.25 ? (["bag", "briefcase", "cup", "book"] as const)[Math.floor(r() * 4)] : undefined }); }
+    cars.push(a); }
+  // the lead car's front window: one rider notices the camera on the walkway (double-take, then a long side-eye)
+  cars[0][1] = { ...cars[0][1], dx: 3.2, dz: -0.35, seat: false, face: "deadpan", late: "sideEyeL", arm: "bar" };
+  cars[1][2] = { ...cars[1][2], dx: -1.5, dz: -0.3, seat: false, face: "bored", late: "shocked", arm: "pole" };
+  return cars; })();
+const BAR: Odo5Pose["armR"] = { hand: [62, -236], elbow: [96, -96], shape: "grip", rot: 0, bend: 1 };
+const POLE: Odo5Pose["armR"] = { hand: [58, -40], elbow: [86, 40], shape: "grip", rot: 0, bend: 1 };
+const PHONE: Odo5Pose["armR"] = { hand: [18, -6], elbow: [78, 70], shape: "grip", rot: 0.4, bend: 1 };
+/** passengers of the cars that are near the camera (sway with the car's motion; nobody moves in sync) */
+export const passengersAt = (f: number, cam: V3): (Placed & { flip?: boolean })[] => { const head = trainNowHead(f), out: (Placed & { flip?: boolean })[] = [];
+  for (let c = 0; c < 5; c++) { const cx = head - PAX_CAR_L / 2 - c * PAX_PITCH; if (Math.abs(cx - cam[0]) > 34) continue;
+    for (const p of PAX[c]) { const x = cx + p.dx; const sway = Math.sin(f * 0.13 + p.seed) * 0.03 + Math.sin(f * 0.051 + p.seed * 2) * 0.02;
+      // the two "noticers" react when they are level with the camera
+      const lvl = smooth(-3, 0.5, x - cam[0]) * (1 - smooth(4, 9, x - cam[0]));
+      const face = p.late && lvl > 0.5 ? FACES[p.late] : FACES[p.face];
+      const arm = p.arm === "bar" ? { armR: BAR } : p.arm === "pole" ? { armR: POLE } : p.arm === "phone" ? { armR: PHONE, lookY: 0.55 } : {};
+      const pose = withFace(pose5({ costume: p.c, ...arm, holdR: p.arm === "rest" ? p.prop : undefined, blink: blinkAt(f, p.seed), bodyRoll: sway * (p.seat ? 0.4 : 1), lookX: p.late && lvl > 0.5 ? -0.9 : 0.2 }), face, f, p.seed);
+      out.push({ pose, pos: [x, RAIL_Y + 1.13 - (p.seat ? 0.28 : 0), TUN.z + p.dz], h: p.h, halo: 0.05, flip: (p.seed % 2) === 0 }); } }
+  return out; };
+/** maintenance crew (authorised staff only): one at the damper panel in the adit, one on the walkway further down */
+const CREW_HV: Costume = tint(COSTUME.workerA, { shirt: "#c9e02a", shirtShade: "#9aac1c", hat: "#f07a1a", hatShade: "#b85a10", hair: "#3a2a1e" }, "hard");
+const CREW_HV2: Costume = tint(COSTUME.workerB, { shirt: "#e8f040", shirtShade: "#b0b62a", hat: "#f2f0e8", hatShade: "#c2bfb4" }, "hard");
+const panelFace = faceTrack([[0, "focused"], [1228, "focused"], [1231, "disbelief"], [1238, "sideEyeR"], [1300, "suspicious"], [1320, "focused"]] as [number, FaceName][], 4);
+export const tunnelCrewAt = (f: number): Placed[] => { const out: Placed[] = [];
+  // panel worker: checks the damper panel (wrench), turns at the passing camera (double-take), then side-eyes it
+  const turn = smooth(1228, 1233, f) * (1 - smooth(1300, 1316, f)), nod = Math.sin(f * 0.21) * 0.03 * (1 - turn);
+  out.push({ pose: withFace(pose5({ costume: CREW_HV, holdR: "wrench", blink: blinkAt(f, 61), headRoll: nod + turn * 0.1, lookX: lerp(-0.8, 0.5, turn), armR: turn > 0.5 ? REST_R : { hand: [-30, -60], elbow: [70, 20], shape: "grip", rot: -0.8, bend: 1 }, squash: -0.25 * smooth(1229, 1232, f) * (1 - smooth(1232, 1238, f)) }), panelFace(f), f, 61),
+    pos: [-1.3, ADIT.y0, 2.35], h: 1.5, halo: 0.12, light: 1.0 });
+  // walkway worker with a lamp, standing well back against the wall while the train passes
+  const back = smooth(1236, 1250, f), wf = faceTrack([[0, "content"], [1242, "focused"], [1290, "bored"]] as [number, FaceName][], 6)(f);
+  out.push({ pose: withFace(pose5({ costume: CREW_HV2, holdR: "wrench", blink: blinkAt(f, 62), lookX: -0.6 }), wf, f, 62),
+    pos: [-15.5, UWALK, lerp(3.85, 3.35, back)], h: 1.5, halo: 0.1, light: 0.8 });
+  return out; };

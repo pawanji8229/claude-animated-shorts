@@ -9,6 +9,7 @@ import { Kit, KitMesh, once } from "../short3/kit";
 import { V3, rng } from "../../lib/math";
 import { jMats, JM } from "./mats";
 import { TUN, CUT_Z, SHAFT, AREA_Y, VOID } from "./world";
+import { Lining1907 } from "./subway";
 
 const RE = TUN.r + 0.35, Y_RAIL = TUN.y - TUN.r + 0.95, ZT = TUN.z;
 const arc = (cz: number, cy: number, R: number, a0: number, a1: number, n = 28): [number, number][] => Array.from({ length: n + 1 }, (_, i) => { const a = a0 + ((a1 - a0) * i) / n; return [cz + Math.cos(a) * R, cy + Math.sin(a) * R]; });
@@ -74,8 +75,7 @@ export const UnderStatic: React.FC<{ front: number; era: "1907" | "now" }> = ({ 
   const xs = useMemo(() => { const a: number[] = []; for (let x = -60; x < 60; x += RING) a.push(x); return a; }, []);
   return (<group>
     <KitMesh kit={earthKit()} />
-    {xs.filter((x) => x < front).map((x) => <group key={x} position={[x + RING / 2, TUN.y, ZT]}><KitMesh kit={ring} /></group>)}
-    {(era === "now" || front > 50) && <KitMesh kit={trackKit()} />}
+    {era === "1907" ? <Lining1907 front={front} f={0} /> : <>{xs.filter((x) => x < front).map((x) => <group key={x} position={[x + RING / 2, TUN.y, ZT]}><KitMesh kit={ring} /></group>)}<KitMesh kit={trackKit()} /></>}
     {era === "now" && <KitMesh kit={shaftKit()} />}
     {[-24, -12, 0, 12, 24].map((x) => <pointLight key={x} position={[x, TUN.y + 1.2, ZT - 0.5]} color="#ffd9a0" intensity={7} distance={14} decay={1.3} />)}
     <pointLight position={[0, -8, 1]} color="#ffe6c0" intensity={7} distance={14} decay={1.4} />
@@ -113,7 +113,7 @@ export const Train: React.FC<{ x: number; era: "1907" | "now"; n?: number; dir?:
     <pointLight position={[CAR_L * 0.1, 2.0, 0]} color="#fff4d8" intensity={6} distance={14} decay={1.5} /></group>);
 
 // ---------------------------------------------------------------- airflow (streaks drawn from the tunnel up the shaft, through the fans, up the duct)
-const AIR: V3[] = [[-9, TUN.y + 0.6, ZT - 0.6], [-2, TUN.y + 0.8, ZT - 1.4], [0, SHAFT.y0 + 0.6, 0.4], [0, -8, -1.5], [0.2, AREA_Y + 0.6, -2.4], [0, 3.2, -5.2], [0, 3.6, -8.6], [0, 9, -8.2], [0, 13.5, -8.2]];
+const AIR: V3[] = [[-14, TUN.y + 0.4, ZT - 0.4], [-4, TUN.y + 0.7, ZT - 1.6], [2.8, -18.3, 3.2], [1.2, -18.6, 1.2], [0, -17.4, -1.8], [0, -9, -2.1], [0.2, AREA_Y + 0.6, -2.4], [0, 3.2, -5.2], [0, 3.6, -8.6], [0, 9, -8.2], [0, 13.5, -8.2]];
 const airPath = (() => { const c = new THREE.CatmullRomCurve3(AIR.map((p) => new THREE.Vector3(...p)), false, "centripetal"); return c; })();
 /** soft wisp: alpha fades along the length and across the width (reads as moving air, not as a hard line) */
 const wispTex = () => once("wispTex", () => { const c = document.createElement("canvas"); c.width = 32; c.height = 256; const g = c.getContext("2d")!;
