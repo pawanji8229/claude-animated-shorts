@@ -296,7 +296,7 @@ export const SubwayStatic: React.FC<{ f: number }> = ({ f }) => {
   return (<group>
     <KitMesh kit={liningKit()} /><KitMesh kit={trackKit()} /><KitMesh kit={lampKit()} /><KitMesh kit={sigKit()} /><KitMesh kit={shaftKit()} />
     <SigLenses f={f} />
-    {near.map((l, i) => { const p = lampPos(l); return <pointLight key={i} position={[p[0], p[1] - 0.15, p[2] - l.s * 0.2]} color="#ffd59a" intensity={5.5} distance={11} decay={1.5} />; })}
+    {near.map((l, i) => { const p = lampPos(l); return <pointLight key={i} position={[p[0], p[1] - 0.15, p[2] - l.s * 0.2]} color="#ffd59a" intensity={7} distance={13} decay={1.5} />; })}
     {[[0, -3.0, -2.2], [0, -9.5, -2.2], [0, -15.8, -2.2], [0, ADIT.y1 - 0.5, 1.4]].map((p, i) => <pointLight key={`s${i}`} position={p as V3} color="#ffdcae" intensity={6} distance={9} decay={1.5} />)}
     <pointLight position={[0, DOOR.y1 + 0.3, ADIT.zW + 0.4]} color="#ff3a2a" intensity={1.6} distance={4} decay={1.6} />
     <pointLight position={[-9.2, yr(0.75), ZT - R + 0.6]} color="#5a8aff" intensity={1.2} distance={4} decay={1.6} />

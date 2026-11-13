@@ -278,3 +278,37 @@ def muck_cart(r, d=1.6):
     for at in np.arange(0.1, d, 0.38):
         i = ns(at); L = min(ns(0.04), n - i); y[i:i + L] += bp(colored(L, r, 0.2), 600, 3500) * np.exp(-np.arange(L) / (SR * 0.006)) * 0.6
     return fades(y * np.sin(np.pi * u) ** 0.5 * 0.6, 0.1, 0.2)
+
+
+# ---------------------------------------------------------------- footsteps (rebuilt): leather/rubber soles, per surface
+def shoe_step(r, surface="concrete", foot=0, weight=1.0):
+    """one natural footstep = heel contact (a short, bright, dry tick with a little dull weight underneath, no tonal
+    'boom') + the sole rolling down 45-90 ms later (soft gritty scuff) + an occasional faint toe-off scrape.
+    foot 0/1 gives each foot its own slight colour so left/right alternate naturally; every instance is varied
+    (timing, brightness, heel/sole balance, grit). surface: concrete (sidewalk), wood (parlour boards),
+    tunnel (concrete walkway inside the tube: short slap + small cast-iron reverb)."""
+    d = 0.24; n = ns(d); t = np.arange(n) / SR; y = np.zeros(n)
+    bright = r.uniform(0.85, 1.15) * (1.06 if foot else 0.95)
+    # heel: 2-4 ms click (filtered noise) + a very low, very short weight thump (lowpassed noise, not a resonance)
+    hl = ns(0.03); th = np.arange(hl) / SR
+    click = bp(r.standard_normal(hl), 1400 * bright, 6500 * bright, 2) * np.exp(-th / r.uniform(0.0022, 0.0035))
+    thump = lp(r.standard_normal(hl), r.uniform(260, 380), 2) * np.exp(-th / r.uniform(0.007, 0.011)) * r.uniform(0.35, 0.55) * weight
+    y[:hl] += click + thump
+    # sole roll: soft scuff with grit, raised-cosine envelope
+    s0 = r.uniform(0.045, 0.085) * (1.0 + 0.08 * (foot - 0.5)); sl = ns(r.uniform(0.035, 0.06)); i0 = ns(s0)
+    env = np.sin(np.pi * np.arange(sl) / sl) ** 1.5
+    scuff = bp(colored(sl, r, 0.3), 900 * bright, 5500 * bright, 1) * env * r.uniform(0.18, 0.32)
+    grit = (r.random(sl) < 0.004) * r.uniform(-1, 1, sl); grit = hp(grit, 2500, 2) * env * 0.5
+    y[i0:i0 + sl] += scuff + grit
+    if r.random() < 0.35:                                           # toe-off scrape (sometimes)
+        tl = ns(0.04); j = min(n - tl, i0 + sl + ns(r.uniform(0.01, 0.03)))
+        y[j:j + tl] += bp(colored(tl, r, 0.2), 2000, 7000, 1) * np.hanning(tl) * r.uniform(0.05, 0.1)
+    if surface == "wood":                                           # boards: a damped knock in the low mids + rare faint creak
+        knock = modal(0.06, [(r.uniform(320, 420), 0.5, 0.012), (r.uniform(650, 820), 0.3, 0.008)], r)
+        y[:len(knock)] += knock * 0.35 * weight; y = lp(y, 7000, 2)
+        if r.random() < 0.2:
+            cl = ns(0.12); f0 = r.uniform(500, 700); y[ns(0.06):ns(0.06) + cl] += np.sin(phase(np.full(cl, f0) * (1 + 0.05 * np.linspace(0, 1, cl)))) * np.hanning(cl) * 0.025
+    y = fades(y, 0.0004, 0.03)
+    if surface == "tunnel":
+        return _tunnel(y * 0.9, wet=0.22, rt=1.5)
+    return y

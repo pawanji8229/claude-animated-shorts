@@ -51,11 +51,11 @@ export const JSet: React.FC<SetProps> = ({ era, camAt, frameOverride, hideHero, 
   return (
     <AbsoluteFill style={{ backgroundColor: "#a9c7e6" }}>
       <ThreeCanvas width={width} height={height} shadows={{ type: THREE.PCFSoftShadowMap }} gl={{ antialias: false, toneMapping: THREE.NoToneMapping, preserveDrawingBuffer: true }} camera={{ fov: c.fov, position: c.pos, near: 0.08, far: 900 }}>
-        <SetRig c={c} bg={ua > 0.5 ? "#141312" : "#a9c7e6"} fog={ua > 0.01 ? [lerpHex("#d2dde6", "#1b1a18", ua), lerp(70, 5, ua), lerp(330, 62, ua)] : ["#d2dde6", 70, 330]} env={0.3} />
-        <SkyEnv intensity={lerp(0.55, 0.16, ua)} warm={warm} />
+        <SetRig c={c} bg={ua > 0.5 ? "#141312" : "#a9c7e6"} fog={ua > 0.01 ? [lerpHex("#d2dde6", "#1b1a18", ua), lerp(70, 5, ua), lerp(330, 80, ua)] : ["#d2dde6", 70, 330]} env={0.3} />
+        <SkyEnv intensity={lerp(0.55, 0.22, ua)} warm={warm} />
         <InkCtx.Provider value={2.5 * k}>
           <mesh><sphereGeometry args={[700, 32, 16]} /><meshBasicMaterial side={THREE.BackSide} fog={false} depthWrite={false} color={now ? "#a3c6ea" : "#c4cfd8"} /></mesh>
-          <hemisphereLight args={["#dde9ff", "#a8987e", lerp(1.5, 0.18, ua)]} />
+          <hemisphereLight args={["#dde9ff", "#a8987e", lerp(1.5, 0.3, ua)]} />
           <directionalLight position={SUN} color={now ? "#fff2dc" : "#ffe2b8"} intensity={3.3 * (1 - ua)} castShadow
             shadow-mapSize={[hi ? 4096 : 2048, hi ? 4096 : 2048]} shadow-camera-left={-45} shadow-camera-right={45} shadow-camera-top={45} shadow-camera-bottom={-45} shadow-camera-far={260} shadow-bias={-0.0003} shadow-normalBias={0.035} />
           <Ground cut={gc > 0} />
@@ -68,7 +68,7 @@ export const JSet: React.FC<SetProps> = ({ era, camAt, frameOverride, hideHero, 
           {gc > 0.001 && w1907 && front < 40 && <Shield x={front} />}
           {gc > 0.001 && w1907 && <Train1907 head={-70 + (f - 610) * 0.95} />}
           {gc > 0.001 && w1907 && (() => { const m = muckAt(f, front); return m ? <MuckCar p={m} /> : null; })()}
-          {now && (gc > 0.001 || cutY < 2 || sub) && <Airflow f={f} amt={Math.max(gc, cutY < 2 || sub ? 1 : 0)} />}
+          {now && (gc > 0.001 || cutY < 2 || sub) && <Airflow f={f} amt={Math.max(gc, cutY < 2 || sub ? 1 : 0)} cam={c.pos} />}
           {sub && <SubwayStatic f={f} />}
           {sub && <TrainNow f={f} />}
           {sub && L.passengersAt(f, c.pos).map((p, i) => <Toon key={`px${i}`} pose={p.pose} pos={p.pos} cam={c.pos} h={p.h} hi={hi} halo={0.06} flip={p.flip} texScale={0.7} />)}

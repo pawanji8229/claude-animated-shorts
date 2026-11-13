@@ -17,35 +17,44 @@ const blinkAt = (f: number, seed: number) => ((f + seed * 37) % (71 + (seed % 5)
 const nowOn = (f: number) => f < XF.home[1] || f >= XF.now[0];
 
 // ---------------------------------------------------------------- today: pedestrians
-type Ped = { c: Costume; t0: number; x0: number; v: number; z: number; h: number; prop?: Odo5Pose["holdR"]; face: FaceName; stride: number; dog?: boolean; seed: number };
+type Ped = { c: Costume; t0: number; x0: number; fc: number; v: number; z: number; h: number; prop?: Odo5Pose["holdR"]; face: FaceName; stride: number; dog?: boolean; seed: number };
 const SHIRTS = ["#3b4a5c", "#8a4a3a", "#556b4a", "#6a5a7a", "#2a2a33", "#b0703a", "#3a5a6a", "#7a3a52", "#4a6a8a", "#9a8a5a", "#5a6a3a"];
 const BASES = [COSTUME.clerk, COSTUME.hal, COSTUME.workerA, COSTUME.odo];
 const mkPeds = (): Ped[] => { const r = rng(808), out: Ped[] = [];
   const add = (t0: number, x0: number, dir: 1 | -1, z: number, prop?: Odo5Pose["holdR"], extra: Partial<Ped> = {}) => { const base = BASES[Math.floor(r() * BASES.length)];
     out.push({ c: tint(base, { shirt: SHIRTS[Math.floor(r() * SHIRTS.length)], shirtShade: "#2a2a2a", hair: ["#3a2a1e", "#6b4a2e", "#2a2a2a", "#c9b090", "#8a5a32"][Math.floor(r() * 5)] }, r() < 0.25 ? "bowler" : null),
-      t0, x0, v: dir * (1.15 + r() * 0.5), z, h: 1.42 + r() * 0.14, prop, face: (["content", "bored", "neutral", "talking", "deadpan", "content"] as FaceName[])[Math.floor(r() * 6)], stride: 0.7 + r() * 0.12, seed: out.length + 3, ...extra }); };
+      t0, x0, fc: 0, v: dir * (1.15 + r() * 0.5), z, h: 1.42 + r() * 0.14, prop, face: (["content", "bored", "neutral", "talking", "deadpan", "content"] as FaceName[])[Math.floor(r() * 6)], stride: 0.7 + r() * 0.12, seed: out.length + 3, ...extra }); };
   // north sidewalk (z 3.95 / 4.3): the S05 passers-by cross in front of the stoop around frames 335-365
-  add(252, 4.5, -1, 3.95, "grocery", { v: -1.3, face: "content" });                  // neighbour with a shopping bag
-  add(222, -5.5, 1, 4.45, undefined, { v: 1.05, dog: true, face: "bored" });         // dog walker
+  add(225, 4.5, -1, 3.95, "grocery", { v: -1.3, face: "content" });                  // neighbour with a shopping bag
+  add(300, -5.5, 1, 4.45, undefined, { v: 1.05, dog: true, face: "bored" });         // dog walker
   add(1360, 9, -1, 4.25, "cup", { face: "content" }); add(1300, -9, 1, 4.3, "briefcase", { face: "deadpan" }); add(1335, 12, -1, 3.95, "grocery", { face: "bored" });
   add(90, -18, 1, 4.1, undefined, { v: 2.9, stride: 1.25, face: "focused", h: 1.5 });   // jogger
   add(1150, 15, -1, 4.0, "grocery", { v: -1.0, face: "talking" }); add(1150, 15.55, -1, 4.45, undefined, { v: -1.0, h: 1.04, face: "content", stride: 0.5 });   // parent + child
-  add(1110, -12, 1, 4.25); add(1240, -9, 1, 4.6, "cup"); add(20, 11, -1, 4.25, "briefcase"); add(1430, -14, 1, 4.25, "grocery");
+  add(1060, -12, 1, 4.25); add(1240, -9, 1, 4.6, "cup"); add(20, 11, -1, 4.25, "briefcase"); add(1430, -14, 1, 4.25, "grocery");
   add(160, 12, -1, 4.25, "cup"); add(230, -12, 1, 4.0); add(N - 60, 9, -1, 15.2, "grocery"); add(N - 200, 16, -1, 15.2, "bag");
   // far sidewalk (z 15.1 / 15.6)
   for (const [t0, dir] of [[0, 1], [140, -1], [260, 1], [380, -1], [1080, 1], [1200, -1], [1290, 1], [1390, -1]] as [number, 1 | -1][]) add(t0, dir > 0 ? -22 : 22, dir, r() < 0.5 ? 15.15 : 15.6, r() < 0.3 ? "bag" : r() < 0.5 ? "briefcase" : undefined);
+  // fc = the frame each person crosses x = 0 (in front of No. 58). Default: where the (t0, x0) start puts them;
+  // overrides keep the opening's window close-ups clear (nobody walks between the lens and the house 110-460) and
+  // gather the passers-by into the ending ("people walk past it every day").
+  const FC: Record<number, number> = { 0: 20, 1: 480, 2: 1300, 3: 1395, 4: 1420, 5: 30, 6: 1290, 7: 1307, 10: 1180, 11: 1220, 12: 1120, 13: 1250 };
+  out.forEach((p, i) => { p.fc = FC[i] ?? Math.round(p.t0 + (-p.x0 / p.v) * 30); if (i === 0) p.z = 4.45; });
   return out; };
 export const PEDS = mkPeds();
+/** walked distance (signed time from the x = 0 crossing, wrapped to +-half a loop) and position; null when the person is
+ *  far down the street (beyond the point where the loop wraps them round, so nobody ever appears or vanishes in view) */
+export const pedTrack = (p: Ped, f: number, ahead = 0): { d: number; x: number } | null => { let t = (f - p.fc) / 30; const T = N / 30; t = ((t + T / 2) % T + T) % T - T / 2;
+  const d = Math.abs(p.v) * t, x = Math.sign(p.v) * (d + ahead), lim = Math.min(30, (Math.abs(p.v) * T) / 2 - 0.6); return Math.abs(x) > lim ? null : { d, x }; };
 export const pedsAt = (f: number): Placed[] => { if (!nowOn(f)) return [];
-  return PEDS.flatMap((p) => { const t = wrap(f, p.t0) / 30, d = Math.abs(p.v) * t, x = p.x0 + Math.sign(p.v) * d; if (Math.abs(x) > 34) return [];
+  return PEDS.flatMap((p) => { const tr = pedTrack(p, f); if (!tr) return []; const { d, x } = tr;
     const face = withFace(gait(p.c, d, 1, p.stride, { holdR: p.prop, blink: blinkAt(f, p.seed), lookX: p.face === "talking" ? 0.6 : 0.2 }), FACES[p.face], f, p.seed);
     return [{ pose: face, pos: [x, SW_Y, p.z] as V3, h: p.h, flip: p.v < 0, halo: 0.08 }]; }); };
 /** dog of the dog walker: trots 0.9 m ahead on the kerb side */
 export const dogsAt = (f: number): { pos: V3; flip: boolean; phase: number }[] => { if (!nowOn(f)) return [];
-  return PEDS.filter((p) => p.dog).flatMap((p) => { const t = wrap(f, p.t0) / 30, d = Math.abs(p.v) * t, x = p.x0 + Math.sign(p.v) * (d + 0.95); if (Math.abs(x) > 34) return [];
+  return PEDS.filter((p) => p.dog).flatMap((p) => { const tr = pedTrack(p, f, 0.95); if (!tr) return []; const { d, x } = tr;
     return [{ pos: [x, SW_Y, p.z + 0.35] as V3, flip: p.v < 0, phase: d / 0.55 }]; }); };
 export const leashes = (f: number): { a: V3; b: V3 }[] => { if (!nowOn(f)) return [];
-  return PEDS.filter((p) => p.dog).flatMap((p) => { const t = wrap(f, p.t0) / 30, d = Math.abs(p.v) * t, x = p.x0 + Math.sign(p.v) * d, s = Math.sign(p.v); if (Math.abs(x) > 34) return [];
+  return PEDS.filter((p) => p.dog).flatMap((p) => { const tr = pedTrack(p, f), s = Math.sign(p.v); if (!tr) return []; const x = tr.x; if (Math.abs(x) > 34) return [];
     return [{ a: [x + s * 0.18, SW_Y + 0.8, p.z + 0.05] as V3, b: [x + s * 0.9, SW_Y + 0.36, p.z + 0.33] as V3 }]; }); };
 
 // ---------------------------------------------------------------- today: cyclist + traffic (periodic)
@@ -61,7 +70,7 @@ export const carsAt = (f: number): { p: V3; ry: number; spin: number; type: CarT
   return RUNS.flatMap((c) => { let t = f - c.fc; if (t > N / 2) t -= N; if (t < -N / 2) t += N; const x = (t * c.v) / 30; if (Math.abs(x) > 85) return []; return [{ p: [x, 0.0, LANE] as V3, ry: 0, spin: x / 0.33, type: c.type, color: c.color }]; }); };
 export const PARKED: { p: V3; ry: number; type: CarType; color: string }[] = [
   ...[[-31, "suv", "#5a5e62"], [-25.2, "sedan", "#a8acb0"], [-19.8, "hatch", "#2c4a6a"], [9.6, "sedan", "#6a1e1e"], [15.4, "van", "#d8d6d0"], [21.6, "hatch", "#e2c23a"], [27.3, "sedan", "#202224"]].map(([x, t, c]) => ({ p: [x as number, 0, PARK_N] as V3, ry: 0, type: t as CarType, color: c as string })),
-  ...[[-27, "sedan", "#3a3d42"], [-21.2, "suv", "#1f2a1f"], [-15.6, "hatch", "#9aa0a6"], [-9.8, "sedan", "#5a2a3a"], [-4.0, "van", "#2a3a5a"], [1.9, "sedan", "#c8c8c4"], [7.6, "suv", "#4a4a4c"], [13.4, "hatch", "#2a6a8a"], [19.2, "sedan", "#7a5a3a"], [25.1, "sedan", "#e0e0dc"]].map(([x, t, c]) => ({ p: [x as number, 0, PARK_S] as V3, ry: Math.PI, type: t as CarType, color: c as string })),
+  ...[[-27, "sedan", "#3a3d42"], [-21.2, "suv", "#1f2a1f"], [-15.6, "hatch", "#9aa0a6"], [-9.8, "sedan", "#5a2a3a"], [7.6, "suv", "#4a4a4c"], [13.4, "hatch", "#2a6a8a"], [19.2, "sedan", "#7a5a3a"], [25.1, "sedan", "#e0e0dc"]].map(([x, t, c]) => ({ p: [x as number, 0, PARK_S] as V3, ry: Math.PI, type: t as CarType, color: c as string })),
 ];
 
 // ---------------------------------------------------------------- 1847: the family in the parlour (world == No. 58-local here)

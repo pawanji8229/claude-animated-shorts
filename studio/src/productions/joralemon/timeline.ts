@@ -8,21 +8,15 @@ import { SW_Y, PF, STOOP, FILM_FRAMES } from "./world";
 
 // ================================================================ camera
 const K = (f: number, pos: V3, look: V3, fov: number) => ({ f, pos, look, fov });
-const OPEN = K(0, [-9.5, 1.05, 7.6], [-0.2, 2.6, 1.2], 54);
+const OPEN = K(0, [-1.3, 1.6, 15.4], [-0.5, 4.7, 0.0], 54);   // across the street: the whole house, readable and still
 export const camMain = camPath([
   OPEN,
-  K(40, [-7.0, 1.1, 7.5], [-0.8, 2.3, 1.8], 54),                 // S01 low tracking along the sidewalk
-  K(76, [-4.6, 1.3, 7.6], [-0.4, 2.5, 1.8], 50),                  //     rising push toward No. 58
-  K(112, [-2.6, 1.2, 7.8], [-0.8, 2.6, 2.2], 50),                // S02 he looks left / right
-  K(152, [-1.0, 1.0, 7.4], [0.6, 2.6, 1.6], 56),               //     the pigeons burst up as he steps in...
-  K(180, [-0.4, 1.0, 6.8], [1.3, 4.6, 0.8], 58),                 //     dolly in, tilting up
-  K(196, [0.4, 1.0, 5.8], [0.2, 3.6, 0.0], 56),                  //     the upper windows
-  K(222, [0.5, 0.95, 4.8], [0.1, 3.0, 0.0], 56),                 // S03 push in to the black parlour window
-  K(256, [0.4, 0.95, 4.2], [0.1, 2.9, 0.0], 56),             //     his confused face in the foreground
-  K(284, [-2.6, 2.5, 4.4], [-6.2, 3.3, 0.0], 44),              // S04 slide to No. 56's window (curtains)
-  K(306, [0.4, 1.0, 4.3], [0.1, 2.9, 0.0], 56),                 //     and back to the black glass
-  K(330, [-0.9, 2.3, 4.6], [-2.0, 2.7, 0.2], 46),                 // S05 down to the steel door
-  K(352, [1.5, 1.9, 7.6], [-0.4, 2.1, 1.6], 48),                  //     wider: passers-by on the sidewalk
+  K(70, [-1.15, 1.58, 14.3], [-0.5, 4.6, 0.0], 53),              // S01 a slow push across the street (he walks in, a car + a cyclist pass)
+  K(130, [-0.8, 1.45, 11.6], [-0.3, 4.9, 0.0], 51),               // S02 "look carefully": still pushing, gently lowering
+  K(196, [0.45, 0.98, 7.5], [0.15, 4.7, 0.0], 57),                // S03 "its windows are completely dark": all three storeys + him below
+  K(254, [0.55, 0.96, 6.7], [0.15, 4.3, 0.0], 56),                //     hold (a slow creep only)
+  K(300, [0.95, 1.02, 5.5], [0.1, 3.4, 0.0], 50),                 // S04 "no curtains": the bare black parlour window over his shoulder
+  K(342, [0.75, 1.15, 5.6], [-0.9, 2.9, 0.6], 50),                // S05 "nobody seems to be home": ease toward the shut door
   K(374, [0.35, 1.72, 3.95], [0.15, 1.62, 2.25], 38),             //     "Seriously?" (his face)
   K(404, [0.9, 1.1, 8.2], [0.2, 4.6, 0.0], 58),                  // S06 reveal 1: back + up, the wall dissolves
   K(444, [0.7, 2.2, 6.6], [0.0, 4.0, -3.0], 56),
@@ -61,8 +55,8 @@ export const camMain = camPath([
   K(1332, [0.2, -7.0, -1.8], [0.2, 4.0, -5.0], 64),               //     riding the air up the shaft
   K(1344, [0.3, 2.4, -1.6], [0.3, 3.0, -6.0], 60),                //     up between the fans
   K(1362, [1.2, 2.2, 6.8], [-0.6, 2.4, 0.0], 54),                 // S14 pulling back out to the street; the wall closes
-  K(1396, [-3.4, 1.25, 7.4], [-2.2, 2.4, 2.0], 44),               //     his side-eye
-  K(1432, [-7.6, 1.1, 7.4], [-0.4, 2.8, 1.0], 53),               // S15 back to the opening composition
+  K(1398, [-2.5, 1.5, 11.2], [-2.7, 1.9, 3.7], 30),              //     his side-eye (long lens from across the street)
+  K(1440, [-1.5, 1.62, 15.9], [-0.5, 4.7, 0.0], 54),              // S15 settle back into the opening composition
   { ...OPEN, f: FILM_FRAMES - 1 },
 ], 5);
 export const camAt = (f: number): Cam => camMain(f);

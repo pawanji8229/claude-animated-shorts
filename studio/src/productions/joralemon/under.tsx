@@ -119,12 +119,13 @@ const airPath = (() => { const c = new THREE.CatmullRomCurve3(AIR.map((p) => new
 const wispTex = () => once("wispTex", () => { const c = document.createElement("canvas"); c.width = 32; c.height = 256; const g = c.getContext("2d")!;
   for (let y = 0; y < 256; y++) { const v = Math.sin((y / 255) * Math.PI) ** 1.6; const grd = g.createLinearGradient(0, 0, 32, 0); grd.addColorStop(0, "rgba(255,255,255,0)"); grd.addColorStop(0.5, `rgba(255,255,255,${v})`); grd.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = grd; g.fillRect(0, y, 32, 1); }
   return new THREE.CanvasTexture(c); });
-const streakMat = () => once("streak", () => new THREE.MeshBasicMaterial({ color: "#cfeeff", map: wispTex(), transparent: true, opacity: 0.2, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false, side: THREE.DoubleSide }));
-export const Airflow: React.FC<{ f: number; amt: number }> = ({ f, amt }) => { const geo = useMemo(() => new THREE.PlaneGeometry(0.16, 1.6), []);
+const streakMat = (i = 0) => once("streak" + i, () => new THREE.MeshBasicMaterial({ color: "#cfeeff", map: wispTex(), transparent: true, opacity: 0.13, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false, side: THREE.DoubleSide }));
+export const Airflow: React.FC<{ f: number; amt: number; cam?: V3 }> = ({ f, amt, cam }) => { const geo = useMemo(() => new THREE.PlaneGeometry(0.12, 1.5), []);
   if (amt <= 0.01) return null; const r = rng(3);
-  return <>{Array.from({ length: 46 }, (_, i) => { const lane = r(), off: V3 = [(r() - 0.5) * 1.6, (r() - 0.5) * 0.8, (r() - 0.5) * 1.2]; const u = ((f * 0.0065 + i / 46) % 1);
+  return <>{Array.from({ length: 30 }, (_, i) => { const lane = r(), off: V3 = [(r() - 0.5) * 1.6, (r() - 0.5) * 0.8, (r() - 0.5) * 1.2]; const u = ((f * 0.0065 + i / 30) % 1);
     const p = airPath.getPointAt(u), t = airPath.getTangentAt(u); const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), t);
     const fade = Math.min(1, u * 8, (1 - u) * 8) * amt; void lane;
-    return <mesh key={i} geometry={geo} material={streakMat()} position={[p.x + off[0], p.y + off[1], p.z + off[2]]} quaternion={q} scale={[1, 0.6 + fade * 0.6, 1]} visible={fade > 0.05} />; })}</>;
+    const dc = cam ? Math.hypot(p.x + off[0] - cam[0], p.y + off[1] - cam[1], p.z + off[2] - cam[2]) : 9, near = Math.min(1, Math.max(0, (dc - 1.8) / 1.6)), m = streakMat(i); m.opacity = 0.13 * near;   // fade out (never pop) near the lens
+    return <mesh key={i} geometry={geo} material={m} position={[p.x + off[0], p.y + off[1], p.z + off[2]]} quaternion={q} scale={[1, 0.6 + fade * 0.6, 1]} visible={fade * near > 0.03} />; })}</>;
 };
 export { Y_RAIL };

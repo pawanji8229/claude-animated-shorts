@@ -4,7 +4,8 @@
 import { FPS, FILM_FRAMES, XF, eraAt, facadeCut, groundCut, trainNowHead, UNDER_ON, TUN } from "./world";
 import { PIGEONS, pigeonsAt } from "./fauna";
 import { camAt, heroAt } from "./timeline";
-import { PEDS, RUNS, CREW_PLAN, fanLift, cyclistAt } from "./life";
+import { PEDS, pedTrack, RUNS, CREW_PLAN, fanLift, cyclistAt, pedsAt, crewAt, familyAt, tunnelCrewAt, engineerAt, residentsAt, convCrewAt, shellCrewAt } from "./life";
+import { courierAt } from "./streetlife";
 
 export { FPS, FILM_FRAMES };
 export type SoundEvent = { frame: number; kind: string; x: number; gain: number; note?: string };
@@ -16,13 +17,39 @@ export const soundEvents = (): SoundEvent[] => {
   const add = (frame: number, kind: string, x: number, gain: number, note: string) => { const f = ((Math.round(frame) % N) + N) % N; ev.push({ frame: f, kind, x: clampPan(x), gain, note }); };
   const outside = (f: number) => camAt(f).pos[1] > 0.2 && (camAt(f).pos[2] > 0 || facadeCut(f) < 14);
   const panOf = (f: number, wx: number) => { const c = camAt(f); return (wx - c.look[0]) / 6; };
-  // ---- the hero's footsteps (bluestone flags): one per half gait cycle of walked distance
-  { let acc = 0, prev = heroAt(0); for (let f = 1; f < N; f++) { const h = heroAt(f); if (h && prev && h.pose.walk > 0.3) { acc += Math.hypot(h.pos[0] - prev.pos[0], h.pos[2] - prev.pos[2]); if (acc > 0.475) { acc = 0; add(f, "step_stone", panOf(f, h.pos[0]), 0.75, "the hero's shoes on the bluestone sidewalk"); } } prev = h; } }
-  // ---- pedestrians close to the camera (each on their own stride)
-  for (const p of PEDS) { const half = p.stride / 2; let last = -1;
-    for (let f = 0; f < N; f++) { if (eraAt(f) !== "now") continue; const t = (((f - p.t0) % N) + N) % N / 30, d = Math.abs(p.v) * t, x = p.x0 + Math.sign(p.v) * d, k = Math.floor(d / half);
-      if (k !== last && last >= 0 && Math.abs(x - camAt(f).pos[0]) < 9 && Math.abs(p.z - camAt(f).pos[2]) < 9 && outside(f)) add(f, "step_stone", panOf(f, x), p.z > 10 ? 0.25 : 0.45, `pedestrian ${p.seed} footstep`);
-      if (p.dog && k !== last && last >= 0 && k % 2 === 0 && Math.abs(x - camAt(f).pos[0]) < 9 && outside(f)) add(f + 3, "dog_paws", panOf(f, x + 0.9), 0.7, "the dog trots beside its walker");
+  // ---- FOOTSTEPS: one per foot contact. The rig's walk cycle puts a heel strike at every integer of 2 x gait (two
+  //      steps per gait cycle), so a step is placed on the exact frame that count advances, alternating left/right.
+  //      Only feet that are walking (walk > 0.3) make a sound - never a standing character. Surface from where the
+  //      feet are (sidewalk concrete / 1847 parlour boards / tunnel walkway). Level falls with distance; feet that are
+  //      off screen or far away are silent, so steps never become a background bed.
+  const inView = (f: number, p: number[]) => { const c = camAt(f), P = [p[0], p[1] + 0.8, p[2]];
+    const fw = [c.look[0] - c.pos[0], c.look[1] - c.pos[1], c.look[2] - c.pos[2]], fl = Math.hypot(...fw); fw[0] /= fl; fw[1] /= fl; fw[2] /= fl;
+    const rt = [-fw[2], 0, fw[0]], rl = Math.hypot(...rt) || 1; rt[0] /= rl; rt[2] /= rl; const up = [rt[1] * fw[2] - rt[2] * fw[1], rt[2] * fw[0] - rt[0] * fw[2], rt[0] * fw[1] - rt[1] * fw[0]];
+    const d = [P[0] - c.pos[0], P[1] - c.pos[1], P[2] - c.pos[2]], dist = Math.hypot(...d), z = d[0] * fw[0] + d[1] * fw[1] + d[2] * fw[2];
+    const x = d[0] * rt[0] + d[1] * rt[1] + d[2] * rt[2], y = d[0] * up[0] + d[1] * up[1] + d[2] * up[2], tv = Math.tan((((c.fov ?? 50) / 2) * Math.PI) / 180), th = tv * 9 / 16;
+    const sameSide = (c.pos[1] < -2) === (p[1] < -2);   // never hear feet through the ground (street <-> tunnel)
+    return { dist, vis: sameSide && z > 0.3 && Math.abs(x / z) < th + 0.06 && Math.abs(y / z) < tv + 0.1 }; };
+  const surfaceAt = (f: number, p: number[]) => (p[1] < -10 ? "tunnel" : eraAt(f) === "1847" && p[1] > 1 ? "wood" : "concrete");
+  const steps = (who: string, get: (f: number) => { pos: number[]; pose: { gait: number; walk: number } }[] | null, f0: number, f1: number, near: number, maxDist: number, gMax: number) => {
+    const last = new Map<number, number>(), lpos = new Map<number, number[]>();
+    for (let f = f0; f < f1; f++) { const L = get(f) ?? []; const seen = new Set<number>();
+      L.forEach((a, i) => { seen.add(i); if (!a || a.pose.walk < 0.3) { last.delete(i); return; } const k = Math.floor(a.pose.gait * 2), lp = lpos.get(i), jump = !lp || Math.hypot(a.pos[0] - lp[0], a.pos[2] - lp[2]) > 0.4; const pk = jump ? undefined : last.get(i); last.set(i, k); lpos.set(i, a.pos);
+        if (pk === undefined || k === pk) return; const { dist, vis } = inView(f, a.pos); if (!vis || dist > maxDist) return;
+        const g = Math.min(gMax, Math.max(0.1, near / Math.max(dist, 0.5))); add(f, `step_${surfaceAt(f, a.pos)}_${k % 2 ? "r" : "l"}`, panOf(f, a.pos[0]), g, `${who} ${i}: ${k % 2 ? "right" : "left"} foot down`); });
+      for (const i of [...last.keys()]) if (!seen.has(i)) last.delete(i); } };
+  steps("hero", (f) => { const h = heroAt(f); return h ? [h] : null; }, 0, N, 3.5, 22, 1.0);
+  steps("pedestrian", (f) => pedsAt(f), 0, N, 2.6, 10, 0.5);
+  steps("courier", (f) => { const c = courierAt(f, eraAt(f) === "now"); return c ? [c] : null; }, 0, N, 2.6, 12, 0.5);
+  steps("1907 crewman", (f) => crewAt(f), XF.works[0], XF.now[1], 2.6, 14, 0.5);
+  steps("engineer", (f) => { const e = engineerAt(f); return e ? [e] : null; }, XF.works[0], XF.now[1], 3, 14, 0.6);
+  steps("resident", (f) => residentsAt(f), XF.works[0], XF.now[1], 2.6, 12, 0.5);
+  steps("conversion crew", (f) => [...convCrewAt(f), ...shellCrewAt(f)], XF.works[0], XF.now[1], 2.6, 12, 0.5);
+  steps("1847 family", (f) => familyAt(f), XF.home[0], XF.works[1], 2.6, 10, 0.5);
+  steps("tunnel worker", (f) => tunnelCrewAt(f), 1150, 1360, 2.6, 14, 0.5);
+  // the dog trots beside its walker (paws on the walker's every other step, only while near)
+  for (const p of PEDS) if (p.dog) { const half = p.stride / 2; let last = -1;
+    for (let f = 0; f < N; f++) { if (eraAt(f) !== "now") continue; const tr = pedTrack(p, f); if (!tr) { last = -1; continue; } const d = tr.d, x = tr.x, k = Math.floor(d / half);
+      if (k !== last && last >= 0 && k % 2 === 0 && inView(f, [x + 0.9, 0.15, p.z]).vis && inView(f, [x + 0.9, 0.15, p.z]).dist < 9 && outside(f)) add(f + 3, "dog_paws", panOf(f, x + 0.9), 0.6, "the dog trots beside its walker");
       last = k; } }
   // ---- traffic, cyclist (today), leaves
   for (const c of RUNS) { const f = c.fc - 8; if (eraAt(((f % N) + N) % N) === "now" && outside(((f % N) + N) % N)) add(f, "car_pass", 0, 0.8, "a car passes along Joralemon Street"); }
@@ -34,7 +61,7 @@ export const soundEvents = (): SoundEvent[] => {
   for (const f of [XF.home[0], XF.works[0], XF.now[0]]) add(f + 6, "time_shimmer", 0, 0.7, "era dissolve");
   for (let f = 470; f < 586; f++) if (((f - 470) % 70) === 0) add(f, "paper_rustle", 0.2, 0.5, "the mother turns a page");
   // ---- 1907 works
-  CREW_PLAN.forEach((c, i) => { for (let f = c.t0; f < c.t0 + 50; f += 9) if (outside(f)) add(f + i, "step_stone", 0, 0.3, `crewman ${i} walks in`);
+  CREW_PLAN.forEach((c, i) => {
     if (c.cart) add(c.t0 + 20, "crate_slide", 0, 0.45, `crewman ${i}'s hand cart rumbles in`);
     if (c.tool) for (let f = c.t0 + 50; f < 980; f++) { const ph = (f * c.rate) / 30 + i * 0.37, fr = ph - Math.floor(ph), pf = ((f - 1) * c.rate) / 30 + i * 0.37, pr = pf - Math.floor(pf);
       if (pr < 0.5 && fr >= 0.5 && outside(f)) add(f, c.tool === "hammer" ? "hammer_hit" : c.tool === "shovel" ? "shovel_dig" : "ratchet", (c.to[0] - camAt(f).look[0]) / 6, 0.45, `crewman ${i}: ${c.tool}`); } });

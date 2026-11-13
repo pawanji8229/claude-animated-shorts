@@ -92,7 +92,8 @@ REL = {
     "brake_squeal": (-27, "sfx", "gentle brake squeal"), "air_rush": (-19, "sfx", "piston wind up the shaft"), "tunnel_drip": (-31, "sfx", "water drip in the tunnel"),
     "sign_hum": (-33, "sfx", "EXIT lamp buzz"), "pigeon_takeoff": (-19, "sfx", "pigeon wing claps + flutter"), "pigeon_flutter": (-23, "sfx", "pigeon landing flutter"),
     "pigeon_coo": (-30, "sfx", "pigeon coo"), "parcel_thud": (-22, "sfx", "parcel set down"), "hazard_tick": (-34, "sfx", "hazard relay click"), "far_horn": (-31, "sfx", "distant car horn"),
-    "shield_hiss": (-22, "sfx", "shield rams hiss + clunk"), "ring_clank": (-21, "sfx", "iron ring segment clank"), "muck_cart": (-23, "sfx", "muck car rolling")
+    "shield_hiss": (-22, "sfx", "shield rams hiss + clunk"), "ring_clank": (-21, "sfx", "iron ring segment clank"), "muck_cart": (-23, "sfx", "muck car rolling"),
+    **{f"step_{s}_{lr}": (lv, "sfx", f"footstep ({s}, {'left' if lr == 'l' else 'right'} foot)") for s, lv in [("concrete", -23), ("wood", -25), ("tunnel", -25)] for lr in "lr"}
 }
 GEN = {
     "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
@@ -110,7 +111,8 @@ GEN = {
     "building_groan": O.building_groan, "streetcar_bell": O.streetcar_bell, "crawler_crane": O.crawler_crane, "plank_step": O.plank_step, "rope_creak": O.rope_creak,
     **{k: getattr(J, k) for k in ["car_pass", "bike_tick", "dog_paws", "fan_hum", "fan_spinup", "train_rumble", "train_old", "time_shimmer", "mystery_accent", "reject_buzz", "leaves",
         "train_now_pass", "rail_clack", "brake_squeal", "air_rush", "tunnel_drip", "sign_hum", "pigeon_takeoff", "pigeon_flutter", "pigeon_coo", "parcel_thud", "hazard_tick", "far_horn",
-        "shield_hiss", "ring_clank", "muck_cart"]}
+        "shield_hiss", "ring_clank", "muck_cart"]},
+    **{f"step_{s}_{lr}": (lambda s, lr: lambda r: J.shoe_step(r, s, 0 if lr == "l" else 1))(s, lr) for s in ("concrete", "wood", "tunnel") for lr in "lr"}
 }
 OFFSET = {"car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
 FIXED_PAN = {"car_arrive": -0.6}
@@ -135,7 +137,7 @@ for k, e in enumerate(ev):
     rel += float(r.uniform(-1.5, 1.5)) + 20 * np.log10(float(np.clip(e.get("gain", 1.0), 0.05, 1.0)))  # seeded per-instance variation
     gain = NPK * db(rel) / (float(np.max(np.abs(x))) + 1e-9)       # event peak sits `rel` dB under the narration peak
     if t0 < 0 and A.loop: t0 += DUR
-    place(stems[stem], x, t0, gain); place(verb, x, t0, gain * 0.2)
+    place(stems[stem], x, t0, gain); place(verb, x, t0, gain * (0.04 if kind.startswith("step_") else 0.2))   # footsteps stay dry (no hollow room)
     rows.append([f, f"{t0:.3f}", f"{t0 + x.shape[-1] / SR:.3f}", e.get("note") or desc, kind, stem, f"{rel:+.1f} dB re narration peak", p_desc])
 ir = make_ir(0.65, 7, early=[(0.055, 0.6, 0.2), (0.11, 0.3, -0.3)], hf=1.4)
 stems["sfx"] += convolve_st(verb, ir)[:, :N + TAILPAD] * 0.2
