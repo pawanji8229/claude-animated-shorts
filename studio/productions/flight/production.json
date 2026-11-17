@@ -1,0 +1,2 @@
+{"title": "The World's Shortest Scheduled Flight (Westray - Papa Westray)", "composition": "FlightPreview", "finalComposition": "Flight", "scene": "src/productions/flight/scene.ts", "ambience": "airfield", "music": "none", "loop": true,
+ "ambienceTimeline": [[0, "ext_cruise"], [146, "int_cruise"], [340, "ext_cruise"], [380, "aerial"], [560, "ext_cruise"], [695, "airfield"], [1044, "approach"], [1158, "int_cruise"], [1244, "airfield"], [1362, "approach"], [1440, "airfield"], [1494, "ext_cruise"]]}

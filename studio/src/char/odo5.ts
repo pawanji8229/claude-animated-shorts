@@ -15,7 +15,7 @@ export type Mouth5 = "awkward" | "yikes" | "o" | "smile" | "flat" | "wobble" | "
 export type Hand5 = "relaxed" | "fist" | "grip" | "open" | "thumb";
 export type ArmPose = { hand: [number, number]; bend: number; shape: Hand5; rot: number; behind?: boolean; elbow?: [number, number] };
 /** Costume = palette overrides + accessory switches; the rig, proportions and line style stay identical. */
-export type Costume = { pal?: Record<string, string>; goggles: boolean; hairs: boolean; tufts: boolean; hat: null | "cowboy" | "bowler" | "hard"; stache: boolean; suit: boolean; apron: boolean };
+export type Costume = { pal?: Record<string, string>; goggles: boolean; hairs: boolean; tufts: boolean; hat: null | "cowboy" | "bowler" | "hard" | "pilot"; stache: boolean; suit: boolean; apron: boolean };
 export const COSTUME: Record<string, Costume> = {
   odo: { goggles: true, hairs: true, tufts: true, hat: null, stache: false, suit: false, apron: true },
   // Hal Brightwater, the 1960s developer: cream wide-brim hat, tan suit, brown tie, pencil moustache
@@ -47,6 +47,8 @@ export type Odo5Pose = {
   headRoll?: number; bodyRoll?: number;
   /** optional hand-held 1970s camera: blend 0 = hanging on its strap at the chest, 1 = at the point between the hands */
   camera?: { blend: number; flash: "cube" | "gun" | "none"; tiltRad?: number };
+  /** optional wristwatch on the screen-left forearm (absent -> identical to earlier renders) */
+  watch?: boolean;
   /** optional tool held in the screen-right hand (drawn along the forearm, ink style) */
   holdR?: "hammer" | "chalk" | "wrench" | "pen" | "umbrella" | "shovel" | "cup" | "bag" | "grocery" | "briefcase" | "book";
   /** optional exaggeration controls (absent -> identical to earlier renders): brow travel multiplier, eye size, side-eye
@@ -148,7 +150,7 @@ const drawHand = (g: G, c: Pal, at: P, rot: number, shape: Hand5, side: number, 
 export const HEAD5 = { rx: 150, ry: 143 };
 const headPath = (g: G, cx: number, cy: number) => () => { g.beginPath(); g.ellipse(cx, cy, HEAD5.rx, HEAD5.ry, 0, 0, Math.PI * 2); };
 
-const drawHat = (g: G, c: Pal, cx: number, cy: number, kind: "cowboy" | "bowler" | "hard", side: boolean, lag: number) => {
+const drawHat = (g: G, c: Pal, cx: number, cy: number, kind: "cowboy" | "bowler" | "hard" | "pilot", side: boolean, lag: number) => {
   const tilt = (side ? -0.06 : -0.035) + lag * 0.03;
   g.save(); g.translate(cx, cy - 104); g.rotate(tilt);
   if (kind === "cowboy") {
@@ -163,6 +165,12 @@ const drawHat = (g: G, c: Pal, cx: number, cy: number, kind: "cowboy" | "bowler"
     inked(g, c, () => { g.beginPath(); g.ellipse(0, 6, side ? 130 : 150, 22, 0, 0, Math.PI * 2); }, c.hat, 4, 3);
     inked(g, c, () => { g.beginPath(); g.moveTo(-96, 6); g.bezierCurveTo(-104, -100, 104, -100, 96, 6); g.closePath(); }, c.hat, 4, 3);
     g.fillStyle = c.band; g.fillRect(-97, -14, 194, 16);
+  } else if (kind === "pilot") {
+    // peaked uniform cap (optional costume, added for the flight production): flat crown, dark band, black visor, badge
+    inked(g, c, () => { g.beginPath(); g.moveTo(-112, 4); g.bezierCurveTo(-130, -40, -150, -78, -96, -88); g.lineTo(96, -88); g.bezierCurveTo(150, -78, 130, -40, 112, 4); g.closePath(); }, c.hat, 4, 3);
+    g.fillStyle = c.band; g.fillRect(-112, -22, 224, 24); taper(g, [[-112, -22], [112, -22]], 3, c.ink, 0.5);
+    inked(g, c, () => { g.beginPath(); g.moveTo(-104, 2); g.quadraticCurveTo(0, 40, 104, 2); g.quadraticCurveTo(0, 18, -104, 2); g.closePath(); }, "#141416", 3.5, 3);
+    inked(g, c, () => { g.beginPath(); g.ellipse(0, -46, 14, 11, 0, 0, Math.PI * 2); }, "#e2b84a", 2, 1.5);
   } else {
     inked(g, c, () => { g.beginPath(); g.moveTo(-150, 10); g.quadraticCurveTo(-150, -2, -120, -4); g.lineTo(120, -4); g.quadraticCurveTo(150, -2, 150, 10); g.closePath(); }, c.hat, 4, 3);
     inked(g, c, () => { g.beginPath(); g.moveTo(-118, 0); g.bezierCurveTo(-120, -110, 120, -110, 118, 0); g.closePath(); }, c.hat, 4, 3);
@@ -551,6 +559,9 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
       const el: P = ap.elbow ? [o[0] + ap.elbow[0], o[1] + ap.elbow[1]] : ik(o, hd, 108, 100, ap.bend);
       limb(g, [o, el, hd], 14.5, c.limb);
       const dir = Math.atan2(hd[0] - el[0], hd[1] - el[1]);
+      if (p.watch && s < 0 && !mask) { const wx = el[0] + (hd[0] - el[0]) * 0.72, wy = el[1] + (hd[1] - el[1]) * 0.72, ang = Math.atan2(hd[1] - el[1], hd[0] - el[0]);
+        g.save(); g.translate(wx, wy); g.rotate(ang); g.fillStyle = "#3a2c22"; g.fillRect(-6, -10, 12, 20); g.beginPath(); g.ellipse(0, 0, 9, 9, 0, 0, Math.PI * 2); g.fillStyle = "#f6f2e6"; g.fill(); g.lineWidth = 2.5; g.strokeStyle = c.ink; g.stroke();
+        g.beginPath(); g.moveTo(0, 0); g.lineTo(0, -6); g.moveTo(0, 0); g.lineTo(4, 2); g.lineWidth = 1.6; g.stroke(); g.restore(); }
       if (s > 0 && p.holdR) drawTool(g, c, hd, dir + ap.rot, p.holdR, mask);
       drawHand(g, c, hd, dir + ap.rot, ap.shape, s > 0 ? -1 : 1, false);
     };

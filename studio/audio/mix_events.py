@@ -18,6 +18,7 @@ import crowd_sfx as C
 import london_sfx as LS
 import office_sfx as O
 import joralemon_sfx as J
+import flight_sfx as FL
 
 ap = argparse.ArgumentParser(); ap.add_argument("narration"); ap.add_argument("events"); ap.add_argument("outdir"); ap.add_argument("duration", nargs="?", default="full")
 ap.add_argument("--ambience", default="desert"); ap.add_argument("--music", default="desert_guitar"); ap.add_argument("--loop", action="store_true")
@@ -93,7 +94,16 @@ REL = {
     "sign_hum": (-33, "sfx", "EXIT lamp buzz"), "pigeon_takeoff": (-19, "sfx", "pigeon wing claps + flutter"), "pigeon_flutter": (-23, "sfx", "pigeon landing flutter"),
     "pigeon_coo": (-30, "sfx", "pigeon coo"), "parcel_thud": (-22, "sfx", "parcel set down"), "hazard_tick": (-34, "sfx", "hazard relay click"), "far_horn": (-31, "sfx", "distant car horn"),
     "shield_hiss": (-22, "sfx", "shield rams hiss + clunk"), "ring_clank": (-21, "sfx", "iron ring segment clank"), "muck_cart": (-23, "sfx", "muck car rolling"),
-    **{f"step_{s}_{lr}": (lv, "sfx", f"footstep ({s}, {'left' if lr == 'l' else 'right'} foot)") for s, lv in [("concrete", -23), ("wood", -25), ("tunnel", -25)] for lr in "lr"}
+    **{f"step_{s}_{lr}": (lv, "sfx", f"footstep ({s}, {'left' if lr == 'l' else 'right'} foot)") for s, lv in [("concrete", -23), ("wood", -25), ("tunnel", -25)] for lr in "lr"},
+    # flight (Westray - Papa Westray) - original synthesised sounds
+    "eng_start": (-17, "sfx", "piston engine start: starter crank, coughs, catch, run up to idle"), "eng_start_far": (-23, "sfx", "second engine starting (far side)"),
+    "taxi": (-19, "sfx", "idle engines + tyres rolling on gravel"), "takeoff": (-15, "sfx", "take-off power: props bite, roar, gravel rush, airborne"),
+    "touchdown": (-17, "sfx", "main wheels touch down (tyre chirps + thump)"), "rollout": (-17, "sfx", "roll-out on grass, power to idle"),
+    "spin_down": (-18, "sfx", "engines cut, props wind down, cooling ticks"), "ac_door_open": (-21, "sfx", "aircraft door latch + swing"), "ac_door_close": (-18, "sfx", "aircraft door shuts"),
+    "belt_click": (-21, "sfx", "lap belt latch click"), "belt_slide": (-28, "sfx", "belt webbing slides"), "seat_creak": (-26, "sfx", "bench seat takes weight"), "bag_set": (-25, "sfx", "small bag set down"),
+    "windsock": (-31, "sfx", "windsock flutter"), "oystercatcher": (-28, "sfx", "oystercatcher piping"), "sheep": (-33, "sfx", "distant sheep"),
+    "brow_pluck": (-26, "sfx", "tiny comic pluck (brows up)"), "watch_tick": (-27, "sfx", "wristwatch ticks"), "double_take": (-28, "sfx", "double-take zip"), "air_swell": (-24, "sfx", "outside air as the camera passes the window"),
+    **{f"step_{s}_{lr}": (lv, "sfx", f"footstep ({s}, {'left' if lr == 'l' else 'right'} foot)") for s, lv in [("gravel", -24), ("grass", -27)] for lr in "lr"},
 }
 GEN = {
     "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
@@ -112,9 +122,14 @@ GEN = {
     **{k: getattr(J, k) for k in ["car_pass", "bike_tick", "dog_paws", "fan_hum", "fan_spinup", "train_rumble", "train_old", "time_shimmer", "mystery_accent", "reject_buzz", "leaves",
         "train_now_pass", "rail_clack", "brake_squeal", "air_rush", "tunnel_drip", "sign_hum", "pigeon_takeoff", "pigeon_flutter", "pigeon_coo", "parcel_thud", "hazard_tick", "far_horn",
         "shield_hiss", "ring_clank", "muck_cart"]},
-    **{f"step_{s}_{lr}": (lambda s, lr: lambda r: J.shoe_step(r, s, 0 if lr == "l" else 1))(s, lr) for s in ("concrete", "wood", "tunnel") for lr in "lr"}
+    **{f"step_{s}_{lr}": (lambda s, lr: lambda r: J.shoe_step(r, s, 0 if lr == "l" else 1))(s, lr) for s in ("concrete", "wood", "tunnel") for lr in "lr"},
+    "eng_start": FL.eng_start, "eng_start_far": lambda r: FL.eng_start(r, far=True), "taxi": FL.taxi, "takeoff": FL.takeoff, "touchdown": FL.touchdown, "rollout": FL.rollout,
+    "spin_down": FL.spin_down, "ac_door_open": FL.ac_door, "ac_door_close": lambda r: FL.ac_door(r, close=True), "belt_click": FL.belt_click, "belt_slide": FL.belt_slide,
+    "seat_creak": FL.seat_creak, "bag_set": FL.bag_set, "windsock": FL.windsock, "oystercatcher": FL.oystercatcher, "sheep": FL.sheep, "brow_pluck": FL.brow_pluck,
+    "watch_tick": FL.watch_tick, "double_take": FL.double_take, "air_swell": FL.air_swell,
+    **{f"step_{s}_{lr}": (lambda s, lr: lambda r: FL.step(r, s, 0 if lr == "l" else 1))(s, lr) for s in ("gravel", "grass") for lr in "lr"},
 }
-OFFSET = {"car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
+OFFSET = {"air_swell": -0.6, "takeoff": -0.05, "car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
 FIXED_PAN = {"car_arrive": -0.6}
 
 ev = json.load(open(evp))["events"]
@@ -168,6 +183,11 @@ def amb_preset(name):
     elif name == "parlour": a += bed(J.parlour_bed, 24, -28)
     elif name == "works1907": a += bed(J.works_bed, 25, -25)
     elif name == "tunnel": a += bed(J.tunnel_bed, 26, -24)
+    elif name == "ext_cruise": a += bed(FL.ext_cruise_bed, 31, -21)
+    elif name == "int_cruise": a += bed(FL.int_cruise_bed, 32, -23)
+    elif name == "aerial": a += bed(FL.aerial_bed, 33, -26)
+    elif name == "approach": a += bed(FL.approach_bed, 34, -21)
+    elif name == "airfield": a += bed(FL.airfield_bed, 35, -25)
     elif name == "room":
         from sfx_gen import breeze; a += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26)
     return a, cr

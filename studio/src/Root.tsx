@@ -3,6 +3,9 @@ import { Composition } from "remotion";
 import { Short3Film } from "./productions/short3/Film";
 import { JTest, J_TEST_N } from "./productions/joralemon/Test";
 import { JoralemonFilm } from "./productions/joralemon/Film";
+import { FlightTest, FLIGHT_TEST_N } from "./productions/flight/Test";
+import { FlightFilm } from "./productions/flight/Film";
+import { FILM_FRAMES as FLIGHT_FRAMES } from "./productions/flight/timeline";
 import { JExprTest, EXPR_FRAMES } from "./productions/joralemon/ExprTest";
 import { FILM_FRAMES as JOR_FRAMES } from "./productions/joralemon/world";
 import { S3Bench } from "./productions/short3/Bench";
@@ -70,6 +73,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="S3Bench" component={S3Bench} durationInFrames={64} fps={30} width={540} height={960} />
     <Composition id="JoralemonPreview" component={JoralemonFilm} durationInFrames={JOR_FRAMES} fps={30} width={540} height={960} />
     <Composition id="JoralemonExprTest" component={JExprTest} durationInFrames={EXPR_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="FlightPreview" component={FlightFilm} durationInFrames={FLIGHT_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="Flight" component={FlightFilm} durationInFrames={FLIGHT_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="FlightTest" component={FlightTest} durationInFrames={FLIGHT_TEST_N} fps={30} width={1080} height={1920} />
     <Composition id="Joralemon" component={JoralemonFilm} durationInFrames={JOR_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="JoraTest" component={JTest} durationInFrames={J_TEST_N} fps={30} width={540} height={960} />
     <Composition id="Short3" component={Short3Film} durationInFrames={S3_FRAMES} fps={30} width={1080} height={1920} />
