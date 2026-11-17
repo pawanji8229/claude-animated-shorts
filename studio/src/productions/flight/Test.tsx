@@ -20,6 +20,7 @@ export const VIEWS: View[] = [
   { plane: flying, t: 5, c: (p) => cam(toWorld(p, [2.05, 1.74, 0.1]), toWorld(p, [0.85, 1.3, 0.04]), 58, 0.03) },
   { plane: flying, t: 5, c: (p) => cam([-400, 520, 900], [1500, 0, -200], 50, 2) },
   { plane: { ...parked, pos: [2700, 7, -195], yaw: 0 }, t: 6, c: () => cam([2672, 8.6, -168], [2702, 9, -205], 52) },
+  { plane: { ...parked, s: { ...STILL, flap: 1, ail: 0.2 } }, t: 3, c: (p) => cam(toWorld(p, [-3.5, 0.9, 6.5]), toWorld(p, [0.2, 2.0, 3.2]), 50) },
   { plane: { ...parked, s: { ...STILL, rps: [0, 6], prop: [0.3, 1.2] } }, t: 3, c: (p) => cam(toWorld(p, [5.2, 1.7, 3.6]), toWorld(p, [2.6, 1.6, 1.4]), 46) },
 ];
 export const FLIGHT_TEST_N = VIEWS.length;

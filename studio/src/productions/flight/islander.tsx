@@ -262,8 +262,10 @@ const buildWheel = (r: number, w: number) => { const m = fMats(), K = new Kit();
   return K; };
 // flap / aileron (one surface, hinged at its leading edge, built with the hinge at the origin)
 const buildSurface = (z0: number, z1: number) => { const m = fMats(), K = new Kit(); const yW = WING.y + 0.03;
-  const prof = airfoil(WING.le, WING.chord, yW + 0.12, 0.14, 0.02).filter(([x]) => x < WING.le - WING.chord * 0.75).map(([x, y]) => [x, y] as [number, number]);
-  const hx = WING.le - WING.chord * 0.76, hy = yW + 0.1; const closed: [number, number][] = [[hx, hy + 0.07], ...prof, [hx, hy - 0.05]];
+  // airfoil() runs upper TE->LE then lower LE->TE: take each surface's aft part separately so the outline goes hinge -> upper -> TE -> lower -> hinge
+  const af = airfoil(WING.le, WING.chord, yW + 0.12, 0.14, 0.02), aft = ([x]: [number, number]) => x < WING.le - WING.chord * 0.75;
+  const up = af.slice(0, 27).filter(aft).reverse(), lo = af.slice(27).filter(aft).reverse();
+  const hx = WING.le - WING.chord * 0.76, hy = yW + 0.1; const closed: [number, number][] = [[hx, hy + 0.07], ...up, ...lo, [hx, hy - 0.05]];   // was a self-intersecting outline (black, inside-out flaps)
   K.ext(m.white, closed.map(([x, y]) => [x - hx, y - hy] as [number, number]), z1 - z0 - 0.02, [0, 0, (z0 + z1) / 2], [0, 0, 0], 0, { ink: 0.5 });
   return { K, hinge: [hx, hy] as [number, number] }; };
 const SURF = { flapIn: [0.66, 1.42], flapOut: [2.32, 4.42], ail: [4.46, 7.1] } as const;
@@ -346,7 +348,7 @@ const Prop: React.FC<{ ang: number; rps: number; ccw?: boolean }> = ({ ang, rps,
 export const PROP_X = 3.44;
 export const Islander: React.FC<{ s: IslanderState }> = ({ s }) => {
   const k = kits(), m = fMats();
-  (m.beacon as THREE.MeshStandardMaterial).emissiveIntensity = 0.4 + 5.5 * s.beacon; (m.strobe as THREE.MeshStandardMaterial).emissiveIntensity = 0.3 + 9 * s.strobe;
+  (m.beacon as THREE.MeshStandardMaterial).emissiveIntensity = 0.4 + 5.5 * s.beacon; (m.strobe as THREE.MeshStandardMaterial).emissiveIntensity = 0.3 + 4.5 * s.strobe;
   const surf = (key: keyof ReturnType<typeof kits>["surf"], rot: number) => { const S = k.surf[key]; return <group position={[S.hinge[0], S.hinge[1], 0]} rotation={[0, 0, -rot]}><KitMesh kit={S.K} /></group>; };
   return (
     <group>
@@ -361,7 +363,7 @@ export const Islander: React.FC<{ s: IslanderState }> = ({ s }) => {
       <group position={[3.9, 0.24, 0]} rotation={[0, s.nose, 0]}><group rotation={[0, 0, -s.wheel * 1.25]}><KitMesh kit={k.wheelN} /></group>
         <mesh position={[0.02, 0.1, 0]} material={m.strut}><boxGeometry args={[0.36, 0.04, 0.22]} /></mesh></group>
       <group position={[-5.42, 2.6, 0]} rotation={[0, s.rud, 0]}><mesh position={[-0.16, 0.4, 0]} material={m.teal} castShadow><boxGeometry args={[0.32, 2.9, 0.08]} /></mesh></group>
-      {s.strobe > 0.05 && [-1, 1].map((sd) => <pointLight key={sd} position={[WING.le - 0.35, WING.y + 0.15, sd * (WING.semi + 0.2)]} intensity={40 * s.strobe} distance={8} decay={2} color="#ffffff" />)}
+      {s.strobe > 0.05 && [-1, 1].map((sd) => <pointLight key={sd} position={[WING.le - 0.35, WING.y + 0.15, sd * (WING.semi + 0.2)]} intensity={25 * s.strobe} distance={8} decay={2} color="#ffffff" />)}
       {[-1, 1].map((sd) => <mesh key={sd} position={[WING.le - 0.35, WING.y + 0.15, sd * (WING.semi + 0.12)]} material={m.strobe}><sphereGeometry args={[0.03, 8, 6]} /></mesh>)}
     </group>
   );
