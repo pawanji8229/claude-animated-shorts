@@ -13,6 +13,7 @@ import { RenderAfterMount } from "../london-bridge/common";
 import { mediumFog, SCATTER } from "./water";
 import { Dome, Surface, SunShafts, MarineSnow, Bubbles, type Emitter } from "./env";
 import { Ground } from "./terrain";
+import type { View } from "./reef";
 import { SUN_DIR } from "./geo";
 import type { V3 } from "../../lib/math";
 
@@ -39,7 +40,7 @@ const Sun: React.FC<{ at: V3; size: number; hi: boolean }> = ({ at, size, hi }) 
 const Tri: React.FC = () => { const { scene } = useThree(); useLayoutEffect(() => { const rows: [string, number][] = []; scene.traverseVisible((o) => { const m = o as THREE.InstancedMesh; if (!m.geometry) return; const g = m.geometry; const per = (g.index ? g.index.count : (g.attributes.position?.count ?? 0)) / 3, n = m.isInstancedMesh ? m.count : 1; let path = ""; let q: THREE.Object3D | null = o; for (let d = 0; d < 3 && q; d++) { path = (q.name || q.type) + "/" + path; q = q.parent; } rows.push([path + " per=" + Math.round(per) + " x" + n + (m.castShadow ? " cast" : ""), per * n]); }); rows.sort((a, b) => b[1] - a[1]); console.log("TRI " + JSON.stringify(rows.slice(0, 30).map(([k, v]) => k + " =" + Math.round(v / 1000) + "k"))); }); return null; };
 export type SetProps = {
   c: PCam; t: number; shadow?: { at: V3; size: number };
-  world?: (ctx: { hi: boolean; cam: V3; t: number }) => React.ReactNode;
+  world?: (ctx: { hi: boolean; cam: V3; t: number; view: View }) => React.ReactNode;
   emitters?: Emitter[]; exposure?: number; dof?: number; rays?: number; scatter?: THREE.Color; snow?: boolean;
 };
 export const PoSet: React.FC<SetProps> = ({ c, t, shadow, world, emitters = [], exposure = 1.12, dof = 0.1, rays = 1, scatter = SCATTER, snow = true }) => {
@@ -58,7 +59,7 @@ export const PoSet: React.FC<SetProps> = ({ c, t, shadow, world, emitters = [], 
           <Dome cam={c.pos} scatter={scatter} />
           {!OFF("ground") && <Ground />}
           {!OFF("surface") && <Surface t={t} scatter={scatter} />}
-          {world?.({ hi, cam: c.pos, t })}
+          {world?.({ hi, cam: c.pos, t, view: { pos: c.pos, look: c.look, fov: c.fov, aspect: width / height, roll: c.roll, shadowAt: sh.at, shadowSize: sh.size, pxH: height } })}
           {rays > 0 && !OFF("rays") && <SunShafts cam={c.pos} t={t} intensity={rays} />}
           {snow && !OFF("snow") && <MarineSnow t={t} pxScale={k * 2} />}
           {emitters.length > 0 && <Bubbles em={emitters} t={t} />}

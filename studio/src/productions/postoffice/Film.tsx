@@ -1,6 +1,7 @@
 // The post office film: one PoSet per active story layer, planned opacity dissolves between layers (no hard cuts);
 // the last second dissolves into layer A's pre-roll so frame 1517 flows into frame 0 (seamless loop).
 import { OFF } from "./dbg";
+import type { View } from "./reef";
 import React from "react";
 import * as THREE from "three";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
@@ -29,11 +30,11 @@ const Puff: React.FC<{ f: number }> = ({ f }) => { const age = (f - 576) / 30; i
   return <>{Array.from({ length: 26 }, (_, i) => { const a = (i / 26) * Math.PI * 2 + i, r = 1.15 + age * (0.9 + (i % 5) * 0.12), y = 0.08 + age * 0.35 * ((i % 3) + 1) * 0.4, s = 0.4 + age * 0.7;
     return <sprite key={i} position={[base[0] + Math.cos(a) * r, base[1] + y, base[2] + Math.sin(a) * r]} scale={[s, s * 0.6, 1]}><spriteMaterial color="#d8d2bc" transparent opacity={0.42 * Math.max(0, 1 - age / 2.2)} depthWrite={false} /></sprite>; })}</>; };
 
-const World: React.FC<{ L: T.Layer; o: LayerOut; f: number; t: number; cam: V3; hi: boolean }> = ({ L, o, f, t, cam, hi }) => {
+const World: React.FC<{ L: T.Layer; o: LayerOut; f: number; t: number; cam: V3; hi: boolean; view: View }> = ({ L, o, f, t, cam, hi, view }) => {
   const pastNoOffice = L === "A2" || L === "B" || L === "C1" || L === "C2" || L === "C3";
   const roofRing = ow([0, ROOF_TOP, 0]);
   return (<>
-    {!OFF("reef") && <Reef t={t} near={cam} />}
+    {!OFF("reef") && <Reef t={t} near={cam} view={view} />}
     {!OFF("fish") && <Fish schools={SCHOOLS} t={t} />}
     {!OFF("island") && <Island t={t} cam={cam} hi={hi} />}
     {!pastNoOffice && <group position={[PO.x, PO.y, PO.z]} rotation={[0, PO.rot, 0]}><Office /></group>}
@@ -66,7 +67,7 @@ export const PoFilm: React.FC = () => {
     {active.map((a, i) => { const { L, f: lf, o } = layerOut(a.Lr[0], f); const t = lf / 30;
       return <AbsoluteFill key={a.Lr[0]} style={{ opacity: i === 0 ? 1 : a.op }}>
         <PoSet c={o.c} t={t} emitters={o.emitters as Emitter[]} exposure={1.12 * (L === "E1" || L === "E2" ? T.exposureBoost(f) : 1)} dof={o.dof ?? 0.1} shadow={{ at: o.c.look, size: L === "C2" || L === "A2" || L === "B" || L === "I2" ? 14 : 8 }}
-          world={({ hi, cam }) => <World L={L} o={o} f={lf} t={t} cam={cam} hi={hi} />} />
+          world={({ hi, cam, view }) => <World L={L} o={o} f={lf} t={t} cam={cam} hi={hi} view={view} />} />
       </AbsoluteFill>; })}
   </AbsoluteFill>);
 };

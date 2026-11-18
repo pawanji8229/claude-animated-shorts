@@ -23,8 +23,8 @@ const finish = (g: THREE.BufferGeometry, col: (p: THREE.Vector3, i: number) => T
   else if (uvK !== 1) { const uv = g.attributes.uv as THREE.BufferAttribute; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * uvK, uv.getY(i) * uvK); }
   return g;
 };
-const cyl = (a: THREE.Vector3, b: THREE.Vector3, r0: number, r1: number, seg = 7) => {
-  const d = b.clone().sub(a), L = d.length(); const g = new THREE.CylinderGeometry(r1, r0, L, seg, 1, false);
+const cyl = (a: THREE.Vector3, b: THREE.Vector3, r0: number, r1: number, seg = 7, open = false) => {
+  const d = b.clone().sub(a), L = d.length(); const g = new THREE.CylinderGeometry(r1, r0, L, seg, 1, open);
   const uv = g.attributes.uv as THREE.BufferAttribute; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * Math.PI * 2 * Math.max(r0, r1) / 0.045, uv.getY(i) * L / 0.045);   // polyp texture at true scale
   g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(v3(0, 1, 0), d.normalize())); const m = a.clone().add(b).multiplyScalar(0.5); g.translate(m.x, m.y, m.z); return g;
 };
@@ -38,11 +38,11 @@ const acropora = (r: R, base: string, tip: string, bushy: boolean) => {
   const gs: THREE.BufferGeometry[] = []; const tips: THREE.Vector3[] = [];
   const grow = (p: THREE.Vector3, dir: THREE.Vector3, rad: number, depth: number) => {
     const len = (bushy ? 0.05 : 0.075) + r() * (bushy ? 0.04 : 0.06); const q = p.clone().add(dir.clone().multiplyScalar(len)); const r1 = rad * (bushy ? 0.9 : 0.88);
-    gs.push(cyl(p, q, rad, r1, 8));
+    gs.push(cyl(p, q, rad, r1, 8, true));   // joints/tips are covered by the next branch or the tip ball: no caps
     // radial corallites: tiny tubular cups along the branch (the bumpy texture that makes Acropora read as coral)
     const side = new THREE.Vector3().crossVectors(dir, v3(0.3, 0.1, 0.9)).normalize(), up2 = new THREE.Vector3().crossVectors(dir, side).normalize();
     for (let c = 0; c < 4; c++) { const u = (c + r() * 0.7) / 4, ang = r() * Math.PI * 2, at = p.clone().lerp(q, u), o = side.clone().multiplyScalar(Math.cos(ang)).addScaledVector(up2, Math.sin(ang)), rr = rad + (r1 - rad) * u;
-      const b0 = at.clone().addScaledVector(o, rr * 0.7), b1 = b0.clone().addScaledVector(o.clone().multiplyScalar(0.8).addScaledVector(dir, 0.6).normalize(), rr * 0.75 + 0.004); gs.push(cyl(b0, b1, rr * 0.42, rr * 0.3, 5)); } if (depth <= 0 || r1 < 0.0055) { gs.push(ball(q, r1 * 1.15, 6)); tips.push(q); return; }
+      const b0 = at.clone().addScaledVector(o, rr * 0.7), b1 = b0.clone().addScaledVector(o.clone().multiplyScalar(0.8).addScaledVector(dir, 0.6).normalize(), rr * 0.75 + 0.004); gs.push(cyl(b0, b1, rr * 0.42, rr * 0.3, 5, true)); }   // open tube = the corallite cup if (depth <= 0 || r1 < 0.0055) { gs.push(ball(q, r1 * 1.15, 6)); tips.push(q); return; }
     const nb = r() < (bushy ? 0.42 : 0.24) ? 2 : 1;
     for (let b = 0; b < nb; b++) { const nd = dir.clone().add(v3((r() - 0.5) * (b ? 1.1 : 0.45), (r() - 0.25) * 0.35, (r() - 0.5) * (b ? 1.1 : 0.45))).normalize(); if (nd.y < 0.05) nd.y = 0.05 + r() * 0.2; grow(q, nd.normalize(), b ? r1 * 0.85 : r1, depth - 1); }
   };
@@ -233,22 +233,46 @@ const rockMat = (base: THREE.MeshStandardMaterial) => { const m = base.clone(); 
   diffuseColor.rgb *= 0.85 + 0.3 * sp2; }`); };
   m.customProgramCacheKey = () => `poRock${base.uuid}`; return m; };
 
-export const Reef: React.FC<{ t: number; near: V3; radius?: number }> = ({ t, near, radius = 60 }) => {
+export type View = { pos: V3; look: V3; fov: number; aspect: number; roll?: number; shadowAt: V3; shadowSize: number; pxH: number };
+type Src = { im: THREE.InstancedMesh; M: THREE.Matrix4[]; col: THREE.Color[]; ctr: THREE.Vector3[]; rad: number[] };
+const _fr = new THREE.Frustum(), _pm = new THREE.Matrix4(), _cam = new THREE.PerspectiveCamera(), _sp = new THREE.Sphere(), _sc = new THREE.Matrix4();
+/** per-frame instance culling (pure function of the view): only colonies inside the view frustum or the sun's shadow box
+ *  are drawn; colonies that are sub-pixel shrink smoothly to nothing (1.2..2.4 px) so nothing ever pops. */
+export const cullInstances = (srcs: Src[], v: View | undefined) => {
+  if (!v) { for (const s of srcs) { s.M.forEach((m, i) => s.im.setMatrixAt(i, m)); s.im.count = s.M.length; s.im.instanceMatrix.needsUpdate = true; } return; }
+  const rolled = Math.abs(v.roll ?? 0) > 0.005; _cam.fov = rolled ? (2 * Math.atan(Math.tan((v.fov * Math.PI) / 360) * Math.hypot(1, v.aspect)) * 180) / Math.PI : v.fov; _cam.aspect = rolled ? 1 : v.aspect; _cam.near = 0.05; _cam.far = 20000; _cam.position.set(...v.pos); _cam.up.set(0, 1, 0); _cam.lookAt(...v.look); _cam.updateProjectionMatrix(); _cam.updateMatrixWorld();
+  _pm.multiplyMatrices(_cam.projectionMatrix, _cam.matrixWorldInverse); _fr.setFromProjectionMatrix(_pm);
+  const pxPerRad = v.pxH / (2 * Math.tan((v.fov * Math.PI) / 360)), S = v.shadowSize * 1.3 + 1.5;
+  for (const s of srcs) { let n = 0;
+    for (let i = 0; i < s.M.length; i++) { const c = s.ctr[i], r = s.rad[i]; _sp.set(c, r * 1.15 + 0.05);
+      const inView = _fr.intersectsSphere(_sp), inShadow = Math.abs(c.x - v.shadowAt[0]) < S + r && Math.abs(c.z - v.shadowAt[2]) < S + r;
+      if (!inView && !inShadow) continue;
+      const d = Math.max(0.05, Math.hypot(c.x - v.pos[0], c.y - v.pos[1], c.z - v.pos[2]));
+      const px = (2 * r * pxPerRad) / d; const k = inView ? Math.min(1, Math.max(0, (px - 1.2) / 1.2)) : 1;
+      if (k <= 0) continue;
+      if (k < 1) { _sc.makeScale(k, k, k); const m = s.M[i].clone().multiply(_sc); s.im.setMatrixAt(n, m); } else s.im.setMatrixAt(n, s.M[i]);
+      if (s.im.instanceColor) s.im.setColorAt(n, s.col[i]); n++; }
+    s.im.count = n; s.im.instanceMatrix.needsUpdate = true; if (s.im.instanceColor) s.im.instanceColor.needsUpdate = true; }
+};
+export const Reef: React.FC<{ t: number; near: V3; radius?: number; view?: View }> = ({ t, near, radius = 60, view }) => {
   const G = kindGeos(), lay = layout();
   const rocks = useMemo(() => once("poRockMeshes", () => Object.fromEntries(ROCKS.map((m) => [m, model(m).map((p) => ({ geo: p.geo, mat: rockMat(p.mat as THREE.MeshStandardMaterial), size: p.size }))]))), []);
-  const meshes = useMemo(() => {
-    const out: THREE.InstancedMesh[] = [];
+  const srcs = useMemo(() => {
+    const out: Src[] = [];
+    const mk = (geo: THREE.BufferGeometry, mat: THREE.Material, Ms: THREE.Matrix4[], cols: THREE.Color[]) => { if (!geo.boundingSphere) geo.computeBoundingSphere(); const bs = geo.boundingSphere!;
+      const im = new THREE.InstancedMesh(geo, mat, Ms.length); im.frustumCulled = false; im.castShadow = true; im.receiveShadow = true;
+      const ctr = Ms.map((m) => bs.center.clone().applyMatrix4(m)), rad = Ms.map((m) => bs.radius * m.getMaxScaleOnAxis());
+      if (cols.length) cols.forEach((c, i) => im.setColorAt(i, c)); out.push({ im, M: Ms, col: cols, ctr, rad }); };
     for (const k of KINDS) { const g = G[k.key]; g.geos.forEach((geo, v) => { const list = lay.L.filter((i) => i.kind === k.key && i.v === v); if (!list.length) return;
-      const im = new THREE.InstancedMesh(geo, g.mat, list.length); const M = new THREE.Matrix4(), Q = new THREE.Quaternion(), c = new THREE.Color();
-      list.forEach((it, i) => { Q.setFromEuler(new THREE.Euler(it.tilt?.[0] ?? 0, it.ry, it.tilt?.[1] ?? 0, "YXZ")); M.compose(new THREE.Vector3(...it.p), Q, new THREE.Vector3(it.s, it.s, it.s)); im.setMatrixAt(i, M); c.setScalar(it.tint ?? 1); im.setColorAt(i, c); });
-      im.castShadow = true; im.receiveShadow = true; im.computeBoundingSphere(); out.push(im); }); }
+      const Ms = list.map((it) => new THREE.Matrix4().compose(new THREE.Vector3(...it.p), new THREE.Quaternion().setFromEuler(new THREE.Euler(it.tilt?.[0] ?? 0, it.ry, it.tilt?.[1] ?? 0, "YXZ")), new THREE.Vector3(it.s, it.s, it.s)));
+      mk(geo, g.mat, Ms, list.map((it) => new THREE.Color().setScalar(it.tint ?? 1))); }); }
     for (const m of ROCKS) { const list = lay.rocks.filter((r) => r.m === m); if (!list.length) continue;
-      for (const part of rocks[m]) { const im = new THREE.InstancedMesh(part.geo, part.mat, list.length); const M = new THREE.Matrix4(), Q = new THREE.Quaternion();
-        list.forEach((it, i) => { const sc = it.s / Math.max(part.size.x, part.size.z); Q.setFromEuler(new THREE.Euler(0, it.ry, 0)); M.compose(new THREE.Vector3(...it.p), Q, new THREE.Vector3(sc, sc * 0.8, sc)); im.setMatrixAt(i, M); });
-        im.castShadow = true; im.receiveShadow = true; im.computeBoundingSphere(); out.push(im); } }
+      for (const part of rocks[m]) { const Ms = list.map((it) => { const sc = it.s / Math.max(part.size.x, part.size.z); return new THREE.Matrix4().compose(new THREE.Vector3(...it.p), new THREE.Quaternion().setFromEuler(new THREE.Euler(0, it.ry, 0)), new THREE.Vector3(sc, sc * 0.8, sc)); });
+        mk(part.geo, part.mat, Ms, []); } }
     return out;
   }, [G, lay, rocks]);
+  cullInstances(srcs, view);
   for (const k of KINDS) ((G[k.key].mat as unknown as { _U: { uT: { value: number } } })._U.uT.value = t);
   void near; void radius;
-  return <>{meshes.map((m, i) => <primitive key={i} object={m} />)}</>;
+  return <>{srcs.map((s, i) => <primitive key={i} object={s.im} />)}</>;
 };
