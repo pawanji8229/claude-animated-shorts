@@ -35,7 +35,7 @@ const World: React.FC<{ L: T.Layer; o: LayerOut; f: number; t: number; cam: V3; 
   const roofRing = ow([0, ROOF_TOP, 0]);
   return (<>
     {!OFF("reef") && <Reef t={t} near={cam} view={view} />}
-    {!OFF("fish") && <Fish schools={SCHOOLS} t={t} avoid={avoidFor(o, pastNoOffice)} />}
+    {!OFF("fish") && <Fish schools={SCHOOLS} t={t} avoid={avoidFor(o, pastNoOffice, cam)} />}
     {!OFF("island") && <Island t={t} cam={cam} hi={hi} />}
     {!pastNoOffice && <group position={[PO.x, PO.y, PO.z]} rotation={[0, PO.rot, 0]}><Office /></group>}
     {o.office && <group position={o.office.at} rotation={[0, o.office.ry, 0]}><Office st={o.office.st} /></group>}
@@ -59,11 +59,15 @@ const World: React.FC<{ L: T.Layer; o: LayerOut; f: number; t: number; cam: V3; 
   </>);
 };
 /** fish keep-out volumes for this moment: every character card + the office tank (where it stands) */
-const avoidFor = (o: LayerOut, noOffice: boolean): Avoid[] => {
-  const av: Avoid[] = o.actors.map((a) => { const base = a.centre ? [a.pos[0], a.pos[1] - a.h * 0.5, a.pos[2]] : a.pos; const rolled = Math.abs(a.roll ?? 0) > 0.3;
-    return rolled ? { x: a.pos[0], z: a.pos[2], y0: a.pos[1], y1: a.pos[1], r: a.h * 0.55 } : { x: base[0], z: base[2], y0: base[1] + a.h * 0.25, y1: base[1] + a.h * 0.8, r: a.h * 0.32 }; });
-  if (!noOffice) av.push({ x: PO.x, z: PO.z, y0: PO.y, y1: PO.y + ROOF_TOP, r: 1.45 });
-  if (o.office) av.push({ x: o.office.at[0], z: o.office.at[2], y0: o.office.at[1], y1: o.office.at[1] + ROOF_TOP, r: 1.45 });
+const avoidFor = (o: LayerOut, noOffice: boolean, cam: V3): Avoid[] => {
+  const av: Avoid[] = [];
+  for (const a of o.actors) { const base: V3 = a.centre ? [a.pos[0], a.pos[1] - a.h * 0.5, a.pos[2]] : a.pos; const rolled = Math.abs(a.roll ?? 0) > 0.3;
+    const mid: V3 = a.centre ? a.pos : [base[0], base[1] + a.h * 0.55, base[2]];
+    av.push(rolled ? { a: a.pos, b: a.pos, r: a.h * 0.55 } : { a: [base[0], base[1] + a.h * 0.2, base[2]], b: [base[0], base[1] + a.h * 0.85, base[2]], r: a.h * 0.32 });
+    // the line of sight camera -> character: no fish pasted over a face or a body
+    av.push({ a: mid, b: cam, r: a.h * 0.38 }); }
+  if (!noOffice) av.push({ a: [PO.x, PO.y, PO.z], b: [PO.x, PO.y + ROOF_TOP, PO.z], r: 1.45 });
+  if (o.office) av.push({ a: o.office.at, b: [o.office.at[0], o.office.at[1] + ROOF_TOP, o.office.at[2]], r: 1.45 });
   return av; };
 export const layerOut = (L: T.Layer, f0: number): { L: T.Layer; f: number; o: LayerOut } => { const f = L === "A_LOOP" ? f0 - N : f0; const fn = T.LAYER_FN[L === "A_LOOP" ? "A" : L]; return { L, f, o: fn(f) as LayerOut }; };
 export const PoFilm: React.FC = () => {

@@ -92,13 +92,15 @@ export const fishAt = (S: School, i: number, t: number): { p: V3; scale: number 
   const g = height(p[0], p[2]) + (S.minY ?? 0.25); if (p[1] < g) p[1] = g + (p[1] - g) * 0.1; if (p[1] > -0.25) p[1] = -0.25;
   return { p, scale: S.size[0] + (S.size[1] - S.size[0]) * e };
 };
-/** keep-out volumes (vertical capsules: x, z, y0, y1, radius) - the characters' cards and the office tank: fish swim
+/** keep-out volumes (capsules a-b, radius) - the characters' cards and the office tank: fish swim
  *  round them instead of through them (smooth radial push, continuous in time) */
-export type Avoid = { x: number; z: number; y0: number; y1: number; r: number };
+export type Avoid = { a: V3; b: V3; r: number };
 const MARGIN = 0.35;
 export const avoidP = (p: V3, av: Avoid[]): V3 => { let q: V3 = p;
-  for (const A of av) { const cy = Math.min(A.y1, Math.max(A.y0, q[1])), dx = q[0] - A.x, dy = q[1] - cy, dz = q[2] - A.z, d = Math.hypot(dx, dy, dz), R = A.r + MARGIN;
-    if (d >= R) continue; const nd = A.r + MARGIN * (d / R) * (d / R), k = d > 1e-5 ? nd / d : 0; q = d > 1e-5 ? [A.x + dx * k, cy + dy * k, A.z + dz * k] : [A.x + nd, cy, A.z]; }
+  for (const A of av) { const ab = [A.b[0] - A.a[0], A.b[1] - A.a[1], A.b[2] - A.a[2]], L2 = ab[0] * ab[0] + ab[1] * ab[1] + ab[2] * ab[2];
+    const u = L2 > 1e-9 ? Math.min(1, Math.max(0, ((q[0] - A.a[0]) * ab[0] + (q[1] - A.a[1]) * ab[1] + (q[2] - A.a[2]) * ab[2]) / L2)) : 0;
+    const c = [A.a[0] + ab[0] * u, A.a[1] + ab[1] * u, A.a[2] + ab[2] * u], dx = q[0] - c[0], dy = q[1] - c[1], dz = q[2] - c[2], d = Math.hypot(dx, dy, dz), R = A.r + MARGIN;
+    if (d >= R) continue; const nd = A.r + MARGIN * (d / R) * (d / R), k = d > 1e-5 ? nd / d : 0; q = d > 1e-5 ? [c[0] + dx * k, c[1] + dy * k, c[2] + dz * k] : [c[0], c[1] + nd, c[2]]; }
   return q; };
 export const Fish: React.FC<{ schools: School[]; t: number; avoid?: Avoid[] }> = ({ schools, t, avoid = [] }) => {
   const R = useMemo(() => once("poFishRes", () => Object.fromEntries(SPECIES.map((s, i) => [s.key, { s, geo: fishGeo(s), mat: fishMat(s, i) }]))), []);
