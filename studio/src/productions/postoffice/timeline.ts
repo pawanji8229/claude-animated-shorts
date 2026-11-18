@@ -25,7 +25,13 @@ export const L = (x: number, y: number, z: number): V3 => ow([x, y, z]);
 const path = (keys: [number, V3][], sigma = 5) => { const p = camPath(keys.map(([f, pos]) => ({ f, pos, look: pos, fov: 0 })), sigma); return (f: number): V3 => p(f).pos; };
 const vel = (P: (f: number) => V3, f: number): V3 => { const a = P(f - 1), b = P(f + 1); return [(b[0] - a[0]) * 15, (b[1] - a[1]) * 15, (b[2] - a[2]) * 15]; };
 type CK = [number, V3, V3, number];
-const rig = (keys: CK[], sigma = 7) => { const p = camPath(keys.map(([f, pos, look, fov]) => ({ f, pos, look, fov })), sigma); return (f: number): PCam => { const c = p(f); return { pos: c.pos, look: c.look, fov: c.fov, focus: c.focus }; }; };
+/** the lens never lingers inside the wave band (|y| < waves + near plane): heights within 0.9 m of the surface are
+ *  pushed away from it (monotone, max slope < 1) so the camera pops through y = 0 between two frames, like a real
+ *  housing breaking the surface, instead of rendering frames that are half above / half below a wave. */
+const SURF_GAP = 0.26;
+export const surfGap = (y: number) => y === 0 ? SURF_GAP : y + Math.sign(y) * SURF_GAP * (1 - smoothstep01((Math.abs(y) - 0.2) / 0.7));
+const smoothstep01 = (x: number) => { const t = Math.min(1, Math.max(0, x)); return t * t * (3 - 2 * t); };
+const rig = (keys: CK[], sigma = 7) => { const p = camPath(keys.map(([f, pos, look, fov]) => ({ f, pos, look, fov })), sigma); return (f: number): PCam => { const c = p(f); return { pos: [c.pos[0], surfGap(c.pos[1]), c.pos[2]], look: c.look, fov: c.fov, focus: c.focus }; }; };
 const lazy = <T,>(make: () => T) => { let v: T | undefined; return () => (v ??= make()); };
 
 // ---------------------------------------------------------------- arm poses (front view, px from the shoulder)
@@ -271,7 +277,7 @@ export const layerI3 = (f: number) => { const c = camI3()(f); const ck = stander
 // ================================================================= LAYER J: floating, proud — sink back to the opening (loop)
 const HJ = (f: number): V3 => { const p = L(1.7, 0, 4.4); return [p[0] + Math.sin(f * 0.02) * 0.1, -0.12 + waveY(p[0], p[2], f / 30), p[2]]; };
 const heroJ_: Act = { costume: HERO_DIVE, seed: 1, face: ft([[1366, "relieved"], [1384, "proud"], [1412, "smug"], [1436, "delighted"], [1460, "proud"]], 6), armL: fixed(A([-40, -150], "open", -1, -2.8)), armR: fixed(ARM.thumb) };
-export const camJ = lazy(() => rig([[1364, L(3.6, 3.28, 7.0), L(1.7, 3.15, 4.4), 46], [1408, L(3.7, 3.1, 7.6), L(1.6, 3.05, 4.3), 48], [1446, L(3.4, 2.5, 7.4), L(0.4, 1.7, 0.9), 50],
+export const camJ = lazy(() => rig([[1364, L(3.6, 3.5, 7.0), L(1.7, 3.15, 4.4), 46], [1408, L(3.7, 3.55, 7.6), L(1.6, 3.05, 4.3), 48], [1446, L(3.4, 2.6, 7.4), L(0.4, 1.7, 0.9), 50],
   [1490, L(3.25, 1.15, 8.1), L(0.05, 1.5, 0.2), 52], [1518, L(3.1, 0.95, 9.0), L(0, 1.55, 0), 52], [1608, L(1.8, 1.2, 5.0), L(0.15, 1.35, 0.6), 46]], 9));
 export const layerJ = (f: number) => { const c = camJ()(f); const p = HJ(f);
   const hero: Placed = { pose: poseOf(heroJ_, f, { swim: { kick: f / 30 * 0.4, amt: 0.25 } }), pos: p, h: 1.55, centre: true, roll: -1.32 + Math.sin(f * 0.05) * 0.05, halo: 0.1, contact: 0 };
