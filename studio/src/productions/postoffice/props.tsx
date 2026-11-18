@@ -196,7 +196,19 @@ export const bargeKit = () => once("poBarge", () => { const K = new Kit(); const
   // A-frame davit at the stern (+x end) leaning out over the water
   for (const s of [-1, 1]) K.rod(yel, [2.8, 0.5, s * 1.2], [4.3, 3.6, s * 0.35], 0.07, 8); K.rod(yel, [4.3, 3.6, -0.4], [4.3, 3.6, 0.4], 0.07, 8); K.box(dark, [0.3, 0.3, 0.3], [4.3, 3.5, 0]);
   K.box(dark, [0.8, 0.6, 0.6], [-2.6, 0.8, 0]); K.cyl(dark, 0.2, 0.2, 0.7, [-2.6, 1.1, 0], [Math.PI / 2, 0, 0], 14);   // winch
-  K.box(new THREE.MeshStandardMaterial({ color: "#f3f1ea", roughness: 0.5 }), [1.4, 1.5, 1.6], [-1.2, 1.2, 0]);   // wheel-house
+  // wheel-house: painted walls, blue skirt band, overhanging roof, glazed windows all round, door, life ring, mast
+  const wall = new THREE.MeshStandardMaterial({ color: "#ece8dc", roughness: 0.6 }), glass = new THREE.MeshStandardMaterial({ color: "#1d3644", roughness: 0.12, metalness: 0.3 }),
+    frame = new THREE.MeshStandardMaterial({ color: "#2f4f6c", roughness: 0.5 }), ring = new THREE.MeshStandardMaterial({ color: "#e8562a", roughness: 0.55 }), steel = new THREE.MeshStandardMaterial({ color: "#9aa2a8", roughness: 0.35, metalness: 0.6 });
+  const WX = -1.2, W = 1.4, D = 1.6, Y0 = 0.5, Hh = 1.4;
+  K.box(wall, [W, Hh, D], [WX, Y0 + Hh / 2, 0]);
+  K.box(hull, [W + 0.03, 0.18, D + 0.03], [WX, Y0 + 0.12, 0]);                                       // skirt band
+  K.box(frame, [W + 0.34, 0.07, D + 0.34], [WX, Y0 + Hh + 0.035, 0]); K.box(frame, [W + 0.1, 0.1, D + 0.1], [WX, Y0 + Hh - 0.03, 0]);   // roof + fascia
+  for (const s of [-1, 1]) { K.box(frame, [1.12, 0.52, 0.03], [WX, Y0 + 0.98, s * (D / 2 + 0.006)]); for (let i = 0; i < 2; i++) K.box(glass, [0.5, 0.42, 0.03], [WX - 0.27 + i * 0.54, Y0 + 0.98, s * (D / 2 + 0.018)]); }
+  K.box(frame, [0.03, 0.52, 1.32], [WX + W / 2 + 0.006, Y0 + 0.98, 0]); for (let i = 0; i < 3; i++) K.box(glass, [0.03, 0.42, 0.38], [WX + W / 2 + 0.018, Y0 + 0.98, -0.42 + i * 0.42]);   // forward screen (3 panes)
+  K.box(frame, [0.03, 1.12, 0.62], [WX - W / 2 - 0.006, Y0 + 0.6, 0]); K.box(wall, [0.03, 1.02, 0.52], [WX - W / 2 - 0.016, Y0 + 0.6, 0]); K.box(glass, [0.03, 0.28, 0.3], [WX - W / 2 - 0.028, Y0 + 0.88, 0]);   // aft door
+  K.add(ring, new THREE.TorusGeometry(0.17, 0.045, 10, 22), [WX + 0.3, Y0 + 0.4, D / 2 + 0.06], [0, 0, 0], [1, 1, 1], { ink: 0.5 });
+  K.rod(steel, [WX - 0.4, Y0 + Hh + 0.07, -0.3], [WX - 0.4, Y0 + Hh + 0.95, -0.3], 0.025, 8); K.box(ring, [0.08, 0.08, 0.08], [WX - 0.4, Y0 + Hh + 0.98, -0.3]);   // mast + lamp
+  for (const s of [-1, 1]) K.rod(steel, [WX - W / 2 - 0.05, Y0 + 0.35, s * 0.42], [WX - W / 2 - 0.05, Y0 + 0.95, s * 0.42], 0.02, 6);   // grab rails by the door
   return K; });
 export const Barge: React.FC<{ p: V3; ry: number; t: number }> = ({ p, ry, t }) => <group position={[p[0], p[1] + Math.sin(t * 1.1) * 0.05 - 0.2, p[2]]} rotation={[Math.sin(t * 0.8) * 0.02, ry, Math.sin(t * 1.3) * 0.015]}><KitMesh kit={bargeKit()} /></group>;
 /** a rope (straight) between two world points */
