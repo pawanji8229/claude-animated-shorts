@@ -125,9 +125,17 @@ export const camB = lazy(() => rig([[372, [HB[0] + 2.4, 1.05, HB[2] + 3.6], [HB[
   [455, [HB[0] + 2.0, 0.35, HB[2] + 7.0], [HB[0] + 0.4, 0.2, HB[2] + 3.2], 48], [470, [HB[0] + 2.2, -0.45, HB[2] + 8.2], [HB[0] + 0.7, -0.6, HB[2] + 5.2], 50], [500, [HB[0] + 3.4, -0.75, HB[2] + 12.5], [HB[0] + 1.4, -0.95, HB[2] + 9.0], 52]], 8));
 export const layerB = (f: number) => { const c = camB()(f);
   const walking = f > 425 && f < 458, wk = sm(425, 432, f) * (1 - sm(452, 458, f));
-  if (f < 458) { const p = heroBPath(f), g = height(p[0], p[2]); const pose = poseOf(heroB_, f, walking ? { view: "side", walk: wk, gait: (f - 425) / 30 * 1.1, stride: 0.55 } : {});
+  // the flop: over 452..468 the card tips from upright into the swim roll and its centre glides from the standing
+  // position onto the swim path (no single-frame switch from standing to lying)
+  const k = sm(452, 468, f), kp = sm(454, 466, f), d = 1.55 * (SOLE5 / H5 - 0.5);
+  const standCentre = (q: number): V3 => { const p = heroBPath(q), g = height(p[0], p[2]); return [p[0], Math.max(g, -0.6) + d, p[2]]; };
+  if (f < 452) { const p = heroBPath(f), g = height(p[0], p[2]); const pose = poseOf(heroB_, f, walking ? { view: "side", walk: wk, gait: (f - 425) / 30 * 1.1, stride: 0.55 } : {});
     return { c, actors: [{ pose, pos: [p[0], Math.max(g, -0.6), p[2]] as V3, h: 1.55, halo: 0.1, contact: g > -0.05 ? 0.6 : 0, flip: walking }], emitters: [], flag: false, marker: true }; }
-  return { c, actors: [swimmer(heroB_, heroBPath, f, c, { kickHz: 1.7, maxRoll: 1.4 })], emitters: [snorkelBubbles(heroBPath, 3)], flag: false, marker: true };
+  const sw = swimmer(heroB_, heroBPath, f, c, { kickHz: 1.7, maxRoll: 1.4 }), sc = standCentre(Math.min(f, 458));
+  const pos: V3 = [lerp(sc[0], sw.pos[0], kp), lerp(sc[1], sw.pos[1], kp), lerp(sc[2], sw.pos[2], kp)];
+  if (f < 458) { const p = heroBPath(f), g = height(p[0], p[2]); const pose = poseOf(heroB_, f, walking ? { view: "side", walk: wk, gait: (f - 425) / 30 * 1.1, stride: 0.55 } : {});
+    return { c, actors: [{ pose, pos, centre: true, roll: (sw.roll ?? 0) * k, h: 1.55, halo: 0.1, contact: g > -0.05 ? 0.6 * (1 - k) : 0, flip: walking }], emitters: [], flag: false, marker: true }; }
+  return { c, actors: [{ ...sw, pos, roll: (sw.roll ?? 0) * k }], emitters: [snorkelBubbles(heroBPath, 3)], flag: false, marker: true };
 };
 export const MARKER: V3 = [PO.x, 0, PO.z];
 
