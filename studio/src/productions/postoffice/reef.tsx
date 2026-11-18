@@ -35,14 +35,14 @@ const lerpC = (a: THREE.Color, b: THREE.Color, t: number) => a.clone().lerp(b, M
 // ---------------------------------------------------------------- species generators (local space, base at y = 0)
 /** staghorn / bushy Acropora: recursive tapering branches, pale growing tips */
 const acropora = (r: R, base: string, tip: string, bushy: boolean) => {
-  const gs: THREE.BufferGeometry[] = []; const tips: THREE.Vector3[] = [];
+  const gs: THREE.BufferGeometry[] = []; const tips: THREE.Vector3[] = []; const cs: THREE.BufferGeometry[] = [], anchors: THREE.Vector3[] = [];
   const grow = (p: THREE.Vector3, dir: THREE.Vector3, rad: number, depth: number) => {
     const len = (bushy ? 0.05 : 0.075) + r() * (bushy ? 0.04 : 0.06); const q = p.clone().add(dir.clone().multiplyScalar(len)); const r1 = rad * (bushy ? 0.9 : 0.88);
     gs.push(cyl(p, q, rad, r1, 8, true));   // joints/tips are covered by the next branch or the tip ball: no caps
     // radial corallites: tiny tubular cups along the branch (the bumpy texture that makes Acropora read as coral)
     const side = new THREE.Vector3().crossVectors(dir, v3(0.3, 0.1, 0.9)).normalize(), up2 = new THREE.Vector3().crossVectors(dir, side).normalize();
     for (let c = 0; c < 4; c++) { const u = (c + r() * 0.7) / 4, ang = r() * Math.PI * 2, at = p.clone().lerp(q, u), o = side.clone().multiplyScalar(Math.cos(ang)).addScaledVector(up2, Math.sin(ang)), rr = rad + (r1 - rad) * u;
-      const b0 = at.clone().addScaledVector(o, rr * 0.7), b1 = b0.clone().addScaledVector(o.clone().multiplyScalar(0.8).addScaledVector(dir, 0.6).normalize(), rr * 0.75 + 0.004); gs.push(cyl(b0, b1, rr * 0.42, rr * 0.3, 5, true)); }   // (open tube = the corallite cup)
+      const b0 = at.clone().addScaledVector(o, rr * 0.7), b1 = b0.clone().addScaledVector(o.clone().multiplyScalar(0.8).addScaledVector(dir, 0.6).normalize(), rr * 0.75 + 0.004); { const cg = cyl(b0, b1, rr * 0.42, rr * 0.3, 5, true); cs.push(cg); anchors.push(b0.clone().addScaledVector(o, -rr * 0.2)); } }   // (open tube = the corallite cup)
     if (depth <= 0 || r1 < 0.0055) { gs.push(ball(q, r1 * 1.15, 6)); tips.push(q); return; }
     const nb = r() < (bushy ? 0.42 : 0.24) ? 2 : 1;
     for (let b = 0; b < nb; b++) { const nd = dir.clone().add(v3((r() - 0.5) * (b ? 1.1 : 0.45), (r() - 0.25) * 0.35, (r() - 0.5) * (b ? 1.1 : 0.45))).normalize(); if (nd.y < 0.05) nd.y = 0.05 + r() * 0.2; grow(q, nd.normalize(), b ? r1 * 0.85 : r1, depth - 1); }
@@ -50,7 +50,12 @@ const acropora = (r: R, base: string, tip: string, bushy: boolean) => {
   const n = bushy ? 9 + Math.floor(r() * 5) : 6 + Math.floor(r() * 4);
   for (let i = 0; i < n; i++) { const a = r() * Math.PI * 2, e = 0.35 + r() * 0.75; grow(v3(Math.cos(a) * 0.05 * r(), 0, Math.sin(a) * 0.05 * r()), v3(Math.cos(a) * Math.cos(e), Math.sin(e), Math.sin(a) * Math.cos(e)), 0.016 + r() * 0.006, bushy ? 9 : 9); }
   const B = C(base), T = C(tip), maxY = Math.max(...tips.map((t) => t.y), 0.2);
-  const tipSet = tips.slice(0, 160); return finish(merge(gs), (p) => { let near = 1e9; for (const t of tipSet) near = Math.min(near, t.distanceToSquared(p)); return lerpC(lerpC(B.clone().multiplyScalar(0.55), B, p.y / maxY), T, 1 - Math.min(1, near / 0.0016)).multiplyScalar(0.85 + 0.3 * fbm(p.x * 25 + 3, p.z * 25 + p.y * 10)); }, (p) => p.y * 0.15);
+  const tipSet = tips.slice(0, 160); const colour = (p: THREE.Vector3) => { let near = 1e9; for (const t of tipSet) near = Math.min(near, t.distanceToSquared(p)); return lerpC(lerpC(B.clone().multiplyScalar(0.55), B, p.y / maxY), T, 1 - Math.min(1, near / 0.0016)).multiplyScalar(0.85 + 0.3 * fbm(p.x * 25 + 3, p.z * 25 + p.y * 10)); };
+  const main = finish(merge(gs), colour, (p) => p.y * 0.15);
+  // corallites: their own geometry so they can shrink into the branch with distance (no popping, ~70% fewer triangles far away)
+  const cor = finish(merge(cs), colour, (p) => p.y * 0.15); const an = new Float32Array(cor.attributes.position.count * 3); let q = 0;
+  cs.forEach((g, ci) => { const n = g.index ? g.index.count : g.attributes.position.count; for (let v = 0; v < n; v++, q++) { an[q * 3] = anchors[ci].x; an[q * 3 + 1] = anchors[ci].y; an[q * 3 + 2] = anchors[ci].z; } });
+  cor.setAttribute("aAnchor", new THREE.BufferAttribute(an, 3)); cor.computeBoundingSphere(); main.userData.cor = cor; return main;
 };
 /** table Acropora: a wide, slightly dished plate with a ragged rim on a short stalk */
 const table = (r: R, top: string, rim: string) => {
@@ -142,20 +147,26 @@ const grassBlade = (r: R) => { const gs: THREE.BufferGeometry[] = []; for (let i
 export const SURGE = { t: 0 };
 const polypN = () => paintTex(256, 256, (g, r) => { g.fillStyle = "rgb(128,128,255)"; g.fillRect(0, 0, 256, 256);
   for (let i = 0; i < 1300; i++) { const x = r() * 256, y = r() * 256, s = 1.5 + r() * 2.5; const gr = g.createRadialGradient(x - s * 0.4, y - s * 0.4, 0, x, y, s); gr.addColorStop(0, "rgb(96,96,255)"); gr.addColorStop(0.6, "rgb(150,150,255)"); gr.addColorStop(1, "rgba(128,128,255,0)"); g.fillStyle = gr; g.beginPath(); g.arc(x, y, s, 0, Math.PI * 2); g.fill(); } }, 7, false);
-const swayMat = (rough = 0.82, amp = 0.05, side: THREE.Side = THREE.FrontSide) => {
+export const COR_FADE = [4.5, 8.5];
+const swayMat = (rough = 0.82, amp = 0.05, side: THREE.Side = THREE.FrontSide, cor = false) => {
   const m = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: rough, metalness: 0, normalMap: polypN(), normalScale: new THREE.Vector2(1.0, 1.0), side });
   const U = { uT: { value: 0 } };
   m.onBeforeCompile = (sh) => { sh.uniforms.uT = U.uT;
-    sh.vertexShader = sh.vertexShader.replace("#include <common>", "#include <common>\nattribute float aSway; uniform float uT;")
+    sh.vertexShader = sh.vertexShader.replace("#include <common>", "#include <common>\nattribute float aSway; uniform float uT;" + (cor ? "\nattribute vec3 aAnchor;" : ""))
       .replace("#include <begin_vertex>", `#include <begin_vertex>
-{ vec3 ip = vec3(0.0);
+${cor ? `{ vec4 wq = vec4(transformed, 1.0);
+#ifdef USE_INSTANCING
+  wq = instanceMatrix * wq;
+#endif
+  wq = modelMatrix * wq; float kc = 1.0 - smoothstep(${COR_FADE[0].toFixed(2)}, ${COR_FADE[1].toFixed(2)}, distance(wq.xyz, cameraPosition)); transformed = mix(aAnchor, transformed, kc); }
+` : ""}{ vec3 ip = vec3(0.0);
 #ifdef USE_INSTANCING
   ip = instanceMatrix[3].xyz;
 #endif
   float ph = ip.x * 0.31 + ip.z * 0.23; float s = sin(uT * 1.15 + ph) * 0.7 + sin(uT * 2.3 + ph * 1.7) * 0.3;
   transformed.x += s * aSway * ${amp.toFixed(3)}; transformed.z += cos(uT * 0.9 + ph) * aSway * ${(amp * 0.6).toFixed(3)}; }`);
   };
-  m.customProgramCacheKey = () => `poSway${rough}${amp}${side}`;
+  m.customProgramCacheKey = () => `poSway${rough}${amp}${side}${cor}`;
   (m as unknown as { _U: typeof U })._U = U; return m;
 };
 
@@ -163,7 +174,7 @@ const swayMat = (rough = 0.82, amp = 0.05, side: THREE.Side = THREE.FrontSide) =
 type Kind = { key: string; make: (r: R, v: number) => THREE.BufferGeometry; variants: number; mat: () => THREE.Material };
 const ACRO = [["#7d6644", "#e9dbb3", false], ["#5f5a70", "#9cc0ea", true], ["#7a5a6e", "#d9a6d6", false], ["#7a6a46", "#c8e09a", true], ["#866a46", "#f0e6c8", true]] as const;
 const KINDS: Kind[] = [
-  { key: "acro", variants: 10, make: (r, v) => { const a = ACRO[v % ACRO.length]; return acropora(r, a[0], a[1], a[2]); }, mat: () => swayMat(0.78, 0.004) },
+  { key: "acro", variants: 10, make: (r, v) => { const a = ACRO[v % ACRO.length]; return acropora(r, a[0], a[1], a[2]); }, mat: () => swayMat(0.78, 0.004) },   // + corallite geometry in userData.cor
   { key: "table", variants: 4, make: (r, v) => table(r, ["#8f8558", "#7a8f62", "#9a7f6a", "#6f8a7e"][v], ["#e7dcae", "#cfe6a4", "#f0c8b8", "#b8e4d6"][v]), mat: () => swayMat(0.8, 0) },
   { key: "brain", variants: 4, make: (r, v) => brain(r, ["#c2ad6c", "#8fb36a", "#c79a6e", "#9db8a0"][v], ["#4f5a2e", "#2e4a2a", "#5a3a2a", "#3a4e54"][v]), mat: () => swayMat(0.75, 0) },
   { key: "porites", variants: 4, make: (r, v) => porites(r, ["#c4ae84", "#a597b8", "#b3925e", "#9fae86"][v]), mat: () => swayMat(0.85, 0) },
@@ -235,7 +246,7 @@ const rockMat = (base: THREE.MeshStandardMaterial) => { const m = base.clone(); 
   m.customProgramCacheKey = () => `poRock${base.uuid}`; return m; };
 
 export type View = { pos: V3; look: V3; fov: number; aspect: number; roll?: number; shadowAt: V3; shadowSize: number; pxH: number };
-type Src = { im: THREE.InstancedMesh; M: THREE.Matrix4[]; col: THREE.Color[]; ctr: THREE.Vector3[]; rad: number[] };
+type Src = { im: THREE.InstancedMesh; M: THREE.Matrix4[]; col: THREE.Color[]; ctr: THREE.Vector3[]; rad: number[]; maxD?: number };
 const _fr = new THREE.Frustum(), _pm = new THREE.Matrix4(), _cam = new THREE.PerspectiveCamera(), _sp = new THREE.Sphere(), _sc = new THREE.Matrix4();
 /** per-frame instance culling (pure function of the view): only colonies inside the view frustum or the sun's shadow box
  *  are drawn; colonies that are sub-pixel shrink smoothly to nothing (1.2..2.4 px) so nothing ever pops. */
@@ -249,6 +260,7 @@ export const cullInstances = (srcs: Src[], v: View | undefined) => {
       const inView = _fr.intersectsSphere(_sp), inShadow = Math.abs(c.x - v.shadowAt[0]) < S + r && Math.abs(c.z - v.shadowAt[2]) < S + r;
       if (!inView && !inShadow) continue;
       const d = Math.max(0.05, Math.hypot(c.x - v.pos[0], c.y - v.pos[1], c.z - v.pos[2]));
+      if (s.maxD !== undefined && (d - r > s.maxD || !inView)) continue;
       const px = (2 * r * pxPerRad) / d; const k = inView ? Math.min(1, Math.max(0, (px - 1.2) / 1.2)) : 1;
       if (k <= 0) continue;
       if (k < 1) { _sc.makeScale(k, k, k); const m = s.M[i].clone().multiply(_sc); s.im.setMatrixAt(n, m); } else s.im.setMatrixAt(n, s.M[i]);
@@ -260,13 +272,15 @@ export const Reef: React.FC<{ t: number; near: V3; radius?: number; view?: View 
   const rocks = useMemo(() => once("poRockMeshes", () => Object.fromEntries(ROCKS.map((m) => [m, model(m).map((p) => ({ geo: p.geo, mat: rockMat(p.mat as THREE.MeshStandardMaterial), size: p.size }))]))), []);
   const srcs = useMemo(() => {
     const out: Src[] = [];
-    const mk = (geo: THREE.BufferGeometry, mat: THREE.Material, Ms: THREE.Matrix4[], cols: THREE.Color[]) => { if (!geo.boundingSphere) geo.computeBoundingSphere(); const bs = geo.boundingSphere!;
-      const im = new THREE.InstancedMesh(geo, mat, Ms.length); im.frustumCulled = false; im.castShadow = true; im.receiveShadow = true;
+    const corMat = once("poCorMat", () => { const m = swayMat(0.78, 0.004, THREE.FrontSide, true); return m; });
+    const mk = (geo: THREE.BufferGeometry, mat: THREE.Material, Ms: THREE.Matrix4[], cols: THREE.Color[], maxD?: number) => { if (!geo.boundingSphere) geo.computeBoundingSphere(); const bs = geo.boundingSphere!;
+      const im = new THREE.InstancedMesh(geo, mat, Ms.length); im.frustumCulled = false; im.castShadow = maxD === undefined; im.receiveShadow = true;
       const ctr = Ms.map((m) => bs.center.clone().applyMatrix4(m)), rad = Ms.map((m) => bs.radius * m.getMaxScaleOnAxis());
-      if (cols.length) cols.forEach((c, i) => im.setColorAt(i, c)); out.push({ im, M: Ms, col: cols, ctr, rad }); };
+      if (cols.length) cols.forEach((c, i) => im.setColorAt(i, c)); out.push({ im, M: Ms, col: cols, ctr, rad, maxD }); };
     for (const k of KINDS) { const g = G[k.key]; g.geos.forEach((geo, v) => { const list = lay.L.filter((i) => i.kind === k.key && i.v === v); if (!list.length) return;
       const Ms = list.map((it) => new THREE.Matrix4().compose(new THREE.Vector3(...it.p), new THREE.Quaternion().setFromEuler(new THREE.Euler(it.tilt?.[0] ?? 0, it.ry, it.tilt?.[1] ?? 0, "YXZ")), new THREE.Vector3(it.s, it.s, it.s)));
-      mk(geo, g.mat, Ms, list.map((it) => new THREE.Color().setScalar(it.tint ?? 1))); }); }
+      const cols = list.map((it) => new THREE.Color().setScalar(it.tint ?? 1)); mk(geo, g.mat, Ms, cols);
+      if (geo.userData.cor) mk(geo.userData.cor as THREE.BufferGeometry, corMat, Ms, cols, COR_FADE[1]); }); }
     for (const m of ROCKS) { const list = lay.rocks.filter((r) => r.m === m); if (!list.length) continue;
       for (const part of rocks[m]) { const Ms = list.map((it) => { const sc = it.s / Math.max(part.size.x, part.size.z); return new THREE.Matrix4().compose(new THREE.Vector3(...it.p), new THREE.Quaternion().setFromEuler(new THREE.Euler(0, it.ry, 0)), new THREE.Vector3(sc, sc * 0.8, sc)); });
         mk(part.geo, part.mat, Ms, []); } }
@@ -274,6 +288,7 @@ export const Reef: React.FC<{ t: number; near: V3; radius?: number; view?: View 
   }, [G, lay, rocks]);
   cullInstances(srcs, view);
   for (const k of KINDS) ((G[k.key].mat as unknown as { _U: { uT: { value: number } } })._U.uT.value = t);
+  (once("poCorMat", () => swayMat(0.78, 0.004, THREE.FrontSide, true)) as unknown as { _U: { uT: { value: number } } })._U.uT.value = t;
   void near; void radius;
   return <>{srcs.map((s, i) => <primitive key={i} object={s.im} />)}</>;
 };
