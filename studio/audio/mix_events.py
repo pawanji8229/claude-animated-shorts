@@ -19,6 +19,7 @@ import london_sfx as LS
 import office_sfx as O
 import joralemon_sfx as J
 import flight_sfx as FL
+import po_sfx as PS
 
 ap = argparse.ArgumentParser(); ap.add_argument("narration"); ap.add_argument("events"); ap.add_argument("outdir"); ap.add_argument("duration", nargs="?", default="full")
 ap.add_argument("--ambience", default="desert"); ap.add_argument("--music", default="desert_guitar"); ap.add_argument("--loop", action="store_true")
@@ -104,6 +105,16 @@ REL = {
     "windsock": (-31, "sfx", "windsock flutter"), "oystercatcher": (-28, "sfx", "oystercatcher piping"), "sheep": (-33, "sfx", "distant sheep"),
     "brow_pluck": (-26, "sfx", "tiny comic pluck (brows up)"), "watch_tick": (-27, "sfx", "wristwatch ticks"), "double_take": (-28, "sfx", "double-take zip"), "air_swell": (-24, "sfx", "outside air as the camera passes the window"),
     **{f"step_{s}_{lr}": (lv, "sfx", f"footstep ({s}, {'left' if lr == 'l' else 'right'} foot)") for s, lv in [("gravel", -24), ("grass", -27)] for lr in "lr"},
+    # underwater post office (Hideaway Island) - original synthesised sounds; underwater ones are muffled by design
+    "regulator": (-24, "sfx", "scuba regulator exhalation (bubble train)"), "bubbles_small": (-30, "sfx", "snorkeller's small bubbles"), "fin_kick": (-30, "sfx", "fin stroke under water"),
+    "card_uw": (-25, "sfx", "plastic postcard handled under water"), "emboss_press": (-19, "sfx", "embosser: lever creak, ram clunk, die crunch (under water)"), "emboss_release": (-25, "sfx", "embosser lever released"),
+    "box_slide_uw": (-27, "sfx", "dry box with the ink stamp slid aside"), "pen_scratch_uw": (-30, "sfx", "ballpoint scratching wet paper"), "paper_soak": (-33, "sfx", "paper soaking (soft fizz)"),
+    "tank_settle": (-17, "sfx", "fibreglass tank settles on the sand"), "tank_descend": (-24, "sfx", "tank lowered on ropes (hull resonance, creaks)"), "surface_emerge": (-24, "sfx", "worker breaks the surface"),
+    "idea_pop": (-27, "sfx", "comic idea accent"), "bird": (-30, "sfx", "tropical bird"), "outboard_idle": (-25, "sfx", "outboard idling"), "winch": (-24, "sfx", "A-frame winch"),
+    "rope_creak": (-29, "sfx", "rope creak"), "roof_set": (-21, "sfx", "fibreglass roof set down"), "card_flick": (-25, "sfx", "plastic cards fanned"), "card_slide": (-27, "sfx", "card slid across the counter"),
+    "flag_flutter": (-31, "sfx", "yellow flag flutters"), "splash_entry": (-20, "sfx", "dives in"), "wade": (-25, "sfx", "wading into the shallows"), "fin_flap": (-27, "sfx", "fins flap on wet sand"),
+    "surface_break": (-23, "sfx", "camera rises out of the water"), "dip_under": (-23, "sfx", "camera dips under the surface"), "stamp_ink": (-21, "sfx", "rubber date stamp (above water)"),
+    "drop_in_bag": (-25, "sfx", "card dropped into the outward mail bag"), "bag_rustle": (-26, "sfx", "mail bag handled"), "bag_rustle_uw": (-26, "sfx", "mail bag handled under water"),
 }
 GEN = {
     "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
@@ -128,6 +139,9 @@ GEN = {
     "seat_creak": FL.seat_creak, "bag_set": FL.bag_set, "windsock": FL.windsock, "oystercatcher": FL.oystercatcher, "sheep": FL.sheep, "brow_pluck": FL.brow_pluck,
     "watch_tick": FL.watch_tick, "double_take": FL.double_take, "air_swell": FL.air_swell,
     **{f"step_{s}_{lr}": (lambda s, lr: lambda r: FL.step(r, s, 0 if lr == "l" else 1))(s, lr) for s in ("gravel", "grass") for lr in "lr"},
+    **{k: getattr(PS, k) for k in ["regulator", "bubbles_small", "fin_kick", "card_uw", "emboss_press", "emboss_release", "box_slide_uw", "pen_scratch_uw", "paper_soak", "tank_settle", "tank_descend",
+        "surface_emerge", "idea_pop", "bird", "outboard_idle", "winch", "rope_creak", "roof_set", "card_flick", "card_slide", "flag_flutter", "splash_entry", "wade", "fin_flap", "surface_break", "dip_under",
+        "stamp_ink", "drop_in_bag", "bag_rustle"]}, "bag_rustle_uw": lambda r: PS.bag_rustle(r, under=True),
 }
 OFFSET = {"air_swell": -0.6, "takeoff": -0.05, "car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
 FIXED_PAN = {"car_arrive": -0.6}
@@ -188,6 +202,10 @@ def amb_preset(name):
     elif name == "aerial": a += bed(FL.aerial_bed, 33, -26)
     elif name == "approach": a += bed(FL.approach_bed, 34, -21)
     elif name == "airfield": a += bed(FL.airfield_bed, 35, -25)
+    elif name == "reef": a += bed(PS.reef_bed, 41, -24)
+    elif name == "beach": a += bed(PS.beach_bed, 42, -24)
+    elif name == "surface": a += bed(PS.surface_bed, 43, -23)
+    elif name == "sortroom": a += bed(PS.room_bed, 44, -29)
     elif name == "room":
         from sfx_gen import breeze; a += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26)
     return a, cr

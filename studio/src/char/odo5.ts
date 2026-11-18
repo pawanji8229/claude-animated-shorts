@@ -15,7 +15,9 @@ export type Mouth5 = "awkward" | "yikes" | "o" | "smile" | "flat" | "wobble" | "
 export type Hand5 = "relaxed" | "fist" | "grip" | "open" | "thumb";
 export type ArmPose = { hand: [number, number]; bend: number; shape: Hand5; rot: number; behind?: boolean; elbow?: [number, number] };
 /** Costume = palette overrides + accessory switches; the rig, proportions and line style stay identical. */
-export type Costume = { pal?: Record<string, string>; goggles: boolean; hairs: boolean; tufts: boolean; hat: null | "cowboy" | "bowler" | "hard" | "pilot"; stache: boolean; suit: boolean; apron: boolean };
+export type Costume = { pal?: Record<string, string>; goggles: boolean; hairs: boolean; tufts: boolean; hat: null | "cowboy" | "bowler" | "hard" | "pilot"; stache: boolean; suit: boolean; apron: boolean;
+  /** optional dive gear (absent -> identical to earlier renders): mask (+ snorkel or scuba regulator/tank), fins instead of shoes */
+  dive?: "snorkel" | "scuba" | "mask"; fins?: boolean };
 export const COSTUME: Record<string, Costume> = {
   odo: { goggles: true, hairs: true, tufts: true, hat: null, stache: false, suit: false, apron: true },
   // Hal Brightwater, the 1960s developer: cream wide-brim hat, tan suit, brown tie, pencil moustache
@@ -50,7 +52,9 @@ export type Odo5Pose = {
   /** optional wristwatch on the screen-left forearm (absent -> identical to earlier renders) */
   watch?: boolean;
   /** optional tool held in the screen-right hand (drawn along the forearm, ink style) */
-  holdR?: "hammer" | "chalk" | "wrench" | "pen" | "umbrella" | "shovel" | "cup" | "bag" | "grocery" | "briefcase" | "book";
+  holdR?: "hammer" | "chalk" | "wrench" | "pen" | "umbrella" | "shovel" | "cup" | "bag" | "grocery" | "briefcase" | "book" | "postcard" | "mailbag";
+  /** optional flutter kick (front view): kick = cycles, amt 0..1 (absent -> standing legs as before) */
+  swim?: { kick: number; amt: number };
   /** optional exaggeration controls (absent -> identical to earlier renders): brow travel multiplier, eye size, side-eye
    *  (-1..1: pupils pushed into the corners + flat "unimpressed" lids), per-eye modes, mouth tilt (rad) / offset (px) */
   fx?: { browAmp?: number; eyeScale?: number; sideEye?: number; eyeL?: Eyes5; eyeR?: Eyes5; mouthTilt?: number; mouthY?: number; jaw?: number };
@@ -80,9 +84,10 @@ const COLORS: Pal = {
   apron: "#c4572a", apronShade: "#9b4120", brass: "#d0a245", brassD: "#8c6522", lens: "#ffe08c", strap: "#5a3a2a",
   shoe: "#2e1d16", mouth: "#6a2230", tongue: "#d0666e", teeth: "#ffffff", sweat: "#bfe6ff", wrench: "#a9b2bc",
   blush: "#ff8a8a", rim: "#a9bcff", glove: "#6a4a3c",
+  fin: "#f0c22e", finShade: "#c99a12", finPocket: "#2a2a30", maskFrame: "#1d2a33", maskGlass: "rgba(200,240,255,0.22)", snorkel: "#f2602a", tank: "#e9e6dc", tankShade: "#b8b4a8", bcd: "#1e2630",
 };
 const MASK: Pal = Object.fromEntries(Object.keys(COLORS).map((k) => [k, "#4a4a4a"]));
-Object.assign(MASK, { ink: "#141414", limb: "#1a1a1a", limbFar: "#1a1a1a", face: "#ffffff", faceShade: "#ececec", teeth: "#ffffff", lens: "#b0b0b0", blush: "#ffffff", rim: "#4a4a4a", sweat: "#9a9a9a" });
+Object.assign(MASK, { maskGlass: "rgba(255,255,255,0.0)", ink: "#141414", limb: "#1a1a1a", limbFar: "#1a1a1a", face: "#ffffff", faceShade: "#ececec", teeth: "#ffffff", lens: "#b0b0b0", blush: "#ffffff", rim: "#4a4a4a", sweat: "#9a9a9a" });
 
 // ---------- brush helpers ----------
 const inked = (g: G, c: Pal, path: () => void, fill: string, w = 6, k = 5) => {
@@ -275,6 +280,17 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
   for (const [s2, m2] of [[-1, eL], [1, eR]] as [number, Eyes5][]) { if (esc !== 1 && m2 !== "huge" && m2 !== "dot") { g.save(); g.translate(eyeX(s2), ey); g.scale(esc, esc); g.translate(-eyeX(s2), -ey); eye(s2, m2); g.restore(); } else eye(s2, m2); }
   if (p.eyes === "lid" && p.lids > 0.3) for (const s of side ? [1] : [-1, 1]) taper(g, [[eyeX(s) - 9, ey + 20], [eyeX(s) + 1, ey + 23], [eyeX(s) + 9, ey + 20]], 3, c.ink, 0.3);
 
+  if (cos.dive) { // dive mask over both eyes: silicone skirt, tinted glass, glints, strap round the head (inside the silhouette: earless)
+    const mxL = side ? eyeX(1) - 34 : cx - 92, mxR = side ? eyeX(1) + 34 : cx + 92, my0 = ey - 34, my1 = ey + 32;
+    const maskPath = () => { g.beginPath(); g.moveTo(mxL + 18, my0); g.lineTo(mxR - 18, my0); g.quadraticCurveTo(mxR, my0, mxR, my0 + 18); g.lineTo(mxR, my1 - 10); g.quadraticCurveTo(mxR, my1, mxR - 22, my1); g.quadraticCurveTo((mxL + mxR) / 2 + 14, my1 + 4, (mxL + mxR) / 2, my1 + 16); g.quadraticCurveTo((mxL + mxR) / 2 - 14, my1 + 4, mxL + 22, my1); g.quadraticCurveTo(mxL, my1, mxL, my1 - 10); g.lineTo(mxL, my0 + 18); g.quadraticCurveTo(mxL, my0, mxL + 18, my0); g.closePath(); };
+    if (!mask) { g.save(); headPath(g, cx, cy)(); g.clip(); g.beginPath(); g.moveTo(cx - 160, ey - 6); g.quadraticCurveTo(cx, ey - 60, cx + 160, ey - 6); g.lineWidth = 13; g.strokeStyle = c.maskFrame; g.stroke(); g.restore(); }
+    maskPath(); g.lineWidth = 11; g.strokeStyle = c.maskFrame; g.stroke(); maskPath(); g.fillStyle = c.maskGlass; g.fill();
+    if (!mask) { g.save(); maskPath(); g.clip(); g.beginPath(); g.moveTo(mxL + 10, my0 + 30); g.lineTo(mxL + 40, my0 + 4); g.lineTo(mxL + 54, my0 + 4); g.lineTo(mxL + 24, my0 + 30); g.closePath(); g.fillStyle = "rgba(255,255,255,0.55)"; g.fill(); g.restore(); }
+    if (!side) taper(g, [[(mxL + mxR) / 2, my0 + 2], [(mxL + mxR) / 2, my1 - 4]], 4, c.maskFrame, 0.6);
+    if (cos.dive === "snorkel") { const sx = side ? cx - 70 : cx + 128; // J-snorkel clipped to the strap, rising above the head
+      taper(g, [[sx - 6, ey + 44], [sx + 4, ey - 20], [sx + 6, cy - 150], [sx - 4, cy - 205]], 15, c.ink, 0.95); taper(g, [[sx - 6, ey + 44], [sx + 4, ey - 20], [sx + 6, cy - 150], [sx - 4, cy - 205]], 10, mask ? "#666" : "#2a7fb8", 0.95);
+      taper(g, [[sx + 4, cy - 165], [sx - 4, cy - 210]], 13, c.snorkel, 0.9); }
+  }
   // mouth
   const mx0 = cx + fx + (side ? 8 : 6), my0 = cy + 64 + (p.fx?.mouthY ?? 0), mw = p.mouthW, tilt = p.fx?.mouthTilt ?? 0;
   if (tilt) { g.save(); g.translate(mx0, my0); g.rotate(tilt); g.translate(-mx0, -my0); }
@@ -312,6 +328,8 @@ const drawHead = (g: G, c: Pal, cx: number, cy: number, p: Odo5Pose, side: boole
     default: taper(g, [[mx - 18 * sp, my], [mx + 18 * sp, my - 2]], 6, c.ink, 0.4);
   }
   if (tilt) g.restore();
+  if (cos.dive === "scuba") { const rx = mx - 52 * sp, ry2 = my + 18; taper(g, [[rx - 8, ry2 + 8], [rx - 60, ry2 + 70], [rx - 40, ry2 + 150]], 13, c.ink, 0.95); taper(g, [[rx - 8, ry2 + 8], [rx - 60, ry2 + 70], [rx - 40, ry2 + 150]], 8, "#2a2f36", 0.95);
+    inked(g, c, () => { g.beginPath(); g.roundRect(rx - 22, ry2 - 14, 34, 30, 9); }, "#2a2f36", 3, 2); if (!mask) { g.fillStyle = "#c9ced4"; g.beginPath(); g.arc(rx - 6, ry2 + 1, 7, 0, 7); g.fill(); } }
   if (p.sweat > 0.02) {
     const sx = cx + (side ? -34 : 112), sy = cy - 44 + (1 - p.sweat) * -10 + p.sweat * 6;
     g.save(); g.globalAlpha = Math.min(1, p.sweat * 1.5);
@@ -374,6 +392,13 @@ const drawTorso = (g: G, c: Pal, cx: number, top: number, bot: number, side: boo
     g.beginPath(); g.arc(px - 13, py - 32, 9, 0.7, Math.PI * 2 - 0.7); g.lineWidth = 6; g.strokeStyle = c.wrench; g.stroke();
     limb(g, [[px + 8, py + 4], [px + 12, py - 20]], 6, "#e9c34a");
   }
+};
+const fin = (g: G, c: Pal, ankle: P, ang: number, dir: number) => { // dive fin: foot pocket + long blade with side rails (front view: pointing down)
+  g.save(); g.translate(ankle[0], ankle[1]); g.rotate(ang); g.scale(dir, 1);
+  inked(g, c, () => { g.beginPath(); g.moveTo(-15, -8); g.quadraticCurveTo(-18, 30, -26, 92); g.quadraticCurveTo(0, 104, 26, 92); g.quadraticCurveTo(18, 30, 15, -8); g.closePath(); }, c.fin, 3.5, 3);
+  g.save(); g.beginPath(); g.moveTo(-15, -8); g.quadraticCurveTo(-18, 30, -26, 92); g.quadraticCurveTo(0, 104, 26, 92); g.quadraticCurveTo(18, 30, 15, -8); g.closePath(); g.clip();
+  g.fillStyle = c.finShade; g.fillRect(-30, -10, 16, 110); g.fillRect(14, -10, 16, 110); g.fillStyle = c.finPocket; g.beginPath(); g.ellipse(0, 4, 15, 16, 0, 0, 7); g.fill(); g.restore();
+  g.restore();
 };
 const shoe = (g: G, c: Pal, ankle: P, ang: number, dir: number) => {
   g.save(); g.translate(ankle[0], ankle[1]); g.rotate(ang); g.scale(dir, 1);
@@ -455,6 +480,15 @@ const drawTool = (g: G, c: Pal, at: P, rot: number, tool: NonNullable<Odo5Pose["
     if (!mask) { g.strokeStyle = "rgba(60,40,20,0.5)"; g.lineWidth = 1.5; for (let i = 0; i < 5; i++) { g.beginPath(); g.moveTo(-30, 6 + i * 6); g.lineTo(-6, 12 + i * 6); g.moveTo(6, 12 + i * 6); g.lineTo(30, 6 + i * 6); g.stroke(); } g.strokeStyle = "#7a2d22"; g.lineWidth = 3; g.beginPath(); g.moveTo(0, 4); g.lineTo(0, 42); g.stroke(); } }
   else if (tool === "chalk") { inked(g, c, () => { g.beginPath(); g.roundRect(-4, 6, 8, 26, 3); }, mask ? "#dddddd" : "#f4f1e8", 2, 1); }
   else if (tool === "wrench") { inked(g, c, () => { g.beginPath(); g.roundRect(-5, -6, 10, 66, 4); g.moveTo(-14, 56); g.arc(0, 66, 14, Math.PI * 1.2, Math.PI * 1.8, true); }, steel, 3, 2); }
+  else if (tool === "postcard") { g.rotate(rot - 0.25); const W2 = 62, H2 = 42; // waterproof plastic postcard: glossy picture side (reef, sun, island) held by one corner
+    inked(g, c, () => { g.beginPath(); g.roundRect(-8, 2, W2, H2, 4); }, mask ? "#e0e0e0" : "#f6f6f2", 2.4, 1.6);
+    if (!mask) { const gr = g.createLinearGradient(0, 4, 0, 4 + H2 - 6); gr.addColorStop(0, "#7fd2f0"); gr.addColorStop(0.55, "#2a9fc0"); gr.addColorStop(1, "#1e6f9a"); g.fillStyle = gr; g.fillRect(-5, 5, W2 - 6, H2 - 6);
+      g.fillStyle = "#f2d36a"; g.beginPath(); g.arc(W2 - 22, 13, 5, 0, 7); g.fill(); g.fillStyle = "#3f8f3a"; g.beginPath(); g.moveTo(-5, 24); g.quadraticCurveTo(14, 12, 30, 24); g.closePath(); g.fill();
+      g.fillStyle = "#f27a3a"; g.beginPath(); g.ellipse(14, 36, 6, 3.5, 0, 0, 7); g.fill(); g.fillStyle = "rgba(255,255,255,0.55)"; g.fillRect(-4, 6, W2 - 8, 3); } }
+  else if (tool === "mailbag") { g.rotate(rot); const bag = mask ? "#bdbdbd" : "#e8792e"; // sealed waterproof mail bag (roll-top dry bag) hanging from the fist
+    inked(g, c, () => { g.beginPath(); g.moveTo(-26, 30); g.lineTo(26, 30); g.quadraticCurveTo(34, 90, 22, 112); g.quadraticCurveTo(0, 120, -22, 112); g.quadraticCurveTo(-34, 90, -26, 30); g.closePath(); }, bag, 3, 2);
+    inked(g, c, () => { g.beginPath(); g.roundRect(-28, 14, 56, 18, 5); }, mask ? "#9a9a9a" : "#1d2a36", 2.5, 1.5); if (!mask) { g.fillStyle = "#f6efe0"; g.fillRect(-14, 56, 28, 16); g.fillStyle = "#2f5d8a"; g.fillRect(-10, 60, 20, 3); g.fillRect(-10, 66, 14, 2); }
+    limb(g, [[0, 0], [0, 16]], 5, c.ink); }
   else if (tool === "pen") { inked(g, c, () => { g.beginPath(); g.moveTo(-4, -6); g.lineTo(4, -6); g.lineTo(3, 38); g.lineTo(0, 46); g.lineTo(-3, 38); g.closePath(); }, dark, 2, 1); }
   else if (tool === "umbrella") { inked(g, c, () => { g.beginPath(); g.roundRect(-4, -12, 8, 150, 3); }, dark, 3, 2); inked(g, c, () => { g.beginPath(); g.moveTo(-12, 90); g.quadraticCurveTo(0, 150, 12, 90); g.lineTo(5, 150); g.lineTo(-5, 150); g.closePath(); }, dark, 3, 2); }
   else if (tool === "shovel") { inked(g, c, () => { g.beginPath(); g.roundRect(-5, -40, 10, 150, 4); }, wood, 3, 2); inked(g, c, () => { g.beginPath(); g.moveTo(-20, 104); g.lineTo(20, 104); g.lineTo(16, 150); g.quadraticCurveTo(0, 164, -16, 150); g.closePath(); }, steel, 3, 2); }
@@ -534,7 +568,7 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
       drawHand(g, c, hd, lantern ? 0 : a.wrist, lantern ? "grip" : "relaxed", 1, isFar, isFar ? 0.92 : 1);
     };
     arm(true);
-    const leg = (f: Foot, isFar: boolean) => { const knee = ik(hip, f.pos, LEG_T, LEG_S, 1); limb(g, [hip, knee, f.pos], isFar ? 13 : 15, isFar ? c.limbFar : c.limb); shoe(g, c, f.pos, f.ang, 1); };
+    const leg = (f: Foot, isFar: boolean) => { const knee = ik(hip, f.pos, LEG_T, LEG_S, 1); limb(g, [hip, knee, f.pos], isFar ? 13 : 15, isFar ? c.limbFar : c.limb); if (cos.fins) fin(g, c, f.pos, f.ang - 1.2, 1); else shoe(g, c, f.pos, f.ang, 1); };
     leg(far, true); leg(near, false);
     const sway = -Math.sin(2 * Math.PI * r.q) * 9 * w;
     g.save(); g.translate(hip[0], hip[1]); g.rotate(r.tilt); g.translate(-hip[0], -hip[1]);
@@ -547,9 +581,11 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
     arm(false);
   } else {
     for (const s of [-1, 1]) {
-      const h: P = [300 + s * 34, hip[1] - 6], a: P = [300 + s * 52, SOLE5 - ANKLE];
-      const knee: P = [300 + s * 47, (h[1] + a[1]) / 2 - 4];
-      limb(g, [h, knee, a], 15, c.limb); shoe(g, c, a, 0, s);
+      const h: P = [300 + s * 34, hip[1] - 6]; let a: P = [300 + s * 52, SOLE5 - ANKLE];
+      let knee: P = [300 + s * 47, (h[1] + a[1]) / 2 - 4], fa = 0;
+      if (p.swim) { const ph = p.swim.kick * Math.PI * 2 + (s > 0 ? Math.PI : 0), k = p.swim.amt; // flutter kick: legs swing about the hip, knee leads, fin whips behind
+        a = [300 + s * 26 + Math.sin(ph) * 40 * k, SOLE5 - ANKLE - 10 * k - Math.abs(Math.cos(ph)) * 8 * k]; knee = [(h[0] + a[0]) / 2 + Math.sin(ph + 0.7) * 16 * k, (h[1] + a[1]) / 2 - 2]; fa = Math.sin(ph - 0.9) * 0.45 * k; }
+      limb(g, [h, knee, a], 15, c.limb); if (cos.fins) fin(g, c, a, fa, s); else shoe(g, c, a, 0, s);
     }
     const shoulder = (s: number): P => [300 + s * 64, top + 112];
     const frontArm = (s: number, ap: ArmPose) => {
@@ -568,7 +604,10 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
     // arms that pass behind the head are drawn first
     if (p.armL.behind) frontArm(-1, p.armL);
     if (p.armR.behind) frontArm(1, p.armR);
+    if (cos.dive === "scuba") for (const sx of [-1, 1]) inked(g, c, () => { g.beginPath(); g.roundRect(300 + sx * 52 - 30, top + 30, 60, 230, 28); }, sx < 0 ? c.tankShade : c.tank, 4, 3);
     drawTorso(g, c, 300, top, bot, false, 0, mask, p.rim, cos);
+    if (cos.dive === "scuba") { for (const sx of [-1, 1]) taper(g, [[300 + sx * 58, top + 40], [300 + sx * 46, top + 150], [300 + sx * 40, bot - 70]], 16, c.bcd, 0.8); taper(g, [[300 - 60, top + 170], [300 + 60, top + 170]], 12, c.bcd, 0.8);
+      if (!mask) { g.beginPath(); g.arc(300 + 44, top + 150, 9, 0, 7); g.fillStyle = "#c9ced4"; g.fill(); g.lineWidth = 2.5; g.strokeStyle = c.ink; g.stroke(); } }
     const hr = p.headRoll ?? 0;
     if (hr) { g.save(); g.translate(r.headC[0], r.headC[1] + 110); g.rotate(hr); g.translate(-r.headC[0], -(r.headC[1] + 110)); }
     drawHead(g, c, r.headC[0], r.headC[1], p, false, mask);

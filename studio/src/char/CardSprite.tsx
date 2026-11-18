@@ -12,7 +12,9 @@ export const CardSprite: React.FC<{
   texScale: number; fill?: number; fillColor?: string; contact?: number; albedo?: number;
   /** optional emissive mask (white = self-lit face glow); `fill` then scales it */
   drawMask?: (g: CanvasRenderingContext2D) => void;
-}> = ({ W, H, sole, cardH, draw, pos, camPos, texScale, fill = 0.12, fillColor = "#ffe2bf", contact = 0.8, albedo = 1, drawMask }) => {
+  /** optional in-plane roll of the card about its centre (radians; absent -> as before), e.g. a swimmer lying horizontal */
+  roll?: number;
+}> = ({ W, H, sole, cardH, draw, pos, camPos, texScale, fill = 0.12, fillColor = "#ffe2bf", contact = 0.8, albedo = 1, drawMask, roll }) => {
   const hasMask = !!drawMask;
   const { cv, tex, mat, depth, dist, mcv, mtex } = useMemo(() => {
     const cv = document.createElement("canvas");
@@ -42,10 +44,10 @@ export const CardSprite: React.FC<{
   blob.opacity = contact;
   return (
     <group position={pos}>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.006, 0]} material={blob} scale={[0.62, 0.3, 1]}><planeGeometry args={[1, 1]} /></mesh>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.007, 0]} material={blob} scale={[0.3, 0.14, 1]}><planeGeometry args={[1, 1]} /></mesh>
+      {contact > 0 && <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.006, 0]} material={blob} scale={[0.62, 0.3, 1]}><planeGeometry args={[1, 1]} /></mesh>}
+      {contact > 0 && <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.007, 0]} material={blob} scale={[0.3, 0.14, 1]}><planeGeometry args={[1, 1]} /></mesh>}
       <group rotation={[0, yaw, 0]}>
-        <mesh position={[0, cardH / 2 - yOff, 0]} material={mat} castShadow customDepthMaterial={depth} customDistanceMaterial={dist}>
+        <mesh position={[0, cardH / 2 - yOff, 0]} rotation={[0, 0, roll ?? 0]} material={mat} castShadow customDepthMaterial={depth} customDistanceMaterial={dist}>
           <planeGeometry args={[cardW, cardH]} />
         </mesh>
       </group>
