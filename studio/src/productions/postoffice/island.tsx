@@ -145,8 +145,9 @@ const kioskKit = () => once("poKiosk", () => { const m = mats(), K = new Kit();
   for (const [x, z] of [[-1.3, -1], [1.3, -1], [-1.3, 1], [1.3, 1]]) K.cyl(m.wood, 0.07, 0.08, 2.5, [x, 1.25, z], [0, 0, 0], 8);
   K.box(m.weave, [2.6, 1.0, 0.08], [0, 0.55, -1]); K.box(m.weave, [0.08, 1.0, 2.0], [-1.3, 0.55, 0]); K.box(m.weave, [0.08, 1.0, 2.0], [1.3, 0.55, 0]);
   K.box(m.wood, [2.6, 0.95, 0.5], [0, 0.48, 1.0]); K.box(m.plank, [2.8, 0.06, 0.75], [0, 1.0, 1.05]);
-  hipRoof(K, m.thatch, 2.6, 2.0, 2.45, 1.3, 0.55);
-  K.box(m.kioskSign, [2.4, 0.6, 0.04], [0, 2.1, 1.12], [0, 0, 0], { ink: 0.3 });
+  hipRoof(K, once("poKioskThatch", () => { const t = m.thatch.clone(); t.side = THREE.DoubleSide; return t; }), 2.6, 2.0, 2.45, 1.3, 0.55);   // seen from under the eave in the close shot
+  K.box(m.wood, [2.4, 0.6, 0.04], [0, 2.1, 1.12], [0, 0, 0], { ink: 0.3 });                                              // sign board
+  K.add(m.kioskSign, new THREE.PlaneGeometry(2.34, 0.56), [0, 2.1, 1.145], [0, 0, 0], [1, 1, 1], { ink: 0 });          // painted face, toward the beach
   // postcard display rack on the back wall
   K.box(m.wood, [1.8, 0.9, 0.08], [0, 1.45, -0.94]);
   return K; });

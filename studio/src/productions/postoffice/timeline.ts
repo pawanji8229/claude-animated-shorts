@@ -182,12 +182,12 @@ export const layerD = (f: number) => { const c = camD()(f), hero = swimmer(heroD
 
 // ================================================================= LAYER E: special waterproof postcards (kiosk -> under water)
 const KIOSK = BUILDINGS[1]; const kl = (x: number, y: number, z: number): V3 => { const c = Math.cos(KIOSK.ry), s = Math.sin(KIOSK.ry); return [KIOSK.p[0] + x * c + z * s, KIOSK.p[1] + y, KIOSK.p[2] - x * s + z * c]; };
-export const camE1 = lazy(() => rig([[760, kl(2.5, 1.6, 2.6), kl(0.35, 1.2, 0.95), 48], [800, kl(2.1, 1.5, 2.25), kl(0.3, 1.12, 1.0), 46], [842, kl(1.8, 1.42, 2.0), kl(0.25, 1.08, 1.05), 44]], 8));
+export const camE1 = lazy(() => rig([[760, kl(2.75, 1.5, 3.3), kl(0.3, 1.45, 0.9), 48], [800, kl(2.45, 1.45, 3.0), kl(0.28, 1.38, 0.95), 46], [842, kl(2.15, 1.4, 2.7), kl(0.25, 1.3, 1.0), 44]], 8));
 export const FAN_E = () => ({ p: kl(-0.05, 1.035, 1.0), ry: KIOSK.ry + 0.1 });
 export const slideCard = (f: number): { p: V3; r: V3 } => { const k = sm(796, 822, f); const a = kl(-0.05, 1.05, 1.02), b = kl(0.35, 1.06, 1.42); const p = lv(a, b, k); p[1] += Math.sin(k * Math.PI) * 0.04; return { p, r: [-Math.PI / 2 + k * 0.25, KIOSK.ry + 0.1 - k * 0.4, 0] }; };
 const seller: Act = { costume: SELLER, seed: 41, face: ft([[760, "content"], [790, "smug"], [812, "delighted"]]), armL: fixed(A([-70, 80], "grip", -1, -1.4)), armR: armTrack([[760, A([60, 90], "open", 1, 1.4)], [796, A([140, 40], "open", 1, 1.6)]], 10) };
 const heroE1_: Act = { costume: HERO_DIVE, seed: 1, face: ft([[760, "suspicious"], [790, "oneBrowUp"], [812, "xSideEyeL"], [826, "browsShoot"]], 5), armL: fixed(REST_L), armR: armTrack([[760, REST_R], [814, A([-80, 40], "grip", 1, 1.6)]], 10) };
-export const layerE1 = (f: number) => { const c = camE1()(f); return { c, actors: [stander(seller, kl(-0.1, 0.27, 0.25), f, { lookX: 0.6 }), stander(heroE1_, kl(0.95, 0.02, 1.7), f, { lookX: -0.6, lookY: 0.4 })], fan: FAN_E(), slide: slideCard(f), emitters: [], flag: false }; };
+export const layerE1 = (f: number) => { const c = camE1()(f); return { c, actors: [stander(seller, kl(0.12, 0.27, 0.1), f, { lookX: 0.6 }), stander(heroE1_, kl(0.95, 0.02, 1.7), f, { lookX: -0.6, lookY: 0.4 })], fan: FAN_E(), slide: slideCard(f), emitters: [], flag: false }; };
 export const camE2 = lazy(() => rig([[822, L(0.84, 1.32, 3.4), L(0.66, 1.2, 2.0), 42], [890, L(0.8, 1.3, 3.25), L(0.66, 1.2, 2.0), 40]], 8));
 export const CARD_E2 = (f: number): { p: V3; r: V3 } => ({ p: L(0.64, 1.1 + Math.sin(f * 0.06) * 0.008, 2.62), r: [-0.2 + Math.sin(f * 0.05) * 0.06, PO.rot + 0.1 + Math.sin(f * 0.03) * 0.1, -0.06] });
 const heroE2_: Act = { costume: HERO_DIVE, seed: 1, face: ft([[822, "oneBrowUp"], [846, "browsShoot"], [858, "delighted"], [872, "proud"]], 5), armL: fixed(TREAD_L), armR: fixed(TREAD_R) };
