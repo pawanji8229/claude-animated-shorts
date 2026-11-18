@@ -92,12 +92,20 @@ export const fishAt = (S: School, i: number, t: number): { p: V3; scale: number 
   const g = height(p[0], p[2]) + (S.minY ?? 0.25); if (p[1] < g) p[1] = g + (p[1] - g) * 0.1; if (p[1] > -0.25) p[1] = -0.25;
   return { p, scale: S.size[0] + (S.size[1] - S.size[0]) * e };
 };
-export const Fish: React.FC<{ schools: School[]; t: number }> = ({ schools, t }) => {
+/** keep-out volumes (vertical capsules: x, z, y0, y1, radius) - the characters' cards and the office tank: fish swim
+ *  round them instead of through them (smooth radial push, continuous in time) */
+export type Avoid = { x: number; z: number; y0: number; y1: number; r: number };
+const MARGIN = 0.35;
+export const avoidP = (p: V3, av: Avoid[]): V3 => { let q: V3 = p;
+  for (const A of av) { const cy = Math.min(A.y1, Math.max(A.y0, q[1])), dx = q[0] - A.x, dy = q[1] - cy, dz = q[2] - A.z, d = Math.hypot(dx, dy, dz), R = A.r + MARGIN;
+    if (d >= R) continue; const nd = A.r + MARGIN * (d / R) * (d / R), k = d > 1e-5 ? nd / d : 0; q = d > 1e-5 ? [A.x + dx * k, cy + dy * k, A.z + dz * k] : [A.x + nd, cy, A.z]; }
+  return q; };
+export const Fish: React.FC<{ schools: School[]; t: number; avoid?: Avoid[] }> = ({ schools, t, avoid = [] }) => {
   const R = useMemo(() => once("poFishRes", () => Object.fromEntries(SPECIES.map((s, i) => [s.key, { s, geo: fishGeo(s), mat: fishMat(s, i) }]))), []);
   const meshes = useMemo(() => schools.map((S) => { const r = R[S.sp]; const g = r.geo.clone(); g.setAttribute("aPh", new THREE.InstancedBufferAttribute(new Float32Array(S.n * 2), 2)); const m = new THREE.InstancedMesh(g, r.mat, S.n); m.frustumCulled = false; m.castShadow = true; return m; }), [schools, R]);
   const M = new THREE.Matrix4(), up = new THREE.Vector3(0, 1, 0);
   schools.forEach((S, si) => { const im = meshes[si], sp = R[S.sp].s, ph = im.geometry.getAttribute("aPh") as THREE.InstancedBufferAttribute;
-    for (let i = 0; i < S.n; i++) { const a = fishAt(S, i, t), b = fishAt(S, i, t + 0.15), v = new THREE.Vector3(b.p[0] - a.p[0], b.p[1] - a.p[1], b.p[2] - a.p[2]); const spd = v.length() / 0.15;
+    for (let i = 0; i < S.n; i++) { const a = fishAt(S, i, t), b = fishAt(S, i, t + 0.15); a.p = avoidP(a.p, avoid); b.p = avoidP(b.p, avoid); const v = new THREE.Vector3(b.p[0] - a.p[0], b.p[1] - a.p[1], b.p[2] - a.p[2]); const spd = v.length() / 0.15;
       if (v.lengthSq() < 1e-8) v.set(1, 0, 0); v.normalize(); v.y = Math.max(-0.5, Math.min(0.5, v.y));
       const fwd = v.normalize(), side = new THREE.Vector3().crossVectors(fwd, up).normalize(), u2 = new THREE.Vector3().crossVectors(side, fwd);
       const bank = Math.sin(t * 0.8 + i * 1.7) * 0.08; u2.applyAxisAngle(fwd, bank); side.applyAxisAngle(fwd, bank);
