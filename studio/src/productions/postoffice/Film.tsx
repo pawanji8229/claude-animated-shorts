@@ -1,5 +1,6 @@
 // The post office film: one PoSet per active story layer, planned opacity dissolves between layers (no hard cuts);
 // the last second dissolves into layer A's pre-roll so frame 1517 flows into frame 0 (seamless loop).
+import { OFF } from "./dbg";
 import React from "react";
 import * as THREE from "three";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
@@ -32,9 +33,9 @@ const World: React.FC<{ L: T.Layer; o: LayerOut; f: number; t: number; cam: V3; 
   const pastNoOffice = L === "A2" || L === "B" || L === "C1" || L === "C2" || L === "C3";
   const roofRing = ow([0, ROOF_TOP, 0]);
   return (<>
-    <Reef t={t} near={cam} />
-    <Fish schools={SCHOOLS} t={t} />
-    <Island t={t} cam={cam} hi={hi} />
+    {!OFF("reef") && <Reef t={t} near={cam} />}
+    {!OFF("fish") && <Fish schools={SCHOOLS} t={t} />}
+    {!OFF("island") && <Island t={t} cam={cam} hi={hi} />}
     {!pastNoOffice && <group position={[PO.x, PO.y, PO.z]} rotation={[0, PO.rot, 0]}><Office /></group>}
     {o.office && <group position={o.office.at} rotation={[0, o.office.ry, 0]}><Office st={o.office.st} /></group>}
     {o.flag && <FlagFloat p={[roofRing[0] + 0.6, waveY(roofRing[0] + 0.6, roofRing[2] + 0.4, t) + 0.05, roofRing[2] + 0.4]} t={t} tether={roofRing} />}
@@ -53,7 +54,7 @@ const World: React.FC<{ L: T.Layer; o: LayerOut; f: number; t: number; cam: V3; 
     {o.slide && <Postcard p={o.slide.p} r={o.slide.r} />}
     {o.room && <><SortRoom /><Postcard p={o.room.card.p} r={o.room.card.r} emb={1} /><InkStamp p={[o.room.card.p[0] + 0.03, o.room.card.p[1], o.room.card.p[2]]} down={o.room.stamp} /></>}
     {L === "D" && <Pen p={[o.paper!.p[0] + 0.06, o.paper!.p[1] + 0.02, o.paper!.p[2] + 0.03]} r={[0, PO.rot + 0.6, -0.9]} />}
-    {o.actors.map((a, i) => <PoToon key={i} p={a} cam={cam} hi={hi} />)}
+    {!OFF("actors") && o.actors.map((a, i) => <PoToon key={i} p={a} cam={cam} hi={hi} />)}
   </>);
 };
 export const layerOut = (L: T.Layer, f0: number): { L: T.Layer; f: number; o: LayerOut } => { const f = L === "A_LOOP" ? f0 - N : f0; const fn = T.LAYER_FN[L === "A_LOOP" ? "A" : L]; return { L, f, o: fn(f) as LayerOut }; };
