@@ -25,11 +25,11 @@ const drawFront = (g: CanvasRenderingContext2D, W: number, H: number, r: () => n
   for (let i = 0; i < 9; i++) { const x = W * (0.1 + r() * 0.8), y = H * (0.5 + r() * 0.25); g.fillStyle = i % 2 ? "#f2d23a" : "#f27a3a"; g.beginPath(); g.ellipse(x, y, W * 0.02, H * 0.016, 0, 0, 7); g.fill(); g.beginPath(); g.moveTo(x - W * 0.02, y); g.lineTo(x - W * 0.032, y - H * 0.015); g.lineTo(x - W * 0.032, y + H * 0.015); g.fill(); }
   if (title) { g.fillStyle = "rgba(255,255,255,0.92)"; g.font = `bold ${Math.round(H * 0.075)}px "DejaVu Sans", Arial`; g.textAlign = "left"; g.fillText("Greetings from", W * 0.05, H * 0.1); g.font = `bold ${Math.round(H * 0.11)}px "DejaVu Sans", Arial`; g.fillText("HIDEAWAY ISLAND", W * 0.05, H * 0.21); }
 };
-const drawBack = (g: CanvasRenderingContext2D, W: number, H: number, ink: boolean) => {
+const drawBack = (g: CanvasRenderingContext2D, W: number, H: number, ink: boolean, foot = "WATERPROOF POSTCARD · VANUATU") => {
   g.fillStyle = "#fbfaf4"; g.fillRect(0, 0, W, H); g.strokeStyle = "#9aa8b4"; g.lineWidth = 2; g.beginPath(); g.moveTo(W * 0.52, H * 0.08); g.lineTo(W * 0.52, H * 0.92); g.stroke();
   for (let k = 0; k < 4; k++) { g.beginPath(); g.moveTo(W * 0.57, H * (0.5 + k * 0.11)); g.lineTo(W * 0.95, H * (0.5 + k * 0.11)); g.stroke(); }
   g.strokeStyle = "#c8452e"; g.setLineDash([6, 4]); g.strokeRect(W * 0.76, H * 0.07, W * 0.19, H * 0.27); g.setLineDash([]);
-  g.fillStyle = "#6a7a88"; g.font = `${Math.round(H * 0.045)}px "DejaVu Sans", Arial`; g.textAlign = "left"; g.fillText("WATERPROOF POSTCARD · VANUATU", W * 0.05, H * 0.95);
+  g.fillStyle = "#6a7a88"; g.font = `${Math.round(H * 0.045)}px "DejaVu Sans", Arial`; g.textAlign = "left"; g.fillText(foot, W * 0.05, H * 0.95);
   if (ink) { g.fillStyle = "#1c2a7a"; g.font = `italic ${Math.round(H * 0.075)}px "DejaVu Serif", Georgia, serif`; ["Dear Mum,", "I'm writing this", "3 metres under", "the sea! x"].forEach((l, i) => g.fillText(l, W * 0.06, H * (0.24 + i * 0.12)));
     ["Mrs J. Kale", "14 Harbour Rd", "Auckland, NZ"].forEach((l, i) => g.fillText(l, W * 0.58, H * (0.47 + i * 0.11))); }
 };
@@ -80,7 +80,7 @@ export const CardFan: React.FC<{ p: V3; ry: number; n?: number; spread?: number 
 
 // ---------------------------------------------------------------- the paper postcard that soaks (wet 0..1)
 const paperRes = () => once("poPaperRes", () => {
-  const W = 1024, H = 726; const base = document.createElement("canvas"); base.width = W; base.height = H; drawBack(base.getContext("2d")!, W, H, false);
+  const W = 1024, H = 726; const base = document.createElement("canvas"); base.width = W; base.height = H; drawBack(base.getContext("2d")!, W, H, false, "POST CARD");
   const inkC = document.createElement("canvas"); inkC.width = W; inkC.height = H; const ig = inkC.getContext("2d")!; ig.fillStyle = "#1c2a7a"; ig.font = `italic ${Math.round(H * 0.075)}px "DejaVu Serif", Georgia, serif`; ig.textAlign = "left"; ["Dear Mum,", "Guess where I", "am writing this…"].forEach((l, i) => ig.fillText(l, W * 0.06, H * (0.24 + i * 0.12))); ig.fillText("Mrs J. Kale", W * 0.58, H * 0.47);
   const blurC = document.createElement("canvas"); blurC.width = W; blurC.height = H; const bg = blurC.getContext("2d")!; bg.filter = "blur(9px)"; bg.drawImage(inkC, 0, 0); bg.filter = "blur(3px)"; bg.globalAlpha = 0.7; bg.drawImage(inkC, 6, 10);
   const tx = (c: HTMLCanvasElement, srgb = true) => { const t = new THREE.CanvasTexture(c); if (srgb) t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t; };

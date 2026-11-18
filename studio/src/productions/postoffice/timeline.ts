@@ -45,7 +45,10 @@ export const aimArm = (p: Placed, cam: V3, world: V3, side: -1 | 1, base: ArmPos
   const right = new THREE.Vector3(Math.cos(yaw), 0, -Math.sin(yaw)); let lx = hit.clone().sub(S).dot(right), ly = hit.y - S.y - cy;
   const rx = lx * Math.cos(-roll) - ly * Math.sin(-roll), ry = lx * Math.sin(-roll) + ly * Math.cos(-roll); lx = rx; ly = ry + cy;
   const s = h / H5, px = (p.flip ? -1 : 1) * lx / s + W5 / 2, py = SOLE5 - ly / s;
-  const sh = shoulderPx5(p.pose, side); return { ...base, hand: [px - sh[0], py - sh[1]], elbow: undefined };
+  const sh = shoulderPx5(p.pose, side); const hx = px - sh[0], hy = py - sh[1];
+  // elbow hangs below the shoulder-hand line and outward (never flips up over the head)
+  const el: [number, number] = [hx * 0.45 + side * 34, Math.max(hy * 0.5, 0) + 62];
+  return { ...base, hand: [hx, hy], elbow: el };
 };
 
 // ---------------------------------------------------------------- generic actors
@@ -76,14 +79,14 @@ const worker = (a: Act, f: number): Placed => ({ pose: poseOf(a, f), pos: [WORKE
 // ================================================================= LAYER A: push-in, handover, double-take, rise to the island
 export const camA = lazy(() => rig([
   [-90, L(3.5, 1.0, 10.6), L(0, 1.55, 0), 52], [0, L(3.1, 0.95, 9.0), L(0, 1.55, 0), 52], [95, L(1.5, 1.25, 5.6), L(0.15, 1.35, 0.8), 48],
-  [130, L(0.75, 1.42, 4.9), L(0.25, 1.3, 1.3), 50], [178, L(0.95, 1.4, 4.5), L(0.45, 1.28, 1.4), 48], [212, L(1.55, 1.75, 4.5), L(0.35, 1.95, 0.6), 46], [262, L(2.2, 2.85, 6.0), L(1.4, 3.6, -10), 50],
+  [130, L(0.45, 1.45, 5.9), L(0.3, 1.3, 1.4), 50], [178, L(0.6, 1.42, 5.5), L(0.4, 1.28, 1.4), 48], [212, L(1.55, 1.75, 4.5), L(0.35, 1.95, 0.6), 46], [262, L(2.2, 2.85, 6.0), L(1.4, 3.6, -10), 50],
   [292, L(2.45, 3.55, 6.6), L(4, 4.6, -55), 52], [330, L(2.7, 4.5, 7.2), L(5, 5.0, -60), 52],
 ], 8));
 const visA = { costume: VISITORS[0], seed: 5, face: ft([[0, "content"], [96, "focused"], [128, "delighted"], [168, "proud"], [220, "content"]]), armL: fixed(SWIM_L), armR: armTrack([[0, SWIM_R], [80, UP_R], [150, SWIM_R]], 14), hold: (f: number) => f < 136 ? "postcard" as const : undefined } as Act;
-const visAPath = path([[-120, L(-6.5, 3.0, 6.5)], [0, L(-4.6, 2.5, 4.7)], [60, L(-2.5, 1.85, 3.1)], [104, L(-0.6, 1.25, 1.95)], [150, L(-0.55, 1.27, 1.95)], [205, L(-2.2, 2.2, 3.4)], [300, L(-6, 3.0, 6)]]);
+const visAPath = path([[-120, L(-6.5, 3.0, 6.5)], [0, L(-4.6, 2.5, 4.7)], [60, L(-2.5, 1.85, 3.1)], [104, L(-0.45, 1.25, 1.9)], [150, L(-0.42, 1.27, 1.9)], [205, L(-2.2, 2.2, 3.4)], [300, L(-6, 3.0, 6)]]);
 const heroA_: Act = { costume: HERO_DIVE, seed: 1, face: ft([[0, "content"], [100, "neutral"], [110, "doubleTake"], [124, "xDisbelief"], [140, "shocked"], [152, "xSideEyeR"], [164, "hugeShock"], [182, "tinyConfused"], [230, "awkwardSmile"]], 5),
   armL: armTrack([[0, TREAD_L], [110, A([-60, -60], "open", -1, -2.4)], [150, TREAD_L]], 6), armR: armTrack([[0, TREAD_R], [160, A([70, -90], "open", 1, 2.4)], [200, TREAD_R]], 8) };
-const heroAPath = path([[-120, L(1.55, 1.3, 2.4)], [100, L(1.3, 1.24, 2.1)], [190, L(1.15, 1.22, 2.0)], [300, L(1.3, 1.3, 2.2)]]);
+const heroAPath = path([[-120, L(1.35, 1.3, 2.5)], [100, L(1.05, 1.24, 2.2)], [190, L(0.95, 1.22, 2.1)], [300, L(1.2, 1.3, 2.3)]]);
 const workerA = workerAct(ft([[0, "focused"], [118, "content"], [150, "proud"], [200, "focused"]]), fixed(REST_L), (f) => f < 112 ? REST_R : REST_R, (f) => f >= 136 && f < 200 ? "postcard" : undefined);
 export const layerA = (f: number) => {
   const c = camA()(f); const hero = swimmer(heroA_, heroAPath, f, c, { upright: 1, bob: 0.05 }), vis = swimmer(visA, visAPath, f, c, { kickHz: 1.5 });
@@ -141,7 +144,7 @@ const diverA: Act = { costume: { ...WORKER, pal: { ...WORKER.pal, shirt: "#2c2c3
 const diverB: Act = { costume: { ...WORKER, pal: { ...WORKER.pal, shirt: "#3a4a2a", shirtShade: "#2a3a1c" } }, seed: 32, face: ft([[540, "worried"], [578, "proud"]]), armL: fixed(A([-110, -50], "open", -1, -1.8)), armR: fixed(A([120, -70], "open", 1, 1.8)) };
 export const camC3 = lazy(() => rig([[536, L(3.4, 2.0, 7.2), L(0, 1.6, 0), 50], [596, L(2.9, 1.5, 6.4), L(0, 1.2, 0), 48]], 8));
 export const layerC3 = (f: number) => { const c = camC3()(f), tk = tankHang(f), dy = tk[1] - PO.y;
-  const dA = path([[530, L(-1.9, 2.0, 2.2)], [596, L(-1.55, 1.1, 1.7)]]), dB = path([[530, L(1.9, 2.1, 1.6)], [596, L(1.6, 1.2, 1.4)]]);
+  const dA = path([[530, L(1.4, 2.0, 3.3)], [596, L(1.1, 1.15, 2.9)]]), dB = path([[530, L(-1.6, 2.1, 0.9)], [596, L(-1.4, 1.25, 0.7)]]);
   const p = (P: (f: number) => V3): V3 => { const q = P(f); return [q[0], q[1] + dy * 0.85, q[2]]; };
   return { c, office: { at: tk, ry: PO.rot, st: { clean: true, noChains: f < 580 } }, ropes: true, puff: f, actors: [swimmer(diverA, () => p(dA), f, c, { upright: 1, kickHz: 1.1 }), swimmer(diverB, () => p(dB), f, c, { upright: 1, kickHz: 0.9 })],
     emitters: [{ at: (t: number) => { const q = p(dA); void t; return [q[0], q[1] + 0.5, q[2]] as V3; }, bursts: [18.0, 19.1], n: 16, size: 0.02, spread: 0.1 }, { at: () => { const q = p(dB); return [q[0], q[1] + 0.5, q[2]] as V3; }, bursts: [18.5], n: 16, size: 0.02, spread: 0.1 }], flag: false };
@@ -165,12 +168,12 @@ export const layerD = (f: number) => { const c = camD()(f), hero = swimmer(heroD
 
 // ================================================================= LAYER E: special waterproof postcards (kiosk -> under water)
 const KIOSK = BUILDINGS[1]; const kl = (x: number, y: number, z: number): V3 => { const c = Math.cos(KIOSK.ry), s = Math.sin(KIOSK.ry); return [KIOSK.p[0] + x * c + z * s, KIOSK.p[1] + y, KIOSK.p[2] - x * s + z * c]; };
-export const camE1 = lazy(() => rig([[760, kl(1.55, 1.62, 3.2), kl(0.2, 1.25, 0.9), 46], [800, kl(1.1, 1.5, 2.55), kl(0.05, 1.12, 1.0), 42], [842, kl(0.85, 1.42, 2.2), kl(0.05, 1.07, 1.1), 40]], 8));
+export const camE1 = lazy(() => rig([[760, kl(2.5, 1.6, 2.6), kl(0.35, 1.2, 0.95), 48], [800, kl(2.1, 1.5, 2.25), kl(0.3, 1.12, 1.0), 46], [842, kl(1.8, 1.42, 2.0), kl(0.25, 1.08, 1.05), 44]], 8));
 export const FAN_E = () => ({ p: kl(-0.05, 1.035, 1.0), ry: KIOSK.ry + 0.1 });
 export const slideCard = (f: number): { p: V3; r: V3 } => { const k = sm(796, 822, f); const a = kl(-0.05, 1.05, 1.02), b = kl(0.35, 1.06, 1.42); const p = lv(a, b, k); p[1] += Math.sin(k * Math.PI) * 0.04; return { p, r: [-Math.PI / 2 + k * 0.25, KIOSK.ry + 0.1 - k * 0.4, 0] }; };
 const seller: Act = { costume: SELLER, seed: 41, face: ft([[760, "content"], [790, "smug"], [812, "delighted"]]), armL: fixed(A([-70, 80], "grip", -1, -1.4)), armR: armTrack([[760, A([60, 90], "open", 1, 1.4)], [796, A([140, 40], "open", 1, 1.6)]], 10) };
 const heroE1_: Act = { costume: HERO_DIVE, seed: 1, face: ft([[760, "suspicious"], [790, "oneBrowUp"], [812, "xSideEyeL"], [826, "browsShoot"]], 5), armL: fixed(REST_L), armR: armTrack([[760, REST_R], [814, A([-80, 40], "grip", 1, 1.6)]], 10) };
-export const layerE1 = (f: number) => { const c = camE1()(f); return { c, actors: [stander(seller, kl(0.15, 0.02, 0.15), f, { lookX: 0.6 }), stander(heroE1_, kl(0.75, 0.02, 2.05), f, { lookX: -0.6, lookY: 0.4 })], fan: FAN_E(), slide: slideCard(f), emitters: [], flag: false }; };
+export const layerE1 = (f: number) => { const c = camE1()(f); return { c, actors: [stander(seller, kl(-0.1, 0.27, 0.25), f, { lookX: 0.6 }), stander(heroE1_, kl(0.95, 0.02, 1.7), f, { lookX: -0.6, lookY: 0.4 })], fan: FAN_E(), slide: slideCard(f), emitters: [], flag: false }; };
 export const camE2 = lazy(() => rig([[822, L(0.84, 1.32, 3.4), L(0.66, 1.2, 2.0), 42], [890, L(0.8, 1.3, 3.25), L(0.66, 1.2, 2.0), 40]], 8));
 export const CARD_E2 = (f: number): { p: V3; r: V3 } => ({ p: L(0.64, 1.1 + Math.sin(f * 0.06) * 0.008, 2.62), r: [-0.2 + Math.sin(f * 0.05) * 0.06, PO.rot + 0.1 + Math.sin(f * 0.03) * 0.1, -0.06] });
 const heroE2_: Act = { costume: HERO_DIVE, seed: 1, face: ft([[822, "oneBrowUp"], [846, "browsShoot"], [858, "delighted"], [872, "proud"]], 5), armL: fixed(TREAD_L), armR: fixed(TREAD_R) };
@@ -196,8 +199,10 @@ export const leverKnob = (f: number, press: number): V3 => { const a = 0.55 * (1
 const workerF = workerAct(ft([[872, "focused"], [902, "comicSerious"], [930, "xSideEyeL"], [946, "focused"], [1018, "smug"], [1040, "proud"]], 5), fixed(REST_L), fixed(REST_R));
 export const workerHands = (wk: Placed, c: PCam, f: number, press: number, card: { p: V3 }, cStart: number, box?: { p: V3 }) => {
   const knob = leverKnob(f, press), edge: V3 = [card.p[0] + 0.05, card.p[1] + 0.01, card.p[2] + 0.02];
-  const rTarget: V3 = f < cStart + 40 ? edge : f < cStart + 52 ? lv(edge, knob, sm(cStart + 40, cStart + 52, f)) : f < cStart + 92 ? knob : edge;
-  const lTarget: V3 = box && f < cStart - 20 ? [box.p[0] + 0.08, box.p[1] + 0.05, box.p[2]] : [card.p[0] - 0.1, card.p[1] + 0.03, card.p[2] - 0.05];
+  // right hand feeds / holds the card; left hand (the one nearer the lever) pushes the ink box aside, then works the lever
+  const rTarget: V3 = edge;
+  const rest: V3 = [knob[0], knob[1] - 0.06, knob[2]];
+  const lTarget: V3 = box && f < cStart - 20 ? [box.p[0] + 0.08, box.p[1] + 0.05, box.p[2]] : f < cStart + 40 ? rest : f < cStart + 52 ? lv(rest, knob, sm(cStart + 40, cStart + 52, f)) : f < cStart + 92 ? knob : rest;
   wk.pose = { ...wk.pose, armR: aimArm(wk, c.pos, rTarget, 1, A([0, 0], "grip", 1, Math.PI * 0.45)), armL: aimArm(wk, c.pos, lTarget, -1, A([0, 0], "open", -1, -Math.PI * 0.45)), lookX: -0.3, lookY: 0.55 };
 };
 export const layerF = (f: number) => { const c = camF()(f), wk = worker(workerF, f), card = cardF(f), box = inkBoxF(f), press = pressF(f);
@@ -222,7 +227,7 @@ export const layerG = (f: number) => { const c = camG()(f); const vs = VG.map((a
 };
 
 // ================================================================= LAYER H: a postal worker handles them under water
-export const camH = lazy(() => rig([[1160, L(-0.95, 1.5, 3.4), L(0.25, 1.22, 1.0), 44], [1284, L(-0.75, 1.45, 3.1), L(0.25, 1.2, 1.0), 42]], 10));
+export const camH = lazy(() => rig([[1160, L(-0.25, 1.55, 3.9), L(0.2, 1.2, 1.1), 46], [1284, L(-0.15, 1.5, 3.6), L(0.2, 1.18, 1.1), 44]], 10));
 export const BAG_H: V3 = [0, 0, 0];
 export const bagH = () => L(-0.32, 1.15, 0.88);
 const cardH = (f: number) => { const c = cardF(f, 1186); if (f > 1236) { const k = sm(1238, 1256, f), b = bagH(); return { p: lv(c.p, [b[0], b[1] + 0.2 - k * 0.12, b[2]], k), r: [lerp(c.r[0], 0.1, k), c.r[1], c.r[2]] as V3 }; } return c; };
@@ -231,8 +236,8 @@ const heroH_: Act = { costume: HERO_DIVE, seed: 1, face: ft([[1160, "browsShoot"
 const visH: Act = { costume: VISITORS[1], seed: 53, face: ft([[1160, "bored"], [1232, "oneBrowUp"], [1250, "xDisbelief"], [1268, "awkwardSmile"]], 5), armL: fixed(SWIM_L), armR: fixed(SWIM_R), hold: () => "postcard" };
 export const layerH = (f: number) => { const c = camH()(f), wk = worker(workerH, f), card = cardH(f), press = sm(1214, 1228, f) * (1 - sm(1234, 1242, f));
   workerHands(wk, c, f, press, card, 1186);
-  const hero = swimmer(heroH_, path([[1150, L(0.85, 0.98, 1.72)], [1290, L(0.8, 0.98, 1.7)]]), f, c, { upright: 1, bob: 0.02 }); hero.pose = { ...hero.pose, lookX: -0.9, lookY: 0.25 };
-  const v = swimmer(visH, path([[1150, L(1.5, 1.4, 2.7)], [1290, L(1.35, 1.35, 2.6)]]), f, c, { upright: 1 }); v.pose = { ...v.pose, lookX: -0.8 };
+  const hero = swimmer(heroH_, path([[1150, L(0.47, 0.95, 1.78)], [1290, L(0.44, 0.95, 1.75)]]), f, c, { upright: 1, bob: 0.02 }); hero.pose = { ...hero.pose, lookX: -0.9, lookY: 0.25 };
+  const v = swimmer(visH, path([[1150, L(-0.55, 1.75, 2.4)], [1290, L(-0.5, 1.7, 2.35)]]), f, c, { upright: 1 }); v.pose = { ...v.pose, lookX: 0.8 };
   return { c, actors: [wk, hero, v], emb: { press, card, emb: sm(1222, 1229, f) }, bag: { p: bagH(), fill: 1 }, emitters: [workerBubbles((x) => x)], flag: true, dof: 0.16 };
 };
 
@@ -243,7 +248,7 @@ export const camI1 = lazy(() => rig([[1262, L(2.3, 0.85, 4.4), L(0.0, 2.0, 1.9),
 export const layerI1 = (f: number) => { const c = camI1()(f); const wu = swimmer(workerUp, PI1, f, c, { kickHz: 1.2, maxRoll: 1.2 }); wu.roll = (wu.roll ?? 0) - 0.35;
   return { c, actors: [wu], emitters: [{ at: (t: number) => { const p = PI1(t * 30); return [p[0], p[1] + 0.5, p[2]] as V3; }, bursts: [42.5, 43.8], n: 22, size: 0.022, spread: 0.12 }], flag: true }; };
 const JS: V3 = [JETTY.x, JETTY.deck, JETTY.z1];   // jetty end, above the stair
-export const camI2 = lazy(() => rig([[1298, [JS[0] + 3.4, 0.95, JS[2] + 2.9], [JS[0], 0.55, JS[2] + 1.5], 46], [1342, [JS[0] + 3.0, 0.92, JS[2] + 2.6], [JS[0], 0.55, JS[2] + 1.5], 44]], 8));
+export const camI2 = lazy(() => rig([[1298, [JS[0] + 3.6, 0.9, JS[2] + 3.9], [JS[0] + 0.1, 0.45, JS[2] + 1.8], 48], [1342, [JS[0] + 3.2, 0.88, JS[2] + 3.6], [JS[0] + 0.1, 0.45, JS[2] + 1.8], 46]], 8));
 const pmI: Act = { costume: POSTMASTER, seed: 12, face: ft([[1298, "content"], [1320, "delighted"], [1332, "proud"]]), armL: fixed(REST_L), armR: armTrack([[1298, REST_R], [1312, A([-60, 60], "grip", 1, 1.0)]], 10), hold: (f) => f >= 1324 ? "mailbag" : undefined };
 const wkI: Act = { costume: WORKER, seed: 3, face: ft([[1298, "content"], [1326, "proud"]]), armL: fixed(TREAD_L), armR: armTrack([[1298, A([70, -100], "grip", 1, Math.PI * 0.85)], [1326, TREAD_R]], 10), hold: (f) => f < 1324 ? "mailbag" : undefined };
 export const layerI2 = (f: number) => { const c = camI2()(f); const wp: V3 = [JS[0] + 0.25, -0.45 + waveY(JS[0], JS[2] + 1.6, f / 30) * 0.8, JS[2] + 1.7];
@@ -254,11 +259,11 @@ export const layerI2 = (f: number) => { const c = camI2()(f); const wp: V3 = [JS
   return { c, actors: [pm, w], emitters: [], flag: true };
 };
 const SR = SORT_ROOM; const sr = (x: number, y: number, z: number): V3 => [SR[0] + x, SR[1] + y, SR[2] + z];
-export const camI3 = lazy(() => rig([[1326, sr(0.75, 1.6, 1.15), sr(-0.15, 1.05, -0.5), 42], [1384, sr(0.6, 1.55, 0.95), sr(-0.15, 1.02, -0.45), 40]], 8));
+export const camI3 = lazy(() => rig([[1326, sr(0.6, 1.85, 0.75), sr(-0.15, 1.1, -0.6), 44], [1384, sr(0.5, 1.8, 0.6), sr(-0.15, 1.05, -0.55), 42]], 8));
 const clerkI: Act = { costume: CLERK, seed: 61, face: ft([[1326, "focused"], [1349, "comicSerious"], [1362, "content"]]), armL: fixed(REST_L), armR: fixed(REST_R) };
 export const stampI = (f: number) => sm(1340, 1347, f) * (1 - sm(1351, 1358, f));
 export const cardI = (f: number): { p: V3; r: V3 } => { const k = sm(1360, 1378, f); return { p: lv(sr(-0.15, 0.965, -0.35), sr(2.0, 1.0, 0.55), k), r: [-Math.PI / 2 + k * 0.6, 0.3, k * 0.5] }; };
-export const layerI3 = (f: number) => { const c = camI3()(f); const ck = stander(clerkI, sr(-0.25, 0, -1.02), f, { lookX: 0.1, lookY: 0.7 }, 1.55, 0.6);
+export const layerI3 = (f: number) => { const c = camI3()(f); const ck = stander(clerkI, sr(-0.25, 0.22, -1.02), f, { lookX: 0.1, lookY: 0.7 }, 1.55, 0.6);
   const card = cardI(f); ck.pose = { ...ck.pose, armR: aimArm(ck, c.pos, f < 1359 ? [card.p[0] + 0.05, card.p[1] + 0.06 + 0.08 * (1 - stampI(f)), card.p[2] + 0.02] : card.p, 1, A([0, 0], "grip", 1, 0.6)), armL: aimArm(ck, c.pos, sr(-0.4, 0.97, -0.5), -1, A([0, 0], "open", -1, -0.5)) };
   return { c, actors: [ck], room: { card, stamp: stampI(f) }, emitters: [], flag: false };
 };
@@ -266,7 +271,7 @@ export const layerI3 = (f: number) => { const c = camI3()(f); const ck = stander
 // ================================================================= LAYER J: floating, proud — sink back to the opening (loop)
 const HJ = (f: number): V3 => { const p = L(1.7, 0, 4.4); return [p[0] + Math.sin(f * 0.02) * 0.1, -0.12 + waveY(p[0], p[2], f / 30), p[2]]; };
 const heroJ_: Act = { costume: HERO_DIVE, seed: 1, face: ft([[1366, "relieved"], [1384, "proud"], [1412, "smug"], [1436, "delighted"], [1460, "proud"]], 6), armL: fixed(A([-40, -150], "open", -1, -2.8)), armR: fixed(ARM.thumb) };
-export const camJ = lazy(() => rig([[1364, L(3.6, 3.28, 7.0), L(1.7, 3.15, 4.4), 46], [1408, L(3.7, 3.2, 7.4), L(1.5, 2.9, 4.0), 48], [1446, L(3.4, 2.5, 7.4), L(0.4, 1.7, 0.9), 50],
+export const camJ = lazy(() => rig([[1364, L(3.6, 3.28, 7.0), L(1.7, 3.15, 4.4), 46], [1408, L(3.7, 3.1, 7.6), L(1.6, 3.05, 4.3), 48], [1446, L(3.4, 2.5, 7.4), L(0.4, 1.7, 0.9), 50],
   [1490, L(3.25, 1.15, 8.1), L(0.05, 1.5, 0.2), 52], [1518, L(3.1, 0.95, 9.0), L(0, 1.55, 0), 52], [1608, L(1.8, 1.2, 5.0), L(0.15, 1.35, 0.6), 46]], 9));
 export const layerJ = (f: number) => { const c = camJ()(f); const p = HJ(f);
   const hero: Placed = { pose: poseOf(heroJ_, f, { swim: { kick: f / 30 * 0.4, amt: 0.25 } }), pos: p, h: 1.55, centre: true, roll: -1.32 + Math.sin(f * 0.05) * 0.05, halo: 0.1, contact: 0 };
