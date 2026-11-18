@@ -42,7 +42,8 @@ const acropora = (r: R, base: string, tip: string, bushy: boolean) => {
     // radial corallites: tiny tubular cups along the branch (the bumpy texture that makes Acropora read as coral)
     const side = new THREE.Vector3().crossVectors(dir, v3(0.3, 0.1, 0.9)).normalize(), up2 = new THREE.Vector3().crossVectors(dir, side).normalize();
     for (let c = 0; c < 4; c++) { const u = (c + r() * 0.7) / 4, ang = r() * Math.PI * 2, at = p.clone().lerp(q, u), o = side.clone().multiplyScalar(Math.cos(ang)).addScaledVector(up2, Math.sin(ang)), rr = rad + (r1 - rad) * u;
-      const b0 = at.clone().addScaledVector(o, rr * 0.7), b1 = b0.clone().addScaledVector(o.clone().multiplyScalar(0.8).addScaledVector(dir, 0.6).normalize(), rr * 0.75 + 0.004); gs.push(cyl(b0, b1, rr * 0.42, rr * 0.3, 5, true)); }   // open tube = the corallite cup if (depth <= 0 || r1 < 0.0055) { gs.push(ball(q, r1 * 1.15, 6)); tips.push(q); return; }
+      const b0 = at.clone().addScaledVector(o, rr * 0.7), b1 = b0.clone().addScaledVector(o.clone().multiplyScalar(0.8).addScaledVector(dir, 0.6).normalize(), rr * 0.75 + 0.004); gs.push(cyl(b0, b1, rr * 0.42, rr * 0.3, 5, true)); }   // (open tube = the corallite cup)
+    if (depth <= 0 || r1 < 0.0055) { gs.push(ball(q, r1 * 1.15, 6)); tips.push(q); return; }
     const nb = r() < (bushy ? 0.42 : 0.24) ? 2 : 1;
     for (let b = 0; b < nb; b++) { const nd = dir.clone().add(v3((r() - 0.5) * (b ? 1.1 : 0.45), (r() - 0.25) * 0.35, (r() - 0.5) * (b ? 1.1 : 0.45))).normalize(); if (nd.y < 0.05) nd.y = 0.05 + r() * 0.2; grow(q, nd.normalize(), b ? r1 * 0.85 : r1, depth - 1); }
   };
