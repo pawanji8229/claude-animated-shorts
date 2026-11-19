@@ -1,6 +1,6 @@
 # Asset manifest
 
-Generated 2026-11-19T08:17:55.825662+00:00 — 1036 files.
+Generated 2026-11-19T23:47:53.179717+00:00 — 1081 files.
 
 | path | bytes | sha256 |
 |---|---|---|
@@ -15,6 +15,10 @@ Generated 2026-11-19T08:17:55.825662+00:00 — 1036 files.
 | RESTORED_ORIGINAL.md | 3279 | 9417b41292f0ecdb… |
 | SKILL.md | 21431 | 3585154e13dee858… |
 | VOICE_TO_VIDEO_GUIDE.md | 4680 | 165f477232a62a10… |
+| deliver_postoffice/AUDIO_MIX_REPORT.md | 3087 | ec95a02ecacbd4d7… |
+| deliver_postoffice/FINAL_QC_REPORT.md | 6160 | 566eb745f3fd3ef4… |
+| deliver_postoffice/benchmark_compare.png | 2663193 | 38da14fd6c357a43… |
+| deliver_postoffice/contact_sheet.png | 2480903 | 3b239d6e049edaa8… |
 | docs/ANDROID_RENDER_GUIDE.md | 2748 | 08da49e79ef18124… |
 | docs/CINEMATIC_KIT_README.md | 4681 | c62109906e102fc6… |
 | docs/SKILL_ADDENDUM_original.md | 4642 | c97f828eed41a968… |
@@ -455,6 +459,7 @@ Generated 2026-11-19T08:17:55.825662+00:00 — 1036 files.
 | studio/assets_src/textures/wood_floor_deck/diff.jpg | 925789 | 1f2c623e87b0ee90… |
 | studio/assets_src/textures/wood_floor_deck/nor.jpg | 665094 | 2fa427b9196099c0… |
 | studio/assets_src/textures/wood_floor_deck/rough.jpg | 658448 | 5754d2c2a91a288b… |
+| studio/audio/cent_sfx.py | 13045 | cb0523647092f25d… |
 | studio/audio/crowd_sfx.py | 7097 | 5378433b5012dd1f… |
 | studio/audio/desert_sfx.py | 10485 | 1c6c21137bde077a… |
 | studio/audio/dsp.py | 11468 | 3b456f4653fde5f3… |
@@ -462,7 +467,7 @@ Generated 2026-11-19T08:17:55.825662+00:00 — 1036 files.
 | studio/audio/joralemon_sfx.py | 17685 | 6cb7c2a507312426… |
 | studio/audio/london_sfx.py | 10656 | a2b7dc83150ac0de… |
 | studio/audio/mix_act1.py | 9213 | 1788a1ad26032b11… |
-| studio/audio/mix_events.py | 29337 | 70d81dd33feb27f3… |
+| studio/audio/mix_events.py | 31277 | 53d9b011de6539b9… |
 | studio/audio/office_sfx.py | 9265 | adcfdbc9ca62b9b8… |
 | studio/audio/po_sfx.py | 14851 | fd54e58adae8404a… |
 | studio/audio/requirements.txt | 27 | 983665a6331eda07… |
@@ -528,6 +533,33 @@ Generated 2026-11-19T08:17:55.825662+00:00 — 1036 files.
 | studio/previews/v5/2_cringe_pose.png | 1517143 | c346d742d5ab8a68… |
 | studio/previews/v5/3_final_composition.png | 1426248 | 5e2a2911bbf3eeb1… |
 | studio/previews/v5/awkward_take_10s_540x960.mp4 | 5276268 | bec98a9d541f6424… |
+| studio/productions/centennial/SOURCE_NOTES.md | 2863 | 5df718e58a4d1391… |
+| studio/productions/centennial/STORYBOARD.md | 5634 | b16cf827bb7c1bf2… |
+| studio/productions/centennial/analysis/TRANSCRIPT.md | 2385 | 5f5092ffb8f2e5b2… |
+| studio/productions/centennial/analysis/analysis.json | 21441 | 89f1b00b467f9b89… |
+| studio/productions/centennial/audio/AUDIO_MIX_REPORT.md | 3850 | fecc203083cd51cd… |
+| studio/productions/centennial/audio/ambience.wav | 15422732 | 60000340efc234fb… |
+| studio/productions/centennial/audio/crowd.wav | 15422732 | f2fc7a67f61eaec5… |
+| studio/productions/centennial/audio/cue_sheet.csv | 21735 | 9b56dd93b9134da5… |
+| studio/productions/centennial/audio/cue_sheet.md | 25448 | 7ba5d7feab5b0f1f… |
+| studio/productions/centennial/audio/mix.wav | 15422732 | a6acacfb160dde07… |
+| studio/productions/centennial/audio/mix_premaster.wav | 15422732 | bbad94b71d1f516f… |
+| studio/productions/centennial/audio/mix_report.json | 11236 | 4642486a17436115… |
+| studio/productions/centennial/audio/music.wav | 15422732 | f2fc7a67f61eaec5… |
+| studio/productions/centennial/audio/narration.wav | 15422732 | 9648bb7b34f764ab… |
+| studio/productions/centennial/audio/narration_full_48k.wav | 15422796 | 21782fe2f98be3a0… |
+| studio/productions/centennial/audio/sfx.wav | 15422732 | 511ae56af74fcb18… |
+| studio/productions/centennial/events.json | 26121 | e7f14451417078c7… |
+| studio/productions/centennial/input/narration.mp3 | 856860 | d21991916c47280f… |
+| studio/productions/centennial/production.json | 377 | 2f882b6eca7d2846… |
+| studio/productions/centennial/qc/final/FINAL_QC_REPORT.md | 6676 | 7a9c42b0497df8bc… |
+| studio/productions/centennial/qc/final/QC_REPORT.md | 1644 | ff23f86c70e3a14b… |
+| studio/productions/centennial/qc/final/_lb/l.txt | 32 | bebe57981e51d687… |
+| studio/productions/centennial/qc/final/benchmark_compare.png | 2637240 | 53f875b83c55b5cc… |
+| studio/productions/centennial/qc/final/contact_sheet.png | 2037000 | c52b1af701aa890c… |
+| studio/productions/centennial/qc/final/loop_seam_strip.png | 1062246 | 9a4e460c02e37baf… |
+| studio/productions/centennial/qc/final/qc.json | 2584 | 2236f93148409da4… |
+| studio/productions/centennial/render/final/render.log | 3006116 | 3f3fa9b0e0b8dc2f… |
 | studio/productions/flight/SOURCE_NOTES.md | 3620 | 7fc1b030fc7da0bd… |
 | studio/productions/flight/STORYBOARD.md | 6830 | 000ed966bebae0c8… |
 | studio/productions/flight/analysis/TRANSCRIPT.md | 2332 | c8364ed634cbdbfa… |
@@ -889,13 +921,13 @@ Generated 2026-11-19T08:17:55.825662+00:00 — 1036 files.
 | studio/scripts/export-events.ts | 762 | 704eae478ffed480… |
 | studio/scripts/render-stills.mjs | 1017 | fc6707074f107386… |
 | studio/scripts/stills.mjs | 1358 | fd74dd7fab516b57… |
-| studio/src/Root.tsx | 9212 | 050c97315035de4a… |
+| studio/src/Root.tsx | 9702 | 80af78ee42eff8d7… |
 | studio/src/char/CardSprite.tsx | 3671 | 715b72d7261989ad… |
 | studio/src/char/Odo4.tsx | 2860 | fee3bd6fde57f20d… |
 | studio/src/char/crowdLife.ts | 16955 | aa22f4e6449adaa1… |
 | studio/src/char/odo3.ts | 17703 | 908613ca2d7aefec… |
 | studio/src/char/odo4.ts | 20339 | ce927e6e779ab78a… |
-| studio/src/char/odo5.ts | 54189 | 6d097e382ff93287… |
+| studio/src/char/odo5.ts | 56049 | 770140fe0b8f3d78… |
 | studio/src/data/captions.json | 457 | ed6911e10952da81… |
 | studio/src/desert/Bridge.tsx | 19420 | 88f72b74e5297b0f… |
 | studio/src/desert/Car60.tsx | 13101 | c78b20fb2b9f139c… |
@@ -927,6 +959,19 @@ Generated 2026-11-19T08:17:55.825662+00:00 — 1036 files.
 | studio/src/lib/math.ts | 1095 | edae2a2cedd41ffe… |
 | studio/src/previews/Previews.tsx | 9174 | 065c873dcd48593d… |
 | studio/src/previews/Sheet2D.tsx | 2321 | 32b1fd0b3dfb67d7… |
+| studio/src/productions/centennial/Film.tsx | 7254 | 77620c855f9bffa9… |
+| studio/src/productions/centennial/Set.tsx | 4417 | 7131fb2ad9982525… |
+| studio/src/productions/centennial/Test.tsx | 4086 | 711a6b5e48ccc192… |
+| studio/src/productions/centennial/bulb.tsx | 11631 | aabf0936134a89c6… |
+| studio/src/productions/centennial/chars.ts | 3620 | e9d8122e41fde06e… |
+| studio/src/productions/centennial/mats.ts | 5173 | d056db159dd3b8b0… |
+| studio/src/productions/centennial/oldStation.tsx | 30161 | 29ed7fdad942dd29… |
+| studio/src/productions/centennial/props.tsx | 6945 | efebe49aab737ce2… |
+| studio/src/productions/centennial/scene.ts | 6288 | a3c91ed5973572cf… |
+| studio/src/productions/centennial/station6.tsx | 26885 | bc08f3a92b01a253… |
+| studio/src/productions/centennial/street.tsx | 10038 | 0a64cddc0abd1f5a… |
+| studio/src/productions/centennial/timeline.ts | 38126 | f144bfbd7769fb6f… |
+| studio/src/productions/centennial/vehicles.tsx | 22182 | 3759da49d8db41e4… |
 | studio/src/productions/flight/Film.tsx | 4450 | 86d49ed3d91d0b1d… |
 | studio/src/productions/flight/Set.tsx | 6837 | ba48986ca24ef8ff… |
 | studio/src/productions/flight/Test.tsx | 2978 | f343a41106544e71… |
