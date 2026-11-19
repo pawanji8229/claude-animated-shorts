@@ -17,7 +17,7 @@ export const S6 = { W: 16, D: 16, H: 5.6, doorCx: [-3.9, 3.9], doorHW: 1.95, doo
 export const S6_BULB: V3 = [-0.6, S6.H - 0.25, -6.6];     // ceiling attach (bottom of a bar joist)
 export const S6_DROP = 0.95;                              // socket top at ~4.4 m
 export const CAM_AT: V3 = [-7.25, 4.55, -8.4];            // BulbCam lens position (on the left wall bracket)
-export const BOX_AT: V3 = [-7.55, 1.55, -7.0];            // power-supply box (front face centre)
+export const BOX_AT: V3 = [-7.55, 1.55, -8.4];            // power-supply box (front face centre)
 export const DESK_AT: V3 = [-6.9, 0, -10.6];              // watch desk (left wall)
 export const MON_AT: V3 = [-7.05, 1.42, -10.6];           // monitor screen centre (faces +x)
 export const LADDER_AT: V3 = [-0.6, 0, -7.825];           // rolling platform ladder (ry = pi/2: platform beside the bulb, stairs going -z)
@@ -113,6 +113,14 @@ const dressing = () => once("s6Dress", () => { const M = cm(), k = new Kit(), W2
   for (const x of [-7.6, -5.6]) k.span(M.steel, [x - 0.03, 0, -S6.D + 0.32], [x + 0.03, 2.0, -S6.D + 0.9]);
   for (let i = 0; i < 10; i++) k.box([M.redMod, M.yellowLine, M.steel, M.black, M.greenEnamel][i % 5], [0.3, 0.22 + (i % 3) * 0.06, 0.4], [-7.35 + (i % 5) * 0.42, 0.46 + Math.floor(i / 5) * 0.55 + 0.11, -S6.D + 0.6]);
   k.span(M.steel, [4.6, 0.85, -S6.D + 0.32], [5.6, 0.92, -S6.D + 0.9]); k.span(M.steelDark, [4.65, 0, -S6.D + 0.35], [5.55, 0.85, -S6.D + 0.85]);
+  // rear window frame + mullion + half-lowered blind
+  { const z = -S6.D + 0.31; k.span(M.white, [2.45, 1.05, z - 0.02], [4.35, 1.1, z + 0.06]); k.span(M.white, [2.45, 2.4, z - 0.02], [4.35, 2.45, z + 0.06]); for (const x of [2.45, 3.37, 4.3]) k.span(M.white, [x, 1.05, z - 0.02], [x + 0.05, 2.45, z + 0.06]);
+    k.span(M.offWhite, [2.5, 1.85, z + 0.04], [4.3, 2.4, z + 0.05], { ink: false }); }
+  // ground ladders stored on wall brackets (both side walls, above the gear)
+  for (const sx of [-1, 1]) { const x = sx * (W2 - 0.42); for (const y of [2.55, 3.15]) { for (const zz of [-2.2, -9.6]) k.box(M.steelDark, [0.3, 0.06, 0.06], [x + sx * 0.14, y - 0.06, zz]);
+      for (const dz of [0, 0.42]) k.rod(M.woodLight, [x, y, -1.6], [x, y + dz * 0.0 + 0.0, -10.6], 0.028, 6); } }
+  for (const sx of [-1, 1]) { const x = sx * (W2 - 0.42); for (const y of [2.55, 3.15]) for (let z = -1.8; z > -10.5; z -= 0.3) k.rod(M.woodLight, [x, y, z], [x, y + 0.4, z], 0.014, 5, { ink: false });
+    for (const y of [2.95, 3.55]) k.rod(M.woodLight, [x, y, -1.6], [x, y, -10.6], 0.028, 6); }
   // rear: door to quarters, bulletin board, clock
   k.span(M.wood, [-1.4, 1.3, -S6.D + 0.32], [0.6, 2.4, -S6.D + 0.36]); for (let i = 0; i < 7; i++) k.span(M.paper, [-1.3 + (i % 4) * 0.45, 1.45 + Math.floor(i / 4) * 0.45, -S6.D + 0.365], [-1.0 + (i % 4) * 0.45, 1.8 + Math.floor(i / 4) * 0.45, -S6.D + 0.37], { ink: false });
   k.cyl(M.white, 0.2, 0.2, 0.05, [2.0, 3.0, -S6.D + 0.33], [Math.PI / 2, 0, 0], 24); k.torus(M.black, 0.2, 0.015, [2.0, 3.0, -S6.D + 0.36], [0, 0, 0]);
