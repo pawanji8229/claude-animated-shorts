@@ -17,9 +17,9 @@ import * as T from "./timeline";
 import type { V3 } from "../../lib/math";
 
 export const MOODS: Record<T.MoodName, Mood> = {
-  dayInt: { bg: "#bcd4e6", sky: "#e2ecf6", ground: "#9a7a58", hemi: 0.85, env: 0.4, sun: { dir: [0.85, 0.5, 0.35], color: "#fff0d6", i: 2.8, size: 16, at: [0, 1.5, -6] }, exposure: 1.32, fog: { color: "#d8e2ea", near: 40, far: 320 }, warmCool: 0.5 },
-  dayInt38: { bg: "#bcd4e6", sky: "#e2ecf6", ground: "#9a7a58", hemi: 0.85, env: 0.4, sun: { dir: [0.7, 0.55, 0.5], color: "#ffeed4", i: 2.6, size: 16, at: [0, 1.5, -6] }, exposure: 1.3, fog: { color: "#d8e2ea", near: 40, far: 320 }, warmCool: 0.45, saturation: 1.02 },
-  nightOld: { bg: "#0c1220", sky: "#3a4a78", ground: "#1a140e", hemi: 0.22, env: 0.12, sun: { dir: [0.75, 0.55, 0.5], color: "#8aa2dc", i: 0.55, size: 16, at: [0, 1.5, -6] }, exposure: 1.7, fog: { color: "#101828", near: 25, far: 160 }, warmCool: 0.9, vignette: 0.45 },
+  dayInt: { bg: "#bcd4e6", sky: "#e2ecf6", ground: "#9a7a58", hemi: 0.85, env: 0.4, sun: { dir: [0.85, 0.5, 0.35], color: "#fff0d6", i: 2.8, size: 16, at: [0, 1.5, -6] }, exposure: 1.48, fog: { color: "#d8e2ea", near: 40, far: 320 }, warmCool: 0.5 },
+  dayInt38: { bg: "#bcd4e6", sky: "#e2ecf6", ground: "#9a7a58", hemi: 0.85, env: 0.4, sun: { dir: [0.7, 0.55, 0.5], color: "#ffeed4", i: 2.6, size: 16, at: [0, 1.5, -6] }, exposure: 1.45, fog: { color: "#d8e2ea", near: 40, far: 320 }, warmCool: 0.45, saturation: 1.02 },
+  nightOld: { bg: "#0c1220", sky: "#3a4a78", ground: "#1a140e", hemi: 0.22, env: 0.12, sun: { dir: [0.75, 0.55, 0.5], color: "#8aa2dc", i: 0.55, size: 16, at: [0, 1.5, -6] }, exposure: 2.0, fog: { color: "#101828", near: 25, far: 160 }, warmCool: 0.9, vignette: 0.45 },
   dayExt: { bg: "#b8d0e4", sky: "#dce8f4", ground: "#b8a07a", hemi: 1.0, env: 0.45, sun: { dir: [0.55, 0.75, 0.6], color: "#fff0d8", i: 2.7, size: 26 }, exposure: 1.05, fog: { color: "#c9d8e4", near: 60, far: 420 } },
   dusk6: { bg: "#1c2638", sky: "#5d6e98", ground: "#2e2620", hemi: 0.5, env: 0.3, sun: { dir: [0.25, 0.3, 1.0], color: "#8ea6dc", i: 0.95, size: 18, at: [0, 2, -6] }, exposure: 1.38, fog: { color: "#1c2638", near: 30, far: 200 }, warmCool: 0.85, vignette: 0.38 },
   night6: { bg: "#0b1018", sky: "#33405e", ground: "#16120e", hemi: 0.2, env: 0.12, sun: { dir: [0.3, 0.4, 1.0], color: "#7a90c8", i: 0.45, size: 18, at: [0, 2, -6] }, exposure: 1.75, fog: { color: "#0b1018", near: 25, far: 150 }, warmCool: 0.9, vignette: 0.45 },

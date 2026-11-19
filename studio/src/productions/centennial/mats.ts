@@ -28,7 +28,7 @@ const make = () => { const A = archMats(); return {
   dirt: pbr("gravel_road", { normal: 0.8, color: "#d9c4a0", scale: 1.6 }),
   boards: pbr("old_planks_02", { normal: 1.1, color: "#bfa27c", scale: 0.6 }),
   // ---- modern station 6 (1976 build)
-  block: pbr("beige_wall_001", { color: "#d9d2c4", scale: 0.4, normal: 1.4 }),                  // painted concrete block
+  block: pbr("beige_wall_001", { color: "#ece6d8", scale: 0.4, normal: 1.4, bright: 1.3 }),                  // painted concrete block
   brickMod: pbr("brick_wall_006", { normal: 1.0, color: "#c9ad9c", scale: 0.42 }),
   epoxy: phys({ color: "#7d8288", roughness: 0.32, metalness: 0.0, clearcoat: 0.6, clearcoatRoughness: 0.3 }),
   concrete: pbr("concrete_pavement", { normal: 0.7, color: "#e6e2da", scale: 1.0, bright: 1.15 }),

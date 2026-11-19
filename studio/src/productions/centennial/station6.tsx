@@ -43,7 +43,7 @@ const shell = () => once("s6Shell", () => { const M = cm(), A = archMats(), k = 
   wallRect(sideR, M.block, -(D - 0.3), -0.3, 0, H, -0.3, 0, sw); for (const w of sw) sideR.plane(M.glassWin, w.x1 - w.x0, w.y1 - w.y0, [(w.x0 + w.x1) / 2, (w.y0 + w.y1) / 2, -0.15]);
   k.merge(sideR, [W2 - 0.3, 0, 0], [0, -Math.PI / 2, 0]);
   // clerestory window bands high on the side walls (dusk / daylight, detail on the big walls)
-  for (const sx of [-1, 1]) { const x = sx * (W2 - 0.3); for (let i = 0; i < 6; i++) { const z0 = -2.2 - i * 2.2; k.span(M.steelDark, [x - 0.04, 3.75, z0 - 1.65], [x + 0.04, 4.75, z0]); k.plane(M.glassWin, 1.5, 0.86, [x - sx * 0.05, 4.25, z0 - 0.825], [0, sx > 0 ? -Math.PI / 2 : Math.PI / 2, 0]);
+  for (const sx of [-1, 1]) { const x = sx * (W2 - 0.3); for (let i = 0; i < 6; i++) { const z0 = -2.2 - i * 2.2; for (const [za, zb] of [[z0 - 1.65, z0 - 1.6], [z0 - 0.05, z0], [z0 - 0.85, z0 - 0.8]]) k.span(M.steelDark, [x - 0.04, 3.75, za], [x + 0.04, 4.75, zb]); for (const y of [3.75, 4.7]) k.span(M.steelDark, [x - 0.04, y, z0 - 1.65], [x + 0.04, y + 0.05, z0]); k.plane(M.glassWin, 1.5, 0.86, [x - sx * 0.05, 4.25, z0 - 0.825], [0, sx > 0 ? -Math.PI / 2 : Math.PI / 2, 0]);
     k.span(M.offWhite, [x - sx * 0.08 - 0.04, 3.68, z0 - 1.7], [x - sx * 0.08 + 0.04, 3.75, z0 + 0.05], { ink: false }); } }
   // painted dado stripe inside (red) at 1.2 m
   for (const s of [-1, 1]) k.span(M.lockerRed, [s * (W2 - 0.3) - (s > 0 ? 0.01 : 0), 1.15, -D + 0.3], [s * (W2 - 0.3) + (s > 0 ? 0 : 0.01), 1.3, -0.3], { ink: false });

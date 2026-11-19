@@ -173,16 +173,16 @@ const drawHat = (g: G, c: Pal, cx: number, cy: number, kind: "cowboy" | "bowler"
   } else if (kind === "fire") {
     // traditional leather fire helmet (optional costume, added for the centennial production): ribbed dome, wide brim
     // that sweeps into a long tail at the back (side view), raised front shield with a gold border
-    const tail = side ? -1 : 0;
+    const tail = side ? -1 : 0, hat = c.hat ?? "#2a2a2a", hatShade = c.hatShade ?? "#2a2a2a", band = c.band ?? "#3a3a3a", gold = c.hat ? "#d9b24a" : "#3a3a3a";   // glow-mask palette has no hat colours: keep the helmet dark there
     inked(g, c, () => { g.beginPath(); if (side) { g.moveTo(130, 4); g.quadraticCurveTo(140, 20, 112, 20); g.lineTo(-120, 22); g.quadraticCurveTo(-210, 30, -236, 58); g.quadraticCurveTo(-190, 14, -128, 2); g.closePath(); }
-      else { g.moveTo(-176, 22); g.quadraticCurveTo(-170, -2, -120, -6); g.lineTo(120, -6); g.quadraticCurveTo(170, -2, 176, 22); g.quadraticCurveTo(0, 6, -176, 22); g.closePath(); } }, c.hat, 4, 3);
-    inked(g, c, () => { g.beginPath(); g.moveTo(-104, 0); g.bezierCurveTo(-112, -126, 112, -126, 104, 0); g.closePath(); }, c.hat, 4, 3);
-    for (const x of [-62, -22, 22, 62]) taper(g, [[x * 0.9 + tail * 6, -88], [x * 1.25, -4]], 3.5, c.hatShade, 0.55);
-    taper(g, [[0, -96], [0, -4]], 5, c.hatShade, 0.6);
-    if (side) { inked(g, c, () => { g.beginPath(); g.moveTo(70, -60); g.lineTo(122, -96); g.lineTo(138, -40); g.lineTo(96, 2); g.closePath(); }, c.band, 3, 2.5); }
-    else { inked(g, c, () => { g.beginPath(); g.moveTo(-44, 6); g.lineTo(-50, -92); g.quadraticCurveTo(0, -132, 50, -92); g.lineTo(44, 6); g.quadraticCurveTo(0, 16, -44, 6); g.closePath(); }, c.band, 3, 2.5);
-      g.strokeStyle = "#d9b24a"; g.lineWidth = 5; g.beginPath(); g.moveTo(-34, -2); g.lineTo(-39, -84); g.quadraticCurveTo(0, -116, 39, -84); g.lineTo(34, -2); g.stroke();
-      g.fillStyle = "#d9b24a"; g.beginPath(); g.ellipse(0, -52, 15, 15, 0, 0, Math.PI * 2); g.fill(); }
+      else { g.moveTo(-176, 22); g.quadraticCurveTo(-170, -2, -120, -6); g.lineTo(120, -6); g.quadraticCurveTo(170, -2, 176, 22); g.quadraticCurveTo(0, 6, -176, 22); g.closePath(); } }, hat, 4, 3);
+    inked(g, c, () => { g.beginPath(); g.moveTo(-104, 0); g.bezierCurveTo(-112, -126, 112, -126, 104, 0); g.closePath(); }, hat, 4, 3);
+    for (const x of [-62, -22, 22, 62]) taper(g, [[x * 0.9 + tail * 6, -88], [x * 1.25, -4]], 3.5, hatShade, 0.55);
+    taper(g, [[0, -96], [0, -4]], 5, hatShade, 0.6);
+    if (side) { inked(g, c, () => { g.beginPath(); g.moveTo(70, -60); g.lineTo(122, -96); g.lineTo(138, -40); g.lineTo(96, 2); g.closePath(); }, band, 3, 2.5); }
+    else { inked(g, c, () => { g.beginPath(); g.moveTo(-44, 6); g.lineTo(-50, -92); g.quadraticCurveTo(0, -132, 50, -92); g.lineTo(44, 6); g.quadraticCurveTo(0, 16, -44, 6); g.closePath(); }, band, 3, 2.5);
+      g.strokeStyle = gold; g.lineWidth = 5; g.beginPath(); g.moveTo(-34, -2); g.lineTo(-39, -84); g.quadraticCurveTo(0, -116, 39, -84); g.lineTo(34, -2); g.stroke();
+      g.fillStyle = gold; g.beginPath(); g.ellipse(0, -52, 15, 15, 0, 0, Math.PI * 2); g.fill(); }
   } else if (kind === "pilot") {
     // peaked uniform cap (optional costume, added for the flight production): flat crown, dark band, black visor, badge
     inked(g, c, () => { g.beginPath(); g.moveTo(-112, 4); g.bezierCurveTo(-130, -40, -150, -78, -96, -88); g.lineTo(96, -88); g.bezierCurveTo(150, -78, 130, -40, 112, 4); g.closePath(); }, c.hat, 4, 3);

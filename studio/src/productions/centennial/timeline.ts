@@ -85,13 +85,13 @@ const HERO_A: Act = { c: HERO, seed: 1, h: 1.55, face: () => ({ eyes: "lid", lid
 const hero = (face: [number, FaceName][], armR?: (f: number) => ArmPose, armL?: (f: number) => ArmPose): Act => ({ ...HERO_A, face: ft(face, 6), armR, armL });
 
 // ================================================================= A: macro on the bulb -> pull back through Station 6 at dusk
-const S6_HERO_FLOOR: V3 = [0.65, 0, -5.15];
+const S6_HERO_FLOOR: V3 = [-0.2, 0, -4.6];
 const heroFloor = hero([[-200, "content"], [40, "idea"], [80, "content"], [1490, "content"], [1530, "idea"], [1580, "content"]]);
 export const camA = lazy(() => rig([
   [-90, [S6_FIL[0] + 0.2, S6_FIL[1] + 0.035, S6_FIL[2] + 0.72], S6_FIL, 38], [-40, [S6_FIL[0] + 0.11, S6_FIL[1] + 0.022, S6_FIL[2] + 0.42], S6_FIL, 37],
   [0, [S6_FIL[0] + 0.075, S6_FIL[1] + 0.02, S6_FIL[2] + 0.29], S6_FIL, 36], [24, [S6_FIL[0] + 0.07, S6_FIL[1] + 0.01, S6_FIL[2] + 0.27], S6_FIL, 36],
   [62, [S6_FIL[0] + 0.5, S6_FIL[1] - 0.15, S6_FIL[2] + 1.2], [S6_FIL[0], S6_FIL[1] - 0.25, S6_FIL[2]], 40],
-  [100, [2.1, 2.55, -1.2], [-0.7, 3.3, -6.9], 50], [130, [2.35, 2.35, -0.7], [-0.7, 3.1, -7.0], 52],
+  [100, [-2.35, 2.15, -1.6], [1.2, 2.9, -7.6], 52], [130, [-2.65, 2.05, -1.25], [1.25, 2.85, -7.8], 54],
 ], 9, 0.12));
 export const layerA = (f: number): LayerOut => { const c0 = camA()(f), near = f < 70;
   const c = near ? focusOn(c0, S6_FIL, 0.16) : c0;
@@ -100,9 +100,9 @@ export const layerA = (f: number): LayerOut => { const c0 = camA()(f), near = f 
 };
 
 // ================================================================= B1-B3: generations of newer bulbs (old station, three eras)
-export const camB = lazy(() => rig([[104, [1.75, 1.72, -0.55], [-0.05, 2.75, -6.5], 56], [244, [0.75, 1.76, -0.45], [-0.35, 2.82, -6.5], 55]], 10, 0.09));
+export const camB = lazy(() => rig([[104, [0.72, 2.3, -2.22], [-2.1, 2.3, -7.8], 52], [244, [0.5, 2.3, -2.38], [-2.3, 2.35, -7.8], 52]], 10, 0.09));
 const heroB = hero([[100, "content"], [138, "oneBrowUp"], [176, "suspicious"], [196, "xSideEyeR"], [232, "xSideEyeR"]], undefined, () => HIP_L);
-const B_HERO: V3 = [-0.75, 0, -2.25];
+const B_HERO: V3 = [-1.1, 0, -5.2];
 const fireB: Record<string, Act> = { a: { c: FIRE12, seed: 21, face: ft([[0, "focused"]]) }, b: { c: FIRE38, seed: 22, face: ft([[0, "focused"], [190, "proud"]]) }, c: { c: FIRE38B, seed: 23, face: ft([[0, "bored"], [214, "tinyConfused"]]) } };
 const flick = (f: number, t0: number, t1: number, seed: number) => f < t0 ? 1 : f > t1 ? 0 : (Math.sin(f * 2.3 + seed) + Math.sin(f * 5.1 + seed * 2) > 0.2 ? 0.25 + 0.75 * (1 - (f - t0) / (t1 - t0)) : 0.05);
 const layerB = (era: Era) => (f: number): LayerOut => { const c = camB()(f);
@@ -112,15 +112,15 @@ const layerB = (era: Era) => (f: number): LayerOut => { const c = camB()(f);
   if (era === "1938") { const s = stepAt([-0.75, 0, -6.95], 0, 3); step = { p: [-0.75, 0, -6.95], ry: 0 }; fixOn = [sm(186, 190, f) * (f > 186 ? 1 : 0), 1, 1, 1];
     const ff = stand({ ...fireB.b, armR: () => UP_R, armL: () => A([-30, 120], "grip", -1, -0.4) }, [s[0] - 0.1, s[1], s[2]], f, { lookY: -0.8 }); actors.push(ff);
     app.push({ type: "1938", p: [2.9, 0, -8.2], ry: -Math.PI / 2 }); }
-  if (era === "1955") { fixOn = [1, 1, flick(f, 210, 224, 7), 1]; actors.push(stand({ ...fireB.c, armL: () => HIP_L }, [2.4, 0, -10.5], f, { lookY: -0.5, lookX: -0.4 })); app.push({ type: "1938", p: [2.9, 0, -8.2], ry: -Math.PI / 2 }); }
+  if (era === "1955") { fixOn = [1, 1, flick(f, 210, 224, 7), 1]; actors.push(stand({ ...fireB.c, armL: () => HIP_L }, [-2.6, 0, -9.0], f, { lookY: -0.5, lookX: -0.4 })); app.push({ type: "1938", p: [2.9, 0, -8.2], ry: -Math.PI / 2 }); }
   return { c, mood: era === "1912" ? "dayInt" : "dayInt38", set: "old", era, t: f / 30, actors, bulb: oldBulb(), fixOn, step, app, warmFill: 0.6 };
 };
 export const layerB1 = layerB("1912"), layerB2 = layerB("1938"), layerB3 = layerB("1955");
 
 // ================================================================= C: 1901 street -> through the doors -> the bulb is installed; ordinary day
 export const camC = lazy(() => rig([
-  [222, [4.6, 1.95, 11.6], [0.4, 5.0, -1.0], 54], [262, [3.9, 2.0, 7.4], [0.8, 3.9, -2.0], 52], [300, [3.05, 2.2, 1.0], [0.6, 3.15, -3.3], 50],
-  [338, [2.25, 2.3, -0.85], [0.15, 3.0, -3.4], 48], [372, [2.55, 1.95, -0.45], [-0.3, 2.25, -5.6], 54], [478, [2.2, 1.85, -0.7], [-0.6, 2.2, -6.4], 54],
+  [222, [4.6, 1.95, 11.6], [0.4, 5.0, -1.0], 54], [262, [3.9, 2.0, 7.4], [0.8, 3.9, -2.0], 52], [300, [3.05, 2.1, 1.0], [0.5, 2.6, -3.3], 50],
+  [338, [2.2, 2.05, -0.95], [0.1, 2.45, -3.45], 48], [372, [2.55, 1.95, -0.45], [-0.3, 2.25, -5.6], 54], [478, [2.2, 1.85, -0.7], [-0.6, 2.2, -6.4], 54],
 ], 9, 0.08));
 const STEP_C: V3 = [0.62, 0, -3.3];
 export const INSTALL_ON = 346;
@@ -146,7 +146,7 @@ export const layerC = (f: number): LayerOut => { const c = camC()(f);
   if (f > 355) actors.push(walker(passer, passPath, f, c, 355, 480, { lookX: 0.2 }));
   const coilArm = (g: number) => A([-40 + Math.sin(g * 0.18) * 30, 70 + Math.cos(g * 0.18) * 26], "grip", -1, -0.7);
   actors.push(stand({ ...coiler, armL: coilArm, armR: (g) => A([50, 90 + Math.sin(g * 0.18 + 1) * 20], "grip", 1, 0.7) }, [-2.1, 0, -6.6], f, { lookY: 0.3 }));
-  actors.push(stand(heroC, [1.75, 0, -4.7], f, { lookY: -0.6, lookX: -0.6 }));
+  actors.push(stand(heroC, [0.9, 0, -5.2], f, { lookY: -0.6, lookX: -0.6 }));
   // townsfolk outside (independent timing)
   if (f < 320) { actors.push(walker(townA, path([[200, [-9, 0.1, 1.6]], [330, [-2.0, 0.1, 1.5]]]), f, c, 200, 330)); actors.push(stand({ ...townB, armR: () => HIP_R }, [-7.2, 0.1, 2.2], f, { lookX: 0.6 })); }
   return { c, mood: "dayInt", set: "old", era: "1901", t: f / 30, actors, bulb: oldBulb(glow), step: f < 440 ? { p: STEP_C, ry: Math.PI } : undefined, warmFill: 0.5,
@@ -163,7 +163,7 @@ export const layerD = (f: number): LayerOut => { const c = camD()(f), lit = sm(4
   const lp = stand({ ...lighter }, [0.75, 0, -4.4], f, { lookY: -0.1, lookX: -0.6 });
   lp.pose = { ...lp.pose, armR: aimArm(lp, c.pos, [LANT_COL[0] + 0.05, LANT_COL[1] + 0.12, LANT_COL[2]], 1, A([0, 0], "grip", 1, 0.6)), armL: aimArm(lp, c.pos, [LANT_COL[0] + 0.1, LANT_COL[1] + 0.05 + (f < 492 ? Math.sin(f * 0.9) * 0.02 : 0), LANT_COL[2] + 0.05], -1, A([0, 0], "grip", -1, -0.6)) };
   const nz = stand({ ...nozzle, armL: (g) => A([-50, 60 + Math.sin(g * 0.11) * 8], "grip", -1, -1.0), armR: () => A([60, 50], "grip", 1, 1.0) }, [-1.75, 0, -7.3], f, { lookY: 0.4, lookX: -0.5 });
-  return { c, mood: "nightOld", set: "old", era: "1901", t: f / 30, actors: [lp, nz, stand(heroD, [2.6, 0, -6.3], f, { lookY: -0.5, lookX: -0.7 })], bulb: oldBulb(),
+  return { c, mood: "nightOld", set: "old", era: "1901", t: f / 30, actors: [lp, nz, stand(heroD, [-0.6, 0, -6.6], f, { lookY: -0.5, lookX: -0.7 })], bulb: oldBulb(),
     lanterns: [{ p: LANT_COL, lit }, { p: [0, 1.55, -9.8], lit: 1 }, { p: [-4.6, 0.95, -12.9], lit: 1 }], app: [{ type: "cart", p: [-2.9, 0, -8.6], ry: -Math.PI / 2 }, { type: "cart", p: [2.9, 0, -8.8], ry: -Math.PI / 2 }] };
 };
 
@@ -172,24 +172,24 @@ const NEXT_GLASS: V3 = [OLD_NEXT[0], OLD_FIL[1], OLD_NEXT[2]];
 export const camE = lazy(() => rig([
   [540, [NEXT_GLASS[0] + 0.28, NEXT_GLASS[1] - 0.12, NEXT_GLASS[2] + 1.55], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.05, NEXT_GLASS[2]], 40], [618, [NEXT_GLASS[0] + 0.22, NEXT_GLASS[1] - 0.18, NEXT_GLASS[2] + 1.5], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.12, NEXT_GLASS[2]], 40],
   [650, [OLD_FIL[0] + 0.22, OLD_FIL[1] - 0.18, OLD_FIL[2] + 1.5], [OLD_FIL[0], OLD_FIL[1] - 0.12, OLD_FIL[2]], 40], [670, [OLD_FIL[0] + 0.28, OLD_FIL[1] - 0.35, OLD_FIL[2] + 1.75], [OLD_FIL[0], OLD_FIL[1] - 0.45, OLD_FIL[2]], 42],
-  [706, [0.55, 2.35, -0.8], [0.05, 2.4, -3.4], 50],
+  [706, [0.45, 2.0, -0.9], [-0.15, 2.05, -4.6], 50],
 ], 8, 0.08));
 const changer: Record<string, Act> = { e1: { c: FIRE12, seed: 51, face: ft([[540, "deadpan"], [598, "tinyConfused"]]) }, e2: { c: FIRE38B, seed: 52, face: ft([[600, "focused"], [628, "proud"]]) } };
 const heroE = hero([[600, "content"], [654, "smug"], [676, "delighted"], [700, "smug"]], () => POINT_UP_R, () => HIP_L);
 const layerE = (era: Era) => (f: number): LayerOut => { const c = camE()(f), e1 = era === "1912";
   const nextGlow = e1 ? (f < 584 ? 1 : f < 598 ? (Math.sin(f * 2.7) > 0 ? 0.8 : 0.1) * (1 - (f - 584) / 14) : 0) : sm(624, 630, f);
-  const s = stepAt([OLD_NEXT[0] + 0.25, 0, OLD_NEXT[2] + 0.35], Math.PI, 1);
+  const s = stepAt([OLD_NEXT[0] + 0.35, 0, OLD_NEXT[2] - 0.5], Math.PI, 1);
   const ch = stand({ ...(e1 ? changer.e1 : changer.e2) }, [s[0], s[1], s[2]], f, { lookY: -0.9, lookX: -0.3 });
   const reach = e1 ? sm(600, 612, f) : 1 - sm(630, 646, f);
   ch.pose = { ...ch.pose, armR: mixArm(REST_R, aimArm(ch, c.pos, [NEXT_GLASS[0] + 0.02, NEXT_GLASS[1] - 0.06, NEXT_GLASS[2]], 1, A([0, 0], "grip", 1, Math.PI * 0.9)), reach) };
-  const actors: Placed[] = [ch, stand(heroE, [0.75, 0, -2.55], f, { lookY: -0.7, lookX: -0.6 })];
+  const actors: Placed[] = [ch, stand(heroE, [-0.35, 0, -4.4], f, { lookY: -0.7, lookX: -0.6 })];
   return { c, mood: e1 ? "dayInt" : "dayInt38", set: "old", era: e1 ? "1912" : "1938", t: f / 30, actors, bulb: oldBulb(), next: { era: e1 ? "1912" : "1938", glow: nextGlow, drop: 2.13 },
-    step: { p: [OLD_NEXT[0] + 0.25, 0, OLD_NEXT[2] + 0.35], ry: Math.PI }, warmFill: 0.6, fixOn: [1, 1, 1, 1] };
+    step: { p: [OLD_NEXT[0] + 0.35, 0, OLD_NEXT[2] - 0.5], ry: Math.PI }, warmFill: 0.6, fixOn: [1, 1, 1, 1] };
 };
 export const layerE1 = layerE("1912"), layerE2 = layerE("1938");
 
 // ================================================================= F1-F3: years passed, then decades (looking out through the doors)
-export const camF = lazy(() => rig([[684, [2.35, 3.25, -11.6], [-2.3, 2.25, 1.0], 62], [806, [2.05, 2.55, -9.6], [-2.2, 2.1, 1.6], 58]], 10, 0.06));
+export const camF = lazy(() => rig([[684, [2.35, 2.95, -3.75], [-4.0, 1.75, -3.25], 56], [806, [1.65, 2.35, -3.6], [-4.0, 1.65, -3.1], 54]], 10, 0.06));
 const heroF = hero([[680, "content"], [712, "xDisbelief"], [752, "tinyConfused"], [790, "xDisbelief"]], undefined, () => HIP_L);
 const fRole: Record<string, Act> = {
   a: { c: FIRE12, seed: 61, face: ft([[0, "content"]]), armR: (g) => A([60, 70 + Math.sin(g * 0.3) * 10], "grip", 1, 0.9) }, b: { c: VOL_WHITE, seed: 62, face: ft([[0, "talking"]]) },
@@ -197,17 +197,17 @@ const fRole: Record<string, Act> = {
   e: { c: FIRE76, seed: 65, face: ft([[0, "focused"]]) }, g: { c: FIRE76B, seed: 66, face: ft([[0, "talking"], [785, "content"]]) },
 };
 const layerF = (era: Era) => (f: number): LayerOut => { const c = camF()(f);
-  const actors: Placed[] = [stand(heroF, [1.2, 0, -6.0], f, { lookY: -0.6, lookX: -0.5 })]; const app: AppPlace[] = []; const cars: LayerOut["cars"] = [];
-  if (era === "1912") { app.push({ type: "1912", p: [-2.95, 0, -6.2], ry: -Math.PI / 2 }); actors.push(stand(fRole.a, [-1.5, 0, -5.0], f, { lookX: -0.6 }), walker(fRole.b, path([[680, [-4.5, 0.08, 1.6]], [745, [-0.5, 0.08, 1.7]]]), f, c, 680, 745)); }
-  if (era === "1938") { app.push({ type: "1938", p: [-2.95, 0, -6.4], ry: -Math.PI / 2 }); cars.push({ kind: "car30", color: "#3a4a3a", p: [-6.5, 0, 4.0], ry: 0 }); actors.push(stand(fRole.c, [-1.45, 0, -3.6], f, { lookY: 0.4 }), stand(fRole.d, [-0.6, 0, -8.6], f, { lookX: 0.6 })); }
-  if (era === "1976") { app.push({ type: "1976", p: [-2.95, 0, -6.6], ry: -Math.PI / 2 }); cars.push({ kind: "sedan", color: "#8a6a2a", p: [-7.0, 0, 4.2], ry: 0 }, { kind: "sedan", color: "#3a5a6a", p: [2 + (f - 760) * 0.25, 0, 9.0], ry: 0, spin: (f - 760) * 0.25 / 0.34 });
-    actors.push(stand(fRole.e, [-1.3, 0, -3.4], f, { lookX: 0.5 }), stand(fRole.g, [-0.55, 0, -4.1], f, { lookX: -0.6 })); }
+  const actors: Placed[] = [stand(heroF, [0.15, 0, -1.9], f, { lookY: -0.6, lookX: -0.5 })]; const app: AppPlace[] = []; const cars: LayerOut["cars"] = [];
+  if (era === "1912") { app.push({ type: "1912", p: [-2.95, 0, -4.4], ry: -Math.PI / 2 }); actors.push(stand(fRole.a, [-1.35, 0, -3.0], f, { lookX: -0.6 }), stand(fRole.b, [-1.6, 0, -5.6], f, { lookX: 0.6 })); }
+  if (era === "1938") { app.push({ type: "1938", p: [-2.95, 0, -5.0], ry: -Math.PI / 2 }); cars.push({ kind: "car30", color: "#3a4a3a", p: [-6.5, 0, 4.0], ry: 0 }); actors.push(stand(fRole.c, [-1.4, 0, -2.4], f, { lookY: 0.4 }), stand(fRole.d, [-1.2, 0, -6.4], f, { lookX: 0.6 })); }
+  if (era === "1976") { app.push({ type: "1976", p: [-2.95, 0, -5.6], ry: -Math.PI / 2 }); cars.push({ kind: "sedan", color: "#8a6a2a", p: [-7.0, 0, 4.2], ry: 0 }, { kind: "sedan", color: "#3a5a6a", p: [2 + (f - 760) * 0.25, 0, 9.0], ry: 0, spin: (f - 760) * 0.25 / 0.34 });
+    actors.push(stand(fRole.e, [-1.3, 0, -2.2], f, { lookX: 0.5 }), stand(fRole.g, [-1.05, 0, -6.0], f, { lookX: -0.6 })); }
   return { c, mood: era === "1912" ? "dayInt" : "dayInt38", set: "old", era, t: f / 30, actors, bulb: oldBulb(), app, cars, warmFill: 0.5, fixOn: [1, 1, 1, 1] };
 };
 export const layerF1 = layerF("1912"), layerF2 = layerF("1938"), layerF3 = layerF("1976");
 
 // ================================================================= G1: 1976 — cord cut, bulb lowered into a padded box
-export const camG1 = lazy(() => rig([[782, [2.65, 2.05, 0.15], [0.2, 2.55, -3.5], 50], [856, [2.05, 2.15, -0.75], [0.15, 2.5, -3.5], 46]], 9, 0.08));
+export const camG1 = lazy(() => rig([[782, [2.55, 1.95, 0.1], [0.2, 2.15, -3.5], 50], [856, [2.0, 2.0, -0.8], [0.25, 2.05, -3.5], 46]], 9, 0.08));
 export const CUT_AT = 812;
 const STEP_G: V3 = [0.62, 0, -3.3];
 const cutter: Act = { c: FIRE76, seed: 71, face: ft([[780, "focused"], [CUT_AT + 2, "worried"], [836, "relieved"]]) };
@@ -224,13 +224,13 @@ export const layerG1 = (f: number): LayerOut => { const c = camG1()(f);
   bx.pose = { ...bx.pose, armL: aimArm(bx, c.pos, [boxP[0] - 0.15, boxP[1] + 0.1, boxP[2]], -1, A([0, 0], "grip", -1, -1.0)), armR: aimArm(bx, c.pos, [boxP[0] + 0.17, boxP[1] + 0.1, boxP[2]], 1, A([0, 0], "grip", 1, 1.0)) };
   const glow = f < CUT_AT ? 1 : f < CUT_AT + 3 ? 0.4 : 0;
   return { c, mood: "dayInt38", set: "old", era: "1976", t: f / 30, actors: [ct, bx], bulb: { p: bp, drop: f < CUT_AT + 2 ? OLD_DROP - 0.12 : 0.12, glow, stub: f >= CUT_AT + 2 }, stubCord: f >= CUT_AT + 2,
-    step: { p: STEP_G, ry: Math.PI }, box: { p: boxP, ry: 0.3, open: 1 - sm(842, 852, f) * 0.9 }, warmFill: 0.5, fixOn: [1, 1, 1, 1], app: [{ type: "1976", p: [2.95, 0, -7.2], ry: -Math.PI / 2 }] };
+    step: { p: STEP_G, ry: Math.PI }, box: { p: boxP, ry: 0.3, open: 1 - sm(842, 852, f) * 0.9 }, warmFill: 0.5, fixOn: [1, 1, 1, 1], app: [{ type: "1976", p: [-2.95, 0, -7.0], ry: -Math.PI / 2 }] };
 };
 
 // ================================================================= G2: 1976 street — the engine carries the box, police car leading
 const G2_V = 3.2 / 30;   // m per frame
 const engineX = (f: number) => 3.4 + (f - 836) * G2_V;
-export const camG2 = lazy(() => rig([[832, [1.6, 1.65, 11.8], [3.0, 1.9, 4.4], 50], [910, [9.2, 1.75, 11.8], [11.0, 1.9, 4.4], 50]], 8, 0.05));
+export const camG2 = lazy(() => rig([[832, [engineX(832) - 9.5, 2.35, 9.7], [engineX(832) + 3.0, 1.55, 5.4], 48], [910, [engineX(910) - 9.0, 2.3, 9.5], [engineX(910) + 3.5, 1.55, 5.4], 48]], 8, 0.05));
 const rider: Act = { c: FIRE76, seed: 73, face: ft([[830, "focused"], [880, "comicSerious"]]), armL: () => HOLD_L, armR: () => HOLD_R };
 export const layerG2 = (f: number): LayerOut => { const c = camG2()(f), ex = engineX(f), d = (f - 836) * G2_V;
   const rp: V3 = [ex - 4.6, 0.62, 5.6 - 0.35]; const r = stand(rider, rp, f, { lookX: 0.5 });
@@ -240,20 +240,20 @@ export const layerG2 = (f: number): LayerOut => { const c = camG2()(f), ex = eng
 };
 
 // ================================================================= G3: arrival at the new Station 6 (1976) — the box is carried in
-export const camG3 = lazy(() => rig([[890, [-6.5, 1.7, 9.6], [-2.5, 2.2, 0.0], 52], [944, [-5.2, 1.75, 6.4], [-3.4, 2.0, -3.0], 50]], 8, 0.06));
+export const camG3 = lazy(() => rig([[886, [-7.0, 1.8, 8.8], [2.5, 2.0, 3.5], 52], [944, [-5.8, 1.75, 7.6], [-3.2, 1.7, -0.5], 50]], 8, 0.06));
 const G3_STOP = 916;
-const engG3 = (f: number): V3 => [lerp(14, -3.9, sm(888, G3_STOP, f)), 0, 6.2];
+const engG3 = (f: number): V3 => { const u = cl((f - 884) / (G3_STOP + 4 - 884)); return [4.5 + 4.5 * (1 - u) * (1 - u), 0, 5.4]; };
 const carrier: Act = { c: FIRE76, seed: 74, face: ft([[880, "focused"], [930, "proud"]]), armL: () => HOLD_L, armR: () => HOLD_R };
-const carryPath = path([[918, [-2.0, 0, 6.0]], [924, [-2.6, 0, 5.2]], [944, [-3.6, 0, 1.8]], [968, [-3.8, 0, -1.8]]]);
+const carryPath = path([[918, [1.0, 0, 3.9]], [926, [0.0, 0, 3.4]], [946, [-2.8, 0, 1.4]], [968, [-3.8, 0, -2.0]]]);
 export const layerG3 = (f: number): LayerOut => { const c = camG3()(f), e = engG3(f);
   const cr = walker(carrier, carryPath, Math.max(f, 918), c, 918, 968); const hb = handWorld(cr, c.pos, 1), hb2 = handWorld(cr, c.pos, -1);
-  return { c, mood: "day6ext", set: "s6", era: "1976", t: f / 30, actors: f >= 918 ? [cr] : [], bulb: { p: [0, -50, 0], drop: 0.1, glow: 0 }, outside: true, doors6: [1, 0.05], highbay: 1,
-    app: [{ type: "1976", p: e, ry: Math.PI, spin: -(e[0] - 14) / 0.55 }], box: f >= 918 ? { p: [(hb[0] + hb2[0]) / 2, (hb[1] + hb2[1]) / 2 - 0.12, (hb[2] + hb2[2]) / 2], ry: 0.2, open: 0 } : undefined };
+  return { c, mood: "day6ext", set: "s6", era: "1976", t: f / 30, actors: f >= 918 ? [cr] : [], bulb: { p: [0, -50, 0], drop: 0.1, glow: 0 }, outside: true, doors6: [1, 1], highbay: 1,
+    app: [{ type: "1976", p: e, ry: Math.PI, spin: (9 - e[0]) / 0.55 }], box: f >= 918 ? { p: [(hb[0] + hb2[0]) / 2, (hb[1] + hb2[1]) / 2 - 0.12, (hb[2] + hb2[2]) / 2], ry: 0.2, open: 0 } : undefined };
 };
 
 // ================================================================= G4: the bulb goes up again in the new bay (1976)
 export const RELIT = 950;
-export const camG4 = lazy(() => rig([[924, [2.6, 3.9, -5.5], [-0.6, 4.3, -7.0], 50], [966, [2.2, 4.05, -5.8], [-0.6, 4.3, -7.0], 48]], 8, 0.08));
+export const camG4 = lazy(() => rig([[924, [2.6, 4.95, -5.6], [-0.6, 4.15, -7.1], 50], [966, [2.2, 4.95, -5.85], [-0.6, 4.15, -7.1], 48]], 8, 0.08));
 const fixer: Act = { c: FIRE76, seed: 75, face: ft([[920, "focused"], [RELIT + 2, "delighted"]]) };
 export const layerG4 = (f: number): LayerOut => { const c = camG4()(f);
   const p = stand(fixer, PLATFORM, f, { lookY: -0.7, lookX: 0.3 }); const sock: V3 = [S6_BULB[0], S6_BULB[1] - S6_DROP + 0.02, S6_BULB[2]];
@@ -263,7 +263,7 @@ export const layerG4 = (f: number): LayerOut => { const c = camG4()(f);
 };
 
 // ================================================================= H: here's the strange part — the hero leans in on the platform
-export const camH = lazy(() => rig([[944, [2.5, 4.4, -6.2], [-0.6, 4.25, -7.0], 46], [1010, [1.45, 4.35, -6.45], [-0.62, 4.25, -7.0], 42]], 9, 0.09));
+export const camH = lazy(() => rig([[944, [2.5, 4.95, -6.15], [-0.6, 4.18, -7.1], 46], [1010, [1.5, 4.9, -6.4], [-0.62, 4.2, -7.1], 42]], 9, 0.09));
 const heroH = hero([[944, "content"], [952, "suspSquint"], [968, "oneBrowUp"], [990, "suspSquint"]], () => CHIN_R, () => A([-60, 40], "grip", -1, -1.0));
 const heroPlat = (f: number, lean = 0.18) => stand(heroH, PLATFORM, f, { lookY: -0.3, lookX: -0.9, lean, bodyRoll: -0.12 * lean / 0.18 });
 export const layerH = (f: number): LayerOut => { const c = camH()(f), lean = 0.08 + 0.12 * sm(950, 980, f);
@@ -273,7 +273,7 @@ export const layerH = (f: number): LayerOut => { const c = camH()(f), lean = 0.0
 
 // ================================================================= J: occasional interruptions (night): dark -> flashlight check -> extension cord -> glow returns
 export const OFF_AT = 1092, ON_AT = 1150;
-export const camJ = lazy(() => rig([[986, [4.1, 3.35, -5.75], [-6.0, 2.55, -7.05], 60], [1182, [3.85, 3.3, -5.8], [-6.0, 2.5, -7.05], 59]], 12, 0.05));
+export const camJ = lazy(() => rig([[986, [3.6, 3.8, -4.8], [-3.5, 3.0, -7.4], 56], [1182, [3.45, 3.78, -4.85], [-3.5, 2.98, -7.4], 55]], 12, 0.05));
 const heroJ = hero([[986, "suspSquint"], [1040, "comicSerious"], [OFF_AT + 2, "hugeShock"], [1118, "panic"], [ON_AT + 3, "relieved"], [1166, "delighted"]], undefined, () => A([-60, 40], "grip", -1, -1.0));
 const checker: Act = { c: FIRE_MOD, seed: 81, face: ft([[1090, "focused"], [1124, "tinyConfused"], [ON_AT + 2, "proud"]]) };
 const checkPath = path([[1096, [-3.6, 0, -4.4]], [1118, [-6.7, 0, -6.6]], [1180, [-6.8, 0, -6.65]]]);
@@ -291,7 +291,7 @@ export const layerJ = (f: number): LayerOut => { const c = camJ()(f);
 };
 
 // ================================================================= K: survived more than a century at very low brightness (day, high-bays on)
-export const camK = lazy(() => rig([[1158, [2.2, 0.55, -2.4], [-0.6, 2.2, -6.6], 58], [1230, [1.3, 2.4, -3.9], [-0.6, 3.6, -6.6], 50], [1300, [0.25, 4.12, -5.55], [-0.6, 4.24, -6.6], 40], [1342, [0.05, 4.2, -5.75], [-0.6, 4.25, -6.6], 38]], 10, 0.1));
+export const camK = lazy(() => rig([[1158, [2.7, 1.35, -1.5], [-0.8, 2.5, -6.8], 56], [1230, [1.3, 2.4, -3.9], [-0.6, 3.6, -6.6], 50], [1300, [0.25, 4.12, -5.55], [-0.6, 4.24, -6.6], 40], [1342, [0.05, 4.2, -5.75], [-0.6, 4.25, -6.6], 38]], 10, 0.1));
 const heroK = hero([[1160, "content"], [1200, "delighted"], [1250, "idea"], [1290, "delighted"]], () => A([70, -40], "open", 1, 2.4, [110, 30]), () => HIP_L);
 const modWalker: Act = { c: FIRE_MOD_GEAR, seed: 91, face: ft([[1180, "content"], [1220, "bored"]]) };
 export const layerK = (f: number): LayerOut => { const c0 = camK()(f), c = f > 1270 ? focusOn(c0, S6_FIL, 0.14) : c0;
@@ -301,16 +301,16 @@ export const layerK = (f: number): LayerOut => { const c0 = camK()(f), c = f > 1
 
 // ================================================================= L: the BulbCam -> the monitor -> disbelief
 const MON: V3 = MON_AT;
-export const camL = lazy(() => rig([[1318, [-6.35, 4.35, -7.55], [-7.3, 4.52, -8.45], 44], [1380, [-5.6, 3.2, -8.6], [-7.1, 2.4, -9.8], 46], [1430, [-5.45, 1.75, -9.75], [-7.0, 1.42, -10.75], 46], [1504, [-5.6, 1.72, -9.95], [-7.0, 1.4, -10.75], 44]], 10, 0.08));
+export const camL = lazy(() => rig([[1318, [-6.3, 4.3, -7.6], [-7.25, 4.55, -8.4], 46], [1380, [-5.3, 3.2, -8.9], [-7.1, 2.3, -10.2], 52], [1430, [-4.75, 1.65, -9.6], [-7.0, 1.4, -10.95], 58], [1504, [-4.9, 1.62, -9.7], [-7.0, 1.4, -10.95], 56]], 10, 0.08));
 const heroL = hero([[1320, "content"], [1408, "focused"], [1430, "xDisbelief"], [1452, "doubleTake"], [1474, "xDisbelief"]], () => A([40, 120], "relaxed", 1, 0.3), () => A([-70, 30], "open", -1, -1.6, [-110, 20]));
 export const layerL = (f: number): LayerOut => { const c = camL()(f), lookUp = sm(1450, 1458, f) * (1 - sm(1470, 1480, f));
-  return { c, mood: "dusk6", set: "s6", era: "1976", t: f / 30, actors: [stand(heroL, [-6.2, 0, -11.25], f, { lookX: lerp(-0.9, 0.2, lookUp), lookY: lerp(0.1, -0.9, lookUp) })], bulb: s6Bulb(), ladder6: { p: [6.4, 0, -12.6], ry: 0 }, doors6: [0.04, 0.04], highbay: 0,
+  return { c, mood: "dusk6", set: "s6", era: "1976", t: f / 30, actors: [stand(heroL, [-6.5, 0, -11.3], f, { lookX: lerp(-0.9, 0.2, lookUp), lookY: lerp(0.1, -0.9, lookUp) })], bulb: s6Bulb(), ladder6: { p: [6.4, 0, -12.6], ry: 0 }, doors6: [0.04, 0.04], highbay: 0,
     monitor: { glow: 1, sec: 2400 + f / 30 }, app: [{ type: "mod", p: [3.9, 0, -7.4], ry: -Math.PI / 2 }] };
 };
 void MON;
 
 // ================================================================= M: one little bulb just kept going -> back to the macro (loop)
-export const camM = lazy(() => rig([[1478, [2.3, 2.3, -1.0], [-0.65, 3.25, -6.8], 52], [1530, [1.15, 3.35, -3.6], [-0.62, 4.0, -6.65], 46],
+export const camM = lazy(() => rig([[1478, [-2.65, 2.05, -1.3], [1.2, 2.85, -7.8], 54], [1530, [-1.55, 3.45, -4.1], [-0.6, 4.05, -6.6], 46],
   [1545, [S6_FIL[0] + 0.32, S6_FIL[1] + 0.05, S6_FIL[2] + 1.05], S6_FIL, 39], [1567, [S6_FIL[0] + 0.11, S6_FIL[1] + 0.022, S6_FIL[2] + 0.43], S6_FIL, 37], [1607, [S6_FIL[0] + 0.075, S6_FIL[1] + 0.02, S6_FIL[2] + 0.29], S6_FIL, 36]], 9, 0.12));
 export const layerM = (f: number): LayerOut => { const c0 = camM()(f), c = f > 1550 ? focusOn(c0, S6_FIL, 0.16) : c0;
   return { c, mood: "dusk6", set: "s6", era: "1976", t: f / 30, actors: [stand(heroFloor, S6_HERO_FLOOR, f, { lookY: -0.75, lookX: -0.4 })], bulb: s6Bulb(), dust: 1, ladder6: { p: [6.4, 0, -12.6], ry: 0 }, doors6: [0.04, 0.04], highbay: 0,
