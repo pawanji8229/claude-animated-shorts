@@ -6,6 +6,8 @@ import { JoralemonFilm } from "./productions/joralemon/Film";
 import { FlightTest, FLIGHT_TEST_N } from "./productions/flight/Test";
 import { FlightFilm } from "./productions/flight/Film";
 import { PoTest, PO_TEST_N } from "./productions/postoffice/Test";
+import { CentTest, CENT_TEST_N } from "./productions/centennial/Test";
+import { CentFilm } from "./productions/centennial/Film";
 import { PoFilm } from "./productions/postoffice/Film";
 import { FILM_FRAMES as FLIGHT_FRAMES } from "./productions/flight/timeline";
 import { JExprTest, EXPR_FRAMES } from "./productions/joralemon/ExprTest";
@@ -79,6 +81,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Flight" component={FlightFilm} durationInFrames={FLIGHT_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="PostOfficePreview" component={PoFilm} durationInFrames={1518} fps={30} width={540} height={960} />
     <Composition id="PostOffice" component={PoFilm} durationInFrames={1518} fps={30} width={1080} height={1920} />
+    <Composition id="CentennialPreview" component={CentFilm} durationInFrames={1607} fps={30} width={540} height={960} />
+    <Composition id="Centennial" component={CentFilm} durationInFrames={1607} fps={30} width={1080} height={1920} />
+    <Composition id="CentTest" component={CentTest} durationInFrames={CENT_TEST_N} fps={30} width={1080} height={1920} />
     <Composition id="PoTest" component={PoTest} durationInFrames={PO_TEST_N} fps={30} width={1080} height={1920} />
     <Composition id="FlightTest" component={FlightTest} durationInFrames={FLIGHT_TEST_N} fps={30} width={1080} height={1920} />
     <Composition id="Joralemon" component={JoralemonFilm} durationInFrames={JOR_FRAMES} fps={30} width={1080} height={1920} />

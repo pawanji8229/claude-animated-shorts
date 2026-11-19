@@ -15,7 +15,7 @@ export type Mouth5 = "awkward" | "yikes" | "o" | "smile" | "flat" | "wobble" | "
 export type Hand5 = "relaxed" | "fist" | "grip" | "open" | "thumb";
 export type ArmPose = { hand: [number, number]; bend: number; shape: Hand5; rot: number; behind?: boolean; elbow?: [number, number] };
 /** Costume = palette overrides + accessory switches; the rig, proportions and line style stay identical. */
-export type Costume = { pal?: Record<string, string>; goggles: boolean; hairs: boolean; tufts: boolean; hat: null | "cowboy" | "bowler" | "hard" | "pilot"; stache: boolean; suit: boolean; apron: boolean;
+export type Costume = { pal?: Record<string, string>; goggles: boolean; hairs: boolean; tufts: boolean; hat: null | "cowboy" | "bowler" | "hard" | "pilot" | "fire"; stache: boolean; suit: boolean; apron: boolean;
   /** optional dive gear (absent -> identical to earlier renders): mask (+ snorkel or scuba regulator/tank), fins instead of shoes */
   dive?: "snorkel" | "scuba" | "mask"; fins?: boolean };
 export const COSTUME: Record<string, Costume> = {
@@ -155,7 +155,7 @@ const drawHand = (g: G, c: Pal, at: P, rot: number, shape: Hand5, side: number, 
 export const HEAD5 = { rx: 150, ry: 143 };
 const headPath = (g: G, cx: number, cy: number) => () => { g.beginPath(); g.ellipse(cx, cy, HEAD5.rx, HEAD5.ry, 0, 0, Math.PI * 2); };
 
-const drawHat = (g: G, c: Pal, cx: number, cy: number, kind: "cowboy" | "bowler" | "hard" | "pilot", side: boolean, lag: number) => {
+const drawHat = (g: G, c: Pal, cx: number, cy: number, kind: "cowboy" | "bowler" | "hard" | "pilot" | "fire", side: boolean, lag: number) => {
   const tilt = (side ? -0.06 : -0.035) + lag * 0.03;
   g.save(); g.translate(cx, cy - 104); g.rotate(tilt);
   if (kind === "cowboy") {
@@ -170,6 +170,19 @@ const drawHat = (g: G, c: Pal, cx: number, cy: number, kind: "cowboy" | "bowler"
     inked(g, c, () => { g.beginPath(); g.ellipse(0, 6, side ? 130 : 150, 22, 0, 0, Math.PI * 2); }, c.hat, 4, 3);
     inked(g, c, () => { g.beginPath(); g.moveTo(-96, 6); g.bezierCurveTo(-104, -100, 104, -100, 96, 6); g.closePath(); }, c.hat, 4, 3);
     g.fillStyle = c.band; g.fillRect(-97, -14, 194, 16);
+  } else if (kind === "fire") {
+    // traditional leather fire helmet (optional costume, added for the centennial production): ribbed dome, wide brim
+    // that sweeps into a long tail at the back (side view), raised front shield with a gold border
+    const tail = side ? -1 : 0;
+    inked(g, c, () => { g.beginPath(); if (side) { g.moveTo(130, 4); g.quadraticCurveTo(140, 20, 112, 20); g.lineTo(-120, 22); g.quadraticCurveTo(-210, 30, -236, 58); g.quadraticCurveTo(-190, 14, -128, 2); g.closePath(); }
+      else { g.moveTo(-176, 22); g.quadraticCurveTo(-170, -2, -120, -6); g.lineTo(120, -6); g.quadraticCurveTo(170, -2, 176, 22); g.quadraticCurveTo(0, 6, -176, 22); g.closePath(); } }, c.hat, 4, 3);
+    inked(g, c, () => { g.beginPath(); g.moveTo(-104, 0); g.bezierCurveTo(-112, -126, 112, -126, 104, 0); g.closePath(); }, c.hat, 4, 3);
+    for (const x of [-62, -22, 22, 62]) taper(g, [[x * 0.9 + tail * 6, -88], [x * 1.25, -4]], 3.5, c.hatShade, 0.55);
+    taper(g, [[0, -96], [0, -4]], 5, c.hatShade, 0.6);
+    if (side) { inked(g, c, () => { g.beginPath(); g.moveTo(70, -60); g.lineTo(122, -96); g.lineTo(138, -40); g.lineTo(96, 2); g.closePath(); }, c.band, 3, 2.5); }
+    else { inked(g, c, () => { g.beginPath(); g.moveTo(-44, 6); g.lineTo(-50, -92); g.quadraticCurveTo(0, -132, 50, -92); g.lineTo(44, 6); g.quadraticCurveTo(0, 16, -44, 6); g.closePath(); }, c.band, 3, 2.5);
+      g.strokeStyle = "#d9b24a"; g.lineWidth = 5; g.beginPath(); g.moveTo(-34, -2); g.lineTo(-39, -84); g.quadraticCurveTo(0, -116, 39, -84); g.lineTo(34, -2); g.stroke();
+      g.fillStyle = "#d9b24a"; g.beginPath(); g.ellipse(0, -52, 15, 15, 0, 0, Math.PI * 2); g.fill(); }
   } else if (kind === "pilot") {
     // peaked uniform cap (optional costume, added for the flight production): flat crown, dark band, black visor, badge
     inked(g, c, () => { g.beginPath(); g.moveTo(-112, 4); g.bezierCurveTo(-130, -40, -150, -78, -96, -88); g.lineTo(96, -88); g.bezierCurveTo(150, -78, 130, -40, 112, 4); g.closePath(); }, c.hat, 4, 3);

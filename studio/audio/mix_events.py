@@ -20,6 +20,7 @@ import office_sfx as O
 import joralemon_sfx as J
 import flight_sfx as FL
 import po_sfx as PS
+import cent_sfx as CS
 
 ap = argparse.ArgumentParser(); ap.add_argument("narration"); ap.add_argument("events"); ap.add_argument("outdir"); ap.add_argument("duration", nargs="?", default="full")
 ap.add_argument("--ambience", default="desert"); ap.add_argument("--music", default="desert_guitar"); ap.add_argument("--loop", action="store_true")
@@ -115,6 +116,12 @@ REL = {
     "flag_flutter": (-31, "sfx", "yellow flag flutters"), "splash_entry": (-20, "sfx", "dives in"), "wade": (-25, "sfx", "wading into the shallows"), "fin_flap": (-27, "sfx", "fins flap on wet sand"),
     "surface_break": (-23, "sfx", "camera rises out of the water"), "dip_under": (-23, "sfx", "camera dips under the surface"), "stamp_ink": (-21, "sfx", "rubber date stamp (above water)"),
     "drop_in_bag": (-25, "sfx", "card dropped into the outward mail bag"), "bag_rustle": (-26, "sfx", "mail bag handled"), "bag_rustle_uw": (-26, "sfx", "mail bag handled under water"),
+    # the Centennial Light (Livermore) - original synthesised sounds, quiet and natural
+    "filament_on": (-28, "sfx", "lamp comes on: tiny tink + soft hum"), "bulb_burnout": (-27, "sfx", "ordinary bulb flickers out (buzz + soft snap)"), "screw_bulb": (-27, "sfx", "brass base threads into the socket"),
+    "bulb_dark": (-26, "sfx", "power supply fails: relay tick, hum drops away"), "ladder_creak": (-27, "sfx", "wooden stepladder takes weight"), "match_strike": (-24, "sfx", "match struck, lantern wick catches, chimney clink"),
+    "hose_coil": (-28, "sfx", "canvas hose coiled"), "polish_rag": (-31, "sfx", "rag polishing brass"), "cord_snip": (-24, "sfx", "wire cutters through the cord"), "box_lid": (-25, "sfx", "padded box lid closes"),
+    "engine76": (-19, "sfx", "1970s cab-forward diesel engine rolling alongside"), "engine_arrive": (-18, "sfx", "diesel engine slows to a stop"), "ladder_steel": (-27, "sfx", "foot on a steel ladder step"),
+    "flashlight_click": (-27, "sfx", "flashlight switched on"), "box_latch": (-26, "sfx", "power-supply box door latch"), "cord_unroll": (-27, "sfx", "extension cord pulled off a coil"),
 }
 GEN = {
     "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
@@ -142,6 +149,8 @@ GEN = {
     **{k: getattr(PS, k) for k in ["regulator", "bubbles_small", "fin_kick", "card_uw", "emboss_press", "emboss_release", "box_slide_uw", "pen_scratch_uw", "paper_soak", "tank_settle", "tank_descend",
         "surface_emerge", "idea_pop", "bird", "outboard_idle", "winch", "rope_creak", "roof_set", "card_flick", "card_slide", "flag_flutter", "splash_entry", "wade", "fin_flap", "surface_break", "dip_under",
         "stamp_ink", "drop_in_bag", "bag_rustle"]}, "bag_rustle_uw": lambda r: PS.bag_rustle(r, under=True),
+    **{k: getattr(CS, k) for k in ["filament_on", "bulb_burnout", "screw_bulb", "bulb_dark", "ladder_creak", "match_strike", "hose_coil", "polish_rag", "cord_snip", "box_lid", "engine76", "engine_arrive",
+        "ladder_steel", "flashlight_click", "box_latch", "cord_unroll"]},
 }
 OFFSET = {"air_swell": -0.6, "takeoff": -0.05, "car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
 FIXED_PAN = {"car_arrive": -0.6}
@@ -206,6 +215,9 @@ def amb_preset(name):
     elif name == "beach": a += bed(PS.beach_bed, 42, -24)
     elif name == "surface": a += bed(PS.surface_bed, 43, -23)
     elif name == "sortroom": a += bed(PS.room_bed, 44, -29)
+    elif name in ("firehouse1901", "street1901", "night1901", "firehouse_mid", "street1976", "s6_dusk", "s6_night", "s6_day", "s6_ext"):
+        lv = {"firehouse1901": -28, "street1901": -27, "night1901": -28, "firehouse_mid": -28, "street1976": -25, "s6_dusk": -29, "s6_night": -30, "s6_day": -28, "s6_ext": -26}[name]
+        a += bed(getattr(CS, name), 51 + ["firehouse1901", "street1901", "night1901", "firehouse_mid", "street1976", "s6_dusk", "s6_night", "s6_day", "s6_ext"].index(name), lv)
     elif name == "room":
         from sfx_gen import breeze; a += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26)
     return a, cr
