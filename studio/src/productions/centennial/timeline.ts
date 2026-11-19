@@ -175,9 +175,9 @@ export const layerD = (f: number): LayerOut => { const c = camD()(f), lit = sm(4
 // ================================================================= E1/E2: ordinary bulbs burn out and are replaced — this one kept working
 const NEXT_GLASS: V3 = [OLD_NEXT[0], OLD_FIL[1], OLD_NEXT[2]];
 export const camE = lazy(() => rig([
-  [540, [NEXT_GLASS[0] + 0.28, NEXT_GLASS[1] - 0.12, NEXT_GLASS[2] + 1.55], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.05, NEXT_GLASS[2]], 40], [618, [NEXT_GLASS[0] + 0.22, NEXT_GLASS[1] - 0.18, NEXT_GLASS[2] + 1.5], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.12, NEXT_GLASS[2]], 40],
-  [650, [OLD_FIL[0] + 0.22, OLD_FIL[1] - 0.18, OLD_FIL[2] + 1.5], [OLD_FIL[0], OLD_FIL[1] - 0.12, OLD_FIL[2]], 40], [670, [OLD_FIL[0] + 0.28, OLD_FIL[1] - 0.35, OLD_FIL[2] + 1.75], [OLD_FIL[0], OLD_FIL[1] - 0.45, OLD_FIL[2]], 42],
-  [706, [0.45, 2.0, -0.9], [-0.15, 2.05, -4.6], 50],
+  [540, [NEXT_GLASS[0] + 0.24, NEXT_GLASS[1] - 0.1, NEXT_GLASS[2] + 1.1], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.05, NEXT_GLASS[2]], 38], [618, [NEXT_GLASS[0] + 0.2, NEXT_GLASS[1] - 0.14, NEXT_GLASS[2] + 1.05], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.1, NEXT_GLASS[2]], 38],
+  [650, [OLD_FIL[0] + 0.42, OLD_FIL[1] - 0.14, OLD_FIL[2] + 1.0], [OLD_FIL[0], OLD_FIL[1] - 0.1, OLD_FIL[2]], 38], [670, [OLD_FIL[0] + 0.62, OLD_FIL[1] - 0.35, OLD_FIL[2] + 1.7], [OLD_FIL[0], OLD_FIL[1] - 0.45, OLD_FIL[2]], 42],
+  [706, [0.8, 1.95, -0.9], [-0.1, 1.75, -4.6], 52],
 ], 8, 0.08));
 const changer: Record<string, Act> = { e1: { c: FIRE12, seed: 51, face: ft([[540, "deadpan"], [598, "tinyConfused"]]) }, e2: { c: FIRE38B, seed: 52, face: ft([[600, "focused"], [628, "proud"]]) } };
 const heroE = hero([[600, "content"], [654, "smug"], [676, "delighted"], [700, "smug"]], () => POINT_UP_R, () => HIP_L);
@@ -188,7 +188,7 @@ const layerE = (era: Era) => (f: number): LayerOut => { const c = camE()(f), e1 
   const reach = e1 ? sm(600, 612, f) : 1 - sm(630, 646, f);
   ch.pose = { ...ch.pose, armR: mixArm(REST_R, aimArm(ch, c.pos, [NEXT_GLASS[0] + 0.02, NEXT_GLASS[1] - 0.06, NEXT_GLASS[2]], 1, A([0, 0], "grip", 1, Math.PI * 0.9)), reach) };
   const actors: Placed[] = [ch, stand(heroE, [-0.35, 0, -4.4], f, { lookY: -0.7, lookX: -0.6 })];
-  return { c, mood: e1 ? "dayInt" : "dayInt38", set: "old", era: e1 ? "1912" : "1938", t: f / 30, actors, bulb: oldBulb(), next: { era: e1 ? "1912" : "1938", glow: nextGlow, drop: 2.13 },
+  return { c, mood: e1 ? "dayInt" : "dayInt38", set: "old", era: e1 ? "1912" : "1938", t: f / 30, actors, bulb: oldBulb(), next: { era: "1912", glow: nextGlow, drop: 2.13 },
     step: { p: [OLD_NEXT[0] + 0.85, 0, OLD_NEXT[2] - 1.4], ry: Math.PI }, warmFill: 0.6, fixOn: [1, 1, 1, 1] };
 };
 export const layerE1 = layerE("1912"), layerE2 = layerE("1938");
