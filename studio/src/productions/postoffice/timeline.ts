@@ -61,10 +61,16 @@ export const aimArm = (p: Placed, cam: V3, world: V3, side: -1 | 1, base: ArmPos
 type Act = { costume: Costume; seed: number; face: (f: number) => ReturnType<ReturnType<typeof faceTrack>>; armL: (f: number) => ArmPose; armR: (f: number) => ArmPose; hold?: (f: number) => Odo5Pose["holdR"] };
 const poseOf = (a: Act, f: number, extra: Partial<Odo5Pose> = {}) => withFace(pose5({ costume: a.costume, armL: a.armL(f), armR: a.armR(f), holdR: a.hold?.(f), blink: ((f + a.seed * 13) % (83 + a.seed * 7)) < 3, breathe: f * 0.09 + a.seed, ...extra }), a.face(f), f, a.seed);
 /** a swimmer along a path: card centre, roll toward travel, own bob + kick */
-const swimmer = (a: Act, P: (f: number) => V3, f: number, cam: PCam, opt: { kickHz?: number; h?: number; maxRoll?: number; upright?: number; halo?: number; bob?: number } = {}): Placed => {
-  const v = vel(P, f), sp = Math.hypot(...v), cruise = cl((sp - 0.12) / 0.5) * (1 - (opt.upright ?? 0));
-  const scr = (() => { const fw = new THREE.Vector3(cam.look[0] - cam.pos[0], cam.look[1] - cam.pos[1], cam.look[2] - cam.pos[2]).normalize(), rt = new THREE.Vector3().crossVectors(fw, new THREE.Vector3(0, 1, 0)).normalize(), up = new THREE.Vector3().crossVectors(rt, fw); const V = new THREE.Vector3(...v); return Math.atan2(-V.dot(rt), V.dot(up)); })();
-  const mr = opt.maxRoll ?? 1.45, roll = Math.max(-mr, Math.min(mr, scr)) * cruise + Math.sin(f * 0.06 + a.seed) * 0.05;
+const swimmer = (a: Act, P: (f: number) => V3, f: number, cam: PCam, opt: { kickHz?: number; h?: number; maxRoll?: number; upright?: number; halo?: number; bob?: number; wrapFade?: boolean; rollSmooth?: number } = {}): Placed => {
+  const v = vel(P, f), sp = Math.hypot(...v);
+  const rawRoll = (g: number) => { const v = vel(P, g), sp = Math.hypot(...v), cruise = cl((sp - 0.12) / 0.5) * (1 - (opt.upright ?? 0));
+    const scr = (() => { const fw = new THREE.Vector3(cam.look[0] - cam.pos[0], cam.look[1] - cam.pos[1], cam.look[2] - cam.pos[2]).normalize(), rt = new THREE.Vector3().crossVectors(fw, new THREE.Vector3(0, 1, 0)).normalize(), up = new THREE.Vector3().crossVectors(rt, fw); const V = new THREE.Vector3(...v); return Math.atan2(-V.dot(rt), V.dot(up)); })();
+    // optional: heading straight down the screen wraps atan2 between +pi and -pi -> fade the roll back to upright there so it never flips sides in one frame
+    const wrapW = opt.wrapFade ? 1 - cl((Math.abs(scr) - 2.2) / 0.8) : 1;
+    const mr = opt.maxRoll ?? 1.45; return Math.max(-mr, Math.min(mr, scr)) * cruise * wrapW; };
+  // optional: average the roll over +-n frames so braking / turning never rolls the card faster than a body would
+  const n = opt.rollSmooth ?? 0; let rl = 0; for (let g = -n; g <= n; g++) rl += rawRoll(f + g); rl /= 2 * n + 1;
+  const roll = rl + Math.sin(f * 0.06 + a.seed) * 0.05;
   const bob = Math.sin(f * 0.075 + a.seed * 2) * (opt.bob ?? 0.04), c = P(f);
   const kick = (f / 30) * (opt.kickHz ?? 1.3) + a.seed * 0.37, amt = 0.35 + 0.65 * cl(sp / 0.6);
   return { pose: poseOf(a, f, { swim: { kick, amt } }), pos: [c[0], c[1] + bob, c[2]], h: opt.h ?? 1.55, roll, centre: true, halo: opt.halo ?? 0.08, contact: 0 };
@@ -233,7 +239,7 @@ const PG = [path([[1030, L(-3.8, 3.05, 5.6)], [1094, L(-1.3, 1.65, 2.7)], [1112,
 const heroG_: Act = { costume: HERO_DIVE, seed: 1, face: ft([[1040, "content"], [1096, "browsShoot"], [1120, "hugeShock"], [1142, "delighted"]], 5), armL: fixed(SWIM_L), armR: fixed(SWIM_R) };
 const heroGPath = path([[1030, L(2.8, 3.0, 0.6)], [1100, L(2.1, 2.4, 0.9)], [1176, L(1.75, 2.1, 1.3)]]);
 const workerG = workerAct(ft([[1040, "content"], [1112, "focused"], [1130, "delighted"], [1150, "content"]]), fixed(REST_L), fixed(REST_R), (f) => f >= 1127 && f < 1172 ? "postcard" : undefined);
-export const layerG = (f: number) => { const c = camG()(f); const vs = VG.map((a, k) => swimmer(a, PG[k], f, c, { kickHz: [1.45, 1.2, 1.65][k], bob: 0.04 + k * 0.01 })); const hero = swimmer(heroG_, heroGPath, f, c, { kickHz: 1.3 });
+export const layerG = (f: number) => { const c = camG()(f); const vs = VG.map((a, k) => swimmer(a, PG[k], f, c, { kickHz: [1.45, 1.2, 1.65][k], bob: 0.04 + k * 0.01, wrapFade: true, rollSmooth: 5 })); const hero = swimmer(heroG_, heroGPath, f, c, { kickHz: 1.3 });
   const wk = worker(workerG, f), meet = lv(COUNTER_OUT, L(0.0, 1.32, 1.32), sm(1116, 1130, f));
   if (f > 1100 && f < 1140) vs[0].pose = { ...vs[0].pose, armR: mixArm(vs[0].pose.armR, aimArm(vs[0], c.pos, meet, 1, A([0, 0], "grip", 1, Math.PI * 0.6)), sm(1100, 1112, f) * (1 - sm(1130, 1140, f))) };
   if (f > 1112 && f < 1160) wk.pose = { ...wk.pose, armR: mixArm(wk.pose.armR, aimArm(wk, c.pos, meet, 1, A([0, 0], "grip", 1, -Math.PI * 0.5)), sm(1112, 1124, f) * (1 - sm(1146, 1160, f))) };
