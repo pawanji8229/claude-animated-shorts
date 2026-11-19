@@ -219,7 +219,10 @@ export const Fixtures: React.FC<{ era: Era; on?: number[]; at?: V3[]; drop?: num
     return <group key={i} position={[p[0], 0, p[2]]}>
       {era !== "1976" && <mesh position={[0, (p[1] + y) / 2 + 0.05, 0]}><cylinderGeometry args={[0.005, 0.005, p[1] - y - 0.1, 5]} /><meshStandardMaterial color="#2a2018" roughness={0.9} /></mesh>}
       {era === "1912" && <><mesh position={[0, y, 0]}><cylinderGeometry args={[0.02, 0.022, 0.06, 12]} /><primitive object={M.brass} attach="material" /></mesh>
-        <mesh position={[0, y - 0.075, 0]} scale={[1, 1.25, 1]}><sphereGeometry args={[0.045, 16, 12]} /><primitive object={g > 0.5 ? M.lamp : M.glass} attach="material" /></mesh></>}
+        <mesh position={[0, y - 0.075, 0]} scale={[1, 1.25, 1]}><sphereGeometry args={[0.045, 24, 16]} /><meshPhysicalMaterial color="#f4f0e6" roughness={0.04} transparent opacity={0.16} clearcoat={1} envMapIntensity={1.6} depthWrite={false} emissive="#ffd8a0" emissiveIntensity={0.08 * g} /></mesh>
+        {/* tungsten "squirrel cage" filament: a small zig-zag of bright wire on two leads */}
+        {[0, 1, 2, 3, 4, 5].map((i) => { const a = (i / 6) * Math.PI * 2; return <mesh key={i} position={[Math.cos(a) * 0.012, y - 0.078, Math.sin(a) * 0.012]}><cylinderGeometry args={[0.0011, 0.0011, 0.022, 4]} /><meshBasicMaterial color={g > 0.5 ? new THREE.Color(3.2, 2.7, 1.9) : new THREE.Color(0.12, 0.1, 0.08)} toneMapped={false} /></mesh>; })}
+        <mesh position={[0, y - 0.045, 0]}><cylinderGeometry args={[0.004, 0.006, 0.03, 8]} /><primitive object={M.glass} attach="material" /></mesh></>}
       {era === "1938" && <><mesh position={[0, y, 0]}><coneGeometry args={[0.26, 0.2, 24, 1, true]} /><primitive object={M.greenEnamel} attach="material" /></mesh>
         <mesh position={[0, y - 0.005, 0]}><coneGeometry args={[0.255, 0.195, 24, 1, true]} /><meshStandardMaterial color="#f4f0e2" side={THREE.BackSide} emissive="#ffe8c0" emissiveIntensity={g * 0.6} /></mesh>
         <mesh position={[0, y - 0.07, 0]}><sphereGeometry args={[0.05, 14, 10]} /><primitive object={lampM} attach="material" /></mesh></>}

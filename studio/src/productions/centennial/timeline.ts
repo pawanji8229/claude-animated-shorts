@@ -175,7 +175,7 @@ export const layerD = (f: number): LayerOut => { const c = camD()(f), lit = sm(4
 // ================================================================= E1/E2: ordinary bulbs burn out and are replaced — this one kept working
 const NEXT_GLASS: V3 = [OLD_NEXT[0], OLD_FIL[1], OLD_NEXT[2]];
 export const camE = lazy(() => rig([
-  [540, [NEXT_GLASS[0] + 0.24, NEXT_GLASS[1] - 0.1, NEXT_GLASS[2] + 1.1], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.05, NEXT_GLASS[2]], 38], [618, [NEXT_GLASS[0] + 0.2, NEXT_GLASS[1] - 0.14, NEXT_GLASS[2] + 1.05], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.1, NEXT_GLASS[2]], 38],
+  [540, [NEXT_GLASS[0] + 0.58, NEXT_GLASS[1] - 0.1, NEXT_GLASS[2] + 1.05], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.05, NEXT_GLASS[2]], 38], [618, [NEXT_GLASS[0] + 0.55, NEXT_GLASS[1] - 0.14, NEXT_GLASS[2] + 1.0], [NEXT_GLASS[0], NEXT_GLASS[1] - 0.1, NEXT_GLASS[2]], 38],
   [650, [OLD_FIL[0] + 0.42, OLD_FIL[1] - 0.14, OLD_FIL[2] + 1.0], [OLD_FIL[0], OLD_FIL[1] - 0.1, OLD_FIL[2]], 38], [670, [OLD_FIL[0] + 0.62, OLD_FIL[1] - 0.35, OLD_FIL[2] + 1.7], [OLD_FIL[0], OLD_FIL[1] - 0.45, OLD_FIL[2]], 42],
   [706, [0.8, 1.95, -0.9], [-0.1, 1.75, -4.6], 52],
 ], 8, 0.08));
