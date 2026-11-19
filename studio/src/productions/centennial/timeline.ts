@@ -212,12 +212,12 @@ const layerF = (era: Era) => (f: number): LayerOut => { const c = camF()(f);
 export const layerF1 = layerF("1912"), layerF2 = layerF("1938"), layerF3 = layerF("1976");
 
 // ================================================================= G1: 1976 — cord cut, bulb lowered into a padded box
-export const camG1 = lazy(() => rig([[782, [2.55, 1.95, 0.1], [0.2, 2.15, -3.5], 50], [856, [2.0, 2.0, -0.8], [0.25, 2.05, -3.5], 46]], 9, 0.08));
+export const camG1 = lazy(() => rig([[782, [2.4, 2.25, -2.45], [0.0, 2.3, -3.4], 46], [818, [2.3, 2.2, -2.5], [0.1, 2.15, -3.35], 46], [856, [2.2, 2.0, -2.55], [0.5, 1.55, -3.2], 46]], 9, 0.08));
 export const CUT_AT = 812;
 const STEP_G: V3 = [-0.48, 0, -3.72];
 const cutter: Act = { c: FIRE76, seed: 71, face: ft([[780, "focused"], [CUT_AT + 2, "worried"], [836, "relieved"]]) };
 const boxer: Act = { c: FIRE76B, seed: 72, face: ft([[780, "focused"], [840, "proud"]]) };
-const G1_BOX: V3 = [1.2, 1.15, -3.0];
+const G1_BOX: V3 = [0.7, 1.15, -3.0];
 /** bulb position while carried: hangs from the girder until the cut, then lowered into the box */
 const g1Bulb = (f: number): V3 => { const top: V3 = [OLD_BULB[0], OLD_BULB[1] - OLD_DROP + 0.12, OLD_BULB[2]]; const inBox: V3 = [G1_BOX[0], G1_BOX[1] + 0.28, G1_BOX[2]];
   if (f < CUT_AT + 6) return top; return lv(top, inBox, sm(CUT_AT + 6, 840, f)); };
@@ -225,7 +225,7 @@ export const layerG1 = (f: number): LayerOut => { const c = camG1()(f);
   const s = stepAt(STEP_G, -Math.PI / 2, 2), ct = stand(cutter, [s[0], s[1], s[2]], f, { lookY: -0.6, lookX: -0.4 });
   const bp = g1Bulb(f), hand: V3 = [bp[0] + 0.02, bp[1] - 0.04, bp[2]];
   ct.pose = { ...ct.pose, armR: aimArm(ct, c.pos, hand, 1, A([0, 0], "grip", 1, Math.PI * 0.8)), armL: f < CUT_AT + 4 ? aimArm(ct, c.pos, [OLD_BULB[0] - 0.02, OLD_BULB[1] - OLD_DROP + 0.25, OLD_BULB[2]], -1, A([0, 0], "grip", -1, -Math.PI * 0.8)) : mixArm(HOLD_L, REST_L, sm(CUT_AT + 4, 830, f)) };
-  const bx = stand(boxer, [1.65, 0, -2.75], f, { lookY: -0.5, lookX: -0.6 }); const boxP: V3 = [G1_BOX[0], G1_BOX[1], G1_BOX[2]];
+  const bx = stand(boxer, [1.05, 0, -2.85], f, { lookY: -0.5, lookX: -0.6 }); const boxP: V3 = [G1_BOX[0], G1_BOX[1], G1_BOX[2]];
   bx.pose = { ...bx.pose, armL: aimArm(bx, c.pos, [boxP[0] - 0.15, boxP[1] + 0.1, boxP[2]], -1, A([0, 0], "grip", -1, -1.0)), armR: aimArm(bx, c.pos, [boxP[0] + 0.17, boxP[1] + 0.1, boxP[2]], 1, A([0, 0], "grip", 1, 1.0)) };
   const glow = f < CUT_AT ? 1 : f < CUT_AT + 3 ? 0.4 : 0;
   return { c, mood: "dayInt38", set: "old", era: "1976", t: f / 30, actors: [ct, bx], bulb: { p: bp, drop: f < CUT_AT + 2 ? OLD_DROP - 0.12 : 0.12, glow, stub: f >= CUT_AT + 2 }, stubCord: f >= CUT_AT + 2,
@@ -235,13 +235,13 @@ export const layerG1 = (f: number): LayerOut => { const c = camG1()(f);
 // ================================================================= G2: 1976 street — the engine carries the box, police car leading
 const G2_V = 3.2 / 30;   // m per frame
 const engineX = (f: number) => 3.4 + (f - 836) * G2_V;
-export const camG2 = lazy(() => rig([[832, [engineX(832) - 8.6, 2.2, 6.9], [engineX(832) + 5.0, 1.55, 5.6], 48], [910, [engineX(910) - 8.2, 2.15, 6.8], [engineX(910) + 5.0, 1.55, 5.7], 48]], 8, 0.05));
+export const camG2 = lazy(() => rig([[832, [engineX(832) - 8.4, 2.2, 6.2], [engineX(832) + 5.0, 1.55, 5.6], 48], [910, [engineX(910) - 8.2, 2.15, 6.2], [engineX(910) + 5.0, 1.55, 5.6], 48]], 8, 0.05));
 const rider: Act = { c: FIRE76, seed: 73, face: ft([[830, "focused"], [880, "comicSerious"]]), armL: () => HOLD_L, armR: () => HOLD_R };
 export const layerG2 = (f: number): LayerOut => { const c = camG2()(f), ex = engineX(f), d = (f - 836) * G2_V;
   const rp: V3 = [ex - 4.55, 0.62, 5.6]; const r = stand(rider, rp, f, { lookX: 0.5 });
   return { c, mood: "dayExt", set: "old", era: "1976", t: f / 30, actors: [r], bulb: { p: [0, -50, 0], drop: 0.1, glow: 0 }, outside: true,
     app: [{ type: "1976", p: [ex, 0, 5.6], ry: 0, spin: d / 0.55 }], cars: [{ kind: "police", p: [ex + 10.5, 0, 7.7], ry: 0, spin: d / 0.34 }, { kind: "sedan", color: "#6a2a22", p: [-6.5, 0, 11.4], ry: Math.PI }],
-    box: { p: [rp[0] - 0.3, 1.5, rp[2]], ry: 0, open: 0 } };
+    box: { p: [rp[0] - 0.32, 1.02, rp[2]], ry: 0, open: 0 } };
 };
 
 // ================================================================= G3: arrival at the new Station 6 (1976) — the box is carried in
@@ -268,7 +268,7 @@ export const layerG4 = (f: number): LayerOut => { const c = camG4()(f);
 };
 
 // ================================================================= H: here's the strange part — the hero leans in on the platform
-export const camH = lazy(() => rig([[944, [2.5, 4.95, -6.15], [-0.6, 4.18, -7.1], 46], [1010, [1.5, 4.9, -6.4], [-0.62, 4.2, -7.1], 42]], 9, 0.09));
+export const camH = lazy(() => rig([[944, [1.3, 4.7, -6.2], [-0.75, 4.22, -7.05], 46], [1010, [0.9, 4.62, -6.35], [-0.75, 4.22, -7.05], 42]], 9, 0.09));
 const heroH = hero([[944, "content"], [952, "suspSquint"], [968, "oneBrowUp"], [990, "suspSquint"]], () => CHIN_R, () => A([-60, 40], "grip", -1, -1.0));
 const heroPlat = (f: number, lean = 0.18) => stand(heroH, PLATFORM, f, { lookY: -0.3, lookX: -0.9, lean, bodyRoll: -0.12 * lean / 0.18 });
 export const layerH = (f: number): LayerOut => { const c = camH()(f), lean = 0.08 + 0.12 * sm(950, 980, f);
