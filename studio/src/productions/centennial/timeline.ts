@@ -100,7 +100,7 @@ export const layerA = (f: number): LayerOut => { const c0 = camA()(f), near = f 
 };
 
 // ================================================================= B1-B3: generations of newer bulbs (old station, three eras)
-export const camB = lazy(() => rig([[104, [0.72, 2.3, -2.22], [-2.1, 1.95, -7.8], 54], [244, [0.5, 2.3, -2.38], [-2.3, 2.0, -7.8], 54]], 10, 0.09));
+export const camB = lazy(() => rig([[104, [0.72, 2.3, -2.22], [-2.6, 1.95, -7.7], 54], [244, [0.5, 2.3, -2.38], [-2.8, 2.0, -7.7], 54]], 10, 0.09));
 const heroB = hero([[100, "content"], [138, "oneBrowUp"], [176, "suspicious"], [196, "xSideEyeR"], [232, "xSideEyeR"]], undefined, () => HIP_L);
 const B_HERO: V3 = [-1.1, 0, -5.2];
 const fireB: Record<string, Act> = { a: { c: FIRE12, seed: 21, face: ft([[0, "focused"]]) }, b: { c: FIRE38, seed: 22, face: ft([[0, "focused"], [190, "proud"]]) }, c: { c: FIRE38B, seed: 23, face: ft([[0, "bored"], [214, "tinyConfused"]]) } };
