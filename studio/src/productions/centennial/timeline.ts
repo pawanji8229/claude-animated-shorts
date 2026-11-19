@@ -44,10 +44,13 @@ const armTrack = (keys: [number, ArmPose][], ease = 8) => (f: number) => { let i
 /** point a card's hand at a world point as seen from the camera */
 export const aimArm = (p: Placed, cam: V3, world: V3, side: -1 | 1, base: ArmPose): ArmPose => {
   const h = p.h, sole = p.pos; const yaw = Math.atan2(cam[0] - sole[0], cam[2] - sole[2]); const n = new THREE.Vector3(Math.sin(yaw), 0, Math.cos(yaw)), C = new THREE.Vector3(...cam), W = new THREE.Vector3(...world), S = new THREE.Vector3(...sole);
-  const d = W.clone().sub(C), t = S.clone().sub(C).dot(n) / Math.max(1e-5, d.dot(n)), hit = C.clone().addScaledVector(d, t);
+  const d = W.clone().sub(C), dn = d.dot(n), t = S.clone().sub(C).dot(n) / (Math.abs(dn) < 1e-5 ? -1e-5 : dn), hit = C.clone().addScaledVector(d, t);
   const right = new THREE.Vector3(Math.cos(yaw), 0, -Math.sin(yaw)); const lx = hit.clone().sub(S).dot(right), ly = hit.y - S.y;
-  const s = h / H5, px = (p.flip ? -1 : 1) * lx / s + W5 / 2, py = SOLE5 - ly / s; const sh = shoulderPx5(p.pose, side); const hx = px - sh[0], hy = py - sh[1];
-  return { ...base, hand: [hx, hy], elbow: [hx * 0.45 + side * 34, Math.max(hy * 0.5, 0) + 62] };
+  const s = h / H5, px = (p.flip ? -1 : 1) * lx / s + W5 / 2, py = SOLE5 - ly / s; const sh = shoulderPx5(p.pose, side); let hx = px - sh[0], hy = py - sh[1];
+  // a real arm only reaches so far: clamp the hand to the arm length (points toward the target)
+  const len = Math.hypot(hx, hy), MAXR = 285; if (len > MAXR) { hx *= MAXR / len; hy *= MAXR / len; }
+  // an arm raised overhead is drawn behind the (big) head so it never crosses the face
+  return { ...base, hand: [hx, hy], elbow: [hx * 0.45 + side * 34, Math.max(hy * 0.5, 0) + 62], behind: hy < -170 };
 };
 const blinkAt = (f: number, seed: number) => ((f + seed * 37) % (97 + seed * 11)) < 3;
 type Act = { c: Costume; seed: number; face: (f: number) => ReturnType<ReturnType<typeof faceTrack>>; armL?: (f: number) => ArmPose; armR?: (f: number) => ArmPose; h?: number };
@@ -120,9 +123,9 @@ export const layerB1 = layerB("1912"), layerB2 = layerB("1938"), layerB3 = layer
 // ================================================================= C: 1901 street -> through the doors -> the bulb is installed; ordinary day
 export const camC = lazy(() => rig([
   [222, [4.6, 1.95, 11.6], [0.4, 5.0, -1.0], 54], [262, [3.9, 2.0, 7.4], [0.8, 3.9, -2.0], 52], [300, [3.05, 2.1, 1.0], [0.5, 2.6, -3.3], 50],
-  [338, [2.2, 2.05, -0.95], [0.1, 2.45, -3.45], 48], [372, [2.55, 1.95, -0.45], [-0.3, 2.25, -5.6], 54], [478, [2.2, 1.85, -0.7], [-0.6, 2.2, -6.4], 54],
+  [338, [1.55, 2.4, -1.15], [0.12, 2.45, -3.3], 44], [362, [1.6, 2.38, -1.2], [0.1, 2.45, -3.3], 44], [392, [2.4, 2.0, -0.5], [-0.4, 2.15, -5.8], 54], [478, [2.2, 1.85, -0.7], [-0.6, 2.2, -6.4], 54],
 ], 9, 0.08));
-const STEP_C: V3 = [0.62, 0, -3.3];
+const STEP_C: V3 = [-0.48, 0, -3.72], STEP_C_RY = -Math.PI / 2;
 export const INSTALL_ON = 346;
 const installer: Act = { c: ELECTRICIAN, seed: 31, face: ft([[200, "focused"], [349, "proud"], [380, "content"]]) };
 const holder: Act = { c: VOL_RED, seed: 32, face: ft([[200, "focused"], [352, "delighted"], [384, "content"]]) };
@@ -131,8 +134,10 @@ const coiler: Act = { c: VOL_WHITE, seed: 34, face: ft([[0, "focused"], [420, "c
 const heroC = hero([[220, "content"], [390, "suspSquint"], [430, "oneBrowUp"], [470, "suspSquint"]], () => CHIN_R, () => HIP_L);
 const townA: Act = { c: TOWN_A, seed: 35, face: ft([[0, "content"]]) }, townB: Act = { c: TOWN_B, seed: 36, face: ft([[0, "talking"], [260, "content"]]) };
 const passPath = path([[360, [4.4, 0, -4.9]], [395, [1.6, 0, -4.2]], [440, [-1.8, 0, -3.9]], [480, [-3.6, 0, -4.6]]]);
-const installerPos = (f: number): V3 => { const top = stepAt(STEP_C, Math.PI, 1), lo = stepAt(STEP_C, Math.PI, 0); const t = sm(392, 420, f);
-  const k = Math.floor(t * 1.999), y = lerp(top[1], lo[1], k / 1) + Math.sin(t * Math.PI * 4) * 0.02; return f < 436 ? [top[0] + 0.12, y, top[2]] : lv([lo[0] + 0.3, 0, lo[2]], [3.6, 0, -6.2], sm(436, 476, f)); };
+const installerPos = (f: number): V3 => { const top = stepAt(STEP_C, STEP_C_RY, 2), lo = stepAt(STEP_C, STEP_C_RY, 1);
+  // climbs down smoothly: step 1 -> step 0 -> floor, each with a small weight dip
+  const a = sm(392, 404, f), b = sm(410, 424, f), y = lerp(lerp(top[1], lo[1], a), 0, b) - 0.025 * Math.sin(Math.PI * a) - 0.025 * Math.sin(Math.PI * b);
+  const z = lerp(top[2], top[2] + 0.35, b); return f < 436 ? [top[0], y, z] : lv([top[0], 0, top[2] + 0.35], [3.6, 0, -6.2], sm(436, 476, f)); };
 export const layerC = (f: number): LayerOut => { const c = camC()(f);
   const glow = f < INSTALL_ON ? 0 : Math.min(1, sm(INSTALL_ON, INSTALL_ON + 10, f) * (f < INSTALL_ON + 5 ? 0.5 + 0.5 * Math.sin((f - INSTALL_ON) * 2.2) : 1));
   const actors: Placed[] = [];
@@ -142,20 +147,20 @@ export const layerC = (f: number): LayerOut => { const c = camC()(f);
   inst.pose = { ...inst.pose, armR: mixArm(REST_R, aimArm(inst, c.pos, [sock[0] + 0.03, sock[1] - 0.07 + twist * 0.001, sock[2]], 1, A([0, 0], "grip", 1, Math.PI * 0.9)), up), armL: mixArm(REST_L, aimArm(inst, c.pos, [sock[0] - 0.03, sock[1] - 0.1, sock[2]], -1, A([0, 0], "grip", -1, -Math.PI * 0.9)), up) };
   if (f >= 436) { const w = walker(installer, (g) => installerPos(g), f, c, 436, 480, { lookX: 0.3 }); inst.pose = w.pose; inst.flip = w.flip; }
   actors.push(inst);
-  const hp = stand({ ...holder, armL: () => A([30, 40], "grip", -1, -0.9) }, [STEP_C[0] + 0.62, 0, STEP_C[2] + 0.35], f, { lookY: f < 400 ? -0.85 : -0.2, lookX: -0.4 }); actors.push(hp);
+  const hp = stand({ ...holder, armR: () => A([-40, 40], "grip", 1, 0.9) }, [-0.75, 0, -3.1], f, { lookY: f < 400 ? -0.85 : -0.2, lookX: -0.4 }); actors.push(hp);
   if (f > 355) actors.push(walker(passer, passPath, f, c, 355, 480, { lookX: 0.2 }));
   const coilArm = (g: number) => A([-40 + Math.sin(g * 0.18) * 30, 70 + Math.cos(g * 0.18) * 26], "grip", -1, -0.7);
   actors.push(stand({ ...coiler, armL: coilArm, armR: (g) => A([50, 90 + Math.sin(g * 0.18 + 1) * 20], "grip", 1, 0.7) }, [-2.1, 0, -6.6], f, { lookY: 0.3 }));
   actors.push(stand(heroC, [0.9, 0, -5.2], f, { lookY: -0.6, lookX: -0.6 }));
   // townsfolk outside (independent timing)
   if (f < 320) { actors.push(walker(townA, path([[200, [-9, 0.1, 1.6]], [330, [-2.0, 0.1, 1.5]]]), f, c, 200, 330)); actors.push(stand({ ...townB, armR: () => HIP_R }, [-7.2, 0.1, 2.2], f, { lookX: 0.6 })); }
-  return { c, mood: "dayInt", set: "old", era: "1901", t: f / 30, actors, bulb: oldBulb(glow), step: f < 440 ? { p: STEP_C, ry: Math.PI } : undefined, warmFill: 0.5,
+  return { c, mood: "dayInt", set: "old", era: "1901", t: f / 30, actors, bulb: oldBulb(glow), step: f < 440 ? { p: STEP_C, ry: STEP_C_RY } : undefined, warmFill: 0.5,
     app: [{ type: "cart", p: [-2.9, 0, -8.6], ry: -Math.PI / 2 }, { type: "cart", p: [2.9, 0, -8.8], ry: -Math.PI / 2 }], exposure: f < 300 ? 1.05 : 1.3 };
 };
 
 // ================================================================= D: 1901 at night — just meant to help them see
 export const camD = lazy(() => rig([[446, [2.95, 1.78, 0.9], [-0.7, 2.3, -5.4], 55], [572, [1.95, 1.9, -1.45], [-0.9, 2.45, -5.8], 49]], 10, 0.1));
-const LANT_COL: V3 = [0.24, 1.55, -4.8];
+const LANT_COL: V3 = [0.24, 1.12, -4.8];
 const lighter: Act = { c: VOL_NAVY, seed: 41, face: ft([[440, "focused"], [500, "content"]]) };
 const nozzle: Act = { c: VOL_RED, seed: 42, face: ft([[440, "focused"], [520, "deadpan"]]) };
 const heroD = hero([[440, "bored"], [505, "comicSerious"], [540, "deadpan"]], undefined, () => HIP_L);
@@ -178,13 +183,13 @@ const changer: Record<string, Act> = { e1: { c: FIRE12, seed: 51, face: ft([[540
 const heroE = hero([[600, "content"], [654, "smug"], [676, "delighted"], [700, "smug"]], () => POINT_UP_R, () => HIP_L);
 const layerE = (era: Era) => (f: number): LayerOut => { const c = camE()(f), e1 = era === "1912";
   const nextGlow = e1 ? (f < 584 ? 1 : f < 598 ? (Math.sin(f * 2.7) > 0 ? 0.8 : 0.1) * (1 - (f - 584) / 14) : 0) : sm(624, 630, f);
-  const s = stepAt([OLD_NEXT[0] + 0.35, 0, OLD_NEXT[2] - 0.5], Math.PI, 0);
+  const s = stepAt([OLD_NEXT[0] + 0.85, 0, OLD_NEXT[2] - 1.4], Math.PI, 3);
   const ch = stand({ ...(e1 ? changer.e1 : changer.e2) }, [s[0], s[1], s[2]], f, { lookY: -0.9, lookX: -0.3 });
   const reach = e1 ? sm(600, 612, f) : 1 - sm(630, 646, f);
   ch.pose = { ...ch.pose, armR: mixArm(REST_R, aimArm(ch, c.pos, [NEXT_GLASS[0] + 0.02, NEXT_GLASS[1] - 0.06, NEXT_GLASS[2]], 1, A([0, 0], "grip", 1, Math.PI * 0.9)), reach) };
   const actors: Placed[] = [ch, stand(heroE, [-0.35, 0, -4.4], f, { lookY: -0.7, lookX: -0.6 })];
   return { c, mood: e1 ? "dayInt" : "dayInt38", set: "old", era: e1 ? "1912" : "1938", t: f / 30, actors, bulb: oldBulb(), next: { era: e1 ? "1912" : "1938", glow: nextGlow, drop: 2.13 },
-    step: { p: [OLD_NEXT[0] + 0.35, 0, OLD_NEXT[2] - 0.5], ry: Math.PI }, warmFill: 0.6, fixOn: [1, 1, 1, 1] };
+    step: { p: [OLD_NEXT[0] + 0.85, 0, OLD_NEXT[2] - 1.4], ry: Math.PI }, warmFill: 0.6, fixOn: [1, 1, 1, 1] };
 };
 export const layerE1 = layerE("1912"), layerE2 = layerE("1938");
 
@@ -209,7 +214,7 @@ export const layerF1 = layerF("1912"), layerF2 = layerF("1938"), layerF3 = layer
 // ================================================================= G1: 1976 — cord cut, bulb lowered into a padded box
 export const camG1 = lazy(() => rig([[782, [2.55, 1.95, 0.1], [0.2, 2.15, -3.5], 50], [856, [2.0, 2.0, -0.8], [0.25, 2.05, -3.5], 46]], 9, 0.08));
 export const CUT_AT = 812;
-const STEP_G: V3 = [0.62, 0, -3.3];
+const STEP_G: V3 = [-0.48, 0, -3.72];
 const cutter: Act = { c: FIRE76, seed: 71, face: ft([[780, "focused"], [CUT_AT + 2, "worried"], [836, "relieved"]]) };
 const boxer: Act = { c: FIRE76B, seed: 72, face: ft([[780, "focused"], [840, "proud"]]) };
 const G1_BOX: V3 = [1.2, 1.15, -3.0];
@@ -217,14 +222,14 @@ const G1_BOX: V3 = [1.2, 1.15, -3.0];
 const g1Bulb = (f: number): V3 => { const top: V3 = [OLD_BULB[0], OLD_BULB[1] - OLD_DROP + 0.12, OLD_BULB[2]]; const inBox: V3 = [G1_BOX[0], G1_BOX[1] + 0.28, G1_BOX[2]];
   if (f < CUT_AT + 6) return top; return lv(top, inBox, sm(CUT_AT + 6, 840, f)); };
 export const layerG1 = (f: number): LayerOut => { const c = camG1()(f);
-  const s = stepAt(STEP_G, Math.PI, 1), ct = stand(cutter, [s[0] + 0.12, s[1], s[2]], f, { lookY: -0.6, lookX: -0.4 });
+  const s = stepAt(STEP_G, -Math.PI / 2, 2), ct = stand(cutter, [s[0], s[1], s[2]], f, { lookY: -0.6, lookX: -0.4 });
   const bp = g1Bulb(f), hand: V3 = [bp[0] + 0.02, bp[1] - 0.04, bp[2]];
   ct.pose = { ...ct.pose, armR: aimArm(ct, c.pos, hand, 1, A([0, 0], "grip", 1, Math.PI * 0.8)), armL: f < CUT_AT + 4 ? aimArm(ct, c.pos, [OLD_BULB[0] - 0.02, OLD_BULB[1] - OLD_DROP + 0.25, OLD_BULB[2]], -1, A([0, 0], "grip", -1, -Math.PI * 0.8)) : mixArm(HOLD_L, REST_L, sm(CUT_AT + 4, 830, f)) };
   const bx = stand(boxer, [1.65, 0, -2.75], f, { lookY: -0.5, lookX: -0.6 }); const boxP: V3 = [G1_BOX[0], G1_BOX[1], G1_BOX[2]];
   bx.pose = { ...bx.pose, armL: aimArm(bx, c.pos, [boxP[0] - 0.15, boxP[1] + 0.1, boxP[2]], -1, A([0, 0], "grip", -1, -1.0)), armR: aimArm(bx, c.pos, [boxP[0] + 0.17, boxP[1] + 0.1, boxP[2]], 1, A([0, 0], "grip", 1, 1.0)) };
   const glow = f < CUT_AT ? 1 : f < CUT_AT + 3 ? 0.4 : 0;
   return { c, mood: "dayInt38", set: "old", era: "1976", t: f / 30, actors: [ct, bx], bulb: { p: bp, drop: f < CUT_AT + 2 ? OLD_DROP - 0.12 : 0.12, glow, stub: f >= CUT_AT + 2 }, stubCord: f >= CUT_AT + 2,
-    step: { p: STEP_G, ry: Math.PI }, box: { p: boxP, ry: 0.3, open: 1 - sm(842, 852, f) * 0.9 }, warmFill: 0.5, fixOn: [1, 1, 1, 1], app: [{ type: "1976", p: [-2.95, 0, -7.0], ry: -Math.PI / 2 }] };
+    step: { p: STEP_G, ry: -Math.PI / 2 }, box: { p: boxP, ry: 0.3, open: 1 - sm(842, 852, f) * 0.9 }, warmFill: 0.5, fixOn: [1, 1, 1, 1], app: [{ type: "1976", p: [-2.95, 0, -7.0], ry: -Math.PI / 2 }] };
 };
 
 // ================================================================= G2: 1976 street — the engine carries the box, police car leading
