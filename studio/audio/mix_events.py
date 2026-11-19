@@ -216,7 +216,7 @@ def amb_preset(name):
     elif name == "surface": a += bed(PS.surface_bed, 43, -23)
     elif name == "sortroom": a += bed(PS.room_bed, 44, -29)
     elif name in ("firehouse1901", "street1901", "night1901", "firehouse_mid", "street1976", "s6_dusk", "s6_night", "s6_day", "s6_ext"):
-        lv = {"firehouse1901": -28, "street1901": -27, "night1901": -28, "firehouse_mid": -28, "street1976": -25, "s6_dusk": -29, "s6_night": -30, "s6_day": -28, "s6_ext": -26}[name]
+        lv = {"firehouse1901": -24, "street1901": -23, "night1901": -24, "firehouse_mid": -24, "street1976": -21, "s6_dusk": -25, "s6_night": -26, "s6_day": -24, "s6_ext": -22}[name]
         a += bed(getattr(CS, name), 51 + ["firehouse1901", "street1901", "night1901", "firehouse_mid", "street1976", "s6_dusk", "s6_night", "s6_day", "s6_ext"].index(name), lv)
     elif name == "room":
         from sfx_gen import breeze; a += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26)
