@@ -7,5 +7,5 @@
   "audio": "mix",
   "qc": "basic",
   "release": true,
-  "note": "benchmark: first 2 s of TwistFrame Lab #7 on 2 runners"
+  "note": "benchmark #1: first 2 s of TwistFrame Lab #7 on 2 runners (compare with the local render)"
 }
