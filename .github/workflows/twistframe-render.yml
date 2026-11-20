@@ -1,0 +1,189 @@
+name: TwistFrame render (parallel, original style)
+
+# Cloud renderer for the ORIGINAL approved TwistFrame Lab system (earless odo5 cards + face glow, detailed 3D sets,
+# narration-first mix). It renders the same compositions with the same renderer and encoder settings as the
+# approved local pipeline (studio/pipeline/render_batches.mjs: Remotion, --gl=swangle, H.264 CRF 17, yuv420p), only
+# split across several free GitHub-hosted runners. No V3 profiles, no scaling, no quality shortcuts.
+#
+# START A RENDER (no PC needed): on a render/** branch, edit studio/render-request.json and commit it
+# (GitHub app or browser -> the file -> pencil -> Commit). Ordinary code pushes never start a render.
+#
+# Flow: plan (split frames) -> render (one chunk per job, max-parallel = workers; each chunk is itself split into
+# resumable 40-frame batches) -> assemble (lossless join, narration mix muxed once, QC) -> GitHub Release with the
+# MP4 for phone download. A failed chunk keeps its finished batches (artifact) and "Re-run failed jobs" resumes it.
+on:
+  push:
+    branches: ["render/**"]
+    paths: ["studio/render-request.json"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: twistframe-render-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      production: ${{ steps.plan.outputs.production }}
+      composition: ${{ steps.plan.outputs.composition }}
+      frames: ${{ steps.plan.outputs.frames }}
+      workers: ${{ steps.plan.outputs.workers }}
+      audio: ${{ steps.plan.outputs.audio }}
+      qc: ${{ steps.plan.outputs.qc }}
+      release: ${{ steps.plan.outputs.release }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            studio/render-request.json
+            studio/pipeline/gh
+            studio/productions
+      - id: plan
+        working-directory: studio
+        run: |
+          node -e '
+            const fs = require("fs"); const r = JSON.parse(fs.readFileSync("render-request.json", "utf8"));
+            const prod = String(r.production || "").replace(/[^a-z0-9_-]/gi, ""), comp = String(r.composition || "").replace(/[^a-z0-9_-]/gi, "");
+            if (!prod || !comp) throw new Error("render-request.json needs production + composition");
+            let frames = String(r.frames || "all").trim();
+            if (frames === "all") { const an = JSON.parse(fs.readFileSync(`productions/${prod}/analysis/analysis.json`, "utf8")); frames = `0-${an.frames - 1}`; }
+            if (!/^\d+-\d+$/.test(frames)) throw new Error("frames must be a-b or all");
+            const workers = Math.min(8, Math.max(1, Number(r.workers) || 2));
+            const out = { production: prod, composition: comp, frames, workers, audio: r.audio === "none" ? "none" : "mix", qc: r.qc === "full" ? "full" : "basic", release: r.release === false ? "false" : "true" };
+            for (const [k, v] of Object.entries(out)) fs.appendFileSync(process.env.GITHUB_OUTPUT, `${k}=${v}\n`);
+            console.log(out);'
+          A=$(grep '^frames=' "$GITHUB_OUTPUT" | cut -d= -f2); W=$(grep '^workers=' "$GITHUB_OUTPUT" | cut -d= -f2)
+          N=$(( $(echo $A | cut -d- -f2) - $(echo $A | cut -d- -f1) + 1 ))
+          # 2 chunks per runner (scenes differ a lot in cost: a runner that finishes early takes the next chunk),
+          # but never chunks shorter than 30 frames
+          C=$(( W * 2 )); MAXC=$(( (N + 29) / 30 )); [ $C -gt $MAXC ] && C=$MAXC; [ $C -lt 1 ] && C=1
+          echo "matrix=$(node pipeline/gh/split_ranges.mjs "$A" "$C")" >> "$GITHUB_OUTPUT"
+          tail -1 "$GITHUB_OUTPUT"
+
+  render:
+    needs: plan
+    runs-on: ubuntu-latest # free standard runner (4 vCPU, no GPU: WebGL on SwiftShader, same as the local pipeline)
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(needs.plan.outputs.workers) }}
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    defaults:
+      run: { working-directory: studio }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: studio/package-lock.json }
+      - name: Browser libraries (only if the runner image lacks them)
+        working-directory: .
+        run: |
+          if dpkg -s libnss3 libgbm1 libxkbcommon0 fonts-dejavu-core >/dev/null 2>&1; then echo "present"; exit 0; fi
+          sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends libnss3 libgbm1 libxkbcommon0 fonts-dejavu-core
+      - name: Cache Remotion browser
+        uses: actions/cache@v4
+        with:
+          path: studio/node_modules/.remotion
+          key: remotion-browser-${{ hashFiles('studio/package-lock.json') }}
+      - run: npm ci
+      - run: npx remotion browser ensure
+      - name: ffmpeg for joining batches (system one, else Remotion's own npm build - no apt needed)
+        run: |
+          if ! command -v ffmpeg >/dev/null; then mkdir -p "$HOME/bin"; printf '#!/bin/sh\nexec "%s/node_modules/.bin/remotion" ffmpeg "$@"\n' "$PWD" > "$HOME/bin/ffmpeg"; chmod +x "$HOME/bin/ffmpeg"; echo "$HOME/bin" >> "$GITHUB_PATH"; fi
+      - name: Restore finished batches from an earlier attempt (resume)
+        if: github.run_attempt > 1
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: partial-${{ matrix.idx }}
+          path: studio/out/chunk_${{ matrix.idx }}/batches
+      - name: Render chunk ${{ matrix.idx }} (frames ${{ matrix.from }}-${{ matrix.to }})
+        run: |
+          ls out/chunk_${{ matrix.idx }}/batches 2>/dev/null || true
+          START=$(date +%s)
+          node pipeline/render_batches.mjs --comp "${{ needs.plan.outputs.composition }}" --frames "${{ matrix.from }}-${{ matrix.to }}" \
+            --batch 40 --out "out/chunk_${{ matrix.idx }}/chunk.mp4" --resume
+          cp "out/chunk_${{ matrix.idx }}/chunk.mp4" "out/chunk_${{ matrix.idx }}.mp4"
+          SEC=$(( $(date +%s) - START )); N=$(( ${{ matrix.to }} - ${{ matrix.from }} + 1 ))
+          echo "{\"idx\":${{ matrix.idx }},\"from\":${{ matrix.from }},\"to\":${{ matrix.to }},\"frames\":$N,\"seconds\":$SEC,\"cpus\":$(nproc)}" | tee "out/chunk_${{ matrix.idx }}.json"
+      - name: Upload finished chunk
+        uses: actions/upload-artifact@v4
+        with:
+          name: chunk-${{ matrix.idx }}
+          path: |
+            studio/out/chunk_${{ matrix.idx }}.mp4
+            studio/out/chunk_${{ matrix.idx }}.json
+          retention-days: 7
+          overwrite: true
+      - name: Keep finished batches if this chunk failed or timed out (Re-run failed jobs resumes from them)
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@v4
+        with:
+          name: partial-${{ matrix.idx }}
+          path: studio/out/chunk_${{ matrix.idx }}/batches/b_*.mp4
+          retention-days: 7
+          overwrite: true
+          if-no-files-found: ignore
+
+  assemble:
+    needs: [plan, render]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write # only to publish the finished video as a GitHub Release
+    defaults:
+      run: { working-directory: studio }
+    env:
+      PROD: ${{ needs.plan.outputs.production }}
+      COMP: ${{ needs.plan.outputs.composition }}
+      FRAMES: ${{ needs.plan.outputs.frames }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: ffmpeg (full build, for the QC filters) + Python QC deps
+        run: |
+          command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends ffmpeg)
+          python3 -m pip install --quiet numpy scipy
+      - uses: actions/download-artifact@v4
+        with: { pattern: chunk-*, path: studio/chunks, merge-multiple: true }
+      - name: Join chunks losslessly + mux the narration-first mix once
+        run: |
+          for f in $(ls chunks/chunk_*.mp4 | sed -E 's/.*chunk_([0-9]+)\.mp4/\1 &/' | sort -n | cut -d' ' -f2); do echo "file '$PWD/$f'"; done > chunks/list.txt
+          cat chunks/list.txt
+          mkdir -p out/final
+          ffmpeg -v error -y -f concat -safe 0 -i chunks/list.txt -c copy out/final/video_only.mp4
+          A=$(echo $FRAMES | cut -d- -f1); B=$(echo $FRAMES | cut -d- -f2)
+          SS=$(python3 -c "print(f'{$A/30:.4f}')"); DUR=$(python3 -c "print(f'{($B-$A+1)/30:.4f}')")
+          MIX="productions/$PROD/audio/mix.wav"
+          if [ "${{ needs.plan.outputs.audio }}" = "mix" ] && [ -f "$MIX" ]; then
+            ffmpeg -v error -y -i out/final/video_only.mp4 -ss "$SS" -i "$MIX" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 256k -t "$DUR" -movflags +faststart "out/final/${PROD}_${A}-${B}.mp4"
+          else
+            echo "::warning::no mix muxed (audio=none or $MIX missing)"; cp out/final/video_only.mp4 "out/final/${PROD}_${A}-${B}.mp4"
+          fi
+          ls -la out/final
+      - name: Quality control (frame count, black / frozen / single-frame glitches, loudness, sync, narration clarity, loop)
+        run: |
+          A=$(echo $FRAMES | cut -d- -f1); B=$(echo $FRAMES | cut -d- -f2); MP4="out/final/${PROD}_${A}-${B}.mp4"
+          FLAGS="--partial"; [ "${{ needs.plan.outputs.qc }}" = "full" ] && FLAGS="--loop"
+          python3 pipeline/qc.py "$MP4" "productions/$PROD/analysis/analysis.json" "productions/$PROD/input/narration.mp3" out/final/qc $FLAGS | tee out/final/qc_summary.txt
+          GOT=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 "$MP4" | tr -d ,)
+          echo "frames: got $GOT want $((B-A+1))"; test "$GOT" = "$((B-A+1))"
+          cat chunks/chunk_*.json | tee out/final/timings.jsonl
+      - uses: actions/upload-artifact@v4
+        with:
+          name: final-${{ env.PROD }}-${{ env.FRAMES }}
+          path: studio/out/final
+          retention-days: 14
+      - name: Publish as a GitHub Release (download on the phone from the repo's Releases page)
+        if: needs.plan.outputs.release == 'true'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          A=$(echo $FRAMES | cut -d- -f1); B=$(echo $FRAMES | cut -d- -f2)
+          TAG="video-${PROD}-${A}-${B}-run${{ github.run_number }}.${{ github.run_attempt }}"
+          gh release create "$TAG" "out/final/${PROD}_${A}-${B}.mp4" out/final/qc/contact_sheet.png out/final/qc/QC_REPORT.md out/final/timings.jsonl \
+            --target "${{ github.sha }}" --prerelease --title "TwistFrame: $PROD (frames $A-$B)" \
+            --notes "Rendered on GitHub Actions from ${{ github.ref_name }} @ ${{ github.sha }} with the original TwistFrame pipeline. QC summary: $(grep -c '^PASS' out/final/qc_summary.txt) PASS / $(grep -c '^FAIL' out/final/qc_summary.txt) FAIL lines - see QC_REPORT.md."
