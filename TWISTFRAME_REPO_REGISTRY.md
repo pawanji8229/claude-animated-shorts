@@ -53,3 +53,38 @@ Every repository below was verified on GitHub. The small repositories were shall
 | Ported module | 1 | #11 |
 | Reference only | 4 | #8, #9, #12, #13 |
 | Unavailable | 1 | #10 |
+
+## Test results (2026-11-20)
+
+| Test | Result |
+|---|---|
+| TypeScript (`tsc --noEmit`) | pass |
+| Dependency check | Render install unchanged; core versions as listed above; 0 vulnerabilities reported for `tools/tf-ext` |
+| Approved files against `render/twistframe-original` | No diff in `studio/pipeline`, the package files, `.github`, `.claude`, `src/char`, `src/lib/Post.tsx`, `src/productions/centennial`, `productions/` or `references/`. The only change is 2 added lines in `src/Root.tsx` (registers `EnhanceTest`). |
+| Approved TL #7 frame 45 rendered on this branch vs the approved render | PSNR 45.2 dB, SSIM 0.98. The PNG vs CRF-17 H.264 difference is the same as measured for the approved cloud benchmark. |
+| `optimize-gltf.mjs` | Lossless on Poly Haven assets (bounds and triangles unchanged); `--simplify` works |
+| `bake-physics.mjs` | Deterministic (two runs byte-identical); realistic 1 kg cones tip, roll and settle within 1–3 s |
+| `gerstner.ts` | Deterministic; unit normals; heights within ±0.6 m for 0.6 m significant wave height |
+| **EnhanceTest, 5 s native 1080×1920** | 150/150 frames, 30 fps, H.264, no black frames or single-frame glitches (max frame diff 5.8); **718 s render on this 4-core machine**; peak memory of the render processes **2.8 GB** |
+
+## How to use the optional enhancements with MAKE VIDEO
+
+All of them are opt-in. A video that does not import them renders exactly as before.
+
+- **Physics props (falling, tumbling, knocked-over objects):**
+  1. Describe the bodies in a `scene.json`.
+  2. Run `node tools/tf-ext/bake-physics.mjs scene.json src/productions/<id>/physics.baked.json`, after `cd tools/tf-ext && npm ci --ignore-scripts` once.
+  3. In the scene, place each object with `bakedPose(bake, id, frame)` from `src/lib/enhance/baked.ts`. Worked example: `src/productions/enhance-test/`.
+  4. Commit the baked JSON. The cloud renderer needs no extra install.
+- **Realistic sea / boats:** import `oceanSpec`, `oceanSurface` and `floatPose` from `src/lib/enhance/gerstner.ts`. Bob hulls with `floatPose(spec, x, z, frame / 30, hullLength)`, or displace a sea plane per frame.
+- **Imported 3D models:** run `node tools/tf-ext/optimize-gltf.mjs model.gltf public/<id>/models/model.glb` (lossless). Add `--simplify 0.5` only for far-background props.
+- **Reflections / extra effects:** drei `MeshReflectorMaterial` (already used) and `@react-three/postprocessing` effects are available. Avoid any helper that animates on the wall clock.
+- **Asking for them:** say e.g. "MAKE VIDEO … use baked physics for the falling crates" or "… Gerstner sea for the boat scenes". Claude adds them as above, renders a short test, and compares it with the approved benchmark first.
+
+## Unresolved items
+
+1. `nguyencongnamit/threejs-ocean` is unavailable.
+2. `Procedural-cyberpunk-city` has no license (code cannot be used).
+3. `three-ws-motion` (3D skeletons) is incompatible with the approved 2D characters.
+4. `city-tour` and `water-three-js` are full apps on other three.js versions: ideas can be ported, the apps cannot be mixed in.
+5. The test scene is a component test, not a production scene: its environment is sparser than a finished TwistFrame shot.
