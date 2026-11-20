@@ -1,5 +1,29 @@
 # GitHub render pipeline: benchmark (2026-11-20)
 
+## 0. UPDATE: cloud rendering works
+
+The cause of the earlier blocker was GitHub's "Workflows on this fork have been disabled". You re-enabled Actions.
+
+**Minimal test:** "Actions ping" run #1 succeeded in 6 s.
+
+**60-frame original-quality benchmark:** "TwistFrame render" run #1 ([run 44750358077](https://github.com/pawanji8229/claude-animated-shorts/actions/runs/44750358077)): plan, 2 render chunks, assemble and release all succeeded.
+
+| | result |
+|---|---|
+| Wall-clock, push to Release | **5 min 0 s** (14:06:54 to 14:11:54 UTC) |
+| Chunk 0 (frames 0-29) | 157 s render (about 5.2 s/frame) + about 30 s setup, 4 vCPU runner |
+| Chunk 1 (frames 30-59) | 196 s render (about 6.5 s/frame) + about 26 s setup |
+| Assemble | join + mix + QC + Release in 56 s |
+| Output (downloaded from the Release and checked again locally) | 1080x1920, 30 fps, H.264, **60/60 frames**, AAC 2.000 s |
+| QC (on GitHub and repeated locally) | all PASS: no black frames, glitches or freezes; **narration sync 0 ms**; worst word margin 15.5 dB; −1.2 dBTP |
+| Fidelity against the approved local render | **PSNR 47.6 dB, SSIM 0.988**: same pixels within encoder noise; side-by-side stills identical |
+| Runner type | `ubuntu-latest` standard, free; no paid runners |
+
+**Release:** https://github.com/pawanji8229/claude-animated-shorts/releases/tag/video-centennial-0-59-run1.1
+
+**Full-video estimate** (1607 frames, 8 runners, 16 chunks): about 6 to 9 s/frame, so 10 to 15 min per 100-frame chunk with 2 chunks per runner, roughly **30 to 40 minutes** in total.
+
+
 ## 1. Cloud run: blocked by the GitHub account, not by the workflow
 
 The branch `render/twistframe-original` was pushed three times:
