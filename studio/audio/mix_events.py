@@ -21,6 +21,7 @@ import joralemon_sfx as J
 import flight_sfx as FL
 import po_sfx as PS
 import cent_sfx as CS
+import boeing_sfx as BO
 
 ap = argparse.ArgumentParser(); ap.add_argument("narration"); ap.add_argument("events"); ap.add_argument("outdir"); ap.add_argument("duration", nargs="?", default="full")
 ap.add_argument("--ambience", default="desert"); ap.add_argument("--music", default="desert_guitar"); ap.add_argument("--loop", action="store_true")
@@ -122,6 +123,13 @@ REL = {
     "hose_coil": (-28, "sfx", "canvas hose coiled"), "polish_rag": (-31, "sfx", "rag polishing brass"), "cord_snip": (-24, "sfx", "wire cutters through the cord"), "box_lid": (-25, "sfx", "padded box lid closes"),
     "engine76": (-19, "sfx", "1970s cab-forward diesel engine rolling alongside"), "engine_arrive": (-18, "sfx", "diesel engine slows to a stop"), "ladder_steel": (-27, "sfx", "foot on a steel ladder step"),
     "flashlight_click": (-27, "sfx", "flashlight switched on"), "box_latch": (-26, "sfx", "power-supply box door latch"), "cord_unroll": (-27, "sfx", "extension cord pulled off a coil"),
+    # the fake neighbourhood above Boeing Plant 2 - original synthesised sounds
+    "rivet_burst": (-24, "sfx", "pneumatic rivet-gun burst"), "tool_clink": (-29, "sfx", "tool set down on steel"), "hangar_door": (-22, "sfx", "steel door leaf rolling on its track"),
+    "cart_roll": (-27, "sfx", "steel-wheeled shop cart rolling"), "truck42": (-19, "sfx", "1940s truck rolls in, brakes, idles"), "hammer_wood": (-23, "sfx", "framing hammer on timber"),
+    "saw_stroke": (-28, "sfx", "hand saw stroke"), "canvas_flap": (-27, "sfx", "canvas stretched over the frame"), "paint_roll": (-29, "sfx", "paint roller on the tar-paper road"),
+    "winch_ratchet": (-25, "sfx", "derrick hand winch ratchet"), "bundle_land": (-22, "sfx", "lumber bundle set down on the roof"), "board_pick": (-28, "sfx", "board lifted off the pile"),
+    "model_tick": (-26, "sfx", "tiny model piece set on the table"), "paper_slide": (-30, "sfx", "plans slid on the table"), "soft_whoosh": (-27, "sfx", "soft air whoosh (camera move)"),
+    "reveal_shimmer": (-25, "sfx", "airy swell as the roof dissolves"),
 }
 GEN = {
     "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
@@ -151,8 +159,10 @@ GEN = {
         "stamp_ink", "drop_in_bag", "bag_rustle"]}, "bag_rustle_uw": lambda r: PS.bag_rustle(r, under=True),
     **{k: getattr(CS, k) for k in ["filament_on", "bulb_burnout", "screw_bulb", "bulb_dark", "ladder_creak", "match_strike", "hose_coil", "polish_rag", "cord_snip", "box_lid", "engine76", "engine_arrive",
         "ladder_steel", "flashlight_click", "box_latch", "cord_unroll"]},
+    **{k: getattr(BO, k) for k in ["rivet_burst", "tool_clink", "hangar_door", "cart_roll", "truck42", "hammer_wood", "saw_stroke", "canvas_flap", "paint_roll", "winch_ratchet",
+        "bundle_land", "board_pick", "model_tick", "paper_slide", "soft_whoosh", "reveal_shimmer"]},
 }
-OFFSET = {"air_swell": -0.6, "takeoff": -0.05, "car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
+OFFSET = {"soft_whoosh": -1.0, "reveal_shimmer": -1.2, "truck42": -2.6, "air_swell": -0.6, "takeoff": -0.05, "car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
 FIXED_PAN = {"car_arrive": -0.6}
 
 ev = json.load(open(evp))["events"]
@@ -218,6 +228,9 @@ def amb_preset(name):
     elif name in ("firehouse1901", "street1901", "night1901", "firehouse_mid", "street1976", "s6_dusk", "s6_night", "s6_day", "s6_ext"):
         lv = {"firehouse1901": -24, "street1901": -23, "night1901": -24, "firehouse_mid": -24, "street1976": -21, "s6_dusk": -25, "s6_night": -26, "s6_day": -24, "s6_ext": -22}[name]
         a += bed(getattr(CS, name), 51 + ["firehouse1901", "street1901", "night1901", "firehouse_mid", "street1976", "s6_dusk", "s6_night", "s6_day", "s6_ext"].index(name), lv)
+    elif name in ("factory_floor", "roof_day", "street1942", "aerial_high", "office1942"):
+        lv = {"factory_floor": -23, "roof_day": -25, "street1942": -24, "aerial_high": -26, "office1942": -28}[name]
+        a += bed(getattr(BO, name), 61 + ["factory_floor", "roof_day", "street1942", "aerial_high", "office1942"].index(name), lv)
     elif name == "room":
         from sfx_gen import breeze; a += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26)
     return a, cr

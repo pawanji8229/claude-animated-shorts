@@ -1,0 +1,2218 @@
+{
+ "fps": 30,
+ "frames": 1550,
+ "events": [
+  {
+   "frame": 96,
+   "kind": "soft_whoosh",
+   "x": 0.1,
+   "gain": 0.55,
+   "note": "camera glides over the roof edge (scale reveal)"
+  },
+  {
+   "frame": 214,
+   "kind": "soft_whoosh",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "camera climbs to the high aerial"
+  },
+  {
+   "frame": 257,
+   "kind": "step_concrete_r",
+   "x": -0.0494713699855278,
+   "gain": 0.07338489554671912,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 262,
+   "kind": "hangar_door",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "a steel door leaf rolls open on its track"
+  },
+  {
+   "frame": 264,
+   "kind": "step_concrete_l",
+   "x": 0.037556678492340796,
+   "gain": 0.16591507381594356,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 270,
+   "kind": "step_concrete_r",
+   "x": 0.1239710945461226,
+   "gain": 0.1974873029015997,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 277,
+   "kind": "step_concrete_l",
+   "x": 0.23970048073263414,
+   "gain": 0.21379334199045003,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 284,
+   "kind": "step_concrete_r",
+   "x": 0.37253976508252945,
+   "gain": 0.23232208351866815,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 288,
+   "kind": "step_concrete_l",
+   "x": -0.25661562564053975,
+   "gain": 0.16353367767883573,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 290,
+   "kind": "step_concrete_l",
+   "x": 0.500819643038839,
+   "gain": 0.25001550871395967,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 294,
+   "kind": "step_concrete_r",
+   "x": -0.1911473696953817,
+   "gain": 0.17256445735198336,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 297,
+   "kind": "step_concrete_r",
+   "x": -0.23250074589933006,
+   "gain": 0.16436126930081962,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 297,
+   "kind": "step_concrete_r",
+   "x": 0.6680435772345701,
+   "gain": 0.2726957928196378,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 301,
+   "kind": "step_concrete_l",
+   "x": -0.1141376756183412,
+   "gain": 0.18379229006618117,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 302,
+   "kind": "hangar_door",
+   "x": 0.25,
+   "gain": 0.55,
+   "note": "the next leaf follows"
+  },
+  {
+   "frame": 303,
+   "kind": "step_concrete_l",
+   "x": -0.17165867572958604,
+   "gain": 0.172991035970733,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 304,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.29729961072066824,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 307,
+   "kind": "step_concrete_r",
+   "x": -0.0493580976748,
+   "gain": 0.19392364263650078,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 310,
+   "kind": "step_concrete_r",
+   "x": -0.10363388635067416,
+   "gain": 0.18349727155223355,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 310,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.31954938241835434,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 313,
+   "kind": "step_concrete_l",
+   "x": 0.012604304286032554,
+   "gain": 0.20442872062853354,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 316,
+   "kind": "step_concrete_l",
+   "x": -0.04948718741131264,
+   "gain": 0.19278990899464135,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 317,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.3463018247459738,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 319,
+   "kind": "step_concrete_r",
+   "x": 0.07049049802025324,
+   "gain": 0.21522631997190816,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 323,
+   "kind": "step_concrete_r",
+   "x": 0.007603467187442314,
+   "gain": 0.20388642181566444,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 324,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.3732984413807939,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 326,
+   "kind": "step_concrete_l",
+   "x": 0.13212989424206942,
+   "gain": 0.22813117721001774,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 329,
+   "kind": "step_concrete_l",
+   "x": 0.0511746332611856,
+   "gain": 0.21359228534106162,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 330,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.39619488682276516,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 332,
+   "kind": "step_concrete_r",
+   "x": 0.18006275678904626,
+   "gain": 0.23944883487697677,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 335,
+   "kind": "step_concrete_r",
+   "x": 0.09017461327105714,
+   "gain": 0.22348533287820113,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 337,
+   "kind": "step_concrete_r",
+   "x": -0.45235806036220727,
+   "gain": 0.16331469156782463,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 337,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.4221173721273681,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 338,
+   "kind": "step_concrete_l",
+   "x": 0.223973101804323,
+   "gain": 0.2510206130979248,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 342,
+   "kind": "step_concrete_l",
+   "x": 0.13054942878729417,
+   "gain": 0.235287411105383,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 344,
+   "kind": "step_concrete_r",
+   "x": 0.2643682498848096,
+   "gain": 0.26286675285328454,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 344,
+   "kind": "step_concrete_l",
+   "x": -0.44700188280061737,
+   "gain": 0.17162209001930326,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 344,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.4465493537763192,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 348,
+   "kind": "step_concrete_r",
+   "x": 0.1612735975152454,
+   "gain": 0.24564619568545354,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 350,
+   "kind": "step_concrete_r",
+   "x": -0.446692448490916,
+   "gain": 0.17905255254959965,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 350,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.46570648507967144,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 351,
+   "kind": "step_concrete_l",
+   "x": 0.30768788841975075,
+   "gain": 0.27705703033871787,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 355,
+   "kind": "step_concrete_l",
+   "x": 0.1931920135291805,
+   "gain": 0.25803692690662716,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 357,
+   "kind": "step_concrete_r",
+   "x": 0.3421350283514141,
+   "gain": 0.289554465916462,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 357,
+   "kind": "step_concrete_l",
+   "x": -0.4507750159832824,
+   "gain": 0.1881333792685985,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 357,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.4852131391125895,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 361,
+   "kind": "step_concrete_r",
+   "x": 0.217771948802511,
+   "gain": 0.26893988880087605,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 363,
+   "kind": "step_concrete_l",
+   "x": 0.3747922539473025,
+   "gain": 0.3023786363693249,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 364,
+   "kind": "step_concrete_r",
+   "x": -0.4589238089797986,
+   "gain": 0.19772437364739517,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 364,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.5008515385559792,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 367,
+   "kind": "step_concrete_l",
+   "x": 0.2404913846728873,
+   "gain": 0.28012637656831824,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 369,
+   "kind": "step_concrete_r",
+   "x": 0.40650601186937946,
+   "gain": 0.3155476140085569,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 370,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.5105999534001991,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 371,
+   "kind": "step_concrete_l",
+   "x": -0.47017707579902474,
+   "gain": 0.20791175526471148,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 373,
+   "kind": "step_concrete_r",
+   "x": -0.85,
+   "gain": 0.1593245418980888,
+   "note": "C: walker 4 footstep (concrete)"
+  },
+  {
+   "frame": 374,
+   "kind": "step_concrete_r",
+   "x": 0.2657778584587461,
+   "gain": 0.293566572392264,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 376,
+   "kind": "step_concrete_l",
+   "x": 0.4437323068366345,
+   "gain": 0.331365784797546,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 377,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.5171750206448638,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 378,
+   "kind": "step_concrete_r",
+   "x": -0.4833167235749771,
+   "gain": 0.21880085034008084,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 378,
+   "kind": "truck42",
+   "x": 0.3,
+   "gain": 0.9,
+   "note": "a 1940s truck rolls along Marginal Way and brakes at the plant"
+  },
+  {
+   "frame": 380,
+   "kind": "step_concrete_l",
+   "x": 0.287594128992059,
+   "gain": 0.30544377644235976,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 381,
+   "kind": "step_concrete_l",
+   "x": -0.85,
+   "gain": 0.16857881298076663,
+   "note": "C: walker 4 footstep (concrete)"
+  },
+  {
+   "frame": 382,
+   "kind": "step_concrete_r",
+   "x": 0.47732189978285444,
+   "gain": 0.3453158386396264,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 383,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.5184212026510021,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 384,
+   "kind": "step_concrete_l",
+   "x": -0.4949325440236876,
+   "gain": 0.22878793880385637,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 387,
+   "kind": "step_concrete_r",
+   "x": 0.3149669360852432,
+   "gain": 0.3197317981179232,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 388,
+   "kind": "step_concrete_l",
+   "x": 0.5141004885427324,
+   "gain": 0.35960417490924984,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 388,
+   "kind": "step_concrete_r",
+   "x": -0.85,
+   "gain": 0.17751210030685652,
+   "note": "C: walker 4 footstep (concrete)"
+  },
+  {
+   "frame": 390,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.5146513966704694,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 391,
+   "kind": "step_concrete_r",
+   "x": -0.5072408885615353,
+   "gain": 0.2413313012964266,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 393,
+   "kind": "step_concrete_l",
+   "x": 0.3417549425163046,
+   "gain": 0.33233671808637066,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 394,
+   "kind": "step_concrete_r",
+   "x": 0.5558752831453435,
+   "gain": 0.374167655930572,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 395,
+   "kind": "step_concrete_l",
+   "x": -0.85,
+   "gain": 0.18742380653299778,
+   "note": "C: walker 4 footstep (concrete)"
+  },
+  {
+   "frame": 397,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.5054353587051921,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 398,
+   "kind": "step_concrete_l",
+   "x": -0.5160165659570141,
+   "gain": 0.2549923393042155,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 399,
+   "kind": "step_concrete_r",
+   "x": 0.373383988015258,
+   "gain": 0.34522438372159536,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 401,
+   "kind": "step_concrete_l",
+   "x": 0.6136646535708166,
+   "gain": 0.39133344454036195,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 403,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.49355929738650617,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 403,
+   "kind": "step_concrete_r",
+   "x": -0.85,
+   "gain": 0.20027383346239921,
+   "note": "C: walker 4 footstep (concrete)"
+  },
+  {
+   "frame": 405,
+   "kind": "step_concrete_r",
+   "x": -0.5184572746001532,
+   "gain": 0.26994745758477506,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 406,
+   "kind": "step_concrete_l",
+   "x": 0.41886124413911086,
+   "gain": 0.3604760383990672,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 407,
+   "kind": "step_concrete_r",
+   "x": 0.6734602364357016,
+   "gain": 0.4059332290797386,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 410,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.4552869499929628,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 410,
+   "kind": "step_concrete_l",
+   "x": -0.85,
+   "gain": 0.204061672956759,
+   "note": "C: walker 4 footstep (concrete)"
+  },
+  {
+   "frame": 412,
+   "kind": "step_concrete_r",
+   "x": 0.4671936443758651,
+   "gain": 0.31514426782229976,
+   "note": "C: walker 0 footstep (concrete)"
+  },
+  {
+   "frame": 412,
+   "kind": "step_concrete_l",
+   "x": -0.5113439780578516,
+   "gain": 0.24161100642198705,
+   "note": "C: walker 2 footstep (concrete)"
+  },
+  {
+   "frame": 413,
+   "kind": "step_concrete_l",
+   "x": 0.744794382047945,
+   "gain": 0.3226112769677026,
+   "note": "C: walker 1 footstep (concrete)"
+  },
+  {
+   "frame": 415,
+   "kind": "step_concrete_r",
+   "x": 0.6468659500013777,
+   "gain": 0.09835253313226511,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 417,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.184898608910015,
+   "note": "C: walker 3 footstep (concrete)"
+  },
+  {
+   "frame": 417,
+   "kind": "step_concrete_r",
+   "x": -0.85,
+   "gain": 0.09282165817980438,
+   "note": "C: walker 4 footstep (concrete)"
+  },
+  {
+   "frame": 421,
+   "kind": "step_concrete_l",
+   "x": 0.7414294278896801,
+   "gain": 0.25304858982402034,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 425,
+   "kind": "rivet_burst",
+   "x": 0.7173507186870237,
+   "gain": 0.20510475444346096,
+   "note": "D: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 427,
+   "kind": "step_concrete_r",
+   "x": 0.8053795898431844,
+   "gain": 0.32884877340475105,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 432,
+   "kind": "step_concrete_l",
+   "x": 0.2844503715854951,
+   "gain": 0.16034781155766983,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 434,
+   "kind": "step_concrete_l",
+   "x": 0.8102236728272868,
+   "gain": 0.41169778059574036,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 438,
+   "kind": "step_concrete_r",
+   "x": 0.35157155589933503,
+   "gain": 0.17575628517958694,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 440,
+   "kind": "step_concrete_r",
+   "x": 0.7203991568507732,
+   "gain": 0.5130725762869625,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 440,
+   "kind": "rivet_burst",
+   "x": 0.8466078065549647,
+   "gain": 0.28856256797164825,
+   "note": "D: riveter 16 drives a rivet"
+  },
+  {
+   "frame": 444,
+   "kind": "step_concrete_l",
+   "x": 0.40461130287405783,
+   "gain": 0.193178318569306,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 446,
+   "kind": "step_concrete_l",
+   "x": 0.5055636538259936,
+   "gain": 0.6522760937096551,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 449,
+   "kind": "step_concrete_r",
+   "x": 0.44134131331306997,
+   "gain": 0.2092281870838171,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 450,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.1631420716361164,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 452,
+   "kind": "step_concrete_r",
+   "x": 0.1209773589848102,
+   "gain": 0.8321052821600489,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 455,
+   "kind": "step_concrete_l",
+   "x": 0.4833382593039233,
+   "gain": 0.23032818002576017,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 458,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.1793822906929947,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 458,
+   "kind": "rivet_burst",
+   "x": -0.47238469189933485,
+   "gain": 0.22317267197045193,
+   "note": "D: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 459,
+   "kind": "step_concrete_l",
+   "x": -0.6419143632112287,
+   "gain": 1,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 461,
+   "kind": "step_concrete_r",
+   "x": 0.5313074440090063,
+   "gain": 0.2535802074597009,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 463,
+   "kind": "rivet_burst",
+   "x": -0.22946858130397574,
+   "gain": 0.22239035554545647,
+   "note": "D: riveter 15 drives a rivet"
+  },
+  {
+   "frame": 463,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.3955015102222675,
+   "note": "D: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 464,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.19107244130569245,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 465,
+   "kind": "step_concrete_r",
+   "x": -0.85,
+   "gain": 1,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 467,
+   "kind": "step_concrete_l",
+   "x": 0.5919113115612756,
+   "gain": 0.27943539361391084,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 470,
+   "kind": "tool_clink",
+   "x": -0.3,
+   "gain": 0.6,
+   "note": "a bucking bar set down on the scaffold"
+  },
+  {
+   "frame": 471,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.20332477683260447,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 471,
+   "kind": "step_concrete_l",
+   "x": -0.85,
+   "gain": 1,
+   "note": "D: walker 19 footstep (concrete)"
+  },
+  {
+   "frame": 473,
+   "kind": "step_concrete_r",
+   "x": 0.6699496303095865,
+   "gain": 0.30869211378984773,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 479,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.21453482200957935,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 479,
+   "kind": "step_concrete_l",
+   "x": 0.7720480369339903,
+   "gain": 0.342378741326243,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 485,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.2204504635627877,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 485,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.3815564925979594,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 490,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.4190140432723582,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 492,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.22434328448667334,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 494,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.758786452461603,
+   "note": "D: riveter 16 drives a rivet"
+  },
+  {
+   "frame": 496,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.4699313413551076,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 498,
+   "kind": "rivet_burst",
+   "x": -0.3044866186396044,
+   "gain": 0.3318682556715553,
+   "note": "D: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 499,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.2251130527634668,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 500,
+   "kind": "tool_clink",
+   "x": 0.4,
+   "gain": 0.5,
+   "note": "a wrench on the wing jig"
+  },
+  {
+   "frame": 501,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.5902933080508626,
+   "note": "D: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 502,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.5263411034062769,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 503,
+   "kind": "rivet_burst",
+   "x": -0.791900785675305,
+   "gain": 0.16398398241979442,
+   "note": "D: riveter 13 drives a rivet"
+  },
+  {
+   "frame": 506,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.22335142703953328,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 508,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.5685854007798253,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 510,
+   "kind": "rivet_burst",
+   "x": 0.139693830359237,
+   "gain": 0.32197253488448313,
+   "note": "D: riveter 15 drives a rivet"
+  },
+  {
+   "frame": 513,
+   "kind": "step_concrete_r",
+   "x": 0.85,
+   "gain": 0.1579762594564582,
+   "note": "D: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 514,
+   "kind": "step_concrete_l",
+   "x": 0.85,
+   "gain": 0.41439879382775785,
+   "note": "D: walker 20 footstep (concrete)"
+  },
+  {
+   "frame": 536,
+   "kind": "paper_slide",
+   "x": 0,
+   "gain": 0.7,
+   "note": "plans slid across the model table"
+  },
+  {
+   "frame": 764,
+   "kind": "model_tick",
+   "x": 0.15,
+   "gain": 1,
+   "note": "the hero sets a tiny tree beside the model plant"
+  },
+  {
+   "frame": 766,
+   "kind": "brow_pluck",
+   "x": -0.3,
+   "gain": 0.55,
+   "note": "the officer's disbelief"
+  },
+  {
+   "frame": 797,
+   "kind": "model_tick",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "a second tiny tree"
+  },
+  {
+   "frame": 816,
+   "kind": "idea_ding",
+   "x": 0.25,
+   "gain": 0.35,
+   "note": "the hero gets the idea"
+  },
+  {
+   "frame": 868,
+   "kind": "double_take",
+   "x": -0.3,
+   "gain": 0.45,
+   "note": "the officer's double-take"
+  },
+  {
+   "frame": 872,
+   "kind": "model_tick",
+   "x": 0.05,
+   "gain": 1,
+   "note": "the tiny house goes on the model roof"
+  },
+  {
+   "frame": 874,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 40: first boards lifted off the pile"
+  },
+  {
+   "frame": 894,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 39: first boards lifted off the pile"
+  },
+  {
+   "frame": 899,
+   "kind": "step_gravel_l",
+   "x": 0.14884475359474666,
+   "gain": 0.4471782933137942,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 899,
+   "kind": "step_gravel_l",
+   "x": -0.24857050566245398,
+   "gain": 0.40022777044384794,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 900,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 40: a board sawn"
+  },
+  {
+   "frame": 901,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.267129279333575,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 902,
+   "kind": "winch_ratchet",
+   "x": 0.4,
+   "gain": 0.6,
+   "note": "the derrick's hand winch hoists a lumber bundle up from the street"
+  },
+  {
+   "frame": 905,
+   "kind": "step_gravel_r",
+   "x": 0.22669666040587338,
+   "gain": 0.5433295478849028,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 905,
+   "kind": "step_gravel_r",
+   "x": -0.200441193538975,
+   "gain": 0.487593505346414,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 909,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.56917838444207,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 910,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 40: canvas walls stretched up"
+  },
+  {
+   "frame": 912,
+   "kind": "step_gravel_l",
+   "x": 0.32730321182497923,
+   "gain": 0.5584873262768129,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 912,
+   "kind": "step_gravel_l",
+   "x": -0.13737437536435093,
+   "gain": 0.5032552632237131,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 914,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 41: first boards lifted off the pile"
+  },
+  {
+   "frame": 916,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.3017215472438364,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 919,
+   "kind": "step_gravel_r",
+   "x": 0.4391301757045823,
+   "gain": 0.5729694452379971,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 919,
+   "kind": "step_gravel_r",
+   "x": -0.06633045357363275,
+   "gain": 0.5190253484792748,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 920,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 39: a board sawn"
+  },
+  {
+   "frame": 926,
+   "kind": "step_gravel_l",
+   "x": 0.562880232404293,
+   "gain": 0.5864912742914118,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 926,
+   "kind": "step_gravel_l",
+   "x": 0.013264449043800572,
+   "gain": 0.5347529862463045,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 926,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.5984734501036572,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 930,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 39: canvas walls stretched up"
+  },
+  {
+   "frame": 931,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.32088030335802115,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 934,
+   "kind": "step_gravel_r",
+   "x": 0.7197324757282626,
+   "gain": 0.6003642744019781,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 934,
+   "kind": "step_gravel_r",
+   "x": 0.11544907509860372,
+   "gain": 0.5524284242107689,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 940,
+   "kind": "step_gravel_l",
+   "x": 0.8486208035538083,
+   "gain": 0.6093761527149795,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 940,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 41: a board sawn"
+  },
+  {
+   "frame": 941,
+   "kind": "step_gravel_l",
+   "x": 0.21531914065671096,
+   "gain": 0.5673652176581728,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 943,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.6164572267142775,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 944,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 42: first boards lifted off the pile"
+  },
+  {
+   "frame": 946,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.34220401834768743,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 947,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.6180682195738099,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 947,
+   "kind": "step_gravel_r",
+   "x": 0.30911285138791506,
+   "gain": 0.5795489325734209,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 948,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 40: roof canvas pulled over"
+  },
+  {
+   "frame": 950,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 41: canvas walls stretched up"
+  },
+  {
+   "frame": 954,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.6244948663131878,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 954,
+   "kind": "paint_roll",
+   "x": -0.4467813990231913,
+   "gain": 0.8,
+   "note": "the roller lays the road stripe"
+  },
+  {
+   "frame": 955,
+   "kind": "step_gravel_l",
+   "x": 0.44643137650141124,
+   "gain": 0.5945288163156026,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 959,
+   "kind": "step_gravel_r",
+   "x": -0.45883088033344316,
+   "gain": 0.4014412157167238,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 961,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.6283781735957837,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 961,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.3660596009671521,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 961,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.6191988415839162,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 962,
+   "kind": "step_gravel_r",
+   "x": 0.5783775833632779,
+   "gain": 0.6060600534761309,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 966,
+   "kind": "step_gravel_l",
+   "x": -0.4305730969239641,
+   "gain": 0.41315739882643554,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 968,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 39: roof canvas pulled over"
+  },
+  {
+   "frame": 969,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.6294338908817894,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 969,
+   "kind": "step_gravel_l",
+   "x": 0.7213604544912768,
+   "gain": 0.6157170637971646,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 969,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 43: first boards lifted off the pile"
+  },
+  {
+   "frame": 970,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 42: a board sawn"
+  },
+  {
+   "frame": 975,
+   "kind": "step_gravel_r",
+   "x": -0.3898157768757989,
+   "gain": 0.4285704334175443,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 975,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.6277553306091341,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 976,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.6231175043331194,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 976,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.39284376862804926,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 978,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.6054114238430958,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 980,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 42: canvas walls stretched up"
+  },
+  {
+   "frame": 982,
+   "kind": "step_gravel_l",
+   "x": -0.35461168347069866,
+   "gain": 0.4407346170310506,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 982,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.6231101799426934,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 983,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.6279148246780862,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 988,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 41: roof canvas pulled over"
+  },
+  {
+   "frame": 989,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.6156756434319934,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 990,
+   "kind": "step_gravel_r",
+   "x": -0.31061559526433835,
+   "gain": 0.4546722647388929,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 990,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.6298377545215644,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 991,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.4229204968609431,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 994,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 44: first boards lifted off the pile"
+  },
+  {
+   "frame": 994,
+   "kind": "paint_roll",
+   "x": -0.18680114403414916,
+   "gain": 0.8,
+   "note": "the roller lays the road stripe"
+  },
+  {
+   "frame": 995,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 43: a board sawn"
+  },
+  {
+   "frame": 996,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.6056753070799705,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 996,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.6290734144758711,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 996,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.5760924174204624,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 999,
+   "kind": "step_gravel_l",
+   "x": -0.25626080037985405,
+   "gain": 0.4701232469305056,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1003,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.5934274374726387,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1004,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.6245508247389279,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1005,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 43: canvas walls stretched up"
+  },
+  {
+   "frame": 1006,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.4564241332443507,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1007,
+   "kind": "step_gravel_r",
+   "x": -0.20332895098483295,
+   "gain": 0.4833193661538004,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1010,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.5793080012410576,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1011,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.6174143705029006,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1013,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.5392708457103575,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1014,
+   "kind": "step_gravel_l",
+   "x": -0.1530707171659624,
+   "gain": 0.49414553749188544,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1017,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.5637172669039164,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1017,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.6091099272213829,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1018,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 42: roof canvas pulled over"
+  },
+  {
+   "frame": 1020,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 44: a board sawn"
+  },
+  {
+   "frame": 1021,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.49295072784380173,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1022,
+   "kind": "step_gravel_r",
+   "x": -0.09076145764816931,
+   "gain": 0.5053136928021276,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1024,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.5470540189478295,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1025,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.5952721468520209,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1030,
+   "kind": "step_gravel_l",
+   "x": -0.023155125058368847,
+   "gain": 0.5147675656640124,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1030,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 44: canvas walls stretched up"
+  },
+  {
+   "frame": 1031,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.529694712560511,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1031,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.5831479674823127,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1031,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.4961426918749413,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1032,
+   "kind": "bundle_land",
+   "x": 0.4,
+   "gain": 0.6,
+   "note": "the bundle is swung in and set down"
+  },
+  {
+   "frame": 1034,
+   "kind": "paint_roll",
+   "x": 0.2192164992261009,
+   "gain": 0.8,
+   "note": "the roller lays the road stripe"
+  },
+  {
+   "frame": 1036,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.5312407067790635,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1038,
+   "kind": "step_gravel_r",
+   "x": 0.049405320830230026,
+   "gain": 0.5220710204371641,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1038,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.5119776745611777,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1039,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.5651817884418288,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1043,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 43: roof canvas pulled over"
+  },
+  {
+   "frame": 1045,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.49419298916934173,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1046,
+   "kind": "step_gravel_l",
+   "x": 0.1260512644463385,
+   "gain": 0.5268433977413188,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1046,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.5482473415557749,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1048,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.45548058837253563,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1051,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.5688008646595434,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1052,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.47657878967843303,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1053,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.5306140536734449,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1054,
+   "kind": "step_gravel_r",
+   "x": 0.2054005413176684,
+   "gain": 0.5288051034171809,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1059,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.4593224525950557,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1060,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.5126474692496811,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1063,
+   "kind": "step_gravel_l",
+   "x": 0.2956526396377774,
+   "gain": 0.5274833390824563,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1066,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.44256496842164816,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1066,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.49721725533234473,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1066,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.6016806663246655,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1066,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.41510744479336426,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1068,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 44: roof canvas pulled over"
+  },
+  {
+   "frame": 1070,
+   "kind": "step_gravel_r",
+   "x": 0.3647893395752757,
+   "gain": 0.5238931576057749,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1073,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.42640700350559657,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1074,
+   "kind": "step_gravel_r",
+   "x": 0.85,
+   "gain": 0.47688580437398526,
+   "note": "F: walker 4 footstep (gravel)"
+  },
+  {
+   "frame": 1074,
+   "kind": "paint_roll",
+   "x": 0.6902997158290877,
+   "gain": 0.8,
+   "note": "the roller lays the road stripe"
+  },
+  {
+   "frame": 1078,
+   "kind": "step_gravel_l",
+   "x": 0.4407580947818189,
+   "gain": 0.5172147752219068,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1080,
+   "kind": "step_gravel_l",
+   "x": 0.85,
+   "gain": 0.4109155374592012,
+   "note": "F: walker 3 footstep (gravel)"
+  },
+  {
+   "frame": 1081,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.6249190862524058,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1083,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.38063074920645207,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1086,
+   "kind": "step_gravel_r",
+   "x": 0.5117384875473122,
+   "gain": 0.5080900158006577,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1094,
+   "kind": "step_gravel_l",
+   "x": 0.5762945186469857,
+   "gain": 0.49692179259345615,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1096,
+   "kind": "hammer_wood",
+   "x": -0.6970630358703755,
+   "gain": 0.6340513870167375,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1101,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.3225113590759636,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1103,
+   "kind": "step_gravel_r",
+   "x": 0.6400608653702524,
+   "gain": 0.3914726249527119,
+   "note": "F: walker 2 footstep (gravel)"
+  },
+  {
+   "frame": 1107,
+   "kind": "step_gravel_r",
+   "x": 0.2240880338579636,
+   "gain": 0.08605080450600862,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1113,
+   "kind": "step_gravel_l",
+   "x": 0.21010814000286332,
+   "gain": 0.16393616637515396,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1119,
+   "kind": "step_gravel_r",
+   "x": 0.1952157956973893,
+   "gain": 0.18229725480510833,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1126,
+   "kind": "step_gravel_l",
+   "x": 0.17664889077380258,
+   "gain": 0.18881986155514938,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1132,
+   "kind": "step_gravel_r",
+   "x": 0.1596802229313325,
+   "gain": 0.1947788918285056,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1138,
+   "kind": "step_gravel_l",
+   "x": 0.14170329249064956,
+   "gain": 0.20110080635970543,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1145,
+   "kind": "step_gravel_r",
+   "x": 0.11940102025274785,
+   "gain": 0.20896590103126142,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1150,
+   "kind": "brow_pluck",
+   "x": 0,
+   "gain": 0.45,
+   "note": "the hero's side-eye at the hollow backs"
+  },
+  {
+   "frame": 1151,
+   "kind": "step_gravel_l",
+   "x": 0.0990892760497217,
+   "gain": 0.21615495011751185,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1157,
+   "kind": "step_gravel_r",
+   "x": 0.07761174016883048,
+   "gain": 0.22378446860835638,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1163,
+   "kind": "step_gravel_l",
+   "x": 0.05489426416295034,
+   "gain": 0.23188274588824215,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1170,
+   "kind": "step_gravel_r",
+   "x": 0.026689035657215743,
+   "gain": 0.2419670934678251,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1176,
+   "kind": "step_gravel_l",
+   "x": 0.0008911529059060944,
+   "gain": 0.25120310771286153,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1182,
+   "kind": "step_gravel_r",
+   "x": -0.02661398600176698,
+   "gain": 0.26104120321330354,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1189,
+   "kind": "step_gravel_l",
+   "x": -0.061212237559018993,
+   "gain": 0.27336875987540177,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1195,
+   "kind": "step_gravel_r",
+   "x": -0.09339004211353963,
+   "gain": 0.28475630293815446,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1201,
+   "kind": "step_gravel_l",
+   "x": -0.12830682435633836,
+   "gain": 0.2970036762754627,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1208,
+   "kind": "step_gravel_r",
+   "x": -0.17312649037191336,
+   "gain": 0.31253226577564686,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1214,
+   "kind": "step_gravel_l",
+   "x": -0.21568126213705718,
+   "gain": 0.327060747123687,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1220,
+   "kind": "step_gravel_r",
+   "x": -0.2627683898734171,
+   "gain": 0.3428841053146714,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1226,
+   "kind": "step_gravel_l",
+   "x": -0.3152127702916726,
+   "gain": 0.36019393309435627,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1233,
+   "kind": "step_gravel_r",
+   "x": -0.3845157034771132,
+   "gain": 0.31040960231017545,
+   "note": "G: walker 1 footstep (gravel)"
+  },
+  {
+   "frame": 1262,
+   "kind": "soft_whoosh",
+   "x": 0.2,
+   "gain": 0.6,
+   "note": "camera sweeps up into the sky"
+  },
+  {
+   "frame": 1432,
+   "kind": "reveal_shimmer",
+   "x": 0,
+   "gain": 0.8,
+   "note": "the roof turns transparent: the real factory below"
+  },
+  {
+   "frame": 1458,
+   "kind": "rivet_burst",
+   "x": -0.24958496357604318,
+   "gain": 0.12743609072429038,
+   "note": "J2: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 1461,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.12054145209055048,
+   "note": "J2: riveter 12 drives a rivet"
+  },
+  {
+   "frame": 1466,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.11796339110826018,
+   "note": "J2: riveter 16 drives a rivet"
+  },
+  {
+   "frame": 1489,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.13787466848212335,
+   "note": "J2: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 1497,
+   "kind": "rivet_burst",
+   "x": -0.5845569085685121,
+   "gain": 0.17421964605002668,
+   "note": "J2: riveter 15 drives a rivet"
+  },
+  {
+   "frame": 1498,
+   "kind": "rivet_burst",
+   "x": -0.5165531768434404,
+   "gain": 0.18046333247367402,
+   "note": "J2: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 1506,
+   "kind": "step_concrete_r",
+   "x": 0.31049753926482637,
+   "gain": 0.15613090979766497,
+   "note": "J2: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 1510,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.144504221102528,
+   "note": "J2: riveter 12 drives a rivet"
+  },
+  {
+   "frame": 1511,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.13229170035990517,
+   "note": "J2: riveter 13 drives a rivet"
+  },
+  {
+   "frame": 1512,
+   "kind": "step_concrete_l",
+   "x": 0.3436528535085327,
+   "gain": 0.16050767370090066,
+   "note": "J2: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 1512,
+   "kind": "soft_whoosh",
+   "x": -0.1,
+   "gain": 0.45,
+   "note": "the camera rises back over the rooftop town (loop)"
+  },
+  {
+   "frame": 1517,
+   "kind": "step_concrete_r",
+   "x": 0.37132977494525177,
+   "gain": 0.16379862224968872,
+   "note": "J2: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 1520,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.16971401946610015,
+   "note": "J2: riveter 16 drives a rivet"
+  },
+  {
+   "frame": 1523,
+   "kind": "step_concrete_l",
+   "x": 0.4053727896386754,
+   "gain": 0.16765155834234244,
+   "note": "J2: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 1527,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.16958728622040853,
+   "note": "J2: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 1528,
+   "kind": "step_concrete_r",
+   "x": 0.43494563268372755,
+   "gain": 0.17098305903198235,
+   "note": "J2: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 1534,
+   "kind": "step_concrete_l",
+   "x": 0.47223564882584973,
+   "gain": 0.17523683778446783,
+   "note": "J2: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 1538,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.20915169707202103,
+   "note": "J2: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 1540,
+   "kind": "step_concrete_r",
+   "x": 0.5116116710828438,
+   "gain": 0.17977252160508822,
+   "note": "J2: walker 18 footstep (concrete)"
+  },
+  {
+   "frame": 1544,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.21034080178749603,
+   "note": "J2: riveter 15 drives a rivet"
+  },
+  {
+   "frame": 1545,
+   "kind": "step_concrete_l",
+   "x": 0.546032758896279,
+   "gain": 0.18374283916220988,
+   "note": "J2: walker 18 footstep (concrete)"
+  }
+ ]
+}
