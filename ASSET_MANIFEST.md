@@ -1,11 +1,13 @@
 # Asset manifest
 
-Generated 2026-11-19T23:47:53.179717+00:00 — 1081 files.
+Generated 2026-11-21T02:05:43.381179+00:00 — 1122 files.
 
 | path | bytes | sha256 |
 |---|---|---|
 | .claude/skills/voice-to-video/SKILL.md | 15060 | 56590abb1ef50ac2… |
+| .github/workflows/actions-ping.yml | 419 | b86ee694880ae6e7… |
 | .github/workflows/render-video.yml | 3132 | a3bcb735f6c40ffe… |
+| .github/workflows/twistframe-render.yml | 10823 | ee06b8c94fab8d08… |
 | .gitignore | 751 | 8625d85d2da0e036… |
 | ALL_CLAUDE_PROMPTS.md | 18094 | 8c5fc2c4bd183332… |
 | LICENSE | 1063 | 0c88b6c1afe23ba9… |
@@ -15,12 +17,19 @@ Generated 2026-11-19T23:47:53.179717+00:00 — 1081 files.
 | RESTORED_ORIGINAL.md | 3279 | 9417b41292f0ecdb… |
 | SKILL.md | 21431 | 3585154e13dee858… |
 | VOICE_TO_VIDEO_GUIDE.md | 4680 | 165f477232a62a10… |
+| deliver_centennial/AUDIO_MIX_REPORT.md | 3850 | fecc203083cd51cd… |
+| deliver_centennial/FINAL_QC_REPORT.md | 6676 | 7a9c42b0497df8bc… |
+| deliver_centennial/benchmark_compare.png | 2637240 | 53f875b83c55b5cc… |
+| deliver_centennial/contact_sheet.png | 2037000 | c52b1af701aa890c… |
 | deliver_postoffice/AUDIO_MIX_REPORT.md | 3087 | ec95a02ecacbd4d7… |
 | deliver_postoffice/FINAL_QC_REPORT.md | 6160 | 566eb745f3fd3ef4… |
 | deliver_postoffice/benchmark_compare.png | 2663193 | 38da14fd6c357a43… |
 | deliver_postoffice/contact_sheet.png | 2480903 | 3b239d6e049edaa8… |
+| deliver_repos/TWISTFRAME_REPO_REGISTRY.md | 11228 | 6c38e92f05f4bf88… |
+| deliver_repos/compare_benchmark_approved_vs_test.png | 2632822 | a7ec85ef03c84b6b… |
 | docs/ANDROID_RENDER_GUIDE.md | 2748 | 08da49e79ef18124… |
 | docs/CINEMATIC_KIT_README.md | 4681 | c62109906e102fc6… |
+| docs/GITHUB_RENDER.md | 3910 | 1bc8aebe01092d49… |
 | docs/SKILL_ADDENDUM_original.md | 4642 | c97f828eed41a968… |
 | references/COMPANION_SKILL_MOBILE.md | 13228 | 4d8cf0b8a48cf3e7… |
 | references/GEMINI_REFERENCE_ANALYSIS.md | 9564 | 26e1dfa12bedaece… |
@@ -459,6 +468,7 @@ Generated 2026-11-19T23:47:53.179717+00:00 — 1081 files.
 | studio/assets_src/textures/wood_floor_deck/diff.jpg | 925789 | 1f2c623e87b0ee90… |
 | studio/assets_src/textures/wood_floor_deck/nor.jpg | 665094 | 2fa427b9196099c0… |
 | studio/assets_src/textures/wood_floor_deck/rough.jpg | 658448 | 5754d2c2a91a288b… |
+| studio/audio/boeing_sfx.py | 12093 | 9c17770c6e670b12… |
 | studio/audio/cent_sfx.py | 13045 | cb0523647092f25d… |
 | studio/audio/crowd_sfx.py | 7097 | 5378433b5012dd1f… |
 | studio/audio/desert_sfx.py | 10485 | 1c6c21137bde077a… |
@@ -467,16 +477,18 @@ Generated 2026-11-19T23:47:53.179717+00:00 — 1081 files.
 | studio/audio/joralemon_sfx.py | 17685 | 6cb7c2a507312426… |
 | studio/audio/london_sfx.py | 10656 | a2b7dc83150ac0de… |
 | studio/audio/mix_act1.py | 9213 | 1788a1ad26032b11… |
-| studio/audio/mix_events.py | 31277 | 53d9b011de6539b9… |
+| studio/audio/mix_events.py | 33062 | 76464bbfb0841ed0… |
 | studio/audio/office_sfx.py | 9265 | adcfdbc9ca62b9b8… |
 | studio/audio/po_sfx.py | 14851 | fd54e58adae8404a… |
 | studio/audio/requirements.txt | 27 | 983665a6331eda07… |
 | studio/audio/sfx_gen.py | 25699 | 656e0d04a8fbd05e… |
+| studio/benchmarks/GITHUB_RENDER_BENCHMARK.md | 3544 | 14492ce46c0d6fc8… |
 | studio/package-lock.json | 182359 | 58915101bb7df6c1… |
 | studio/package.json | 1292 | e608eff014d3050e… |
 | studio/pipeline/analyze_audio.py | 7772 | cbbf3a8f68dc317f… |
 | studio/pipeline/backup.py | 2035 | 8c3e199135fb6cfc… |
 | studio/pipeline/flicker_check.py | 3927 | aeb7bdf99e43972f… |
+| studio/pipeline/gh/split_ranges.mjs | 816 | 24eb9806ca8a679e… |
 | studio/pipeline/make_video.sh | 3847 | 6fa537b08412fb0e… |
 | studio/pipeline/qc.py | 9667 | 3e9e163ac400b010… |
 | studio/pipeline/render_batches.mjs | 3459 | fb54c9166bd8afa8… |
@@ -533,6 +545,24 @@ Generated 2026-11-19T23:47:53.179717+00:00 — 1081 files.
 | studio/previews/v5/2_cringe_pose.png | 1517143 | c346d742d5ab8a68… |
 | studio/previews/v5/3_final_composition.png | 1426248 | 5e2a2911bbf3eeb1… |
 | studio/previews/v5/awkward_take_10s_540x960.mp4 | 5276268 | bec98a9d541f6424… |
+| studio/productions/boeing/SOURCE_NOTES.md | 1542 | 8f86770569c84f2b… |
+| studio/productions/boeing/STORYBOARD.md | 4841 | c5b1cebb710ce8f1… |
+| studio/productions/boeing/analysis/TRANSCRIPT.md | 1955 | 0b372dd9d6c356e5… |
+| studio/productions/boeing/analysis/analysis.json | 19130 | f4d429be09a60b3e… |
+| studio/productions/boeing/audio/ambience.wav | 14873534 | 80682a3657522d81… |
+| studio/productions/boeing/audio/crowd.wav | 14873534 | 6fcdc7ca854fd179… |
+| studio/productions/boeing/audio/cue_sheet.csv | 33528 | e5e46e9ade407add… |
+| studio/productions/boeing/audio/cue_sheet.md | 39821 | 07f3a83cf69435c3… |
+| studio/productions/boeing/audio/mix.wav | 14873534 | 6c88da5c0386a042… |
+| studio/productions/boeing/audio/mix_premaster.wav | 14873534 | 33606f6785d28183… |
+| studio/productions/boeing/audio/mix_report.json | 9829 | c68d32cfa9578400… |
+| studio/productions/boeing/audio/music.wav | 14873534 | c555770d66c1ccf5… |
+| studio/productions/boeing/audio/narration.wav | 14873534 | fb0a3d3c42f23540… |
+| studio/productions/boeing/audio/narration_full_48k.wav | 14873598 | 558c4c3cb850adaa… |
+| studio/productions/boeing/audio/sfx.wav | 14873534 | 181a2c3a40101d67… |
+| studio/productions/boeing/events.json | 47121 | 5174785f615e5af1… |
+| studio/productions/boeing/input/narration.mp3 | 826349 | 69e03544e7a52b73… |
+| studio/productions/boeing/production.json | 352 | d85eb5196d6b6673… |
 | studio/productions/centennial/SOURCE_NOTES.md | 2863 | 5df718e58a4d1391… |
 | studio/productions/centennial/STORYBOARD.md | 5634 | b16cf827bb7c1bf2… |
 | studio/productions/centennial/analysis/TRANSCRIPT.md | 2385 | 5f5092ffb8f2e5b2… |
@@ -915,13 +945,14 @@ Generated 2026-11-19T23:47:53.179717+00:00 — 1081 files.
 | studio/public/tex/tarred_gravel_nor_gl.jpg | 991812 | 7b88d5d9e36f9f59… |
 | studio/public/tex/tarred_gravel_rough.jpg | 780847 | 6bee83214bea834b… |
 | studio/remotion.config.ts | 559 | 10bc8fe3b91a235d… |
+| studio/render-request.json | 792 | 84d12aa66ea55849… |
 | studio/scripts/check-camera.ts | 1394 | 401571f85f8a625b… |
 | studio/scripts/check-crowd.ts | 5247 | 2e2a60d5be866d89… |
 | studio/scripts/check-short3-camera.ts | 6244 | 6cfb60d9891e18c6… |
 | studio/scripts/export-events.ts | 762 | 704eae478ffed480… |
 | studio/scripts/render-stills.mjs | 1017 | fc6707074f107386… |
 | studio/scripts/stills.mjs | 1358 | fd74dd7fab516b57… |
-| studio/src/Root.tsx | 9702 | 80af78ee42eff8d7… |
+| studio/src/Root.tsx | 10192 | 40cd68ba41a9cf53… |
 | studio/src/char/CardSprite.tsx | 3671 | 715b72d7261989ad… |
 | studio/src/char/Odo4.tsx | 2860 | fee3bd6fde57f20d… |
 | studio/src/char/crowdLife.ts | 16955 | aa22f4e6449adaa1… |
@@ -959,6 +990,16 @@ Generated 2026-11-19T23:47:53.179717+00:00 — 1081 files.
 | studio/src/lib/math.ts | 1095 | edae2a2cedd41ffe… |
 | studio/src/previews/Previews.tsx | 9174 | 065c873dcd48593d… |
 | studio/src/previews/Sheet2D.tsx | 2321 | 32b1fd0b3dfb67d7… |
+| studio/src/productions/boeing/Film.tsx | 5082 | 0be5f9e27f460154… |
+| studio/src/productions/boeing/Test.tsx | 2362 | dc66660573581ba9… |
+| studio/src/productions/boeing/actors.ts | 6580 | 73cf78f15abe1000… |
+| studio/src/productions/boeing/b17.tsx | 13511 | f8d194df053fbe4f… |
+| studio/src/productions/boeing/construction.tsx | 7924 | 1e4f507b040121df… |
+| studio/src/productions/boeing/factory.tsx | 11851 | c50bb9adf601f2f0… |
+| studio/src/productions/boeing/office.tsx | 9067 | 91255bb63dee64a8… |
+| studio/src/productions/boeing/scene.ts | 7034 | 60ac6c5aead032b8… |
+| studio/src/productions/boeing/timeline.ts | 17552 | 08c27656fc87a445… |
+| studio/src/productions/boeing/town.tsx | 18968 | ab8a43022497de93… |
 | studio/src/productions/centennial/Film.tsx | 7254 | 77620c855f9bffa9… |
 | studio/src/productions/centennial/Set.tsx | 4417 | 7131fb2ad9982525… |
 | studio/src/productions/centennial/Test.tsx | 4086 | 711a6b5e48ccc192… |
