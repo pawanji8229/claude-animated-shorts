@@ -5,3 +5,5 @@ originals/**/*.glb
 originals/**/*.jpg
 originals/**/*.png
 publish/
+publish-log.jsonl
+asset-report-*.json
