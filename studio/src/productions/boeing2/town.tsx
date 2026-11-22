@@ -165,7 +165,7 @@ export const City: React.FC = () => { const mtn = useMemo(() => new THREE.MeshBa
       by[h.kind].push({ p: [px, 0, pz], ry: h.ry + Math.PI, s: 0.8, v: h.v }); } return by; }, [kit]);
   const trees = useMemo(() => { const t = CITY_HOUSES.filter((h, i) => i % 2 === 0 && !(Math.abs(h.x) < FX + 22 && h.z > -FZ - 30 && h.z < FZ + 40)).map((h, i): Place => ({ p: [h.x + 7.5, 0, h.z - Math.cos(h.ry) * 0.6], ry: i, s: 0.85 + (i % 4) * 0.08 })); return [t.filter((_, i) => i % 2 === 0), t.filter((_, i) => i % 2 === 1)]; }, [kit]);
   return <><KitMesh kit={kit} />
-    <Instances name="bungalow" items={houses[0]} /><Instances name="cottage" items={houses[1]} /><Instances name="colonial" items={houses[2]} />
-    <Instances name="maple" items={trees[0]} /><Instances name="oak" items={trees[1]} />
+    <Instances name="bungalow_far" items={houses[0]} shadows={false} /><Instances name="cottage_far" items={houses[1]} shadows={false} /><Instances name="colonial" items={houses[2]} shadows={false} />
+    <Instances name="maple_far" items={trees[0]} shadows={false} /><Instances name="oak_far" items={trees[1]} shadows={false} />
     <mesh position={[300, 140, -1500]} material={mtn} renderOrder={-1}><planeGeometry args={[4200, 1050]} /></mesh>
     <mesh position={[-1500, 110, 200]} rotation={[0, Math.PI / 2, 0]} material={mtn} renderOrder={-1}><planeGeometry args={[4200, 900]} /></mesh></>; };

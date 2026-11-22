@@ -17,7 +17,7 @@ export type Place = { p: V3; ry?: number; s?: number; v?: number };   // v = col
 const file = (n: string) => `boeing2/m/${n}.glb`;
 // all GLBs are decoded BEFORE the first frame (useB2Ready awaits this), then read synchronously: no frame can be captured
 // before a model is in the scene (async loading inside components races Remotion's screenshot)
-export const MODEL_NAMES = ["camo_house", "bungalow", "cottage", "colonial", "maple", "oak", "crane", "lamp", "drillpress", "toolcart", "rack", "barrel", "box", "streetlamp", "hydrant", "trashcan", "compressor", "welder", "toolchest"];
+export const MODEL_NAMES = ["camo_house", "bungalow", "cottage", "colonial", "maple", "oak", "crane", "lamp", "drillpress", "toolcart", "rack", "barrel", "box", "streetlamp", "hydrant", "trashcan", "compressor", "welder", "toolchest", "maple_far", "oak_far", "bungalow_far", "cottage_far"];
 const scenes = new Map<string, THREE.Group>(); let pre: Promise<void> | null = null;
 export const preloadModels = () => (pre ??= Promise.all(MODEL_NAMES.map(async (n) => { const g = await new GLTFLoader().loadAsync(staticFile(file(n))); scenes.set(n, g.scene); })).then(() => undefined));
 const useLibraryScene = (f: string) => { const n = f.replace("boeing2/m/", "").replace(".glb", ""); const s = scenes.get(n); if (!s) throw new Error(`model ${n} not preloaded`); return s; };
