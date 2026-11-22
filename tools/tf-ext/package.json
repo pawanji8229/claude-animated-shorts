@@ -2,7 +2,7 @@
   "name": "twistframe-ext-tools",
   "version": "0.1.0",
   "private": true,
-  "description": "Optional offline tools for TwistFrame (isolated from studio/: their dependencies never enter the render install). glTF-Transform asset optimisation, Rapier physics baking.",
+  "description": "Optional offline tools for TwistFrame (isolated from studio/: their dependencies never enter the render install). glTF-Transform asset optimisation + inspection, gltfpack (meshoptimizer) packing, Rapier physics baking, howler/Tone audio review helpers.",
   "type": "module",
   "license": "MIT",
   "dependencies": {
@@ -10,6 +10,12 @@
     "@gltf-transform/core": "4.5.1",
     "@gltf-transform/extensions": "4.5.1",
     "@gltf-transform/functions": "4.5.1",
-    "meshoptimizer": "1.3.0"
+    "gltfpack": "1.3.0",
+    "howler": "2.2.4",
+    "meshoptimizer": "1.3.0",
+    "tone": "15.1.22"
+  },
+  "scripts": {
+    "test": "node test-tools.mjs"
   }
 }
