@@ -161,8 +161,9 @@ const mountainTex = () => once("b2Mtn", () => { const c = document.createElement
   for (let i = 0; i < 9; i++) g.lineTo(cx + 190 - i * 40, 210 + (i % 2 ? 40 : 0) * r()); g.fill();
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; });
 export const City: React.FC = () => { const mtn = useMemo(() => new THREE.MeshBasicMaterial({ map: mountainTex(), transparent: true, fog: false, depthWrite: false }), []);
-  const kit = cityKit(), houses = useMemo(() => { const by: Place[][] = [[], [], []]; for (const h of CITY_HOUSES) { const c = 10.4; by[h.kind].push({ p: [h.x - Math.sin(h.ry) * c, 0, h.z - Math.cos(h.ry) * c], ry: h.ry + Math.PI, s: 0.8, v: h.v }); } return by; }, [kit]);
-  const trees = useMemo(() => { const t = CITY_HOUSES.filter((_, i) => i % 2 === 0).map((h, i): Place => ({ p: [h.x + 7.5, 0, h.z - Math.cos(h.ry) * 0.6], ry: i, s: 0.85 + (i % 4) * 0.08 })); return [t.filter((_, i) => i % 2 === 0), t.filter((_, i) => i % 2 === 1)]; }, [kit]);
+  const kit = cityKit(), houses = useMemo(() => { const by: Place[][] = [[], [], []]; for (const h of CITY_HOUSES) { const c = 7.0, px = h.x - Math.sin(h.ry) * c, pz = h.z - Math.cos(h.ry) * c; if (Math.abs(px) < FX + 22 && pz > -FZ - 30 && pz < FZ + 40) continue;   // never on the plant, its yards or East Marginal Way
+      by[h.kind].push({ p: [px, 0, pz], ry: h.ry + Math.PI, s: 0.8, v: h.v }); } return by; }, [kit]);
+  const trees = useMemo(() => { const t = CITY_HOUSES.filter((h, i) => i % 2 === 0 && !(Math.abs(h.x) < FX + 22 && h.z > -FZ - 30 && h.z < FZ + 40)).map((h, i): Place => ({ p: [h.x + 7.5, 0, h.z - Math.cos(h.ry) * 0.6], ry: i, s: 0.85 + (i % 4) * 0.08 })); return [t.filter((_, i) => i % 2 === 0), t.filter((_, i) => i % 2 === 1)]; }, [kit]);
   return <><KitMesh kit={kit} />
     <Instances name="bungalow" items={houses[0]} /><Instances name="cottage" items={houses[1]} /><Instances name="colonial" items={houses[2]} />
     <Instances name="maple" items={trees[0]} /><Instances name="oak" items={trees[1]} />
