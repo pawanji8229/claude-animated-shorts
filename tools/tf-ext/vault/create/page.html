@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}</style>
+<script type="importmap">{"imports":{"three":"/three/build/three.module.js","three/addons/":"/three/examples/jsm/"}}</script></head>
+<body><script type="module">
+// Original-model builder page: builds the requested model, exports a binary GLB (three.js GLTFExporter) and renders a
+// product preview still with image-based lighting + soft shadows. Driven by runner.mjs (Playwright).
+import * as THREE from "three";
+import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+const q = new URLSearchParams(location.search), mod = await import(`./models/${q.get("model")}.js`);
+import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+const { group, meta } = mod.build();
+// optimise for real-time use: inside each named part, merge meshes that share a material (parts stay separate + movable)
+group.updateMatrixWorld(true);
+for (const part of [...group.children]) { const byMat = new Map(); part.traverse((o) => { if (o.isMesh) { const k = o.material.uuid; if (!byMat.has(k)) byMat.set(k, []); byMat.get(k).push(o); } });
+  const inv = new THREE.Matrix4().copy(part.matrixWorld).invert(), merged = [];
+  for (const list of byMat.values()) { const geos = list.map((m) => { const g = m.geometry.index ? m.geometry.toNonIndexed() : m.geometry.clone(); for (const k of Object.keys(g.attributes)) if (!["position", "normal", "uv"].includes(k)) g.deleteAttribute(k); return g.applyMatrix4(new THREE.Matrix4().multiplyMatrices(inv, m.matrixWorld)); });
+    const mesh = new THREE.Mesh(mergeGeometries(geos, false), list[0].material); mesh.name = `${part.name}_${list[0].material.name.replace(/[^\w]+/g, "_")}`; merged.push(mesh); }
+  part.clear(); merged.forEach((m) => part.add(m)); }
+group.updateMatrixWorld(true);
+window.__meta = meta;
+window.__exportGLB = () => new Promise((res, rej) => new GLTFExporter().parse(group, (buf) => { const b = new Uint8Array(buf); let s = ""; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); res(btoa(s)); }, rej, { binary: true, onlyVisible: true, maxTextureSize: 2048 }));
+window.__preview = (w, h, view) => { document.querySelectorAll("canvas").forEach((c) => c.remove()); const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true }); r.setSize(w, h); r.setPixelRatio(1); r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+  r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = 1.0; r.outputColorSpace = THREE.SRGBColorSpace; document.body.appendChild(r.domElement);
+  const scene = new THREE.Scene(), pm = new THREE.PMREMGenerator(r); scene.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture; scene.environmentIntensity = 0.55;
+  const bg = new THREE.Color("#d9dde0"); scene.background = bg; scene.fog = new THREE.Fog(bg, 40, 120);
+  const box = new THREE.Box3().setFromObject(group), size = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3()), R = size.length() * 0.5;
+  const ground = new THREE.Mesh(new THREE.CircleGeometry(R * 6, 64), new THREE.MeshStandardMaterial({ color: "#b9b4aa", roughness: 0.95 })); ground.rotation.x = -Math.PI / 2; ground.position.y = box.min.y - 0.002; ground.receiveShadow = true; scene.add(ground);
+  const sun = new THREE.DirectionalLight("#fff4e2", 2.6); sun.position.set(c.x + R * 1.6, c.y + R * 2.4, c.z + R * 1.9); sun.target.position.copy(c); sun.castShadow = true; sun.shadow.mapSize.set(4096, 4096);
+  const sc = sun.shadow.camera; sc.left = sc.bottom = -R * 1.6; sc.right = sc.top = R * 1.6; sc.near = 0.1; sc.far = R * 8; sun.shadow.bias = -0.0002; sun.shadow.normalBias = 0.02; scene.add(sun, sun.target, new THREE.HemisphereLight("#dfe8f2", "#7a6e5e", 0.6));
+  group.traverse((o) => { if (o.isMesh) { o.castShadow = o.receiveShadow = true; } }); scene.add(group);
+  const v = view ?? meta.view ?? [1.25, 0.55, 1.45], cam = new THREE.PerspectiveCamera(30, w / h, 0.05, 500); cam.position.set(c.x + v[0] * R * 1.55, c.y + v[1] * R * 1.55, c.z + v[2] * R * 1.55); cam.lookAt(c.x, c.y - size.y * 0.04, c.z);
+  r.render(scene, cam); return r.domElement.toDataURL("image/png"); };
+window.__ready = true;
+</script></body></html>
