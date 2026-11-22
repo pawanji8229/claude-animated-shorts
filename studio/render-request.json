@@ -1,11 +1,11 @@
 {
   "_doc": "Edit + commit this file on a render/** branch to start a cloud render (works from the GitHub phone app). production = folder in studio/productions; composition = id in src/Root.tsx (use the 1080x1920 one); frames = a-b or 'all'; workers = parallel free runners (1-8); audio = 'mix' to mux productions/<production>/audio/mix.wav, or 'none'; qc = 'full' runs the complete QC (frame count, narration sync + clarity, loop), 'basic' for partial ranges; release = true attaches the MP4 to a GitHub Release (easy phone download).",
-  "production": "boeing",
-  "composition": "Boeing",
+  "production": "boeing2",
+  "composition": "Boeing2",
   "frames": "all",
   "workers": 8,
   "audio": "mix",
   "qc": "full",
   "release": true,
-  "note": "TwistFrame Lab #8: The Fake Neighborhood Above Boeing's Factory - full 1550-frame 1080x1920 render"
+  "note": "TwistFrame Lab #8 rebuild (v2): The Fake Neighborhood Above Boeing's Factory - native 1080x1920, 1550 frames"
 }
