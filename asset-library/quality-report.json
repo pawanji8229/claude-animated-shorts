@@ -1,0 +1,7512 @@
+{
+ "generated": "2026-11-22",
+ "models": {
+  "ArmChair_01": {
+   "triangles": 5626,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.848,
+    1.065,
+    0.766
+   ],
+   "statedM": [
+    0.848,
+    0.766,
+    1.065
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "Armchair_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "Barrel_01": {
+   "triangles": 2682,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.563,
+    0.88,
+    0.563
+   ],
+   "statedM": [
+    0.563,
+    0.563,
+    0.88
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "Barrel_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "CashRegister_01": {
+   "triangles": 9927,
+   "primitives": 3,
+   "meshes": 2,
+   "sizeM": [
+    0.6,
+    0.621,
+    0.624
+   ],
+   "statedM": [
+    0.6,
+    0.624,
+    0.621
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "CashRegister_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "CashRegister_01_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "Rockingchair_01": {
+   "triangles": 11866,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.708,
+    0.995,
+    0.833
+   ],
+   "statedM": [
+    0.708,
+    0.833,
+    0.995
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "Rockingchair_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "SchoolDesk_01": {
+   "triangles": 4162,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.712,
+    0.883,
+    0.546
+   ],
+   "statedM": [
+    0.712,
+    0.546,
+    0.883
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "SchoolDesk_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "WoodenChair_01": {
+   "triangles": 19992,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.688,
+    2.274,
+    0.658
+   ],
+   "statedM": [
+    0.688,
+    0.658,
+    2.274
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "WoodenChair_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "adjustable_wrench": {
+   "triangles": 5390,
+   "primitives": 3,
+   "meshes": 3,
+   "sizeM": [
+    0.068,
+    0.254,
+    0.031
+   ],
+   "statedM": [
+    0.068,
+    0.031,
+    0.254
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "adjustable_wrench",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "barrel_03": {
+   "triangles": 1473,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.634,
+    0.93,
+    0.639
+   ],
+   "statedM": [
+    0.634,
+    0.639,
+    0.93
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "barrel_03",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "bench_vice_01": {
+   "triangles": 2864,
+   "primitives": 4,
+   "meshes": 4,
+   "sizeM": [
+    0.2,
+    0.285,
+    0.396
+   ],
+   "statedM": [
+    0.2,
+    0.396,
+    0.272
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "bench_vice_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "boulder_01": {
+   "triangles": 66122,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    1.272,
+    1.004,
+    1.83
+   ],
+   "statedM": [
+    1.273,
+    1.831,
+    1.004
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "boulder_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "caged_hanging_light": {
+   "triangles": 22893,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    1.162,
+    0.75,
+    0.315
+   ],
+   "statedM": [
+    1.162,
+    0.315,
+    0.75
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "caged_hanging_light",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": true,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "cardboard_box_01": {
+   "triangles": 16952,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.387,
+    0.342,
+    0.516
+   ],
+   "statedM": [
+    0.387,
+    0.516,
+    0.342
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "cardboard_box_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "ceiling_fan": {
+   "triangles": 16356,
+   "primitives": 2,
+   "meshes": 2,
+   "sizeM": [
+    1.463,
+    0.516,
+    1.463
+   ],
+   "statedM": [
+    1.463,
+    1.463,
+    0.516
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "ceiling_fan",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": true,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 5,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_specular"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "clipboard": {
+   "triangles": 6176,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.229,
+    0.042,
+    0.337
+   ],
+   "statedM": [
+    0.229,
+    0.337,
+    0.042
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "clipboard",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "combination_wrench": {
+   "triangles": 1986,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.057,
+    0.022,
+    0.337
+   ],
+   "statedM": [
+    0.057,
+    0.337,
+    0.022
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "combination_wrench",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "concrete_road_barrier": {
+   "triangles": 60928,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    1.545,
+    0.831,
+    0.639
+   ],
+   "statedM": [
+    1.545,
+    0.641,
+    0.835
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "concrete_road_barrier",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "covered_car": {
+   "triangles": 12592,
+   "primitives": 5,
+   "meshes": 5,
+   "sizeM": [
+    1.789,
+    1.411,
+    4.38
+   ],
+   "statedM": [
+    1.789,
+    4.38,
+    1.411
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "covered_car",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "covered_car",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_ior",
+    "KHR_materials_specular"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "crowbar_01": {
+   "triangles": 2300,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.04,
+    0.555,
+    0.128
+   ],
+   "statedM": [
+    0.04,
+    0.128,
+    0.555
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "crowbar_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "dandelion_01": {
+   "triangles": 54764,
+   "primitives": 5,
+   "meshes": 5,
+   "sizeM": [
+    4.214,
+    0.17,
+    0.258
+   ],
+   "statedM": [
+    4.214,
+    0.258,
+    0.17
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "dandelion_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "MASK",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "drawer_cabinet": {
+   "triangles": 26406,
+   "primitives": 5,
+   "meshes": 5,
+   "sizeM": [
+    1.141,
+    1.881,
+    0.488
+   ],
+   "statedM": [
+    1.141,
+    0.488,
+    1.881
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "drawer_cabinet",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "drill_press_01": {
+   "triangles": 58526,
+   "primitives": 13,
+   "meshes": 13,
+   "sizeM": [
+    0.354,
+    0.901,
+    0.599
+   ],
+   "statedM": [
+    0.366,
+    0.599,
+    0.902
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "drill_press_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "dutch_ship_medium": {
+   "triangles": 69162,
+   "primitives": 3,
+   "meshes": 3,
+   "sizeM": [
+    24.07,
+    24.657,
+    6.809
+   ],
+   "statedM": [
+    6.809,
+    24.07,
+    24.657
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "dutch_ship_medium_rigging",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "dutch_ship_medium_hull",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "dutch_ship_medium_sails",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "MASK",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 9,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "fir_sapling": {
+   "triangles": 433021,
+   "primitives": 6,
+   "meshes": 3,
+   "sizeM": [
+    2.743,
+    1.301,
+    0.826
+   ],
+   "statedM": [
+    2.743,
+    0.826,
+    1.301
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "fir_sapling_branches",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "fir_sapling_twigs",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_ior",
+    "KHR_materials_specular"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "fire_hydrant": {
+   "triangles": 86316,
+   "primitives": 14,
+   "meshes": 10,
+   "sizeM": [
+    0.875,
+    0.799,
+    0.318
+   ],
+   "statedM": [
+    0.875,
+    0.318,
+    0.799
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "fire_hydrant",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "fire_hydrant_aged",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "flood_lights": {
+   "triangles": 76868,
+   "primitives": 75,
+   "meshes": 60,
+   "sizeM": [
+    4.6,
+    1.808,
+    2.113
+   ],
+   "statedM": [
+    4.607,
+    2.113,
+    1.811
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "flood_lights",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": true,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "flood_lights_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 7,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_emissive_strength"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "flower_gazania": {
+   "triangles": 14340,
+   "primitives": 8,
+   "meshes": 8,
+   "sizeM": [
+    1.481,
+    0.166,
+    0.703
+   ],
+   "statedM": [
+    1.579,
+    0.81,
+    0.401
+   ],
+   "scaleOk": false,
+   "materials": [
+    {
+     "name": "flower_gazania",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [
+    "bounds differ from stated dimensions"
+   ],
+   "ready": true
+  },
+  "grass_bermuda_01": {
+   "triangles": 941,
+   "primitives": 21,
+   "meshes": 21,
+   "sizeM": [
+    1.686,
+    0.158,
+    0.142
+   ],
+   "statedM": [
+    3.136,
+    1.073,
+    1.06
+   ],
+   "scaleOk": false,
+   "materials": [
+    {
+     "name": "grass_bermuda_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [
+    "bounds differ from stated dimensions"
+   ],
+   "ready": true
+  },
+  "hand_truck": {
+   "triangles": 13220,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.593,
+    1.403,
+    0.693
+   ],
+   "statedM": [
+    0.593,
+    0.693,
+    1.403
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "hand_truck",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "handsaw_wood": {
+   "triangles": 2548,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.041,
+    0.167,
+    0.633
+   ],
+   "statedM": [
+    0.041,
+    0.633,
+    0.167
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "handsaw_wood",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "hanging_industrial_lamp": {
+   "triangles": 9530,
+   "primitives": 2,
+   "meshes": 1,
+   "sizeM": [
+    0.55,
+    1.355,
+    0.55
+   ],
+   "statedM": [
+    0.55,
+    0.55,
+    1.355
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "hanging_industrial_lamp",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": true,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "hanging_industrial_lamp_glass",
+     "base": false,
+     "normal": true,
+     "orm": false,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 0.10000000149011612
+    }
+   ],
+   "textures": 5,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_emissive_strength",
+    "KHR_materials_transmission"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "industrial_pipe_lamp": {
+   "triangles": 8626,
+   "primitives": 3,
+   "meshes": 3,
+   "sizeM": [
+    0.183,
+    0.364,
+    0.262
+   ],
+   "statedM": [
+    0.183,
+    0.262,
+    0.364
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "industrial_pipe_lamp",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": true,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "industrial_pipe_lamp_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": true,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_emissive_strength"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "industrial_storage_cart": {
+   "triangles": 18902,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    1.603,
+    1.377,
+    1.103
+   ],
+   "statedM": [
+    1.603,
+    1.103,
+    1.377
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "industrial_storage_cart",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "industrial_wall_lamp": {
+   "triangles": 4446,
+   "primitives": 2,
+   "meshes": 1,
+   "sizeM": [
+    0.273,
+    0.43,
+    0.14
+   ],
+   "statedM": [
+    0.273,
+    0.14,
+    0.43
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "industrial_wall_lamp",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": true,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "industrial_wall_lamp_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 7,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_emissive_strength",
+    "KHR_materials_transmission"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "jacaranda_tree": {
+   "triangles": 3863832,
+   "primitives": 3,
+   "meshes": 1,
+   "sizeM": [
+    24.417,
+    19.469,
+    19.155
+   ],
+   "statedM": [
+    24.17,
+    18.029,
+    19.829
+   ],
+   "scaleOk": false,
+   "materials": [
+    {
+     "name": "jacaranda_tree_branches",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "jacaranda_tree_trunk",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "jacaranda_tree_leaves",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 9,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_ior",
+    "KHR_materials_specular"
+   ],
+   "flags": [
+    "bounds differ from stated dimensions",
+    "heavy (>500k tris): use LOD/simplify for distance, or as hero only"
+   ],
+   "ready": true
+  },
+  "ladder_sectioned_01": {
+   "triangles": 29140,
+   "primitives": 4,
+   "meshes": 4,
+   "sizeM": [
+    0.662,
+    2.135,
+    0.178
+   ],
+   "statedM": [
+    0.662,
+    0.178,
+    2.135
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "ladder_sectioned_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "large_iron_gate": {
+   "triangles": 38140,
+   "primitives": 4,
+   "meshes": 4,
+   "sizeM": [
+    2.95,
+    2.929,
+    0.097
+   ],
+   "statedM": [
+    2.95,
+    0.097,
+    2.929
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "large_iron_gate",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "measuring_tape_01": {
+   "triangles": 2868,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.041,
+    0.073,
+    0.169
+   ],
+   "statedM": [
+    0.041,
+    0.169,
+    0.073
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "measuring_tape_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "metal_office_desk": {
+   "triangles": 6898,
+   "primitives": 9,
+   "meshes": 9,
+   "sizeM": [
+    2,
+    0.788,
+    0.947
+   ],
+   "statedM": [
+    2,
+    0.947,
+    0.788
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "metal_office_desk",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "metal_tool_chest": {
+   "triangles": 13360,
+   "primitives": 7,
+   "meshes": 7,
+   "sizeM": [
+    0.685,
+    0.652,
+    0.407
+   ],
+   "statedM": [
+    0.685,
+    0.407,
+    0.652
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "metal_tool_chest",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "metal_toolbox": {
+   "triangles": 14228,
+   "primitives": 6,
+   "meshes": 6,
+   "sizeM": [
+    0.4,
+    0.305,
+    0.271
+   ],
+   "statedM": [
+    0.4,
+    0.292,
+    0.347
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "metal_toolbox",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "metal_trash_can": {
+   "triangles": 13960,
+   "primitives": 8,
+   "meshes": 8,
+   "sizeM": [
+    1.778,
+    0.906,
+    0.556
+   ],
+   "statedM": [
+    1.847,
+    0.556,
+    0.906
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "metal_trash_can",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "metal_trash_can_rust",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "metal_trash_can_rust",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_airduct_circular_01": {
+   "triangles": 14280,
+   "primitives": 16,
+   "meshes": 16,
+   "sizeM": [
+    4.171,
+    1.324,
+    1.463
+   ],
+   "statedM": [
+    4.171,
+    1.463,
+    1.324
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_airduct_circular_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_airduct_circular_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_chainlink_fence": {
+   "triangles": 89232,
+   "primitives": 26,
+   "meshes": 20,
+   "sizeM": [
+    8.115,
+    2.523,
+    2.149
+   ],
+   "statedM": [
+    8.115,
+    2.149,
+    2.523
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_chainlink_fence_posts",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_chainlink_fence_wire",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_texture_transform"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "modular_electric_cables": {
+   "triangles": 42078,
+   "primitives": 49,
+   "meshes": 49,
+   "sizeM": [
+    2.077,
+    0.757,
+    0.215
+   ],
+   "statedM": [
+    2.077,
+    0.215,
+    0.757
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_electric_cables",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_electric_cables_boxes",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_electricity_poles": {
+   "triangles": 200610,
+   "primitives": 103,
+   "meshes": 103,
+   "sizeM": [
+    13.119,
+    7,
+    1.957
+   ],
+   "statedM": [
+    13.119,
+    1.957,
+    7
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_electricity_poles_pieces",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_electricity_poles",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_factory_facade": {
+   "triangles": 175014,
+   "primitives": 263,
+   "meshes": 192,
+   "sizeM": [
+    53.33,
+    29,
+    5.356
+   ],
+   "statedM": [
+    53.33,
+    5.356,
+    29
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_factory_facade_trim_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "modular_factory_facade_windows",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "modular_factory_facade_windows_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "modular_factory_facade_garage",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_factory_facade_brick",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "modular_factory_facade_brick_doors",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 16,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_fire_escape": {
+   "triangles": 11322,
+   "primitives": 7,
+   "meshes": 7,
+   "sizeM": [
+    6.661,
+    9.757,
+    1.421
+   ],
+   "statedM": [
+    6.661,
+    1.421,
+    9.757
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_fire_escape_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_fire_escape_02",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_fire_escape_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_industrial_pipes_01": {
+   "triangles": 12340,
+   "primitives": 8,
+   "meshes": 8,
+   "sizeM": [
+    1.403,
+    1.955,
+    0.308
+   ],
+   "statedM": [
+    1.403,
+    0.308,
+    1.955
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_industrial_pipes_01_group01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_industrial_pipes_01_group02",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_metal_gutter": {
+   "triangles": 16490,
+   "primitives": 12,
+   "meshes": 12,
+   "sizeM": [
+    2.268,
+    1.843,
+    1.515
+   ],
+   "statedM": [
+    2.268,
+    1.515,
+    1.843
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_metal_gutter",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_metal_gutter",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_pipes": {
+   "triangles": 94856,
+   "primitives": 106,
+   "meshes": 106,
+   "sizeM": [
+    4.187,
+    2.435,
+    0.458
+   ],
+   "statedM": [
+    4.187,
+    0.458,
+    2.435
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_pipes_metal",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_pipes_pvc",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_urban_apartments_facade": {
+   "triangles": 270045,
+   "primitives": 193,
+   "meshes": 147,
+   "sizeM": [
+    51.53,
+    17,
+    6.665
+   ],
+   "statedM": [
+    51.53,
+    6.665,
+    17
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_urban_apartments_facade_objects",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_urban_apartments_facade_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "modular_urban_apartments_facade_trim_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "modular_urban_apartments_facade_trim_02",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "modular_urban_apartments_facade_plaster",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 12,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "modular_wooden_pier": {
+   "triangles": 84780,
+   "primitives": 12,
+   "meshes": 7,
+   "sizeM": [
+    3.102,
+    7.516,
+    19.026
+   ],
+   "statedM": [
+    3.102,
+    19.026,
+    7.516
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "modular_wooden_pier_poles",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "modular_wooden_pier_planks",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "mounted_fluorescent_lights": {
+   "triangles": 17820,
+   "primitives": 14,
+   "meshes": 7,
+   "sizeM": [
+    0.912,
+    0.035,
+    0.645
+   ],
+   "statedM": [
+    0.912,
+    0.645,
+    0.035
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "mounted_fluorescent_lights",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "mounted_fluorescent_lights_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": true,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "old_drill_press": {
+   "triangles": 21842,
+   "primitives": 2,
+   "meshes": 2,
+   "sizeM": [
+    0.527,
+    1.05,
+    0.61
+   ],
+   "statedM": [
+    0.527,
+    0.61,
+    1.05
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "old_drill_press",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "old_military_compressor": {
+   "triangles": 79042,
+   "primitives": 2,
+   "meshes": 1,
+   "sizeM": [
+    0.598,
+    1.179,
+    1.676
+   ],
+   "statedM": [
+    0.598,
+    1.676,
+    1.179
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "old_military_compressor",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "old_military_compressor_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "old_tyre": {
+   "triangles": 2880,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.6,
+    0.6,
+    0.165
+   ],
+   "statedM": [
+    0.6,
+    0.165,
+    0.6
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "old_tyre",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "overhead_crane": {
+   "triangles": 89964,
+   "primitives": 5,
+   "meshes": 3,
+   "sizeM": [
+    12.492,
+    5.133,
+    4
+   ],
+   "statedM": [
+    12.492,
+    4,
+    5.133
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "overhead_crane_trim",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "overhead_crane",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "periwinkle_plant": {
+   "triangles": 34350,
+   "primitives": 6,
+   "meshes": 6,
+   "sizeM": [
+    1.235,
+    0.411,
+    0.321
+   ],
+   "statedM": [
+    1.249,
+    0.335,
+    0.411
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "periwinkle_plant",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "pine_sapling_small": {
+   "triangles": 398144,
+   "primitives": 6,
+   "meshes": 3,
+   "sizeM": [
+    2.642,
+    1.299,
+    0.77
+   ],
+   "statedM": [
+    2.642,
+    0.77,
+    1.299
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "pine_sapling_small_bark",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "pine_sapling_small_twig",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "MASK",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_ior",
+    "KHR_materials_specular"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "pipe_wrench": {
+   "triangles": 10746,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.084,
+    0.405,
+    0.034
+   ],
+   "statedM": [
+    0.084,
+    0.034,
+    0.405
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "pipe_wrench",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "pliers": {
+   "triangles": 4540,
+   "primitives": 3,
+   "meshes": 3,
+   "sizeM": [
+    0.055,
+    0.18,
+    0.018
+   ],
+   "statedM": [
+    0.055,
+    0.018,
+    0.18
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "pliers",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "portable_generator": {
+   "triangles": 26419,
+   "primitives": 5,
+   "meshes": 4,
+   "sizeM": [
+    0.818,
+    0.577,
+    0.564
+   ],
+   "statedM": [
+    0.818,
+    0.564,
+    0.577
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "portable_generator",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "portable_generator_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 5,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_specular",
+    "KHR_materials_transmission"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "portable_searchlight": {
+   "triangles": 18802,
+   "primitives": 2,
+   "meshes": 1,
+   "sizeM": [
+    0.165,
+    0.185,
+    0.253
+   ],
+   "statedM": [
+    0.165,
+    0.253,
+    0.185
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "portable_searchlight",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "portable_searchlight_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "portable_welding_cart": {
+   "triangles": 29418,
+   "primitives": 2,
+   "meshes": 1,
+   "sizeM": [
+    0.838,
+    1.563,
+    0.655
+   ],
+   "statedM": [
+    0.838,
+    0.655,
+    1.563
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "portable_welding_cart",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "portable_welding_cart_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "power_box_01": {
+   "triangles": 21272,
+   "primitives": 2,
+   "meshes": 2,
+   "sizeM": [
+    0.461,
+    0.503,
+    0.399
+   ],
+   "statedM": [
+    0.377,
+    0.418,
+    0.503
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "power_box_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "propane_tank": {
+   "triangles": 5238,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.337,
+    0.554,
+    0.337
+   ],
+   "statedM": [
+    0.337,
+    0.337,
+    0.554
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "propane_tank",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "rock_07": {
+   "triangles": 14844,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.169,
+    0.144,
+    0.32
+   ],
+   "statedM": [
+    0.169,
+    0.321,
+    0.144
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "rock_07",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "rock_moss_set_01": {
+   "triangles": 63127,
+   "primitives": 6,
+   "meshes": 6,
+   "sizeM": [
+    8.005,
+    1.768,
+    6.949
+   ],
+   "statedM": [
+    8.005,
+    6.949,
+    1.768
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "rock_moss_set_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "rollershutter_door": {
+   "triangles": 1104,
+   "primitives": 2,
+   "meshes": 2,
+   "sizeM": [
+    3.08,
+    2.4,
+    0.3
+   ],
+   "statedM": [
+    3.08,
+    0.3,
+    2.4
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "rollershutter_door",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "rollershutter_door_graffiti",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_ior",
+    "KHR_materials_specular"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "rollershutter_window_01": {
+   "triangles": 1104,
+   "primitives": 2,
+   "meshes": 2,
+   "sizeM": [
+    5.1,
+    1.851,
+    0.3
+   ],
+   "statedM": [
+    5.1,
+    0.3,
+    1.851
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "rollershutter_window_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "rollershutter_window_01_graffiti",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "round_wooden_table_01": {
+   "triangles": 8640,
+   "primitives": 2,
+   "meshes": 2,
+   "sizeM": [
+    1.399,
+    1.005,
+    1.399
+   ],
+   "statedM": [
+    1.399,
+    1.399,
+    1.005
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "round_wooden_table_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "ship_pinnace": {
+   "triangles": 168317,
+   "primitives": 7,
+   "meshes": 7,
+   "sizeM": [
+    9.527,
+    32.575,
+    39.789
+   ],
+   "statedM": [
+    9.606,
+    39.789,
+    32.575
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "ship_pinnace_aft",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "ship_pinnace_rigging",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "ship_pinnace_details",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "ship_pinnace_hull",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "ship_pinnace_deck",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "ship_pinnace_interior",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "ship_pinnace_sails",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "MASK",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 21,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "shrub_01": {
+   "triangles": 156012,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    2.587,
+    0.396,
+    0.219
+   ],
+   "statedM": [
+    2.587,
+    0.219,
+    0.396
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "shrub_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "MASK",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "sledgehammer_01": {
+   "triangles": 2596,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.208,
+    1.006,
+    0.09
+   ],
+   "statedM": [
+    0.208,
+    0.09,
+    1.006
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "sledgehammer_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "small_oil_can_01": {
+   "triangles": 16746,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.266,
+    0.237,
+    0.104
+   ],
+   "statedM": [
+    0.266,
+    0.104,
+    0.237
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "small_oil_can_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "steel_frame_shelves_01": {
+   "triangles": 4348,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    10.974,
+    21.405,
+    5.021
+   ],
+   "statedM": [
+    1.097,
+    0.502,
+    2.141
+   ],
+   "scaleOk": false,
+   "materials": [
+    {
+     "name": "steel_frame_shelves_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [
+    "bounds differ from stated dimensions"
+   ],
+   "ready": true
+  },
+  "stone_01": {
+   "triangles": 53520,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.147,
+    0.072,
+    0.089
+   ],
+   "statedM": [
+    0.147,
+    0.089,
+    0.072
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "stone_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "street_lamp_01": {
+   "triangles": 30610,
+   "primitives": 3,
+   "meshes": 1,
+   "sizeM": [
+    0.704,
+    3.871,
+    0.386
+   ],
+   "statedM": [
+    0.704,
+    0.386,
+    3.871
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "street_lamp_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "street_lamp_01_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "street_lamp_01_bulb",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "street_lamp_02": {
+   "triangles": 20338,
+   "primitives": 3,
+   "meshes": 1,
+   "sizeM": [
+    0.386,
+    1.675,
+    0.807
+   ],
+   "statedM": [
+    0.386,
+    0.807,
+    1.675
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "street_lamp_02",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "street_lamp_02_glass",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "street_lamp_02_bulb",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "tool_cart": {
+   "triangles": 29394,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    1.273,
+    0.965,
+    0.754
+   ],
+   "statedM": [
+    1.273,
+    0.754,
+    0.965
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "tool_cart",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "tree_stump_01": {
+   "triangles": 41046,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    1.426,
+    0.573,
+    1.59
+   ],
+   "statedM": [
+    1.426,
+    1.59,
+    0.573
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "tree_stump_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "utility_box_01": {
+   "triangles": 4404,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.52,
+    1.12,
+    0.432
+   ],
+   "statedM": [
+    0.52,
+    0.432,
+    1.12
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "utility_box_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "vintage_cabinet_01": {
+   "triangles": 61096,
+   "primitives": 12,
+   "meshes": 8,
+   "sizeM": [
+    2.022,
+    2.235,
+    0.67
+   ],
+   "statedM": [
+    2.022,
+    0.67,
+    2.235
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "vintage_cabinet_01_a",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "vintage_cabinet_01_b",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 0,
+     "roughness": 1
+    },
+    {
+     "name": "vintage_cabinet_01_glass",
+     "base": false,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 7,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_clearcoat"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "vintage_grandfather_clock_01": {
+   "triangles": 8582,
+   "primitives": 4,
+   "meshes": 3,
+   "sizeM": [
+    0.626,
+    2.191,
+    0.427
+   ],
+   "statedM": [
+    0.997,
+    0.795,
+    2.191
+   ],
+   "scaleOk": false,
+   "materials": [
+    {
+     "name": "vintage_grandfather_clock_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "vintage_grandfather_clock_01_glass",
+     "base": true,
+     "normal": false,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [
+    "bounds differ from stated dimensions",
+    "some materials without normal map"
+   ],
+   "ready": true
+  },
+  "vintage_radio_transceiver": {
+   "triangles": 42350,
+   "primitives": 14,
+   "meshes": 14,
+   "sizeM": [
+    0.574,
+    0.434,
+    0.413
+   ],
+   "statedM": [
+    0.618,
+    0.418,
+    0.434
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "vintage_radio_transceiver",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "vintage_radio_transceiver_accessories",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "vintage_stapler": {
+   "triangles": 4370,
+   "primitives": 4,
+   "meshes": 4,
+   "sizeM": [
+    0.208,
+    0.095,
+    0.047
+   ],
+   "statedM": [
+    0.208,
+    0.047,
+    0.095
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "vintage_stapler",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "vintage_wooden_drawer_01": {
+   "triangles": 5184,
+   "primitives": 7,
+   "meshes": 7,
+   "sizeM": [
+    1.715,
+    1.091,
+    1.007
+   ],
+   "statedM": [
+    1.715,
+    1.007,
+    1.091
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "vintage_wooden_drawer_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "wall_clock": {
+   "triangles": 3658,
+   "primitives": 5,
+   "meshes": 4,
+   "sizeM": [
+    0.32,
+    0.32,
+    0.047
+   ],
+   "statedM": [
+    0.32,
+    0.047,
+    0.32
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "wall_clock",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "wall_clock_glass",
+     "base": false,
+     "normal": false,
+     "orm": true,
+     "emissive": false,
+     "alpha": "BLEND",
+     "metallic": 0,
+     "roughness": 1
+    }
+   ],
+   "textures": 4,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [
+    "KHR_materials_transmission"
+   ],
+   "flags": [],
+   "ready": true
+  },
+  "water_manhole_cover": {
+   "triangles": 6301,
+   "primitives": 2,
+   "meshes": 2,
+   "sizeM": [
+    0.691,
+    0.068,
+    0.691
+   ],
+   "statedM": [
+    0.691,
+    0.691,
+    0.068
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "water_manhole_cover",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "wooden_bookshelf_worn": {
+   "triangles": 10106,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    1.374,
+    2.063,
+    0.581
+   ],
+   "statedM": [
+    1.374,
+    0.581,
+    2.063
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "wooden_bookshelf_worn",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "wooden_hammer_01": {
+   "triangles": 3617,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.112,
+    0.279,
+    0.023
+   ],
+   "statedM": [
+    0.112,
+    0.023,
+    0.279
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "wooden_hammer_01",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "wooden_ladder": {
+   "triangles": 8492,
+   "primitives": 2,
+   "meshes": 2,
+   "sizeM": [
+    0.959,
+    1.335,
+    0.5
+   ],
+   "statedM": [
+    0.959,
+    0.5,
+    1.335
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "wooden_ladder",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "wooden_picnic_table": {
+   "triangles": 10210,
+   "primitives": 2,
+   "meshes": 1,
+   "sizeM": [
+    2.241,
+    0.746,
+    3.022
+   ],
+   "statedM": [
+    2.241,
+    3.022,
+    0.746
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "wooden_picnic_table_bottom",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    },
+    {
+     "name": "wooden_picnic_table_table",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 6,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  },
+  "worn_metal_rack": {
+   "triangles": 6372,
+   "primitives": 1,
+   "meshes": 1,
+   "sizeM": [
+    0.915,
+    1.9,
+    0.6
+   ],
+   "statedM": [
+    0.915,
+    0.6,
+    1.9
+   ],
+   "scaleOk": true,
+   "materials": [
+    {
+     "name": "worn_metal_rack",
+     "base": true,
+     "normal": true,
+     "orm": true,
+     "emissive": false,
+     "alpha": "OPAQUE",
+     "metallic": 1,
+     "roughness": 1
+    }
+   ],
+   "textures": 3,
+   "textureRes": [
+    1024,
+    1024
+   ],
+   "extensions": [],
+   "flags": [],
+   "ready": true
+  }
+ },
+ "textures": {
+  "aerial_asphalt_01": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "aerial_asphalt_01_2k.gltf",
+    "aerial_asphalt_01_nor_gl_2k.jpg",
+    "aerial_asphalt_01_diff_2k.jpg",
+    "aerial_asphalt_01.bin",
+    "aerial_asphalt_01_rough_2k.jpg"
+   ],
+   "ready": true
+  },
+  "aerial_grass_rock": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "aerial_grass_rock_2k.gltf",
+    "aerial_grass_rock_rough_2k.jpg",
+    "aerial_grass_rock_diff_2k.jpg",
+    "aerial_grass_rock.bin",
+    "aerial_grass_rock_nor_gl_2k.jpg"
+   ],
+   "ready": true
+  },
+  "asphalt_02": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "asphalt_02_2k.gltf",
+    "asphalt_02_rough_2k.jpg",
+    "asphalt_02_nor_gl_2k.jpg",
+    "asphalt_02_diff_2k.jpg",
+    "asphalt_02.bin"
+   ],
+   "ready": true
+  },
+  "bark_brown_01": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "bark_brown_01_2k.gltf",
+    "bark_brown_01_nor_gl_2k.jpg",
+    "bark_brown_01_diff_2k.jpg",
+    "bark_brown_01.bin",
+    "bark_brown_01_rough_2k.jpg"
+   ],
+   "ready": true
+  },
+  "brick_pavement": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "brick_pavement_2k.gltf",
+    "brick_pavement_arm_2k.jpg",
+    "brick_pavement_diff_2k.jpg",
+    "brick_pavement.bin",
+    "brick_pavement_nor_gl_2k.jpg"
+   ],
+   "ready": true
+  },
+  "concrete_floor_worn_001": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "concrete_floor_worn_001_2k.gltf",
+    "concrete_floor_worn_001_nor_gl_2k.jpg",
+    "concrete_floor_worn_001.bin",
+    "concrete_floor_worn_001_rough_2k.jpg",
+    "concrete_floor_worn_001_diff_2k.jpg"
+   ],
+   "ready": true
+  },
+  "corrugated_iron": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "corrugated_iron_2k.gltf",
+    "corrugated_iron_arm_2k.jpg",
+    "corrugated_iron_nor_gl_2k.jpg",
+    "corrugated_iron.bin",
+    "corrugated_iron_diff_2k.jpg"
+   ],
+   "ready": true
+  },
+  "factory_brick": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "factory_brick_2k.gltf",
+    "factory_brick_rough_2k.jpg",
+    "factory_brick_diff_2k.jpg",
+    "factory_brick.bin",
+    "factory_brick_nor_gl_2k.jpg"
+   ],
+   "ready": true
+  },
+  "forest_ground_04": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "forest_ground_04_2k.gltf",
+    "forest_ground_04_diff_2k.jpg",
+    "forest_ground_04_rough_2k.jpg",
+    "forest_ground_04_nor_gl_2k.jpg",
+    "forest_ground_04.bin"
+   ],
+   "ready": true
+  },
+  "gravel_floor": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "gravel_floor_2k.gltf",
+    "gravel_floor_diff_2k.jpg",
+    "gravel_floor.bin",
+    "gravel_floor_nor_gl_2k.jpg",
+    "gravel_floor_arm_2k.jpg"
+   ],
+   "ready": true
+  },
+  "grey_roof_tiles": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "grey_roof_tiles_2k.gltf",
+    "grey_roof_tiles_nor_gl_2k.jpg",
+    "grey_roof_tiles_rough_2k.jpg",
+    "grey_roof_tiles.bin",
+    "grey_roof_tiles_diff_2k.jpg"
+   ],
+   "ready": true
+  },
+  "hangar_concrete_floor": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "hangar_concrete_floor_2k.gltf",
+    "hangar_concrete_floor_nor_gl_2k.jpg",
+    "hangar_concrete_floor_diff_2k.jpg",
+    "hangar_concrete_floor_arm_2k.jpg",
+    "hangar_concrete_floor.bin"
+   ],
+   "ready": true
+  },
+  "leafy_grass": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "leafy_grass_2k.gltf",
+    "leafy_grass_nor_gl_2k.jpg",
+    "leafy_grass.bin",
+    "leafy_grass_diff_2k.jpg",
+    "leafy_grass_arm_2k.jpg"
+   ],
+   "ready": true
+  },
+  "metal_plate": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "metal_plate_2k.gltf",
+    "metal_plate_nor_gl_2k.jpg",
+    "metal_plate.bin",
+    "metal_plate_diff_2k.jpg",
+    "metal_plate_rough_2k.jpg"
+   ],
+   "ready": true
+  },
+  "oak_wood_planks": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "oak_wood_planks_2k.gltf",
+    "oak_wood_planks_nor_gl_2k.jpg",
+    "oak_wood_planks_diff_2k.jpg",
+    "oak_wood_planks_arm_2k.jpg",
+    "oak_wood_planks.bin"
+   ],
+   "ready": true
+  },
+  "painted_metal_shutter": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "painted_metal_shutter_2k.gltf",
+    "painted_metal_shutter_rough_2k.jpg",
+    "painted_metal_shutter.bin",
+    "painted_metal_shutter_nor_gl_2k.jpg",
+    "painted_metal_shutter_diff_2k.jpg"
+   ],
+   "ready": true
+  },
+  "painted_plaster_wall": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "painted_plaster_wall_2k.gltf",
+    "painted_plaster_wall_arm_2k.jpg",
+    "painted_plaster_wall.bin",
+    "painted_plaster_wall_diff_2k.jpg",
+    "painted_plaster_wall_nor_gl_2k.jpg"
+   ],
+   "ready": true
+  },
+  "plastered_wall": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "plastered_wall_2k.gltf",
+    "plastered_wall_arm_2k.jpg",
+    "plastered_wall.bin",
+    "plastered_wall_nor_gl_2k.jpg",
+    "plastered_wall_diff_2k.jpg"
+   ],
+   "ready": true
+  },
+  "red_brick_03": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "red_brick_03_2k.gltf",
+    "red_brick_03_nor_gl_2k.jpg",
+    "red_brick_03_diff_2k.jpg",
+    "red_brick_03.bin",
+    "red_brick_03_rough_2k.jpg"
+   ],
+   "ready": true
+  },
+  "roof_planks": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "roof_planks_2k.gltf",
+    "roof_planks_nor_gl_2k.jpg",
+    "roof_planks_diff_2k.jpg",
+    "roof_planks_arm_2k.jpg",
+    "roof_planks.bin"
+   ],
+   "ready": true
+  },
+  "roof_slates_02": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "roof_slates_02_2k.gltf",
+    "roof_slates_02_rough_2k.jpg",
+    "roof_slates_02_diff_2k.jpg",
+    "roof_slates_02_nor_gl_2k.jpg",
+    "roof_slates_02.bin"
+   ],
+   "ready": true
+  },
+  "rusty_corrugated_iron": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "rusty_corrugated_iron_2k.gltf",
+    "rusty_corrugated_iron_nor_gl_2k.jpg",
+    "rusty_corrugated_iron_diff_2k.jpg",
+    "rusty_corrugated_iron_arm_2k.jpg",
+    "rusty_corrugated_iron.bin"
+   ],
+   "ready": true
+  },
+  "rusty_metal_02": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "rusty_metal_02_2k.gltf",
+    "rusty_metal_02_diff_2k.jpg",
+    "rusty_metal_02_nor_gl_2k.jpg",
+    "rusty_metal_02.bin",
+    "rusty_metal_02_rough_2k.jpg"
+   ],
+   "ready": true
+  },
+  "smooth_concrete_floor": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "smooth_concrete_floor_2k.gltf",
+    "smooth_concrete_floor_diff_2k.jpg",
+    "smooth_concrete_floor_nor_gl_2k.jpg",
+    "smooth_concrete_floor.bin",
+    "smooth_concrete_floor_arm_2k.jpg"
+   ],
+   "ready": true
+  },
+  "sparse_grass": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "sparse_grass_2k.gltf",
+    "sparse_grass.bin",
+    "sparse_grass_nor_gl_2k.jpg",
+    "sparse_grass_arm_2k.jpg",
+    "sparse_grass_diff_2k.jpg"
+   ],
+   "ready": true
+  },
+  "tarred_gravel": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "tarred_gravel_2k.gltf",
+    "tarred_gravel_nor_gl_2k.jpg",
+    "tarred_gravel_diff_2k.jpg",
+    "tarred_gravel_arm_2k.jpg",
+    "tarred_gravel.bin"
+   ],
+   "ready": true
+  },
+  "weathered_plank_siding": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "weathered_plank_siding_2k.gltf",
+    "weathered_plank_siding_nor_gl_2k.jpg",
+    "weathered_plank_siding_diff_2k.jpg",
+    "weathered_plank_siding_arm_2k.jpg",
+    "weathered_plank_siding.bin"
+   ],
+   "ready": true
+  },
+  "white_planks_clean": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "white_planks_clean_2k.gltf",
+    "white_planks_clean_nor_gl_2k.jpg",
+    "white_planks_clean_diff_2k.jpg",
+    "white_planks_clean_arm_2k.jpg",
+    "white_planks_clean.bin"
+   ],
+   "ready": true
+  },
+  "wood_floor_worn": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "wood_floor_worn_2k.gltf",
+    "wood_floor_worn_nor_gl_2k.jpg",
+    "wood_floor_worn_diff_2k.jpg",
+    "wood_floor_worn_arm_2k.jpg",
+    "wood_floor_worn.bin"
+   ],
+   "ready": true
+  },
+  "worn_asphalt": {
+   "maps": {
+    "base": true,
+    "normal": true,
+    "orm": true,
+    "ao": false
+   },
+   "res": [
+    2048,
+    2048,
+    2048
+   ],
+   "files": [
+    "worn_asphalt_2k.gltf",
+    "worn_asphalt_nor_gl_2k.jpg",
+    "worn_asphalt_diff_2k.jpg",
+    "worn_asphalt_arm_2k.jpg",
+    "worn_asphalt.bin"
+   ],
+   "ready": true
+  }
+ },
+ "materials": {
+  "Asphalt033": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": true,
+    "displacement": true,
+    "metalness": false,
+    "opacity": false
+   },
+   "res": "2048,2048",
+   "files": [
+    "Asphalt033.png",
+    "Asphalt033_2K-JPG.blend",
+    "Asphalt033_2K-JPG.mtlx",
+    "Asphalt033_2K-JPG.tres",
+    "Asphalt033_2K-JPG.usdc",
+    "Asphalt033_2K-JPG_AmbientOcclusion.jpg",
+    "Asphalt033_2K-JPG_Color.jpg",
+    "Asphalt033_2K-JPG_Displacement.jpg",
+    "Asphalt033_2K-JPG_NormalDX.jpg",
+    "Asphalt033_2K-JPG_NormalGL.jpg",
+    "Asphalt033_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "CorrugatedSteel005": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": true,
+    "displacement": true,
+    "metalness": true,
+    "opacity": false
+   },
+   "res": "2048,2048",
+   "files": [
+    "CorrugatedSteel005.png",
+    "CorrugatedSteel005_2K-JPG.blend",
+    "CorrugatedSteel005_2K-JPG.mtlx",
+    "CorrugatedSteel005_2K-JPG.tres",
+    "CorrugatedSteel005_2K-JPG.usdc",
+    "CorrugatedSteel005_2K-JPG_AmbientOcclusion.jpg",
+    "CorrugatedSteel005_2K-JPG_Color.jpg",
+    "CorrugatedSteel005_2K-JPG_Displacement.jpg",
+    "CorrugatedSteel005_2K-JPG_Metalness.jpg",
+    "CorrugatedSteel005_2K-JPG_NormalDX.jpg",
+    "CorrugatedSteel005_2K-JPG_NormalGL.jpg",
+    "CorrugatedSteel005_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "Fence003": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": false,
+    "displacement": true,
+    "metalness": true,
+    "opacity": true
+   },
+   "res": "2048,2048",
+   "files": [
+    "Fence003.png",
+    "Fence003_2K-JPG.blend",
+    "Fence003_2K-JPG.mtlx",
+    "Fence003_2K-JPG.tres",
+    "Fence003_2K-JPG.usdc",
+    "Fence003_2K-JPG_Color.jpg",
+    "Fence003_2K-JPG_Displacement.jpg",
+    "Fence003_2K-JPG_Metalness.jpg",
+    "Fence003_2K-JPG_NormalDX.jpg",
+    "Fence003_2K-JPG_NormalGL.jpg",
+    "Fence003_2K-JPG_Opacity.jpg",
+    "Fence003_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "Grass004": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": true,
+    "displacement": true,
+    "metalness": false,
+    "opacity": false
+   },
+   "res": "2048,2048",
+   "files": [
+    "Grass004.png",
+    "Grass004_2K-JPG.blend",
+    "Grass004_2K-JPG.mtlx",
+    "Grass004_2K-JPG.tres",
+    "Grass004_2K-JPG.usdc",
+    "Grass004_2K-JPG_AmbientOcclusion.jpg",
+    "Grass004_2K-JPG_Color.jpg",
+    "Grass004_2K-JPG_Displacement.jpg",
+    "Grass004_2K-JPG_NormalDX.jpg",
+    "Grass004_2K-JPG_NormalGL.jpg",
+    "Grass004_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "Gravel043": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": true,
+    "displacement": true,
+    "metalness": false,
+    "opacity": false
+   },
+   "res": "2048,2048",
+   "files": [
+    "Gravel043.png",
+    "Gravel043_2K-JPG.blend",
+    "Gravel043_2K-JPG.mtlx",
+    "Gravel043_2K-JPG.tres",
+    "Gravel043_2K-JPG.usdc",
+    "Gravel043_2K-JPG_AmbientOcclusion.jpg",
+    "Gravel043_2K-JPG_Color.jpg",
+    "Gravel043_2K-JPG_Displacement.jpg",
+    "Gravel043_2K-JPG_NormalDX.jpg",
+    "Gravel043_2K-JPG_NormalGL.jpg",
+    "Gravel043_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "Ground107": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": true,
+    "displacement": true,
+    "metalness": false,
+    "opacity": false
+   },
+   "res": "2048,2048",
+   "files": [
+    "Ground107.png",
+    "Ground107_2K-JPG.blend",
+    "Ground107_2K-JPG.mtlx",
+    "Ground107_2K-JPG.tres",
+    "Ground107_2K-JPG.usdc",
+    "Ground107_2K-JPG_AmbientOcclusion.jpg",
+    "Ground107_2K-JPG_Color.jpg",
+    "Ground107_2K-JPG_Displacement.jpg",
+    "Ground107_2K-JPG_NormalDX.jpg",
+    "Ground107_2K-JPG_NormalGL.jpg",
+    "Ground107_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "Leaf001": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": true,
+    "displacement": true,
+    "metalness": false,
+    "opacity": true
+   },
+   "res": "2048,2048",
+   "files": [
+    "Leaf001.png",
+    "Leaf001_2K-JPG.blend",
+    "Leaf001_2K-JPG.mtlx",
+    "Leaf001_2K-JPG.tres",
+    "Leaf001_2K-JPG.usdc",
+    "Leaf001_2K-JPG_AmbientOcclusion.jpg",
+    "Leaf001_2K-JPG_Color.jpg",
+    "Leaf001_2K-JPG_Displacement.jpg",
+    "Leaf001_2K-JPG_NormalDX.jpg",
+    "Leaf001_2K-JPG_NormalGL.jpg",
+    "Leaf001_2K-JPG_Opacity.jpg",
+    "Leaf001_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "Metal032": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": false,
+    "displacement": true,
+    "metalness": true,
+    "opacity": false
+   },
+   "res": "2048,2048",
+   "files": [
+    "Metal032.png",
+    "Metal032_2K-JPG.blend",
+    "Metal032_2K-JPG.mtlx",
+    "Metal032_2K-JPG.tres",
+    "Metal032_2K-JPG.usdc",
+    "Metal032_2K-JPG_Color.jpg",
+    "Metal032_2K-JPG_Displacement.jpg",
+    "Metal032_2K-JPG_Metalness.jpg",
+    "Metal032_2K-JPG_NormalDX.jpg",
+    "Metal032_2K-JPG_NormalGL.jpg",
+    "Metal032_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "Metal049A": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": false,
+    "displacement": true,
+    "metalness": true,
+    "opacity": false
+   },
+   "res": "2048,2048",
+   "files": [
+    "Metal049A.png",
+    "Metal049A_2K-JPG.blend",
+    "Metal049A_2K-JPG.mtlx",
+    "Metal049A_2K-JPG.tres",
+    "Metal049A_2K-JPG.usdc",
+    "Metal049A_2K-JPG_Color.jpg",
+    "Metal049A_2K-JPG_Displacement.jpg",
+    "Metal049A_2K-JPG_Metalness.jpg",
+    "Metal049A_2K-JPG_NormalDX.jpg",
+    "Metal049A_2K-JPG_NormalGL.jpg",
+    "Metal049A_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "MetalWalkway010": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": false,
+    "displacement": true,
+    "metalness": true,
+    "opacity": true
+   },
+   "res": "2048,2048",
+   "files": [
+    "MetalWalkway010.png",
+    "MetalWalkway010_2K-JPG.blend",
+    "MetalWalkway010_2K-JPG.mtlx",
+    "MetalWalkway010_2K-JPG.tres",
+    "MetalWalkway010_2K-JPG.usdc",
+    "MetalWalkway010_2K-JPG_Color.jpg",
+    "MetalWalkway010_2K-JPG_Displacement.jpg",
+    "MetalWalkway010_2K-JPG_Metalness.jpg",
+    "MetalWalkway010_2K-JPG_NormalDX.jpg",
+    "MetalWalkway010_2K-JPG_NormalGL.jpg",
+    "MetalWalkway010_2K-JPG_Opacity.jpg",
+    "MetalWalkway010_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "RoofingTiles014B": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": true,
+    "displacement": true,
+    "metalness": false,
+    "opacity": true
+   },
+   "res": "2048,2048",
+   "files": [
+    "RoofingTiles014B.png",
+    "RoofingTiles014B_2K-JPG.blend",
+    "RoofingTiles014B_2K-JPG.mtlx",
+    "RoofingTiles014B_2K-JPG.tres",
+    "RoofingTiles014B_2K-JPG.usdc",
+    "RoofingTiles014B_2K-JPG_AmbientOcclusion.jpg",
+    "RoofingTiles014B_2K-JPG_Color.jpg",
+    "RoofingTiles014B_2K-JPG_Displacement.jpg",
+    "RoofingTiles014B_2K-JPG_NormalDX.jpg",
+    "RoofingTiles014B_2K-JPG_NormalGL.jpg",
+    "RoofingTiles014B_2K-JPG_Opacity.jpg",
+    "RoofingTiles014B_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  },
+  "Wood089": {
+   "zipOk": true,
+   "maps": {
+    "color": true,
+    "normalGL": true,
+    "roughness": true,
+    "ao": false,
+    "displacement": true,
+    "metalness": false,
+    "opacity": false
+   },
+   "res": "2048,2048",
+   "files": [
+    "Wood089.png",
+    "Wood089_2K-JPG.blend",
+    "Wood089_2K-JPG.mtlx",
+    "Wood089_2K-JPG.tres",
+    "Wood089_2K-JPG.usdc",
+    "Wood089_2K-JPG_Color.jpg",
+    "Wood089_2K-JPG_Displacement.jpg",
+    "Wood089_2K-JPG_NormalDX.jpg",
+    "Wood089_2K-JPG_NormalGL.jpg",
+    "Wood089_2K-JPG_Roughness.jpg"
+   ],
+   "ready": true
+  }
+ },
+ "hdris": {
+  "abandoned_tank_farm_04": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "approaching_storm": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "artist_workshop": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "autoshop_01": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "belfast_sunset_puresky": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "cloud_layers": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "industrial_sunset_puresky": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "kloofendal_48d_partly_cloudy_puresky": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "overcast_soil_puresky": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "rooftop_night": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "urban_street_01": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  },
+  "wide_street_01": {
+   "radiance": true,
+   "width": 2048,
+   "height": 1024,
+   "ready": true
+  }
+ },
+ "sounds": {
+  "mixkit:1060": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 23.01,
+   "peakDb": -14.9,
+   "meanDb": -41.3,
+   "ready": true
+  },
+  "mixkit:1072": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 60,
+   "peakDb": -6,
+   "meanDb": -31.7,
+   "ready": true
+  },
+  "mixkit:1183": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 51.88,
+   "peakDb": -0.1,
+   "meanDb": -19,
+   "ready": true
+  },
+  "mixkit:1187": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 33.35,
+   "peakDb": -0.1,
+   "meanDb": -24.5,
+   "ready": true
+  },
+  "mixkit:1188": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 10.36,
+   "peakDb": -9.2,
+   "meanDb": -38.3,
+   "ready": true
+  },
+  "mixkit:1201": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 21.52,
+   "peakDb": -1.4,
+   "meanDb": -20.6,
+   "ready": true
+  },
+  "mixkit:1206": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 120.15,
+   "peakDb": -0.5,
+   "meanDb": -20.2,
+   "ready": true
+  },
+  "mixkit:1208": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 77.86,
+   "peakDb": -6,
+   "meanDb": -31.6,
+   "ready": true
+  },
+  "mixkit:1222": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 31.79,
+   "peakDb": -0.6,
+   "meanDb": -25.8,
+   "ready": true
+  },
+  "mixkit:1253": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 39.37,
+   "peakDb": 0,
+   "meanDb": -31.1,
+   "ready": true
+  },
+  "mixkit:1265": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 113.06,
+   "peakDb": 0,
+   "meanDb": -15.2,
+   "ready": true
+  },
+  "mixkit:1267": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 31.8,
+   "peakDb": -6.6,
+   "meanDb": -20.5,
+   "ready": true
+  },
+  "mixkit:1269": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 15.33,
+   "peakDb": -9.8,
+   "meanDb": -42.3,
+   "ready": true
+  },
+  "mixkit:1274": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 23.21,
+   "peakDb": 0,
+   "meanDb": -21.7,
+   "ready": true
+  },
+  "mixkit:1311": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.48,
+   "peakDb": -0.1,
+   "meanDb": -23.3,
+   "ready": true
+  },
+  "mixkit:1350": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.07,
+   "peakDb": -9.6,
+   "meanDb": -20.6,
+   "ready": true
+  },
+  "mixkit:1368": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.76,
+   "peakDb": -0.1,
+   "meanDb": -21.1,
+   "ready": true
+  },
+  "mixkit:1372": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 24.4,
+   "peakDb": -0.1,
+   "meanDb": -32,
+   "ready": true
+  },
+  "mixkit:1474": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 3.2,
+   "peakDb": 0,
+   "meanDb": -16.8,
+   "ready": true
+  },
+  "mixkit:1482": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 2.39,
+   "peakDb": -1.5,
+   "meanDb": -18.2,
+   "ready": true
+  },
+  "mixkit:1486": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 6.75,
+   "peakDb": -1,
+   "meanDb": -16.6,
+   "ready": true
+  },
+  "mixkit:1489": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 2.32,
+   "peakDb": -1.5,
+   "meanDb": -23,
+   "ready": true
+  },
+  "mixkit:1534": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 2.61,
+   "peakDb": -0.1,
+   "meanDb": -17.4,
+   "ready": true
+  },
+  "mixkit:1536": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 10.7,
+   "peakDb": -0.1,
+   "meanDb": -20.4,
+   "ready": true
+  },
+  "mixkit:1561": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 14.28,
+   "peakDb": 0,
+   "meanDb": -14.8,
+   "ready": true
+  },
+  "mixkit:1564": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.71,
+   "peakDb": 0,
+   "meanDb": -16.1,
+   "ready": true
+  },
+  "mixkit:1565": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.56,
+   "peakDb": -2.5,
+   "meanDb": -17.6,
+   "ready": true
+  },
+  "mixkit:1599": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 11.55,
+   "peakDb": -0.1,
+   "meanDb": -17.7,
+   "ready": true
+  },
+  "mixkit:1620": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 14.64,
+   "peakDb": -5.8,
+   "meanDb": -19.6,
+   "ready": true
+  },
+  "mixkit:1621": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 9.72,
+   "peakDb": -2.5,
+   "meanDb": -16.5,
+   "ready": true
+  },
+  "mixkit:1623": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 8.98,
+   "peakDb": -9.9,
+   "meanDb": -26.3,
+   "ready": true
+  },
+  "mixkit:1626": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 7.71,
+   "peakDb": 0,
+   "meanDb": -14.7,
+   "ready": true
+  },
+  "mixkit:1628": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 107.27,
+   "peakDb": -3,
+   "meanDb": -29.5,
+   "ready": true
+  },
+  "mixkit:163": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 5.5,
+   "peakDb": -0.1,
+   "meanDb": -18.4,
+   "ready": true
+  },
+  "mixkit:1630": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 15.16,
+   "peakDb": -0.1,
+   "meanDb": -22.5,
+   "ready": true
+  },
+  "mixkit:1634": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 41.93,
+   "peakDb": -1,
+   "meanDb": -16.4,
+   "ready": true
+  },
+  "mixkit:1637": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 2.54,
+   "peakDb": -4.8,
+   "meanDb": -27.9,
+   "ready": true
+  },
+  "mixkit:1654": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 5.1,
+   "peakDb": -0.1,
+   "meanDb": -13.3,
+   "ready": true
+  },
+  "mixkit:17": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 8.33,
+   "peakDb": -13.7,
+   "meanDb": -29.6,
+   "ready": true
+  },
+  "mixkit:182": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 2.87,
+   "peakDb": -9.4,
+   "meanDb": -35,
+   "ready": true
+  },
+  "mixkit:1920": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.58,
+   "peakDb": -12.7,
+   "meanDb": -38.6,
+   "ready": true
+  },
+  "mixkit:1921": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 14.6,
+   "peakDb": -6.6,
+   "meanDb": -34.8,
+   "ready": true
+  },
+  "mixkit:1922": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.66,
+   "peakDb": -15.3,
+   "meanDb": -40.3,
+   "ready": true
+  },
+  "mixkit:1923": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.44,
+   "peakDb": -3.8,
+   "meanDb": -26.6,
+   "ready": true
+  },
+  "mixkit:20": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 5.22,
+   "peakDb": -1.1,
+   "meanDb": -19.5,
+   "ready": true
+  },
+  "mixkit:200": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 2.52,
+   "peakDb": -0.1,
+   "meanDb": -15.9,
+   "ready": true
+  },
+  "mixkit:201": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.8,
+   "peakDb": -0.1,
+   "meanDb": -20.2,
+   "ready": true
+  },
+  "mixkit:2282": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 20.88,
+   "peakDb": -1,
+   "meanDb": -15,
+   "ready": true
+  },
+  "mixkit:2379": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 6.5,
+   "peakDb": -0.7,
+   "meanDb": -35.5,
+   "ready": true
+  },
+  "mixkit:2395": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 51.75,
+   "peakDb": -0.6,
+   "meanDb": -28.1,
+   "ready": true
+  },
+  "mixkit:2427": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 14.33,
+   "peakDb": -1.1,
+   "meanDb": -20.3,
+   "ready": true
+  },
+  "mixkit:2432": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 3.67,
+   "peakDb": -22.7,
+   "meanDb": -47.1,
+   "ready": true
+  },
+  "mixkit:2454": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 180.15,
+   "peakDb": -0.6,
+   "meanDb": -15.4,
+   "ready": true
+  },
+  "mixkit:2472": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 209.72,
+   "peakDb": -3.3,
+   "meanDb": -28,
+   "ready": true
+  },
+  "mixkit:2504": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 50,
+   "peakDb": -0.5,
+   "meanDb": -13.9,
+   "ready": true
+  },
+  "mixkit:2658": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 61.84,
+   "peakDb": -6,
+   "meanDb": -21.7,
+   "ready": true
+  },
+  "mixkit:2706": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 14.08,
+   "peakDb": -4.8,
+   "meanDb": -20.2,
+   "ready": true
+  },
+  "mixkit:2715": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 26.36,
+   "peakDb": -16.7,
+   "meanDb": -33,
+   "ready": true
+  },
+  "mixkit:2756": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 18.91,
+   "peakDb": -4.4,
+   "meanDb": -21.2,
+   "ready": true
+  },
+  "mixkit:2930": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 67.19,
+   "peakDb": -9.3,
+   "meanDb": -28.3,
+   "ready": true
+  },
+  "mixkit:2980": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.99,
+   "peakDb": -1,
+   "meanDb": -23.4,
+   "ready": true
+  },
+  "mixkit:2995": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.15,
+   "peakDb": -0.6,
+   "meanDb": -31.6,
+   "ready": true
+  },
+  "mixkit:3076": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 7.87,
+   "peakDb": -2.4,
+   "meanDb": -17.6,
+   "ready": true
+  },
+  "mixkit:3077": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 5.8,
+   "peakDb": -5.7,
+   "meanDb": -16.6,
+   "ready": true
+  },
+  "mixkit:361": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 120.09,
+   "peakDb": -2.3,
+   "meanDb": -25.6,
+   "ready": true
+  },
+  "mixkit:370": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 102.08,
+   "peakDb": -13.2,
+   "meanDb": -33.3,
+   "ready": true
+  },
+  "mixkit:371": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 62.38,
+   "peakDb": -19.6,
+   "meanDb": -36,
+   "ready": true
+  },
+  "mixkit:388": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 2.96,
+   "peakDb": 0,
+   "meanDb": -27.2,
+   "ready": true
+  },
+  "mixkit:444": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 120,
+   "peakDb": -0.2,
+   "meanDb": -24.4,
+   "ready": true
+  },
+  "mixkit:485": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 11.95,
+   "peakDb": 0,
+   "meanDb": -20.8,
+   "ready": true
+  },
+  "mixkit:537": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 31.6,
+   "peakDb": -15,
+   "meanDb": -46,
+   "ready": true
+  },
+  "mixkit:542": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 5.25,
+   "peakDb": -1.1,
+   "meanDb": -34.8,
+   "ready": true
+  },
+  "mixkit:543": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 8.14,
+   "peakDb": -3.2,
+   "meanDb": -39.2,
+   "ready": true
+  },
+  "mixkit:62": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.74,
+   "peakDb": -1.4,
+   "meanDb": -15.1,
+   "ready": true
+  },
+  "mixkit:630": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 45.21,
+   "peakDb": -0.1,
+   "meanDb": -21,
+   "ready": true
+  },
+  "mixkit:797": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 147.69,
+   "peakDb": -0.1,
+   "meanDb": -34.9,
+   "ready": true
+  },
+  "mixkit:798": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 3.6,
+   "peakDb": -0.5,
+   "meanDb": -29.8,
+   "ready": true
+  },
+  "mixkit:800": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 98,
+   "peakDb": -0.1,
+   "meanDb": -17.7,
+   "ready": true
+  },
+  "mixkit:801": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 62,
+   "peakDb": 0,
+   "meanDb": -24.3,
+   "ready": true
+  },
+  "mixkit:803": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 146.57,
+   "peakDb": -0.1,
+   "meanDb": -14.9,
+   "ready": true
+  },
+  "mixkit:804": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 24.1,
+   "peakDb": -0.1,
+   "meanDb": -19.8,
+   "ready": true
+  },
+  "mixkit:810": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.11,
+   "peakDb": -0.3,
+   "meanDb": -34.4,
+   "ready": true
+  },
+  "mixkit:813": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 5.94,
+   "peakDb": -4.5,
+   "meanDb": -18.6,
+   "ready": true
+  },
+  "mixkit:824": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.21,
+   "peakDb": -5.7,
+   "meanDb": -43,
+   "ready": true
+  },
+  "mixkit:827": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.76,
+   "peakDb": -3.6,
+   "meanDb": -24.3,
+   "ready": true
+  },
+  "mixkit:830": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.47,
+   "peakDb": -1.3,
+   "meanDb": -23.8,
+   "ready": true
+  },
+  "mixkit:831": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 25.11,
+   "peakDb": -4.4,
+   "meanDb": -41.3,
+   "ready": true
+  },
+  "mixkit:833": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.77,
+   "peakDb": -3.5,
+   "meanDb": -28,
+   "ready": true
+  },
+  "mixkit:834": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.41,
+   "peakDb": -1,
+   "meanDb": -22.8,
+   "ready": true
+  },
+  "mixkit:835": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.26,
+   "peakDb": -1.7,
+   "meanDb": -23.9,
+   "ready": true
+  },
+  "mixkit:837": {
+   "codec": "pcm_s24le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.55,
+   "peakDb": -5.2,
+   "meanDb": -28.6,
+   "ready": true
+  },
+  "mixkit:853": {
+   "codec": "pcm_s16le",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 7.34,
+   "peakDb": 0,
+   "meanDb": -28.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_carpet_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1.1,
+   "meanDb": -23.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_carpet_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1.1,
+   "meanDb": -19.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_carpet_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1.1,
+   "meanDb": -19.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_carpet_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1.1,
+   "meanDb": -22.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_carpet_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1.1,
+   "meanDb": -22.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_concrete_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.11,
+   "peakDb": -0.9,
+   "meanDb": -20.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_concrete_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.11,
+   "peakDb": -1.2,
+   "meanDb": -22.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_concrete_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.11,
+   "peakDb": -1,
+   "meanDb": -22.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_concrete_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.11,
+   "peakDb": -1.1,
+   "meanDb": -21.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_concrete_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.11,
+   "peakDb": -1,
+   "meanDb": -21.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_grass_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.78,
+   "peakDb": -1.1,
+   "meanDb": -29.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_grass_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.67,
+   "peakDb": -1.2,
+   "meanDb": -28.8,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_grass_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.69,
+   "peakDb": -1.1,
+   "meanDb": -29.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_grass_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.67,
+   "peakDb": -0.9,
+   "meanDb": -29.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_grass_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.59,
+   "peakDb": -1.1,
+   "meanDb": -28.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_snow_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.37,
+   "peakDb": -0.9,
+   "meanDb": -22.3,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_snow_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.37,
+   "peakDb": -1,
+   "meanDb": -18.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_snow_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.37,
+   "peakDb": -1,
+   "meanDb": -18.8,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_snow_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.37,
+   "peakDb": -0.9,
+   "meanDb": -23,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_snow_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.37,
+   "peakDb": -1.1,
+   "meanDb": -21.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_wood_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.25,
+   "peakDb": -0.9,
+   "meanDb": -21.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_wood_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.25,
+   "peakDb": -1,
+   "meanDb": -20,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_wood_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.25,
+   "peakDb": -0.9,
+   "meanDb": -19.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_wood_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.25,
+   "peakDb": -1.1,
+   "meanDb": -21.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/footstep_wood_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.25,
+   "peakDb": -1,
+   "meanDb": -19.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactBell_heavy_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.48,
+   "peakDb": -1.1,
+   "meanDb": -26.3,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactBell_heavy_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 1.74,
+   "peakDb": -1.2,
+   "meanDb": -24.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactBell_heavy_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.7,
+   "peakDb": -0.8,
+   "meanDb": -23.8,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactBell_heavy_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.65,
+   "peakDb": -1,
+   "meanDb": -24.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactBell_heavy_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.3,
+   "peakDb": -1.1,
+   "meanDb": -22.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGeneric_light_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1.2,
+   "meanDb": -21,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGeneric_light_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.12,
+   "peakDb": -1,
+   "meanDb": -20,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGeneric_light_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1,
+   "meanDb": -21.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGeneric_light_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1.1,
+   "meanDb": -20.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGeneric_light_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -0.9,
+   "meanDb": -20.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_heavy_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.24,
+   "peakDb": -1.1,
+   "meanDb": -22.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_heavy_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.43,
+   "peakDb": -1,
+   "meanDb": -25.3,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_heavy_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.25,
+   "peakDb": -0.9,
+   "meanDb": -23.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_heavy_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.17,
+   "peakDb": -0.9,
+   "meanDb": -19.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_heavy_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.4,
+   "peakDb": -1.2,
+   "meanDb": -24.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_light_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.21,
+   "peakDb": -1.6,
+   "meanDb": -21.8,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_light_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.21,
+   "peakDb": -0.9,
+   "meanDb": -21.3,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_light_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.21,
+   "peakDb": -1.2,
+   "meanDb": -19.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_light_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.21,
+   "peakDb": -1.1,
+   "meanDb": -21,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_light_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.21,
+   "peakDb": -0.8,
+   "meanDb": -20.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_medium_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -1.2,
+   "meanDb": -25.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_medium_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -0.9,
+   "meanDb": -25.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_medium_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -1,
+   "meanDb": -25.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_medium_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -1.3,
+   "meanDb": -25.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactGlass_medium_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -1.4,
+   "meanDb": -24.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_heavy_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.17,
+   "peakDb": -0.9,
+   "meanDb": -20.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_heavy_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.36,
+   "peakDb": -1.1,
+   "meanDb": -23.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_heavy_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.12,
+   "peakDb": -1.2,
+   "meanDb": -18.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_heavy_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.21,
+   "peakDb": -1,
+   "meanDb": -21.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_heavy_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.13,
+   "peakDb": -1.3,
+   "meanDb": -19.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_light_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.35,
+   "peakDb": -1,
+   "meanDb": -21.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_light_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.25,
+   "peakDb": -0.9,
+   "meanDb": -20,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_light_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.24,
+   "peakDb": -1.4,
+   "meanDb": -20.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_light_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.48,
+   "peakDb": -1.5,
+   "meanDb": -20.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_light_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.21,
+   "peakDb": -1.3,
+   "meanDb": -20.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_medium_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.27,
+   "peakDb": -1.2,
+   "meanDb": -21.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_medium_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1.2,
+   "meanDb": -19.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_medium_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.12,
+   "peakDb": -1.1,
+   "meanDb": -21.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_medium_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.25,
+   "peakDb": -1.4,
+   "meanDb": -21.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMetal_medium_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.11,
+   "peakDb": -1,
+   "meanDb": -20.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMining_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.94,
+   "peakDb": -1.1,
+   "meanDb": -20.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMining_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.87,
+   "peakDb": -1,
+   "meanDb": -21.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMining_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.8,
+   "peakDb": -1.2,
+   "meanDb": -22.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMining_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.99,
+   "peakDb": -1,
+   "meanDb": -23.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactMining_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.83,
+   "peakDb": -0.9,
+   "meanDb": -19.8,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlank_medium_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.78,
+   "peakDb": -1.2,
+   "meanDb": -23.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlank_medium_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.78,
+   "peakDb": -1,
+   "meanDb": -20.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlank_medium_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.78,
+   "peakDb": -1,
+   "meanDb": -21,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlank_medium_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.78,
+   "peakDb": -1,
+   "meanDb": -21.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlank_medium_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.78,
+   "peakDb": -0.9,
+   "meanDb": -25.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_heavy_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.49,
+   "peakDb": -1,
+   "meanDb": -22.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_heavy_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.35,
+   "peakDb": -0.9,
+   "meanDb": -17.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_heavy_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.49,
+   "peakDb": -1.4,
+   "meanDb": -21.8,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_heavy_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.35,
+   "peakDb": -1.2,
+   "meanDb": -17.8,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_heavy_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.56,
+   "peakDb": -0.6,
+   "meanDb": -21.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_light_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -1,
+   "meanDb": -25.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_light_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.65,
+   "peakDb": -1.3,
+   "meanDb": -27.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_light_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.49,
+   "peakDb": -0.9,
+   "meanDb": -25.3,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_light_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.53,
+   "peakDb": -1.2,
+   "meanDb": -24.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_light_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.66,
+   "peakDb": -1.3,
+   "meanDb": -26.3,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_medium_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.61,
+   "peakDb": -1.4,
+   "meanDb": -25.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_medium_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.62,
+   "peakDb": -1.1,
+   "meanDb": -24.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_medium_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.52,
+   "peakDb": -1.1,
+   "meanDb": -24.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_medium_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.65,
+   "peakDb": -1.2,
+   "meanDb": -22.3,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPlate_medium_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.53,
+   "peakDb": -1,
+   "meanDb": -21.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_heavy_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.65,
+   "peakDb": -1,
+   "meanDb": -18,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_heavy_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -1.2,
+   "meanDb": -17.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_heavy_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.46,
+   "peakDb": -1,
+   "meanDb": -16.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_heavy_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.47,
+   "peakDb": -0.9,
+   "meanDb": -17.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_heavy_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -1,
+   "meanDb": -17.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_medium_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.43,
+   "peakDb": -1.1,
+   "meanDb": -17.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_medium_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.4,
+   "peakDb": -1.1,
+   "meanDb": -16.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_medium_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -0.8,
+   "meanDb": -18.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_medium_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.46,
+   "peakDb": -0.9,
+   "meanDb": -18.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactPunch_medium_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -1,
+   "meanDb": -18.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_heavy_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.51,
+   "peakDb": -0.9,
+   "meanDb": -17.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_heavy_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.57,
+   "peakDb": -1,
+   "meanDb": -17.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_heavy_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.57,
+   "peakDb": -0.9,
+   "meanDb": -17.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_heavy_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.54,
+   "peakDb": -1,
+   "meanDb": -16.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_heavy_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.5,
+   "peakDb": -1,
+   "meanDb": -16.8,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_medium_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.12,
+   "peakDb": -1,
+   "meanDb": -14.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_medium_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.18,
+   "peakDb": -0.9,
+   "meanDb": -14.8,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_medium_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -1,
+   "meanDb": -14.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_medium_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.14,
+   "peakDb": -0.9,
+   "meanDb": -14.2,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactSoft_medium_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.15,
+   "peakDb": -1,
+   "meanDb": -14.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactTin_medium_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.16,
+   "peakDb": -1,
+   "meanDb": -20.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactTin_medium_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.17,
+   "peakDb": -1.5,
+   "meanDb": -22.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactTin_medium_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.13,
+   "peakDb": -1.1,
+   "meanDb": -21.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactTin_medium_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.21,
+   "peakDb": -1.1,
+   "meanDb": -23.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactTin_medium_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.18,
+   "peakDb": -1.2,
+   "meanDb": -23.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_heavy_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.31,
+   "peakDb": -0.9,
+   "meanDb": -19.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_heavy_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.31,
+   "peakDb": -0.9,
+   "meanDb": -19.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_heavy_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.31,
+   "peakDb": -1,
+   "meanDb": -18.9,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_heavy_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.31,
+   "peakDb": -0.9,
+   "meanDb": -20.4,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_heavy_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.31,
+   "peakDb": -1,
+   "meanDb": -20.1,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_light_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.27,
+   "peakDb": -1.1,
+   "meanDb": -22.3,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_light_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.27,
+   "peakDb": -0.9,
+   "meanDb": -24,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_light_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.27,
+   "peakDb": -1.1,
+   "meanDb": -22,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_light_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.27,
+   "peakDb": -0.9,
+   "meanDb": -23.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_light_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.27,
+   "peakDb": -1.2,
+   "meanDb": -24.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_medium_000.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.33,
+   "peakDb": -1,
+   "meanDb": -22.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_medium_001.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.33,
+   "peakDb": -1,
+   "meanDb": -22.5,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_medium_002.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.33,
+   "peakDb": -1.1,
+   "meanDb": -22.6,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_medium_003.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.33,
+   "peakDb": -1,
+   "meanDb": -22.7,
+   "ready": true
+  },
+  "kenney:impact-sounds/impactWood_medium_004.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "duration": 0.33,
+   "peakDb": -1.1,
+   "meanDb": -22.1,
+   "ready": true
+  },
+  "kenney:rpg-audio/beltHandle1.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.28,
+   "peakDb": -3.3,
+   "meanDb": -28.2,
+   "ready": true
+  },
+  "kenney:rpg-audio/beltHandle2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.48,
+   "peakDb": -4.2,
+   "meanDb": -32,
+   "ready": true
+  },
+  "kenney:rpg-audio/bookClose.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.23,
+   "peakDb": 0,
+   "meanDb": -18.8,
+   "ready": true
+  },
+  "kenney:rpg-audio/bookFlip1.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.77,
+   "peakDb": 0,
+   "meanDb": -29.8,
+   "ready": true
+  },
+  "kenney:rpg-audio/bookFlip2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.43,
+   "peakDb": -8.3,
+   "meanDb": -37,
+   "ready": true
+  },
+  "kenney:rpg-audio/bookFlip3.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.23,
+   "peakDb": -4.6,
+   "meanDb": -32.1,
+   "ready": true
+  },
+  "kenney:rpg-audio/bookOpen.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.15,
+   "peakDb": -11.5,
+   "meanDb": -33.6,
+   "ready": true
+  },
+  "kenney:rpg-audio/bookPlace1.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.28,
+   "peakDb": 0,
+   "meanDb": -18,
+   "ready": true
+  },
+  "kenney:rpg-audio/bookPlace2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.35,
+   "peakDb": 0,
+   "meanDb": -18.2,
+   "ready": true
+  },
+  "kenney:rpg-audio/bookPlace3.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.26,
+   "peakDb": 0,
+   "meanDb": -17.5,
+   "ready": true
+  },
+  "kenney:rpg-audio/chop.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.24,
+   "peakDb": 0,
+   "meanDb": -18.5,
+   "ready": true
+  },
+  "kenney:rpg-audio/cloth1.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.66,
+   "peakDb": -3.5,
+   "meanDb": -24.6,
+   "ready": true
+  },
+  "kenney:rpg-audio/cloth2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.42,
+   "peakDb": -7.9,
+   "meanDb": -28.7,
+   "ready": true
+  },
+  "kenney:rpg-audio/cloth3.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.48,
+   "peakDb": -10.1,
+   "meanDb": -29.3,
+   "ready": true
+  },
+  "kenney:rpg-audio/cloth4.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.38,
+   "peakDb": -14.6,
+   "meanDb": -34.6,
+   "ready": true
+  },
+  "kenney:rpg-audio/clothBelt.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.72,
+   "peakDb": -4.3,
+   "meanDb": -31.1,
+   "ready": true
+  },
+  "kenney:rpg-audio/clothBelt2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.75,
+   "peakDb": -6.7,
+   "meanDb": -31.2,
+   "ready": true
+  },
+  "kenney:rpg-audio/creak1.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.66,
+   "peakDb": -6.7,
+   "meanDb": -25.8,
+   "ready": true
+  },
+  "kenney:rpg-audio/creak2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.83,
+   "peakDb": -7,
+   "meanDb": -26,
+   "ready": true
+  },
+  "kenney:rpg-audio/creak3.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.34,
+   "peakDb": -7.4,
+   "meanDb": -21.7,
+   "ready": true
+  },
+  "kenney:rpg-audio/doorClose_1.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.68,
+   "peakDb": 0,
+   "meanDb": -17.3,
+   "ready": true
+  },
+  "kenney:rpg-audio/doorClose_2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.61,
+   "peakDb": -2.4,
+   "meanDb": -18.8,
+   "ready": true
+  },
+  "kenney:rpg-audio/doorClose_3.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.71,
+   "peakDb": 0,
+   "meanDb": -13.1,
+   "ready": true
+  },
+  "kenney:rpg-audio/doorClose_4.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.6,
+   "peakDb": 0,
+   "meanDb": -18.2,
+   "ready": true
+  },
+  "kenney:rpg-audio/doorOpen_1.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.92,
+   "peakDb": 0,
+   "meanDb": -20.2,
+   "ready": true
+  },
+  "kenney:rpg-audio/doorOpen_2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 1.41,
+   "peakDb": 0,
+   "meanDb": -22.7,
+   "ready": true
+  },
+  "kenney:rpg-audio/drawKnife1.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.4,
+   "peakDb": -24.3,
+   "meanDb": -44.7,
+   "ready": true
+  },
+  "kenney:rpg-audio/drawKnife2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.45,
+   "peakDb": -23,
+   "meanDb": -41.3,
+   "ready": true
+  },
+  "kenney:rpg-audio/drawKnife3.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.48,
+   "peakDb": -11.4,
+   "meanDb": -38.6,
+   "ready": true
+  },
+  "kenney:rpg-audio/dropLeather.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.42,
+   "peakDb": -0.1,
+   "meanDb": -18.7,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep00.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.25,
+   "peakDb": 0,
+   "meanDb": -19.7,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep01.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.28,
+   "peakDb": 0,
+   "meanDb": -18.3,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep02.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.24,
+   "peakDb": -1.2,
+   "meanDb": -22.1,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep03.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.27,
+   "peakDb": 0,
+   "meanDb": -20.1,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep04.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.32,
+   "peakDb": -3.5,
+   "meanDb": -25.1,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep05.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.28,
+   "peakDb": -3,
+   "meanDb": -26.2,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep06.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.24,
+   "peakDb": -0.3,
+   "meanDb": -21.9,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep07.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.26,
+   "peakDb": 0,
+   "meanDb": -21.6,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep08.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.26,
+   "peakDb": 0,
+   "meanDb": -17,
+   "ready": true
+  },
+  "kenney:rpg-audio/footstep09.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.22,
+   "peakDb": -6.1,
+   "meanDb": -23.5,
+   "ready": true
+  },
+  "kenney:rpg-audio/handleCoins.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.85,
+   "peakDb": 0,
+   "meanDb": -28.8,
+   "ready": true
+  },
+  "kenney:rpg-audio/handleCoins2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.34,
+   "peakDb": -10.7,
+   "meanDb": -34,
+   "ready": true
+  },
+  "kenney:rpg-audio/handleSmallLeather.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.34,
+   "peakDb": -11.6,
+   "meanDb": -35.7,
+   "ready": true
+  },
+  "kenney:rpg-audio/handleSmallLeather2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.31,
+   "peakDb": -16.5,
+   "meanDb": -39.9,
+   "ready": true
+  },
+  "kenney:rpg-audio/knifeSlice.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.6,
+   "peakDb": -1.3,
+   "meanDb": -21.5,
+   "ready": true
+  },
+  "kenney:rpg-audio/knifeSlice2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.57,
+   "peakDb": 0,
+   "meanDb": -19.1,
+   "ready": true
+  },
+  "kenney:rpg-audio/metalClick.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.45,
+   "peakDb": -6.9,
+   "meanDb": -34.3,
+   "ready": true
+  },
+  "kenney:rpg-audio/metalLatch.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.26,
+   "peakDb": 0,
+   "meanDb": -20.5,
+   "ready": true
+  },
+  "kenney:rpg-audio/metalPot1.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 1.46,
+   "peakDb": 0,
+   "meanDb": -15.9,
+   "ready": true
+  },
+  "kenney:rpg-audio/metalPot2.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.94,
+   "peakDb": 0,
+   "meanDb": -13.8,
+   "ready": true
+  },
+  "kenney:rpg-audio/metalPot3.ogg": {
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "duration": 0.91,
+   "peakDb": 0,
+   "meanDb": -11.7,
+   "ready": true
+  }
+ }
+}
