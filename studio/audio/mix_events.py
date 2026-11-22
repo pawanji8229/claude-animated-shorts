@@ -177,11 +177,19 @@ for k, e in enumerate(ev):
         one = kind.endswith("1"); x = S.tumble_roll(r, 3.4 if one else 3.0, 1.4 if one else 1.1); n = len(x); u = np.linspace(0, 1, n)
         pp = -0.9 + 1.8 * u if one else 0.1 - 0.15 * u; g = np.sin(np.pi * np.clip(u * 1.05, 0, 1)) ** 0.6 if one else np.clip(u / 0.15, 0, 1) * (1 - u) ** 1.4
         th = (np.clip(pp, -1, 1) + 1) * np.pi / 4; x = np.stack([x * g * np.cos(th), x * g * np.sin(th)]) * np.sqrt(2); p_desc = "moving"
+    elif kind.startswith("rec:"):
+        # recorded sample layer (additive feature): "rec:<file under events dir>/audio/samples>[@start+dur]", 48 kHz WAV prepared by the production
+        spec = kind[4:]; fn, _, cut = spec.partition("@"); x = read_wav(os.path.join(os.path.dirname(os.path.abspath(evp)), "audio", "samples", fn)); x = x[0] if isinstance(x, tuple) else x
+        if x.ndim == 1: x = np.stack([x, x])
+        if cut: s0, _, d0 = cut.partition("+"); a0 = ns(float(s0)); x = x[:, a0:a0 + (ns(float(d0)) if d0 else x.shape[1])].copy()
+        k = min(ns(0.03), x.shape[1] // 4); fade = np.ones(x.shape[1]); fade[:k] = np.linspace(0, 1, k); fade[-k:] = np.linspace(1, 0, k); x = x * fade[None, :]
+        p = float(e.get("x", 0.0)); g = np.array([np.cos((p + 1) * np.pi / 4), np.sin((p + 1) * np.pi / 4)]) * np.sqrt(2); x = x * g[:, None]; p_desc = f"{p:+.2f}"
     elif kind in GEN:
         x = GEN[kind](r); p = float(FIXED_PAN.get(kind, e.get("x", 0.0))); x = x if np.ndim(x) == 2 else pan(x, p); p_desc = f"{p:+.2f}"
     else:
         skipped[kind] = skipped.get(kind, 0) + 1; continue
     rel, stem, desc = REL.get(kind, (-24, "sfx", kind))
+    if "rel" in e: rel = float(e["rel"])   # per-event level for recorded layers
     rel += float(r.uniform(-1.5, 1.5)) + 20 * np.log10(float(np.clip(e.get("gain", 1.0), 0.05, 1.0)))  # seeded per-instance variation
     gain = NPK * db(rel) / (float(np.max(np.abs(x))) + 1e-9)       # event peak sits `rel` dB under the narration peak
     if t0 < 0 and A.loop: t0 += DUR

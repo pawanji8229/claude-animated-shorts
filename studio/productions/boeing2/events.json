@@ -1,0 +1,2234 @@
+{
+ "fps": 30,
+ "frames": 1550,
+ "events": [
+  {
+   "frame": 0,
+   "kind": "rec:mk17.wav@0+5.8",
+   "x": 0.2,
+   "gain": 1,
+   "rel": -33,
+   "note": "A: sparrows over the rooftop town"
+  },
+  {
+   "frame": 10,
+   "kind": "rec:mk2427.wav@0+5.5",
+   "x": -0.2,
+   "gain": 1,
+   "rel": -33,
+   "note": "A: breeze in the decoy trees"
+  },
+  {
+   "frame": 84,
+   "kind": "rec:mk1489.wav",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -31,
+   "note": "camera glides over the roof edge (scale reveal) (recorded air move)"
+  },
+  {
+   "frame": 176,
+   "kind": "rec:mk1267.wav@0+3.2",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "B: high-altitude wind"
+  },
+  {
+   "frame": 202,
+   "kind": "rec:mk1486.wav@0+2.2",
+   "x": -0.2,
+   "gain": 1,
+   "rel": -31,
+   "note": "camera climbs to the high aerial (recorded air move)"
+  },
+  {
+   "frame": 250,
+   "kind": "rec:mk371.wav@4+5.6",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "C: 1940s suburban street ambience + birds"
+  },
+  {
+   "frame": 262,
+   "kind": "hangar_door",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "a steel door leaf rolls open on its track"
+  },
+  {
+   "frame": 262,
+   "kind": "rec:mk200.wav",
+   "x": -0.1,
+   "gain": 1,
+   "rel": -28,
+   "note": "steel door leaf on its track (recorded layer)"
+  },
+  {
+   "frame": 302,
+   "kind": "hangar_door",
+   "x": 0.25,
+   "gain": 0.55,
+   "note": "the next leaf follows"
+  },
+  {
+   "frame": 302,
+   "kind": "rec:mk200.wav",
+   "x": 0.25,
+   "gain": 1,
+   "rel": -28,
+   "note": "steel door leaf on its track (recorded layer)"
+  },
+  {
+   "frame": 308,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.13578606858183015,
+   "gain": 1,
+   "rel": -42.499093161579836,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 308,
+   "kind": "rec:mk1621.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -31,
+   "note": "truck rolling along Marginal Way (recorded layer)"
+  },
+  {
+   "frame": 316,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.07263591941481735,
+   "gain": 1,
+   "rel": -41.94833892359159,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 320,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.057364061878267515,
+   "gain": 1,
+   "rel": -41.1190195788947,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 324,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.018799010547656966,
+   "gain": 1,
+   "rel": -41.41503681066928,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 328,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.002412403183103236,
+   "gain": 1,
+   "rel": -40.56009123233054,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 332,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.025545820965793265,
+   "gain": 1,
+   "rel": -40.899134436304934,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 335,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.038896355551213714,
+   "gain": 1,
+   "rel": -40.084295106453915,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 339,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.057340083175544836,
+   "gain": 1,
+   "rel": -40.45979898334605,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 343,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.07946335100219695,
+   "gain": 1,
+   "rel": -39.55289809589964,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 347,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.08665524353571477,
+   "gain": 1,
+   "rel": -39.968823855943405,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 350,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.11001955269656312,
+   "gain": 1,
+   "rel": -39.09669918444006,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 355,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.10943990421494028,
+   "gain": 1,
+   "rel": -39.48727815222552,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 358,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.1403548849529059,
+   "gain": 1,
+   "rel": -38.58328888023151,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 363,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.1268594241389592,
+   "gain": 1,
+   "rel": -39.012732170810686,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 365,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.16402263119306484,
+   "gain": 1,
+   "rel": -38.13930270076398,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 370,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.1389393344483274,
+   "gain": 1,
+   "rel": -38.601237574208874,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 373,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.1895998852309994,
+   "gain": 1,
+   "rel": -37.635860836188186,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 378,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.15098694159221066,
+   "gain": 1,
+   "rel": -38.1329869619884,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 378,
+   "kind": "truck42",
+   "x": 0.3,
+   "gain": 0.9,
+   "note": "a 1940s truck rolls along Marginal Way and brakes at the plant"
+  },
+  {
+   "frame": 381,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.21612387586617024,
+   "gain": 1,
+   "rel": -37.1348643044559,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 386,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.163667184884838,
+   "gain": 1,
+   "rel": -37.66490417405407,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 388,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.24269430787640803,
+   "gain": 1,
+   "rel": -36.69773733367927,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 394,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.18020766057080706,
+   "gain": 1,
+   "rel": -37.195832490931245,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 396,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.28053505249301136,
+   "gain": 1,
+   "rel": -36.20028667442493,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 401,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.20090046953570262,
+   "gain": 1,
+   "rel": -36.78500142936185,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 403,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.3237944741056753,
+   "gain": 1,
+   "rel": -35.76961661090467,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 409,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.23561226186460704,
+   "gain": 1,
+   "rel": -36.41634144069205,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 411,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.38950746615352294,
+   "gain": 1,
+   "rel": -36.131324672056905,
+   "note": "C: walker 1 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 412,
+   "kind": "rec:mk2504.wav@2+3.4",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "D: factory machine hum"
+  },
+  {
+   "frame": 417,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.28602853014399837,
+   "gain": 1,
+   "rel": -43.676723255878244,
+   "note": "C: walker 0 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 425,
+   "kind": "rivet_burst",
+   "x": 0.7173507186870237,
+   "gain": 0.20510475444346096,
+   "note": "D: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 440,
+   "kind": "rivet_burst",
+   "x": 0.8466078065549647,
+   "gain": 0.28856256797164825,
+   "note": "D: riveter 16 drives a rivet"
+  },
+  {
+   "frame": 442,
+   "kind": "rec:mk798.wav",
+   "x": 0.8466078065549647,
+   "gain": 1,
+   "rel": -42.79520011611199,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 448,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -42.707131597266375,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 453,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -42.15444877507189,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 458,
+   "kind": "rivet_burst",
+   "x": -0.47238469189933485,
+   "gain": 0.22317267197045193,
+   "note": "D: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 459,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -41.5365062975166,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 463,
+   "kind": "rivet_burst",
+   "x": -0.22946858130397574,
+   "gain": 0.22239035554545647,
+   "note": "D: riveter 15 drives a rivet"
+  },
+  {
+   "frame": 463,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.3955015102222675,
+   "note": "D: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 464,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -41.075979186168915,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 465,
+   "kind": "rec:mk798.wav",
+   "x": -0.22946858130397574,
+   "gain": 1,
+   "rel": -45.057681016638675,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 470,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -40.6050003838588,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 470,
+   "kind": "tool_clink",
+   "x": -0.3,
+   "gain": 0.6,
+   "note": "a bucking bar set down on the scaffold"
+  },
+  {
+   "frame": 470,
+   "kind": "rec:mk831.wav@0+1.6",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -31,
+   "note": "tools handled (recorded layer)"
+  },
+  {
+   "frame": 476,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -40.23516847562007,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 481,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -40.010202251213656,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 487,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -39.842870297886805,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 492,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -39.78659124597613,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 494,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.758786452461603,
+   "note": "D: riveter 16 drives a rivet"
+  },
+  {
+   "frame": 496,
+   "kind": "rec:mk798.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -34.39760863404633,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 498,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -39.809038081127895,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 498,
+   "kind": "rivet_burst",
+   "x": -0.3044866186396044,
+   "gain": 0.3318682556715553,
+   "note": "D: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 500,
+   "kind": "tool_clink",
+   "x": 0.4,
+   "gain": 0.5,
+   "note": "a wrench on the wing jig"
+  },
+  {
+   "frame": 500,
+   "kind": "rec:mk831.wav@0+1.6",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -31,
+   "note": "tools handled (recorded layer)"
+  },
+  {
+   "frame": 501,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.5902933080508626,
+   "note": "D: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 503,
+   "kind": "rec:mk798.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -36.578642803916175,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 503,
+   "kind": "rivet_burst",
+   "x": -0.791900785675305,
+   "gain": 0.16398398241979442,
+   "note": "D: riveter 13 drives a rivet"
+  },
+  {
+   "frame": 504,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -39.91167813274562,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 509,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -40.585776991635086,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 510,
+   "kind": "rivet_burst",
+   "x": 0.139693830359237,
+   "gain": 0.32197253488448313,
+   "note": "D: riveter 15 drives a rivet"
+  },
+  {
+   "frame": 512,
+   "kind": "rec:mk798.wav",
+   "x": 0.139693830359237,
+   "gain": 1,
+   "rel": -41.84362346402389,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 512,
+   "kind": "rec:mk1060.wav@0+12.6",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -35,
+   "note": "E: office wall clock ticking"
+  },
+  {
+   "frame": 515,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -45.039978982952135,
+   "note": "D: walker 18 footstep (concrete) (recorded)"
+  },
+  {
+   "frame": 536,
+   "kind": "paper_slide",
+   "x": 0,
+   "gain": 0.7,
+   "note": "plans slid across the model table"
+  },
+  {
+   "frame": 536,
+   "kind": "rec:mk2379.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -32,
+   "note": "plans on the table (recorded)"
+  },
+  {
+   "frame": 764,
+   "kind": "model_tick",
+   "x": 0.15,
+   "gain": 1,
+   "note": "the hero sets a tiny tree beside the model plant"
+  },
+  {
+   "frame": 764,
+   "kind": "rec:k_impactMetal_light_000.wav",
+   "x": 0.15,
+   "gain": 1,
+   "rel": -33,
+   "note": "tiny model set down (recorded layer)"
+  },
+  {
+   "frame": 766,
+   "kind": "brow_pluck",
+   "x": -0.3,
+   "gain": 0.55,
+   "note": "the officer's disbelief"
+  },
+  {
+   "frame": 797,
+   "kind": "model_tick",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "a second tiny tree"
+  },
+  {
+   "frame": 797,
+   "kind": "rec:k_impactMetal_light_000.wav",
+   "x": -0.1,
+   "gain": 1,
+   "rel": -33,
+   "note": "tiny model set down (recorded layer)"
+  },
+  {
+   "frame": 816,
+   "kind": "idea_ding",
+   "x": 0.25,
+   "gain": 0.35,
+   "note": "the hero gets the idea"
+  },
+  {
+   "frame": 868,
+   "kind": "double_take",
+   "x": -0.3,
+   "gain": 0.45,
+   "note": "the officer's double-take"
+  },
+  {
+   "frame": 872,
+   "kind": "model_tick",
+   "x": 0.05,
+   "gain": 1,
+   "note": "the tiny house goes on the model roof"
+  },
+  {
+   "frame": 872,
+   "kind": "rec:k_impactMetal_light_000.wav",
+   "x": 0.05,
+   "gain": 1,
+   "rel": -33,
+   "note": "tiny model set down (recorded layer)"
+  },
+  {
+   "frame": 874,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 40: first boards lifted off the pile"
+  },
+  {
+   "frame": 874,
+   "kind": "rec:k_impactPlank_medium_001.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "planks (recorded layer)"
+  },
+  {
+   "frame": 892,
+   "kind": "rec:mk797.wav@10+7.0",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "F: rooftop timber-and-canvas construction ambience"
+  },
+  {
+   "frame": 894,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 39: first boards lifted off the pile"
+  },
+  {
+   "frame": 894,
+   "kind": "rec:k_impactPlank_medium_000.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "planks (recorded layer)"
+  },
+  {
+   "frame": 899,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.14884475359474666,
+   "gain": 1,
+   "rel": -34.990385717944214,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 899,
+   "kind": "rec:k_footstep01.wav",
+   "x": -0.24857050566245398,
+   "gain": 1,
+   "rel": -35.953855608744114,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 900,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 40: a board sawn"
+  },
+  {
+   "frame": 900,
+   "kind": "rec:mk827.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "hand saw (recorded layer)"
+  },
+  {
+   "frame": 901,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.267129279333575,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 901,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -40.46557015001025,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 902,
+   "kind": "winch_ratchet",
+   "x": 0.4,
+   "gain": 0.6,
+   "note": "the derrick's hand winch hoists a lumber bundle up from the street"
+  },
+  {
+   "frame": 905,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.22669666040587338,
+   "gain": 1,
+   "rel": -33.29873352183895,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 905,
+   "kind": "rec:k_footstep03.wav",
+   "x": -0.200441193538975,
+   "gain": 1,
+   "rel": -34.23884175471541,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 909,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.56917838444207,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 909,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.89503202754508,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 910,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 40: canvas walls stretched up"
+  },
+  {
+   "frame": 910,
+   "kind": "rec:k_cloth1.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 912,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.32730321182497923,
+   "gain": 1,
+   "rel": -33.05973355716251,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 912,
+   "kind": "rec:k_footstep05.wav",
+   "x": -0.13737437536435093,
+   "gain": 1,
+   "rel": -33.964233488167665,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 914,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 41: first boards lifted off the pile"
+  },
+  {
+   "frame": 914,
+   "kind": "rec:k_impactPlank_medium_002.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "planks (recorded layer)"
+  },
+  {
+   "frame": 916,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.3017215472438364,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 916,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -39.40787347731242,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 919,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.4391301757045823,
+   "gain": 1,
+   "rel": -32.837370741048225,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 919,
+   "kind": "rec:k_footstep01.wav",
+   "x": -0.06633045357363275,
+   "gain": 1,
+   "rel": -33.69622862584994,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 920,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 39: a board sawn"
+  },
+  {
+   "frame": 920,
+   "kind": "rec:mk827.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "hand saw (recorded layer)"
+  },
+  {
+   "frame": 926,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.562880232404293,
+   "gain": 1,
+   "rel": -32.634768897065555,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 926,
+   "kind": "rec:k_footstep03.wav",
+   "x": 0.013264449043800572,
+   "gain": 1,
+   "rel": -33.43693562997037,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 926,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.5984734501036572,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 926,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.45910222609492,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 930,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 39: canvas walls stretched up"
+  },
+  {
+   "frame": 930,
+   "kind": "rec:k_cloth3.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 931,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.32088030335802115,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 931,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -38.873138808944276,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 934,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.7197324757282626,
+   "gain": 1,
+   "rel": -32.43170318039777,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 934,
+   "kind": "rec:k_footstep05.wav",
+   "x": 0.11544907509860372,
+   "gain": 1,
+   "rel": -33.15447967354436,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 940,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.8486208035538083,
+   "gain": 1,
+   "rel": -32.30229090863186,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 940,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 41: a board sawn"
+  },
+  {
+   "frame": 940,
+   "kind": "rec:mk827.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "hand saw (recorded layer)"
+  },
+  {
+   "frame": 941,
+   "kind": "rec:k_footstep01.wav",
+   "x": 0.21531914065671096,
+   "gain": 1,
+   "rel": -32.92274584320882,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 943,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.6164572267142775,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 943,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.20194103656071,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 944,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 42: first boards lifted off the pile"
+  },
+  {
+   "frame": 944,
+   "kind": "rec:k_impactPlank_medium_000.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "planks (recorded layer)"
+  },
+  {
+   "frame": 946,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.34220401834768743,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 946,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -38.31429790080891,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 947,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.179271736109285,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 947,
+   "kind": "rec:k_footstep03.wav",
+   "x": 0.30911285138791506,
+   "gain": 1,
+   "rel": -32.73819779454415,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 948,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 40: roof canvas pulled over"
+  },
+  {
+   "frame": 948,
+   "kind": "rec:k_cloth2.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 950,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 41: canvas walls stretched up"
+  },
+  {
+   "frame": 950,
+   "kind": "rec:k_cloth2.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 954,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.08942254823145,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 954,
+   "kind": "paint_roll",
+   "x": -0.4467813990231913,
+   "gain": 0.8,
+   "note": "the roller lays the road stripe"
+  },
+  {
+   "frame": 955,
+   "kind": "rec:k_footstep05.wav",
+   "x": 0.44643137650141124,
+   "gain": 1,
+   "rel": -32.51654181288023,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 959,
+   "kind": "rec:k_footstep00.wav",
+   "x": -0.45883088033344316,
+   "gain": 1,
+   "rel": -35.92756081637122,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 961,
+   "kind": "rec:k_footstep01.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.035578167470526,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 961,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.3660596009671521,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 961,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -37.72896396075553,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 961,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.6191988415839162,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 961,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.16339729631541,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 962,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.5783775833632779,
+   "gain": 1,
+   "rel": -32.34968680376655,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 966,
+   "kind": "rec:k_footstep03.wav",
+   "x": -0.4305730969239641,
+   "gain": 1,
+   "rel": -35.67768930976774,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 968,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 39: roof canvas pulled over"
+  },
+  {
+   "frame": 968,
+   "kind": "rec:k_cloth1.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 969,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.02099753774449,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 969,
+   "kind": "rec:k_footstep05.wav",
+   "x": 0.7213604544912768,
+   "gain": 1,
+   "rel": -32.2123762067067,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 969,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 43: first boards lifted off the pile"
+  },
+  {
+   "frame": 969,
+   "kind": "rec:k_impactPlank_medium_001.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "planks (recorded layer)"
+  },
+  {
+   "frame": 970,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 42: a board sawn"
+  },
+  {
+   "frame": 970,
+   "kind": "rec:mk827.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "hand saw (recorded layer)"
+  },
+  {
+   "frame": 975,
+   "kind": "rec:k_footstep00.wav",
+   "x": -0.3898157768757989,
+   "gain": 1,
+   "rel": -35.35955587477453,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 975,
+   "kind": "rec:k_footstep01.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.04419181541341,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 976,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.108600971422,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 976,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.39284376862804926,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 976,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -37.11560262672977,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 978,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.6054114238430958,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 978,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.35898776718557,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 980,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 42: canvas walls stretched up"
+  },
+  {
+   "frame": 980,
+   "kind": "rec:k_cloth3.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 982,
+   "kind": "rec:k_footstep03.wav",
+   "x": -0.35461168347069866,
+   "gain": 1,
+   "rel": -35.11645673905801,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 982,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.108703069694585,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 983,
+   "kind": "rec:k_footstep05.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.04198526796548,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 988,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 41: roof canvas pulled over"
+  },
+  {
+   "frame": 988,
+   "kind": "rec:k_cloth3.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 989,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.21296054136886,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 990,
+   "kind": "rec:k_footstep01.wav",
+   "x": -0.31061559526433835,
+   "gain": 1,
+   "rel": -34.84603074383844,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 990,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.0154261979355,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 991,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.4229204968609431,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 991,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -36.474825324827876,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 994,
+   "kind": "board_pick",
+   "x": 0,
+   "gain": 0.55,
+   "note": "lot 44: first boards lifted off the pile"
+  },
+  {
+   "frame": 994,
+   "kind": "rec:k_impactPlank_medium_002.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "planks (recorded layer)"
+  },
+  {
+   "frame": 994,
+   "kind": "paint_roll",
+   "x": -0.18680114403414916,
+   "gain": 0.8,
+   "note": "the roller lays the road stripe"
+  },
+  {
+   "frame": 995,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 43: a board sawn"
+  },
+  {
+   "frame": 995,
+   "kind": "rec:mk827.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "hand saw (recorded layer)"
+  },
+  {
+   "frame": 996,
+   "kind": "rec:k_footstep03.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.35520263660725,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 996,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.02597336641268,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 996,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.5760924174204624,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 996,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.79015681916756,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 999,
+   "kind": "rec:k_footstep05.wav",
+   "x": -0.25626080037985405,
+   "gain": 1,
+   "rel": -34.55576546064172,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1003,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.53264755379474,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1004,
+   "kind": "rec:k_footstep01.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.088644276124825,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1005,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 43: canvas walls stretched up"
+  },
+  {
+   "frame": 1005,
+   "kind": "rec:k_cloth1.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 1006,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.4564241332443507,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1006,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -35.812628009977445,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1007,
+   "kind": "rec:k_footstep02.wav",
+   "x": -0.20332895098483295,
+   "gain": 1,
+   "rel": -34.31531605479631,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1010,
+   "kind": "rec:k_footstep03.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.741809462097486,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1011,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.18846532806388,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1013,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.5392708457103575,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1013,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -34.36386116180087,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1014,
+   "kind": "rec:k_footstep05.wav",
+   "x": -0.1530707171659624,
+   "gain": 1,
+   "rel": -34.12290244578311,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1017,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.9787732469618,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1017,
+   "kind": "rec:k_footstep01.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.306086446933186,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1018,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 42: roof canvas pulled over"
+  },
+  {
+   "frame": 1018,
+   "kind": "rec:k_cloth1.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 1020,
+   "kind": "saw_stroke",
+   "x": 0,
+   "gain": 0.45,
+   "note": "lot 44: a board sawn"
+  },
+  {
+   "frame": 1020,
+   "kind": "rec:mk827.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "hand saw (recorded layer)"
+  },
+  {
+   "frame": 1021,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.49295072784380173,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1021,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -35.14392975623822,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1022,
+   "kind": "rec:k_footstep02.wav",
+   "x": -0.09076145764816931,
+   "gain": 1,
+   "rel": -33.928778665046025,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1024,
+   "kind": "rec:k_footstep03.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.239395741242355,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1025,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.50568875754774,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1030,
+   "kind": "rec:k_footstep05.wav",
+   "x": -0.023155125058368847,
+   "gain": 1,
+   "rel": -33.76777649630482,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1030,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.6,
+   "note": "lot 44: canvas walls stretched up"
+  },
+  {
+   "frame": 1030,
+   "kind": "rec:k_cloth2.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 1031,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.51948724384626,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1031,
+   "kind": "rec:k_footstep01.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.68442467471492,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1031,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.4961426918749413,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1031,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -35.087868027388005,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1032,
+   "kind": "bundle_land",
+   "x": 0.4,
+   "gain": 0.6,
+   "note": "the bundle is swung in and set down"
+  },
+  {
+   "frame": 1032,
+   "kind": "rec:k_impactPlank_medium_001.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -26,
+   "note": "planks (recorded layer)"
+  },
+  {
+   "frame": 1034,
+   "kind": "paint_roll",
+   "x": 0.2192164992261009,
+   "gain": 0.8,
+   "note": "the roller lays the road stripe"
+  },
+  {
+   "frame": 1036,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.5312407067790635,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1036,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -34.49417308348669,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1038,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.049405320830230026,
+   "gain": 1,
+   "rel": -33.645408266164125,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1038,
+   "kind": "rec:k_footstep03.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.814979531510055,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1039,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -32.95623681285478,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1043,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 43: roof canvas pulled over"
+  },
+  {
+   "frame": 1043,
+   "kind": "rec:k_cloth2.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 1045,
+   "kind": "rec:k_footstep05.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -34.122068399507015,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1046,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.1260512644463385,
+   "gain": 1,
+   "rel": -33.566369160791986,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1046,
+   "kind": "rec:k_footstep01.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.220469310672506,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1048,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.45548058837253563,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1048,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -35.8306025403326,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1051,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.5688008646595434,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1051,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -33.900795041747834,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1052,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -34.437305800034395,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1053,
+   "kind": "rec:k_footstep03.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.50442503234329,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1054,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.2054005413176684,
+   "gain": 1,
+   "rel": -33.534087243851296,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1059,
+   "kind": "rec:k_footstep05.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -34.757646497702574,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1060,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -33.80362364470925,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1063,
+   "kind": "rec:k_footstep01.wav",
+   "x": 0.2956526396377774,
+   "gain": 1,
+   "rel": -33.55582506596367,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1066,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -35.08045931939499,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1066,
+   "kind": "rec:k_footstep03.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -34.06907616192781,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1066,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.6016806663246655,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1066,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -33.41267886750485,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1066,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.41510744479336426,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1066,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -36.636789552921854,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1068,
+   "kind": "canvas_flap",
+   "x": 0,
+   "gain": 0.5,
+   "note": "lot 44: roof canvas pulled over"
+  },
+  {
+   "frame": 1068,
+   "kind": "rec:k_cloth3.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "canvas handled (recorded layer)"
+  },
+  {
+   "frame": 1070,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.3647893395752757,
+   "gain": 1,
+   "rel": -33.615145473814906,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1073,
+   "kind": "rec:k_footstep05.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -35.4035134173944,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1074,
+   "kind": "rec:k_footstep00.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -34.43171210337984,
+   "note": "F: walker 4 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1074,
+   "kind": "paint_roll",
+   "x": 0.6902997158290877,
+   "gain": 0.8,
+   "note": "the roller lays the road stripe"
+  },
+  {
+   "frame": 1078,
+   "kind": "rec:k_footstep01.wav",
+   "x": 0.4407580947818189,
+   "gain": 1,
+   "rel": -33.72658154336233,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1080,
+   "kind": "rec:k_footstep02.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -35.724948739366205,
+   "note": "F: walker 3 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1081,
+   "kind": "hammer_wood",
+   "x": -0.85,
+   "gain": 0.6249190862524058,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1081,
+   "kind": "rec:mk830.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -33.0835242185252,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1083,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.38063074920645207,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1083,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -37.38992260415068,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1086,
+   "kind": "rec:k_footstep03.wav",
+   "x": 0.5117384875473122,
+   "gain": 1,
+   "rel": -33.881186781789495,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1094,
+   "kind": "rec:k_footstep04.wav",
+   "x": 0.5762945186469857,
+   "gain": 1,
+   "rel": -34.07423913550392,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1096,
+   "kind": "hammer_wood",
+   "x": -0.6970630358703755,
+   "gain": 0.6340513870167375,
+   "note": "F: hammerer 0 drives a nail"
+  },
+  {
+   "frame": 1096,
+   "kind": "rec:mk830.wav",
+   "x": -0.6970630358703755,
+   "gain": 1,
+   "rel": -32.95751086149986,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1100,
+   "kind": "rec:mk2472.wav@20+4.6",
+   "x": 0.2,
+   "gain": 1,
+   "rel": -33,
+   "note": "G: morning birds on the roof"
+  },
+  {
+   "frame": 1101,
+   "kind": "hammer_wood",
+   "x": 0.85,
+   "gain": 0.3225113590759636,
+   "note": "F: hammerer 1 drives a nail"
+  },
+  {
+   "frame": 1101,
+   "kind": "rec:mk830.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -38.82909969206981,
+   "note": "hammer on wood (recorded layer)"
+  },
+  {
+   "frame": 1103,
+   "kind": "rec:k_footstep05.wav",
+   "x": 0.6400608653702524,
+   "gain": 1,
+   "rel": -36.145972041094076,
+   "note": "F: walker 2 footstep (gravel) (recorded)"
+  },
+  {
+   "frame": 1150,
+   "kind": "brow_pluck",
+   "x": 0,
+   "gain": 0.45,
+   "note": "the hero's side-eye at the hollow backs"
+  },
+  {
+   "frame": 1240,
+   "kind": "rec:mk1267.wav@8+4.6",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: wind high above the plant"
+  },
+  {
+   "frame": 1250,
+   "kind": "rec:mk1489.wav",
+   "x": 0.2,
+   "gain": 1,
+   "rel": -31,
+   "note": "camera sweeps up into the sky (recorded air move)"
+  },
+  {
+   "frame": 1420,
+   "kind": "rec:mk2504.wav@12+2.7",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "J: the real factory humming below"
+  },
+  {
+   "frame": 1432,
+   "kind": "reveal_shimmer",
+   "x": 0,
+   "gain": 0.8,
+   "note": "the roof turns transparent: the real factory below"
+  },
+  {
+   "frame": 1458,
+   "kind": "rivet_burst",
+   "x": -0.24958496357604318,
+   "gain": 0.12743609072429038,
+   "note": "J2: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 1461,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.12054145209055048,
+   "note": "J2: riveter 12 drives a rivet"
+  },
+  {
+   "frame": 1463,
+   "kind": "rec:mk798.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -50.37727162303083,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 1466,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.11796339110826018,
+   "note": "J2: riveter 16 drives a rivet"
+  },
+  {
+   "frame": 1489,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.13787466848212335,
+   "note": "J2: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 1491,
+   "kind": "rec:mk798.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -49.210310376120475,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 1497,
+   "kind": "rivet_burst",
+   "x": -0.5845569085685121,
+   "gain": 0.17421964605002668,
+   "note": "J2: riveter 15 drives a rivet"
+  },
+  {
+   "frame": 1498,
+   "kind": "rivet_burst",
+   "x": -0.5165531768434404,
+   "gain": 0.18046333247367402,
+   "note": "J2: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 1500,
+   "kind": "rec:mk798.wav",
+   "x": -0.5165531768434404,
+   "gain": 1,
+   "rel": -46.87222054242993,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 1500,
+   "kind": "rec:mk1474.wav",
+   "x": -0.1,
+   "gain": 1,
+   "rel": -31,
+   "note": "the camera rises back over the rooftop town (loop) (recorded air move)"
+  },
+  {
+   "frame": 1510,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.144504221102528,
+   "note": "J2: riveter 12 drives a rivet"
+  },
+  {
+   "frame": 1511,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.13229170035990517,
+   "note": "J2: riveter 13 drives a rivet"
+  },
+  {
+   "frame": 1513,
+   "kind": "rec:mk798.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -49.569348029471556,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 1520,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.16971401946610015,
+   "note": "J2: riveter 16 drives a rivet"
+  },
+  {
+   "frame": 1527,
+   "kind": "rivet_burst",
+   "x": 0.85,
+   "gain": 0.16958728622040853,
+   "note": "J2: riveter 17 drives a rivet"
+  },
+  {
+   "frame": 1529,
+   "kind": "rec:mk798.wav",
+   "x": 0.85,
+   "gain": 1,
+   "rel": -47.41213418914353,
+   "note": "metalwork texture (recorded layer)"
+  },
+  {
+   "frame": 1538,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.20915169707202103,
+   "note": "J2: riveter 14 drives a rivet"
+  },
+  {
+   "frame": 1544,
+   "kind": "rivet_burst",
+   "x": -0.85,
+   "gain": 0.21034080178749603,
+   "note": "J2: riveter 15 drives a rivet"
+  },
+  {
+   "frame": 1546,
+   "kind": "rec:mk798.wav",
+   "x": -0.85,
+   "gain": 1,
+   "rel": -45.54152949897036,
+   "note": "metalwork texture (recorded layer)"
+  }
+ ]
+}

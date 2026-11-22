@@ -1,0 +1,17 @@
+// Tests for the Model Vault integration (no video rendering; uses the public site read-only).   node vault/test-vault.mjs
+import assert from "node:assert/strict"; import fs from "node:fs"; import path from "node:path"; import { fileURLToPath } from "node:url";
+import { loadIndex, checkGlb } from "./client.mjs"; import { metrics, score } from "./quality.mjs"; import { relevance, selectFor } from "./select.mjs";
+import { titleFor, describe, validate } from "./metadata.mjs"; import { jaccard } from "./duplicates.mjs"; import { loadRegistry, verify } from "./publish.mjs";
+const LIB = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../asset-library"); let n = 0; const ok = (m) => { n++; console.log("ok ", m); };
+const idx = await loadIndex(); assert.ok(idx.length >= 2500); assert.ok(idx.every((e) => e.id && e.name)); ok(`vault index: ${idx.length} entries with files + licences (${idx.filter((e) => e.files.length).length} downloadable)`);
+const g = Buffer.alloc(28); g.writeUInt32LE(0x46546c67, 0); g.writeUInt32LE(2, 4); g.writeUInt32LE(28, 8); g.writeUInt32LE(8, 12); g.writeUInt32LE(0x4e4f534a, 16); assert.equal(checkGlb(g), null); assert.match(checkGlb(Buffer.from("not a model at all, really")), /magic/); ok("GLB integrity check (magic, version, length, JSON chunk)");
+assert.equal(relevance({ name: "Aircraft propeller, 3-blade", category: "Air_Sea_Rail" }, { need: "hangar", keywords: ["hangar", "aircraft"] }), 0); assert.ok(relevance({ name: "Aircraft Hangar", category: "Infrastructure" }, { need: "hangar", keywords: ["hangar", "aircraft"] }) >= 6);
+assert.equal(relevance({ name: "Banana Plant", category: "Nature" }, { need: "factory", keywords: ["factory"] }), 0); ok("relevance needs the main noun in the name (no name-only/category-only false matches)");
+const glb = path.join(LIB, loadRegistry().models[0].files.glb), m = await metrics(glb); assert.equal(m.uvMissing, 0); assert.equal(m.noNormals, 0); assert.equal(m.unsupported.length, 0); assert.equal(m.pbr.normal, m.materials);
+assert.ok(score(m, { distance: "mid", expected: { lengthM: [5, 12] } }).score >= 80); assert.ok(score({ ...m, uvMissing: 3 }, { distance: "mid" }).score < score(m, { distance: "mid" }).score); ok(`quality scoring on the original model: mid ${score(m, { distance: "mid" }).score}, hero ${score(m, { distance: "hero" }).score}`);
+const r = await selectFor({ need: "1940s rooftop camouflage prop house", keywords: ["camouflage", "canvas", "prop"], distance: "hero", lengthM: [3, 10] }, idx, { top: 2 }); assert.equal(r.decision, "create"); ok("selection marks a missing object as 'create' instead of using a poor match");
+assert.ok(titleFor({ era: "1940s", subject: "Delivery Truck", qualifier: "PBR 3D Asset" }).length <= 80); assert.ok(describe({ what: "x".repeat(300), m }).length <= 280); assert.ok(validate({ title: "Model001", author: "a", licence: "CC0 1.0", original: true }).includes("title is generic"));
+assert.ok(validate({ title: "Fine name", author: "a", licence: "MIT", original: true }).length === 1); ok("naming/description limits match the site form (title 80, description 280, licences CC0/BY/BY-SA)");
+assert.ok(jaccard("1940s Rooftop Camouflage Prop House", "Camouflage prop house 1940s") > 0.7); assert.ok(jaccard("Vintage telephone", "Street lamp") === 0); ok("duplicate name similarity");
+const v = await verify("camouflage-prop-house-1940s"); assert.equal(v.published, false); ok("publication verifier: test model correctly NOT public (nothing uploaded without approval)");
+console.log(`\n${n} vault tests passed`);

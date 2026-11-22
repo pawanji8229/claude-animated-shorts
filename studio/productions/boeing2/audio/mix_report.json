@@ -1,0 +1,723 @@
+{
+ "narration_lufs": -25.4,
+ "master_gain_db": 9.4,
+ "final_lufs": -16.1,
+ "final_true_peak_dbtp": -1.1,
+ "stems_lu_re_narration": {
+  "sfx": -24.0,
+  "crowd": null,
+  "ambience": -30.8,
+  "music": -32.5
+ },
+ "stems_speechband_db_re_narration_during_speech": {
+  "sfx": -27.5,
+  "crowd": null,
+  "ambience": -35.1,
+  "music": -32.3
+ },
+ "min_word_margin_target_db": 15.0,
+ "words": 138,
+ "min_word_margin_before_db": 17.6,
+ "min_word_margin_after_db": 17.6,
+ "word_margins_after": [
+  {
+   "word": "they",
+   "t0": 0.1,
+   "margin_db": 28.6
+  },
+  {
+   "word": "build",
+   "t0": 0.26,
+   "margin_db": 32.8
+  },
+  {
+   "word": "an",
+   "t0": 0.56,
+   "margin_db": 29.6
+  },
+  {
+   "word": "entire",
+   "t0": 0.64,
+   "margin_db": 30.7
+  },
+  {
+   "word": "fake",
+   "t0": 1.29,
+   "margin_db": 31.0
+  },
+  {
+   "word": "neighborhood",
+   "t0": 1.75,
+   "margin_db": 31.5
+  },
+  {
+   "word": "on",
+   "t0": 2.43,
+   "margin_db": 24.7
+  },
+  {
+   "word": "top",
+   "t0": 2.61,
+   "margin_db": 21.4
+  },
+  {
+   "word": "of",
+   "t0": 2.87,
+   "margin_db": 27.5
+  },
+  {
+   "word": "an",
+   "t0": 2.97,
+   "margin_db": 27.9
+  },
+  {
+   "word": "airplane",
+   "t0": 3.17,
+   "margin_db": 27.3
+  },
+  {
+   "word": "factory",
+   "t0": 3.66,
+   "margin_db": 23.8
+  },
+  {
+   "word": "and",
+   "t0": 4.925,
+   "margin_db": 28.1
+  },
+  {
+   "word": "from",
+   "t0": 5.045,
+   "margin_db": 29.7
+  },
+  {
+   "word": "above",
+   "t0": 5.225,
+   "margin_db": 31.2
+  },
+  {
+   "word": "it",
+   "t0": 5.979,
+   "margin_db": 20.8
+  },
+  {
+   "word": "was",
+   "t0": 6.069,
+   "margin_db": 24.4
+  },
+  {
+   "word": "supposed",
+   "t0": 6.199,
+   "margin_db": 26.6
+  },
+  {
+   "word": "to",
+   "t0": 6.579,
+   "margin_db": 29.8
+  },
+  {
+   "word": "look",
+   "t0": 6.649,
+   "margin_db": 28.6
+  },
+  {
+   "word": "like",
+   "t0": 6.839,
+   "margin_db": 24.0
+  },
+  {
+   "word": "a",
+   "t0": 6.989,
+   "margin_db": 27.2
+  },
+  {
+   "word": "normal",
+   "t0": 7.029,
+   "margin_db": 25.3
+  },
+  {
+   "word": "town",
+   "t0": 7.399,
+   "margin_db": 19.8
+  },
+  {
+   "word": "you",
+   "t0": 8.956,
+   "margin_db": 20.7
+  },
+  {
+   "word": "see",
+   "t0": 9.056,
+   "margin_db": 29.6
+  },
+  {
+   "word": "during",
+   "t0": 9.576,
+   "margin_db": 27.1
+  },
+  {
+   "word": "world",
+   "t0": 9.876,
+   "margin_db": 27.4
+  },
+  {
+   "word": "war",
+   "t0": 10.126,
+   "margin_db": 26.7
+  },
+  {
+   "word": "two",
+   "t0": 10.306,
+   "margin_db": 22.5
+  },
+  {
+   "word": "boeing",
+   "t0": 10.966,
+   "margin_db": 23.1
+  },
+  {
+   "word": "had",
+   "t0": 11.396,
+   "margin_db": 22.2
+  },
+  {
+   "word": "an",
+   "t0": 11.636,
+   "margin_db": 21.8
+  },
+  {
+   "word": "enormous",
+   "t0": 11.756,
+   "margin_db": 22.8
+  },
+  {
+   "word": "factory",
+   "t0": 12.426,
+   "margin_db": 23.1
+  },
+  {
+   "word": "in",
+   "t0": 12.906,
+   "margin_db": 17.6
+  },
+  {
+   "word": "seattle",
+   "t0": 12.996,
+   "margin_db": 22.4
+  },
+  {
+   "word": "inside",
+   "t0": 14.143,
+   "margin_db": 31.0
+  },
+  {
+   "word": "the",
+   "t0": 14.663,
+   "margin_db": 20.5
+  },
+  {
+   "word": "workers",
+   "t0": 14.813,
+   "margin_db": 24.7
+  },
+  {
+   "word": "were",
+   "t0": 15.263,
+   "margin_db": 28.6
+  },
+  {
+   "word": "building",
+   "t0": 15.373,
+   "margin_db": 28.1
+  },
+  {
+   "word": "military",
+   "t0": 15.673,
+   "margin_db": 23.4
+  },
+  {
+   "word": "aircraft",
+   "t0": 16.303,
+   "margin_db": 19.7
+  },
+  {
+   "word": "but",
+   "t0": 17.459,
+   "margin_db": 24.5
+  },
+  {
+   "word": "officials",
+   "t0": 17.779,
+   "margin_db": 21.5
+  },
+  {
+   "word": "were",
+   "t0": 18.249,
+   "margin_db": 19.9
+  },
+  {
+   "word": "concerned",
+   "t0": 18.349,
+   "margin_db": 25.3
+  },
+  {
+   "word": "that",
+   "t0": 18.899,
+   "margin_db": 22.6
+  },
+  {
+   "word": "the",
+   "t0": 18.999,
+   "margin_db": 22.2
+  },
+  {
+   "word": "factory",
+   "t0": 19.069,
+   "margin_db": 25.8
+  },
+  {
+   "word": "might",
+   "t0": 19.559,
+   "margin_db": 28.7
+  },
+  {
+   "word": "be",
+   "t0": 19.869,
+   "margin_db": 22.3
+  },
+  {
+   "word": "spotted",
+   "t0": 19.999,
+   "margin_db": 28.7
+  },
+  {
+   "word": "during",
+   "t0": 20.549,
+   "margin_db": 27.6
+  },
+  {
+   "word": "aerial",
+   "t0": 20.859,
+   "margin_db": 29.9
+  },
+  {
+   "word": "surveillance",
+   "t0": 21.179,
+   "margin_db": 26.7
+  },
+  {
+   "word": "in",
+   "t0": 22.427,
+   "margin_db": 33.2
+  },
+  {
+   "word": "the",
+   "t0": 22.567,
+   "margin_db": 34.7
+  },
+  {
+   "word": "building",
+   "t0": 22.627,
+   "margin_db": 35.4
+  },
+  {
+   "word": "was",
+   "t0": 22.957,
+   "margin_db": 28.7
+  },
+  {
+   "word": "for",
+   "t0": 23.127,
+   "margin_db": 34.4
+  },
+  {
+   "word": "too",
+   "t0": 23.567,
+   "margin_db": 32.1
+  },
+  {
+   "word": "large",
+   "t0": 23.757,
+   "margin_db": 36.5
+  },
+  {
+   "word": "to",
+   "t0": 24.127,
+   "margin_db": 25.5
+  },
+  {
+   "word": "simply",
+   "t0": 24.227,
+   "margin_db": 28.9
+  },
+  {
+   "word": "hide",
+   "t0": 24.557,
+   "margin_db": 32.1
+  },
+  {
+   "word": "but",
+   "t0": 24.877,
+   "margin_db": 29.4
+  },
+  {
+   "word": "a",
+   "t0": 25.167,
+   "margin_db": 25.7
+  },
+  {
+   "word": "few",
+   "t0": 25.197,
+   "margin_db": 24.1
+  },
+  {
+   "word": "trees",
+   "t0": 25.397,
+   "margin_db": 21.9
+  },
+  {
+   "word": "spoke",
+   "t0": 26.287,
+   "margin_db": 31.1
+  },
+  {
+   "word": "they",
+   "t0": 27.147,
+   "margin_db": 25.0
+  },
+  {
+   "word": "came",
+   "t0": 27.267,
+   "margin_db": 24.0
+  },
+  {
+   "word": "up",
+   "t0": 27.537,
+   "margin_db": 27.7
+  },
+  {
+   "word": "with",
+   "t0": 27.667,
+   "margin_db": 24.3
+  },
+  {
+   "word": "are",
+   "t0": 27.827,
+   "margin_db": 29.1
+  },
+  {
+   "word": "ridiculous",
+   "t0": 27.947,
+   "margin_db": 32.3
+  },
+  {
+   "word": "looking",
+   "t0": 28.817,
+   "margin_db": 20.2
+  },
+  {
+   "word": "solution",
+   "t0": 29.087,
+   "margin_db": 21.2
+  },
+  {
+   "word": "the",
+   "t0": 30.107,
+   "margin_db": 22.9
+  },
+  {
+   "word": "bill",
+   "t0": 30.297,
+   "margin_db": 29.5
+  },
+  {
+   "word": "the",
+   "t0": 30.547,
+   "margin_db": 25.7
+  },
+  {
+   "word": "neighborhood",
+   "t0": 30.667,
+   "margin_db": 27.2
+  },
+  {
+   "word": "on",
+   "t0": 31.327,
+   "margin_db": 23.7
+  },
+  {
+   "word": "the",
+   "t0": 31.487,
+   "margin_db": 21.7
+  },
+  {
+   "word": "roof",
+   "t0": 31.557,
+   "margin_db": 22.1
+  },
+  {
+   "word": "workers",
+   "t0": 32.701,
+   "margin_db": 23.6
+  },
+  {
+   "word": "constructed",
+   "t0": 33.081,
+   "margin_db": 21.6
+  },
+  {
+   "word": "fake",
+   "t0": 33.601,
+   "margin_db": 22.3
+  },
+  {
+   "word": "houses",
+   "t0": 33.951,
+   "margin_db": 22.2
+  },
+  {
+   "word": "roads",
+   "t0": 34.621,
+   "margin_db": 23.7
+  },
+  {
+   "word": "gardens",
+   "t0": 35.301,
+   "margin_db": 25.6
+  },
+  {
+   "word": "and",
+   "t0": 35.891,
+   "margin_db": 18.7
+  },
+  {
+   "word": "trees",
+   "t0": 36.011,
+   "margin_db": 23.0
+  },
+  {
+   "word": "from",
+   "t0": 37.099,
+   "margin_db": 26.5
+  },
+  {
+   "word": "the",
+   "t0": 37.269,
+   "margin_db": 31.3
+  },
+  {
+   "word": "ground",
+   "t0": 37.329,
+   "margin_db": 35.3
+  },
+  {
+   "word": "that",
+   "t0": 37.789,
+   "margin_db": 18.1
+  },
+  {
+   "word": "the",
+   "t0": 37.909,
+   "margin_db": 23.7
+  },
+  {
+   "word": "whole",
+   "t0": 38.039,
+   "margin_db": 24.3
+  },
+  {
+   "word": "thing",
+   "t0": 38.369,
+   "margin_db": 24.8
+  },
+  {
+   "word": "look",
+   "t0": 38.619,
+   "margin_db": 28.1
+  },
+  {
+   "word": "like",
+   "t0": 38.799,
+   "margin_db": 31.5
+  },
+  {
+   "word": "an",
+   "t0": 38.959,
+   "margin_db": 32.3
+  },
+  {
+   "word": "unusual",
+   "t0": 39.069,
+   "margin_db": 28.6
+  },
+  {
+   "word": "collection",
+   "t0": 39.659,
+   "margin_db": 29.0
+  },
+  {
+   "word": "of",
+   "t0": 40.089,
+   "margin_db": 21.3
+  },
+  {
+   "word": "props",
+   "t0": 40.189,
+   "margin_db": 23.8
+  },
+  {
+   "word": "but",
+   "t0": 41.139,
+   "margin_db": 27.8
+  },
+  {
+   "word": "from",
+   "t0": 41.319,
+   "margin_db": 21.4
+  },
+  {
+   "word": "high",
+   "t0": 41.479,
+   "margin_db": 29.7
+  },
+  {
+   "word": "in",
+   "t0": 41.739,
+   "margin_db": 29.8
+  },
+  {
+   "word": "the",
+   "t0": 41.819,
+   "margin_db": 20.3
+  },
+  {
+   "word": "sky",
+   "t0": 41.889,
+   "margin_db": 25.1
+  },
+  {
+   "word": "the",
+   "t0": 42.561,
+   "margin_db": 19.0
+  },
+  {
+   "word": "factory",
+   "t0": 42.671,
+   "margin_db": 25.3
+  },
+  {
+   "word": "was",
+   "t0": 43.091,
+   "margin_db": 21.9
+  },
+  {
+   "word": "supposed",
+   "t0": 43.241,
+   "margin_db": 19.5
+  },
+  {
+   "word": "to",
+   "t0": 43.701,
+   "margin_db": 23.2
+  },
+  {
+   "word": "blend",
+   "t0": 43.781,
+   "margin_db": 23.2
+  },
+  {
+   "word": "into",
+   "t0": 44.161,
+   "margin_db": 19.7
+  },
+  {
+   "word": "the",
+   "t0": 44.401,
+   "margin_db": 20.1
+  },
+  {
+   "word": "surrounding",
+   "t0": 44.491,
+   "margin_db": 19.3
+  },
+  {
+   "word": "neighborhoods",
+   "t0": 44.961,
+   "margin_db": 18.5
+  },
+  {
+   "word": "underneath",
+   "t0": 46.206,
+   "margin_db": 29.9
+  },
+  {
+   "word": "the",
+   "t0": 46.656,
+   "margin_db": 29.5
+  },
+  {
+   "word": "fake",
+   "t0": 46.746,
+   "margin_db": 29.6
+  },
+  {
+   "word": "down",
+   "t0": 47.016,
+   "margin_db": 20.1
+  },
+  {
+   "word": "the",
+   "t0": 47.576,
+   "margin_db": 18.2
+  },
+  {
+   "word": "real",
+   "t0": 47.686,
+   "margin_db": 25.2
+  },
+  {
+   "word": "factory",
+   "t0": 48.016,
+   "margin_db": 22.8
+  },
+  {
+   "word": "continued",
+   "t0": 48.496,
+   "margin_db": 23.3
+  },
+  {
+   "word": "operating",
+   "t0": 48.976,
+   "margin_db": 27.0
+  },
+  {
+   "word": "and",
+   "t0": 50.0,
+   "margin_db": 24.5
+  },
+  {
+   "word": "that",
+   "t0": 50.32,
+   "margin_db": 35.1
+  },
+  {
+   "word": "explains",
+   "t0": 50.66,
+   "margin_db": 25.6
+  },
+  {
+   "word": "why",
+   "t0": 51.12,
+   "margin_db": 27.5
+  }
+ ],
+ "guard_adjustments": [],
+ "events_placed": 300,
+ "skipped_unknown_kinds": {},
+ "ducking_db": {
+  "sfx": -4,
+  "crowd": -8,
+  "ambience": -6,
+  "music": -10
+ }
+}
