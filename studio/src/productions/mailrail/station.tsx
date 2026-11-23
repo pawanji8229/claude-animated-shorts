@@ -150,7 +150,6 @@ export const Station: React.FC<{ id: StationId; far: boolean; belt?: number; clo
     <Instances name="sacktruck" items={D.truck} /><Instances name="cart" items={D.cart} /><Instances name="crate" items={D.crate} />
     <BagRack bags={D.bags} />
     <Instances name="lamp_hang" items={LAMPS} shadows={false} />
-    {LAMPS.map((l, i) => <mesh key={i} position={[l.p[0], l.p[1] + 0.12, l.p[2]]} material={SM.bulb()}><sphereGeometry args={[0.07, 12, 8]} /></mesh>)}
     {id === "B" && <BeltSlats t={belt} />}
     {clock && <StationClock {...clock} />}
     {far && <group />}
