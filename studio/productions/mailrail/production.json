@@ -1,0 +1,2 @@
+{"composition": "MailRailPreview", "finalComposition": "MailRail", "scene": "src/productions/mailrail/scene.ts", "ambience": "city1930", "music": "office_piano", "loop": true,
+ "ambienceTimeline": [[0, "city1930"], [140, "tunnel"], [335, "city1930"], [700, "tunnel"], [850, "sortroom"], [955, "tunnel"], [1160, "sortroom"], [1572, "tunnel"], [1690, "city1930"]]}

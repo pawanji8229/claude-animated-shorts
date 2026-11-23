@@ -1,0 +1,2311 @@
+{
+ "fps": 30,
+ "frames": 1801,
+ "events": [
+  {
+   "frame": 0,
+   "kind": "rec:mk2930.wav@5+5.2",
+   "x": 0,
+   "gain": 1,
+   "rel": -34,
+   "note": "A: the city far below (distant traffic, muffled)"
+  },
+  {
+   "frame": 0,
+   "kind": "rec:mk17.wav@0+5.0",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -33,
+   "note": "A: sparrows over the rooftops"
+  },
+  {
+   "frame": 86,
+   "kind": "rec:mk1486.wav@0+2.6",
+   "x": 0,
+   "gain": 1,
+   "rel": -32,
+   "note": "camera glides down past the street edge"
+  },
+  {
+   "frame": 90,
+   "kind": "rec:mk2504.wav@3+5.5",
+   "x": -0.5,
+   "gain": 1,
+   "rel": -37.47735131852864,
+   "note": "the train's traction motors hum up (recorded machine hum)"
+  },
+  {
+   "frame": 96,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.29931772390894434,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 96,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.29931772390894434,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 101,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.33055916556466175,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 107,
+   "kind": "rail_clack",
+   "x": -0.6037511583633841,
+   "gain": 0.2954040739859643,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 113,
+   "kind": "rail_clack",
+   "x": -0.3306239359603235,
+   "gain": 0.3253332755142889,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 114,
+   "kind": "rail_clack",
+   "x": -0.28860201132483704,
+   "gain": 0.4127524377899547,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 117,
+   "kind": "rail_clack",
+   "x": -0.1711345159727018,
+   "gain": 0.3448371196701976,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 119,
+   "kind": "rail_clack",
+   "x": -0.10107359747142411,
+   "gain": 0.44353263687449257,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 120,
+   "kind": "rail_clack",
+   "x": -0.0687880008983254,
+   "gain": 0.4499543214914605,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 122,
+   "kind": "rail_clack",
+   "x": -0.010049185104063024,
+   "gain": 0.3706580614922186,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 124,
+   "kind": "rail_clack",
+   "x": 0.040564337397657045,
+   "gain": 0.4776195425392484,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 125,
+   "kind": "rail_clack",
+   "x": 0.06272144951381728,
+   "gain": 0.48520105329948143,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 129,
+   "kind": "rail_clack",
+   "x": 0.12967320428955736,
+   "gain": 0.5191533249454838,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 140,
+   "kind": "rail_clack",
+   "x": 0.12825970912205759,
+   "gain": 0.5224299523811562,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 144,
+   "kind": "rail_clack",
+   "x": 0.06200693908565459,
+   "gain": 0.575279189228429,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 146,
+   "kind": "rail_clack",
+   "x": 0.01765331255022771,
+   "gain": 0.604582885161474,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 147,
+   "kind": "rail_clack",
+   "x": -0.006960652493298848,
+   "gain": 0.7749381135144061,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 150,
+   "kind": "rail_clack",
+   "x": -0.08912622859581851,
+   "gain": 0.6689160143072501,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 150,
+   "kind": "rec:mk2504.wav@10+4.5",
+   "x": 0.2,
+   "gain": 1,
+   "rel": -28,
+   "note": "B: motors humming beside the camera"
+  },
+  {
+   "frame": 153,
+   "kind": "rail_clack",
+   "x": -0.18154058288307487,
+   "gain": 0.9028117529272551,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 168,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.7999999999999925,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 174,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 178,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.7999999999999925,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 183,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.7999999999999925,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 190,
+   "kind": "rec:mk2504.wav@16+3.5",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -27,
+   "note": "B: the driverless train hums past"
+  },
+  {
+   "frame": 201,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.7999999999999925,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 205,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.7999999999999925,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 207,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.7828571428571536,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 207,
+   "kind": "brake_squeal",
+   "x": -0.6,
+   "gain": 0.9,
+   "note": "brake blocks squeal as the train slows"
+  },
+  {
+   "frame": 211,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.7371428571428473,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 236,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.4514285714285697,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 236,
+   "kind": "idea_ding",
+   "x": 0.3,
+   "gain": 0.4,
+   "note": "B: the hero gets an idea (ride the train!)"
+  },
+  {
+   "frame": 247,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.32571428571429806,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 248,
+   "kind": "brake_squeal",
+   "x": -0.6,
+   "gain": 0.9,
+   "note": "brake blocks squeal as the train slows"
+  },
+  {
+   "frame": 252,
+   "kind": "brow_pluck",
+   "x": 0.3,
+   "gain": 0.55,
+   "note": "B: the officer's raised brow"
+  },
+  {
+   "frame": 259,
+   "kind": "rail_clack",
+   "x": -0.7,
+   "gain": 0.18857142857143572,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 262,
+   "kind": "brow_pluck",
+   "x": 0.1,
+   "gain": 0.45,
+   "note": "B: the hero freezes, embarrassed"
+  },
+  {
+   "frame": 273,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.28993853672549913,
+   "gain": 1,
+   "rel": -32.814836872220205,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 276,
+   "kind": "parcel_thud",
+   "x": 0.2,
+   "gain": 0.5,
+   "note": "B: the train comes to rest (buffers settle)"
+  },
+  {
+   "frame": 312,
+   "kind": "rec:mk1536.wav@0+9",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -29,
+   "note": "C: a vintage car crawls past in the jam (recorded)"
+  },
+  {
+   "frame": 316,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -44.11627320425663,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 318,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -42.402754532167094,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 321,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -43.24701663644132,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 325,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -43.1452735622093,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 328,
+   "kind": "rec:mk1489.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -32,
+   "note": "camera rises to the street"
+  },
+  {
+   "frame": 330,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -44.3717194692646,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 330,
+   "kind": "rec:mk1621.wav@1+8.6",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -31,
+   "note": "C: the post lorry idles and creeps (recorded)"
+  },
+  {
+   "frame": 334,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -43.59862329679791,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 334,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -42.66548477970669,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 340,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -43.14426482351129,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 341,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -43.59467934118383,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 344,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -44.47550115268447,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 348,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -43.637535568441194,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 350,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -42.483229212775484,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 355,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -42.70985318001535,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 359,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -44.36122385524149,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 360,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -43.49012905730841,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 362,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -43.4165382042027,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 366,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -37.71336526730328,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 366,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -41.81201806549338,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 370,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -41.91478177777827,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 373,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -44.121259609066406,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 376,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.7678413498037914,
+   "gain": 1,
+   "rel": -43.044614130747064,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 380,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -43.103789871057884,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 382,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.9719769921119,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 385,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -41.05141268605803,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 387,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -43.77799468195826,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 390,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.5039978317402793,
+   "gain": 1,
+   "rel": -42.568334136885966,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 391,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -37.00417575776967,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 399,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.116105402630254,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 399,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -42.51799000733033,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 400,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.25679425852678,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 402,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -43.27399448645396,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 404,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.14140570771572505,
+   "gain": 1,
+   "rel": -41.971261105007486,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 415,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.443383305071485,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 415,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.267710144644425,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 416,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.34422360946176805,
+   "gain": 1,
+   "rel": -42.727328971422864,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 416,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -35.603567585730104,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 418,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.485385945670102,
+   "gain": 1,
+   "rel": -41.30917850305388,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 419,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.16904804593661418,
+   "gain": 1,
+   "rel": -41.73258879093011,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 422,
+   "kind": "rec:mk1565.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -24,
+   "note": "C: the lorry driver leans on the horn (recorded classic horn)"
+  },
+  {
+   "frame": 430,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.35548866697248815,
+   "gain": 1,
+   "rel": -42.241164717376094,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 430,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.759344361011934,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 431,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.59360151574582,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 432,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.75667283472262,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 439,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.6696307422004737,
+   "gain": 1,
+   "rel": -41.15180507733993,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 441,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -34.46417117190857,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 445,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.7884079841833596,
+   "gain": 1,
+   "rel": -41.90240691912791,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 445,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.417095657713105,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 445,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.45301946450227,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 447,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.36424412662161,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 452,
+   "kind": "rec:mk1565.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -27,
+   "note": "C: and again"
+  },
+  {
+   "frame": 458,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.88299052146443,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 459,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -41.6870016975878,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 459,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.253220093153494,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 460,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.27985744064476,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 463,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.357458210390874,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 466,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.7562574331403284,
+   "gain": 1,
+   "rel": -33.76854148178355,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 473,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -41.48409901782248,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 473,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.07689462035917,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 475,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.180833650548806,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 478,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.645775082957954,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 479,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.38483574906234,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 479,
+   "kind": "parcel_thud",
+   "x": 0.1,
+   "gain": 0.8,
+   "note": "C: the hero drops the overstuffed mailbag"
+  },
+  {
+   "frame": 487,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.90843634070979,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 488,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -41.267187358076605,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 490,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.101317371657544,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 496,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.43497153324659,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 497,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.4204328805147,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 500,
+   "kind": "rec:mk2706.wav@3+4",
+   "x": -0.4,
+   "gain": 1,
+   "rel": -31,
+   "note": "C: a motor bus grinds past on the far side"
+  },
+  {
+   "frame": 501,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.74825506349106,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 502,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -41.064684443425904,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 505,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.0422625174076,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 505,
+   "kind": "brow_pluck",
+   "x": 0,
+   "gain": 0.45,
+   "note": "C: the hero's disbelief"
+  },
+  {
+   "frame": 512,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.50018987298148,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 515,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.597070264945685,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 516,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.86180568016272,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 517,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.18098201507935,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 520,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.00395057780864,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 528,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.580537154990395,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 529,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.45586445793098,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 530,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.65836988999948,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 531,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -34.11509874703227,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 535,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -37.985912621450254,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 536,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.94959334043637,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 543,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.32592218562163,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 544,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -34.70185386651173,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 544,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.67322432868525,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 545,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.43979124682436,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 550,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -37.98695089481948,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 556,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.700399224120034,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 557,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.20886493077344,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 557,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -35.242994425776004,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 559,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.23548259172699,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 560,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.775138217508484,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 565,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.005253634617695,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 569,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -35.70502859463371,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 570,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.11425245683434,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 573,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -40.03353578321404,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 576,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.88943746682515,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 576,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.44993166322264,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 580,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.05887235947085,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 582,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -36.179187416621055,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 584,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.069106549255885,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 588,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.88256872772213,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 593,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.16300245275666,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 595,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.331986839336096,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 595,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -36.66561583185627,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 595,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.379846371917395,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 598,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.274110241574455,
+   "note": "walker footstep on the flagstones (recorded)"
+  },
+  {
+   "frame": 680,
+   "kind": "rec:mk1474.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -32,
+   "note": "camera sinks back down the section"
+  },
+  {
+   "frame": 840,
+   "kind": "rec:mk1489.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -32,
+   "note": "camera slips into the station"
+  },
+  {
+   "frame": 866,
+   "kind": "rec:k_cloth1.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag hauled off the stack (recorded canvas)"
+  },
+  {
+   "frame": 873,
+   "kind": "rec:k_cloth4.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag hauled off the stack (recorded canvas)"
+  },
+  {
+   "frame": 875,
+   "kind": "rec:k_cloth2.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag hauled off the stack (recorded canvas)"
+  },
+  {
+   "frame": 884,
+   "kind": "rec:k_impactSoft_heavy_000.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -27,
+   "note": "the mailbag lands in the steel container (recorded)"
+  },
+  {
+   "frame": 891,
+   "kind": "rec:k_dropLeather.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -27,
+   "note": "the mailbag lands in the steel container (recorded)"
+  },
+  {
+   "frame": 893,
+   "kind": "rec:k_impactSoft_heavy_001.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -27,
+   "note": "the mailbag lands in the steel container (recorded)"
+  },
+  {
+   "frame": 897,
+   "kind": "rec:k_cloth4.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag hauled off the stack (recorded canvas)"
+  },
+  {
+   "frame": 904,
+   "kind": "rec:k_cloth3.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag hauled off the stack (recorded canvas)"
+  },
+  {
+   "frame": 906,
+   "kind": "rec:k_cloth1.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag hauled off the stack (recorded canvas)"
+  },
+  {
+   "frame": 915,
+   "kind": "rec:k_dropLeather.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -27,
+   "note": "the mailbag lands in the steel container (recorded)"
+  },
+  {
+   "frame": 922,
+   "kind": "rec:k_impactSoft_heavy_002.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -27,
+   "note": "the mailbag lands in the steel container (recorded)"
+  },
+  {
+   "frame": 924,
+   "kind": "rec:k_impactSoft_heavy_000.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -27,
+   "note": "the mailbag lands in the steel container (recorded)"
+  },
+  {
+   "frame": 928,
+   "kind": "rec:k_cloth3.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag hauled off the stack (recorded canvas)"
+  },
+  {
+   "frame": 933,
+   "kind": "rec:k_cloth4.wav",
+   "x": 0.4920758694957085,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag hauled off the stack (recorded canvas)"
+  },
+  {
+   "frame": 933,
+   "kind": "rec:k_metalLatch.wav",
+   "x": 0.2,
+   "gain": 1,
+   "rel": -30,
+   "note": "the first lid latched"
+  },
+  {
+   "frame": 939,
+   "kind": "rec:k_cloth2.wav",
+   "x": -0.5446073600038663,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag hauled off the stack (recorded canvas)"
+  },
+  {
+   "frame": 946,
+   "kind": "rec:k_impactSoft_heavy_002.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -27,
+   "note": "the mailbag lands in the steel container (recorded)"
+  },
+  {
+   "frame": 951,
+   "kind": "rec:k_dropLeather.wav",
+   "x": 0.4920758694957085,
+   "gain": 1,
+   "rel": -27,
+   "note": "the mailbag lands in the steel container (recorded)"
+  },
+  {
+   "frame": 956,
+   "kind": "rec:k_impactMetal_medium_002.wav",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -25,
+   "note": "a container lid slammed shut (recorded steel)"
+  },
+  {
+   "frame": 957,
+   "kind": "rec:k_impactSoft_heavy_001.wav",
+   "x": -0.5446073600038663,
+   "gain": 1,
+   "rel": -27,
+   "note": "the mailbag lands in the steel container (recorded)"
+  },
+  {
+   "frame": 958,
+   "kind": "rec:mk2504.wav@20+6.5",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -25,
+   "note": "F: motors spool up as the train departs"
+  },
+  {
+   "frame": 958,
+   "kind": "rec:k_impactMetal_medium_001.wav",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -25,
+   "note": "a container lid slammed shut (recorded steel)"
+  },
+  {
+   "frame": 962,
+   "kind": "rec:k_impactMetal_medium_002.wav",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -25,
+   "note": "a container lid slammed shut (recorded steel)"
+  },
+  {
+   "frame": 965,
+   "kind": "rec:mk2504.wav@3+5.5",
+   "x": 0,
+   "gain": 1,
+   "rel": -27,
+   "note": "the train's traction motors hum up (recorded machine hum)"
+  },
+  {
+   "frame": 968,
+   "kind": "train_old",
+   "x": 0,
+   "gain": 0.75,
+   "note": "F: the train accelerates away into the tunnel (rumble + whine)"
+  },
+  {
+   "frame": 980,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.491766705587016,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 985,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.7443219027002879,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 990,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1000,
+   "kind": "air_rush",
+   "x": 0.4,
+   "gain": 0.45,
+   "note": "F: tunnel air pushed past the lamps"
+  },
+  {
+   "frame": 1002,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1004,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1005,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1007,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1017,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1021,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1023,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1026,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1027,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1030,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1036,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1038,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1039,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1040,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1040,
+   "kind": "air_rush",
+   "x": 0.4,
+   "gain": 0.45,
+   "note": "F: tunnel air pushed past the lamps"
+  },
+  {
+   "frame": 1041,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1042,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1043,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1045,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1045,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1048,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1051,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1054,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1055,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1057,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1058,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1058,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1060,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1060,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1061,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1064,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1070,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1072,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1073,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1074,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1075,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1077,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 1,
+   "note": "a wheelset bangs over the crossover frog"
+  },
+  {
+   "frame": 1080,
+   "kind": "air_rush",
+   "x": 0.4,
+   "gain": 0.45,
+   "note": "F: tunnel air pushed past the lamps"
+  },
+  {
+   "frame": 1085,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1088,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1090,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1094,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1104,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1104,
+   "kind": "brake_squeal",
+   "x": 0,
+   "gain": 0.9,
+   "note": "brake blocks squeal as the train slows"
+  },
+  {
+   "frame": 1106,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1107,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1109,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1112,
+   "kind": "rec:mk2504.wav@28+2.2",
+   "x": 0,
+   "gain": 1,
+   "rel": -27,
+   "note": "F: motors wind down into the station"
+  },
+  {
+   "frame": 1122,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1128,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.6062689004796766,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1135,
+   "kind": "rail_clack",
+   "x": 0,
+   "gain": 0.31478666497605445,
+   "note": "a wheelset crosses a rail joint"
+  },
+  {
+   "frame": 1152,
+   "kind": "parcel_thud",
+   "x": 0.2,
+   "gain": 0.55,
+   "note": "G: the train stops at Liverpool Street"
+  },
+  {
+   "frame": 1166,
+   "kind": "rec:k_impactMetal_heavy_000.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -27,
+   "note": "the container lids swing open onto the far side"
+  },
+  {
+   "frame": 1170,
+   "kind": "rec:k_cloth2.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1176,
+   "kind": "rec:mk2504.wav@30+12",
+   "x": 0.5,
+   "gain": 1,
+   "rel": -32,
+   "note": "G-H: the conveyor motor drones as bags ride up to the sorting office"
+  },
+  {
+   "frame": 1184,
+   "kind": "rec:k_handleSmallLeather.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1193,
+   "kind": "rec:k_impactSoft_medium_002.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1202,
+   "kind": "rec:k_handleSmallLeather.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1205,
+   "kind": "rec:k_impactSoft_medium_002.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1214,
+   "kind": "rec:k_handleSmallLeather.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1225,
+   "kind": "rec:k_impactSoft_medium_001.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1234,
+   "kind": "rec:k_cloth3.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1235,
+   "kind": "rec:k_impactSoft_medium_002.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1244,
+   "kind": "rec:k_handleSmallLeather.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1257,
+   "kind": "rec:k_impactSoft_medium_000.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1265,
+   "kind": "rec:k_impactSoft_medium_002.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1266,
+   "kind": "rec:k_cloth2.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1274,
+   "kind": "rec:k_handleSmallLeather.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1289,
+   "kind": "rec:k_impactSoft_medium_002.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1290,
+   "kind": "rec:mk1060.wav@0+9",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -33,
+   "note": "H: the station clock ticking (recorded)"
+  },
+  {
+   "frame": 1293,
+   "kind": "rec:k_impactSoft_medium_000.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1295,
+   "kind": "rec:k_handleSmallLeather.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1298,
+   "kind": "rec:k_handleSmallLeather.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1308,
+   "kind": "rec:k_impactSoft_medium_000.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1311,
+   "kind": "rec:k_impactSoft_medium_000.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1314,
+   "kind": "rec:k_cloth2.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1316,
+   "kind": "rec:k_handleSmallLeather.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -32,
+   "note": "a mailbag lifted out of the container"
+  },
+  {
+   "frame": 1316,
+   "kind": "rec:k_bookFlip3.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 1935"
+  },
+  {
+   "frame": 1327,
+   "kind": "rec:k_impactSoft_medium_001.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1328,
+   "kind": "rec:k_impactSoft_medium_002.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -29,
+   "note": "the bag dropped onto the conveyor"
+  },
+  {
+   "frame": 1332,
+   "kind": "rec:k_bookFlip1.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 1945"
+  },
+  {
+   "frame": 1348,
+   "kind": "rec:k_bookFlip2.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 1955"
+  },
+  {
+   "frame": 1364,
+   "kind": "rec:k_bookFlip3.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 1965"
+  },
+  {
+   "frame": 1380,
+   "kind": "rec:k_bookFlip1.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 1975"
+  },
+  {
+   "frame": 1396,
+   "kind": "rec:k_bookFlip2.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 1985"
+  },
+  {
+   "frame": 1412,
+   "kind": "rec:k_bookFlip3.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 1995"
+  },
+  {
+   "frame": 1416,
+   "kind": "rec:k_impactMetal_medium_003.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -27,
+   "note": "H: lids closed for the last time"
+  },
+  {
+   "frame": 1428,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.5226082721698688,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1436,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1440,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.11956429019199402,
+   "gain": 1,
+   "rel": -31.708394852487103,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1443,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1450,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.23033772751497794,
+   "gain": 1,
+   "rel": -31.235757874628494,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1451,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1458,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1459,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.5847429948154449,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1466,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31.33403358492582,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1466,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1469,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1470,
+   "kind": "rec:k_bookFlip1.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 1999"
+  },
+  {
+   "frame": 1478,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1479,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1488,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1492,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1498,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1505,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1507,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31.348185757555953,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1518,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "walker footstep on the platform (concrete) (recorded)"
+  },
+  {
+   "frame": 1520,
+   "kind": "rec:k_bookFlip3.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 2001"
+  },
+  {
+   "frame": 1567,
+   "kind": "rec:k_bookFlip2.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -31,
+   "note": "H: the calendar flips to 2003"
+  },
+  {
+   "frame": 1574,
+   "kind": "rec:k_metalClick.wav",
+   "x": -0.2,
+   "gain": 1,
+   "rel": -24,
+   "note": "I: the main lighting switch thrown"
+  },
+  {
+   "frame": 1575,
+   "kind": "brow_pluck",
+   "x": 0.2,
+   "gain": 0.5,
+   "note": "I: the hero's shock at the closure"
+  },
+  {
+   "frame": 1576,
+   "kind": "rec:k_impactMetal_light_002.wav",
+   "x": -0.2,
+   "gain": 1,
+   "rel": -30,
+   "note": "I: the switch gear clunks"
+  },
+  {
+   "frame": 1586,
+   "kind": "rec:k_creak1.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -33,
+   "note": "I: the empty station settles"
+  },
+  {
+   "frame": 1650,
+   "kind": "rec:mk1474.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -32,
+   "note": "camera pulls out through the cut"
+  },
+  {
+   "frame": 1725,
+   "kind": "rec:mk1482.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -32,
+   "note": "camera climbs into the aerial"
+  }
+ ]
+}

@@ -11,6 +11,8 @@ import { CentFilm } from "./productions/centennial/Film";
 import { BoeingTest, BOEING_TEST_N } from "./productions/boeing/Test";
 import { BoeingFilm } from "./productions/boeing/Film";
 import { Boeing2Film } from "./productions/boeing2/Film";
+import { MailRailTest, MR_TEST_N } from "./productions/mailrail/Test";
+import { MailRailFilm, MailRailStills, STILLS as MR_STILLS } from "./productions/mailrail/Film";
 import { PoFilm } from "./productions/postoffice/Film";
 import { FILM_FRAMES as FLIGHT_FRAMES } from "./productions/flight/timeline";
 import { JExprTest, EXPR_FRAMES } from "./productions/joralemon/ExprTest";
@@ -90,6 +92,11 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Boeing" component={BoeingFilm} durationInFrames={1550} fps={30} width={1080} height={1920} />
     <Composition id="Boeing2Preview" component={Boeing2Film} durationInFrames={1550} fps={30} width={540} height={960} />
     <Composition id="Boeing2" component={Boeing2Film} durationInFrames={1550} fps={30} width={1080} height={1920} />
+    <Composition id="MailRailPreview" component={MailRailFilm} durationInFrames={1801} fps={30} width={540} height={960} />
+    <Composition id="MailRail" component={MailRailFilm} durationInFrames={1801} fps={30} width={1080} height={1920} />
+    <Composition id="MailRailStills" component={MailRailStills} durationInFrames={MR_STILLS.length} fps={30} width={540} height={960} />
+    <Composition id="MailRailTest" component={MailRailTest} durationInFrames={MR_TEST_N} fps={30} width={1080} height={1920} />
+    <Composition id="MailRailTestS" component={MailRailTest} durationInFrames={MR_TEST_N} fps={30} width={540} height={960} />
     <Composition id="BoeingTest" component={BoeingTest} durationInFrames={BOEING_TEST_N} fps={30} width={1080} height={1920} />
     <Composition id="CentTest" component={CentTest} durationInFrames={CENT_TEST_N} fps={30} width={1080} height={1920} />
     <Composition id="PoTest" component={PoTest} durationInFrames={PO_TEST_N} fps={30} width={1080} height={1920} />
