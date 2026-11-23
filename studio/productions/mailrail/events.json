@@ -58,105 +58,105 @@
   {
    "frame": 107,
    "kind": "rail_clack",
-   "x": -0.6037511583633841,
+   "x": -0.6088995975957331,
    "gain": 0.2954040739859643,
    "note": "a wheelset crosses a rail joint"
   },
   {
    "frame": 113,
    "kind": "rail_clack",
-   "x": -0.3306239359603235,
+   "x": -0.33452257048925393,
    "gain": 0.3253332755142889,
    "note": "a wheelset crosses a rail joint"
   },
   {
    "frame": 114,
    "kind": "rail_clack",
-   "x": -0.28860201132483704,
+   "x": -0.29214055100299435,
    "gain": 0.4127524377899547,
    "note": "a wheelset bangs over the crossover frog"
   },
   {
    "frame": 117,
    "kind": "rail_clack",
-   "x": -0.1711345159727018,
+   "x": -0.17343627699195108,
    "gain": 0.3448371196701976,
    "note": "a wheelset crosses a rail joint"
   },
   {
    "frame": 119,
    "kind": "rail_clack",
-   "x": -0.10107359747142411,
+   "x": -0.10249081495478657,
    "gain": 0.44353263687449257,
    "note": "a wheelset bangs over the crossover frog"
   },
   {
    "frame": 120,
    "kind": "rail_clack",
-   "x": -0.0687880008983254,
+   "x": -0.06976691829276993,
    "gain": 0.4499543214914605,
    "note": "a wheelset bangs over the crossover frog"
   },
   {
    "frame": 122,
    "kind": "rail_clack",
-   "x": -0.010049185104063024,
+   "x": -0.010194724057470553,
    "gain": 0.3706580614922186,
    "note": "a wheelset crosses a rail joint"
   },
   {
    "frame": 124,
    "kind": "rail_clack",
-   "x": 0.040564337397657045,
+   "x": 0.04115243632707126,
    "gain": 0.4776195425392484,
    "note": "a wheelset bangs over the crossover frog"
   },
   {
    "frame": 125,
    "kind": "rail_clack",
-   "x": 0.06272144951381728,
+   "x": 0.06362547518266289,
    "gain": 0.48520105329948143,
    "note": "a wheelset bangs over the crossover frog"
   },
   {
    "frame": 129,
    "kind": "rail_clack",
-   "x": 0.12967320428955736,
+   "x": 0.13141821755681724,
    "gain": 0.5191533249454838,
    "note": "a wheelset bangs over the crossover frog"
   },
   {
    "frame": 140,
    "kind": "rail_clack",
-   "x": 0.12825970912205759,
+   "x": 0.12916923299424649,
    "gain": 0.5224299523811562,
    "note": "a wheelset crosses a rail joint"
   },
   {
    "frame": 144,
    "kind": "rail_clack",
-   "x": 0.06200693908565459,
+   "x": 0.06229105370343657,
    "gain": 0.575279189228429,
    "note": "a wheelset crosses a rail joint"
   },
   {
    "frame": 146,
    "kind": "rail_clack",
-   "x": 0.01765331255022771,
+   "x": 0.017715390360340567,
    "gain": 0.604582885161474,
    "note": "a wheelset crosses a rail joint"
   },
   {
    "frame": 147,
    "kind": "rail_clack",
-   "x": -0.006960652493298848,
+   "x": -0.006981845182938236,
    "gain": 0.7749381135144061,
    "note": "a wheelset bangs over the crossover frog"
   },
   {
    "frame": 150,
    "kind": "rail_clack",
-   "x": -0.08912622859581851,
+   "x": -0.08929436528152898,
    "gain": 0.6689160143072501,
    "note": "a wheelset crosses a rail joint"
   },
@@ -171,7 +171,7 @@
   {
    "frame": 153,
    "kind": "rail_clack",
-   "x": -0.18154058288307487,
+   "x": -0.1817388599984923,
    "gain": 0.9028117529272551,
    "note": "a wheelset bangs over the crossover frog"
   },
@@ -497,7 +497,7 @@
   {
    "frame": 376,
    "kind": "rec:k_footstep_concrete_002.wav",
-   "x": -0.7678413498037914,
+   "x": -0.7616889121786777,
    "gain": 1,
    "rel": -43.044614130747064,
    "note": "walker footstep on the flagstones (recorded)"
@@ -537,7 +537,7 @@
   {
    "frame": 390,
    "kind": "rec:k_footstep_concrete_001.wav",
-   "x": -0.5039978317402793,
+   "x": -0.5029339166824034,
    "gain": 1,
    "rel": -42.568334136885966,
    "note": "walker footstep on the flagstones (recorded)"
@@ -585,7 +585,7 @@
   {
    "frame": 404,
    "kind": "rec:k_footstep_concrete_000.wav",
-   "x": -0.14140570771572505,
+   "x": -0.12903779104973043,
    "gain": 1,
    "rel": -41.971261105007486,
    "note": "walker footstep on the flagstones (recorded)"
@@ -609,7 +609,7 @@
   {
    "frame": 416,
    "kind": "rec:k_footstep_concrete_002.wav",
-   "x": -0.34422360946176805,
+   "x": -0.25020375783229826,
    "gain": 1,
    "rel": -42.727328971422864,
    "note": "walker footstep on the flagstones (recorded)"
@@ -625,7 +625,7 @@
   {
    "frame": 418,
    "kind": "rec:k_footstep_concrete_004.wav",
-   "x": 0.485385945670102,
+   "x": 0.606128262611072,
    "gain": 1,
    "rel": -41.30917850305388,
    "note": "walker footstep on the flagstones (recorded)"
@@ -633,7 +633,7 @@
   {
    "frame": 419,
    "kind": "rec:k_footstep_concrete_004.wav",
-   "x": -0.16904804593661418,
+   "x": -0.037159120200207965,
    "gain": 1,
    "rel": -41.73258879093011,
    "note": "walker footstep on the flagstones (recorded)"
@@ -649,7 +649,7 @@
   {
    "frame": 430,
    "kind": "rec:k_footstep_concrete_001.wav",
-   "x": 0.35548866697248815,
+   "x": 0.6796446577870583,
    "gain": 1,
    "rel": -42.241164717376094,
    "note": "walker footstep on the flagstones (recorded)"
@@ -681,7 +681,7 @@
   {
    "frame": 439,
    "kind": "rec:k_footstep_concrete_004.wav",
-   "x": 0.6696307422004737,
+   "x": 0.8,
    "gain": 1,
    "rel": -41.15180507733993,
    "note": "walker footstep on the flagstones (recorded)"
@@ -689,7 +689,7 @@
   {
    "frame": 441,
    "kind": "rec:k_footstep_concrete_004.wav",
-   "x": -0.8,
+   "x": -0.42428232204022126,
    "gain": 1,
    "rel": -34.46417117190857,
    "note": "walker footstep on the flagstones (recorded)"
@@ -697,7 +697,7 @@
   {
    "frame": 445,
    "kind": "rec:k_footstep_concrete_001.wav",
-   "x": 0.7884079841833596,
+   "x": 0.8,
    "gain": 1,
    "rel": -41.90240691912791,
    "note": "walker footstep on the flagstones (recorded)"
@@ -777,7 +777,7 @@
   {
    "frame": 466,
    "kind": "rec:k_footstep_concrete_004.wav",
-   "x": -0.7562574331403284,
+   "x": -0.2529842143896835,
    "gain": 1,
    "rel": -33.76854148178355,
    "note": "walker footstep on the flagstones (recorded)"
@@ -975,7 +975,7 @@
   {
    "frame": 531,
    "kind": "rec:k_footstep_concrete_004.wav",
-   "x": -0.8,
+   "x": -0.3133923283826868,
    "gain": 1,
    "rel": -34.11509874703227,
    "note": "walker footstep on the flagstones (recorded)"
@@ -1007,7 +1007,7 @@
   {
    "frame": 544,
    "kind": "rec:k_footstep_concrete_002.wav",
-   "x": -0.8,
+   "x": -0.387436882352768,
    "gain": 1,
    "rel": -34.70185386651173,
    "note": "walker footstep on the flagstones (recorded)"
@@ -1055,7 +1055,7 @@
   {
    "frame": 557,
    "kind": "rec:k_footstep_concrete_000.wav",
-   "x": -0.8,
+   "x": -0.45680094798005966,
    "gain": 1,
    "rel": -35.242994425776004,
    "note": "walker footstep on the flagstones (recorded)"
@@ -1087,7 +1087,7 @@
   {
    "frame": 569,
    "kind": "rec:k_footstep_concrete_002.wav",
-   "x": -0.8,
+   "x": -0.5197418375716765,
    "gain": 1,
    "rel": -35.70502859463371,
    "note": "walker footstep on the flagstones (recorded)"
@@ -1135,7 +1135,7 @@
   {
    "frame": 582,
    "kind": "rec:k_footstep_concrete_000.wav",
-   "x": -0.8,
+   "x": -0.638452816697574,
    "gain": 1,
    "rel": -36.179187416621055,
    "note": "walker footstep on the flagstones (recorded)"
@@ -1319,7 +1319,7 @@
   {
    "frame": 933,
    "kind": "rec:k_cloth4.wav",
-   "x": 0.4920758694957085,
+   "x": 0.4925599050904474,
    "gain": 1,
    "rel": -32,
    "note": "a mailbag hauled off the stack (recorded canvas)"
@@ -1335,7 +1335,7 @@
   {
    "frame": 939,
    "kind": "rec:k_cloth2.wav",
-   "x": -0.5446073600038663,
+   "x": -0.5409718437811749,
    "gain": 1,
    "rel": -32,
    "note": "a mailbag hauled off the stack (recorded canvas)"
@@ -1351,7 +1351,7 @@
   {
    "frame": 951,
    "kind": "rec:k_dropLeather.wav",
-   "x": 0.4920758694957085,
+   "x": 0.4925599050904474,
    "gain": 1,
    "rel": -27,
    "note": "the mailbag lands in the steel container (recorded)"
@@ -1367,7 +1367,7 @@
   {
    "frame": 957,
    "kind": "rec:k_impactSoft_heavy_001.wav",
-   "x": -0.5446073600038663,
+   "x": -0.5409718437811749,
    "gain": 1,
    "rel": -27,
    "note": "the mailbag lands in the steel container (recorded)"
@@ -2087,9 +2087,9 @@
   {
    "frame": 1428,
    "kind": "rec:k_footstep_concrete_004.wav",
-   "x": -0.5226082721698688,
+   "x": -0.4039840068943599,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.75707958914941,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2097,15 +2097,15 @@
    "kind": "rec:k_footstep_concrete_002.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.53772397349437,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
    "frame": 1440,
    "kind": "rec:k_footstep_concrete_003.wav",
-   "x": 0.11956429019199402,
+   "x": 0.13306044873996226,
    "gain": 1,
-   "rel": -31.708394852487103,
+   "rel": -32.82313916521468,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2113,15 +2113,15 @@
    "kind": "rec:k_footstep_concrete_004.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.457706783112997,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
    "frame": 1450,
    "kind": "rec:k_footstep_concrete_003.wav",
-   "x": -0.23033772751497794,
+   "x": -0.1605060468724012,
    "gain": 1,
-   "rel": -31.235757874628494,
+   "rel": -32.36679174492558,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2129,7 +2129,7 @@
    "kind": "rec:k_footstep_concrete_002.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.503701462955394,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2137,15 +2137,15 @@
    "kind": "rec:k_footstep_concrete_004.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.662027273117303,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
    "frame": 1459,
    "kind": "rec:k_footstep_concrete_002.wav",
-   "x": -0.5847429948154449,
+   "x": -0.45507553970977366,
    "gain": 1,
-   "rel": -31,
+   "rel": -32.02226503015449,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2153,7 +2153,7 @@
    "kind": "rec:k_footstep_concrete_002.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31.33403358492582,
+   "rel": -31.963647733708367,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2169,7 +2169,7 @@
    "kind": "rec:k_footstep_concrete_002.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.74004803778776,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2185,7 +2185,7 @@
    "kind": "rec:k_footstep_concrete_001.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.597213591744776,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2201,7 +2201,7 @@
    "kind": "rec:k_footstep_concrete_001.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.576965394586455,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2217,7 +2217,7 @@
    "kind": "rec:k_footstep_concrete_001.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.70429926980864,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2225,7 +2225,7 @@
    "kind": "rec:k_footstep_concrete_000.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.087264180787923,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
@@ -2233,15 +2233,15 @@
    "kind": "rec:k_footstep_concrete_000.wav",
    "x": -0.8,
    "gain": 1,
-   "rel": -31.348185757555953,
+   "rel": -31.93459293122546,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
    "frame": 1518,
    "kind": "rec:k_footstep_concrete_003.wav",
-   "x": -0.8,
+   "x": -0.597796442757624,
    "gain": 1,
-   "rel": -31,
+   "rel": -31.383106679746497,
    "note": "walker footstep on the platform (concrete) (recorded)"
   },
   {
