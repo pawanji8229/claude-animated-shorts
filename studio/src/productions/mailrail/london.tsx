@@ -26,6 +26,7 @@ const LM = {
   sand: () => once("lSand", () => pm("concrete", 1.0, { tint: "#b8a888" })),
   frame: () => once("lFrame", () => new THREE.MeshStandardMaterial({ color: "#f2efe6", roughness: 0.5 })),
   iron: () => once("lIron", () => new THREE.MeshStandardMaterial({ color: "#1c1e1d", roughness: 0.55, metalness: 0.4 })),
+  roofTile: () => once("lRoofTile", () => pm("slate", 1.0, { tint: "#8a6a5c" })),
   terracotta: () => once("lPot", () => new THREE.MeshStandardMaterial({ color: "#a8624a", roughness: 0.8 })),
   wood: () => once("lWood", () => pm("oak", 0.8, { tint: "#7a5a40" })),
   red: () => once("lRed", () => new THREE.MeshStandardMaterial({ color: "#b0221c", roughness: 0.4, metalness: 0.15 })),
@@ -127,7 +128,7 @@ const farRowKit = (key: string, x0: number, x1: number, z: number, facing: 1 | -
     k.box(brick, [L, H, D], [cx, PAV + H / 2, zc], [0, 0, 0], { ink: 0.3 });
     const fac = new THREE.PlaneGeometry(L, H); const uv = fac.attributes.uv as THREE.BufferAttribute; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * n, uv.getY(i) * H / (PARAPET - PAV));
     for (const side of [1, -1]) k.add(facadeTex(), fac.clone(), [cx, PAV + H / 2, zc + side * (D / 2 + 0.01)], [0, side > 0 ? 0 : Math.PI, 0], [1, 1, 1], { ink: false, cast: false });
-    k.ext(mans ? LM.slate() : LM.terracotta(), mans ? [[-D / 2, 0], [-D / 2 + 1.5, roofH], [D / 2 - 1.5, roofH], [D / 2, 0]] : [[-D / 2, 0], [0, roofH + 1.2], [D / 2, 0]], L, [cx, PAV + H, zc], [0, -Math.PI / 2, 0], 0, { ink: 0.25 });
+    k.ext(mans ? LM.slate() : LM.roofTile(), mans ? [[-D / 2, 0], [-D / 2 + 1.5, roofH], [D / 2 - 1.5, roofH], [D / 2, 0]] : [[-D / 2, 0], [0, roofH + 1.2], [D / 2, 0]], L, [cx, PAV + H, zc], [0, -Math.PI / 2, 0], 0, { ink: 0.25 });
     for (let i = 0; i <= n; i++) { const xx = x + i * W; k.box(brick, [0.8, 2.0, 1.3], [xx, PAV + H + roofH + 0.4, zc], [0, 0, 0], { ink: 0.3 }); for (let j = 0; j < 3; j++) k.cyl(LM.terracotta(), 0.1, 0.12, 0.45, [xx, PAV + H + roofH + 1.62, zc - 0.4 + j * 0.4], [0, 0, 0], 8, { ink: false }); }
     x += L + (r() < 0.12 ? 8 : 0); }                                                                                               // the odd gap / alley
   return k; });
@@ -192,7 +193,7 @@ const cityKit = () => once("lCity", () => { const k = new Kit();
   return k; });
 
 // ---------------------------------------------------------------- street furniture
-export const STREETLAMPS: Place[] = [...Array.from({ length: 16 }, (_, i) => ({ p: [X0 + 12 + i * 20, PAV, FAR_Z + 2.9] as V3, ry: 0 })), ...Array.from({ length: 16 }, (_, i) => ({ p: [X0 + 22 + i * 20, PAV, ZC - 1.2] as V3, ry: Math.PI }))];
+export const STREETLAMPS: Place[] = [...Array.from({ length: 16 }, (_, i) => ({ p: [X0 + 12 + i * 20, PAV, FAR_Z + 2.9] as V3, ry: 0 })), ...Array.from({ length: 16 }, (_, i) => ({ p: [X0 + 12 + i * 20, PAV, ZC - 1.2] as V3, ry: Math.PI }))];
 const pillarKit = () => once("lPillar", () => { const k = new Kit(), R = LM.red();
   k.lathe(R, [[0.001, 0], [0.3, 0], [0.3, 0.12], [0.26, 0.16], [0.26, 1.25], [0.29, 1.3], [0.29, 1.36], [0.2, 1.48], [0.06, 1.55], [0.001, 1.56]], [0, PAV, 0], 28, [0, 0, 0], { ink: 0.5 });
   k.box(LM.iron(), [0.22, 0.04, 0.06], [0, PAV + 1.1, 0.25], [0, 0, 0], { ink: false }); k.box(LM.frame(), [0.18, 0.12, 0.02], [0, PAV + 0.85, 0.262], [0, 0, 0], { ink: false });

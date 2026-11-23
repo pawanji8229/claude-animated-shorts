@@ -45,5 +45,5 @@ export const MailRailFilm: React.FC<{ frame?: number }> = ({ frame }) => {
   </AbsoluteFill>;
 };
 /** QC: chosen frames of the film as a short sequence (frame i shows film frame STILLS[i]) */
-export const STILLS = [0, 45, 100, 122, 228, 268, 450, 520, 722, 846, 858, 900, 940, 1060, 1200, 1300, 1480, 1590, 1640, 1652, 1700, 1760];
+export const STILLS = [855, 856, 857, 858, 859, 860, 1645, 1646, 1647, 1648, 1649, 1650, 0, 470, 1300, 1590];
 export const MailRailStills: React.FC = () => { const f = useCurrentFrame(); return <MailRailFilm frame={STILLS[Math.min(f, STILLS.length - 1)]} />; };
