@@ -1,3 +1,5 @@
+import { WorldLab, WORLD_LAB_FRAMES } from "./lib/cine2/lab/WorldLab";
+import { C2Smoke, SMOKE_FRAMES } from "./lib/cine2/lab/Smoke";
 import React from "react";
 import { Composition } from "remotion";
 import { Short3Film } from "./productions/short3/Film";
@@ -105,6 +107,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="TF2Compare" component={TF2Compare} durationInFrames={2} fps={30} width={1080} height={1920} />
     <Composition id="TF2PerfOld" component={TF2PerfOld} durationInFrames={TF2_PERF_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="TF2PerfNew" component={TF2PerfNew} durationInFrames={TF2_PERF_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="C2Smoke" component={C2Smoke} durationInFrames={SMOKE_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="C2World" component={WorldLab} durationInFrames={WORLD_LAB_FRAMES} fps={30} width={540} height={960} />
     <Composition id="TF2Motion" component={TF2Motion} durationInFrames={TF2_MOTION_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="MailRailTest" component={MailRailTest} durationInFrames={MR_TEST_N} fps={30} width={1080} height={1920} />
     <Composition id="MailRailTestS" component={MailRailTest} durationInFrames={MR_TEST_N} fps={30} width={540} height={960} />
