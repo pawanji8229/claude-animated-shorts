@@ -74,8 +74,8 @@ for (const size of ["MWS", "MS", "MCU", "CU"] as C.ShotSize[]) {
 }
 { const fr = C.solveFrame(person, { size: "FULL", v: "eye", h: "front", focal: 35 }), bx = C.subjectBox({ pos: fr.pos, look: fr.look }, C.fovFromFocal(35), person);
   t("framing FULL: whole body inside the Shorts safe area", C.insideFrac(bx, C.SAFE) > 0.97, `${(C.insideFrac(bx, C.SAFE) * 100).toFixed(0)}% inside`); }
-{ const low = C.solveFrame(person, { size: "MS", v: "low", h: "front", focal: 35 }), high = C.solveFrame(person, { size: "MS", v: "high", h: "front", focal: 35 }), bird = C.solveFrame(person, { size: "WS", v: "bird", h: "front", focal: 24 });
-  t("angles: low below / high above the subject / bird's-eye near vertical", low.pos[1] < 1.2 && high.pos[1] > 1.5 && C.azel(C.sub(bird.pos, bird.look)).el > 1.0); }
+{ const low = C.solveFrame(person, { size: "MS", v: "low", h: "front", focal: 35 }), high = C.solveFrame(person, { size: "MS", v: "high", h: "front", focal: 35 }), bird = C.solveFrame({ ...person, kind: "structure", height: 20, width: 10 }, { size: "WS", v: "bird", h: "front", focal: 24 }), birdChar = C.solveFrame(person, { size: "WS", v: "bird", h: "front", focal: 24 });
+  t("angles: low below / high above / bird's-eye near vertical on a structure, capped on a 2D character card", low.pos[1] < 1.2 && high.pos[1] > 1.5 && C.azel(C.sub(bird.pos, bird.look)).el > 1.0 && C.azel(C.sub(birdChar.pos, [0, 0.8, 0])).el < 0.7); }
 { const a = C.solveFrame(person, { size: "MS", v: "eye", h: "threeQuarter", side: 1, focal: 35 }), b = C.solveFrame(person, { size: "MS", v: "eye", h: "threeQuarter", side: -1, focal: 35 }); t("angles: side flips the three-quarter (180-degree rule control)", Math.sign(a.pos[0]) !== Math.sign(b.pos[0])); }
 { const tight = C.solveFrame(person, { size: "MS", v: "eye", h: "front", focal: 85 }), wide = C.solveFrame(person, { size: "MS", v: "eye", h: "front", focal: 24 }); t("framing: longer lens = camera further back for the same shot size", tight.dist > wide.dist * 3); }
 { const good = C.solveFrame(person, { size: "MS", v: "eye", h: "threeQuarter", focal: 35 }), bad = { pos: good.pos, look: C.add(good.look, [2.5, -1.2, 0]) as C.V3 };

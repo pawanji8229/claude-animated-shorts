@@ -1,3 +1,8 @@
+import { Demo, DEMO_FRAMES } from "./lib/cine2/lab/Demo";
+import { LightLab, LIGHT_LAB_FRAMES, LightMove, LIGHT_MOVE_FRAMES } from "./lib/cine2/lab/LightLab";
+import { CamPathViz } from "./lib/cine2/lab/CamPath";
+import { CamMoves, MOVES_FRAMES, CamAngles, ANGLE_FRAMES, CamOld, CamNew, CMP_FRAMES } from "./lib/cine2/lab/CamLab";
+import { BenchNew, BenchOld } from "./lib/cine2/lab/Bench";
 import { WorldLab, WORLD_LAB_FRAMES } from "./lib/cine2/lab/WorldLab";
 import { C2Smoke, SMOKE_FRAMES } from "./lib/cine2/lab/Smoke";
 import React from "react";
@@ -109,6 +114,16 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="TF2PerfNew" component={TF2PerfNew} durationInFrames={TF2_PERF_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="C2Smoke" component={C2Smoke} durationInFrames={SMOKE_FRAMES} fps={30} width={540} height={960} />
     <Composition id="C2World" component={WorldLab} durationInFrames={WORLD_LAB_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="C2BenchNew" component={BenchNew} durationInFrames={8} fps={30} width={1080} height={1920} defaultProps={{ q: 1 }} />
+    <Composition id="C2BenchOld" component={BenchOld} durationInFrames={8} fps={30} width={1080} height={1920} />
+    <Composition id="C2CamMoves" component={CamMoves} durationInFrames={MOVES_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="C2CamAngles" component={CamAngles} durationInFrames={ANGLE_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="C2CamOld" component={CamOld} durationInFrames={CMP_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="C2CamNew" component={CamNew} durationInFrames={CMP_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="C2CamPath" component={CamPathViz} durationInFrames={1} fps={30} width={1080} height={1920} />
+    <Composition id="C2LightLab" component={LightLab} durationInFrames={LIGHT_LAB_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="C2LightMove" component={LightMove} durationInFrames={LIGHT_MOVE_FRAMES} fps={30} width={540} height={960} />
+    <Composition id="C2Demo" component={Demo} durationInFrames={DEMO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="TF2Motion" component={TF2Motion} durationInFrames={TF2_MOTION_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="MailRailTest" component={MailRailTest} durationInFrames={MR_TEST_N} fps={30} width={1080} height={1920} />
     <Composition id="MailRailTestS" component={MailRailTest} durationInFrames={MR_TEST_N} fps={30} width={540} height={960} />

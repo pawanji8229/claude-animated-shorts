@@ -16,7 +16,7 @@ import type { RenderCam, V3 } from "../cam/core";
 
 const CamRig: React.FC<{ c: RenderCam }> = ({ c }) => {
   const { camera } = useThree();
-  useLayoutEffect(() => { const cam = camera as THREE.PerspectiveCamera; cam.position.set(...c.pos); cam.up.set(Math.sin(c.roll), Math.cos(c.roll), 0); cam.lookAt(...c.look); cam.fov = c.fov; cam.near = 0.03; cam.far = 3000; cam.updateProjectionMatrix(); });
+  useLayoutEffect(() => { const cam = camera as THREE.PerspectiveCamera; cam.position.set(...c.pos); cam.up.set(0, 1, 0); cam.lookAt(...c.look); if (c.roll) cam.rotateZ(c.roll); /* dutch: roll about the view axis */ cam.fov = c.fov; cam.near = 0.03; cam.far = 3000; cam.updateProjectionMatrix(); });
   return null;
 };
 export type Stage2Props = { cam: RenderCam; light: LightSpec; f: number; quality?: Quality; world: (ctx: { hi: boolean; cam: V3; light: LightSpec; quality: Quality }) => React.ReactNode;

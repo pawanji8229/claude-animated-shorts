@@ -239,7 +239,7 @@ def({ id: "ceilingLight", name: "ceiling light panel", cat: "interior", envs: ["
 def({ id: "handrail", name: "handrail", cat: "station", envs: ["railwayStation", "factory", "harbor", "cityStreet", "waterfront"], era: [1880, 2100], size: [4, 1.05, 0.1], solid: false, maxDist: 50,
   build: (l) => [part(G.cyl(0.025, 0.025, 4, [0, 1.0, 0], [0, 0, Math.PI / 2], l, 8), "metal", "#b8bcc0"), ...[-1.9, -0.6, 0.6, 1.9].map((x) => part(G.cyl(0.02, 0.02, 1.0, [x, 0.5, 0], undefined, l, 6), "metal", "#b8bcc0"))] });
 def({ id: "platformEdge", name: "platform edge stripe", cat: "station", envs: ["railwayStation"], era: [1900, 2100], size: [10, 0.02, 0.6], solid: false, build: () => [part(G.boxOn(10, 0.012, 0.15, 0, 0.2), "paintedMetal", "#e8c020"), part(G.boxOn(10, 0.01, 0.4, 0, -0.1), "tile", "#c8c4b8")] });
-def({ id: "railTrack", name: "railway track (10 m)", cat: "station", envs: ["railwayStation", "harbor", "factory", "countryside"], era: [1850, 2100], size: [2.4, 0.3, 10], solid: false, solid: false, audio: { ambience: "railway" },
+def({ id: "railTrack", name: "railway track (10 m)", cat: "station", envs: ["railwayStation", "harbor", "factory", "countryside"], era: [1850, 2100], size: [2.4, 0.3, 10], solid: false, audio: { ambience: "railway" },
   build: (l) => { const out: Part[] = [part(G.boxOn(2.6, 0.12, 10), "gravel", "#6a6460")]; for (let i = 0; i < (l < 2 ? 16 : 4); i++) out.push(part(G.boxOn(2.4, 0.08, 0.22, 0, -4.8 + i * (9.6 / (l < 2 ? 16 : 4)), 0.12), "wood", "#4a3a2a"));
     for (const x of [-0.72, 0.72]) out.push(part(G.boxOn(0.07, 0.14, 10, x, 0, 0.2), "metal", "#7a6e66")); return out; } });
 def({ id: "stationCanopy", name: "platform canopy", cat: "station", envs: ["railwayStation"], era: [1880, 2100], size: [5, 4.6, 12], solid: false,

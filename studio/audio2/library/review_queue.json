@@ -1,0 +1,52 @@
+[
+ {
+  "source": "Pixabay",
+  "url": "https://pixabay.com/sound-effects/",
+  "status": "blocked",
+  "why": "site answers HTTP 403 to automated requests; not bypassed. Pixabay Content License is permissive, but files must be downloaded manually by a person and logged here with their page URL.",
+  "wanted": [
+   "risers",
+   "suspense",
+   "magical",
+   "historical"
+  ]
+ },
+ {
+  "source": "Freesound",
+  "url": "https://freesound.org/",
+  "status": "needs API key",
+  "why": "downloads require a Freesound API key / OAuth; each recording has its own licence (CC0 / CC-BY / CC-BY-NC). Only CC0 and CC-BY (with exact attribution recorded) may be used; CC-BY-NC is excluded for commercial use.",
+  "wanted": [
+   "harborAmbience",
+   "historical",
+   "forestAmbience",
+   "footsteps (sand, snow, mud)"
+  ]
+ },
+ {
+  "source": "ZapSplat",
+  "url": "https://www.zapsplat.com/",
+  "status": "needs account + not reachable",
+  "why": "requires a (free) account; the free tier requires attribution 'Sound effects obtained from https://www.zapsplat.com'; host not reachable from this environment.",
+  "wanted": [
+   "clothing",
+   "characterMovement"
+  ]
+ },
+ {
+  "source": "Mixkit music",
+  "url": "https://mixkit.co/free-stock-music/",
+  "status": "licence text not machine-verifiable",
+  "why": "the Mixkit Stock Music Free License text is shown in a script-driven modal that could not be read here; verify manually before adding music tracks.",
+  "wanted": [
+   "music"
+  ]
+ },
+ {
+  "source": "Mixkit",
+  "url": "https://mixkit.co/free-sound-effects/",
+  "status": "4 items refused (HTTP 403)",
+  "why": "ids 1143, 788, 3046, 2354 returned 403 on the asset URL; skipped, not retried with tricks.",
+  "wanted": []
+ }
+]

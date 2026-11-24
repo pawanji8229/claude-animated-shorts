@@ -46,7 +46,9 @@ export const defaultScreen = (s: Subject, size: ShotSize): [number, number] => {
 export const solveFrame = (s: Subject, spec: FrameSpec) => {
   const sz = SIZES[spec.size], lo = s.base[1] + sz.span[0] * s.height, hi = s.base[1] + sz.span[1] * s.height, spanH = Math.max(0.05, hi - lo);
   const c: V3 = [s.base[0], (lo + hi) / 2, s.base[2]];
-  const el = typeof spec.v === "number" ? spec.v : V_ANGLES[spec.v], azRel = (typeof spec.h === "number" ? spec.h : H_ANGLES[spec.h]) * (spec.side ?? 1), az = (s.facing ?? 0) + azRel;
+  // 2D character cards stay readable only within ~35 deg of eye level: bird's / worm's-eye on a character is capped
+  // (structures and objects get the full range)
+  const el0 = typeof spec.v === "number" ? spec.v : V_ANGLES[spec.v], el = s.kind === "character" || !s.kind ? Math.max(-0.6, Math.min(0.62, el0)) : el0, azRel = (typeof spec.h === "number" ? spec.h : H_ANGLES[spec.h]) * (spec.side ?? 1), az = (s.facing ?? 0) + azRel;
   const fov = fovFromFocal(spec.focal), t = Math.tan((fov * Math.PI) / 360);
   // seen from elevation el, a vertical span of height h projects to ~h*cos(el); a structure's width matters from above
   const projH = Math.max(spanH * Math.abs(Math.cos(el)), (s.width ?? spanH * 0.35) * Math.abs(Math.sin(el)));
