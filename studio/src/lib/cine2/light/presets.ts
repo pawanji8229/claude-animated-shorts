@@ -1,14 +1,23 @@
 // Lighting 2.0 presets: natural light from time of day, weather modifiers, 25 production presets, 14 lighting setups
 // (key/fill/rim configurations relative to the camera), colour profiles and quality profiles. Every value is a working
 // parameter consumed by Light2 + Post2 (no name-only presets).
-import { hex, kelvin, mixRGB, scaleRGB, sunDir, sunKelvin, sunStrength, skyColors, clamp, type LightSpec, type RGB, type V3, type Practical } from "./model";
+import { mixSpec, hex, kelvin, mixRGB, scaleRGB, sunDir, sunKelvin, sunStrength, skyColors, clamp, type LightSpec, type RGB, type V3, type Practical } from "./model";
 
 export type Weather = LightSpec["weather"];
 export type NaturalOpts = { hour: number; lat?: number; day?: number; north?: number; cloud?: number; weather?: Weather; name?: string; profile?: string; exposure?: number; haze?: number; hdri?: string };
 /** natural daylight / twilight / moonlight for an hour of day (the backbone of the outdoor presets) */
+const lerpN = (a: number, b: number, t: number) => a + (b - a) * t;
+const sstep = (a: number, b: number, x: number) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+/** natural light at any hour, CONTINUOUS in time: the day (sun) and night (moon) rigs cross-fade around el -0.04..-0.16 and
+ *  exposure / grade blend smoothly, so a time-lapse never pops (the old version switched exposure, key and grade in one frame) */
 export const natural = (o: NaturalOpts): LightSpec => {
+  const el = sunDir(o.hour, o.lat ?? 48, o.day ?? 172, o.north ?? 0).el, w = sstep(-0.04, -0.16, el);
+  if (w <= 0) return naturalOne(o, false); if (w >= 1) return naturalOne(o, true);
+  const m = mixSpec(naturalOne(o, false), naturalOne(o, true), w); return { ...m, name: o.name ?? `natural ${o.hour.toFixed(1)} h` };
+};
+const naturalOne = (o: NaturalOpts, night: boolean): LightSpec => {
   const s = sunDir(o.hour, o.lat ?? 48, o.day ?? 172, o.north ?? 0), cloud = clamp(o.cloud ?? 0, 0, 1), el = s.el;
-  const day = clamp((el + 0.1) / 0.5, 0, 1), night = el < -0.1, sk = skyColors(el, cloud);
+  const day = clamp((el + 0.1) / 0.5, 0, 1), sk = skyColors(el, cloud);
   const sunK = sunKelvin(el), sunC = kelvin(sunK), str = sunStrength(el) * (1 - 0.82 * cloud);
   const moonDir: V3 = (() => { const m: V3 = [-s.dir[0] * 0.6, 0.62, -s.dir[2] * 0.6 + 0.3], l = Math.hypot(...m); return [m[0] / l, m[1] / l, m[2] / l]; })();
   const key = night ? { dir: moonDir, color: mixRGB(kelvin(4100), hex("#9fb6ff"), 0.45), intensity: 0.42 * (1 - 0.7 * cloud), shadow: true, softness: 2.5 }
@@ -22,7 +31,8 @@ export const natural = (o: NaturalOpts): LightSpec => {
     extras: night ? [] : [{ dir: [-key.dir[0], 0.25, -key.dir[2]], color: mixRGB(sk.ground, sk.horizon, 0.5), intensity: 0.22 * day * (1 - cloud * 0.5), role: "bounce" }],
     fog: { color: night ? hex("#0e1422") : fogC, density: (0.0012 + 0.0025 * dusk) * haze * (1 + cloud), heightBase: 0, heightFalloff: 0.035, start: 4, sunScatter: night ? 0 : 0.25 + 0.9 * dusk, skyFog: 0.35 },
     godRays: 0, dust: 0,
-    exposure: o.exposure ?? (night ? 1.62 : el < 0.02 ? 1.42 : 1.04 + 0.16 * dusk + 0.12 * cloud), profile: o.profile ?? (night ? "night" : dusk > 0.5 ? "golden" : "documentary"),
+    exposure: o.exposure ?? (night ? 1.62 : lerpN(1.04 + 0.16 * dusk + 0.12 * cloud, 1.42, sstep(0.07, -0.03, el))), profile: o.profile ?? (night ? "night" : dusk > 0.5 ? "golden" : "documentary"),
+    profileW: o.profile || night ? undefined : { golden: sstep(0.3, 0.7, dusk), documentary: 1 - sstep(0.3, 0.7, dusk) },
     whiteK: night ? 4300 : clamp(sunK + 1100, 4600, 6000), background: mixRGB(sk.horizon, sk.zenith, 0.35), wet: 0, weather: o.weather ?? (night ? "night" : cloud > 0.5 ? "cloudy" : "clear"),
     practicals: [], character: { faceGlow: night ? 0.95 : 0.8, tint: mixRGB(sk.zenith, sk.horizon, 0.5), rim: 0.15 + dusk * 0.4, rimColor: night ? hex("#9fb6ff") : sunC, albedo: night ? 0.8 : 0.84 },
     keyK: night ? 4100 : sunK,
@@ -112,6 +122,12 @@ export const SETUPS: Record<string, { note: string; apply: (s: LightSpec, camAz:
 
 // ---------------------------------------------------------------- colour profiles (Post2 grade parameters)
 export type Profile = { contrast: number; saturation: number; lift: number; warmCool: number; vignette: number; gain: RGB; gamma: number; bloom: number; threshold: number };
+/** weighted blend of grade profiles (a continuous grade for time-lapses and lighting transitions) */
+export const blendProfiles = (w: Record<string, number>): Profile => { const e = Object.entries(w).filter(([n, v]) => v > 1e-4 && PROFILES[n]), tot = e.reduce((a, [, v]) => a + v, 0) || 1;
+  const o: Profile = { contrast: 0, saturation: 0, lift: 0, warmCool: 0, vignette: 0, gain: [0, 0, 0], gamma: 0, bloom: 0, threshold: 0 };
+  if (!e.length) return PROFILES.documentary;
+  for (const [n, v] of e) { const p = PROFILES[n], k = v / tot; for (const f of ["contrast", "saturation", "lift", "warmCool", "vignette", "gamma", "bloom", "threshold"] as const) o[f] += p[f] * k; o.gain = [o.gain[0] + p.gain[0] * k, o.gain[1] + p.gain[1] * k, o.gain[2] + p.gain[2] * k]; }
+  return o; };
 export const PROFILES: Record<string, Profile> = {
   documentary: { contrast: 1.07, saturation: 1.05, lift: 0.01, warmCool: 0.45, vignette: 0.3, gain: [1, 1, 1], gamma: 1, bloom: 0.3, threshold: 1.6 },
   clean: { contrast: 1.04, saturation: 1.02, lift: 0.008, warmCool: 0.3, vignette: 0.2, gain: [1, 1, 1], gamma: 1, bloom: 0.25, threshold: 1.7 },

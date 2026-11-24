@@ -24,7 +24,10 @@ const movingTarget = (s: SubjectDef, off: V3) => (f: number) => add(s.at(f), off
 /** framing spec of a preset; with angle continuity the horizontal angle starts where the previous camera was (within
  *  70 degrees of the preset's own angle), so consecutive shots of one subject change size / move, not the whole view */
 const spec = (p: PresetParams, c: BuildCtx, over: Partial<FrameSpec> = {}): FrameSpec => {
-  const base: FrameSpec = { size: p.size, v: p.v, h: p.h, side: c.side, focal: p.focal, ...over };
+  // shot sizes are defined on the human figure: a vehicle / structure / object is never cropped tighter than "the whole
+  // thing" by a preset that was written for people (an MWS orbit of a 6.5 m excavator would put the lens inside it)
+  const tight = ["MWS", "MS", "MCU", "CU", "ECU"].includes(p.size) && c.main.kind !== "character" && (c.main.width ?? 1) > 2.5;
+  const base: FrameSpec = { size: tight ? "FULL" : p.size, v: p.v, h: p.h, side: c.side, focal: p.focal, ...over };
   if (c.prevAz === undefined) return base;
   const fc = c.main.facingAt?.(c.f0) ?? 0, want = fc + (typeof base.h === "number" ? base.h : H_ANGLES[base.h]) * (base.side ?? 1), d = Math.atan2(Math.sin(c.prevAz - want), Math.cos(c.prevAz - want));
   const k = Math.max(-1.2, Math.min(1.2, d)); return { ...base, h: want + k - fc, side: 1 };

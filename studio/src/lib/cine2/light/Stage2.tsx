@@ -10,7 +10,7 @@ import { InkCtx } from "../../../inventor/Workshop";
 import { RenderAfterMount } from "../../../productions/london-bridge/common";
 import { Post2 } from "./Post2";
 import { Light2Rig, Practicals, Weather } from "./Light2";
-import { PROFILES, QUALITY, type Quality } from "./presets";
+import { PROFILES, QUALITY, blendProfiles, type Quality } from "./presets";
 import { whiteBalance, toHex, type LightSpec } from "./model";
 import type { RenderCam, V3 } from "../cam/core";
 
@@ -23,7 +23,7 @@ export type Stage2Props = { cam: RenderCam; light: LightSpec; f: number; quality
   /** the shot's focus point for the shadow frustum and the practical-light choice (stable for the whole shot) */
   focus?: V3; shadowSize?: number; weatherFx?: boolean; opacity?: number };
 export const Stage2: React.FC<Stage2Props> = ({ cam, light, f, quality = "BALANCED", world, focus, shadowSize, weatherFx = true, opacity = 1 }) => {
-  const { width, height } = useVideoConfig(); const hi = height >= 1500, k = height / 1920, Q = QUALITY[quality], pr = PROFILES[light.profile] ?? PROFILES.documentary;
+  const { width, height } = useVideoConfig(); const hi = height >= 1500, k = height / 1920, Q = QUALITY[quality], pr = light.profileW ? blendProfiles(light.profileW) : PROFILES[light.profile] ?? PROFILES.documentary;
   const fo: V3 = focus ?? cam.look;
   const post = { focusDist: cam.focus, focusRange: cam.focusRange, maxBlur: cam.dof, bloom: pr.bloom, threshold: Math.max(1.5, pr.threshold), exposure: light.exposure, vignette: pr.vignette,
     ss: hi ? Q.ssFinal : Q.ssPreview, contrast: pr.contrast, saturation: pr.saturation, lift: pr.lift, warmCool: pr.warmCool, ao: Q.aoStrength, aoRadius: 0.45, aoSamples: Q.aoSamples,

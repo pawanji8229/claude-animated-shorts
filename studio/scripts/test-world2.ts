@@ -1,5 +1,6 @@
 // World 2.0 automated tests: library integrity, every environment populated + validated at every density, determinism,
 // camera awareness, LOD + culling, audio metadata, mover physics. Usage: npx tsx scripts/test-world2.ts [--json out]
+import { labCam, labBoxes, viewBlocker } from "../src/lib/cine2/lab/worldCam";
 import { writeFileSync } from "fs";
 import { DEFS, RECIPES, buildWorld, mergeByMaterial, triCount, shotSelect, moverAt, audioSources, footSurfaceAt, type EnvKind } from "../src/lib/cine2/world";
 import { validateWorld } from "../src/lib/cine2/world/validate";
@@ -44,6 +45,12 @@ results.environments = table; console.table(table);
 { const r = RECIPES.harbor(), { world } = buildWorld("harbor", "STANDARD", 7), src = audioSources(r, world.placements, 60), night = audioSources(r, world.placements, 60, true);
   t("audio metadata: world exposes relevant sound sources only (parked machines silent, lamps hum only at night)", src.length > 0 && night.length >= src.length && src.every((s) => s.loop), `${src.length} day sources, ${night.length} at night`); }
 t("footstep surfaces come from the ground the character stands on", footSurfaceAt(RECIPES.cityStreet(), 0, 0) === "asphalt" && footSurfaceAt(RECIPES.cityStreet(), 0, -6) === "concrete" && footSurfaceAt(RECIPES.residentialInterior(), 0, 0) === "wood");
+{ // every World lab camera (10 environments x 6 modes) is outside all geometry with a clear line of sight
+  const bad: string[] = [];
+  for (const mode of ["populated", "basic", "wide", "detail", "rich", "night"] as const) for (const env of Object.keys(RECIPES) as (keyof typeof RECIPES)[]) {
+    const b = RECIPES[env](), { recipe, world } = buildWorld(env, mode === "basic" ? "MINIMAL" : mode === "rich" ? "RICH" : "STANDARD", 7, { samples: [b.cam.pos], subject: b.subject }); if (mode === "basic") world.placements = [];
+    const c = labCam(mode, recipe, world), why = viewBlocker(c.pos, c.look, labBoxes(recipe, world)); if (why || c.note.startsWith("UNRESOLVED")) bad.push(`${env}/${mode}: ${why ?? c.note}`); }
+  t("lab cameras: 60/60 outside geometry with a clear view (interiors stay inside the room)", bad.length === 0, bad.join("; ") || "60 clear"); }
 console.log(`\n${pass} passed, ${fail} failed`);
 const ji = process.argv.indexOf("--json"); if (ji > 0) writeFileSync(process.argv[ji + 1], JSON.stringify({ pass, fail, log, results }, null, 1));
 process.exit(fail ? 1 : 0);

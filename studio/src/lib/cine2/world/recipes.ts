@@ -91,7 +91,7 @@ export const RECIPES: Record<EnvKind, () => Recipe> = {
     edges: [edge("quayEdge", [-60, -0.4], [60, -0.4], 1), edge("back", [-60, -27], [60, -27], -1), edge("laneQ", [-60, -6], [60, -6], 1)],
     areas: [area("stack", -22, -18, 36, 14), area("apron", 6, -8, 60, 10), area("near", 0, -4, 24, 10)],
     buildings: [], rules: [
-      { kind: "at", id: "ship", def: "cargoShip", pos: [8, 0, 16], ry: Math.PI / 2, tier: "base" }, { kind: "at", id: "qc", def: "quayCrane", pos: [10, 1.2, -4], ry: 0, tier: "base" }, { kind: "at", id: "shed", def: "warehouseShed", pos: [30, 1.2, -22], ry: 0, tier: "base" },
+      { kind: "at", id: "ship", def: "cargoShip", pos: [8, 0, 16], ry: Math.PI / 2, tier: "base" }, { kind: "at", id: "qc", def: "quayCrane", pos: [-20, 1.2, -4], ry: 0, tier: "base" }, { kind: "at", id: "shed", def: "warehouseShed", pos: [30, 1.2, -22], ry: 0, tier: "base" },
       { kind: "row", id: "stack1", def: "container", a: [-36, 1.2, -14], b: [-8, 1.2, -14], n: 5, ry: Math.PI / 2, tier: "base", variantStep: 7 }, { kind: "row", id: "stack2", def: "container", a: [-36, 3.8, -14], b: [-16, 3.8, -14], n: 4, ry: Math.PI / 2, tier: "standard", variantStep: 5 }, { kind: "row", id: "stack3", def: "container", a: [-36, 1.2, -18], b: [-8, 1.2, -18], n: 5, ry: Math.PI / 2, tier: "standard", variantStep: 3 },
       { kind: "along", id: "bollards", defs: ["mooringBollard"], edge: "quayEdge", spacing: 8, offset: -0.7, tier: "base" }, { kind: "along", id: "fenders", defs: ["fender"], edge: "quayEdge", spacing: 6, offset: 0.0, facing: "out", tier: "standard" },
       { kind: "along", id: "edgeKit", defs: ["ropeCoil", "lifeRing", "ladder", "netPile", "ropeCoil"], edge: "quayEdge", spacing: 9, offset: -1.6, jitter: 1, tier: "standard" },

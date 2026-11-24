@@ -65,7 +65,7 @@ export const chooseReal = (ps: Practical[], focus: V3, budget: number) => [...ps
 export const flickerAt = (p: Practical, f: number) => { if (!p.flicker) return 1; const s = p.id.length * 1.37, t = f / 30; return 1 - p.flicker * 0.15 * (0.5 + 0.5 * (0.6 * Math.sin(t * 9.1 + s) + 0.4 * Math.sin(t * 23.7 + s * 2.1))); };
 export const Practicals: React.FC<{ list: Practical[]; focus: V3; quality?: Quality; f: number; groundY?: number; exposure?: number }> = ({ list, focus, quality = "BALANCED", f, groundY = 0.01 }) => {
   const real = useMemo(() => new Set(chooseReal(list, focus, QUALITY[quality].practicalBudget)), [list, focus[0], focus[1], focus[2], quality]);
-  return (<group>{list.map((p) => { const k = flickerAt(p, f), I = (p.lumens / 800) * k, c = col(p.color), r = p.poolRadius ?? p.range * 0.45;
+  return (<group>{list.map((p) => { const k = flickerAt(p, f) * (p.level ?? 1), I = (p.lumens / 800) * k, c = col(p.color), r = p.poolRadius ?? p.range * 0.45;
     return (<group key={p.id}>
       {/* the visible source: small emissive bulb / panel (bloom picks it up above the threshold) */}
       {p.kind !== "window" && p.kind !== "screen" && <mesh position={p.pos}><sphereGeometry args={[p.kind === "candle" ? 0.02 : 0.07, 10, 8]} /><meshBasicMaterial color={c.clone().multiplyScalar(2.5 * k + 0.5)} toneMapped={false} /></mesh>}

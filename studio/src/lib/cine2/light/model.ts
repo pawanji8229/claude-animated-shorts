@@ -56,7 +56,7 @@ export const skyColors = (el: number, cloud = 0): { zenith: RGB; horizon: RGB; g
 
 // ---------------------------------------------------------------- the light spec
 export type Practical = { id: string; kind: "street" | "window" | "headlight" | "ship" | "warning" | "neon" | "lamp" | "candle" | "fire" | "screen" | "work" | "tunnel";
-  pos: V3; color: RGB; lumens: number; range: number; dir?: V3; angle?: number; flicker?: number; poolRadius?: number; importance?: number };
+  pos: V3; color: RGB; lumens: number; range: number; dir?: V3; angle?: number; flicker?: number; poolRadius?: number; importance?: number; /** 0..1 dimmer (night lamps fading in at dusk) */ level?: number };
 export type LightSpec = {
   name: string;
   /** direct key: sun or moon (one shadow-casting directional light) */
@@ -72,6 +72,8 @@ export type LightSpec = {
   godRays: number; dust: number;
   /** exposure (fixed per scene - never auto-adapts during camera moves) and colour profile */
   exposure: number; profile: string; whiteK: number;
+  /** optional blend of grade profiles (name -> weight); when set it overrides `profile` so the grade changes continuously */
+  profileW?: Record<string, number>;
   background: RGB;
   /** surfaces: 0 dry .. 1 soaked (roughness / albedo modifiers, puddle reflections) */
   wet: number;
@@ -95,7 +97,7 @@ export const mixSpec = (a: LightSpec, b: LightSpec, t: number): LightSpec => {
     env: { ...pick(a.env, b.env), intensity: n(a.env.intensity, b.env.intensity), rotation: n(a.env.rotation, b.env.rotation) },
     extras: Array.from({ length: ex }, (_, i) => { const x = a.extras[i] ?? { ...b.extras[i], intensity: 0 }, y = b.extras[i] ?? { ...a.extras[i], intensity: 0 }; return { dir: dir(x.dir, y.dir), color: c(x.color, y.color), intensity: n(x.intensity, y.intensity), role: pick(x.role, y.role) }; }),
     fog: { color: c(a.fog.color, b.fog.color), density: Math.exp(lerp(Math.log(a.fog.density + 1e-6), Math.log(b.fog.density + 1e-6), t)), heightBase: n(a.fog.heightBase, b.fog.heightBase), heightFalloff: n(a.fog.heightFalloff, b.fog.heightFalloff), start: n(a.fog.start, b.fog.start), sunScatter: n(a.fog.sunScatter, b.fog.sunScatter), skyFog: n(a.fog.skyFog, b.fog.skyFog) },
-    godRays: n(a.godRays, b.godRays), dust: n(a.dust, b.dust), exposure: Math.exp(lerp(Math.log(a.exposure), Math.log(b.exposure), t)), profile: pick(a.profile, b.profile), whiteK: n(a.whiteK, b.whiteK),
+    godRays: n(a.godRays, b.godRays), dust: n(a.dust, b.dust), exposure: Math.exp(lerp(Math.log(a.exposure), Math.log(b.exposure), t)), profile: pick(a.profile, b.profile), profileW: (() => { const w: Record<string, number> = {}; for (const [x, k] of [[a, 1 - t], [b, t]] as [LightSpec, number][]) for (const [nm, v] of Object.entries(x.profileW ?? { [x.profile]: 1 })) w[nm] = (w[nm] ?? 0) + v * k; return w; })(), whiteK: n(a.whiteK, b.whiteK),
     background: c(a.background, b.background), wet: n(a.wet, b.wet), weather: pick(a.weather, b.weather),
     practicals: [...a.practicals.map((p) => ({ ...p, lumens: p.lumens * (1 - t) })), ...b.practicals.map((p) => ({ ...p, id: p.id + "~b", lumens: p.lumens * t }))].filter((p) => p.lumens > 1e-3),
     character: { faceGlow: n(a.character.faceGlow, b.character.faceGlow), tint: c(a.character.tint, b.character.tint), rim: n(a.character.rim, b.character.rim), rimColor: c(a.character.rimColor, b.character.rimColor), albedo: n(a.character.albedo, b.character.albedo) },

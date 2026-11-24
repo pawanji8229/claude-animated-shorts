@@ -26,15 +26,19 @@ const objGeo = (def: string, lod: Lod, variant: number, filter?: (p: Part) => bo
 };
 const matFor = (p: Part, wet: number) => surfaceMaterial(p.s, { tint: p.tint, emissive: p.em, emissiveIntensity: p.emI, wet: p.s === "glass" || p.s === "emissive" ? 0 : wet });
 const variantsOf = (def: string) => DEFS.get(def)?.variants ?? 3;
-const isNight = (l: LightSpec) => l.weather === "night" || l.key.intensity < 0.6 || l.exposure > 1.35;
+const ss = (a: number, b: number, x: number) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+/** how "on" the night lighting is, 0..1, CONTINUOUS in the light spec (quantised to 5 % steps for material caching): street
+ *  lamps and lit windows fade in through dusk instead of switching on in one frame (the old boolean popped: a 22-level
+ *  luminance jump in the time-lapse flicker test) */
+export const nightLevel = (l: LightSpec) => l.weather === "night" ? 1 : Math.round(20 * Math.max(ss(0.95, 0.45, l.key.intensity), ss(1.2, 1.5, l.exposure))) / 20;
 
 /** practical light sources of the world (lamps, work lights, windows...) for Lighting 2.0 */
 export const worldPracticals = (w: World, light: LightSpec, interior = false): Practical[] => {
-  const night = isNight(light) || interior, out: Practical[] = [];
-  for (const p of w.placements) { const d = DEFS.get(p.def); const L = d?.light; if (!L || (L.night && !night)) continue;
+  const lv = interior ? 1 : nightLevel(light), out: Practical[] = [];
+  for (const p of w.placements) { const d = DEFS.get(p.def); const L = d?.light; if (!L || (L.night && lv <= 0)) continue;
     const c = Math.cos(p.ry), s = Math.sin(p.ry), at: V3 = [p.pos[0] + L.at[0] * c + L.at[2] * s, p.pos[1] + L.at[1], p.pos[2] - L.at[0] * s + L.at[2] * c];
     const dir = L.dir ? ([L.dir[0] * c + L.dir[2] * s, L.dir[1], -L.dir[0] * s + L.dir[2] * c] as V3) : undefined;
-    out.push({ id: p.id, kind: L.kind === "window" ? "window" : L.kind === "screen" ? "screen" : L.kind === "street" ? "street" : L.kind === "work" ? "work" : L.kind === "warning" ? "warning" : L.kind === "ship" ? "ship" : "lamp", pos: at, color: kelvin(L.K), lumens: L.lumens, range: L.range, dir, angle: dir ? 0.95 : undefined, flicker: L.flicker, importance: L.kind === "street" || L.kind === "work" ? 0.7 : 0.4 }); }
+    out.push({ id: p.id, kind: L.kind === "window" ? "window" : L.kind === "screen" ? "screen" : L.kind === "street" ? "street" : L.kind === "work" ? "work" : L.kind === "warning" ? "warning" : L.kind === "ship" ? "ship" : "lamp", pos: at, color: kelvin(L.K), lumens: L.lumens, range: L.range, dir, angle: dir ? 0.95 : undefined, flicker: L.flicker, importance: L.kind === "street" || L.kind === "work" ? 0.7 : 0.4, level: L.night ? lv : 1 }); }
   return out;
 };
 
@@ -72,9 +76,12 @@ const MoverView: React.FC<{ def: string; lod: Lod; variant: number; pos: V3; hea
     {wheels.map((w, i) => <group key={i} position={w.c} rotation={[wheel, 0, 0]}>{w.merged.map((x, k) => <mesh key={k} geometry={x.geo} material={matFor(x.proto, wet)} castShadow />)}</group>)}
   </group>);
 };
-const BuildingView: React.FC<{ b: World["buildings"][number]; lod: Lod; night: boolean; wet: number }> = ({ b, lod, night, wet }) => {
-  const merged = useMemo(() => mergeByMaterial(building({ ...b.spec, night }, lod)), [b.id, lod, night]);
-  return <group position={b.pos} rotation={[0, b.ry, 0]}>{merged.map((x, i) => <mesh key={i} geometry={x.geo} material={matFor(x.proto, wet)} castShadow={x.proto.s !== "glass"} receiveShadow />)}</group>;
+const GLASS = new THREE.Color("#4a5660");
+const BuildingView: React.FC<{ b: World["buildings"][number]; lod: Lod; night: number; wet: number }> = ({ b, lod, night, wet }) => {
+  const on = night > 0, merged = useMemo(() => mergeByMaterial(building({ ...b.spec, night: on }, lod)), [b.id, lod, on]);
+  // lit windows fade in with the night level: colour from dark glass to warm, emission from 0 to full
+  const mat = (p: Part) => p.s === "emissive" && night < 1 ? surfaceMaterial("emissive", { tint: "#" + GLASS.clone().lerp(new THREE.Color(p.tint ?? "#ffe0b0"), night).getHexString(), emissive: p.em, emissiveIntensity: (p.emI ?? 1) * night }) : matFor(p, wet);
+  return <group position={b.pos} rotation={[0, b.ry, 0]}>{merged.map((x, i) => <mesh key={i} geometry={x.geo} material={mat(x.proto)} castShadow={x.proto.s !== "glass"} receiveShadow />)}</group>;
 };
 const smokeTex = (() => { let t: THREE.CanvasTexture | null = null; return () => { if (t) return t; const c = document.createElement("canvas"); c.width = c.height = 64; const g = c.getContext("2d")!, gr = g.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, "rgba(255,255,255,0.55)"); gr.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = gr; g.fillRect(0, 0, 64, 64); t = new THREE.CanvasTexture(c); return t; }; })();
 const EMIT: Record<string, { at: V3; kind: "smoke" | "steam" }[]> = { cargoShip: [{ at: [0, 32.5, -54], kind: "smoke" }], tugboat: [{ at: [0, 8.6, -1.5], kind: "smoke" }], generator: [{ at: [0.6, 1.5, 0.2], kind: "smoke" }], storageTank: [{ at: [0, 7.2, 0], kind: "steam" }] };
@@ -92,7 +99,7 @@ const Birds: React.FC<{ n: number; c: V3; R: number; t: number; f: number; kind:
 
 export type World2Props = { recipe: Recipe; world: World; f: number; cam: V3; shot: ShotCam[]; light: LightSpec; quality?: Quality; hi: boolean; walkers?: boolean; birds?: boolean; walkerFrames?: number; fps?: number };
 export const World2: React.FC<World2Props> = ({ recipe, world, f, cam, shot, light, quality = "BALANCED", hi, walkers = true, birds = true, walkerFrames = 600, fps = 30 }) => {
-  const t = f / fps, wet = light.wet, night = isNight(light), wind = light.weather === "storm" ? 0.05 : light.weather === "rain" ? 0.03 : 0.018;
+  const t = f / fps, wet = light.wet, night = nightLevel(light), wind = light.weather === "storm" ? 0.05 : light.weather === "rain" ? 0.03 : 0.018;
   const shotKey = shot.map((c) => c.pos.map((v) => v.toFixed(1)).join(",")).join("|");
   const vis = useMemo(() => shotSelect(world, shot), [world, shotKey]);
   const groups = useMemo(() => { const m = new Map<string, Group>();
@@ -106,6 +113,9 @@ export const World2: React.FC<World2Props> = ({ recipe, world, f, cam, shot, lig
     {/* base set: ground surfaces (with thickness, so raised pavements have real curbs), interior shells, water */}
     {recipe.ground.filter((g) => !(recipe.groundFn && g.s === "vegetation")).map((g, i) => <mesh key={`g${i}`} position={[g.area.cx, g.y - g.h / 2, g.area.cz]} rotation={[0, g.area.ry ?? 0, 0]} receiveShadow material={surfaceMaterial(g.s, { tint: g.tint, wet: g.s === "vegetation" ? wet * 0.3 : wet, repeat: g.repeat ?? 1 })}><boxGeometry args={[g.area.w, Math.max(0.01, g.h), g.area.d]} /></mesh>)}
     {recipe.groundFn && <Terrain recipe={recipe} wet={wet} />}
+    {/* outskirts: exterior sets continue to the horizon (a high or wide camera must never see the edge of the set) */}
+    {!recipe.groundFn && !recipe.shells.length && recipe.ground.length > 0 && (() => { const big = [...recipe.ground].sort((a, b) => b.area.w * b.area.d - a.area.w * a.area.d)[0], y0 = Math.min(...recipe.ground.map((g) => g.y - g.h)) - 0.06;
+      return <mesh position={[big.area.cx, y0, big.area.cz]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow material={surfaceMaterial(big.s, { tint: big.tint, wet, repeat: 8 })}><planeGeometry args={[900, 900]} /></mesh>; })()}
     {recipe.shells.map((s, i) => <mesh key={`s${i}`} position={[(s.box[0][0] + s.box[1][0]) / 2, (s.box[0][1] + s.box[1][1]) / 2, (s.box[0][2] + s.box[1][2]) / 2]} receiveShadow castShadow material={surfaceMaterial(s.s, { tint: s.tint })}><boxGeometry args={[s.box[1][0] - s.box[0][0], s.box[1][1] - s.box[0][1], s.box[1][2] - s.box[0][2]]} /></mesh>)}
     {water && <WaterSurface size={[Math.min(water.area.w, 260), Math.min(water.area.d, 160)]} at={[water.area.cx, water.y, water.area.cz]} f={f} seg={hi ? 120 : 80} amp={recipe.env === "countryside" ? 0.02 : 0.12} />}
     {world.buildings.filter((b) => vis.has(b.id)).map((b) => <BuildingView key={b.id} b={b} lod={vis.get(b.id)!} night={night} wet={wet} />)}

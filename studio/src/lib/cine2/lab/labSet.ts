@@ -38,7 +38,7 @@ export const labSet = () => {
     hero: tf2Subject(LAB_HERO, "hero"),
     frame: { id: "frame", kind: "structure", height: 13, width: 14, importance: 0.9, at: () => at("concreteFrame"), facingAt: () => 0.2 },
     crane: { id: "crane", kind: "structure", height: 42, width: 4, importance: 0.8, at: () => at("towerCrane"), facingAt: () => 0.3 },
-    excavator: { id: "excavator", kind: "vehicle", height: 3.2, width: 3, importance: 0.7, at: () => at("excavator"), facingAt: () => -2.2 },
+    excavator: { id: "excavator", kind: "vehicle", height: 4.2, width: 6.5, /* boom + 6.5 m tracks: frame the whole machine */ importance: 0.7, at: () => at("excavator"), facingAt: () => -2.2 },
     mixer: { id: "mixer", kind: "object", height: 1.5, width: 1.2, importance: 0.7, at: () => at("cementMixer"), facingAt: () => 0.4 },
   };
   cache = { recipe, world, obstacles: worldObstacles(world), subjects }; return cache;
