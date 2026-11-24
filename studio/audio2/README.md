@@ -19,15 +19,15 @@ Audio 2.0 is a separate system. The approved pipeline (`studio/audio/*.py`, `mix
 
 | Source | Status | Notes |
 |---|---|---|
-| **Mixkit** sound effects | **229 downloaded** | Mixkit Sound Effects Free License: commercial use inside our videos, no attribution. Raw files may NOT be redistributed, so they stay in the gitignored `asset-library/cache/` and only metadata is committed. Downloaded at 1 request per second, 3 per category, over 90 category pages. 4 items returned HTTP 403 and were skipped (not retried). |
-| **Kenney** packs | **5 downloaded** | CC0: interface-sounds, ui-audio, digital-audio, sci-fi-sounds, music-jingles. |
+| **Mixkit** sound effects | **321 files** (229 downloaded in this round + 92 from the earlier asset-library work; 320 unique) | Mixkit Sound Effects Free License: commercial use inside our videos, no attribution. Raw files may NOT be redistributed, so they stay in the gitignored `asset-library/cache/` and only metadata is committed. Downloaded at 1 request per second, 3 per category, over 90 category pages. 4 items returned HTTP 403 and were skipped (not retried). |
+| **Kenney** packs | **5 packs, 556 sounds** | CC0: interface-sounds, ui-audio, digital-audio, sci-fi-sounds, music-jingles. |
 | **Pixabay** | Review queue | Returns HTTP 403 to automated clients. Not bypassed. |
 | **Freesound** | Review queue | Needs an API key, and each recording has its own licence. |
 | **ZapSplat** | Review queue | Needs an account and attribution, and isn't reachable from this environment. |
 | **Mixkit music** | Review queue | The licence text could not be machine-verified. |
 
 ## Registry (`build_registry.py`)
-- **874 verified sounds** across 41 categories (3 duplicates removed by sha256).
+- **874 verified sounds** across 41 categories: 554 Kenney (CC0) + 320 Mixkit (3 duplicates removed by sha256: 2 Kenney, 1 Mixkit).
 - Each entry records: name, category, description, tags, duration, format, sample rate, channels, source site, source page, file URL, licence, licence URL, attribution, sha256, local path and status.
 - Missing, corrupt and hash-mismatched files are detected.
 

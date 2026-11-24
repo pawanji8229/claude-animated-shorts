@@ -37,7 +37,7 @@ The working example of all four systems together is `lab/Demo.tsx` with `scripts
 | `core.ts` | Vector maths, camera state (position, aim, focal mm, focus m, f-stop, roll) and the virtual lens. Focal ↔ FOV uses a 9:16 frame with full-frame diagonal, so 35 mm means 35 mm. Includes thin-lens depth of field, blur capped at 0.32 with the subject depth always in focus, 10 easing curves (incl. `cine`, `settle`, `launch`, `land`), a continuous-acceleration trapezoid profile with explicit accel/decel, and deterministic handheld noise. |
 | `moves.ts` | 27 moves. Each takes f0/f1 or a speed, easing or accel/decel, intensity, focal (zoom), aperture, focus target or rack, roll and handheld. |
 | `frame.ts` | 8 shot sizes, 5 vertical and 5 horizontal angles, side choice (180° rule), dutch. The 9:16 framing solver puts the eye line on the upper third and full-body shots inside the Shorts safe area. Composition score covers safe area, thirds, look room, hierarchy and size. |
-| `collide.ts` | Obstacles (boxes, spheres, cylinders) and ground height. Smooth push-out with clearance (no kinks). Line-of-sight visibility; see-through obstacles count half. |
+| `collide.ts` | Obstacles (boxes, spheres, cylinders) and ground height. Smooth push-out with clearance (no kinks). Line-of-sight visibility: see-through obstacles count half, or 85 % within 6 m of the lens, where they fill the frame. |
 | `presets.ts` | 13 presets, each with real parameters and its own build logic. |
 | `director.ts` | Beats → shots, with explained choices. Continuity-aware transitions are sized by travel, turn and zoom limits. In-scene blends; opacity dissolves for scene changes or impossible moves. Global low-pass for jitter reduction. `segmentCams` and `shotList` helpers. |
 | `tf2.ts` | Character 2.0 → camera beats. Tiny beats are merged so the camera doesn't chase small movements. |
@@ -67,6 +67,8 @@ The working example of all four systems together is `lab/Demo.tsx` with `scripts
 
 **QC checks:** jumps, jitter (acceleration reversals), speed and acceleration spikes, rotation speed and jolts, focal-length jumps, rapid focus reversals (focus hunting), invalid coordinates, clipping into geometry, subject leaving the frame or the safe area, movement during holds, dutch overuse.
 
+**Non-human subjects:** shot sizes are defined on the human figure, so a preset never crops a vehicle, structure or large object tighter than FULL. Without this, an MWS orbit of an excavator put the lens inside the machine.
+
 **Known limitation:** characters are 2D cards. Bird's-eye and worm's-eye angles on a character are capped to about ±35° (structures get the full range).
 
 ## Lighting 2.0 (`light/`)
@@ -82,6 +84,8 @@ The working example of all four systems together is `lab/Demo.tsx` with `scripts
 | `Toon2Lit.tsx` | The TF2 card lit by the spec: albedo, consistent warm-white face glow (0.7–0.95) with 15 % environment tint, and a rim/back-glow approximation. |
 | `Stage2.tsx` | CentSet-style frame using Camera 2.0, Lighting 2.0 and Post2. |
 | `qc.ts` | Spec validation and lighting-transition stability (`lightStability`). |
+
+**Continuity:** `natural()` is continuous in time. The day (sun) and night (moon) rigs cross-fade, exposure and the colour grade blend (`profileW`), and night practicals and lit windows fade in with a continuous `nightLevel` instead of switching on in one frame. `scripts/test-light2.ts` guards this.
 
 **Presets:** cinematicDocumentary, goldenHour, beautifulSunrise, brightDaylight, overcastDaylight, dramaticSunset, blueHour, moonlitNight, cityNight, industrialFactory, constructionSite, historicalArchitecture, interiorWarm, interiorCold, foggyEnvironment, rainyStreet, stormyAtmosphere, desertSunlight, forestLighting, harborShips, tunnelLighting, dramaticCharacter, objectPresentation, cinematicSilhouette, epicEnvironmentReveal.
 
@@ -121,7 +125,7 @@ HIGH and CINEMATIC only add cost where the sun is in frame (god rays) and in sha
 | `place.ts` | Placement engine, density levels and per-shot visibility/LOD (detailed below). |
 | `recipes.ts` | 10 environments, each with base set, population rules, movers, walkers, birds, light preset and ambience: city street, construction site, harbour, factory, historic town, residential interior, countryside, railway station, warehouse, waterfront. |
 | `life.ts` | Vehicles with stop/acceleration physics and wheel roll by arc length; walkers as TF2 scripts; birds; audio sources. |
-| `World2.tsx` | Renderer: instancing, shared materials, moving rigs, rolling wheels, bobbing boats, smoke/steam, birds, walkers, contact shadows at LOW. |
+| `World2.tsx` | Renderer: outskirts ground to the horizon for exterior sets, instancing, shared materials, moving rigs, rolling wheels, bobbing boats, smoke/steam, birds, walkers, contact shadows at LOW. |
 | `validate.ts` | Automated checks (listed below). |
 
 **Placement engine** (`place.ts`):
@@ -143,7 +147,8 @@ See `audio2/README.md`.
 | Command | Result |
 |---|---|
 | `npx tsx scripts/test-cam2.ts` | 78 tests |
-| `npx tsx scripts/test-world2.ts` | 43 tests |
+| `npx tsx scripts/test-world2.ts` | 44 tests (incl. all 60 World lab cameras: outside geometry, clear line of sight) |
+| `npx tsx scripts/test-light2.ts` | 74 tests: time-lapse and doorway transitions have no single-frame pops |
 | `python audio2/test_audio2.py` | 28 tests |
 
 **Lab compositions** (`src/Root.tsx`):

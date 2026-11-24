@@ -50,7 +50,7 @@ export const segHits = (o: Obstacle, a: V3, b: V3): boolean => {
 };
 /** fraction of a subject's sample points visible from the camera (1 = fully visible). Soft obstacles count half. */
 export const visibility = (env: Env, cam: V3, pts: V3[], ignore?: (o: Obstacle) => boolean) => {
-  let vis = 0; for (const p of pts) { let blocked = 0; for (const o of env.obstacles) { if (ignore?.(o)) continue; if (sdf(o, p) < 0.02) continue; if (segHits(o, cam, p)) blocked = Math.max(blocked, o.soft ? 0.5 : 1); if (blocked >= 1) break; } vis += 1 - blocked; }
+  let vis = 0; for (const p of pts) { let blocked = 0; for (const o of env.obstacles) { if (ignore?.(o)) continue; if (sdf(o, p) < 0.02) continue; if (segHits(o, cam, p)) blocked = Math.max(blocked, o.soft ? (sdf(o, cam) < 6 ? 0.85 : 0.5) : 1); /* see-through clutter right in front of the lens fills the frame */ if (blocked >= 1) break; } vis += 1 - blocked; }
   return vis / Math.max(1, pts.length);
 };
 /** standard sample points of a standing subject: feet, waist, chest, head */
