@@ -83,7 +83,7 @@ const HERO_PATHS: [number, V3][][] = [
   [[846, [7.2, 0, -10.85]], [918, [14.6, 0, -11.05]], [928, [14.8, 0, -11.05]], [946, [13.2, 0, -11.2]], [962, [12.55, 0, -12.1]]],   // J: chase, grab, into 101
   [[1520, [8.4, 0, -11.2]], [1612, [-1.2, 0, -10.1]], [1626, HERO_DESK]],                                       // Q: back through the lobby to check out
 ];
-const SLEEP_C: V3 = [BED.x0 + 0.95, BED.top + 0.24, BED.z + 0.02];                                             // card centre lying on the pillow
+const SLEEP_C: V3 = [BED.x0 + 0.95, BED.top + 0.33, BED.z + 0.02];                                             // card centre lying on the pillow
 const SIT_C: V3 = [BED.x0 + 0.62, BED.top + 0.45, BED.z + 0.02];
 const SNORE = 72;                                                                                               // frames per breath while asleep
 export const snorePhase = (f: number) => ((f - 990) % SNORE + SNORE) % SNORE / SNORE;                          // 0..1, inhale ~0.55
@@ -199,7 +199,7 @@ export const frameAt = (f0: number): FrameOut => {
   const h = hero(f, c); if (h.p) actors.push(h.p);
   for (const w of WHO) if (f >= w.on[0] && f < w.on[1]) actors.push(w.at(f, c));
   const doors = Math.max(sm(48, 72, f) * (1 - sm(104, 128, f)), sm(1616, 1630, f) * (1 - sm(1654, 1672, f)));
-  const door101 = Math.max(sm(948, 960, f) * (1 - sm(996, 1010, f)), sm(1222, 1232, f) * (1 - sm(1440, 1460, f)));
+  const door101 = Math.max(sm(926, 940, f) * (1 - sm(1000, 1014, f)), sm(1222, 1232, f) * (1 - sm(1440, 1460, f)));
   return { c, actors, suit: h.suit ? { p: h.suit, tilt: h.suitTilt, ry: 0.3 } : null, raptors: raptors(f), concierge: conciergeAt(f), porter: porterAt(f), workers: workersAt(f), egg: eggAt(f),
     cleaner: cleanerAt(f), doors, door101, duvetLift: sm(1146, 1158, f), zone: zoneW(c) };
 };
