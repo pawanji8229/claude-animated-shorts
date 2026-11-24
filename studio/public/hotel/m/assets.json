@@ -1,0 +1,480 @@
+[
+ {
+  "name": "sofa",
+  "file": "sofa.glb",
+  "source": "https://polyhaven.com/a/sofa_02",
+  "polyhavenId": "sofa_02",
+  "title": "Sofa 02",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "sizeM": [
+   1.807,
+   0.709,
+   0.818
+  ],
+  "triangles": 2728,
+  "bytes": 224052
+ },
+ {
+  "name": "sofa1",
+  "file": "sofa1.glb",
+  "source": "https://polyhaven.com/a/Sofa_01",
+  "polyhavenId": "Sofa_01",
+  "title": "Sofa 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "sizeM": [
+   1.571,
+   0.797,
+   0.658
+  ],
+  "triangles": 4101,
+  "bytes": 249264
+ },
+ {
+  "name": "sofa3",
+  "file": "sofa3.glb",
+  "source": "https://polyhaven.com/a/sofa_03",
+  "polyhavenId": "sofa_03",
+  "title": "Sofa 03",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Fran Calvente"
+  ],
+  "sizeM": [
+   2.731,
+   1.118,
+   0.925
+  ],
+  "triangles": 8004,
+  "bytes": 481856
+ },
+ {
+  "name": "armchair",
+  "file": "armchair.glb",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "polyhavenId": "modern_arm_chair_01",
+  "title": "Modern Arm Chair 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Vibrant Nordic"
+  ],
+  "sizeM": [
+   0.82,
+   1.023,
+   0.987
+  ],
+  "triangles": 8916,
+  "bytes": 468224
+ },
+ {
+  "name": "lounge",
+  "file": "lounge.glb",
+  "source": "https://polyhaven.com/a/mid_century_lounge_chair",
+  "polyhavenId": "mid_century_lounge_chair",
+  "title": "Mid Century Lounge Chair",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Kuutti Siitonen"
+  ],
+  "sizeM": [
+   1.009,
+   1.169,
+   1.19
+  ],
+  "triangles": 6148,
+  "bytes": 339468
+ },
+ {
+  "name": "ottoman",
+  "file": "ottoman.glb",
+  "source": "https://polyhaven.com/a/Ottoman_01",
+  "polyhavenId": "Ottoman_01",
+  "title": "Ottoman 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Caspian Fortune"
+  ],
+  "sizeM": [
+   0.885,
+   0.624,
+   0.621
+  ],
+  "triangles": 4240,
+  "bytes": 265588
+ },
+ {
+  "name": "ctable",
+  "file": "ctable.glb",
+  "source": "https://polyhaven.com/a/modern_coffee_table_01",
+  "polyhavenId": "modern_coffee_table_01",
+  "title": "Modern Coffee Table 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Amin"
+  ],
+  "sizeM": [
+   0.6,
+   0.39,
+   1.202
+  ],
+  "triangles": 4504,
+  "bytes": 233540
+ },
+ {
+  "name": "rtable",
+  "file": "rtable.glb",
+  "source": "https://polyhaven.com/a/coffee_table_round_01",
+  "polyhavenId": "coffee_table_round_01",
+  "title": "Coffee Table Round 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Ulan Cabanilla"
+  ],
+  "sizeM": [
+   1.301,
+   0.491,
+   1.301
+  ],
+  "triangles": 4044,
+  "bytes": 263296
+ },
+ {
+  "name": "side",
+  "file": "side.glb",
+  "source": "https://polyhaven.com/a/side_table_01",
+  "polyhavenId": "side_table_01",
+  "title": "Side Table 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "sizeM": [
+   0.55,
+   0.551,
+   0.45
+  ],
+  "triangles": 2756,
+  "bytes": 252176
+ },
+ {
+  "name": "sidetall",
+  "file": "sidetall.glb",
+  "source": "https://polyhaven.com/a/side_table_tall_01",
+  "polyhavenId": "side_table_tall_01",
+  "title": "Side Table Tall 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "sizeM": [
+   0.384,
+   0.761,
+   0.384
+  ],
+  "triangles": 6408,
+  "bytes": 322352
+ },
+ {
+  "name": "plant1",
+  "file": "plant1.glb",
+  "source": "https://polyhaven.com/a/potted_plant_01",
+  "polyhavenId": "potted_plant_01",
+  "title": "Potted Plant 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Rico Cilliers"
+  ],
+  "sizeM": [
+   0.587,
+   1.35,
+   0.634
+  ],
+  "triangles": 176226,
+  "bytes": 5737448
+ },
+ {
+  "name": "plant2",
+  "file": "plant2.glb",
+  "source": "https://polyhaven.com/a/potted_plant_02",
+  "polyhavenId": "potted_plant_02",
+  "title": "Potted Plant 02",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Rico Cilliers"
+  ],
+  "sizeM": [
+   0.701,
+   0.841,
+   0.657
+  ],
+  "triangles": 69806,
+  "bytes": 2207120
+ },
+ {
+  "name": "plant4",
+  "file": "plant4.glb",
+  "source": "https://polyhaven.com/a/potted_plant_04",
+  "polyhavenId": "potted_plant_04",
+  "title": "Potted Plant 04",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "sizeM": [
+   0.168,
+   0.267,
+   0.185
+  ],
+  "triangles": 8929,
+  "bytes": 451832
+ },
+ {
+  "name": "pachira",
+  "file": "pachira.glb",
+  "source": "https://polyhaven.com/a/pachira_aquatica_01",
+  "polyhavenId": "pachira_aquatica_01",
+  "title": "Pachira Aquatica 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Rob Tuytel",
+   "Rico Cilliers"
+  ],
+  "sizeM": [
+   6.869,
+   1.904,
+   0.997
+  ],
+  "triangles": 76914,
+  "bytes": 2347660
+ },
+ {
+  "name": "clamp",
+  "file": "clamp.glb",
+  "source": "https://polyhaven.com/a/modern_ceiling_lamp_01",
+  "polyhavenId": "modern_ceiling_lamp_01",
+  "title": "Modern Ceiling Lamp 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "sizeM": [
+   0.432,
+   0.952,
+   0.432
+  ],
+  "triangles": 5602,
+  "bytes": 253800
+ },
+ {
+  "name": "vase",
+  "file": "vase.glb",
+  "source": "https://polyhaven.com/a/ceramic_vase_01",
+  "polyhavenId": "ceramic_vase_01",
+  "title": "Ceramic Vase 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "sizeM": [
+   0.204,
+   0.4,
+   0.204
+  ],
+  "triangles": 10296,
+  "bytes": 330964
+ },
+ {
+  "name": "pillows",
+  "file": "pillows.glb",
+  "source": "https://polyhaven.com/a/throw_pillows_01",
+  "polyhavenId": "throw_pillows_01",
+  "title": "Throw Pillows 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Serhii Khromov"
+  ],
+  "sizeM": [
+   0.94,
+   0.45,
+   0.452
+  ],
+  "triangles": 6362,
+  "bytes": 392544
+ },
+ {
+  "name": "clock",
+  "file": "clock.glb",
+  "source": "https://polyhaven.com/a/alarm_clock_01",
+  "polyhavenId": "alarm_clock_01",
+  "title": "Alarm Clock 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Yann Kervran",
+   "James Ray Cock"
+  ],
+  "sizeM": [
+   0.132,
+   0.174,
+   0.067
+  ],
+  "triangles": 8985,
+  "bytes": 816828
+ },
+ {
+  "name": "night",
+  "file": "night.glb",
+  "source": "https://polyhaven.com/a/ClassicNightstand_01",
+  "polyhavenId": "ClassicNightstand_01",
+  "title": "Classic Nightstand 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "sizeM": [
+   0.568,
+   0.7,
+   0.424
+  ],
+  "triangles": 2002,
+  "bytes": 200272
+ },
+ {
+  "name": "cabinet",
+  "file": "cabinet.glb",
+  "source": "https://polyhaven.com/a/modern_wooden_cabinet",
+  "polyhavenId": "modern_wooden_cabinet",
+  "title": "Modern Wooden Cabinet",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Patrik Pangerl"
+  ],
+  "sizeM": [
+   2.44,
+   0.68,
+   0.52
+  ],
+  "triangles": 24976,
+  "bytes": 1300420
+ },
+ {
+  "name": "desklamp",
+  "file": "desklamp.glb",
+  "source": "https://polyhaven.com/a/desk_lamp_arm_01",
+  "polyhavenId": "desk_lamp_arm_01",
+  "title": "Desk Lamp Arm 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Yann Kervran",
+   "Kuutti Siitonen"
+  ],
+  "sizeM": [
+   0.202,
+   0.893,
+   0.614
+  ],
+  "triangles": 24102,
+  "bytes": 963060
+ },
+ {
+  "name": "frame",
+  "file": "frame.glb",
+  "source": "https://polyhaven.com/a/standing_picture_frame_01",
+  "polyhavenId": "standing_picture_frame_01",
+  "title": "Standing Picture Frame 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "sizeM": [
+   0.1,
+   0.25,
+   0.201
+  ],
+  "triangles": 1634,
+  "bytes": 241464
+ },
+ {
+  "name": "barchair",
+  "file": "barchair.glb",
+  "source": "https://polyhaven.com/a/bar_chair_round_01",
+  "polyhavenId": "bar_chair_round_01",
+  "title": "Bar Chair Round 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Dairon Sanchez"
+  ],
+  "sizeM": [
+   0.483,
+   0.751,
+   0.486
+  ],
+  "triangles": 14373,
+  "bytes": 1211040
+ },
+ {
+  "name": "console",
+  "file": "console.glb",
+  "source": "https://polyhaven.com/a/ClassicConsole_01",
+  "polyhavenId": "ClassicConsole_01",
+  "title": "Classic Console 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "Kirill Sannikov"
+  ],
+  "sizeM": [
+   1.543,
+   0.949,
+   0.589
+  ],
+  "triangles": 7566,
+  "bytes": 416588
+ },
+ {
+  "name": "wallframe",
+  "file": "wallframe.glb",
+  "source": "https://polyhaven.com/a/hanging_picture_frame_01",
+  "polyhavenId": "hanging_picture_frame_01",
+  "title": "Hanging Picture Frame 01",
+  "licence": "CC0-1.0",
+  "licenceUrl": "https://polyhaven.com/license",
+  "authors": [
+   "James Ray Cock"
+  ],
+  "sizeM": [
+   0.594,
+   0.841,
+   0.016
+  ],
+  "triangles": 2586,
+  "bytes": 244492
+ }
+]

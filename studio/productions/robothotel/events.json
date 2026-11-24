@@ -1,0 +1,1478 @@
+{
+ "fps": 30,
+ "frames": 1679,
+ "events": [
+  {
+   "frame": 0,
+   "kind": "rec:mk2465.wav@4+5.2",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "A: the street outside the hotel (recorded urban ambience)"
+  },
+  {
+   "frame": 50,
+   "kind": "rec:mk1523.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -26,
+   "note": "A: the automatic glass doors slide open"
+  },
+  {
+   "frame": 86,
+   "kind": "rec:mk2981.wav@2+48",
+   "x": 0,
+   "gain": 1,
+   "rel": -33,
+   "note": "lobby: guests murmuring, the hotel's room sound (recorded)"
+  },
+  {
+   "frame": 98,
+   "kind": "rec:k_lowDown.wav",
+   "x": 0.7,
+   "gain": 1,
+   "rel": -27,
+   "note": "B: workforce robot 1 powers down"
+  },
+  {
+   "frame": 104,
+   "kind": "rec:mk1523.wav@0.2+1.0",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -30,
+   "note": "B: the doors slide shut behind the camera"
+  },
+  {
+   "frame": 110,
+   "kind": "rec:k_phaserDown1.wav",
+   "x": 0.6388251224093076,
+   "gain": 1,
+   "rel": -27,
+   "note": "B: workforce robot 3 powers down"
+  },
+  {
+   "frame": 122,
+   "kind": "rec:k_lowDown.wav",
+   "x": -0.1482812382952577,
+   "gain": 1,
+   "rel": -27,
+   "note": "B: workforce robot 4 powers down"
+  },
+  {
+   "frame": 134,
+   "kind": "rec:k_phaserDown1.wav",
+   "x": -0.7,
+   "gain": 1,
+   "rel": -27,
+   "note": "B: workforce robot 6 powers down"
+  },
+  {
+   "frame": 156,
+   "kind": "rec:syn_servo1.wav",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -28,
+   "note": "C: the raptor's neck servos rear it up (synthesised whir)"
+  },
+  {
+   "frame": 160,
+   "kind": "rec:mk309.wav@0.4+2.4",
+   "x": -0.35,
+   "gain": 1,
+   "rel": -17,
+   "note": "C: the animatronic raptor ROARS at the hero (recorded growl)"
+  },
+  {
+   "frame": 196,
+   "kind": "rec:k_impactPlate_light_000.wav",
+   "x": -0.35,
+   "gain": 1,
+   "rel": -30,
+   "note": "C: its jaw clacks shut"
+  },
+  {
+   "frame": 206,
+   "kind": "rec:syn_servo0.wav",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -29,
+   "note": "C: servos whir as it bows"
+  },
+  {
+   "frame": 214,
+   "kind": "rec:k_pepSound2.wav",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -28,
+   "note": "C: a polite robotic chirp with the bow"
+  },
+  {
+   "frame": 506,
+   "kind": "rec:syn_servo2.wav",
+   "x": -0.1,
+   "gain": 1,
+   "rel": -29,
+   "note": "F: the blue raptor's arm extends with the key card"
+  },
+  {
+   "frame": 518,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -33.74536233496917,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 520,
+   "kind": "rec:k_confirmation_001.wav",
+   "x": -0.1,
+   "gain": 1,
+   "rel": -26,
+   "note": "F: key card issued (confirmation tone)"
+  },
+  {
+   "frame": 522,
+   "kind": "rec:k_engineCircular_000.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -33,
+   "note": "F: the luggage robot's motor hums as it rolls up"
+  },
+  {
+   "frame": 540,
+   "kind": "rec:k_impactPlate_light_001.wav",
+   "x": -0.15,
+   "gain": 1,
+   "rel": -31,
+   "note": "F: the card taken from the claw"
+  },
+  {
+   "frame": 552,
+   "kind": "rec:k_pepSound1.wav",
+   "x": 0.2,
+   "gain": 1,
+   "rel": -29,
+   "note": "F: the porter chirps on arrival"
+  },
+  {
+   "frame": 566,
+   "kind": "rec:k_impactSoft_medium_000.wav",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -28,
+   "note": "F: the hero heaves the suitcase"
+  },
+  {
+   "frame": 585,
+   "kind": "rec:k_impactSoft_heavy_000.wav",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -26,
+   "note": "F: suitcase lands on the porter's deck"
+  },
+  {
+   "frame": 588,
+   "kind": "rec:k_pepSound3.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -30,
+   "note": "F: the concierge waves and chirps"
+  },
+  {
+   "frame": 604,
+   "kind": "rec:k_engineCircular_000.wav",
+   "x": 0.2,
+   "gain": 1,
+   "rel": -32,
+   "note": "G: the porter drives off"
+  },
+  {
+   "frame": 615,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28.366423660616533,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 622,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 629,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 636,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 643,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 650,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 657,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 663,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 670,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 677,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 684,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.7332245194416224,
+   "gain": 1,
+   "rel": -28.138872812545706,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 691,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.5687487311848993,
+   "gain": 1,
+   "rel": -28.341274743954394,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 698,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.34045795833619014,
+   "gain": 1,
+   "rel": -28.62576668163383,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 705,
+   "kind": "rec:k_error_004.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -22,
+   "note": "H: the porter stops dead: error beep"
+  },
+  {
+   "frame": 708,
+   "kind": "rec:mk473.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -30,
+   "note": "H: a deflating comedy piano sting (\"the problems started\")"
+  },
+  {
+   "frame": 710,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.12408153389724899,
+   "gain": 1,
+   "rel": -28.878527975266028,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 714,
+   "kind": "rec:k_impactSoft_medium_001.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -27,
+   "note": "H: the hero walks into the stopped porter"
+  },
+  {
+   "frame": 730,
+   "kind": "rec:k_error_002.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -27,
+   "note": "H: its red ring blinks, error again"
+  },
+  {
+   "frame": 748,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.259689747585442,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 760,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.036533868463502296,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 772,
+   "kind": "rec:k_computerNoise_000.wav",
+   "x": 0.25,
+   "gain": 1,
+   "rel": -30,
+   "note": "I: the concierge 'thinking' (loading dots)"
+  },
+  {
+   "frame": 796,
+   "kind": "rec:k_question_002.wav",
+   "x": 0.25,
+   "gain": 1,
+   "rel": -27,
+   "note": "I: a puzzled tone"
+  },
+  {
+   "frame": 800,
+   "kind": "rec:k_pepSound4.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -29,
+   "note": "J: the porter recovers and zooms into the corridor"
+  },
+  {
+   "frame": 824,
+   "kind": "rec:k_question_003.wav",
+   "x": 0.25,
+   "gain": 1,
+   "rel": -27,
+   "note": "I: still no answer"
+  },
+  {
+   "frame": 851,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -29.12550038744187,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 857,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 863,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 869,
+   "kind": "rec:k_footstep_carpet_004.wav",
+   "x": -0.5625674689624831,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 875,
+   "kind": "rec:k_footstep_carpet_000.wav",
+   "x": -0.23788609312980735,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 881,
+   "kind": "rec:k_footstep_carpet_001.wav",
+   "x": -0.039283036933251844,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 887,
+   "kind": "rec:k_footstep_carpet_002.wav",
+   "x": 0.07272713918028266,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 893,
+   "kind": "rec:k_footstep_carpet_003.wav",
+   "x": 0.14310824107670828,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 899,
+   "kind": "rec:k_footstep_carpet_004.wav",
+   "x": 0.19853954498737347,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 903,
+   "kind": "rec:k_impactPlank_medium_000.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -24,
+   "note": "J: the porter bumps the door of the WRONG room"
+  },
+  {
+   "frame": 904,
+   "kind": "rec:k_error_006.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -26,
+   "note": "J: error beep at the wrong door"
+  },
+  {
+   "frame": 905,
+   "kind": "rec:k_footstep_carpet_000.wav",
+   "x": 0.25812583523477795,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 911,
+   "kind": "rec:k_footstep_carpet_001.wav",
+   "x": 0.3498091869556148,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 912,
+   "kind": "rec:k_impactPlank_medium_001.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -24,
+   "note": "J: the porter bumps the door of the WRONG room"
+  },
+  {
+   "frame": 917,
+   "kind": "rec:k_footstep_carpet_002.wav",
+   "x": 0.5264328642954528,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 921,
+   "kind": "rec:k_impactPlank_medium_002.wav",
+   "x": 0.45,
+   "gain": 1,
+   "rel": -24,
+   "note": "J: the porter bumps the door of the WRONG room"
+  },
+  {
+   "frame": 927,
+   "kind": "rec:k_impactSoft_medium_000.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -28,
+   "note": "J: the hero snatches the suitcase back"
+  },
+  {
+   "frame": 932,
+   "kind": "rec:k_footstep_carpet_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 938,
+   "kind": "rec:k_footstep_carpet_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 945,
+   "kind": "rec:k_footstep_carpet_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 948,
+   "kind": "rec:mk2842.wav@0+1.2",
+   "x": -0.2,
+   "gain": 1,
+   "rel": -28,
+   "note": "K: key in the lock of room 101"
+  },
+  {
+   "frame": 952,
+   "kind": "rec:mk201.wav",
+   "x": -0.2,
+   "gain": 1,
+   "rel": -27,
+   "note": "K: the door opens"
+  },
+  {
+   "frame": 954,
+   "kind": "rec:k_footstep_carpet_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 962,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -39.40608635479539,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 966,
+   "kind": "rec:mk3080.wav@3+62",
+   "x": 0,
+   "gain": 1,
+   "rel": -34,
+   "note": "room 101 at night: quiet room tone (recorded)"
+  },
+  {
+   "frame": 966,
+   "kind": "rec:mk1059.wav@0+11",
+   "x": -0.4,
+   "gain": 1,
+   "rel": -36,
+   "note": "room: the alarm clock ticking on the nightstand (recorded)"
+  },
+  {
+   "frame": 971,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -39.9153038068262,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 980,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -40.3478597658207,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 990,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -40.75533658510458,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1012,
+   "kind": "rec:syn_snore3.wav",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -23,
+   "note": "L: the sleeping guest snores (synthesised)"
+  },
+  {
+   "frame": 1031,
+   "kind": "rec:k_forceField_001.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -29,
+   "note": "L: the bedside robot hears the snore and starts listening"
+  },
+  {
+   "frame": 1084,
+   "kind": "rec:syn_snore0.wav",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -23,
+   "note": "L: the sleeping guest snores (synthesised)"
+  },
+  {
+   "frame": 1103,
+   "kind": "rec:k_forceField_001.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -29,
+   "note": "L: the bedside robot hears the snore and starts listening"
+  },
+  {
+   "frame": 1108,
+   "kind": "rec:k_highUp.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -26,
+   "note": "M: the bedside robot decides it was spoken to"
+  },
+  {
+   "frame": 1112,
+   "kind": "rec:mk988.wav@0+2.4",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -19,
+   "note": "M: it answers LOUDLY (alarm-like chime) right next to his ear"
+  },
+  {
+   "frame": 1146,
+   "kind": "rec:k_impactSoft_heavy_000.wav",
+   "x": -0.2,
+   "gain": 1,
+   "rel": -24,
+   "note": "M: the guest jolts upright in bed (duvet)"
+  },
+  {
+   "frame": 1156,
+   "kind": "rec:syn_snore1.wav",
+   "x": -0.3,
+   "gain": 1,
+   "rel": -23,
+   "note": "L: the sleeping guest snores (synthesised)"
+  },
+  {
+   "frame": 1206,
+   "kind": "rec:k_twoTone1.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -28,
+   "note": "N: an innocent little chirp"
+  },
+  {
+   "frame": 1222,
+   "kind": "rec:mk182.wav@0+1.6",
+   "x": -0.2,
+   "gain": 1,
+   "rel": -26,
+   "note": "O: an employee bursts in"
+  },
+  {
+   "frame": 1236,
+   "kind": "rec:k_footstep_wood_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -29,
+   "note": "footstep on the room parquet (recorded)"
+  },
+  {
+   "frame": 1240,
+   "kind": "rec:k_footstep_wood_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -29,
+   "note": "footstep on the room parquet (recorded)"
+  },
+  {
+   "frame": 1244,
+   "kind": "rec:k_footstep_wood_004.wav",
+   "x": -0.6007631290279428,
+   "gain": 1,
+   "rel": -29,
+   "note": "footstep on the room parquet (recorded)"
+  },
+  {
+   "frame": 1248,
+   "kind": "rec:k_footstep_wood_003.wav",
+   "x": -0.2937144572323767,
+   "gain": 1,
+   "rel": -29,
+   "note": "footstep on the room parquet (recorded)"
+  },
+  {
+   "frame": 1252,
+   "kind": "rec:k_footstep_wood_002.wav",
+   "x": -0.177777239648938,
+   "gain": 1,
+   "rel": -29,
+   "note": "footstep on the room parquet (recorded)"
+  },
+  {
+   "frame": 1256,
+   "kind": "rec:k_footstep_wood_001.wav",
+   "x": -0.1393813929432144,
+   "gain": 1,
+   "rel": -29,
+   "note": "footstep on the room parquet (recorded)"
+  },
+  {
+   "frame": 1260,
+   "kind": "rec:k_footstep_wood_000.wav",
+   "x": -0.13857808372861835,
+   "gain": 1,
+   "rel": -29.651732488523244,
+   "note": "footstep on the room parquet (recorded)"
+  },
+  {
+   "frame": 1272,
+   "kind": "rec:k_switch_002.wav",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -25,
+   "note": "O: the bedside robot unplugged"
+  },
+  {
+   "frame": 1274,
+   "kind": "rec:k_lowDown.wav",
+   "x": 0.1,
+   "gain": 1,
+   "rel": -27,
+   "note": "O: it powers down"
+  },
+  {
+   "frame": 1288,
+   "kind": "rec:k_engineCircular_000.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -31,
+   "note": "O: the porter's wheels as it is pushed back"
+  },
+  {
+   "frame": 1293,
+   "kind": "rec:k_footstep_carpet_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 1300,
+   "kind": "rec:k_error_002.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -30,
+   "note": "O: it protests (error beep)"
+  },
+  {
+   "frame": 1305,
+   "kind": "rec:k_footstep_carpet_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 1318,
+   "kind": "rec:k_footstep_carpet_001.wav",
+   "x": 0.029125422789865015,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 1330,
+   "kind": "rec:k_footstep_carpet_003.wav",
+   "x": -0.08600044865805599,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 1343,
+   "kind": "rec:k_footstep_carpet_001.wav",
+   "x": -0.2084241004968965,
+   "gain": 1,
+   "rel": -31,
+   "note": "footstep on the corridor carpet (recorded)"
+  },
+  {
+   "frame": 1376,
+   "kind": "rec:k_impactMetal_light_000.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -27,
+   "note": "P: the concierge's service panel opened"
+  },
+  {
+   "frame": 1392,
+   "kind": "rec:syn_servo0.wav",
+   "x": -0.5,
+   "gain": 1,
+   "rel": -30,
+   "note": "P: the raptor tilts its head at the passport"
+  },
+  {
+   "frame": 1398,
+   "kind": "rec:mk2595.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -27,
+   "note": "P: sparks + glitches inside the concierge"
+  },
+  {
+   "frame": 1410,
+   "kind": "rec:mk1530.wav",
+   "x": -0.4,
+   "gain": 1,
+   "rel": -31,
+   "note": "P: the passport held up to the raptor's eyes (paper)"
+  },
+  {
+   "frame": 1424,
+   "kind": "rec:syn_servo2.wav",
+   "x": -0.5,
+   "gain": 1,
+   "rel": -30,
+   "note": "P: the raptor tilts its head at the passport"
+  },
+  {
+   "frame": 1436,
+   "kind": "rec:k_glitch_002.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -27,
+   "note": "P: sparks + glitches inside the concierge"
+  },
+  {
+   "frame": 1455,
+   "kind": "rec:k_impactGeneric_light_000.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -26,
+   "note": "P: the manager facepalms"
+  },
+  {
+   "frame": 1458,
+   "kind": "rec:syn_servo0.wav",
+   "x": -0.5,
+   "gain": 1,
+   "rel": -30,
+   "note": "P: the raptor tilts its head at the passport"
+  },
+  {
+   "frame": 1468,
+   "kind": "rec:mk2594.wav@0+0.8",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -27,
+   "note": "P: sparks + glitches inside the concierge"
+  },
+  {
+   "frame": 1486,
+   "kind": "rec:syn_servo1.wav",
+   "x": -0.5,
+   "gain": 1,
+   "rel": -30,
+   "note": "P: the raptor tilts its head at the passport"
+  },
+  {
+   "frame": 1508,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28.192969312150474,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1511,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.7977061450371457,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1514,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.3511043708675197,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1517,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.3823283455445057,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1520,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1523,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1526,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -33.403025624020955,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1526,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1529,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1530,
+   "kind": "rec:k_lowDown.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -26,
+   "note": "Q: workforce robot 1 switched off for good"
+  },
+  {
+   "frame": 1530,
+   "kind": "rec:k_scratch_001.wav",
+   "x": 0.3,
+   "gain": 1,
+   "rel": -34,
+   "note": "Q: the hero's suitcase wheels on the stone floor"
+  },
+  {
+   "frame": 1532,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -32.619277279177794,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1533,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1536,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -28,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1538,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31.72341132335982,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1538,
+   "kind": "rec:k_phaserDown1.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -26,
+   "note": "Q: workforce robot 3 switched off for good"
+  },
+  {
+   "frame": 1539,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -28.15170761159952,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1542,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -28.907175963094218,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1544,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -30.652712509217785,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1545,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -29.535586747234067,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1546,
+   "kind": "rec:k_lowDown.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -26,
+   "note": "Q: workforce robot 4 switched off for good"
+  },
+  {
+   "frame": 1547,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -33.98534763271496,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1549,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -30.193397716196266,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1550,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.5154012436301266,
+   "gain": 1,
+   "rel": -29.483943325243324,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1552,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -30.581425856100672,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1553,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -32.6738697928036,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1554,
+   "kind": "rec:k_zapThreeToneDown.wav",
+   "x": 0.6,
+   "gain": 1,
+   "rel": -26,
+   "note": "Q: workforce robot 6 switched off for good"
+  },
+  {
+   "frame": 1555,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -30.913743845496413,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1556,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28.655350080831237,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1558,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31.224309691543773,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1559,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31.109154338337433,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1562,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -28.727545692212875,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1565,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -29.7314981445991,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1568,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -29.54955862087202,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1568,
+   "kind": "rec:k_impactMetal_light_001.wav",
+   "x": 0.5,
+   "gain": 1,
+   "rel": -27,
+   "note": "Q: a robot tipped onto a dolly"
+  },
+  {
+   "frame": 1571,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.3693841629468591,
+   "gain": 1,
+   "rel": -29.20819435461485,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1574,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -30.521509310488714,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1577,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.30560444723102786,
+   "gain": 1,
+   "rel": -29.737160030924834,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1578,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31.0270469795815,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1580,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31.34689435942981,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1580,
+   "kind": "rec:k_impactMetal_light_001.wav",
+   "x": 0.5,
+   "gain": 1,
+   "rel": -27,
+   "note": "Q: a robot tipped onto a dolly"
+  },
+  {
+   "frame": 1582,
+   "kind": "rec:k_scratch_001.wav",
+   "x": 0.4,
+   "gain": 1,
+   "rel": -33,
+   "note": "Q: dolly wheels roll away"
+  },
+  {
+   "frame": 1583,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31.63822399131078,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1584,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -31.06524521103755,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1585,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": -0.8,
+   "gain": 1,
+   "rel": -31.912478546809982,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1589,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -32.60851630058191,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1590,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -32.31230814354677,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1591,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.26671017478921133,
+   "gain": 1,
+   "rel": -32.50169944806375,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1594,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -33.44315991081619,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1596,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -33.46006100677311,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1597,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.19810051125979408,
+   "gain": 1,
+   "rel": -33.04227182380891,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1599,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -34.229818314596955,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1602,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -34.464449233412644,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1603,
+   "kind": "rec:k_footstep_concrete_000.wav",
+   "x": 0.23597533502715595,
+   "gain": 1,
+   "rel": -33.55511844191409,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1605,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -35.08892531851964,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1608,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -35.34307552565259,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1609,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.06491022956686818,
+   "gain": 1,
+   "rel": -34.05130149996008,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1610,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -35.74611004024969,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1614,
+   "kind": "rec:k_footstep_concrete_004.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -36.13994276375239,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1615,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -36.373498141561114,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1616,
+   "kind": "rec:mk1523.wav",
+   "x": 0,
+   "gain": 1,
+   "rel": -27,
+   "note": "R: the glass doors slide open as the camera drifts out"
+  },
+  {
+   "frame": 1621,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": -0.16926784021100502,
+   "gain": 1,
+   "rel": -35.12614489617582,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1621,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -37.12547291462086,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1621,
+   "kind": "rec:k_footstep_concrete_001.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -37.03737873645346,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1626,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -37.78374817144521,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1627,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -37.83888559923492,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1631,
+   "kind": "rec:k_footstep_concrete_002.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.4945531725498,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1633,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -38.711546935682655,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1637,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.426648454238894,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1637,
+   "kind": "rec:k_footstep_concrete_003.wav",
+   "x": 0.8,
+   "gain": 1,
+   "rel": -39.337568741705866,
+   "note": "footstep on the stone lobby floor (recorded)"
+  },
+  {
+   "frame": 1640,
+   "kind": "rec:mk2465.wav@10+3",
+   "x": 0,
+   "gain": 1,
+   "rel": -33,
+   "note": "R: the street again (recorded)"
+  },
+  {
+   "frame": 1652,
+   "kind": "rec:mk1523.wav@0.2+1.0",
+   "x": 0,
+   "gain": 1,
+   "rel": -31,
+   "note": "R: and close"
+  }
+ ]
+}

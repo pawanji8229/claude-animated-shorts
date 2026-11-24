@@ -1,0 +1,1325 @@
+{
+ "audio": "/home/user/claude-animated-shorts/studio/productions/robothotel/input/narration.mp3",
+ "codec": "mp3",
+ "sample_rate": 44100,
+ "channels": 1,
+ "bit_rate": "128006",
+ "duration": 55.9543,
+ "fps": 30,
+ "frames": 1679,
+ "pauses": [
+  {
+   "start": 2.303,
+   "end": 2.737
+  },
+  {
+   "start": 4.441,
+   "end": 5.013
+  },
+  {
+   "start": 8.543,
+   "end": 8.924
+  },
+  {
+   "start": 12.572,
+   "end": 12.978
+  },
+  {
+   "start": 15.736,
+   "end": 16.055
+  },
+  {
+   "start": 20.064,
+   "end": 20.587
+  },
+  {
+   "start": 21.179,
+   "end": 21.496
+  },
+  {
+   "start": 22.965,
+   "end": 23.555
+  },
+  {
+   "start": 25.028,
+   "end": 25.538
+  },
+  {
+   "start": 27.909,
+   "end": 28.294
+  },
+  {
+   "start": 30.828,
+   "end": 31.217
+  },
+  {
+   "start": 33.282,
+   "end": 33.55
+  },
+  {
+   "start": 36.645,
+   "end": 37.085
+  },
+  {
+   "start": 39.621,
+   "end": 39.994
+  },
+  {
+   "start": 40.441,
+   "end": 40.909
+  },
+  {
+   "start": 44.37,
+   "end": 44.892
+  },
+  {
+   "start": 50.052,
+   "end": 50.466
+  },
+  {
+   "start": 51.815,
+   "end": 52.116
+  },
+  {
+   "start": 54.711,
+   "end": 55.126
+  }
+ ],
+ "phrases": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 2.303,
+   "startFrame": 0,
+   "endFrame": 69,
+   "asr": "a hotel in japan hired robots",
+   "asr_alt": "a hotel in japan hired robots",
+   "asr_words": [
+    {
+     "word": "a",
+     "t0": 0.11,
+     "t1": 0.16,
+     "p": 1.0
+    },
+    {
+     "word": "hotel",
+     "t0": 0.17,
+     "t1": 0.61,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 0.62,
+     "t1": 0.69,
+     "p": 1.0
+    },
+    {
+     "word": "japan",
+     "t0": 0.7,
+     "t1": 1.16,
+     "p": 1.0
+    },
+    {
+     "word": "hired",
+     "t0": 1.17,
+     "t1": 1.58,
+     "p": 1.0
+    },
+    {
+     "word": "robots",
+     "t0": 1.59,
+     "t1": 2.29,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "a hotel in japan hired robots",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 2,
+   "start": 2.737,
+   "end": 4.441,
+   "startFrame": 82,
+   "endFrame": 133,
+   "asr": "then fired more than half of them",
+   "asr_alt": "then fired more than half of them",
+   "asr_words": [
+    {
+     "word": "then",
+     "t0": 2.69,
+     "t1": 2.91,
+     "p": 1.0
+    },
+    {
+     "word": "fired",
+     "t0": 2.92,
+     "t1": 3.38,
+     "p": 1.0
+    },
+    {
+     "word": "more",
+     "t0": 3.39,
+     "t1": 3.55,
+     "p": 1.0
+    },
+    {
+     "word": "than",
+     "t0": 3.56,
+     "t1": 3.68,
+     "p": 1.0
+    },
+    {
+     "word": "half",
+     "t0": 3.69,
+     "t1": 4.09,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 4.1,
+     "t1": 4.22,
+     "p": 1.0
+    },
+    {
+     "word": "them",
+     "t0": 4.23,
+     "t1": 4.44,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "then fired more than half of them",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 3,
+   "start": 5.013,
+   "end": 8.543,
+   "startFrame": 150,
+   "endFrame": 256,
+   "asr": "and some of those robots were actual robotic dinosaurs",
+   "asr_alt": "and some of those robots for actual robotic dinosaurs",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 4.997,
+     "t1": 5.197,
+     "p": 1.0
+    },
+    {
+     "word": "some",
+     "t0": 5.207,
+     "t1": 5.457,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 5.467,
+     "t1": 5.517,
+     "p": 1.0
+    },
+    {
+     "word": "those",
+     "t0": 5.527,
+     "t1": 5.717,
+     "p": 1.0
+    },
+    {
+     "word": "robots",
+     "t0": 5.727,
+     "t1": 6.187,
+     "p": 1.0
+    },
+    {
+     "word": "were",
+     "t0": 6.197,
+     "t1": 6.397,
+     "p": 0.0
+    },
+    {
+     "word": "actual",
+     "t0": 6.517,
+     "t1": 7.017,
+     "p": 1.0
+    },
+    {
+     "word": "robotic",
+     "t0": 7.027,
+     "t1": 7.607,
+     "p": 1.0
+    },
+    {
+     "word": "dinosaurs",
+     "t0": 7.617,
+     "t1": 8.547,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.889,
+   "uncertain": [
+    "were"
+   ],
+   "text": "and some of those robots were actual robotic dinosaurs",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 4,
+   "start": 8.924,
+   "end": 12.572,
+   "startFrame": 268,
+   "endFrame": 377,
+   "asr": "he stayed at this hotel want to create a futuristic experience",
+   "asr_alt": "he stayed at this hotel want to create a futuristic experience",
+   "asr_words": [
+    {
+     "word": "he",
+     "t0": 8.914,
+     "t1": 9.084,
+     "p": 1.0
+    },
+    {
+     "word": "stayed",
+     "t0": 9.094,
+     "t1": 9.404,
+     "p": 1.0
+    },
+    {
+     "word": "at",
+     "t0": 9.654,
+     "t1": 9.724,
+     "p": 1.0
+    },
+    {
+     "word": "this",
+     "t0": 9.734,
+     "t1": 9.904,
+     "p": 1.0
+    },
+    {
+     "word": "hotel",
+     "t0": 9.914,
+     "t1": 10.314,
+     "p": 1.0
+    },
+    {
+     "word": "want",
+     "t0": 10.324,
+     "t1": 10.574,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 10.584,
+     "t1": 10.644,
+     "p": 1.0
+    },
+    {
+     "word": "create",
+     "t0": 10.654,
+     "t1": 11.004,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 11.014,
+     "t1": 11.054,
+     "p": 1.0
+    },
+    {
+     "word": "futuristic",
+     "t0": 11.064,
+     "t1": 11.884,
+     "p": 1.0
+    },
+    {
+     "word": "experience",
+     "t0": 11.894,
+     "t1": 12.564,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "he stayed at this hotel want to create a futuristic experience",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 5,
+   "start": 12.978,
+   "end": 15.736,
+   "startFrame": 389,
+   "endFrame": 472,
+   "asr": "so instead of relying entirely on human staff",
+   "asr_alt": "so instead of relying entirely on human staff",
+   "asr_words": [
+    {
+     "word": "so",
+     "t0": 12.965,
+     "t1": 13.345,
+     "p": 1.0
+    },
+    {
+     "word": "instead",
+     "t0": 13.355,
+     "t1": 13.705,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 13.715,
+     "t1": 13.805,
+     "p": 1.0
+    },
+    {
+     "word": "relying",
+     "t0": 13.815,
+     "t1": 14.205,
+     "p": 1.0
+    },
+    {
+     "word": "entirely",
+     "t0": 14.215,
+     "t1": 14.845,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 14.855,
+     "t1": 14.945,
+     "p": 1.0
+    },
+    {
+     "word": "human",
+     "t0": 14.955,
+     "t1": 15.325,
+     "p": 1.0
+    },
+    {
+     "word": "staff",
+     "t0": 15.335,
+     "t1": 15.755,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "so instead of relying entirely on human staff",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 6,
+   "start": 16.055,
+   "end": 20.064,
+   "startFrame": 482,
+   "endFrame": 602,
+   "asr": "it entered as robots to help with perception luggage and get services",
+   "asr_alt": "it entered as robots to help with perception luggage and get services",
+   "asr_words": [
+    {
+     "word": "it",
+     "t0": 16.136,
+     "t1": 16.246,
+     "p": 1.0
+    },
+    {
+     "word": "entered",
+     "t0": 16.256,
+     "t1": 16.486,
+     "p": 1.0
+    },
+    {
+     "word": "as",
+     "t0": 16.496,
+     "t1": 16.626,
+     "p": 1.0
+    },
+    {
+     "word": "robots",
+     "t0": 16.636,
+     "t1": 17.226,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 17.236,
+     "t1": 17.316,
+     "p": 1.0
+    },
+    {
+     "word": "help",
+     "t0": 17.326,
+     "t1": 17.546,
+     "p": 1.0
+    },
+    {
+     "word": "with",
+     "t0": 17.556,
+     "t1": 17.656,
+     "p": 1.0
+    },
+    {
+     "word": "perception",
+     "t0": 17.666,
+     "t1": 18.346,
+     "p": 1.0
+    },
+    {
+     "word": "luggage",
+     "t0": 18.356,
+     "t1": 18.976,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 18.986,
+     "t1": 19.266,
+     "p": 1.0
+    },
+    {
+     "word": "get",
+     "t0": 19.276,
+     "t1": 19.426,
+     "p": 1.0
+    },
+    {
+     "word": "services",
+     "t0": 19.436,
+     "t1": 20.066,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "it entered as robots to help with perception luggage and get services",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 7,
+   "start": 20.587,
+   "end": 21.179,
+   "startFrame": 618,
+   "endFrame": 635,
+   "asr": "at first",
+   "asr_alt": "at first",
+   "asr_words": [
+    {
+     "word": "at",
+     "t0": 20.555,
+     "t1": 20.705,
+     "p": 1.0
+    },
+    {
+     "word": "first",
+     "t0": 20.715,
+     "t1": 21.235,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "at first",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 8,
+   "start": 21.496,
+   "end": 22.965,
+   "startFrame": 645,
+   "endFrame": 689,
+   "asr": "everything looks amazing",
+   "asr_alt": "everything looks amazing",
+   "asr_words": [
+    {
+     "word": "everything",
+     "t0": 21.477,
+     "t1": 21.947,
+     "p": 1.0
+    },
+    {
+     "word": "looks",
+     "t0": 21.957,
+     "t1": 22.187,
+     "p": 1.0
+    },
+    {
+     "word": "amazing",
+     "t0": 22.277,
+     "t1": 23.027,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "everything looks amazing",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 9,
+   "start": 23.555,
+   "end": 25.028,
+   "startFrame": 707,
+   "endFrame": 751,
+   "asr": "and so the problem started",
+   "asr_alt": "and so the problem started",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 23.54,
+     "t1": 23.8,
+     "p": 1.0
+    },
+    {
+     "word": "so",
+     "t0": 23.81,
+     "t1": 24.02,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 24.03,
+     "t1": 24.11,
+     "p": 1.0
+    },
+    {
+     "word": "problem",
+     "t0": 24.12,
+     "t1": 24.54,
+     "p": 1.0
+    },
+    {
+     "word": "started",
+     "t0": 24.55,
+     "t1": 25.0,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and so the problem started",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 10,
+   "start": 25.538,
+   "end": 27.909,
+   "startFrame": 766,
+   "endFrame": 837,
+   "asr": "some robots couldn't answer simple questions",
+   "asr_alt": "some robots couldn't answer simple questions",
+   "asr_words": [
+    {
+     "word": "some",
+     "t0": 25.503,
+     "t1": 25.803,
+     "p": 1.0
+    },
+    {
+     "word": "robots",
+     "t0": 25.813,
+     "t1": 26.223,
+     "p": 1.0
+    },
+    {
+     "word": "couldn't",
+     "t0": 26.233,
+     "t1": 26.493,
+     "p": 1.0
+    },
+    {
+     "word": "answer",
+     "t0": 26.503,
+     "t1": 26.843,
+     "p": 1.0
+    },
+    {
+     "word": "simple",
+     "t0": 26.853,
+     "t1": 27.243,
+     "p": 1.0
+    },
+    {
+     "word": "questions",
+     "t0": 27.253,
+     "t1": 27.903,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "some robots couldn't answer simple questions",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 11,
+   "start": 28.294,
+   "end": 30.828,
+   "startFrame": 849,
+   "endFrame": 925,
+   "asr": "others struggle to carry luggage to the right rooms",
+   "asr_alt": "others struggle to carry luggage to the right rooms",
+   "asr_words": [
+    {
+     "word": "others",
+     "t0": 28.272,
+     "t1": 28.572,
+     "p": 1.0
+    },
+    {
+     "word": "struggle",
+     "t0": 28.582,
+     "t1": 29.012,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 29.022,
+     "t1": 29.102,
+     "p": 1.0
+    },
+    {
+     "word": "carry",
+     "t0": 29.112,
+     "t1": 29.402,
+     "p": 1.0
+    },
+    {
+     "word": "luggage",
+     "t0": 29.412,
+     "t1": 29.872,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 29.882,
+     "t1": 29.972,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 29.982,
+     "t1": 30.062,
+     "p": 1.0
+    },
+    {
+     "word": "right",
+     "t0": 30.072,
+     "t1": 30.302,
+     "p": 1.0
+    },
+    {
+     "word": "rooms",
+     "t0": 30.312,
+     "t1": 30.822,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "others struggle to carry luggage to the right rooms",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 12,
+   "start": 31.217,
+   "end": 33.282,
+   "startFrame": 937,
+   "endFrame": 998,
+   "asr": "and one type of robot inside the bedrooms",
+   "asr_alt": "and one type of robot inside the bedrooms",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 31.172,
+     "t1": 31.302,
+     "p": 1.0
+    },
+    {
+     "word": "one",
+     "t0": 31.312,
+     "t1": 31.612,
+     "p": 1.0
+    },
+    {
+     "word": "type",
+     "t0": 31.622,
+     "t1": 31.832,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 31.842,
+     "t1": 31.972,
+     "p": 1.0
+    },
+    {
+     "word": "robot",
+     "t0": 31.982,
+     "t1": 32.332,
+     "p": 1.0
+    },
+    {
+     "word": "inside",
+     "t0": 32.342,
+     "t1": 32.672,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 32.682,
+     "t1": 32.732,
+     "p": 1.0
+    },
+    {
+     "word": "bedrooms",
+     "t0": 32.742,
+     "t1": 33.292,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and one type of robot inside the bedrooms",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 13,
+   "start": 33.55,
+   "end": 36.645,
+   "startFrame": 1006,
+   "endFrame": 1099,
+   "asr": "could mistake against snoring for someone trying to speak to it",
+   "asr_alt": "could mistake against snoring for someone trying to speak to it",
+   "asr_words": [
+    {
+     "word": "could",
+     "t0": 33.466,
+     "t1": 33.636,
+     "p": 1.0
+    },
+    {
+     "word": "mistake",
+     "t0": 33.646,
+     "t1": 34.016,
+     "p": 1.0
+    },
+    {
+     "word": "against",
+     "t0": 34.026,
+     "t1": 34.436,
+     "p": 1.0
+    },
+    {
+     "word": "snoring",
+     "t0": 34.446,
+     "t1": 35.126,
+     "p": 1.0
+    },
+    {
+     "word": "for",
+     "t0": 35.136,
+     "t1": 35.256,
+     "p": 1.0
+    },
+    {
+     "word": "someone",
+     "t0": 35.266,
+     "t1": 35.596,
+     "p": 1.0
+    },
+    {
+     "word": "trying",
+     "t0": 35.606,
+     "t1": 35.896,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 35.906,
+     "t1": 35.956,
+     "p": 1.0
+    },
+    {
+     "word": "speak",
+     "t0": 35.966,
+     "t1": 36.376,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 36.386,
+     "t1": 36.556,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 36.566,
+     "t1": 36.706,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "could mistake against snoring for someone trying to speak to it",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 14,
+   "start": 37.085,
+   "end": 39.621,
+   "startFrame": 1113,
+   "endFrame": 1189,
+   "asr": "which meant a good dinner robs people of all they were sleeping",
+   "asr_alt": "which meant a good dinner robs people of all they were sleeping",
+   "asr_words": [
+    {
+     "word": "which",
+     "t0": 37.055,
+     "t1": 37.285,
+     "p": 1.0
+    },
+    {
+     "word": "meant",
+     "t0": 37.295,
+     "t1": 37.485,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 37.495,
+     "t1": 37.545,
+     "p": 1.0
+    },
+    {
+     "word": "good",
+     "t0": 37.555,
+     "t1": 37.725,
+     "p": 1.0
+    },
+    {
+     "word": "dinner",
+     "t0": 37.775,
+     "t1": 37.975,
+     "p": 1.0
+    },
+    {
+     "word": "robs",
+     "t0": 37.985,
+     "t1": 38.275,
+     "p": 1.0
+    },
+    {
+     "word": "people",
+     "t0": 38.285,
+     "t1": 38.555,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 38.565,
+     "t1": 38.625,
+     "p": 1.0
+    },
+    {
+     "word": "all",
+     "t0": 38.635,
+     "t1": 38.755,
+     "p": 1.0
+    },
+    {
+     "word": "they",
+     "t0": 38.765,
+     "t1": 38.835,
+     "p": 1.0
+    },
+    {
+     "word": "were",
+     "t0": 38.845,
+     "t1": 38.955,
+     "p": 1.0
+    },
+    {
+     "word": "sleeping",
+     "t0": 38.965,
+     "t1": 39.635,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "which meant a good dinner robs people of all they were sleeping",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 15,
+   "start": 39.994,
+   "end": 40.441,
+   "startFrame": 1200,
+   "endFrame": 1213,
+   "asr": "it took",
+   "asr_alt": "it took",
+   "asr_words": [
+    {
+     "word": "it",
+     "t0": 40.167,
+     "t1": 40.247,
+     "p": 1.0
+    },
+    {
+     "word": "took",
+     "t0": 40.257,
+     "t1": 40.487,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "it took",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 16,
+   "start": 40.909,
+   "end": 44.37,
+   "startFrame": 1227,
+   "endFrame": 1331,
+   "asr": "meanwhile human employees kept having to step in and fix things",
+   "asr_alt": "meanwhile human employees kept having to step in and fix things",
+   "asr_words": [
+    {
+     "word": "meanwhile",
+     "t0": 40.885,
+     "t1": 41.465,
+     "p": 1.0
+    },
+    {
+     "word": "human",
+     "t0": 41.475,
+     "t1": 41.875,
+     "p": 1.0
+    },
+    {
+     "word": "employees",
+     "t0": 41.885,
+     "t1": 42.375,
+     "p": 1.0
+    },
+    {
+     "word": "kept",
+     "t0": 42.385,
+     "t1": 42.695,
+     "p": 1.0
+    },
+    {
+     "word": "having",
+     "t0": 42.705,
+     "t1": 42.945,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 42.955,
+     "t1": 43.005,
+     "p": 1.0
+    },
+    {
+     "word": "step",
+     "t0": 43.015,
+     "t1": 43.395,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 43.405,
+     "t1": 43.555,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 43.565,
+     "t1": 43.675,
+     "p": 1.0
+    },
+    {
+     "word": "fix",
+     "t0": 43.685,
+     "t1": 44.005,
+     "p": 1.0
+    },
+    {
+     "word": "things",
+     "t0": 44.015,
+     "t1": 44.355,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "meanwhile human employees kept having to step in and fix things",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 17,
+   "start": 44.892,
+   "end": 50.052,
+   "startFrame": 1347,
+   "endFrame": 1502,
+   "asr": "eventually the hotel realize that many of its robots for creating more work instead of saving it",
+   "asr_alt": "eventually the hotel realize that many of its robots were creating more work instead of saving it",
+   "asr_words": [
+    {
+     "word": "eventually",
+     "t0": 44.88,
+     "t1": 45.54,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 45.55,
+     "t1": 45.7,
+     "p": 1.0
+    },
+    {
+     "word": "hotel",
+     "t0": 45.71,
+     "t1": 46.081,
+     "p": 1.0
+    },
+    {
+     "word": "realize",
+     "t0": 46.09,
+     "t1": 46.55,
+     "p": 1.0
+    },
+    {
+     "word": "that",
+     "t0": 46.56,
+     "t1": 46.7,
+     "p": 1.0
+    },
+    {
+     "word": "many",
+     "t0": 46.71,
+     "t1": 47.04,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 47.05,
+     "t1": 47.13,
+     "p": 1.0
+    },
+    {
+     "word": "its",
+     "t0": 47.14,
+     "t1": 47.28,
+     "p": 1.0
+    },
+    {
+     "word": "robots",
+     "t0": 47.29,
+     "t1": 47.73,
+     "p": 1.0
+    },
+    {
+     "word": "for",
+     "t0": 47.74,
+     "t1": 47.85,
+     "p": 0.0
+    },
+    {
+     "word": "creating",
+     "t0": 47.86,
+     "t1": 48.42,
+     "p": 1.0
+    },
+    {
+     "word": "more",
+     "t0": 48.43,
+     "t1": 48.73,
+     "p": 1.0
+    },
+    {
+     "word": "work",
+     "t0": 48.74,
+     "t1": 48.99,
+     "p": 1.0
+    },
+    {
+     "word": "instead",
+     "t0": 49.0,
+     "t1": 49.3,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 49.31,
+     "t1": 49.37,
+     "p": 1.0
+    },
+    {
+     "word": "saving",
+     "t0": 49.38,
+     "t1": 49.89,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 49.9,
+     "t1": 50.03,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.941,
+   "uncertain": [
+    "for"
+   ],
+   "text": "eventually the hotel realize that many of its robots for creating more work instead of saving it",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 18,
+   "start": 50.466,
+   "end": 51.815,
+   "startFrame": 1514,
+   "endFrame": 1554,
+   "asr": "so in twenty nineteen",
+   "asr_alt": "so in twenty nineteen",
+   "asr_words": [
+    {
+     "word": "so",
+     "t0": 50.429,
+     "t1": 50.819,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 50.829,
+     "t1": 50.979,
+     "p": 1.0
+    },
+    {
+     "word": "twenty",
+     "t0": 50.989,
+     "t1": 51.249,
+     "p": 1.0
+    },
+    {
+     "word": "nineteen",
+     "t0": 51.259,
+     "t1": 51.829,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "so in twenty nineteen",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 19,
+   "start": 52.116,
+   "end": 54.711,
+   "startFrame": 1563,
+   "endFrame": 1641,
+   "asr": "he retired more than half of its robotic workforce",
+   "asr_alt": "he retired more than half of its robotic workforce",
+   "asr_words": [
+    {
+     "word": "he",
+     "t0": 52.095,
+     "t1": 52.175,
+     "p": 1.0
+    },
+    {
+     "word": "retired",
+     "t0": 52.185,
+     "t1": 52.725,
+     "p": 1.0
+    },
+    {
+     "word": "more",
+     "t0": 52.735,
+     "t1": 52.885,
+     "p": 1.0
+    },
+    {
+     "word": "than",
+     "t0": 52.895,
+     "t1": 52.995,
+     "p": 1.0
+    },
+    {
+     "word": "half",
+     "t0": 53.005,
+     "t1": 53.415,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 53.425,
+     "t1": 53.525,
+     "p": 1.0
+    },
+    {
+     "word": "its",
+     "t0": 53.535,
+     "t1": 53.655,
+     "p": 1.0
+    },
+    {
+     "word": "robotic",
+     "t0": 53.665,
+     "t1": 54.145,
+     "p": 1.0
+    },
+    {
+     "word": "workforce",
+     "t0": 54.155,
+     "t1": 54.705,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "he retired more than half of its robotic workforce",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 20,
+   "start": 55.126,
+   "end": 55.954,
+   "startFrame": 1654,
+   "endFrame": 1678,
+   "asr": "and that's why",
+   "asr_alt": "and that's why",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 55.099,
+     "t1": 55.239,
+     "p": 1.0
+    },
+    {
+     "word": "that's",
+     "t0": 55.249,
+     "t1": 55.459,
+     "p": 1.0
+    },
+    {
+     "word": "why",
+     "t0": 55.469,
+     "t1": 55.819,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and that's why",
+   "text_source": "ASR (unconfirmed)"
+  }
+ ],
+ "asr_engine": "pocketsphinx (offline)"
+}

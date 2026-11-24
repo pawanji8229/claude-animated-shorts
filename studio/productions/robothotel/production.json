@@ -1,0 +1,2 @@
+{"composition": "RobotHotelPreview", "finalComposition": "RobotHotel", "scene": "src/productions/robothotel/scene.ts", "ambience": "office", "music": "office_piano", "loop": true,
+ "ambienceTimeline": [[0, "london"], [92, "office"], [960, "room"], [1290, "office"], [1650, "london"]]}
