@@ -13,6 +13,8 @@ import { BoeingFilm } from "./productions/boeing/Film";
 import { Boeing2Film } from "./productions/boeing2/Film";
 import { MailRailTest, MR_TEST_N } from "./productions/mailrail/Test";
 import { MailRailFilm, MailRailStills, STILLS as MR_STILLS } from "./productions/mailrail/Film";
+import { TF2Sheet, TF2Motion, TF2_SHEET_N, MOTION_FRAMES as TF2_MOTION_FRAMES } from "./char/tf2/lab/CharLab";
+import { TF2Stage3D, STAGE_FRAMES as TF2_STAGE_FRAMES } from "./char/tf2/lab/Stage3D";
 import { PoFilm } from "./productions/postoffice/Film";
 import { FILM_FRAMES as FLIGHT_FRAMES } from "./productions/flight/timeline";
 import { JExprTest, EXPR_FRAMES } from "./productions/joralemon/ExprTest";
@@ -95,6 +97,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="MailRailPreview" component={MailRailFilm} durationInFrames={1801} fps={30} width={540} height={960} />
     <Composition id="MailRail" component={MailRailFilm} durationInFrames={1801} fps={30} width={1080} height={1920} />
     <Composition id="MailRailStills" component={MailRailStills} durationInFrames={MR_STILLS.length} fps={30} width={540} height={960} />
+    <Composition id="TF2Sheet" component={TF2Sheet} durationInFrames={TF2_SHEET_N} fps={30} width={1080} height={1920} />
+    <Composition id="TF2Stage3D" component={TF2Stage3D} durationInFrames={TF2_STAGE_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="TF2Motion" component={TF2Motion} durationInFrames={TF2_MOTION_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="MailRailTest" component={MailRailTest} durationInFrames={MR_TEST_N} fps={30} width={1080} height={1920} />
     <Composition id="MailRailTestS" component={MailRailTest} durationInFrames={MR_TEST_N} fps={30} width={540} height={960} />
     <Composition id="BoeingTest" component={BoeingTest} durationInFrames={BOEING_TEST_N} fps={30} width={1080} height={1920} />
