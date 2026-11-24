@@ -77,7 +77,7 @@ All four systems are **opt-in**. No approved production imports them, and an exi
 
 | Deliverable | What it shows |
 |---|---|
-| `camera/C2CamMoves.mp4` | 8 demos |
+| `camera/C2CamMoves.mp4` | 8 demos (sheet: `moves_sheet.png`) |
 | `camera/angles_sheet.png` | 16 angle and lens stills with safe-area guides |
 | `camera/old_vs_new.mp4` | The same beats with the old keyframed camera and the new director |
 | `camera/campath.png` | Path visualisation. The new camera peaks at about 1.4 m/s with much lower acceleration, vs 5.4 m/s for the old one |
@@ -86,6 +86,10 @@ All four systems are **opt-in**. No approved production imports them, and an exi
 - Characters are flat cards. Bird's-eye and worm's-eye shots of a character are capped at about ±35°; structures get the full range.
 - Collision uses boxes, spheres and cylinders rather than true meshes.
 - Obstacles must be supplied (from World 2.0 or by hand).
+
+**Weak spots seen in the renders:**
+- The forced "giant structure reveal" lab demo (one preset, no choice) still looks through the scaffold in front of the frame. In a real plan the director now rejects that shot (line of sight 15 %); the demo picked the orbit instead.
+- The follow camera mostly shows the hero's back, which reads as an empty head on the flat card. The director prefers three-quarter angles elsewhere.
 
 **Not done:**
 - No production video has been made with Camera 2.0 yet.
@@ -140,6 +144,7 @@ HIGH and CINEMATIC cost more only when the sun is in frame (god rays). It wasn't
 - No HDRI is bundled. The system accepts a CC0 HDRI from the Model Vault, otherwise it uses a procedural room environment.
 
 **Weak spots seen in the renders:**
+- The harbour and fog lab frames are dominated by the container ship close to the camera.
 - The character lighting setups differ little on a flat card.
 - Sodium street-lamp pools on wet or dark asphalt read strongly orange at dusk.
 
@@ -162,7 +167,14 @@ HIGH and CINEMATIC cost more only when the sun is in frame (god rays). It wasn't
 - **Audio metadata** for Audio 2.0, and the surface under the foot for footsteps.
 - **Validation:** checks for floating objects, overlaps, scale, era, required story details, density, duplicates, camera obstruction, cost and vehicle paths.
 
-**Lab:** `world/world_sheet.png` covers 10 environments × 6 modes: populated, basic (before population), wide, detail, rich and night.
+**Lab:**
+- `world/world_sheet.png`: rows are the modes (populated, basic, wide, detail, rich, night); columns are the 10 environments.
+- `world/basic_vs_populated.png`: each environment before and after population.
+
+**Weak spots seen in the renders:**
+- Some "detail" views frame very little: a wall corner in the historic town, and plant leaves too close in the interior.
+- The harbour populated view is mostly the ship's hull.
+- The construction site at night used an indoor factory preset (brown sky). Fixed: it now uses city night.
 
 **Limitations:**
 - Everything is procedural, low-poly geometry. It's clean and consistent but stylised, not photoreal.

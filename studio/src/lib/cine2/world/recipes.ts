@@ -83,7 +83,7 @@ export const RECIPES: Record<EnvKind, () => Recipe> = {
     ],
     movers: [{ id: "dumpRun", def: "dumpTruck", path: [[-60, 0, 17.5], [60, 0, 17.5]], speed: 6, offset: 30 }, { id: "fork", def: "forklift", path: [[-10, 0, -6], [2, 0, -6], [2, 0, -8.5], [-10, 0, -8.5]], speed: 1.6, offset: 0, loop: true, stops: [{ at: 12, dur: 4 }] }],
     walkers: [{ id: "w1", path: [[-12, 0, 0.5], [-2, 0, -1.5], [-12, 0, -3.5]], speed: 1.0, offset: 0, costume: "workerA" }, { id: "w2", path: [[6, 0, -14], [6, 0, -2]], speed: 0.9, offset: 4, costume: "workerB" }],
-    birds: { count: 4, centre: [0, 18, -10], radius: 20, kind: "pigeon" }, light: "constructionSite", nightLight: "industrialFactory", ambience: "construction", subject: [-3, 0, 4.5], cam: { pos: [2, 1.7, 13], look: [-3, 1.5, -4] } }; },
+    birds: { count: 4, centre: [0, 18, -10], radius: 20, kind: "pigeon" }, light: "constructionSite", nightLight: "cityNight", ambience: "construction", subject: [-3, 0, 4.5], cam: { pos: [2, 1.7, 13], look: [-3, 1.5, -4] } }; },
   // ------------------------------------------------------------------------------------------------- 3 harbour
   harbor: () => { const era = 2010; return {
     env: "harbor", era, name: "Detailed harbour", story: "a working container quay: a ship alongside, the quay crane over it, boxes stacked in rows, a tug standing by",
