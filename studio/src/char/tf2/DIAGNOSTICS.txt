@@ -1,0 +1,35 @@
+ok   Idle: breathing, natural blinks, saccades, weight shift        slide 0.00 cm  {}
+ok   Walk: normal                                                   slide 0.18 cm  {"leg overreach (clamped)":39}
+ok   Walk: slow                                                     slide 0.18 cm  {"leg overreach (clamped)":13}
+ok   Walk: fast                                                     slide 0.10 cm  {"leg overreach (clamped)":59}
+ok   Walk: confident                                                slide 0.17 cm  {"leg overreach (clamped)":47}
+ok   Walk: nervous                                                  slide 0.00 cm  {}
+ok   Walk: tired                                                    slide 0.00 cm  {}
+ok   Walk: hesitant                                                 slide 0.00 cm  {}
+ok   Walk: sneaky                                                   slide 0.00 cm  {}
+ok   Walk: angry                                                    slide 0.10 cm  {"leg overreach (clamped)":59}
+ok   Walk: excited                                                  slide 0.03 cm  {"leg overreach (clamped)":70}
+ok   Walk: sad                                                      slide 0.14 cm  {"leg overreach (clamped)":14}
+ok   Walk: curious                                                  slide 0.02 cm  {}
+ok   Walk backwards (cautious)                                      slide 0.17 cm  {"leg overreach (clamped)":15}
+ok   Turning while walking                                          slide 0.17 cm  {"leg overreach (clamped)":89}
+ok   Walk, stop naturally, turn to camera                           slide 0.07 cm  {"leg overreach (clamped)":22}
+ok   Run: jog                                                       slide 0.28 cm  {"leg overreach (clamped)":10}
+ok   Run: run                                                       slide 0.08 cm  {"leg overreach (clamped)":23}
+ok   Run: sprint                                                    slide 0.00 cm  {"leg overreach (clamped)":23}
+ok   Jump in place, then a forward hop                              slide 0.00 cm  {}
+ok   Small hops                                                     slide 0.00 cm  {}
+ok   Stumble and recover balance                                    slide 0.15 cm  {"leg overreach (clamped)":54}
+ok   Hand + arm gestures                                            slide 0.00 cm  {"arm overreach (clamped)":26}
+ok   Head + neck moves (head stays joined to the body)              slide 0.00 cm  {}
+ok   30 emotions with body acting (level 4)                         slide 0.00 cm  {"arm overreach (clamped)":20}
+ok   Intensity 0 -> 5: happiness, anger, embarrassment              slide 0.00 cm  {}
+ok   Interaction: pick up a parcel, carry it, put it down           slide 0.01 cm  {"leg overreach (clamped)":15}
+ok   Interaction: push a heavy crate                                slide 0.00 cm  {}
+ok   Attention: eyes lead, head follows a rolling ball, then points slide 0.00 cm  {}
+ok   Talking + listening (lip-sync from word timings)               slide 0.00 cm  {}
+ok   Talking + listening (lip-sync from word timings)               slide 0.00 cm  {}
+ok   Sit down on a crate, stand up, kneel                           slide 0.00 cm  {}
+ok   Long idle (stability)                                          slide 0.00 cm  {}
+
+all hard checks pass

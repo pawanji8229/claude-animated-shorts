@@ -35,7 +35,7 @@ export type Action =
   | { kind: "speak"; f0: number; f1: number; words: Word[]; amount?: number }
   | { kind: "listen"; f0: number; f1: number; at: W3 }
   | { kind: "reach"; f0: number; f1: number; side: 0 | 1; at: W3; hold?: boolean }
-  | { kind: "push"; f0: number; f1: number; at: W3; pull?: boolean };
+  | { kind: "push"; f0: number; f1: number; reach?: number; height?: number; pull?: boolean };   // pushes/pulls an object `reach` m in front at `height` m (moves with the character)
 export type EmoKey = { f: number; mix: EmotionMix; ease?: number };
 export type Script = { id: string; seed: number; costume: Costume; start: [number, number]; facing: number; actions: Action[]; emotions: EmoKey[]; fps?: number };
 export type CharFrame = { sk: Skeleton; face: FaceRig; pos: W3; facing: number; yaw: number; behindHead: [boolean, boolean]; grip?: { side: 0 | 1; at: V3 }; walking: number; contacts: [boolean, boolean]; gesture: Gesture };
@@ -138,7 +138,7 @@ export const evaluate = (sc: Script, f: number, cam: W3 = [0, 1.2, 12]): CharFra
     const tgt = worldToBody(a.at, [pos[0], 0, pos[2]], cam, yaw), r = reach(pose, tgt, a.side); pose.lean += r.lean * u; pose.bend += r.bend * u;
     const arm = a.side === 0 ? pose.armL : pose.armR, s = a.side === 0 ? -1 : 1, shape = u > 0.85 ? HANDS.grip : HANDS.open;
     const out = toArm(blendArm(arm, { hand: r.hand, pole: [s * 0.6, -0.8, -0.2], bend: 0, twist: 0, shape }, u)); if (a.side === 0) pose.armL = out; else pose.armR = out; if (u > 0.85) grip = { side: a.side, at: [0, 0, 0] }; }
-  for (const a of active(sc, f, "push")) { const u = smooth(Math.min(1, (f - a.f0) / 12)) * smooth(Math.min(1, (a.f1 - f) / 12)); const tgt = worldToBody(a.at, [pos[0], 0, pos[2]], cam, yaw);
+  for (const a of active(sc, f, "push")) { const u = smooth(Math.min(1, (f - a.f0) / 12)) * smooth(Math.min(1, (a.f1 - f) / 12)); const tgt: V3 = [0, (a.height ?? 0.75) * M, (a.reach ?? 0.42) * M];
     pose.lean += (a.pull ? -0.22 : 0.28) * u; pose.legL.ankle = [-48, P.ankle, 4 + (a.pull ? 70 : 85) * u]; pose.legR.ankle = [50, P.ankle, 4 - (a.pull ? 30 : 50) * u]; pose.root = [pose.root[0], pose.root[1] - 18 * u, 0];
     for (const i of [0, 1] as const) { const s = i === 0 ? -1 : 1, r = reach(pose, [tgt[0] + s * 70, tgt[1], tgt[2]], i); const out = toArm(blendArm(i === 0 ? pose.armL : pose.armR, { hand: r.hand, pole: [s * 0.5, -1, -0.1], bend: 0, twist: 0, shape: a.pull ? HANDS.grip : HANDS.flat }, u)); if (i === 0) pose.armL = out; else pose.armR = out; } }
   // ---------------- head: moves, then look-at (eyes lead, head follows, body twists for large angles)

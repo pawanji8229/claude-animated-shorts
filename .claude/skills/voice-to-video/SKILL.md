@@ -159,3 +159,13 @@ tool failures needing the user, or changes to the voiceover/creative direction.
 
 ## 8. Explicit invocation (if auto-activation does not trigger)
 `/voice-to-video MAKE VIDEO FOR PAWAN` (with the audio attached), or say: "Use the voice-to-video skill on the attached audio."
+
+## 9. TwistFrame Character 2.0 (opt-in, added 2026-11-24)
+`studio/src/char/tf2/` is the upgraded character system. It keeps the same identity: no ears, the head overlaps the torso, the same silhouette, size and glow. It adds:
+- a 3D-skeleton card with yaw turns;
+- a continuous face rig and a 30-emotion engine with intensity levels 0–5 and blending;
+- 15 gait styles with planted, world-anchored feet; run, jump, sit, kneel and push;
+- articulated fingers, gestures, head moves, idle behaviour, lip-sync from `asr_words`, and object reach;
+- a purposeful action planner and diagnostics.
+
+Use `evaluate(script, f, cam)` with `<Toon2>` (see `studio/src/char/tf2/README.md`). Run `npx tsx scripts/check-tf2.ts` and inspect `TF2Sheet` / `TF2Motion` after any change. The approved `odo5` path and the benchmark are unchanged, and productions choose per film which system to use.

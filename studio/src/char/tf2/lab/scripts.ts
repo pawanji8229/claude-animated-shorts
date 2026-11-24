@@ -9,7 +9,7 @@ import { HERO } from "../../../productions/postoffice/chars";
 import { COSTUME, type Costume } from "../../odo5";
 
 type Prop = { kind: "box" | "ball"; p: [number, number]; w: number; h: number; col: string };
-export type Segment = { title: string; sub?: string; f0: number; dur: number; scripts: Script[]; props?: (lf: number) => Prop[]; overlay?: (g: CanvasRenderingContext2D, lf: number, frs: CharFrame[], ground: number, pxm: number) => void };
+export type Segment = { title: string; sub?: string; f0: number; dur: number; scripts: Script[]; props?: (lf: number) => Prop[]; overlay?: (g: CanvasRenderingContext2D, lf: number, frs: CharFrame[], ground: number, pxm: number) => void; underlay?: (g: CanvasRenderingContext2D, lf: number, frs: CharFrame[], ground: number, pxm: number) => void };
 const S = (o: Partial<Script> & { actions: Action[] }): Script => ({ id: "hero", seed: 7, costume: HERO, start: [0, 0], facing: 0, emotions: [{ f: 0, mix: [{ e: "happiness", level: 1 }] }], ...o });
 const emo = (f: number, e: EmotionName, level: number, ease = 8): EmoKey => ({ f, mix: [{ e, level }], ease });
 const CLERK: Costume = { ...COSTUME.clerk, hat: null };
@@ -57,8 +57,9 @@ add({ title: "Interaction: pick up a parcel, carry it, put it down", sub: "hands
   overlay: (g, lf, frs, ground, pxm) => { const fr = frs[0]; if (lf < 70 || lf > 262 || !fr.grip) return; const pr = project(fr.grip.at, fr.yaw), s = 0.7, sx = 540 + fr.pos[0] * pxm - 300 * s + pr.x * s, sy = ground - 975 * s + pr.y * s;
     g.save(); g.fillStyle = "#c9a06a"; g.strokeStyle = "#241923"; g.lineWidth = 6; g.beginPath(); g.rect(sx - 0.15 * pxm, sy - 0.05 * pxm, 0.3 * pxm, 0.24 * pxm); g.fill(); g.stroke(); g.restore(); } });
 // 13. push a crate
-add({ title: "Interaction: push a heavy crate", sub: "leans in, staggered stance, hands on the crate", dur: 200, props: (lf) => { const x = 0.15 + Math.max(0, Math.min(1, (lf - 40) / 140)) * 0.8; return [{ kind: "box", p: [x + 0.12, 0], w: 0.5, h: 0.62, col: "#8a6a4a" }]; },
-  scripts: [S({ start: [-0.6, 0], facing: Math.PI / 2, actions: [{ kind: "walk", f0: 4, f1: 34, to: [-0.4, 0], style: "slow" }, { kind: "push", f0: 34, f1: 190, at: [-0.05, 0.75, 0] }, { kind: "walk", f0: 40, f1: 180, to: [0.4, 0], style: "slow" }], emotions: [emo(0, "determination", 3), emo(120, "frustration", 3, 14)] })] });
+add({ title: "Interaction: push a heavy crate", sub: "leans in, staggered stance, hands stay on the crate", dur: 200,
+  scripts: [S({ start: [-0.6, 0], facing: Math.PI / 2, actions: [{ kind: "walk", f0: 4, f1: 34, to: [-0.45, 0], style: "slow" }, { kind: "push", f0: 34, f1: 190, reach: 0.4, height: 0.42 }, { kind: "walk", f0: 46, f1: 182, to: [0.35, 0], style: "slow" }], emotions: [emo(0, "determination", 3), emo(120, "frustration", 3, 14)] })],
+  underlay: (g, lf, frs, ground, pxm) => { const fr = frs[0], wr = project(fr.sk.wrist[1], fr.yaw), sc = 0.7; const handX = 540 + fr.pos[0] * pxm - 300 * sc + (wr.x + 14) * sc; const x = (Math.max(handX, 540 + (-0.45 + 0.34) * pxm) - 540) / pxm; const w = 0.5, h = 0.62; g.save(); g.fillStyle = "#8a6a4a"; g.strokeStyle = "#241923"; g.lineWidth = 6; g.beginPath(); g.rect(540 + x * pxm, ground - h * pxm, w * pxm, h * pxm); g.fill(); g.stroke(); g.restore(); void lf; } });
 // 14. watching a moving object
 add({ title: "Attention: eyes lead, head follows a rolling ball, then points", dur: 200, props: (lf) => [{ kind: "ball", p: [-1.8 + lf * 0.02, 0], w: 0.2, h: 0.2, col: "#d9573a" }],
   scripts: [S({ actions: [{ kind: "look", f0: 0, f1: 190, at: [0, 0.1, 0] as never }, { kind: "gesture", f0: 120, f1: 185, g: "point", dir: [1, -0.4, 0.2] }], emotions: [emo(0, "curiosity", 3), emo(110, "surprise", 3, 4)] })].map((s) => ({ ...s, actions: s.actions.map((a) => a.kind === "look" ? { ...a, at: [0.5, 0.1, 0] as never } : a) })) });

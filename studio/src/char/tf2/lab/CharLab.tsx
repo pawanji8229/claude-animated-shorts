@@ -66,11 +66,13 @@ const drawMotion = (g: G, f: number) => {
   const ground = 1560; g.fillStyle = "#e2d6c2"; g.fillRect(0, ground, 1080, 360); g.strokeStyle = "#cbbca4"; g.lineWidth = 3; g.beginPath(); g.moveTo(0, ground); g.lineTo(1080, ground); g.stroke();
   for (let x = -2; x <= 2; x += 0.5) { const sx = 540 + x * PXM; g.beginPath(); g.moveTo(sx, ground); g.lineTo(sx, ground + 12); g.stroke(); }   // metre ticks: reveal any foot sliding against the floor
   label(g, seg.title, 540, 70, 34); if (seg.sub) label(g, seg.sub, 540, 112, 24, "#6a5a50");
+  const frames: { fr: CharFrame; sc: Script }[] = seg.scripts.map((sc) => ({ sc, fr: evaluate(sc, lf, [0, 1.2, 14]) }));
+  frames.sort((a, b) => a.fr.pos[2] - b.fr.pos[2]);
+  if (seg.underlay) seg.underlay(g, lf, frames.map((x) => x.fr), ground, PXM);
   // props
   for (const pr of seg.props?.(lf) ?? []) { const sx = 540 + pr.p[0] * PXM, sy = ground - pr.p[1] * PXM; g.save(); g.fillStyle = pr.col; g.strokeStyle = "#241923"; g.lineWidth = 6;
     if (pr.kind === "box") { g.beginPath(); g.rect(sx - pr.w * PXM / 2, sy - pr.h * PXM, pr.w * PXM, pr.h * PXM); g.fill(); g.stroke(); } else { g.beginPath(); g.arc(sx, sy - pr.h * PXM / 2, pr.h * PXM / 2, 0, Math.PI * 2); g.fill(); g.stroke(); } g.restore(); }
-  const frames: { fr: CharFrame; sc: Script }[] = seg.scripts.map((sc) => ({ sc, fr: evaluate(sc, lf, [0, 1.2, 14]) }));
-  frames.sort((a, b) => a.fr.pos[2] - b.fr.pos[2]);
+
   for (const { fr, sc } of frames) { const sx = 540 + fr.pos[0] * PXM, s = 0.7 * (1 + fr.pos[2] * 0.03); shadow(g, sx, ground, s, fr.pos[1] > 0.02 ? 0.5 : 1); card(g, { sk: fr.sk, face: fr.face, behind: fr.behindHead }, sx, ground, s, sc.costume, lf, fr.pos[1] * PXM); }
   if (seg.overlay) seg.overlay(g, lf, frames.map((x) => x.fr), ground, PXM);
 };

@@ -43,12 +43,12 @@ type FP = { x: number; y: number; k: number; vis: number };  // screen pos (rela
 const faceMap = (yaw: number, pitch: number) => (fx: number, fy: number): FP => {
   const u = Math.asin(clamp(fx / FS, -0.99, 0.99)) + yaw, cp = Math.cos(pitch), sp = Math.sin(pitch);
   const x = FS * Math.sin(u), z = FS * Math.cos(u), y = fy * cp + z * sp * 0.85;
-  const k = Math.max(0, Math.cos(u)), vis = clamp((1.62 - Math.abs(u)) / 0.3, 0, 1);
+  const k = Math.max(0, Math.cos(u)), vis = clamp((1.3 - Math.abs(u)) / 0.32, 0, 1);   // far-side features fade + shrink out before they turn into slivers
   return { x, y, k: lerp(0.0, 1, Math.min(1, k * 1.15)), vis };
 };
 // ---------------------------------------------------------------- face drawing
 const drawEye = (g: G, c: Pal, p: FP, e: Eye, f: FaceRig, s: number, mask: boolean) => {
-  if (p.vis <= 0.01) return; const es = f.eyeScale, k = Math.max(0.14, p.k) * p.vis, rx = 20 * es * k, ry = 24 * es;
+  if (p.vis <= 0.01) return; const es = f.eyeScale, k = Math.max(0.3, p.k) * p.vis, rx = 20 * es * k, ry = 24 * es * (0.55 + 0.45 * p.vis); if (rx < 5) return;
   const open = e.open, lower = e.lower, x = p.x, y = p.y, wide = open > 1.04;
   const top = y - ry * clamp(open, 0, 1.55) * 0.92, droop = wide ? -ry * 0.2 : 4 + (1 - Math.min(1, open)) * 7, arch = wide ? 0 : 3 + ry * 0.1;
   const bot = y + ry * 0.98, bulge = lower * ry * 1.05;                         // lower lid bulges UP when the cheeks push (crescent "happy" eyes)
