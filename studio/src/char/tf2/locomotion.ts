@@ -12,18 +12,18 @@ export type GaitStyle = {
   stride: number; stance: number; lift: number; bounce: number; sway: number; lean: number; armSwing: number; elbow: number;
   hipRoll: number; twist: number; crouch: number; tiptoe: number; stomp: number; drag: number; headStab: number; heel: number; toeOff: number; width: number; run?: boolean;
 };
-const G = (o: Partial<GaitStyle>): GaitStyle => ({ stride: 0.74, stance: 0.6, lift: 46, bounce: 9, sway: 6, lean: 0.06, armSwing: 0.5, elbow: 0.35, hipRoll: 0.05, twist: 0.12, crouch: 0, tiptoe: 0, stomp: 0, drag: 0, headStab: 0.6, heel: 0.3, toeOff: 0.55, width: 1, ...o });
+const G = (o: Partial<GaitStyle>): GaitStyle => ({ stride: 0.74, stance: 0.6, lift: 46, bounce: 9, sway: 6, lean: 0.06, armSwing: 0.78, elbow: 0.4, hipRoll: 0.05, twist: 0.12, crouch: 0, tiptoe: 0, stomp: 0, drag: 0, headStab: 0.6, heel: 0.3, toeOff: 0.55, width: 1, ...o });
 export const GAITS = {
   normal: G({}),
-  slow: G({ stride: 0.56, lift: 34, bounce: 6, armSwing: 0.32, lean: 0.03, twist: 0.08 }),
-  fast: G({ stride: 0.92, lift: 52, bounce: 11, armSwing: 0.72, elbow: 0.6, lean: 0.12, twist: 0.16 }),
-  confident: G({ stride: 0.82, lift: 50, bounce: 10, sway: 9, armSwing: 0.62, lean: -0.02, hipRoll: 0.08, twist: 0.18, headStab: 0.85 }),
+  slow: G({ stride: 0.56, lift: 34, bounce: 6, armSwing: 0.5, lean: 0.03, twist: 0.08 }),
+  fast: G({ stride: 0.92, lift: 52, bounce: 11, armSwing: 0.95, elbow: 0.6, lean: 0.12, twist: 0.16 }),
+  confident: G({ stride: 0.82, lift: 50, bounce: 10, sway: 9, armSwing: 0.9, lean: -0.02, hipRoll: 0.08, twist: 0.18, headStab: 0.85 }),
   nervous: G({ stride: 0.5, lift: 30, bounce: 5, sway: 3, armSwing: 0.15, elbow: 0.9, lean: 0.08, crouch: 10, twist: 0.04, width: 0.8 }),
   tired: G({ stride: 0.52, lift: 18, bounce: 4, sway: 10, armSwing: 0.18, elbow: 0.1, lean: 0.14, crouch: 8, drag: 1, hipRoll: 0.09, headStab: 0.2, toeOff: 0.25, heel: 0.12 }),
   hesitant: G({ stride: 0.42, lift: 28, bounce: 4, armSwing: 0.12, elbow: 0.7, lean: -0.04, twist: 0.04, width: 0.85 }),
   sneaky: G({ stride: 0.62, lift: 62, bounce: 4, sway: 4, armSwing: 0.2, elbow: 1.2, lean: 0.16, crouch: 34, tiptoe: 1, twist: 0.06, headStab: 0.9 }),
-  angry: G({ stride: 0.86, lift: 40, bounce: 7, armSwing: 0.55, elbow: 1.0, lean: 0.14, stomp: 1, twist: 0.1, headStab: 0.8 }),
-  excited: G({ stride: 0.84, lift: 64, bounce: 18, sway: 5, armSwing: 0.8, elbow: 0.7, lean: 0.04, twist: 0.14 }),
+  angry: G({ stride: 0.86, lift: 40, bounce: 7, armSwing: 0.8, elbow: 1.0, lean: 0.14, stomp: 1, twist: 0.1, headStab: 0.8 }),
+  excited: G({ stride: 0.84, lift: 64, bounce: 18, sway: 5, armSwing: 1.05, elbow: 0.7, lean: 0.04, twist: 0.14 }),
   sad: G({ stride: 0.5, lift: 22, bounce: 3, sway: 7, armSwing: 0.1, elbow: 0.05, lean: 0.1, drag: 0.6, headStab: 0.3, toeOff: 0.3 }),
   curious: G({ stride: 0.5, lift: 40, bounce: 6, armSwing: 0.2, elbow: 0.5, lean: 0.12, twist: 0.05 }),
   jog: G({ stride: 1.15, stance: 0.42, lift: 70, bounce: 16, armSwing: 0.6, elbow: 1.45, lean: 0.12, twist: 0.12, toeOff: 0.7, run: true }),

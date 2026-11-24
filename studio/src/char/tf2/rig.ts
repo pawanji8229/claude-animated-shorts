@@ -10,7 +10,7 @@ export const W = 600, H = 1000, SOLE = 975, CARD_H = 1.55, PX = CARD_H / H;
 /** proportions (identical silhouette to the approved odo5 card) */
 export const P = {
   ankle: 16, thigh: 144, shin: 140, hipW: 34, pelvisY: 294,                  // pelvis height when standing straight
-  torsoLen: 300, torsoWTop: 138, torsoWBot: 156, torsoD: 112,               // pill torso (front width / depth)
+  torsoLen: 300, torsoWTop: 138, torsoWBot: 156, torsoD: 124,               // pill torso (front width / depth)
   shoulderW: 64, shoulderDrop: 112, upperArm: 108, foreArm: 100,
   headRx: 150, headRy: 143, headRz: 138, headUp: 54,                        // head centre sits 54 px ABOVE the torso top
   neckOverlapMin: 70,                                                        // head must overlap the torso by >= 70 px (no gap, ever)

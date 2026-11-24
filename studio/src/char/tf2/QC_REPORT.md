@@ -1,70 +1,92 @@
-# TwistFrame Character 2.0: QC report
+# TwistFrame Character 2.0: QC, test and performance report
 
-**Branch:** `claude/cinematic-animation-setup-tb5a49`. Module: `studio/src/char/tf2/` (see its README).
+**Branches:**
+- `experimental/character-evolution-2.0` (isolated experimental branch)
+- mirrored on the designated development branch `claude/cinematic-animation-setup-tb5a49`
 
-**Safety:** the upgrade is a new, opt-in module.
-- `odo5.ts`, `CardSprite.tsx`, `expr.ts`, every production and the approved benchmark are byte-for-byte unchanged (`git diff` checked), so finished films and the benchmark reproduce exactly.
-- No new dependencies.
-- The rig is deterministic from (frame, seed), so it is safe for the parallel cloud renders.
+No approved production branch and no `main` was touched. Module: `studio/src/char/tf2/` (API and architecture in `README.md`).
 
-## What was built (Parts 1–17)
-- **Identity kept:**
-  - Same 600×1000 card, size, round glowing head over a pill torso, brush ink, goggles, silver curls and costume system.
-  - No ears: no ear geometry exists, hair stays inside the head, hats sit on top.
-  - No head-body gap: the head pivots inside the torso overlap and its rotation is clamped.
-- **3D skeleton on the card:** joints live in 3D body space and are projected with yaw relative to the camera. That gives front, three-quarter, profile and back views, turning while walking, walking backwards and looking over the shoulder.
-- **Face:** fully continuous channels, so nothing switches shape mid-blend.
-  - **Eyes:** independent per eye, with upper lid, cheek-raised lower lid (crescent happy eyes), pupil size, sclera scale and catch-light sparkle.
-  - **Brows:** height, inner, outer and arch, per brow.
-  - **Mouth:** a parametric curve with width, jaw, corner lift, asymmetry, pucker, teeth, clench, upper lip and tongue.
-  - **Extras:** blush, sweat, tears, anger vein, gloom.
-  - **Turns:** features slide across a curved face shell and fade at the edge.
-- **Emotion engine:** 30 emotions, each a coordinated face + body (lean, slump, shoulders, head bias, chest, tension, idle energy, blink rate, gaze aversion, knee bend) + gesture.
-  - Intensity runs 0–5 on a non-linear scale; cartoon extras appear only from about 3.5.
-  - Weighted blends; the 8 blends from the brief are included.
-- **Body:** IK arms and legs with fixed bone lengths and natural elbow and knee poles. Pelvis drop and twist, spine lean, bend, twist, slump, chest and squash, plus shoulder shrugs.
-- **Locomotion:** driven by distance, so planted feet never slide.
-  - **Gaits (15):** normal, slow, fast, confident, nervous, tired, hesitant, sneaky, angry, excited, sad, curious, jog, run, sprint.
-  - **Movement modifiers:** backwards for any gait; turning while walking, with feet anchored in the world so they pivot instead of sliding; natural stops.
-  - **Other actions:** jump (anticipation, launch, tuck, landing absorb), hops, stumble and recover, sit and stand, kneel, bend.
-- **Hands:** four fingers and a thumb, each with its own curl, plus spread, thumb abduction and palm facing. 17 shapes: relaxed, open, flat, fist, point, thumbs up and down, palm up, grip, pinch, wave, claw, and one to five. Opening and closing ripples through the fingers.
-- **Gestures (28):** anticipation, action, a living hold and an eased release.
-- **Head moves (14).**
-- **Idle:** breathing, weight shift, micro head motion, saccades. Blinks vary in interval and duration, with occasional double blinks and slow or fast blinking by mood.
-- **Lip-sync:** visemes from the pipeline's `asr_words` with coarticulation. The mouth moves only inside `speak` actions.
-- **Interaction:** reach with lean and bend when needed, clamped so arms never stretch; a grip point for held props; push and pull with a staggered stance.
-- **Planner:** purposeful actions with clear layer priorities per body part. A character with nothing to do stands still with subtle idle motion, and walking happens only inside a walk action.
-- **3D integration:** `Toon2` uses the same lit `CardSprite`, glow mask and halo as the approved characters. `handWorld2` was verified to land exactly on the drawn hand.
-
-## Tests run (Part 18)
-| Test | Result |
+## Safe implementation (Part 20)
+| Step | Done |
 |---|---|
-| Geometric diagnostics over the whole lab reel (`scripts/check-tf2.ts`, 32 segments, 7,335 frames). Covers the head-body overlap (at least 70 px), bone lengths (to 0.5 px), floor penetration and NaN. | All pass |
-| World foot slide while planted, straight walks (12 styles + backwards) | 0.00–0.37 cm |
-| World foot slide while planted, turning while walking | 0.17 cm (was 9.2 cm before anchoring) |
-| World foot slide while planted, stumble | 0.15 cm |
-| World foot slide while planted, run, jog and sprint | ≤ 0.3 cm |
-| One-frame spikes across all 7,335 frames of the reel (a frame unlike both neighbours, excluding intended cuts between test segments) | 0 |
-| Largest frame-to-frame change outside cuts | 3.3 / 255 (ordinary fast motion) |
-| Contact sheets, inspected by eye: 30 emotions at levels 4 and 5, intensity ladders (6 emotions × 0–5), blends, hands, 12-angle turn sweep, 15 gestures | See `sheet_*.png` |
-| Motion reel, inspected by eye, including consecutive-frame strips of the walk cycle, sprint, lip-sync and an emotion transition | See `tf2_motion.mp4` |
-| 3D lit-card test next to the approved odo5 card | See `tf2_stage3d.mp4` |
+| Inspect the current architecture | `odo5.ts` (Canvas2D card, parametric pose, side-view walk keys, mitten hands), `expr.ts` (discrete-shape face library), `actors.ts` (walker, 2D arm aim), `PoToon`/`CardSprite` (lit billboard plus glow mask), `centennial/Set` (lighting/post). |
+| Back up the approved character system | `approved-character-backup.zip`: the baseline-commit versions of odo3/4/5, CardSprite, crowdLife, expr, PoToon chars, Ink, Workshop, the original MAKE VIDEO skill and the approved benchmark. |
+| Isolated experimental branch | `experimental/character-evolution-2.0`. |
+| Baseline hashes | `BASELINE_HASHES.md`: 14 approved files plus the benchmark folder, all byte-identical after the upgrade. |
+| Design, then implement incrementally | 15 single-responsibility modules (see `README.md`), built and tested module by module. |
+| Unit and integration tests | `scripts/test-tf2.ts`: **29 / 29 pass**. |
+| Visual test outputs | Contact sheets (7 pages), motion reel (32 segments, 4 min), 3D lit-card clip, comparison sheets. |
+| Compare against the approved original | `compare_*.png` (8 expression pairs + walk cycle, side by side). |
+| Measure rendering performance | See the performance table below. |
+| Existing scenes stay compatible | The approved benchmark frame renders **pixel-identical** (max difference 0) from the baseline commit and from the TF2 branch. |
+| Document the API | `README.md`. |
+| Must not touch | The approved character, finished videos, approved production branches, the MAKE VIDEO skill, the camera system, global settings and the brother's projects: none were modified. No full video render was started and no assets were published. |
 
-## Defects found by inspection and fixed
-1. **Facial features too small** for the big head, so emotions read alike. Eyes, brows and mouth were enlarged, expression ranges strengthened, and the side-eye now reaches the corner.
-2. **Happy eyes didn't form crescents.** Added a curved lower lid that bulges up with the cheeks, and stronger cheek raise for happiness, pride, amusement and relief.
-3. **Turning while walking slid the feet (9 cm).** Planted feet are now anchored in the world and pivot (0.17 cm).
-4. **The stumble's catch step was flagged as sliding.** It is now marked as a deliberate step and blends back into the gait.
-5. **A far eye became a thin sliver** in three-quarter views. Far-side features now fade and shrink out earlier.
-6. **The walking arm swing could lock straight.** The swing is clamped to keep a soft elbow.
-7. **The push target was fixed in the world** while the character moved. It is now relative to the body, and the lab crate is drawn at the hands.
-8. **The sit test seat was taller than the character's hips.** The test now uses a seat the character can sit on.
-9. **The hands were too small to read the fingers.** Hands enlarged by 1.32×.
+**Correction made during this work:** an early commit appended a short "Character 2.0" note to the MAKE VIDEO skill file before Part 20 arrived. Part 20 forbids modifying that skill without authorization, so the note was **reverted**. The file is byte-identical to the baseline again (see `BASELINE_HASHES.md`).
+
+## Automated tests
+- **Unit and integration tests:** `npx tsx scripts/test-tf2.ts` — 29 passed, 0 failed.
+  - IK bone lengths: error 8e-14 px over 500 random targets, including unreachable ones.
+  - Head over torso: at least 85 px under every extreme head and spine combination (requirement 70).
+  - All face channels are clamped, and face blends are continuous (largest step 0.0145 per 1 % of blend).
+  - Exactly 30 emotions, each with face, body, gesture and description. Intensity is monotonic, and cartoon extras stay off at level 2 and appear at level 5. Blends lie between their parts, and all 8 blends exist.
+  - All 30 faces are measurably distinct (minimum pairwise distance 0.33).
+  - The stance foot moves back exactly as far as the body moves forward (slip under 0.01 px). 15 gaits, and running has a flight phase.
+  - Blinks are deterministic and occasional; saccades are small.
+  - The mouth is closed in pauses and closes for M/B/P.
+  - Head moves are bounded; every emotion gesture has a pose.
+  - An idle character never drifts in 10 s; evaluation is deterministic.
+  - Walk actions arrive exactly at their targets; a walk with turns slides 0.17 cm.
+- **Lab-reel diagnostics:** `npx tsx scripts/check-tf2.ts` — every segment passes every hard check (`DIAGNOSTICS.txt`).
+  - Covers neck gap, bone lengths, floor penetration and NaN on every frame.
+  - World foot slide while planted: straight walks 0.0–0.4 cm, turning while walking 0.17 cm, stumble 0.15 cm, runs at most 0.3 cm.
+- **Temporal check of the full reel:** 7,335 frames, 0 one-frame spikes. The largest frame-to-frame change outside the intended cuts between test segments is 3.3 / 255.
+
+## Performance (software WebGL, this cloud machine)
+| Measurement | Approved odo5 | Character 2.0 |
+|---|---|---|
+| Render 150 frames × 12 animated characters (1080×1920), run 1 | 81.5 s | **65.0 s** |
+| Render 150 frames × 12 animated characters (1080×1920), run 2 | 84.2 s | **65.9 s** |
+| Planner + solver per character per frame (node) | — | **0.086 ms** |
+
+Character 2.0 draws about 20 % faster: its shapes are simpler, and it has fewer large shadow paths than odo5's layered side-view drawing. The planner cost is negligible. No new dependencies were added, the module is deterministic, and it runs in the existing cloud workflow unchanged.
+
+## Comparison with the approved original (`compare_*.png`)
+- **Same identity:** card size, round glowing head over the pill torso, goggles, silver curls, teal shirt with collar and buttons, mustard belt, brush ink. No ears and no neck gap.
+- **Better:**
+  - The face is larger and more legible.
+  - Eyes have independent lids: crescent smiling eyes, squeezes, side-eye to the corner.
+  - Brows are fuller, and the mouth is a continuous shape (no snapping between mouth types).
+  - Emotions drive posture and gestures, not just the face.
+  - The body turns through every angle, and the arms are real IK arms with elbows.
+  - Hands have five digits.
+  - The walk is driven by distance with world-planted feet, arm swing with elbow follow-through, heel-to-toe contacts and a passing-pose lift.
+- **Found by comparison and fixed:**
+  - In full profile the new face nearly vanished. It now follows the approved side view's convention: a readable eye and mouth on the facing side.
+  - The walking arm swing was too small and is now on a par with the approved walk.
+  - The approved character's comedic wobbly mouth was missing. It was added for confusion, nervousness, embarrassment and uncertainty.
+  - The cringe grin was enlarged, and the rest hands were reduced.
+
+## Defects found by visual inspection and fixed (all rounds)
+| # | Found | Fix |
+|---|---|---|
+| 1 | Features too small; emotions read alike | Enlarged eyes, brows and mouth; stronger ranges |
+| 2 | Happy eyes not crescent-shaped | Curved lower lid lifted by the cheeks |
+| 3 | Turning while walking slid the feet 9 cm | Planted feet anchored in the world (0.17 cm) |
+| 4 | Stumble catch step flagged as sliding | Marked as a step; blends back into the gait |
+| 5 | Far eye became a sliver in three-quarter views | Far-side features fade earlier |
+| 6 | Arm swing could lock straight | Soft-elbow clamp |
+| 7 | Push target fixed in the world | Target relative to the body; crate drawn at the hands |
+| 8 | Seat taller than the hips | Correct test seat |
+| 9 | Fingers unreadable | Larger hands (then trimmed after comparison) |
+| 10 | Profile face nearly empty | Profile convention for features |
+| 11 | Arm swing too small versus approved | Swing amplitudes raised |
+| 12 | Wobbly-mouth comedy missing | New continuous `wobble` mouth channel |
 
 ## Honest limitations
-- **Not yet used in a film.** Productions opt in per film; the approved `odo5` path remains the default until you choose to switch.
-- **Goggles and brows:** on the hero costume, very high brows (shock, surprise) overlap the goggle lenses. This matches the approved hero design, but brows are a little less legible at level 5.
-- **Front-view gestures:** arms reaching straight toward the camera foreshorten, as on any card character. Gestures are authored to read sideways.
-- **Running:** on the light frames of the lab test, the run and sprint cycles still clamp the knee near full extension at the very end of the stride (counted as "leg overreach (clamped)" in the diagnostics). Length is preserved, but the leg looks straight for a frame or two.
-- **Hats and props:** hats use a continuous front design that narrows with yaw, with no separate side-view hat drawing. In-card held tools from odo5 (hammer, cup, and so on) are not ported; props are held in 3D via `handWorld2`.
-- **The lab is a 2D stage.** Scale is approximate, and the labels on the test pages are for testing only. No film output has text.
+- **Not yet used in a film.** It is opt-in per production. odo5 stays the default until you choose to switch, and no full video render was started (Part 20).
+- **Goggles and brows:** on the goggled hero, very high brows (shock, surprise) overlap the goggle lenses. This matches the approved design.
+- **Gestures toward the camera** foreshorten, as on any card character. Gestures are authored to read sideways.
+- **Run and sprint:** the knee reaches near full extension at the very end of the stride for a frame or two. Bone length is always preserved.
+- **Hats and props:** hats use one continuous design that narrows with yaw. odo5's in-card tools (hammer, cup, and so on) are not ported; props are held in 3D through `handWorld2`.
+- **The benchmark still:** the approved benchmark frame re-renders identically from before and after this upgrade. Both renders differ slightly from the stored still (2.6 % of pixels by more than 16 levels). That difference predates the upgrade and comes from earlier shared-code changes or the rendering environment, not from Character 2.0.

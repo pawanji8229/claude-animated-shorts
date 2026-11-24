@@ -91,7 +91,8 @@ const drawMouth = (g: G, c: Pal, m: (fx: number, fy: number) => FP, f: FaceRig, 
     g.bezierCurveTo(lerp(R.x, C.x, 0.3), lerp(R.y, loY, 1.0 + roundK * 0.2), lerp(L.x, C.x, 0.3), lerp(L.y, loY, 1.0 + roundK * 0.2), L.x, L.y); g.closePath(); };
   const gap = loY - upY;
   if (gap < 5 && f.teeth < 0.2) {    // closed mouth: one tapered line through the corners and the (smiling/frowning) centre
-    taper(g, [[L.x, L.y], [lerp(L.x, C.x, 0.5), lerp(L.y, C.y + sag * 0.75, 0.6)], [C.x, C.y + sag * 0.7], [lerp(R.x, C.x, 0.5), lerp(R.y, C.y + sag * 0.75, 0.6)], [R.x, R.y]], 8.5, c.ink, 0.38);
+    if (f.wobble > 0.05) { const pts: Pt[] = []; for (let i = 0; i <= 8; i++) { const u = i / 8, x = lerp(L.x, R.x, u), base = lerp(L.y, R.y, u) + Math.sin(Math.PI * u) * sag * 0.7; pts.push([x, base + Math.sin(u * Math.PI * 4) * 6 * f.wobble]); } taper(g, pts, 7.5, c.ink, 0.38); }   // wobbly mouth (nervous / confused / embarrassed)
+    else taper(g, [[L.x, L.y], [lerp(L.x, C.x, 0.5), lerp(L.y, C.y + sag * 0.75, 0.6)], [C.x, C.y + sag * 0.7], [lerp(R.x, C.x, 0.5), lerp(R.y, C.y + sag * 0.75, 0.6)], [R.x, R.y]], 8.5, c.ink, 0.38);
   } else {
     inked(g, c, shape, f.teeth > 0.5 && open < 0.25 ? c.teeth : c.mouthIn, 3.4, 2.4);
     g.save(); shape(); g.clip();
@@ -134,7 +135,10 @@ const drawHead = (g: G, c: Pal, hc: Pt, s: Skeleton, f: FaceRig, cos: Costume, m
     taper(g, [[cx + dx, cy - P.headRy + 6], [cx + dx + cv * 0.4 - swing * 0.3, cy - P.headRy - h * 0.6], [cx + dx + cv - swing * 0.8, cy - P.headRy - h * 0.75], [cx + dx + cv * 1.3 - swing, cy - P.headRy - h * 0.45]], 7, c.ink, 0.3); }
   if (cos.goggles && Math.cos(yawF) < 0.25 && !mask) { g.save(); head(); g.clip(); g.globalAlpha = clamp((0.25 - Math.cos(yawF)) / 0.5, 0, 1); g.beginPath(); g.ellipse(cx, cy + 120, 185, 250, 0, Math.PI * 1.25, Math.PI * 1.75); g.lineWidth = 15; g.strokeStyle = c.strap; g.stroke(); g.globalAlpha = 1; g.restore(); }   // the strap wraps round the back
   g.save(); g.translate(cx, cy); g.rotate(roll);
-  const m = faceMap(yawF, pitchF), ey = -4;
+  // cartoon profile convention: the features turn with the head but never past ~0.95 rad (a full profile still shows a readable
+  // eye + mouth on the facing side, like the approved side view); past ~100 deg the face fades out towards the back of the head
+  const yw = Math.atan2(Math.sin(yawF), Math.cos(yawF)), featYaw = clamp(yw, -0.95, 0.95), backFade = clamp((2.05 - Math.abs(yw)) / 0.45, 0, 1);
+  const m0 = faceMap(featYaw * (Math.abs(yw) > 0.95 ? 1 : 1), pitchF), m = (fx: number, fy: number) => { const q = m0(fx, fy); return { ...q, vis: q.vis * backFade }; }, ey = -4;
   // goggles on the forehead (brass lenses on the shell)
   if (cos.goggles && !mask) { g.save(); g.beginPath(); g.ellipse(0, 0, P.headRx, P.headRy, 0, 0, Math.PI * 2); g.clip(); g.beginPath(); g.ellipse(0, 120, 185, 250, 0, Math.PI * 1.25, Math.PI * 1.75); g.lineWidth = 15; g.strokeStyle = c.strap; g.stroke(); g.restore(); }
   if (cos.goggles) { const browUp = Math.max(f.browL.h, f.browR.h); for (const sg of [-1, 1]) { const q = m(sg * 40, -94 - Math.max(0, browUp - 0.9) * 10); if (q.vis < 0.1) continue; const r = 27 * Math.max(0.25, q.k);
@@ -199,7 +203,7 @@ const drawShoe = (g: G, c: Pal, ankle: Proj, toe: Proj, far: boolean) => {
 const drawHand = (g: G, c: Pal, wrist: Pt, dir: number, h: HandShape, side: number, bend: number, far: boolean, palmFacing: number) => {
   const col = far ? c.limbFar : c.glove, showPalm = palmFacing > 0.5, a = dir + bend * side;
   const mir = side * (showPalm ? 1 : -1);
-  g.save(); g.translate(wrist[0], wrist[1]); g.rotate(a - Math.PI / 2); g.scale(1.32, 1.32);   // hand frame: +x along the hand (fingers), +y across
+  g.save(); g.translate(wrist[0], wrist[1]); g.rotate(a - Math.PI / 2); g.scale(1.16, 1.16);   // hand frame: +x along the hand (fingers), +y across
   const fingers: [number, number, number][] = [[18, 9, 22], [6, 9.5, 25], [-6, 9, 23], [-17, 8, 19]];   // across offset, width, length
   const curlLen = (L: number, k: number) => L * (1 - 0.72 * k);
   // fingers behind the palm first when curled (knuckle row), straight ones drawn after

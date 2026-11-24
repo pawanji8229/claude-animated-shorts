@@ -16,7 +16,7 @@ The upgraded character system is a **separate, opt-in module**. The approved `od
 | # | Responsibility | File |
 |---|---|---|
 | 1 | Character appearance and geometry (renderer, glow mask) | `draw.ts` |
-| 2 | Facial feature controller (continuous rig, blending, clamping) | `face.ts` |
+| 2 | Facial feature controller (continuous rig incl. the comedic `wobble` mouth; blending, clamping) | `face.ts` |
 | 3 | Eye and eyebrow controller: gaze, saccades, blinks | `face.ts`, `idle.ts` (blink, saccade), `draw.ts` (eyes, brows on the face shell) |
 | 4 | Mouth and lip-sync (visemes from ASR word timings) | `lipsync.ts`, mouth in `draw.ts` |
 | 5 | Emotion engine (30 emotions, intensity 0–5, blending; face, body and gesture) | `emotion.ts` |
@@ -78,8 +78,13 @@ const hero: Script = { id: "hero", seed: 7, costume: HERO, start: [0, 0], facing
 
 ## Testing
 ```
+npx tsx scripts/test-tf2.ts                         # 29 unit + integration tests (exit 1 on failure)
 npx tsx scripts/check-tf2.ts                        # geometric diagnostics over the whole lab reel (exit 1 on failure)
 npx remotion render src/index.ts TF2Sheet ...       # contact-sheet pages (emotions L4/L5, ladders, blends, hands, turns, gestures)
 npx remotion render src/index.ts TF2Motion ...      # motion reel (walks, runs, jumps, gestures, head, interaction, dialogue, ...)
 npx remotion render src/index.ts TF2Stage3D ...     # lit 3D card + glow next to the approved odo5 card
+npx remotion render src/index.ts TF2Compare ...     # approved odo5 vs Character 2.0 (expressions + walk cycle)
+npx remotion render src/index.ts TF2PerfOld|TF2PerfNew ...   # performance benchmark (12 animated characters, time each)
 ```
+
+See also `QC_REPORT.md` (tests, performance, comparison, limitations), `BASELINE_HASHES.md` (the approved files are untouched) and `DIAGNOSTICS.txt`.

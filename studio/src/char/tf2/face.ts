@@ -9,6 +9,7 @@ export type FaceRig = {
   mouthW: number; open: number; smile: number; asym: number; pucker: number;       // width, jaw opening, corner lift (-1 frown .. 1), corner asymmetry (+ right side up), rounded "o"
   teeth: number; clench: number; upperLip: number; tongue: number; mouthY: number; // teeth visible, clenched grin lines, upper lip raise, tongue, vertical offset (px)
   blush: number; sweat: number; tears: number; vein: number; gloom: number;         // cartoon extras (only at high intensities)
+  wobble: number;                                                                    // wavy closed mouth (nervous / unsure)
 };
 export const BROW0: Brow = { h: 0, inner: 0, outer: 0, arch: 0.2 };
 export const EYE0: Eye = { open: 1, lower: 0.05, gx: 0, gy: 0 };
@@ -16,12 +17,12 @@ export const NEUTRAL: FaceRig = {
   eyeL: { ...EYE0 }, eyeR: { ...EYE0 }, pupil: 1, eyeScale: 1, sparkle: 0.5,
   browL: { ...BROW0 }, browR: { ...BROW0 }, browThick: 1,
   mouthW: 1, open: 0, smile: 0.12, asym: 0, pucker: 0, teeth: 0, clench: 0, upperLip: 0, tongue: 0, mouthY: 0,
-  blush: 0, sweat: 0, tears: 0, vein: 0, gloom: 0,
+  blush: 0, sweat: 0, tears: 0, vein: 0, gloom: 0, wobble: 0,
 };
 const L = (a: number, b: number, t: number) => a + (b - a) * t;
 const lb = (a: Brow, b: Brow, t: number): Brow => ({ h: L(a.h, b.h, t), inner: L(a.inner, b.inner, t), outer: L(a.outer, b.outer, t), arch: L(a.arch, b.arch, t) });
 const le = (a: Eye, b: Eye, t: number): Eye => ({ open: L(a.open, b.open, t), lower: L(a.lower, b.lower, t), gx: L(a.gx, b.gx, t), gy: L(a.gy, b.gy, t) });
-const NUM: (keyof FaceRig)[] = ["pupil", "eyeScale", "sparkle", "browThick", "mouthW", "open", "smile", "asym", "pucker", "teeth", "clench", "upperLip", "tongue", "mouthY", "blush", "sweat", "tears", "vein", "gloom"];
+const NUM: (keyof FaceRig)[] = ["pupil", "eyeScale", "sparkle", "browThick", "mouthW", "open", "smile", "asym", "pucker", "teeth", "clench", "upperLip", "tongue", "mouthY", "blush", "sweat", "tears", "vein", "gloom", "wobble"];
 /** linear blend of two faces (t 0..1) */
 export const mixFace = (a: FaceRig, b: FaceRig, t: number): FaceRig => {
   const o = { ...a, eyeL: le(a.eyeL, b.eyeL, t), eyeR: le(a.eyeR, b.eyeR, t), browL: lb(a.browL, b.browL, t), browR: lb(a.browR, b.browR, t) } as FaceRig;
@@ -47,5 +48,5 @@ export const sanitize = (f: FaceRig): FaceRig => ({
   ...f, eyeL: ce(f.eyeL), eyeR: ce(f.eyeR), browL: cb(f.browL), browR: cb(f.browR), pupil: c(f.pupil, 0.4, 1.3), eyeScale: c(f.eyeScale, 0.8, 1.4), sparkle: c(f.sparkle, 0, 1.6),
   browThick: c(f.browThick, 0.7, 1.4), mouthW: c(f.mouthW, 0.5, 1.6), open: c(f.open, 0, 1.25), smile: c(f.smile, -1.1, 1.15), asym: c(f.asym, -1, 1), pucker: c(f.pucker, 0, 1),
   teeth: c(f.teeth, 0, 1), clench: c(f.clench, 0, 1), upperLip: c(f.upperLip, 0, 1), tongue: c(f.tongue, 0, 1), mouthY: c(f.mouthY, -14, 14),
-  blush: c(f.blush, 0, 1), sweat: c(f.sweat, 0, 1), tears: c(f.tears, 0, 1), vein: c(f.vein, 0, 1), gloom: c(f.gloom, 0, 1),
+  blush: c(f.blush, 0, 1), sweat: c(f.sweat, 0, 1), tears: c(f.tears, 0, 1), vein: c(f.vein, 0, 1), gloom: c(f.gloom, 0, 1), wobble: c(f.wobble, 0, 1),
 });

@@ -21,7 +21,7 @@ export const EMOTIONS = {
     { lean: 0.08, chest: 0.5, shoulders: 0.25, energy: 1.5, tension: 0.4 }, "excitedFists", "big open grin, wide sparkling eyes, fists pumping"),
   curiosity: E({ eyeL: { open: 0.15 }, eyeR: { open: 0.05 }, pupil: 0.1, browL: { h: 0.55, inner: 0.3 }, browR: { h: 0.2, inner: 0.2 }, open: 0.12, pucker: 0.3, asym: 0.1, smile: -0.05 },
     { lean: 0.1, headRoll: 0.12, headPitch: -0.02, energy: 0.7 }, "chinThink", "leans in, one brow up, lips pursed"),
-  confusion: E({ browL: { h: 0.8, inner: 0.2, outer: 0.4 }, browR: { h: -0.3, inner: -0.6 }, eyeL: { open: 0.15 }, eyeR: { open: -0.2, lower: 0.2 }, smile: -0.25, asym: -0.35, open: 0.1, mouthW: -0.15 },
+  confusion: E({ browL: { h: 0.95, inner: 0.2, outer: 0.4 }, browR: { h: -0.4, inner: -0.7 }, eyeL: { open: 0.3 }, eyeR: { open: -0.45, lower: 0.5 }, smile: -0.25, asym: -0.35, mouthW: -0.15, wobble: 0.8 },
     { headRoll: -0.16, lean: -0.02, shoulders: 0.1, energy: 0.6 }, "scratchHead", "lopsided brows, crooked mouth, head tilts"),
   disbelief: E({ eyeL: { open: 0.45 }, eyeR: { open: 0.25 }, pupil: -0.25, browL: { h: 1.3, inner: 0.2 }, browR: { h: 0.4 }, open: 0.25, smile: -0.3, mouthW: 0.1, asym: 0.2 },
     { lean: -0.06, headPitch: -0.05, headRoll: 0.1, energy: 0.5 }, "palmsUp", "staring, brow shot up, jaw slack, palms up"),
@@ -29,9 +29,9 @@ export const EMOTIONS = {
     { lean: -0.12, shoulders: 0.6, tension: 1, headPitch: -0.08, energy: 0.4 }, "handsUp", "eyes pop, pinprick pupils, jaw drops, hands fly up"),
   fear: E({ eyeL: { open: 0.45, lower: 0.1 }, eyeR: { open: 0.45, lower: 0.1 }, pupil: -0.45, browL: { h: 0.9, inner: 1.1, outer: -0.4 }, browR: { h: 0.9, inner: 1.1, outer: -0.4 }, open: 0.35, mouthW: 0.2, smile: -0.5, teeth: 0.5, clench: 0.4, sweat: 0.8 },
     { lean: -0.1, slump: 0.2, shoulders: 0.7, tension: 1, knees: 0.25, avert: 0.3, energy: 1.2 }, "hugSelf", "worried brows, teeth bared, shrinking posture"),
-  nervousness: E({ eyeL: { open: 0.05 }, eyeR: { open: 0.05 }, pupil: -0.15, browL: { h: 0.3, inner: 0.9, outer: -0.2 }, browR: { h: 0.3, inner: 0.9, outer: -0.2 }, smile: 0.1, asym: 0.15, mouthW: 0.1, clench: 0.25, teeth: 0.35, sweat: 0.6, blush: 0.2 },
+  nervousness: E({ eyeL: { open: 0.05 }, eyeR: { open: 0.05 }, pupil: -0.15, wobble: 0.5, browL: { h: 0.3, inner: 0.9, outer: -0.2 }, browR: { h: 0.3, inner: 0.9, outer: -0.2 }, smile: 0.1, asym: 0.15, mouthW: 0.1, clench: 0.25, teeth: 0.35, sweat: 0.6, blush: 0.2 },
     { shoulders: 0.35, avert: 0.5, energy: 1.25, blink: 2.2, tension: 0.6 }, "fidget", "tight smile, darting eyes, fidgeting hands, fast blinks"),
-  embarrassment: E({ eyeL: { lower: 0.75, open: -0.25, gy: 0.5 }, eyeR: { lower: 0.75, open: -0.25, gy: 0.5 }, browL: { inner: 0.8, h: 0.2 }, browR: { inner: 0.8, h: 0.2 }, smile: 0.25, mouthW: 0.15, asym: -0.2, teeth: 0.2, blush: 1.0, sweat: 0.5 },
+  embarrassment: E({ eyeL: { lower: 0.9, open: -0.35, gy: 0.5 }, eyeR: { lower: 0.9, open: -0.35, gy: 0.5 }, browL: { inner: 0.9, h: 0.25 }, browR: { inner: 0.9, h: 0.25 }, smile: 0.1, mouthW: -0.1, asym: -0.2, wobble: 0.9, blush: 1.0, sweat: 0.5 },
     { headPitch: 0.12, headRoll: 0.12, slump: 0.3, shoulders: 0.3, avert: 0.8, energy: 0.8 }, "rubNeck", "looks down and away, blushing, rubs the back of the head"),
   frustration: E({ browL: { h: -0.4, inner: -1.0 }, browR: { h: -0.4, inner: -1.0 }, eyeL: { open: -0.2, lower: 0.25 }, eyeR: { open: -0.2, lower: 0.25 }, clench: 0.8, teeth: 0.8, mouthW: 0.25, smile: -0.4, open: 0.1, vein: 0.4, blush: 0.2 },
     { tension: 0.8, shoulders: 0.3, lean: 0.05, energy: 1.1 }, "fists", "gritted teeth, knitted brows, clenched fists"),
@@ -67,13 +67,13 @@ export const EMOTIONS = {
     { headPitch: -0.06, headRoll: -0.06, shoulders: 0.1, energy: 1.1 }, "coverMouth", "laughing eyes, chuckling"),
   disgust: E({ browL: { h: -0.5, inner: -0.8 }, browR: { h: -0.2 }, eyeL: { open: -0.35, lower: 0.45 }, eyeR: { open: -0.35, lower: 0.45 }, upperLip: 0.8, smile: -0.6, asym: -0.5, mouthW: -0.05, teeth: 0.3, open: 0.1 },
     { lean: -0.12, headPitch: -0.1, headYaw: 0.2, shoulders: 0.2, energy: 0.5 }, "pushAway", "lip curled, recoils and turns away"),
-  uncertainty: E({ browL: { h: 0.35, inner: 0.5 }, browR: { h: 0.05, inner: 0.3 }, eyeL: { gx: -0.4, open: -0.05 }, eyeR: { gx: -0.4, open: -0.05 }, smile: -0.1, asym: -0.3, mouthW: -0.2, pucker: 0.15 },
+  uncertainty: E({ wobble: 0.45, browL: { h: 0.35, inner: 0.5 }, browR: { h: 0.05, inner: 0.3 }, eyeL: { gx: -0.4, open: -0.05 }, eyeR: { gx: -0.4, open: -0.05 }, smile: -0.1, asym: -0.3, mouthW: -0.2, pucker: 0.15 },
     { headRoll: 0.08, shoulders: 0.3, energy: 0.6 }, "shrug", "eyes drift aside, half-shrug"),
   excitedFear: E({ eyeL: { open: 0.5 }, eyeR: { open: 0.5 }, pupil: -0.3, eyeScale: 0.2, sparkle: 0.6, browL: { h: 1.0, inner: 0.9 }, browR: { h: 1.0, inner: 0.9 }, smile: 0.4, open: 0.55, teeth: 0.7, clench: 0.3, mouthW: 0.3, sweat: 0.6, blush: 0.2 },
     { lean: 0.05, shoulders: 0.5, tension: 0.9, energy: 1.35 }, "handsUp", "manic grin with terrified eyes"),
   confusedDisbelief: E({ browL: { h: 1.3 }, browR: { h: -0.5, inner: -0.5 }, eyeL: { open: 0.5 }, eyeR: { open: -0.35, lower: 0.3 }, pupil: -0.2, open: 0.3, smile: -0.3, asym: -0.5, pucker: 0.2 },
     { headRoll: -0.2, lean: -0.08, headPitch: -0.04, energy: 0.5 }, "palmsUp", "one eye wide one squinting, 'what?!'"),
-  cringe: E({ eyeL: { open: -0.9, lower: 1.0 }, eyeR: { open: -0.9, lower: 1.0 }, browL: { inner: 1.2, h: 0.5 }, browR: { inner: 1.2, h: 0.5 }, teeth: 1, clench: 1, mouthW: 0.5, smile: -0.2, open: 0.2, sweat: 1, blush: 0.8 },
+  cringe: E({ eyeL: { open: -0.9, lower: 1.0 }, eyeR: { open: -0.9, lower: 1.0 }, browL: { inner: 1.2, h: 0.5 }, browR: { inner: 1.2, h: 0.5 }, teeth: 1, clench: 1, mouthW: 0.55, smile: -0.15, open: 0.42, sweat: 1, blush: 0.8 },
     { shoulders: 0.9, headRoll: 0.15, headPitch: 0.1, lean: -0.1, tension: 1, knees: 0.2, energy: 1.1 }, "hugSelf", "eyes squeezed shut, teeth clenched, whole body shrinks"),
 } as const satisfies Record<string, Spec>;
 export type EmotionName = keyof typeof EMOTIONS;
@@ -83,7 +83,7 @@ export const EMOTION_NAMES = Object.keys(EMOTIONS) as EmotionName[];
 export const levelK = (lv: number) => { const K = [0, 0.15, 0.33, 0.55, 0.78, 1]; const l = Math.min(5, Math.max(0, lv)), i = Math.min(4, Math.floor(l)); return K[i] + (K[i + 1] - K[i]) * (l - i); };
 /** cartoon extras only from ~3.5 upward */
 const extraK = (lv: number) => { const t = Math.min(1, Math.max(0, (lv - 3) / 2)); return t * t * (3 - 2 * t); };
-const EXTRA: (keyof FaceRig)[] = ["sweat", "blush", "tears", "vein", "gloom"];
+const EXTRA: (keyof FaceRig)[] = ["sweat", "blush", "tears", "vein", "gloom"];   // (wobble is a main channel: it shows from mild levels)
 export type EmotionMix = { e: EmotionName; level: number; w?: number }[];
 export type EmotionOut = { face: FaceRig; body: BodyMood; gesture: Gesture; gestureW: number };
 /** evaluate a weighted blend of emotions at their intensities -> face + body + dominant gesture */
