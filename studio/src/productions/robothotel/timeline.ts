@@ -89,7 +89,8 @@ const SNORE = 72;                                                               
 export const snorePhase = (f: number) => ((f - 990) % SNORE + SNORE) % SNORE / SNORE;                          // 0..1, inhale ~0.55
 const hero = (f: number, c: PCam): { p: Placed | null; suit: V3 | null; suitTilt: number } => {
   const a = heroAct;
-  if (f < 600 || f >= 1626) return { p: stand(a, HERO_DESK, f, { lookX: f > 140 && f < 170 ? -0.6 : f > 480 && f < 600 ? 0.6 : -0.3 }), suit: [-0.95, 0, -10.05], suitTilt: 0 };
+  if (f < 600 || f >= 1626) { const lift = f >= 1626 ? 0 : sm(566, 584, f), floor: V3 = [-0.95, 0, -10.05], deck: V3 = [-0.55, 0.47, -9.85];   // F: lifted onto the porter's deck
+    return { p: stand(a, HERO_DESK, f, { lookX: f > 140 && f < 170 ? -0.6 : f > 480 && f < 600 ? 0.6 : -0.3 }), suit: f >= 585 && f < 1626 ? null : [floor[0] + (deck[0] - floor[0]) * lift, deck[1] * Math.sin(lift * Math.PI / 2) + 0.12 * Math.sin(lift * Math.PI), floor[2] + (deck[2] - floor[2]) * lift], suitTilt: -1.2 * lift }; }
   for (const P of HERO_PATHS) if (f >= P[0][0] && f <= P[P.length - 1][0]) { const pf = keys(P), w = walker(a, pf, f, c, P[0][0]);
     const behind = lv(pf(Math.max(P[0][0], f - 14)), pf(f), 0.1);
     if (P === HERO_PATHS[1] && f >= 928) { const hr = handWorld(w, c.pos, 1); return { p: w, suit: [hr[0], 0, hr[2] + 0.05], suitTilt: 0.25 }; }
