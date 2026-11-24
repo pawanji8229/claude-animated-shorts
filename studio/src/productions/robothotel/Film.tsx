@@ -35,7 +35,7 @@ export const HotelFilm: React.FC<{ frame?: number }> = ({ frame }) => {
   return <AbsoluteFill style={{ backgroundColor: m.bg }}>
     <CentSet c={o.c} m={m} f={f} world={({ hi, cam }) => <InkCtx.Provider value={hi ? 2.0 : 1.0}>
       <Building doors={o.doors} door101={o.door101} show={show} />
-      <HotelLights lobby={show.lobby ? 1 : 0} cor={show.cor ? 1 : 0} room={show.room ? 0.15 : 0} />
+      <HotelLights lobby={z.lobby + z.ext > 0.05 && cx < 8.6 ? 1 : 0} cor={z.cor > 0.05 || (cx > 6 && z.room < 0.5) ? 1 : 0} room={z.room > 0.05 ? 0.15 : 0} />
       {show.room && <pointLight position={[NIGHTSTAND[0] + 0.45, 0.78, NIGHTSTAND[2] + 0.35]} intensity={0.4 + 1.6 * eggLight} distance={4} decay={1.5} color="#5fe0ff" />}
       {show.lobby && <>
         {RAPTOR_AT.map((p, i) => <Raptor key={i} s={o.raptors[i]} v={i} p={p} sc={RAPTOR_SCALE} />)}

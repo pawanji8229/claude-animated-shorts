@@ -84,7 +84,7 @@ const HERO_PATHS: [number, V3][][] = [
   [[1520, [8.4, 0, -11.2]], [1612, [-1.2, 0, -10.1]], [1626, HERO_DESK]],                                       // Q: back through the lobby to check out
 ];
 const SLEEP_C: V3 = [BED.x0 + 0.95, BED.top + 0.24, BED.z + 0.02];                                             // card centre lying on the pillow
-const SIT_C: V3 = [BED.x0 + 0.62, BED.top + 0.62, BED.z + 0.02];
+const SIT_C: V3 = [BED.x0 + 0.62, BED.top + 0.45, BED.z + 0.02];
 const SNORE = 72;                                                                                               // frames per breath while asleep
 export const snorePhase = (f: number) => ((f - 990) % SNORE + SNORE) % SNORE / SNORE;                          // 0..1, inhale ~0.55
 const hero = (f: number, c: PCam): { p: Placed | null; suit: V3 | null; suitTilt: number } => {

@@ -241,8 +241,7 @@ export const Building: React.FC<{ doors: number; door101: number; show: { ext: b
 
 // ---------------------------------------------------------------- practical lights (no shadows; the sun/moon key casts them)
 export const HotelLights: React.FC<{ lobby: number; cor: number; room: number }> = ({ lobby, cor, room }) => <>
-  {lobby > 0.01 && [[-5, -4], [3, -4], [-3, -10], [4, -10]].map(([x, z], i) => <pointLight key={`l${i}`} position={[x, 4.4, z]} intensity={9 * lobby} distance={14} decay={1.6} color="#ffe6c4" />)}
-  {lobby > 0.01 && <pointLight position={[8.3, 1.2, -6]} intensity={2.5 * lobby} distance={5} decay={1.6} color="#7fe0ff" />}
-  {cor > 0.01 && [10.5, 14.5, 18.5].map((x, i) => <pointLight key={`c${i}`} position={[x, 2.5, -11.3]} intensity={3.2 * cor} distance={6} decay={1.7} color="#ffe2b8" />)}
+  {lobby > 0.01 && [[-3, -5], [3, -9]].map(([x, z], i) => <pointLight key={`l${i}`} position={[x, 4.4, z]} intensity={13 * lobby} distance={16} decay={1.5} color="#ffe6c4" />)}
+  {cor > 0.01 && [11.5, 16.5].map((x, i) => <pointLight key={`c${i}`} position={[x, 2.5, -11.3]} intensity={4 * cor} distance={7} decay={1.6} color="#ffe2b8" />)}
   {room > 0.01 && <pointLight position={[14.5, 1.4, -15.6]} intensity={1.2 * room} distance={5} decay={1.8} color="#ffdcaa" />}
 </>;

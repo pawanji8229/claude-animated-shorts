@@ -27,6 +27,7 @@ for (let s = a; s <= b; s += batch) {
   if (has("resume") && existsSync(f) && statSync(f).size > 1000) { console.log(`skip ${f}`); continue; }
   const args = ["remotion", "render", "src/index.ts", comp, f, `--frames=${s}-${e}`, "--codec=h264", `--crf=${crf}`, "--pixel-format=yuv420p", `--gl=${gl}`, "--muted", `--timeout=${cfg.render.delayRenderTimeoutMs}`];
   if (browser) args.push(`--browser-executable=${browser}`);
+  if (process.env.TF_CONCURRENCY) args.push(`--concurrency=${process.env.TF_CONCURRENCY}`);   // optional (unset = Remotion default)
   const t0 = Date.now(); console.log(`render ${s}-${e} ...`);
   const before = new Set(bundles());
   execFileSync("npx", args, { stdio: ["ignore", "ignore", "inherit"] });
