@@ -5,7 +5,7 @@ import { GAITS, type GaitName } from "../locomotion";
 import { EMOTION_NAMES, type EmotionName } from "../emotion";
 import type { Word } from "../lipsync";
 import { project } from "../rig";
-import { HERO } from "../../../productions/postoffice/chars";
+import { TF2_HERO as HERO } from "../costume";
 import { COSTUME, type Costume } from "../../odo5";
 
 type Prop = { kind: "box" | "ball"; p: [number, number]; w: number; h: number; col: string };

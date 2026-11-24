@@ -15,6 +15,7 @@ import { MailRailTest, MR_TEST_N } from "./productions/mailrail/Test";
 import { MailRailFilm, MailRailStills, STILLS as MR_STILLS } from "./productions/mailrail/Film";
 import { TF2Sheet, TF2Motion, TF2_SHEET_N, MOTION_FRAMES as TF2_MOTION_FRAMES } from "./char/tf2/lab/CharLab";
 import { TF2Stage3D, STAGE_FRAMES as TF2_STAGE_FRAMES } from "./char/tf2/lab/Stage3D";
+import { TF2Accessory, ACC_PAGES } from "./char/tf2/lab/Accessory";
 import { TF2Compare, TF2PerfOld, TF2PerfNew, PERF_FRAMES as TF2_PERF_FRAMES } from "./char/tf2/lab/Compare";
 import { PoFilm } from "./productions/postoffice/Film";
 import { FILM_FRAMES as FLIGHT_FRAMES } from "./productions/flight/timeline";
@@ -100,6 +101,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="MailRailStills" component={MailRailStills} durationInFrames={MR_STILLS.length} fps={30} width={540} height={960} />
     <Composition id="TF2Sheet" component={TF2Sheet} durationInFrames={TF2_SHEET_N} fps={30} width={1080} height={1920} />
     <Composition id="TF2Stage3D" component={TF2Stage3D} durationInFrames={TF2_STAGE_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="TF2Accessory" component={TF2Accessory} durationInFrames={ACC_PAGES} fps={30} width={1080} height={1920} />
     <Composition id="TF2Compare" component={TF2Compare} durationInFrames={2} fps={30} width={1080} height={1920} />
     <Composition id="TF2PerfOld" component={TF2PerfOld} durationInFrames={TF2_PERF_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="TF2PerfNew" component={TF2PerfNew} durationInFrames={TF2_PERF_FRAMES} fps={30} width={1080} height={1920} />

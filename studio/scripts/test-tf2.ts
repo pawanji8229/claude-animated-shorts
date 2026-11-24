@@ -12,6 +12,9 @@ import { headMove } from "../src/char/tf2/head";
 import { gesturePose } from "../src/char/tf2/gestures";
 import { checkScript } from "../src/char/tf2/validate";
 import { COSTUME } from "../src/char/odo5";
+import { eyeLayout } from "../src/char/tf2/draw";
+import { TF2_HERO, TF2_HERO_V0 } from "../src/char/tf2/costume";
+import { rimShape, GL } from "../src/char/tf2/glasses";
 
 let pass = 0, fail = 0; const out: string[] = [];
 const t = (name: string, ok: boolean, detail = "") => { if (ok) pass++; else fail++; out.push(`${ok ? "PASS" : "FAIL"}  ${name}${detail ? "  - " + detail : ""}`); };
@@ -72,6 +75,17 @@ t("every emotion gesture has a pose", EMOTION_NAMES.every((e) => EMOTIONS[e].ges
   const r = checkScript(sc, 0, 200); const end = evaluate(sc, 200).pos;
   t("walk actions arrive exactly at their targets", Math.hypot(end[0] + 0.5, end[2] - 1.2) < 1e-6);
   t("walk with turns: no hard issues and world foot slide < 1 cm", r.issues.filter((i) => !i.check.includes("overreach")).length === 0 && r.maxSlideM < 0.01, `slide ${(r.maxSlideM * 100).toFixed(2)} cm`); }
+// --- visual fix: two eyes at every walking / turning angle, main eye dominant, second eye smaller, no overlap, no jumps
+{ let ok = true, minFar = 9, minGap = 999, maxJump = 0, prev = eyeLayout(-0.95, 0);
+  for (let i = 0; i <= 380; i++) { const yaw = -0.95 + (i / 380) * 1.9, [L, R] = eyeLayout(yaw, 0), near = Math.max(L.s, R.s), far = Math.min(L.s, R.s);
+    if (L.vis <= 0 || R.vis <= 0 || near < 0.999) ok = false; minFar = Math.min(minFar, far); minGap = Math.min(minGap, Math.abs(L.x - R.x) - 20 * L.s * L.k - 20 * R.s * R.k);
+    maxJump = Math.max(maxJump, Math.abs(L.x - prev[0].x), Math.abs(R.x - prev[1].x), Math.abs(L.s - prev[0].s) * 100); prev = [L, R]; }
+  t("both eyes visible at every face angle from front to full profile; main eye full size", ok);
+  t("second eye stays clearly visible (>= 60 % size) and is never a duplicate (smaller than the main eye in profile)", minFar >= 0.6 && eyeLayout(0.95, 0).map((e) => e.s).sort()[0] < 0.7, `min far-eye scale ${minFar.toFixed(2)}`);
+  t("eyes never overlap (gap between the eye outlines > 0 px)", minGap > 0, `min gap ${minGap.toFixed(1)} px`);
+  t("eye positions change smoothly with the head angle (no jumps)", maxJump < 1.5, `max step ${maxJump.toFixed(2)} px per 0.3 deg`); }
+t("hero costume: white hands + panto glasses; the earlier hero (goggles, brown gloves) is still available unchanged", TF2_HERO.whiteHands === true && TF2_HERO.glasses === "panto" && !TF2_HERO.goggles && TF2_HERO_V0.goggles === true && !TF2_HERO_V0.whiteHands);
+t("glasses rim is a closed, symmetric outline sized to the eye (wider than the eye, inside the face)", (() => { const r = rimShape(); const xs = r.map((p) => p[0]); return Math.abs(Math.max(...xs) + Math.min(...xs)) < 1e-6 && GL.lensW > 20 && GL.eyeX + GL.lensW < 100; })());
 t("smoothstep sanity", smooth(0) === 0 && smooth(1) === 1 && smooth(0.5) === 0.5);
 
 console.log(out.join("\n")); console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);

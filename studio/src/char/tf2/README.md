@@ -88,3 +88,10 @@ npx remotion render src/index.ts TF2PerfOld|TF2PerfNew ...   # performance bench
 ```
 
 See also `QC_REPORT.md` (tests, performance, comparison, limitations), `BASELINE_HASHES.md` (the approved files are untouched) and `DIAGNOSTICS.txt`.
+
+## Visual fix & accessory upgrade (v2.1)
+- **Two eyes at every yaw** (`eyeLayout` in `draw.ts`): both eyes stay on the curved face shell. The near eye stays full size; the far eye scales smoothly down to about 62% toward profile, so it is never a same-size duplicate and never disappears. Brows are anchored to their own eye. Tests check: visible from front to profile, minimum 18 px gap, at most 0.54 px step between frames.
+- **White hands** (`TF2Costume.whiteHands`): this changes only the glove, palm and far-side glove colours. Arm, sleeve and geometry are unchanged.
+- **Glasses** (`glasses.ts`, `TF2Costume.glasses = "panto"`): the original "soft-square keyhole panto" design replaces the forehead goggles. The asset is defined in 3D head space and projected with the same head rotation as the eyes, so it cannot float. Temples hinge on the far side and are clipped to the head silhouette. `scripts/export-glasses-glb.ts` writes the same geometry as a real GLB (`out/tf2/twistframe_glasses_panto.glb`, 14 cm wide).
+- `TF2_HERO_V0` keeps the earlier look for before/after comparisons. The approved odo5 `HERO` / PoToon costumes and all approved films are untouched.
+- Lab: `TF2Accessory` (8 pages: front, three-quarter, profile, walk side, walk toward camera, head turns, expressions, hands).

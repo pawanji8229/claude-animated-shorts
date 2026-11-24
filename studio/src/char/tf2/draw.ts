@@ -4,7 +4,9 @@
 // outside its sides (NO EARS - hair stays inside, hats sit on top); the head always overlaps the torso (solver).
 // Head turns: facial features live on a curved "face shell" (radius FS) mapped through the head yaw/pitch/roll, so they
 // slide smoothly across the face and fade (shrink) at the edge instead of popping.
-import { P, W, SOLE, project, clamp, lerp, type V3, type Proj } from "./rig";
+import { P, W, SOLE, project, clamp, lerp, smooth, type V3, type Proj } from "./rig";
+import { GL, rimShape, bridgePts } from "./glasses";
+import type { TF2Costume } from "./costume";
 import type { Skeleton } from "./body";
 import type { FaceRig, Eye, Brow } from "./face";
 import type { HandShape } from "./hands";
@@ -15,7 +17,7 @@ export const COLORS: Pal = {
   ink: "#241923", limb: "#2b1f29", limbFar: "#3e303b", face: "#fffaf3", faceShade: "#ecdfd2", hair: "#ebe9f0", hairShade: "#b9b4c4",
   shirt: "#2f6f78", shirtShade: "#22545b", collar: "#f3ead6", belt: "#e4a62c", buckle: "#d3a64a", apron: "#c4572a", apronShade: "#9b4120",
   brass: "#d0a245", brassD: "#8c6522", lens: "#ffe08c", strap: "#5a3a2a", shoe: "#2e1d16", shoeHi: "#8a6a55", mouth: "#6a2230", mouthIn: "#3a1018", tongue: "#d0666e", teeth: "#ffffff",
-  sweat: "#bfe6ff", tear: "#9fd6ff", blush: "#ff8a8a", rim: "#a9bcff", glove: "#6a4a3c", gloveHi: "#86624f", palm: "#8f6b58", vein: "#d8343a", sclera: "#ffffff",
+  sweat: "#bfe6ff", tear: "#9fd6ff", blush: "#ff8a8a", rim: "#a9bcff", glove: "#6a4a3c", gloveHi: "#86624f", palm: "#8f6b58", gloveFar: "#3e303b", vein: "#d8343a", sclera: "#ffffff",
   tie: "#7a3b22", hat: "#efe3c4", hatShade: "#cdbb92", band: "#6b3d22", pocket: "#c8452f",
 };
 const MASK: Pal = Object.fromEntries(Object.keys(COLORS).map((k) => [k, "#4a4a4a"]));
@@ -48,7 +50,7 @@ const faceMap = (yaw: number, pitch: number) => (fx: number, fy: number): FP => 
 };
 // ---------------------------------------------------------------- face drawing
 const drawEye = (g: G, c: Pal, p: FP, e: Eye, f: FaceRig, s: number, mask: boolean) => {
-  if (p.vis <= 0.01) return; const es = f.eyeScale, k = Math.max(0.3, p.k) * p.vis, rx = 20 * es * k, ry = 24 * es * (0.55 + 0.45 * p.vis); if (rx < 5) return;
+  if (p.vis <= 0.01) return; const sc = (p as FP & { s?: number }).s ?? 1, es = f.eyeScale * sc, k = Math.max(0.3, p.k) * p.vis, rx = 20 * es * k, ry = 24 * es * (0.55 + 0.45 * p.vis); if (rx < 5) return;
   const open = e.open, lower = e.lower, x = p.x, y = p.y, wide = open > 1.04;
   const top = y - ry * clamp(open, 0, 1.55) * 0.92, droop = wide ? -ry * 0.2 : 4 + (1 - Math.min(1, open)) * 7, arch = wide ? 0 : 3 + ry * 0.1;
   const bot = y + ry * 0.98, bulge = lower * ry * 1.05;                         // lower lid bulges UP when the cheeks push (crescent "happy" eyes)
@@ -69,15 +71,46 @@ const drawEye = (g: G, c: Pal, p: FP, e: Eye, f: FaceRig, s: number, mask: boole
   if (wide) { g.beginPath(); g.ellipse(x, y, rx, ry, 0, 0, Math.PI * 2); g.lineWidth = 3.4; g.strokeStyle = c.ink; g.stroke(); }
   else { const q = (t: number): Pt => { const a = (1 - t) * (1 - t), b = 2 * t * (1 - t), d = t * t; return [a * (x - rx * 1.08) + b * x + d * (x + rx * 1.08), a * (top + droop) + b * (top - arch * 2) + d * (top + droop)]; };
     taper(g, [q(0), q(0.25), q(0.5), q(0.75), q(1)], 7 + (1 - Math.min(1, open)) * 2.5, c.ink, 0.42); }
-  if (lower > 0.22) { const q = (t: number): Pt => { const a = (1 - t) * (1 - t), b = 2 * t * (1 - t), d = t * t; return [a * (x - rx) + b * x + d * (x + rx), a * (bot + 1) + b * (bot - bulge * 2 + 3) + d * (bot + 1)]; };
+  if (lower > 0.42) { const q = (t: number): Pt => { const a = (1 - t) * (1 - t), b = 2 * t * (1 - t), d = t * t; return [a * (x - rx) + b * x + d * (x + rx), a * (bot + 1) + b * (bot - bulge * 2 + 3) + d * (bot + 1)]; };
     taper(g, [q(0.1), q(0.5), q(0.9)], 3.6, c.ink, 0.4); }
   void s;
 };
-const drawBrow = (g: G, c: Pal, m: (fx: number, fy: number) => FP, b: Brow, s: number, f: FaceRig, ey: number) => {
-  const base = ey - 52 - b.h * 18 - (f.eyeScale - 1) * 20;
-  const pi = m(s * 22, base - b.inner * 14), pm = m(s * 50, base - 7 - b.arch * 8 - b.h * 1.5), po = m(s * 78, base + 3 - b.outer * 12);
-  const vis = Math.min(pi.vis, po.vis); if (vis < 0.05) return;
-  taper(g, [[pi.x, pi.y], [pm.x, pm.y], [po.x, po.y]], 13.5 * f.browThick * (0.5 + 0.5 * vis), c.ink, 0.35);
+type EP = FP & { s: number };
+/** both eyes for a feature yaw/pitch (head-centre relative px): the main (near) eye stays full size; the second (far) eye
+ *  turns with the face but never shrinks into a sliver or vanishes while the face is visible - it settles at ~62 % size
+ *  beside the main eye (profile / walking views). Exported for the automated eye tests. */
+export const eyeLayout = (featYaw: number, pitch: number, backFade = 1): [EP, EP] => { const ey = -4;
+  const at = (fx: number): EP => { const u = Math.asin(clamp(fx / FS, -0.99, 0.99)) + featYaw, uc = clamp(u, -1.12, 1.12), z = FS * Math.cos(uc);
+    return { x: FS * Math.sin(uc), y: ey * Math.cos(pitch) + z * Math.sin(pitch) * 0.85, k: 0.78 + 0.22 * Math.cos(uc), vis: backFade, s: 1 - 0.38 * smooth((Math.abs(u) - 0.5) / 0.85) }; };
+  return [at(-50), at(50)]; };
+/** brow anchored to ITS eye (moves, scales and turns with it); `other` gives the inner direction (towards the other eye) */
+const drawBrow = (g: G, c: Pal, e: EP, other: EP, b: Brow, f: FaceRig) => { if (e.vis < 0.05) return;
+  const dir = Math.sign(other.x - e.x) || 1, w = 28 * e.s * e.k, yb = e.y - (48 + b.h * 18 + (f.eyeScale - 1) * 20) * e.s;
+  const pi: Pt = [e.x + dir * w, yb - b.inner * 14 * e.s], pm: Pt = [e.x, yb - (7 + b.arch * 8 + b.h * 1.5) * e.s], po: Pt = [e.x - dir * w, yb + (3 - b.outer * 12) * e.s];
+  taper(g, [pi, pm, po], 13.5 * f.browThick * e.s * (0.5 + 0.5 * e.vis), c.ink, 0.35); };
+/** the glasses asset projected with the eyes: rims around each eye (scaled/turned with it), keyhole bridge, near temple arm */
+const drawGlasses = (g: G, c: Pal, L: EP, R: EP, yawF: number, mask: boolean) => { if (Math.min(L.vis, R.vis) < 0.05) return;
+  const frame = mask ? "#202020" : GL.frame, hi = mask ? "#303030" : GL.frameHi, rimPts = rimShape();
+  const rim = (e: EP) => rimPts.map(([x, y]) => [e.x + x * GL.lensW * e.s * e.k, e.y + y * GL.lensH * e.s] as Pt);
+  const closed = (pts: Pt[]) => { g.beginPath(); g.moveTo(...pts[0]); for (const q of pts.slice(1)) g.lineTo(...q); g.closePath(); };
+  // temple arm on the side the head turns away from (visible on the side of the head in 3/4 + profile), clipped to the head
+  // the temple leaves from the hinge on the BACK side of the face (the side the head turned away from) and runs back along the head
+  const fs = Math.sign(Math.sin(yawF)) || 1, near = L.x * fs < R.x * fs ? L : R, sg = -fs, tvis = clamp((Math.abs(Math.sin(yawF)) - 0.12) / 0.3, 0, 1);
+  if (tvis > 0.01) { g.save(); g.beginPath(); g.ellipse(0, 0, P.headRx - 4, P.headRy - 4, 0, 0, Math.PI * 2); g.clip(); g.globalAlpha = tvis;
+    const hinge: Pt = [near.x + sg * GL.lensW * near.s * near.k, near.y - 8 * near.s], pts: Pt[] = [hinge];
+    // the arm reaches back to where an ear would be (it is NOT drawn as an ear: it ends inside the head, tip bending down)
+    const reachX = 92 * Math.abs(Math.sin(yawF)) * near.s;
+    for (let i = 1; i <= 5; i++) { const t = i / 5; pts.push([hinge[0] + sg * reachX * t, hinge[1] + 3 * t + (t > 0.7 ? (t - 0.7) / 0.3 * 13 : 0)]); }
+    taper(g, pts, GL.rim * 1.8, c.ink, 0.7, 0.3); taper(g, pts, GL.rim * 1.0, frame, 0.7, 0.3); taper(g, pts.map(([x, y]) => [x, y - 1.2] as Pt), GL.rim * 0.4, hi, 0.6, 0.3); g.restore(); g.globalAlpha = 1; }
+  for (const e of [L, R]) { const pts = rim(e); if (!mask) { closed(pts); g.fillStyle = GL.lens; g.fill();   // tinted lens + a diagonal glint
+      g.save(); closed(pts); g.clip(); g.beginPath(); g.moveTo(e.x - GL.lensW * e.s * e.k * 0.9, e.y - 4 * e.s); g.lineTo(e.x - GL.lensW * e.s * e.k * 0.2, e.y - GL.lensH * e.s); g.lineTo(e.x - GL.lensW * e.s * e.k * 0.02, e.y - GL.lensH * e.s); g.lineTo(e.x - GL.lensW * e.s * e.k * 0.72, e.y + 2 * e.s); g.closePath(); g.fillStyle = "rgba(255,255,255,0.42)"; g.fill(); g.restore(); }
+    closed(pts); g.lineJoin = "round"; g.lineWidth = GL.rim * 1.75 * e.s; g.strokeStyle = c.ink; g.stroke(); closed(pts); g.lineWidth = GL.rim * 1.0 * e.s; g.strokeStyle = frame; g.stroke();
+    g.beginPath(); for (let i = 18; i <= 24; i++) { const q = pts[i % pts.length]; if (i === 18) g.moveTo(...q); else g.lineTo(...q); } g.lineWidth = GL.rim * 0.45 * e.s; g.strokeStyle = hi; g.stroke(); }   // warm top-edge highlight
+  // keyhole bridge between the inner rim edges
+  const li = L.x < R.x ? L : R, ri = L.x < R.x ? R : L, x0 = li.x + GL.lensW * li.s * li.k, x1 = ri.x - GL.lensW * ri.s * ri.k, sAvg = (li.s + ri.s) / 2;
+  if (x1 > x0 + 2) { const br = bridgePts(1); for (const [line, wdt] of [[br.upper, 1.5], [br.saddle, 1.25]] as [[number, number][], number][]) { const pts = line.map(([t, y]) => [lerp(x0, x1, t), lerp(li.y, ri.y, t) + y * GL.lensH * sAvg] as Pt); taper(g, pts, GL.rim * wdt * 1.9 * sAvg, c.ink, 0.9, 0.5); taper(g, pts, GL.rim * wdt * sAvg, frame, 0.9, 0.5); } }
+  // hinge rivets (outer top corners)
+  if (!mask) for (const e of [L, R]) { const sgn = Math.sign(e.x - (L.x + R.x) / 2) || 1; g.beginPath(); g.arc(e.x + sgn * GL.lensW * 0.78 * e.s * e.k, e.y - GL.lensH * 0.62 * e.s, 2.6 * e.s, 0, Math.PI * 2); g.fillStyle = GL.metal; g.fill(); }
 };
 const drawMouth = (g: G, c: Pal, m: (fx: number, fy: number) => FP, f: FaceRig, mask: boolean) => {
   const my = 66 + f.mouthY, w = 40 * f.mouthW * (1 - 0.45 * f.pucker), open = f.open * (1 - 0.15 * f.pucker);
@@ -146,8 +179,12 @@ const drawHead = (g: G, c: Pal, hc: Pt, s: Skeleton, f: FaceRig, cos: Costume, m
   // blush (behind the features)
   if (f.blush > 0.02 && !mask) for (const sg of [-1, 1]) { const q = m(sg * 60, ey + 36); if (q.vis < 0.1) continue; g.beginPath(); g.ellipse(q.x, q.y, 26 * Math.max(0.3, q.k), 12, 0, 0, Math.PI * 2); g.fillStyle = c.blush; g.globalAlpha = 0.5 * f.blush * q.vis; g.fill(); g.globalAlpha = 1;
     for (const kk of [-1, 0, 1]) taper(g, [[q.x + kk * 9 * q.k - 3, q.y - 4], [q.x + kk * 9 * q.k + 3, q.y + 4]], 3, c.ink, 0.5); }
-  drawBrow(g, c, m, f.browL, -1, f, ey); drawBrow(g, c, m, f.browR, 1, f, ey);
-  drawEye(g, c, m(-50, ey), f.eyeL, f, -1, mask); drawEye(g, c, m(50, ey), f.eyeR, f, 1, mask);
+  // EYES: the main (near) eye stays full size; the second (far) eye turns with the face but never shrinks into a sliver or
+  // vanishes while the face is visible - it settles at ~62 % size beside the main eye (profile / walking views).
+  const [eL, eR] = eyeLayout(featYaw, pitchF, backFade);
+  drawEye(g, c, eL, f.eyeL, f, -1, mask); drawEye(g, c, eR, f.eyeR, f, 1, mask);
+  if ((cos as TF2Costume).glasses === "panto") drawGlasses(g, c, eL, eR, yawF, mask);
+  drawBrow(g, c, eL, eR, f.browL, f); drawBrow(g, c, eR, eL, f.browR, f);
   if (cos.stache) for (const sg of [-1, 1]) { const a = m(sg * 4, 50), b = m(sg * 20, 47), d = m(sg * 36, 54); if (Math.min(a.vis, d.vis) > 0.1) taper(g, [[a.x, a.y], [b.x, b.y], [d.x, d.y]], 7, c.ink, 0.3); }
   drawMouth(g, c, m, f, mask);
   // tears, vein, sweat
@@ -201,7 +238,7 @@ const drawShoe = (g: G, c: Pal, ankle: Proj, toe: Proj, far: boolean) => {
   g.beginPath(); g.moveTo(hx, hy - 1); g.lineTo(tx, ty - 1); g.lineWidth = 3; g.strokeStyle = c.shoeHi; g.stroke();
 };
 const drawHand = (g: G, c: Pal, wrist: Pt, dir: number, h: HandShape, side: number, bend: number, far: boolean, palmFacing: number) => {
-  const col = far ? c.limbFar : c.glove, showPalm = palmFacing > 0.5, a = dir + bend * side;
+  const col = far ? c.gloveFar : c.glove, showPalm = palmFacing > 0.5, a = dir + bend * side;
   const mir = side * (showPalm ? 1 : -1);
   g.save(); g.translate(wrist[0], wrist[1]); g.rotate(a - Math.PI / 2); g.scale(1.16, 1.16);   // hand frame: +x along the hand (fingers), +y across
   const fingers: [number, number, number][] = [[18, 9, 22], [6, 9.5, 25], [-6, 9, 23], [-17, 8, 19]];   // across offset, width, length
@@ -234,7 +271,9 @@ const drawLeg = (g: G, c: Pal, s: Skeleton, i: 0 | 1, far: boolean, fins: boolea
 // ---------------------------------------------------------------- the whole character
 export type DrawOpts = { costume: Costume; mask?: boolean; t?: number; behindHead?: [boolean, boolean] };
 export const drawTF2 = (g: G, s: Skeleton, f: FaceRig, o: DrawOpts) => {
-  const cos = o.costume, mask = !!o.mask, c = mask ? MASK : { ...COLORS, ...(cos.pal ?? {}) };
+  const cos = o.costume, mask = !!o.mask, white = (cos as TF2Costume).whiteHands;
+  // white hands: one clean, consistent white for both hands in every pose (only the hands; arms keep the limb colour)
+  const c = mask ? MASK : { ...COLORS, ...(cos.pal ?? {}), ...(white ? { glove: "#f7f4ee", gloveHi: "#ebe6dd", palm: "#f1ebe1", gloveFar: "#ddd7cc" } : {}) };
   const pr = (p: V3) => project(p, s.yaw);
   const hd = pr(s.head);
   // depth ordering: legs (far first) -> arms behind the torso -> torso -> arms beside/behind the head -> head -> arms in front of the face

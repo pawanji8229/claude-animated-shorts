@@ -12,7 +12,7 @@ import { EMOTIONS, EMOTION_NAMES, BLENDS, evalEmotion, type EmotionName } from "
 import { HANDS, type HandName } from "../hands";
 import { REST, gesturePose } from "../gestures";
 import { evaluate, type Script, type CharFrame } from "../planner";
-import { HERO } from "../../../productions/postoffice/chars";
+import { TF2_HERO as HERO } from "../costume";
 import { COSTUME } from "../../odo5";
 import { MOTION, MOTION_FRAMES, segmentAt } from "./scripts";
 
