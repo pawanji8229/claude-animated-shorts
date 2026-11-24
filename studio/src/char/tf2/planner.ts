@@ -167,5 +167,7 @@ export const evaluate = (sc: Script, f: number, cam: W3 = [0, 1.2, 12]): CharFra
   return { sk, face, pos, facing: lo.facing, yaw, behindHead: behind, grip, walking: lo.w, contacts, gesture: gname };
 };
 /** suggested duration (frames) for walking a distance (m) in a style */
+/** cheap world path of a script (position + facing only, no skeleton/face): for cameras that must sample it many times */
+export const charPath = (sc: Script, f: number): { pos: W3; facing: number; walking: number } => { const l = locomotion(sc, f); return { pos: [l.x, l.rootY, l.z], facing: l.facing, walking: l.w }; };
 export const walkFrames = (dist: number, style: GaitName = "normal", fps = 30) => Math.round((dist / (GAITS[style].stride * (GAITS[style].run ? 1.45 : 1.6))) * fps + 16);
 export { NEUTRAL };
