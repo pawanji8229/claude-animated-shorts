@@ -1,0 +1,402 @@
+[
+ {
+  "name": "rdino",
+  "file": "rdino.glb",
+  "uid": "8ce1a6e5ce4d43ada896ee8f2d4ab289",
+  "title": "Robot dinosaur (Toy)",
+  "author": "3DWorkbench",
+  "url": "https://sketchfab.com/3d-models/robot-dinosaur-toy-8ce1a6e5ce4d43ada896ee8f2d4ab289",
+  "licence": "CC Attribution",
+  "attribution": "\"Robot dinosaur (Toy)\" by 3DWorkbench (https://sketchfab.com/3d-models/robot-dinosaur-toy-8ce1a6e5ce4d43ada896ee8f2d4ab289), CC Attribution",
+  "sizeM": [
+   1.386,
+   2.4,
+   3.349
+  ],
+  "animations": [],
+  "bytes": 4051448
+ },
+ {
+  "name": "trex",
+  "file": "trex.glb",
+  "uid": "bcb1c3ee0b3a4e649f96a6d924f3b8c7",
+  "title": "Robotic T-Rex Roaring Animation",
+  "author": "ChoochooLi Models",
+  "url": "https://sketchfab.com/3d-models/robotic-t-rex-roaring-animation-bcb1c3ee0b3a4e649f96a6d924f3b8c7",
+  "licence": "CC Attribution",
+  "attribution": "\"Robotic T-Rex Roaring Animation\" by ChoochooLi Models (https://sketchfab.com/3d-models/robotic-t-rex-roaring-animation-bcb1c3ee0b3a4e649f96a6d924f3b8c7), CC Attribution",
+  "sizeM": [
+   1.504,
+   2.6,
+   4.191
+  ],
+  "animations": [
+   "Take 001"
+  ],
+  "bytes": 1709084
+ },
+ {
+  "name": "raptorpbr",
+  "file": "raptorpbr.glb",
+  "uid": "8f1744af7b0847a2aabe3df90be802f0",
+  "title": "PBR Velociraptor (Animated)",
+  "author": "Ferocious Industries",
+  "url": "https://sketchfab.com/3d-models/pbr-velociraptor-animated-8f1744af7b0847a2aabe3df90be802f0",
+  "licence": "CC Attribution",
+  "attribution": "\"PBR Velociraptor (Animated)\" by Ferocious Industries (https://sketchfab.com/3d-models/pbr-velociraptor-animated-8f1744af7b0847a2aabe3df90be802f0), CC Attribution",
+  "sizeM": [
+   0.46,
+   1.9,
+   0.964
+  ],
+  "animations": [
+   "Sniff",
+   "Eat Prey",
+   "Drink",
+   "Call_Alert",
+   "Go to Sleep",
+   "Sleep_Loop",
+   "Wake From Sleep",
+   "Idle_01",
+   "Idle_02",
+   "Roar_01",
+   "Roar_02",
+   "Roar_03",
+   "Bite_01",
+   "Bite_02",
+   "Leap_01",
+   "Leap_02",
+   "Tackle",
+   "Hurt_01",
+   "Hurt_02",
+   "Knocked Down",
+   "Death_01",
+   "Death_02",
+   "Walk",
+   "Jog",
+   "Sprint",
+   "Action_Pose"
+  ],
+  "bytes": 15280756
+ },
+ {
+  "name": "raptorblue",
+  "file": "raptorblue.glb",
+  "uid": "02fa50fae031447c98e56d1710e9fbe2",
+  "title": "Blue Velociraptor",
+  "author": "Cenker Turhan",
+  "url": "https://sketchfab.com/3d-models/blue-velociraptor-02fa50fae031447c98e56d1710e9fbe2",
+  "licence": "CC Attribution",
+  "attribution": "\"Blue Velociraptor\" by Cenker Turhan (https://sketchfab.com/3d-models/blue-velociraptor-02fa50fae031447c98e56d1710e9fbe2), CC Attribution",
+  "sizeM": [
+   0.943,
+   1.9,
+   4.599
+  ],
+  "animations": [],
+  "bytes": 16656240
+ },
+ {
+  "name": "copper",
+  "file": "copper.glb",
+  "uid": "5c41480a945246ba90c80eaeef480d5b",
+  "title": "Copper - Robot Guide - 200 Followers Celebration",
+  "author": "re1monsen",
+  "url": "https://sketchfab.com/3d-models/copper-robot-guide-200-followers-celebration-5c41480a945246ba90c80eaeef480d5b",
+  "licence": "CC Attribution",
+  "attribution": "\"Copper - Robot Guide - 200 Followers Celebration\" by re1monsen (https://sketchfab.com/3d-models/copper-robot-guide-200-followers-celebration-5c41480a945246ba90c80eaeef480d5b), CC Attribution",
+  "sizeM": [
+   12.344,
+   1.5,
+   12.344
+  ],
+  "animations": [],
+  "bytes": 9853000
+ },
+ {
+  "name": "poddy",
+  "file": "poddy.glb",
+  "uid": "6b5b90dc52ae4933a103d0a71777ecbd",
+  "title": "Poddy M1 - Stylized Floating Robot - Posed",
+  "author": "Exmoor beast",
+  "url": "https://sketchfab.com/3d-models/poddy-m1-stylized-floating-robot-posed-6b5b90dc52ae4933a103d0a71777ecbd",
+  "licence": "CC Attribution",
+  "attribution": "\"Poddy M1 - Stylized Floating Robot - Posed\" by Exmoor beast (https://sketchfab.com/3d-models/poddy-m1-stylized-floating-robot-posed-6b5b90dc52ae4933a103d0a71777ecbd), CC Attribution",
+  "sizeM": [
+   0.574,
+   1,
+   0.564
+  ],
+  "animations": [
+   "pose 1 - presentation",
+   "pose 2 - omfg",
+   "pose 3 - hello",
+   "pose 4 - warm welcome",
+   "pose 5 - sit sad",
+   "pose 6 - presentation flipped"
+  ],
+  "bytes": 4617536
+ },
+ {
+  "name": "waitress",
+  "file": "waitress.glb",
+  "uid": "f708584af98a47989d5827ae4fb25372",
+  "title": "WAITRESS BOT F-4.3",
+  "author": "Binkley-Spacetrucker",
+  "url": "https://sketchfab.com/3d-models/waitress-bot-f-43-f708584af98a47989d5827ae4fb25372",
+  "licence": "CC Attribution",
+  "attribution": "\"WAITRESS BOT F-4.3\" by Binkley-Spacetrucker (https://sketchfab.com/3d-models/waitress-bot-f-43-f708584af98a47989d5827ae4fb25372), CC Attribution",
+  "sizeM": [
+   0.765,
+   1.6,
+   0.615
+  ],
+  "animations": [],
+  "bytes": 411304
+ },
+ {
+  "name": "humanoid",
+  "file": "humanoid.glb",
+  "uid": "8993602ca91f4c499e690e5dae19f978",
+  "title": "Animated humanoid robot",
+  "author": "pinguinoconpulgares",
+  "url": "https://sketchfab.com/3d-models/animated-humanoid-robot-8993602ca91f4c499e690e5dae19f978",
+  "licence": "CC Attribution",
+  "attribution": "\"Animated humanoid robot\" by pinguinoconpulgares (https://sketchfab.com/3d-models/animated-humanoid-robot-8993602ca91f4c499e690e5dae19f978), CC Attribution",
+  "sizeM": [
+   2.033,
+   1.7,
+   0.46
+  ],
+  "animations": [
+   "IDLE",
+   "WALK",
+   "RUN",
+   "ALL"
+  ],
+  "bytes": 5240248
+ },
+ {
+  "name": "robobun",
+  "file": "robobun.glb",
+  "uid": "88b7c991fb1f40fd87af4141c923fecb",
+  "title": "Robo Bun",
+  "author": "futaba@blender",
+  "url": "https://sketchfab.com/3d-models/robo-bun-88b7c991fb1f40fd87af4141c923fecb",
+  "licence": "CC Attribution",
+  "attribution": "\"Robo Bun\" by futaba@blender (https://sketchfab.com/3d-models/robo-bun-88b7c991fb1f40fd87af4141c923fecb), CC Attribution",
+  "sizeM": [
+   0.453,
+   1,
+   0.61
+  ],
+  "animations": [
+   "IdleHover"
+  ],
+  "bytes": 31401836
+ },
+ {
+  "name": "lugcart",
+  "file": "lugcart.glb",
+  "uid": "141b8b0b1e43437a9ec53ca039af1bbc",
+  "title": "Antique Luggage Carts Type A",
+  "author": "Mad_Lobster_Workshop",
+  "url": "https://sketchfab.com/3d-models/antique-luggage-carts-type-a-141b8b0b1e43437a9ec53ca039af1bbc",
+  "licence": "CC Attribution",
+  "attribution": "\"Antique Luggage Carts Type A\" by Mad_Lobster_Workshop (https://sketchfab.com/3d-models/antique-luggage-carts-type-a-141b8b0b1e43437a9ec53ca039af1bbc), CC Attribution",
+  "sizeM": [
+   12.29,
+   1.6,
+   1.631
+  ],
+  "animations": [],
+  "bytes": 34444144
+ },
+ {
+  "name": "recdesk",
+  "file": "recdesk.glb",
+  "uid": "e249711a3f8747baaaa37d606bc36d82",
+  "title": "Modern Reception Desk | Marble, Wood & Metal Tri",
+  "author": "CG Lads",
+  "url": "https://sketchfab.com/3d-models/modern-reception-desk-marble-wood-metal-tri-e249711a3f8747baaaa37d606bc36d82",
+  "licence": "CC Attribution",
+  "attribution": "\"Modern Reception Desk | Marble, Wood & Metal Tri\" by CG Lads (https://sketchfab.com/3d-models/modern-reception-desk-marble-wood-metal-tri-e249711a3f8747baaaa37d606bc36d82), CC Attribution",
+  "sizeM": [
+   1.927,
+   1.1,
+   6.43
+  ],
+  "animations": [],
+  "bytes": 3246704
+ },
+ {
+  "name": "lobbyset",
+  "file": "lobbyset.glb",
+  "uid": "7876a45f11dc4059a6872fd63e793f11",
+  "title": "ArtDeco hotel lobby low poly",
+  "author": "Pasha",
+  "url": "https://sketchfab.com/3d-models/artdeco-hotel-lobby-low-poly-7876a45f11dc4059a6872fd63e793f11",
+  "licence": "CC Attribution",
+  "attribution": "\"ArtDeco hotel lobby low poly\" by Pasha (https://sketchfab.com/3d-models/artdeco-hotel-lobby-low-poly-7876a45f11dc4059a6872fd63e793f11), CC Attribution",
+  "sizeM": [
+   1816.498,
+   324.803,
+   2346.456
+  ],
+  "animations": [],
+  "bytes": 6347260
+ },
+ {
+  "name": "jphotel",
+  "file": "jphotel.glb",
+  "uid": "d61d983380ed4946b34a40364ac11c46",
+  "title": "Japanese Hotel",
+  "author": "local.yany",
+  "url": "https://sketchfab.com/3d-models/japanese-hotel-d61d983380ed4946b34a40364ac11c46",
+  "licence": "CC Attribution",
+  "attribution": "\"Japanese Hotel\" by local.yany (https://sketchfab.com/3d-models/japanese-hotel-d61d983380ed4946b34a40364ac11c46), CC Attribution",
+  "sizeM": [
+   29.207,
+   20,
+   22.03
+  ],
+  "animations": [],
+  "bytes": 22779460
+ },
+ {
+  "name": "cityhotel",
+  "file": "cityhotel.glb",
+  "uid": "a2fb8e4065ce470296d6d801daa37f18",
+  "title": "Melodia City Hotel",
+  "author": "Dreaming Dogg",
+  "url": "https://sketchfab.com/3d-models/melodia-city-hotel-a2fb8e4065ce470296d6d801daa37f18",
+  "licence": "CC Attribution",
+  "attribution": "\"Melodia City Hotel\" by Dreaming Dogg (https://sketchfab.com/3d-models/melodia-city-hotel-a2fb8e4065ce470296d6d801daa37f18), CC Attribution",
+  "sizeM": [
+   13.69,
+   30,
+   9.484
+  ],
+  "animations": [],
+  "bytes": 9255292
+ },
+ {
+  "name": "bedroom",
+  "file": "bedroom.glb",
+  "uid": "ea25adc53f514eaba9dd043f5eac9c77",
+  "title": "Cozy Modern Bedroom",
+  "author": "dylanheyes",
+  "url": "https://sketchfab.com/3d-models/cozy-modern-bedroom-ea25adc53f514eaba9dd043f5eac9c77",
+  "licence": "CC Attribution",
+  "attribution": "\"Cozy Modern Bedroom\" by dylanheyes (https://sketchfab.com/3d-models/cozy-modern-bedroom-ea25adc53f514eaba9dd043f5eac9c77), CC Attribution",
+  "sizeM": [
+   4.608,
+   2.8,
+   3.656
+  ],
+  "animations": [],
+  "bytes": 5517760
+ },
+ {
+  "name": "cuterobot",
+  "file": "cuterobot.glb",
+  "uid": "72357362eace4609bbc23d75f6603cab",
+  "title": "Cute robot",
+  "author": "Arturo",
+  "url": "https://sketchfab.com/3d-models/cute-robot-72357362eace4609bbc23d75f6603cab",
+  "licence": "CC Attribution",
+  "attribution": "\"Cute robot\" by Arturo (https://sketchfab.com/3d-models/cute-robot-72357362eace4609bbc23d75f6603cab), CC Attribution",
+  "sizeM": [
+   0.327,
+   0.35,
+   0.341
+  ],
+  "animations": [],
+  "bytes": 5200972
+ },
+ {
+  "name": "minirobot",
+  "file": "minirobot.glb",
+  "uid": "cf5dd6fed1f14e33aaa396c558d3c747",
+  "title": "Mini robot",
+  "author": "YarikLegendary",
+  "url": "https://sketchfab.com/3d-models/mini-robot-cf5dd6fed1f14e33aaa396c558d3c747",
+  "licence": "CC Attribution",
+  "attribution": "\"Mini robot\" by YarikLegendary (https://sketchfab.com/3d-models/mini-robot-cf5dd6fed1f14e33aaa396c558d3c747), CC Attribution",
+  "sizeM": [
+   0.81,
+   0.9,
+   0.366
+  ],
+  "animations": [],
+  "bytes": 1486968
+ },
+ {
+  "name": "vintagebot",
+  "file": "vintagebot.glb",
+  "uid": "0b66ea46d2a44162bc32b5fb6111d9b1",
+  "title": "Toony Vintage Robot Character",
+  "author": "battlestoriesfan",
+  "url": "https://sketchfab.com/3d-models/toony-vintage-robot-character-0b66ea46d2a44162bc32b5fb6111d9b1",
+  "licence": "CC Attribution",
+  "attribution": "\"Toony Vintage Robot Character\" by battlestoriesfan (https://sketchfab.com/3d-models/toony-vintage-robot-character-0b66ea46d2a44162bc32b5fb6111d9b1), CC Attribution",
+  "sizeM": [
+   1.769,
+   1.3,
+   0.418
+  ],
+  "animations": [],
+  "bytes": 6691196
+ },
+ {
+  "name": "vacuum",
+  "file": "vacuum.glb",
+  "uid": "7230d8d80e8b4a82b4a34a5e7926d0d3",
+  "title": "Robot vacuum cleaner low poly",
+  "author": "Moryak",
+  "url": "https://sketchfab.com/3d-models/robot-vacuum-cleaner-low-poly-7230d8d80e8b4a82b4a34a5e7926d0d3",
+  "licence": "CC Attribution",
+  "attribution": "\"Robot vacuum cleaner low poly\" by Moryak (https://sketchfab.com/3d-models/robot-vacuum-cleaner-low-poly-7230d8d80e8b4a82b4a34a5e7926d0d3), CC Attribution",
+  "sizeM": [
+   0.436,
+   0.1,
+   0.436
+  ],
+  "animations": [],
+  "bytes": 480076
+ },
+ {
+  "name": "suitcase",
+  "file": "suitcase.glb",
+  "uid": "998cccab49ed496586994d9f4774daa0",
+  "title": "Suitcases",
+  "author": "Olli_one",
+  "url": "https://sketchfab.com/3d-models/suitcases-998cccab49ed496586994d9f4774daa0",
+  "licence": "CC Attribution",
+  "attribution": "\"Suitcases\" by Olli_one (https://sketchfab.com/3d-models/suitcases-998cccab49ed496586994d9f4774daa0), CC Attribution",
+  "sizeM": [
+   0.801,
+   0.7,
+   0.631
+  ],
+  "animations": [],
+  "bytes": 5831824
+ },
+ {
+  "name": "bellhop",
+  "file": "bellhop.glb",
+  "uid": "b13f7312f9484cdf8ffdf40e7db60bdd",
+  "title": "Red Bellhop in Uniform",
+  "author": "restore50",
+  "url": "https://sketchfab.com/3d-models/red-bellhop-in-uniform-b13f7312f9484cdf8ffdf40e7db60bdd",
+  "licence": "CC Attribution",
+  "attribution": "\"Red Bellhop in Uniform\" by restore50 (https://sketchfab.com/3d-models/red-bellhop-in-uniform-b13f7312f9484cdf8ffdf40e7db60bdd), CC Attribution",
+  "sizeM": [
+   0.593,
+   1.7,
+   0.412
+  ],
+  "animations": [],
+  "bytes": 12011772
+ }
+]
