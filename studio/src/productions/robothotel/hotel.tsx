@@ -114,8 +114,8 @@ const exterior = () => once("rhExterior", () => { const k = new Kit();
 export const EXT_PLANTS: { name: "plant1" | "pachira"; p: V3; s: number; ry: number }[] = [{ name: "plant1", p: [-3.4, 0.6, 1.4], s: 1.2, ry: 0.4 }, { name: "plant1", p: [3.4, 0.6, 1.4], s: 1.2, ry: 2.1 }, { name: "plant1", p: [-10.5, 0.6, 1.4], s: 1.1, ry: 1.2 }, { name: "plant1", p: [10.5, 0.6, 1.4], s: 1.1, ry: 3.0 }];
 
 // ---------------------------------------------------------------- LOBBY
-const lobby = () => once("rhLobby", () => { const k = new Kit(), L = LOBBY, P = M.plaster();
-  k.box(M.marble(), [L.x1 - L.x0, 0.1, L.z1 - L.z0], [0, -0.05, (L.z0 + L.z1) / 2], [0, 0, 0], { ink: false });
+const lobby = (wood = false) => once(wood ? "rhLobbyWood" : "rhLobby", () => { const k = new Kit(), L = LOBBY, P = M.plaster();
+  k.box(wood ? pm("parquet", 1.5, { tint: "#c8905a", rough: 0.55 }) : M.marble(), [L.x1 - L.x0, 0.1, L.z1 - L.z0], [0, -0.05, (L.z0 + L.z1) / 2], [0, 0, 0], { ink: false });
   k.box(M.rug(), [4.6, 0.012, 4.2], [-6.0, 0.006, -5.6], [0, 0, 0], { ink: false });
   k.box(M.ceil(), [L.x1 - L.x0 + 0.4, 0.2, L.z1 - L.z0 + 0.2], [0, L.h + 0.1, (L.z0 + L.z1) / 2], [0, 0, 0], { ink: false, cast: false });   // ceiling
   // ceiling light strips (diagonal-free, along z) + a cyan "future" cove around the room
@@ -230,10 +230,10 @@ export const Duvet: React.FC<{ lift: number }> = ({ lift }) => { const B = BED, 
 };
 
 // ---------------------------------------------------------------- the whole building
-export const Building: React.FC<{ doors: number; door101: number; show: { ext: boolean; lobby: boolean; cor: boolean; room: boolean } }> = ({ doors, door101, show }) => <>
+export const Building: React.FC<{ doors: number; door101: number; show: { ext: boolean; lobby: boolean; cor: boolean; room: boolean }; woodFloor?: boolean }> = ({ doors, door101, show, woodFloor }) => <>
   {show.ext && <><KitMesh kit={exterior()} /><Instances name="plant1" items={EXT_PLANTS.map((p) => ({ p: p.p, ry: p.ry, s: p.s }))} /></>}
   <SlidingDoors open={doors} />
-  {show.lobby && <><KitMesh kit={lobby()} />{LOBBY_FURN.map((m, i) => <Model key={i} name={m.name} p={m.p} ry={m.ry} s={m.s} />)}</>}
+  {show.lobby && <><KitMesh kit={lobby(woodFloor)} />{LOBBY_FURN.map((m, i) => <Model key={i} name={m.name} p={m.p} ry={m.ry} s={m.s} />)}</>}
   {show.cor && <KitMesh kit={corridor()} />}
   <Door101 open={door101} />
   {show.room && <><KitMesh kit={room()} />{ROOM_FURN.map((m, i) => <Model key={i} name={m.name} p={m.p} ry={m.ry} s={m.s} />)}</>}
