@@ -15,6 +15,7 @@ import { MailRailTest, MR_TEST_N } from "./productions/mailrail/Test";
 import { HotelTest, HOTEL_TEST_N } from "./productions/robothotel/Test";
 import { LookTest, LOOK_N } from "./productions/robothotel2/LookTest";
 import { ModelSheet, MODEL_SHEET_N } from "./productions/robothotel2/ModelSheet";
+import { Layout, LAYOUT_N, RaptorTest, RAPTOR_TEST_N } from "./productions/robothotel2/Layout";
 import { HotelFilm, HotelStills, STILLS as HOTEL_STILLS } from "./productions/robothotel/Film";
 import { MailRailFilm, MailRailStills, STILLS as MR_STILLS } from "./productions/mailrail/Film";
 import { TF2Sheet, TF2Motion, TF2_SHEET_N, MOTION_FRAMES as TF2_MOTION_FRAMES } from "./char/tf2/lab/CharLab";
@@ -112,6 +113,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="RobotHotel" component={HotelFilm} durationInFrames={1679} fps={30} width={1080} height={1920} />
     <Composition id="RobotHotelStills" component={HotelStills} durationInFrames={HOTEL_STILLS.length} fps={30} width={540} height={960} />
     <Composition id="RH2Look" component={LookTest} durationInFrames={LOOK_N} fps={30} width={1080} height={1920} />
+    <Composition id="RH2Raptor" component={RaptorTest} durationInFrames={RAPTOR_TEST_N} fps={30} width={540} height={960} />
+    <Composition id="RH2Layout" component={Layout} durationInFrames={LAYOUT_N} fps={30} width={540} height={960} />
     <Composition id="RH2Models" component={ModelSheet} durationInFrames={MODEL_SHEET_N} fps={30} width={540} height={960} />
     <Composition id="RH2LookS" component={LookTest} durationInFrames={LOOK_N} fps={30} width={540} height={960} />
     <Composition id="HotelTest" component={HotelTest} durationInFrames={HOTEL_TEST_N} fps={30} width={540} height={960} />
