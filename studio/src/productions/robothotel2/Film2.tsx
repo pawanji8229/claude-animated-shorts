@@ -127,8 +127,8 @@ const SHOTS: Shot[] = [
       <GModel name="poddy" p={[2.0 + 4.0 * ((f - 384) / 92), 1.0, -12.2]} ry={Math.PI / 2} clip={0} t={f / 30} />
       {card(stand(act(KEN, 21, [[384, "bored"], [430, "deadpan"]], () => A([-20, -40], "grip", -1, -1.9, [-70, -10]), (g) => g > 440 && g < 460 ? A([40, -150], "grip", 1, 2.8, [70, -50]) : A([40, -110], "grip", 1, 2.6, [70, -40])), [5.45, 0, -13.1], f, { lookX: -0.5 }), cam, hi)}</> },
   // 10. "reception" - insert: the raptor slides the key card across the counter
-  { a: 476, b: 520, look: LOBBY, out: "cut", cam: C([-1.4, 1.35, -10.3], [-2.4, 1.25, -11.4], 44, [-1.6, 1.3, -10.6], [-2.4, 1.2, -11.4], 38, ease, 0.55),
-    world: (f) => <><Lobby f={f} raptorClip="Sniff" raptorT={(f - 476) / 30} /><mesh position={[-2.7 + 0.9 * ease((f - 486) / 22), DESK.h + 0.012, -11.05]}><boxGeometry args={[0.085, 0.004, 0.054]} /><meshStandardMaterial color="#e0b040" metalness={0.9} roughness={0.25} /></mesh></> },
+  { a: 476, b: 520, look: LOBBY, out: "cut", cam: C([-2.3, 1.42, -9.8], [-2.95, 1.65, -11.9], 56, [-2.45, 1.42, -10.15], [-2.95, 1.68, -11.9], 50, ease, 0.45),
+    world: (f) => <><Lobby f={f} raptorClip="Idle_01" raptorT={(f - 476) / 30} /><mesh position={[-2.85 + 0.25 * ease((f - 486) / 22), DESK.h + 0.012, -11.45 + 0.4 * ease((f - 486) / 22)]} rotation={[0, 0.4, 0]}><boxGeometry args={[0.17, 0.006, 0.11]} /><meshStandardMaterial color="#e0b040" metalness={0.9} roughness={0.25} /></mesh></> },
   // 11. "luggage" - the floating porter robot carries the suitcases (tracking)
   { a: 520, b: 566, look: LOBBY, out: "cut", cam: (u, f) => { const x = -0.5 + 3.4 * ((f - 520) / 46); return { pos: [x + 0.4, 1.3, -6.6], look: [x - 0.3, 0.9, -9.4], fov: 48, dof: 0.35 }; },
     world: (f) => { const x = -0.5 + 3.4 * ((f - 520) / 46); return <><Lobby f={f} /><GModel name="poddy" p={[x, 0.85, -9.2]} ry={Math.PI / 2} clip={0} t={f / 30} /><GModel name="suitcase" p={[x - 0.05, 0.2 + 0.03 * Math.sin(f / 6), -9.25]} ry={Math.PI / 2} s={0.75} /></>; } },
@@ -177,9 +177,9 @@ const SHOTS: Shot[] = [
       {card(stand(act(KEN, 21, [[1334, "nervousLaugh"], [1390, "embarrassed"]], () => HOLD, () => HOLD), [-2.3, 0, -9.6], f, { lean: 0.14 }), cam, hi, 1)}
       <GModel name="suitcase" p={[-2.3, 0.0, -9.2]} s={0.8} /></> },
   // 23. "...creating more work instead of saving it" - the raptor stares at a passport, upside down; staff hold it right way
-  { a: 1424, b: 1508, look: LOBBY, out: "whip", whipDir: -1, cam: C([-2.4, 1.6, -9.6], [-3.0, 1.7, -12.0], 50, [-2.6, 1.55, -10.1], [-3.0, 1.75, -12.0], 46),
-    world: (f, u, cam, hi) => <><Lobby f={f} raptorClip="Sniff" raptorT={(f - 1424) / 30} />{card(stand(act(KEN, 21, [[1424, "uncomfyGrin"]], undefined, () => A([110, -60], "open", 1, 1.6, [90, -20])), [-2.4, 0, -10.6], f), cam, hi)}
-      <mesh position={[-2.75, 1.4, -11.3]} rotation={[0, 0.3, f > 1470 ? 0 : Math.PI]}><boxGeometry args={[0.12, 0.17, 0.01]} /><meshStandardMaterial color="#7a1e2a" /></mesh></> },
+  { a: 1424, b: 1508, look: LOBBY, out: "whip", whipDir: -1, cam: C([-2.0, 1.5, -9.4], [-2.85, 1.65, -11.8], 58, [-2.15, 1.5, -9.75], [-2.9, 1.7, -11.8], 52),
+    world: (f, u, cam, hi) => <><Lobby f={f} raptorClip="Idle_01" raptorT={(f - 1424) / 30} />{card(stand(act(KEN, 21, [[1424, "uncomfyGrin"]], undefined, () => A([110, -60], "open", 1, 1.6, [90, -20])), [-1.75, 0, -10.75], f), cam, hi)}
+      <mesh position={[-3.2, 1.62, -11.45]} rotation={[0, 0.3, f > 1470 ? 0 : Math.PI]}><boxGeometry args={[0.12, 0.17, 0.01]} /><meshStandardMaterial color="#7a1e2a" /></mesh></> },
   // 24. "So in 2019" - insert: the desk calendar, a page flips to 2019 (push-in)
   { a: 1508, b: 1560, look: LOBBY, out: "cut", cam: C([0.95, 1.32, -10.4], [0.9, 1.16, -11.15], 40, [0.92, 1.24, -10.75], [0.9, 1.16, -11.15], 34, ease, 0.6),
     world: (f) => <><Lobby f={f} /><Calendar at={[0.9, DESK.h, -11.12]} flip={sm(1516, 1530, f)} /></> },
@@ -224,6 +224,6 @@ export const SHOT_STARTS = SHOTS.map((s) => s.a);
 export const MID = SHOTS.map((s) => Math.round((s.a + s.b) / 2));
 export const RH2Mids: React.FC = () => { const f = useCurrentFrame(); return <RobotHotelFilm frame={MID[Math.min(f, MID.length - 1)]} />; };
 /** QC: chosen film frames (edit PROBE to inspect any moment) */
-export const PROBE = [935, 1000, 1150, 1212, 1218];
+export const PROBE = [490, 510, 1440, 1480, 1500];
 export const RH2Probe: React.FC = () => { const f = useCurrentFrame(); return <RobotHotelFilm frame={PROBE[Math.min(f, PROBE.length - 1)]} />; };
 void mixArm; void REST_L; void REST_R; void DOOR101; void COR;

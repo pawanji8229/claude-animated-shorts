@@ -115,7 +115,7 @@ export const EXT_PLANTS: { name: "plant1" | "pachira"; p: V3; s: number; ry: num
 
 // ---------------------------------------------------------------- LOBBY
 const lobby = (wood = false) => once(wood ? "rhLobbyWood" : "rhLobby", () => { const k = new Kit(), L = LOBBY, P = M.plaster();
-  k.box(wood ? pm("parquet", 1.5, { tint: "#c8905a", rough: 0.55 }) : M.marble(), [L.x1 - L.x0, 0.1, L.z1 - L.z0], [0, -0.05, (L.z0 + L.z1) / 2], [0, 0, 0], { ink: false });
+  k.box(wood ? once("rhParquetMatte", () => { const m = pm("parquet", 1.5, { tint: "#c8905a" }).clone(); m.roughnessMap = null; m.roughness = 0.72; return m; }) : M.marble(), [L.x1 - L.x0, 0.1, L.z1 - L.z0], [0, -0.05, (L.z0 + L.z1) / 2], [0, 0, 0], { ink: false });
   k.box(M.rug(), [4.6, 0.012, 4.2], [-6.0, 0.006, -5.6], [0, 0, 0], { ink: false });
   k.box(M.ceil(), [L.x1 - L.x0 + 0.4, 0.2, L.z1 - L.z0 + 0.2], [0, L.h + 0.1, (L.z0 + L.z1) / 2], [0, 0, 0], { ink: false, cast: false });   // ceiling
   // ceiling light strips (diagonal-free, along z) + a cyan "future" cove around the room
