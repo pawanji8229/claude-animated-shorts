@@ -21,3 +21,10 @@
 - "Robot vacuum cleaner low poly" by Moryak (https://sketchfab.com/3d-models/robot-vacuum-cleaner-low-poly-7230d8d80e8b4a82b4a34a5e7926d0d3), CC Attribution
 - "Suitcases" by Olli_one (https://sketchfab.com/3d-models/suitcases-998cccab49ed496586994d9f4774daa0), CC Attribution
 - "Red Bellhop in Uniform" by restore50 (https://sketchfab.com/3d-models/red-bellhop-in-uniform-b13f7312f9484cdf8ffdf40e7db60bdd), CC Attribution
+- "Modern  Sofa" by 3dimentionalben (https://sketchfab.com/3d-models/modern-sofa-ac92f6e97eaa43c4ad6cb8f7c65ac43f), CC Attribution
+- "Leather armchair/ Coffee table/ Floorlamp" by YJ_ (https://sketchfab.com/3d-models/leather-armchair-coffee-table-floorlamp-fcce92a09de84456a071ea6117b57cbc), CC Attribution
+- "Monstera Deliciosa Potted Mid-Century plant" by Giora (https://sketchfab.com/3d-models/monstera-deliciosa-potted-mid-century-plant-1ab9bf841df04c07b1819be596327629), CC Attribution
+- "[FREE] Dyspis Lutescens - Potted Palm" by AllQuad (https://sketchfab.com/3d-models/free-dyspis-lutescens-potted-palm-92f75abd656049608248cf76a8c88136), CC Attribution
+- "Modern Chandelier" by Heliona (https://sketchfab.com/3d-models/modern-chandelier-6708f383a4334b53b17784f8f2d16215), CC Attribution
+- "Gold Hotel Luggage Trolley (Fallout: Miami)" by Damian Tkaczyk (https://sketchfab.com/3d-models/gold-hotel-luggage-trolley-fallout-miami-d89f1bba5e62451d9d11eaf599a6542b), CC Attribution
+- "Floor Lamp" by bilgehan.korkmaz (https://sketchfab.com/3d-models/floor-lamp-33eb258d9873435690254cfbb0ea46ec), CC Attribution
