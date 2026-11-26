@@ -1,0 +1,301 @@
+trigger_frame,start_s,end_s,source / responsible object,generator,stem,level,pan
+0,0.000,5.800,A: sparrows over the rooftop town,rec:mk17.wav@0+5.8,sfx,-32.9 dB re narration peak,+0.20
+10,0.333,5.833,A: breeze in the decoy trees,rec:mk2427.wav@0+5.5,sfx,-31.7 dB re narration peak,-0.20
+84,2.800,5.121,camera glides over the roof edge (scale reveal) (recorded air move),rec:mk1489.wav,sfx,-30.9 dB re narration peak,+0.10
+176,5.867,9.067,B: high-altitude wind,rec:mk1267.wav@0+3.2,sfx,-30.7 dB re narration peak,+0.00
+202,6.733,8.933,camera climbs to the high aerial (recorded air move),rec:mk1486.wav@0+2.2,sfx,-32.2 dB re narration peak,-0.20
+250,8.333,13.933,C: 1940s suburban street ambience + birds,rec:mk371.wav@4+5.6,sfx,-31.7 dB re narration peak,+0.00
+262,8.733,11.933,a steel door leaf rolls open on its track,hangar_door,sfx,-24.6 dB re narration peak,-0.10
+262,8.733,11.255,steel door leaf on its track (recorded layer),rec:mk200.wav,sfx,-27.3 dB re narration peak,-0.10
+302,10.067,13.267,the next leaf follows,hangar_door,sfx,-27.9 dB re narration peak,+0.25
+302,10.067,12.588,steel door leaf on its track (recorded layer),rec:mk200.wav,sfx,-29.0 dB re narration peak,+0.25
+308,10.267,10.371,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_001.wav,sfx,-43.0 dB re narration peak,-0.14
+308,10.267,19.987,truck rolling along Marginal Way (recorded layer),rec:mk1621.wav,sfx,-31.1 dB re narration peak,+0.30
+316,10.533,10.643,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_002.wav,sfx,-42.4 dB re narration peak,-0.07
+320,10.667,10.774,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_003.wav,sfx,-40.3 dB re narration peak,-0.06
+324,10.800,10.911,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_004.wav,sfx,-42.0 dB re narration peak,-0.02
+328,10.933,11.036,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_000.wav,sfx,-41.9 dB re narration peak,-0.00
+332,11.067,11.171,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_001.wav,sfx,-41.9 dB re narration peak,+0.03
+335,11.167,11.277,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_002.wav,sfx,-41.2 dB re narration peak,+0.04
+339,11.300,11.408,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_003.wav,sfx,-40.3 dB re narration peak,+0.06
+343,11.433,11.545,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_004.wav,sfx,-39.4 dB re narration peak,+0.08
+347,11.567,11.670,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_000.wav,sfx,-39.2 dB re narration peak,+0.09
+350,11.667,11.771,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_001.wav,sfx,-38.4 dB re narration peak,+0.11
+355,11.833,11.943,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_002.wav,sfx,-40.4 dB re narration peak,+0.11
+358,11.933,12.041,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_003.wav,sfx,-40.1 dB re narration peak,+0.14
+363,12.100,12.211,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_004.wav,sfx,-38.1 dB re narration peak,+0.13
+365,12.167,12.270,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_000.wav,sfx,-38.3 dB re narration peak,+0.16
+370,12.333,12.438,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_001.wav,sfx,-37.6 dB re narration peak,+0.14
+373,12.433,12.543,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_002.wav,sfx,-38.9 dB re narration peak,+0.19
+378,12.600,12.708,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_003.wav,sfx,-38.6 dB re narration peak,+0.15
+378,10.000,14.500,a 1940s truck rolls along Marginal Way and brakes at the plant,truck42,sfx,-20.2 dB re narration peak,+0.30
+381,12.700,12.811,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_004.wav,sfx,-38.1 dB re narration peak,+0.22
+386,12.867,12.970,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_000.wav,sfx,-38.9 dB re narration peak,+0.16
+388,12.933,13.038,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_001.wav,sfx,-38.2 dB re narration peak,+0.24
+394,13.133,13.243,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_002.wav,sfx,-36.0 dB re narration peak,+0.18
+396,13.200,13.308,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_003.wav,sfx,-36.7 dB re narration peak,+0.28
+401,13.367,13.478,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_004.wav,sfx,-36.0 dB re narration peak,+0.20
+403,13.433,13.536,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_000.wav,sfx,-34.7 dB re narration peak,+0.32
+409,13.633,13.738,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_001.wav,sfx,-35.9 dB re narration peak,+0.24
+411,13.700,13.810,C: walker 1 footstep (concrete) (recorded),rec:k_footstep_concrete_002.wav,sfx,-35.4 dB re narration peak,+0.39
+412,13.733,17.133,D: factory machine hum,rec:mk2504.wav@2+3.4,sfx,-31.2 dB re narration peak,+0.00
+417,13.900,14.008,C: walker 0 footstep (concrete) (recorded),rec:k_footstep_concrete_003.wav,sfx,-42.9 dB re narration peak,+0.29
+425,14.167,15.349,D: riveter 17 drives a rivet,rivet_burst,sfx,-38.4 dB re narration peak,+0.72
+440,14.667,15.782,D: riveter 16 drives a rivet,rivet_burst,sfx,-35.2 dB re narration peak,+0.85
+442,14.733,18.333,metalwork texture (recorded layer),rec:mk798.wav,sfx,-43.1 dB re narration peak,+0.85
+448,14.933,15.045,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_004.wav,sfx,-41.7 dB re narration peak,+0.85
+453,15.100,15.203,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_000.wav,sfx,-43.4 dB re narration peak,+0.85
+458,15.267,16.662,D: riveter 14 drives a rivet,rivet_burst,sfx,-37.7 dB re narration peak,-0.47
+459,15.300,15.405,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_001.wav,sfx,-40.9 dB re narration peak,+0.85
+463,15.433,16.674,D: riveter 15 drives a rivet,rivet_burst,sfx,-37.4 dB re narration peak,-0.23
+463,15.433,16.465,D: riveter 17 drives a rivet,rivet_burst,sfx,-32.6 dB re narration peak,+0.85
+464,15.467,15.577,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_002.wav,sfx,-40.9 dB re narration peak,+0.85
+465,15.500,19.100,metalwork texture (recorded layer),rec:mk798.wav,sfx,-44.4 dB re narration peak,-0.23
+470,15.667,15.774,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_003.wav,sfx,-39.9 dB re narration peak,+0.85
+470,15.667,16.167,a bucking bar set down on the scaffold,tool_clink,sfx,-34.2 dB re narration peak,-0.30
+470,15.667,17.267,tools handled (recorded layer),rec:mk831.wav@0+1.6,sfx,-32.3 dB re narration peak,-0.30
+476,15.867,15.978,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_004.wav,sfx,-40.1 dB re narration peak,+0.85
+481,16.033,16.136,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_000.wav,sfx,-41.1 dB re narration peak,+0.85
+487,16.233,16.338,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_001.wav,sfx,-40.9 dB re narration peak,+0.85
+492,16.400,16.510,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_002.wav,sfx,-39.3 dB re narration peak,+0.85
+494,16.467,17.872,D: riveter 16 drives a rivet,rivet_burst,sfx,-27.0 dB re narration peak,+0.85
+496,16.533,20.133,metalwork texture (recorded layer),rec:mk798.wav,sfx,-33.6 dB re narration peak,+0.85
+498,16.600,16.708,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_003.wav,sfx,-40.2 dB re narration peak,+0.85
+498,16.600,17.703,D: riveter 14 drives a rivet,rivet_burst,sfx,-34.6 dB re narration peak,-0.30
+500,16.667,17.167,a wrench on the wing jig,tool_clink,sfx,-33.8 dB re narration peak,+0.40
+500,16.667,18.267,tools handled (recorded layer),rec:mk831.wav@0+1.6,sfx,-32.4 dB re narration peak,+0.40
+501,16.700,17.661,D: riveter 17 drives a rivet,rivet_burst,sfx,-28.7 dB re narration peak,+0.85
+503,16.767,20.367,metalwork texture (recorded layer),rec:mk798.wav,sfx,-37.7 dB re narration peak,+0.85
+503,16.767,18.122,D: riveter 13 drives a rivet,rivet_burst,sfx,-40.2 dB re narration peak,-0.79
+504,16.800,16.911,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_004.wav,sfx,-40.6 dB re narration peak,+0.85
+509,16.967,17.070,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_000.wav,sfx,-41.6 dB re narration peak,+0.85
+510,17.000,18.245,D: riveter 15 drives a rivet,rivet_burst,sfx,-34.8 dB re narration peak,+0.14
+512,17.067,20.667,metalwork texture (recorded layer),rec:mk798.wav,sfx,-42.7 dB re narration peak,+0.14
+512,17.067,29.667,E: office wall clock ticking,rec:mk1060.wav@0+12.6,sfx,-33.6 dB re narration peak,-0.30
+515,17.167,17.271,D: walker 18 footstep (concrete) (recorded),rec:k_footstep_concrete_001.wav,sfx,-46.0 dB re narration peak,+0.85
+536,17.867,18.567,plans slid across the model table,paper_slide,sfx,-33.8 dB re narration peak,+0.00
+536,17.867,24.367,plans on the table (recorded),rec:mk2379.wav,sfx,-33.0 dB re narration peak,+0.00
+764,25.467,25.717,the hero sets a tiny tree beside the model plant,model_tick,sfx,-24.7 dB re narration peak,+0.15
+764,25.467,25.840,tiny model set down (recorded layer),rec:k_impactMetal_light_000.wav,sfx,-33.1 dB re narration peak,+0.15
+766,25.533,25.783,the officer's disbelief,brow_pluck,sfx,-31.3 dB re narration peak,-0.30
+797,26.567,26.817,a second tiny tree,model_tick,sfx,-28.4 dB re narration peak,-0.10
+797,26.567,26.940,tiny model set down (recorded layer),rec:k_impactMetal_light_000.wav,sfx,-33.9 dB re narration peak,-0.10
+816,27.200,28.400,the hero gets the idea,idea_ding,sfx,-30.2 dB re narration peak,+0.25
+868,28.933,29.113,the officer's double-take,double_take,sfx,-33.7 dB re narration peak,-0.30
+872,29.067,29.317,the tiny house goes on the model roof,model_tick,sfx,-25.9 dB re narration peak,+0.05
+872,29.067,29.440,tiny model set down (recorded layer),rec:k_impactMetal_light_000.wav,sfx,-33.1 dB re narration peak,+0.05
+874,29.133,29.733,lot 40: first boards lifted off the pile,board_pick,sfx,-33.6 dB re narration peak,+0.00
+874,29.133,29.912,planks (recorded layer),rec:k_impactPlank_medium_001.wav,sfx,-29.9 dB re narration peak,+0.00
+892,29.733,36.733,F: rooftop timber-and-canvas construction ambience,rec:mk797.wav@10+7.0,sfx,-31.1 dB re narration peak,+0.00
+894,29.800,30.400,lot 39: first boards lifted off the pile,board_pick,sfx,-31.7 dB re narration peak,+0.00
+894,29.800,30.579,planks (recorded layer),rec:k_impactPlank_medium_000.wav,sfx,-30.9 dB re narration peak,+0.00
+899,29.967,30.216,F: walker 3 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-34.5 dB re narration peak,+0.15
+899,29.967,30.249,F: walker 4 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-35.6 dB re narration peak,-0.25
+900,30.000,30.900,lot 40: a board sawn,saw_stroke,sfx,-34.5 dB re narration peak,+0.00
+900,30.000,31.758,hand saw (recorded layer),rec:mk827.wav,sfx,-29.7 dB re narration peak,+0.00
+901,30.033,30.383,F: hammerer 0 drives a nail,hammer_wood,sfx,-33.4 dB re narration peak,-0.85
+901,30.033,30.507,hammer on wood (recorded layer),rec:mk830.wav,sfx,-39.8 dB re narration peak,-0.85
+902,30.067,32.667,the derrick's hand winch hoists a lumber bundle up from the street,winch_ratchet,sfx,-29.7 dB re narration peak,+0.40
+905,30.167,30.409,F: walker 3 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-33.6 dB re narration peak,+0.23
+905,30.167,30.436,F: walker 4 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-33.1 dB re narration peak,-0.20
+909,30.300,30.650,F: hammerer 1 drives a nail,hammer_wood,sfx,-26.5 dB re narration peak,+0.85
+909,30.300,30.774,hammer on wood (recorded layer),rec:mk830.wav,sfx,-32.8 dB re narration peak,+0.85
+910,30.333,31.133,lot 40: canvas walls stretched up,canvas_flap,sfx,-32.3 dB re narration peak,+0.00
+910,30.333,30.994,canvas handled (recorded layer),rec:k_cloth1.wav,sfx,-31.3 dB re narration peak,+0.00
+912,30.400,30.723,F: walker 3 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-34.2 dB re narration peak,+0.33
+912,30.400,30.676,F: walker 4 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-32.9 dB re narration peak,-0.14
+914,30.467,31.067,lot 41: first boards lifted off the pile,board_pick,sfx,-33.5 dB re narration peak,+0.00
+914,30.467,31.246,planks (recorded layer),rec:k_impactPlank_medium_002.wav,sfx,-31.1 dB re narration peak,+0.00
+916,30.533,30.883,F: hammerer 0 drives a nail,hammer_wood,sfx,-32.3 dB re narration peak,-0.85
+916,30.533,31.007,hammer on wood (recorded layer),rec:mk830.wav,sfx,-38.4 dB re narration peak,-0.85
+919,30.633,30.882,F: walker 3 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-33.5 dB re narration peak,+0.44
+919,30.633,30.916,F: walker 4 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-32.4 dB re narration peak,-0.07
+920,30.667,31.567,lot 39: a board sawn,saw_stroke,sfx,-33.9 dB re narration peak,+0.00
+920,30.667,32.425,hand saw (recorded layer),rec:mk827.wav,sfx,-30.3 dB re narration peak,+0.00
+926,30.867,31.109,F: walker 3 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-32.4 dB re narration peak,+0.56
+926,30.867,31.136,F: walker 4 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-32.2 dB re narration peak,+0.01
+926,30.867,31.217,F: hammerer 1 drives a nail,hammer_wood,sfx,-26.1 dB re narration peak,+0.85
+926,30.867,31.341,hammer on wood (recorded layer),rec:mk830.wav,sfx,-34.8 dB re narration peak,+0.85
+930,31.000,31.800,lot 39: canvas walls stretched up,canvas_flap,sfx,-31.2 dB re narration peak,+0.00
+930,31.000,31.477,canvas handled (recorded layer),rec:k_cloth3.wav,sfx,-31.0 dB re narration peak,+0.00
+931,31.033,31.383,F: hammerer 0 drives a nail,hammer_wood,sfx,-32.1 dB re narration peak,-0.85
+931,31.033,31.507,hammer on wood (recorded layer),rec:mk830.wav,sfx,-40.1 dB re narration peak,-0.85
+934,31.133,31.456,F: walker 3 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-31.5 dB re narration peak,+0.72
+934,31.133,31.409,F: walker 4 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-32.3 dB re narration peak,+0.12
+940,31.333,31.582,F: walker 3 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-31.9 dB re narration peak,+0.85
+940,31.333,32.233,lot 41: a board sawn,saw_stroke,sfx,-34.1 dB re narration peak,+0.00
+940,31.333,33.091,hand saw (recorded layer),rec:mk827.wav,sfx,-30.9 dB re narration peak,+0.00
+941,31.367,31.649,F: walker 4 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-32.2 dB re narration peak,+0.22
+943,31.433,31.783,F: hammerer 1 drives a nail,hammer_wood,sfx,-28.1 dB re narration peak,+0.85
+943,31.433,31.907,hammer on wood (recorded layer),rec:mk830.wav,sfx,-33.5 dB re narration peak,+0.85
+944,31.467,32.067,lot 42: first boards lifted off the pile,board_pick,sfx,-33.1 dB re narration peak,+0.00
+944,31.467,32.246,planks (recorded layer),rec:k_impactPlank_medium_000.wav,sfx,-29.9 dB re narration peak,+0.00
+946,31.533,31.883,F: hammerer 0 drives a nail,hammer_wood,sfx,-32.6 dB re narration peak,-0.85
+946,31.533,32.007,hammer on wood (recorded layer),rec:mk830.wav,sfx,-37.1 dB re narration peak,-0.85
+947,31.567,31.809,F: walker 3 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-31.6 dB re narration peak,+0.85
+947,31.567,31.836,F: walker 4 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-34.1 dB re narration peak,+0.31
+948,31.600,32.400,lot 40: roof canvas pulled over,canvas_flap,sfx,-33.9 dB re narration peak,+0.00
+948,31.600,32.015,canvas handled (recorded layer),rec:k_cloth2.wav,sfx,-30.5 dB re narration peak,+0.00
+950,31.667,32.467,lot 41: canvas walls stretched up,canvas_flap,sfx,-31.4 dB re narration peak,+0.00
+950,31.667,32.082,canvas handled (recorded layer),rec:k_cloth2.wav,sfx,-30.4 dB re narration peak,+0.00
+954,31.800,32.123,F: walker 3 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-30.6 dB re narration peak,+0.85
+954,31.800,33.200,the roller lays the road stripe,paint_roll,sfx,-31.4 dB re narration peak,-0.45
+955,31.833,32.109,F: walker 4 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-32.2 dB re narration peak,+0.45
+959,31.967,32.216,F: walker 2 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-34.6 dB re narration peak,-0.46
+961,32.033,32.316,F: walker 3 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-31.2 dB re narration peak,+0.85
+961,32.033,32.383,F: hammerer 0 drives a nail,hammer_wood,sfx,-30.3 dB re narration peak,-0.85
+961,32.033,32.507,hammer on wood (recorded layer),rec:mk830.wav,sfx,-36.6 dB re narration peak,-0.85
+961,32.033,32.383,F: hammerer 1 drives a nail,hammer_wood,sfx,-25.9 dB re narration peak,+0.85
+961,32.033,32.507,hammer on wood (recorded layer),rec:mk830.wav,sfx,-34.3 dB re narration peak,+0.85
+962,32.067,32.309,F: walker 4 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-32.1 dB re narration peak,+0.58
+966,32.200,32.469,F: walker 2 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-34.7 dB re narration peak,-0.43
+968,32.267,33.067,lot 39: roof canvas pulled over,canvas_flap,sfx,-33.5 dB re narration peak,+0.00
+968,32.267,32.928,canvas handled (recorded layer),rec:k_cloth1.wav,sfx,-30.1 dB re narration peak,+0.00
+969,32.300,32.623,F: walker 3 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-31.9 dB re narration peak,+0.85
+969,32.300,32.576,F: walker 4 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-32.7 dB re narration peak,+0.72
+969,32.300,32.900,lot 43: first boards lifted off the pile,board_pick,sfx,-32.6 dB re narration peak,+0.00
+969,32.300,33.079,planks (recorded layer),rec:k_impactPlank_medium_001.wav,sfx,-31.0 dB re narration peak,+0.00
+970,32.333,33.233,lot 42: a board sawn,saw_stroke,sfx,-35.6 dB re narration peak,+0.00
+970,32.333,34.091,hand saw (recorded layer),rec:mk827.wav,sfx,-29.2 dB re narration peak,+0.00
+975,32.500,32.749,F: walker 2 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-34.7 dB re narration peak,-0.39
+975,32.500,32.782,F: walker 3 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-30.8 dB re narration peak,+0.85
+976,32.533,32.775,F: walker 4 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-31.6 dB re narration peak,+0.85
+976,32.533,32.883,F: hammerer 0 drives a nail,hammer_wood,sfx,-30.9 dB re narration peak,-0.85
+976,32.533,33.007,hammer on wood (recorded layer),rec:mk830.wav,sfx,-35.7 dB re narration peak,-0.85
+978,32.600,32.950,F: hammerer 1 drives a nail,hammer_wood,sfx,-26.4 dB re narration peak,+0.85
+978,32.600,33.074,hammer on wood (recorded layer),rec:mk830.wav,sfx,-32.6 dB re narration peak,+0.85
+980,32.667,33.467,lot 42: canvas walls stretched up,canvas_flap,sfx,-32.7 dB re narration peak,+0.00
+980,32.667,33.143,canvas handled (recorded layer),rec:k_cloth3.wav,sfx,-31.2 dB re narration peak,+0.00
+982,32.733,33.002,F: walker 2 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-35.0 dB re narration peak,-0.35
+982,32.733,33.056,F: walker 3 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-31.5 dB re narration peak,+0.85
+983,32.767,33.042,F: walker 4 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-33.1 dB re narration peak,+0.85
+988,32.933,33.733,lot 41: roof canvas pulled over,canvas_flap,sfx,-33.6 dB re narration peak,+0.00
+988,32.933,33.410,canvas handled (recorded layer),rec:k_cloth3.wav,sfx,-30.5 dB re narration peak,+0.00
+989,32.967,33.216,F: walker 3 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-33.3 dB re narration peak,+0.85
+990,33.000,33.282,F: walker 2 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-36.2 dB re narration peak,-0.31
+990,33.000,33.242,F: walker 4 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-31.9 dB re narration peak,+0.85
+991,33.033,33.383,F: hammerer 0 drives a nail,hammer_wood,sfx,-29.4 dB re narration peak,-0.85
+991,33.033,33.507,hammer on wood (recorded layer),rec:mk830.wav,sfx,-35.5 dB re narration peak,-0.85
+994,33.133,33.733,lot 44: first boards lifted off the pile,board_pick,sfx,-32.2 dB re narration peak,+0.00
+994,33.133,33.912,planks (recorded layer),rec:k_impactPlank_medium_002.wav,sfx,-30.9 dB re narration peak,+0.00
+994,33.133,34.533,the roller lays the road stripe,paint_roll,sfx,-32.2 dB re narration peak,-0.19
+995,33.167,34.067,lot 43: a board sawn,saw_stroke,sfx,-33.8 dB re narration peak,+0.00
+995,33.167,34.925,hand saw (recorded layer),rec:mk827.wav,sfx,-29.4 dB re narration peak,+0.00
+996,33.200,33.469,F: walker 3 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-33.4 dB re narration peak,+0.85
+996,33.200,33.523,F: walker 4 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-32.1 dB re narration peak,+0.85
+996,33.200,33.550,F: hammerer 1 drives a nail,hammer_wood,sfx,-27.9 dB re narration peak,+0.85
+996,33.200,33.674,hammer on wood (recorded layer),rec:mk830.wav,sfx,-34.4 dB re narration peak,+0.85
+999,33.300,33.576,F: walker 2 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-34.7 dB re narration peak,-0.26
+1003,33.433,33.682,F: walker 3 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-33.9 dB re narration peak,+0.85
+1004,33.467,33.749,F: walker 4 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-32.9 dB re narration peak,+0.85
+1005,33.500,34.300,lot 43: canvas walls stretched up,canvas_flap,sfx,-30.8 dB re narration peak,+0.00
+1005,33.500,34.161,canvas handled (recorded layer),rec:k_cloth1.wav,sfx,-30.5 dB re narration peak,+0.00
+1006,33.533,33.883,F: hammerer 0 drives a nail,hammer_wood,sfx,-29.5 dB re narration peak,-0.85
+1006,33.533,34.007,hammer on wood (recorded layer),rec:mk830.wav,sfx,-35.7 dB re narration peak,-0.85
+1007,33.567,33.809,F: walker 2 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-33.9 dB re narration peak,-0.20
+1010,33.667,33.936,F: walker 3 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-32.1 dB re narration peak,+0.85
+1011,33.700,34.023,F: walker 4 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-31.5 dB re narration peak,+0.85
+1013,33.767,34.117,F: hammerer 1 drives a nail,hammer_wood,sfx,-27.3 dB re narration peak,+0.85
+1013,33.767,34.241,hammer on wood (recorded layer),rec:mk830.wav,sfx,-33.7 dB re narration peak,+0.85
+1014,33.800,34.076,F: walker 2 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-33.8 dB re narration peak,-0.15
+1017,33.900,34.149,F: walker 3 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-32.6 dB re narration peak,+0.85
+1017,33.900,34.182,F: walker 4 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-31.1 dB re narration peak,+0.85
+1018,33.933,34.733,lot 42: roof canvas pulled over,canvas_flap,sfx,-34.2 dB re narration peak,+0.00
+1018,33.933,34.594,canvas handled (recorded layer),rec:k_cloth1.wav,sfx,-30.5 dB re narration peak,+0.00
+1020,34.000,34.900,lot 44: a board sawn,saw_stroke,sfx,-36.4 dB re narration peak,+0.00
+1020,34.000,35.758,hand saw (recorded layer),rec:mk827.wav,sfx,-28.7 dB re narration peak,+0.00
+1021,34.033,34.383,F: hammerer 0 drives a nail,hammer_wood,sfx,-28.1 dB re narration peak,-0.85
+1021,34.033,34.507,hammer on wood (recorded layer),rec:mk830.wav,sfx,-35.9 dB re narration peak,-0.85
+1022,34.067,34.309,F: walker 2 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-33.9 dB re narration peak,-0.09
+1024,34.133,34.402,F: walker 3 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-34.7 dB re narration peak,+0.85
+1025,34.167,34.489,F: walker 4 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-32.8 dB re narration peak,+0.85
+1030,34.333,34.609,F: walker 2 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-34.5 dB re narration peak,-0.02
+1030,34.333,35.133,lot 44: canvas walls stretched up,canvas_flap,sfx,-32.9 dB re narration peak,+0.00
+1030,34.333,34.748,canvas handled (recorded layer),rec:k_cloth2.wav,sfx,-30.3 dB re narration peak,+0.00
+1031,34.367,34.616,F: walker 3 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-33.1 dB re narration peak,+0.85
+1031,34.367,34.649,F: walker 4 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-32.6 dB re narration peak,+0.85
+1031,34.367,34.717,F: hammerer 1 drives a nail,hammer_wood,sfx,-29.4 dB re narration peak,+0.85
+1031,34.367,34.841,hammer on wood (recorded layer),rec:mk830.wav,sfx,-36.2 dB re narration peak,+0.85
+1032,34.400,35.100,the bundle is swung in and set down,bundle_land,sfx,-26.1 dB re narration peak,+0.40
+1032,34.400,35.179,planks (recorded layer),rec:k_impactPlank_medium_001.wav,sfx,-27.2 dB re narration peak,+0.40
+1034,34.467,35.867,the roller lays the road stripe,paint_roll,sfx,-30.7 dB re narration peak,+0.22
+1036,34.533,34.883,F: hammerer 0 drives a nail,hammer_wood,sfx,-29.8 dB re narration peak,-0.85
+1036,34.533,35.007,hammer on wood (recorded layer),rec:mk830.wav,sfx,-35.1 dB re narration peak,-0.85
+1038,34.600,34.842,F: walker 2 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-33.1 dB re narration peak,+0.05
+1038,34.600,34.869,F: walker 3 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-32.6 dB re narration peak,+0.85
+1039,34.633,34.956,F: walker 4 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-31.6 dB re narration peak,+0.85
+1043,34.767,35.567,lot 43: roof canvas pulled over,canvas_flap,sfx,-33.5 dB re narration peak,+0.00
+1043,34.767,35.182,canvas handled (recorded layer),rec:k_cloth2.wav,sfx,-30.7 dB re narration peak,+0.00
+1045,34.833,35.109,F: walker 3 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-33.5 dB re narration peak,+0.85
+1046,34.867,35.116,F: walker 2 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-34.4 dB re narration peak,+0.13
+1046,34.867,35.149,F: walker 4 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-34.0 dB re narration peak,+0.85
+1048,34.933,35.283,F: hammerer 1 drives a nail,hammer_wood,sfx,-28.8 dB re narration peak,+0.85
+1048,34.933,35.407,hammer on wood (recorded layer),rec:mk830.wav,sfx,-35.7 dB re narration peak,+0.85
+1051,35.033,35.383,F: hammerer 0 drives a nail,hammer_wood,sfx,-26.9 dB re narration peak,-0.85
+1051,35.033,35.507,hammer on wood (recorded layer),rec:mk830.wav,sfx,-34.6 dB re narration peak,-0.85
+1052,35.067,35.309,F: walker 3 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-33.7 dB re narration peak,+0.85
+1053,35.100,35.369,F: walker 4 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-32.7 dB re narration peak,+0.85
+1054,35.133,35.456,F: walker 2 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-33.7 dB re narration peak,+0.21
+1059,35.300,35.576,F: walker 3 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-33.8 dB re narration peak,+0.85
+1060,35.333,35.582,F: walker 4 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-33.4 dB re narration peak,+0.85
+1063,35.433,35.716,F: walker 2 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-33.5 dB re narration peak,+0.30
+1066,35.533,35.775,F: walker 3 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-36.0 dB re narration peak,+0.85
+1066,35.533,35.802,F: walker 4 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-33.6 dB re narration peak,+0.85
+1066,35.533,35.883,F: hammerer 0 drives a nail,hammer_wood,sfx,-27.6 dB re narration peak,-0.85
+1066,35.533,36.007,hammer on wood (recorded layer),rec:mk830.wav,sfx,-32.6 dB re narration peak,-0.85
+1066,35.533,35.883,F: hammerer 1 drives a nail,hammer_wood,sfx,-30.3 dB re narration peak,+0.85
+1066,35.533,36.007,hammer on wood (recorded layer),rec:mk830.wav,sfx,-35.8 dB re narration peak,+0.85
+1068,35.600,36.400,lot 44: roof canvas pulled over,canvas_flap,sfx,-34.0 dB re narration peak,+0.00
+1068,35.600,36.077,canvas handled (recorded layer),rec:k_cloth3.wav,sfx,-29.7 dB re narration peak,+0.00
+1070,35.667,35.989,F: walker 2 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-35.0 dB re narration peak,+0.36
+1073,35.767,36.042,F: walker 3 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-36.4 dB re narration peak,+0.85
+1074,35.800,36.049,F: walker 4 footstep (gravel) (recorded),rec:k_footstep00.wav,sfx,-33.5 dB re narration peak,+0.85
+1074,35.800,37.200,the roller lays the road stripe,paint_roll,sfx,-31.5 dB re narration peak,+0.69
+1078,35.933,36.216,F: walker 2 footstep (gravel) (recorded),rec:k_footstep01.wav,sfx,-34.5 dB re narration peak,+0.44
+1080,36.000,36.242,F: walker 3 footstep (gravel) (recorded),rec:k_footstep02.wav,sfx,-34.6 dB re narration peak,+0.85
+1081,36.033,36.383,F: hammerer 0 drives a nail,hammer_wood,sfx,-25.7 dB re narration peak,-0.85
+1081,36.033,36.507,hammer on wood (recorded layer),rec:mk830.wav,sfx,-32.9 dB re narration peak,-0.85
+1083,36.100,36.450,F: hammerer 1 drives a nail,hammer_wood,sfx,-32.5 dB re narration peak,+0.85
+1083,36.100,36.574,hammer on wood (recorded layer),rec:mk830.wav,sfx,-37.5 dB re narration peak,+0.85
+1086,36.200,36.469,F: walker 2 footstep (gravel) (recorded),rec:k_footstep03.wav,sfx,-35.2 dB re narration peak,+0.51
+1094,36.467,36.790,F: walker 2 footstep (gravel) (recorded),rec:k_footstep04.wav,sfx,-34.7 dB re narration peak,+0.58
+1096,36.533,36.883,F: hammerer 0 drives a nail,hammer_wood,sfx,-27.2 dB re narration peak,-0.70
+1096,36.533,37.007,hammer on wood (recorded layer),rec:mk830.wav,sfx,-31.7 dB re narration peak,-0.70
+1100,36.667,41.267,G: morning birds on the roof,rec:mk2472.wav@20+4.6,sfx,-33.3 dB re narration peak,+0.20
+1101,36.700,37.050,F: hammerer 1 drives a nail,hammer_wood,sfx,-32.0 dB re narration peak,+0.85
+1101,36.700,37.174,hammer on wood (recorded layer),rec:mk830.wav,sfx,-38.2 dB re narration peak,+0.85
+1103,36.767,37.042,F: walker 2 footstep (gravel) (recorded),rec:k_footstep05.wav,sfx,-37.3 dB re narration peak,+0.64
+1150,38.333,38.583,the hero's side-eye at the hollow backs,brow_pluck,sfx,-31.9 dB re narration peak,+0.00
+1240,41.333,45.933,H: wind high above the plant,rec:mk1267.wav@8+4.6,sfx,-29.9 dB re narration peak,+0.00
+1250,41.667,43.987,camera sweeps up into the sky (recorded air move),rec:mk1489.wav,sfx,-30.2 dB re narration peak,+0.20
+1420,47.333,50.033,J: the real factory humming below,rec:mk2504.wav@12+2.7,sfx,-32.0 dB re narration peak,+0.00
+1432,46.533,49.133,the roof turns transparent: the real factory below,reveal_shimmer,sfx,-26.9 dB re narration peak,+0.00
+1458,48.600,49.770,J2: riveter 14 drives a rivet,rivet_burst,sfx,-41.1 dB re narration peak,-0.25
+1461,48.700,49.788,J2: riveter 12 drives a rivet,rivet_burst,sfx,-41.2 dB re narration peak,-0.85
+1463,48.767,52.367,metalwork texture (recorded layer),rec:mk798.wav,sfx,-51.6 dB re narration peak,-0.85
+1466,48.867,50.217,J2: riveter 16 drives a rivet,rivet_burst,sfx,-43.6 dB re narration peak,+0.85
+1489,49.633,50.945,J2: riveter 17 drives a rivet,rivet_burst,sfx,-40.2 dB re narration peak,+0.85
+1491,49.700,53.300,metalwork texture (recorded layer),rec:mk798.wav,sfx,-48.0 dB re narration peak,+0.85
+1497,49.900,51.219,J2: riveter 15 drives a rivet,rivet_burst,sfx,-37.7 dB re narration peak,-0.58
+1498,49.933,51.089,J2: riveter 14 drives a rivet,rivet_burst,sfx,-38.7 dB re narration peak,-0.52
+1500,50.000,53.600,metalwork texture (recorded layer),rec:mk798.wav,sfx,-46.8 dB re narration peak,-0.52
+1500,50.000,53.204,the camera rises back over the rooftop town (loop) (recorded air move),rec:mk1474.wav,sfx,-32.1 dB re narration peak,-0.10
+1510,50.333,51.575,J2: riveter 12 drives a rivet,rivet_burst,sfx,-39.9 dB re narration peak,-0.85
+1511,50.367,51.765,J2: riveter 13 drives a rivet,rivet_burst,sfx,-41.1 dB re narration peak,-0.85
+1513,50.433,54.033,metalwork texture (recorded layer),rec:mk798.wav,sfx,-49.0 dB re narration peak,-0.85
+1520,50.667,51.771,J2: riveter 16 drives a rivet,rivet_burst,sfx,-39.0 dB re narration peak,+0.85
+1527,50.900,52.318,J2: riveter 17 drives a rivet,rivet_burst,sfx,-39.6 dB re narration peak,+0.85
+1529,50.967,54.567,metalwork texture (recorded layer),rec:mk798.wav,sfx,-48.8 dB re narration peak,+0.85
+1538,51.267,52.377,J2: riveter 14 drives a rivet,rivet_burst,sfx,-36.8 dB re narration peak,-0.85
+1544,51.467,52.771,J2: riveter 15 drives a rivet,rivet_burst,sfx,-37.0 dB re narration peak,-0.85
+1546,51.533,55.133,metalwork texture (recorded layer),rec:mk798.wav,sfx,-45.8 dB re narration peak,-0.85
+0,0.000,5.867,ambience segment: roof_day (0.5 s equal-power crossfades),ambience_roof_day,bed,see preset,stereo wide
+176,5.867,8.400,ambience segment: aerial_high (0.5 s equal-power crossfades),ambience_aerial_high,bed,see preset,stereo wide
+252,8.400,13.800,ambience segment: street1942 (0.5 s equal-power crossfades),ambience_street1942,bed,see preset,stereo wide
+414,13.800,17.133,ambience segment: factory_floor (0.5 s equal-power crossfades),ambience_factory_floor,bed,see preset,stereo wide
+514,17.133,29.733,ambience segment: office1942 (0.5 s equal-power crossfades),ambience_office1942,bed,see preset,stereo wide
+892,29.733,41.333,ambience segment: roof_day (0.5 s equal-power crossfades),ambience_roof_day,bed,see preset,stereo wide
+1240,41.333,47.333,ambience segment: aerial_high (0.5 s equal-power crossfades),ambience_aerial_high,bed,see preset,stereo wide
+1420,47.333,50.067,ambience segment: factory_floor (0.5 s equal-power crossfades),ambience_factory_floor,bed,see preset,stereo wide
+1502,50.067,51.644,ambience segment: roof_day (0.5 s equal-power crossfades),ambience_roof_day,bed,see preset,stereo wide
+0,0.000,51.644,"sparse soft 1930s-style piano + brushes (original) (continuous, loop-safe)",music,bed,-24 LU re narration,stereo wide

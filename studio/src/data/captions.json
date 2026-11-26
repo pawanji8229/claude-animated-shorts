@@ -1,0 +1,9 @@
+{
+  "_note": "Narration/caption timing kept as data only. No composition renders on-screen text. Frames are at 30 fps.",
+  "InventorWalkIn": [{ "from": 18, "to": 140, "text": "Midnight. The workshop is awake." }],
+  "NightShift10": [
+    { "from": 8, "to": 96, "text": "Midnight. Everyone else is asleep." },
+    { "from": 104, "to": 200, "text": "Odo has one more idea to try." },
+    { "from": 206, "to": 300, "text": "Tonight, it finally works." }
+  ]
+}

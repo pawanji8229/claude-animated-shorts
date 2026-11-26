@@ -1,0 +1,2029 @@
+{
+ "fps": 30,
+ "frames": 1466,
+ "events": [
+  {
+   "frame": 30,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 37,
+   "kind": "step_concrete_l",
+   "x": -0.5713983050847457,
+   "gain": 0.30201736319553973,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 42,
+   "kind": "step_concrete_r",
+   "x": -0.4961864406779659,
+   "gain": 0.30625360893330034,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 44,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 47,
+   "kind": "step_concrete_l",
+   "x": -0.42097457627118623,
+   "gain": 0.3104081086598057,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 52,
+   "kind": "step_concrete_r",
+   "x": -0.3457627118644065,
+   "gain": 0.3145213856218728,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 58,
+   "kind": "step_concrete_l",
+   "x": -0.25550851178954354,
+   "gain": 0.3194699539771385,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 60,
+   "kind": "bike_tick",
+   "x": 0.0833326607618325,
+   "gain": 0.8,
+   "note": "the cyclist freewheels past"
+  },
+  {
+   "frame": 63,
+   "kind": "step_concrete_r",
+   "x": -0.18030342526909815,
+   "gain": 0.3236665142612876,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 69,
+   "kind": "step_concrete_l",
+   "x": -0.10582152751935085,
+   "gain": 0.32887500547132836,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 74,
+   "kind": "pigeon_coo",
+   "x": 0.4161856263977473,
+   "gain": 0.8,
+   "note": "a pigeon coos on the sidewalk"
+  },
+  {
+   "frame": 82,
+   "kind": "step_concrete_l",
+   "x": 0.196898252577114,
+   "gain": 0.2660749855887695,
+   "note": "pedestrian 1: left foot down"
+  },
+  {
+   "frame": 88,
+   "kind": "step_concrete_l",
+   "x": 0.28768330196161895,
+   "gain": 0.2679594505672074,
+   "note": "pedestrian 0: left foot down"
+  },
+  {
+   "frame": 89,
+   "kind": "step_concrete_l",
+   "x": 0.42034359368623536,
+   "gain": 0.2681466777084792,
+   "note": "pedestrian 4: left foot down"
+  },
+  {
+   "frame": 91,
+   "kind": "step_concrete_r",
+   "x": 0.31665888127300906,
+   "gain": 0.2635494595262535,
+   "note": "pedestrian 4: right foot down"
+  },
+  {
+   "frame": 92,
+   "kind": "step_concrete_r",
+   "x": 0.25810454237629493,
+   "gain": 0.2751816331680624,
+   "note": "pedestrian 1: right foot down"
+  },
+  {
+   "frame": 93,
+   "kind": "step_concrete_l",
+   "x": 0.2549356583796763,
+   "gain": 0.2668848250482527,
+   "note": "pedestrian 2: left foot down"
+  },
+  {
+   "frame": 97,
+   "kind": "step_concrete_r",
+   "x": 0.37185171373029996,
+   "gain": 0.28040858147466563,
+   "note": "pedestrian 5: right foot down"
+  },
+  {
+   "frame": 98,
+   "kind": "step_concrete_r",
+   "x": 0.21606265323236618,
+   "gain": 0.28319394076357624,
+   "note": "pedestrian 0: right foot down"
+  },
+  {
+   "frame": 101,
+   "kind": "step_concrete_l",
+   "x": 0.3116698772016536,
+   "gain": 0.28465606983083463,
+   "note": "pedestrian 1: left foot down"
+  },
+  {
+   "frame": 101,
+   "kind": "step_concrete_r",
+   "x": 0.18530008402588252,
+   "gain": 0.27951759759949335,
+   "note": "pedestrian 2: right foot down"
+  },
+  {
+   "frame": 102,
+   "kind": "step_concrete_l",
+   "x": 0.2493619444817462,
+   "gain": 0.2800128506052164,
+   "note": "pedestrian 4: left foot down"
+  },
+  {
+   "frame": 102,
+   "kind": "mystery_accent",
+   "x": 0,
+   "gain": 0.8,
+   "note": "\"look carefully\": a subtle mysterious accent (he looks left/right)"
+  },
+  {
+   "frame": 104,
+   "kind": "step_concrete_l",
+   "x": 0.3286037682638064,
+   "gain": 0.2927612131153641,
+   "note": "pedestrian 5: left foot down"
+  },
+  {
+   "frame": 108,
+   "kind": "step_concrete_l",
+   "x": 0.14294368800479673,
+   "gain": 0.3013052077092016,
+   "note": "pedestrian 0: left foot down"
+  },
+  {
+   "frame": 108,
+   "kind": "step_concrete_l",
+   "x": 0.1236442089915654,
+   "gain": 0.291927809986182,
+   "note": "pedestrian 2: left foot down"
+  },
+  {
+   "frame": 111,
+   "kind": "step_concrete_r",
+   "x": 0.36990345630053695,
+   "gain": 0.29654352180642635,
+   "note": "pedestrian 1: right foot down"
+  },
+  {
+   "frame": 112,
+   "kind": "step_concrete_r",
+   "x": 0.27844648426746693,
+   "gain": 0.3089854994402162,
+   "note": "pedestrian 5: right foot down"
+  },
+  {
+   "frame": 114,
+   "kind": "step_concrete_r",
+   "x": 0.17414369525491402,
+   "gain": 0.30199843406731575,
+   "note": "pedestrian 4: right foot down"
+  },
+  {
+   "frame": 115,
+   "kind": "step_concrete_r",
+   "x": 0.061470699277113884,
+   "gain": 0.30564471344066696,
+   "note": "pedestrian 2: right foot down"
+  },
+  {
+   "frame": 117,
+   "kind": "step_concrete_r",
+   "x": 0.07622080490604492,
+   "gain": 0.32031785146602887,
+   "note": "pedestrian 0: right foot down"
+  },
+  {
+   "frame": 119,
+   "kind": "step_concrete_l",
+   "x": 0.2340889328331656,
+   "gain": 0.3252621118907272,
+   "note": "pedestrian 5: left foot down"
+  },
+  {
+   "frame": 123,
+   "kind": "step_concrete_l",
+   "x": -0.01003664914676064,
+   "gain": 0.32289821255300083,
+   "note": "pedestrian 2: left foot down"
+  },
+  {
+   "frame": 125,
+   "kind": "step_concrete_l",
+   "x": 0.1041366178953383,
+   "gain": 0.3264133393510768,
+   "note": "pedestrian 4: left foot down"
+  },
+  {
+   "frame": 127,
+   "kind": "step_concrete_l",
+   "x": 0.0013799071134331098,
+   "gain": 0.34471251840514316,
+   "note": "pedestrian 0: left foot down"
+  },
+  {
+   "frame": 127,
+   "kind": "step_concrete_r",
+   "x": 0.18296946954598883,
+   "gain": 0.3466460434008357,
+   "note": "pedestrian 5: right foot down"
+  },
+  {
+   "frame": 130,
+   "kind": "step_concrete_r",
+   "x": -0.07307598605819751,
+   "gain": 0.33947688371068585,
+   "note": "pedestrian 2: right foot down"
+  },
+  {
+   "frame": 134,
+   "kind": "step_concrete_l",
+   "x": 0.1374334225015408,
+   "gain": 0.36883965556015447,
+   "note": "pedestrian 5: left foot down"
+  },
+  {
+   "frame": 137,
+   "kind": "step_concrete_r",
+   "x": -0.0751242401400237,
+   "gain": 0.3740984107847849,
+   "note": "pedestrian 0: right foot down"
+  },
+  {
+   "frame": 137,
+   "kind": "step_concrete_r",
+   "x": 0.02581108319807815,
+   "gain": 0.3599406613056469,
+   "note": "pedestrian 4: right foot down"
+  },
+  {
+   "frame": 138,
+   "kind": "step_concrete_l",
+   "x": -0.1465392656868997,
+   "gain": 0.3610057776910848,
+   "note": "pedestrian 2: left foot down"
+  },
+  {
+   "frame": 142,
+   "kind": "step_concrete_r",
+   "x": 0.08355456216019878,
+   "gain": 0.400466492659505,
+   "note": "pedestrian 5: right foot down"
+  },
+  {
+   "frame": 145,
+   "kind": "step_concrete_r",
+   "x": -0.21248977658041093,
+   "gain": 0.3825112855237031,
+   "note": "pedestrian 2: right foot down"
+  },
+  {
+   "frame": 146,
+   "kind": "step_concrete_l",
+   "x": -0.14661038126131218,
+   "gain": 0.4069352926068536,
+   "note": "pedestrian 0: left foot down"
+  },
+  {
+   "frame": 149,
+   "kind": "step_concrete_l",
+   "x": -0.056725736587618286,
+   "gain": 0.4057068392923641,
+   "note": "pedestrian 4: left foot down"
+  },
+  {
+   "frame": 149,
+   "kind": "step_concrete_l",
+   "x": 0.0349409300790485,
+   "gain": 0.43481572811178554,
+   "note": "pedestrian 5: left foot down"
+  },
+  {
+   "frame": 153,
+   "kind": "step_concrete_l",
+   "x": -0.28916789606358967,
+   "gain": 0.4088695146697032,
+   "note": "pedestrian 2: left foot down"
+  },
+  {
+   "frame": 156,
+   "kind": "step_concrete_r",
+   "x": -0.22791833065960743,
+   "gain": 0.44922219998185187,
+   "note": "pedestrian 0: right foot down"
+  },
+  {
+   "frame": 157,
+   "kind": "step_concrete_r",
+   "x": -0.021459872277607733,
+   "gain": 0.481961493222467,
+   "note": "pedestrian 5: right foot down"
+  },
+  {
+   "frame": 159,
+   "kind": "step_concrete_r",
+   "x": -0.1002716564316611,
+   "gain": 0.5441627678209814,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 160,
+   "kind": "step_concrete_r",
+   "x": -0.13431395338786134,
+   "gain": 0.4584086606379416,
+   "note": "pedestrian 4: right foot down"
+  },
+  {
+   "frame": 164,
+   "kind": "step_concrete_l",
+   "x": -0.06206093707764785,
+   "gain": 0.5456541802678155,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 164,
+   "kind": "step_concrete_l",
+   "x": -0.07079109580780646,
+   "gain": 0.5,
+   "note": "pedestrian 5: left foot down"
+  },
+  {
+   "frame": 170,
+   "kind": "step_concrete_r",
+   "x": -0.015698623286563244,
+   "gain": 0.5461078449525458,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 172,
+   "kind": "step_concrete_l",
+   "x": -0.21791002989499095,
+   "gain": 0.5,
+   "note": "pedestrian 4: left foot down"
+  },
+  {
+   "frame": 172,
+   "kind": "step_concrete_r",
+   "x": -0.12624336322832416,
+   "gain": 0.5,
+   "note": "pedestrian 5: right foot down"
+  },
+  {
+   "frame": 172,
+   "kind": "pigeon_takeoff",
+   "x": 0.15920378505613547,
+   "gain": 0.7282778764368255,
+   "note": "pigeon 0 bursts up as the hero steps in"
+  },
+  {
+   "frame": 174,
+   "kind": "pigeon_takeoff",
+   "x": 0.3101578628310331,
+   "gain": 0.7443054608650777,
+   "note": "pigeon 2 bursts up as the hero steps in"
+  },
+  {
+   "frame": 177,
+   "kind": "pigeon_takeoff",
+   "x": 0.20744178541156477,
+   "gain": 0.7785216914973305,
+   "note": "pigeon 1 bursts up as the hero steps in"
+  },
+  {
+   "frame": 179,
+   "kind": "step_concrete_l",
+   "x": -0.17319698846150341,
+   "gain": 0.5,
+   "note": "pedestrian 5: left foot down"
+  },
+  {
+   "frame": 181,
+   "kind": "pigeon_takeoff",
+   "x": 0.4014011620248206,
+   "gain": 0.7422903716651916,
+   "note": "pigeon 3 bursts up as the hero steps in"
+  },
+  {
+   "frame": 185,
+   "kind": "pigeon_takeoff",
+   "x": 0.5254938574718478,
+   "gain": 0.7249377853305654,
+   "note": "pigeon 4 bursts up as the hero steps in"
+  },
+  {
+   "frame": 197,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 210,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 233,
+   "kind": "step_concrete_l",
+   "x": 0.14977400550308353,
+   "gain": 0.5,
+   "note": "pedestrian 9: left foot down"
+  },
+  {
+   "frame": 241,
+   "kind": "step_concrete_r",
+   "x": 0.08748069741556232,
+   "gain": 0.5,
+   "note": "pedestrian 9: right foot down"
+  },
+  {
+   "frame": 249,
+   "kind": "step_concrete_l",
+   "x": 0.025188052870704265,
+   "gain": 0.5,
+   "note": "pedestrian 9: left foot down"
+  },
+  {
+   "frame": 250,
+   "kind": "far_horn",
+   "x": 0.6,
+   "gain": 1,
+   "note": "a car horn two streets away"
+  },
+  {
+   "frame": 251,
+   "kind": "step_concrete_r",
+   "x": -0.08840757394040716,
+   "gain": 0.5,
+   "note": "pedestrian 10: right foot down"
+  },
+  {
+   "frame": 256,
+   "kind": "step_concrete_r",
+   "x": -0.029303255176959444,
+   "gain": 0.5,
+   "note": "pedestrian 9: right foot down"
+  },
+  {
+   "frame": 259,
+   "kind": "step_concrete_l",
+   "x": -0.025094747688280943,
+   "gain": 0.5,
+   "note": "pedestrian 10: left foot down"
+  },
+  {
+   "frame": 267,
+   "kind": "step_concrete_r",
+   "x": 0.038403596736746225,
+   "gain": 0.5,
+   "note": "pedestrian 10: right foot down"
+  },
+  {
+   "frame": 275,
+   "kind": "step_concrete_l",
+   "x": 0.10232999025551792,
+   "gain": 0.5,
+   "note": "pedestrian 10: left foot down"
+  },
+  {
+   "frame": 278,
+   "kind": "step_concrete_r",
+   "x": 0.005217854276379927,
+   "gain": 0.5,
+   "note": "pedestrian 4: right foot down"
+  },
+  {
+   "frame": 284,
+   "kind": "step_concrete_l",
+   "x": 0.10304893127159144,
+   "gain": 0.5,
+   "note": "pedestrian 4: left foot down"
+  },
+  {
+   "frame": 303,
+   "kind": "step_concrete_r",
+   "x": 0.1779782574035685,
+   "gain": 0.5,
+   "note": "pedestrian 0: right foot down"
+  },
+  {
+   "frame": 311,
+   "kind": "step_concrete_l",
+   "x": 0.14659767315087446,
+   "gain": 0.5,
+   "note": "pedestrian 0: left foot down"
+  },
+  {
+   "frame": 320,
+   "kind": "step_concrete_r",
+   "x": 0.1277340227402424,
+   "gain": 0.5,
+   "note": "pedestrian 0: right foot down"
+  },
+  {
+   "frame": 328,
+   "kind": "step_concrete_l",
+   "x": 0.11236287735378865,
+   "gain": 0.5,
+   "note": "pedestrian 0: left foot down"
+  },
+  {
+   "frame": 330,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 344,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 392,
+   "kind": "whoosh_reveal",
+   "x": 0,
+   "gain": 0.55,
+   "note": "reveal 1: the facade starts to dissolve"
+  },
+  {
+   "frame": 392,
+   "kind": "cloth_soft",
+   "x": 0,
+   "gain": 1,
+   "note": "the hero's jacket on a big gesture"
+  },
+  {
+   "frame": 396,
+   "kind": "step_concrete_r",
+   "x": 0.20347649420484157,
+   "gain": 0.5,
+   "note": "pedestrian 12: right foot down"
+  },
+  {
+   "frame": 404,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.8,
+   "note": "ventilation fans behind the wall"
+  },
+  {
+   "frame": 405,
+   "kind": "step_concrete_l",
+   "x": 0.1367715468459643,
+   "gain": 0.5,
+   "note": "pedestrian 12: left foot down"
+  },
+  {
+   "frame": 414,
+   "kind": "step_concrete_r",
+   "x": 0.07456310623356809,
+   "gain": 0.5,
+   "note": "pedestrian 12: right foot down"
+  },
+  {
+   "frame": 423,
+   "kind": "step_concrete_l",
+   "x": 0.016858510595777854,
+   "gain": 0.5,
+   "note": "pedestrian 12: left foot down"
+  },
+  {
+   "frame": 431,
+   "kind": "step_concrete_r",
+   "x": -0.03387063961876877,
+   "gain": 0.5,
+   "note": "pedestrian 12: right foot down"
+  },
+  {
+   "frame": 433,
+   "kind": "dog_paws",
+   "x": -0.01816738046740155,
+   "gain": 0.6,
+   "note": "the dog trots beside its walker"
+  },
+  {
+   "frame": 446,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.8,
+   "note": "ventilation fans behind the wall"
+  },
+  {
+   "frame": 470,
+   "kind": "paper_rustle",
+   "x": 0.2,
+   "gain": 0.5,
+   "note": "the mother turns a page"
+  },
+  {
+   "frame": 492,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.7,
+   "note": "era dissolve"
+  },
+  {
+   "frame": 510,
+   "kind": "step_wood_r",
+   "x": 0.25018301100534224,
+   "gain": 0.38718894272828014,
+   "note": "1847 family 2: right foot down"
+  },
+  {
+   "frame": 514,
+   "kind": "step_wood_l",
+   "x": 0.19071958650891785,
+   "gain": 0.40189580114633355,
+   "note": "1847 family 2: left foot down"
+  },
+  {
+   "frame": 516,
+   "kind": "step_wood_r",
+   "x": 0.15580678997988848,
+   "gain": 0.4100746431824925,
+   "note": "1847 family 2: right foot down"
+  },
+  {
+   "frame": 519,
+   "kind": "step_wood_l",
+   "x": 0.09864318674566162,
+   "gain": 0.42641751964686936,
+   "note": "1847 family 2: left foot down"
+  },
+  {
+   "frame": 521,
+   "kind": "step_wood_r",
+   "x": 0.05836419411612539,
+   "gain": 0.4377825974623516,
+   "note": "1847 family 2: right foot down"
+  },
+  {
+   "frame": 523,
+   "kind": "step_wood_l",
+   "x": 0.01721979914512367,
+   "gain": 0.4491341547758675,
+   "note": "1847 family 2: left foot down"
+  },
+  {
+   "frame": 526,
+   "kind": "step_wood_r",
+   "x": -0.04442467024561869,
+   "gain": 0.46920566995248364,
+   "note": "1847 family 2: right foot down"
+  },
+  {
+   "frame": 528,
+   "kind": "step_wood_l",
+   "x": -0.08431785596993678,
+   "gain": 0.48268278582081203,
+   "note": "1847 family 2: left foot down"
+  },
+  {
+   "frame": 531,
+   "kind": "step_wood_r",
+   "x": -0.14038601596508168,
+   "gain": 0.5,
+   "note": "1847 family 2: right foot down"
+  },
+  {
+   "frame": 533,
+   "kind": "step_wood_l",
+   "x": -0.17418254327975943,
+   "gain": 0.5,
+   "note": "1847 family 2: left foot down"
+  },
+  {
+   "frame": 537,
+   "kind": "step_wood_r",
+   "x": -0.2305393153328179,
+   "gain": 0.5,
+   "note": "1847 family 2: right foot down"
+  },
+  {
+   "frame": 540,
+   "kind": "paper_rustle",
+   "x": 0.2,
+   "gain": 0.5,
+   "note": "the mother turns a page"
+  },
+  {
+   "frame": 572,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.7,
+   "note": "era dissolve"
+  },
+  {
+   "frame": 606,
+   "kind": "crate_slide",
+   "x": 0,
+   "gain": 0.45,
+   "note": "crewman 0's hand cart rumbles in"
+  },
+  {
+   "frame": 606,
+   "kind": "ring_clank",
+   "x": -0.3,
+   "gain": 0.6,
+   "note": "an iron ring segment swung into place"
+  },
+  {
+   "frame": 612,
+   "kind": "shield_hiss",
+   "x": -0.2,
+   "gain": 0.8,
+   "note": "the shield's hydraulic rams shove forward"
+  },
+  {
+   "frame": 614,
+   "kind": "crate_slide",
+   "x": 0,
+   "gain": 0.45,
+   "note": "crewman 3's hand cart rumbles in"
+  },
+  {
+   "frame": 618,
+   "kind": "ring_clank",
+   "x": -0.16666666666666666,
+   "gain": 0.6,
+   "note": "an iron ring segment swung into place"
+  },
+  {
+   "frame": 619,
+   "kind": "step_concrete_r",
+   "x": -0.3540305314188826,
+   "gain": 0.2687084969100224,
+   "note": "1907 crewman 0: right foot down"
+  },
+  {
+   "frame": 620,
+   "kind": "step_concrete_l",
+   "x": -0.2854231614542942,
+   "gain": 0.2724742682568269,
+   "note": "1907 crewman 0: left foot down"
+  },
+  {
+   "frame": 621,
+   "kind": "step_concrete_r",
+   "x": -0.22021388400652434,
+   "gain": 0.27647755192212664,
+   "note": "1907 crewman 0: right foot down"
+  },
+  {
+   "frame": 622,
+   "kind": "step_concrete_l",
+   "x": -0.15859831537497918,
+   "gain": 0.2807217540393201,
+   "note": "1907 crewman 0: left foot down"
+  },
+  {
+   "frame": 623,
+   "kind": "step_concrete_r",
+   "x": -0.10075463132527378,
+   "gain": 0.2851865251198941,
+   "note": "1907 crewman 0: right foot down"
+  },
+  {
+   "frame": 624,
+   "kind": "step_concrete_l",
+   "x": -0.04684629552228666,
+   "gain": 0.2898277008187735,
+   "note": "1907 crewman 0: left foot down"
+  },
+  {
+   "frame": 625,
+   "kind": "step_concrete_r",
+   "x": 0.0029746369884466883,
+   "gain": 0.2945786410119859,
+   "note": "1907 crewman 0: right foot down"
+  },
+  {
+   "frame": 627,
+   "kind": "step_concrete_l",
+   "x": 0.08978230349732234,
+   "gain": 0.3040476944003604,
+   "note": "1907 crewman 0: left foot down"
+  },
+  {
+   "frame": 628,
+   "kind": "step_concrete_r",
+   "x": 0.12649168529115706,
+   "gain": 0.3085489384919214,
+   "note": "1907 crewman 0: right foot down"
+  },
+  {
+   "frame": 630,
+   "kind": "step_concrete_l",
+   "x": 0.18582907811591487,
+   "gain": 0.31648627600549606,
+   "note": "1907 crewman 0: left foot down"
+  },
+  {
+   "frame": 630,
+   "kind": "shovel_dig",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "tunnel gang digs at the shield"
+  },
+  {
+   "frame": 630,
+   "kind": "ring_clank",
+   "x": -0.033333333333333326,
+   "gain": 0.6,
+   "note": "an iron ring segment swung into place"
+  },
+  {
+   "frame": 632,
+   "kind": "step_concrete_r",
+   "x": 0.225444480664326,
+   "gain": 0.32221357385402005,
+   "note": "1907 crewman 0: right foot down"
+  },
+  {
+   "frame": 638,
+   "kind": "muck_cart",
+   "x": -0.4,
+   "gain": 0.7,
+   "note": "the navvy pushes the muck car back from the face"
+  },
+  {
+   "frame": 640,
+   "kind": "shield_hiss",
+   "x": -0.2,
+   "gain": 0.8,
+   "note": "the shield's hydraulic rams shove forward"
+  },
+  {
+   "frame": 642,
+   "kind": "ring_clank",
+   "x": 0.10000000000000003,
+   "gain": 0.6,
+   "note": "an iron ring segment swung into place"
+  },
+  {
+   "frame": 646,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "ring bolts hammered"
+  },
+  {
+   "frame": 654,
+   "kind": "ring_clank",
+   "x": 0.23333333333333334,
+   "gain": 0.6,
+   "note": "an iron ring segment swung into place"
+  },
+  {
+   "frame": 662,
+   "kind": "shovel_dig",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "tunnel gang"
+  },
+  {
+   "frame": 676,
+   "kind": "train_old",
+   "x": -0.3,
+   "gain": 0.9,
+   "note": "the first train runs through the finished tunnel"
+  },
+  {
+   "frame": 690,
+   "kind": "truck_pass",
+   "x": -0.5,
+   "gain": 0.6,
+   "note": "the lorry brings the fan"
+  },
+  {
+   "frame": 700,
+   "kind": "paper_unroll",
+   "x": -0.3,
+   "gain": 0.6,
+   "note": "the engineer spreads the plan"
+  },
+  {
+   "frame": 712,
+   "kind": "brake_squeak",
+   "x": -0.2,
+   "gain": 0.5,
+   "note": "the lorry stops"
+  },
+  {
+   "frame": 717,
+   "kind": "shovel_dig",
+   "x": -0.302259170092982,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 718,
+   "kind": "crane_winch",
+   "x": 0.4,
+   "gain": 0.8,
+   "note": "the derrick winch lifts the fan"
+  },
+  {
+   "frame": 719,
+   "kind": "hammer_hit",
+   "x": -0.041375301352399675,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 719,
+   "kind": "ratchet",
+   "x": 0.6919580319809336,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 720,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 721,
+   "kind": "hammer_hit",
+   "x": 0.8164747752391981,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 722,
+   "kind": "chain_rattle",
+   "x": 0.4,
+   "gain": 0.6,
+   "note": "lifting chain"
+  },
+  {
+   "frame": 742,
+   "kind": "hammer_hit",
+   "x": -0.5205371209051584,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 747,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 748,
+   "kind": "stone_thud",
+   "x": 0.3,
+   "gain": 0.8,
+   "note": "the fan is set down on its foundation"
+  },
+  {
+   "frame": 750,
+   "kind": "shovel_dig",
+   "x": -0.7482696409874218,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 751,
+   "kind": "hammer_hit",
+   "x": 0.4757724947853588,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 752,
+   "kind": "ratchet",
+   "x": 0.3,
+   "gain": 0.6,
+   "note": "bolting the fan housing"
+  },
+  {
+   "frame": 756,
+   "kind": "fan_spinup",
+   "x": 0.3,
+   "gain": 0.8,
+   "note": "the fan starts turning"
+  },
+  {
+   "frame": 760,
+   "kind": "ratchet",
+   "x": 0.3,
+   "gain": 0.6,
+   "note": "bolting the fan housing"
+  },
+  {
+   "frame": 762,
+   "kind": "ratchet",
+   "x": 0.7252426127428865,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 765,
+   "kind": "hammer_hit",
+   "x": 0.12916723529522348,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 768,
+   "kind": "ratchet",
+   "x": 0.3,
+   "gain": 0.6,
+   "note": "bolting the fan housing"
+  },
+  {
+   "frame": 770,
+   "kind": "paper_rustle",
+   "x": -0.3,
+   "gain": 0.5,
+   "note": "the engineer studies the plan"
+  },
+  {
+   "frame": 775,
+   "kind": "shovel_dig",
+   "x": -0.7326968888948642,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 781,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 784,
+   "kind": "shovel_dig",
+   "x": 0.38909504447374793,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 788,
+   "kind": "hammer_hit",
+   "x": 0.6719691412830366,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 794,
+   "kind": "whoosh_reveal",
+   "x": 0,
+   "gain": 0.4,
+   "note": "the imagined plant grows (design preview)"
+  },
+  {
+   "frame": 802,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 805,
+   "kind": "ratchet",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 811,
+   "kind": "hammer_hit",
+   "x": 0.22649465128276858,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 811,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 817,
+   "kind": "shovel_dig",
+   "x": -0.16264083484239822,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 828,
+   "kind": "step_concrete_r",
+   "x": -0.48642656311349813,
+   "gain": 0.37828506288920033,
+   "note": "resident 1: right foot down"
+  },
+  {
+   "frame": 829,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 830,
+   "kind": "step_concrete_l",
+   "x": -0.40922452142914184,
+   "gain": 0.3963899933639655,
+   "note": "resident 1: left foot down"
+  },
+  {
+   "frame": 831,
+   "kind": "step_concrete_r",
+   "x": -0.3734717790234918,
+   "gain": 0.40563612788662334,
+   "note": "resident 1: right foot down"
+  },
+  {
+   "frame": 832,
+   "kind": "step_concrete_l",
+   "x": -0.3398605978473747,
+   "gain": 0.4149942393258609,
+   "note": "resident 1: left foot down"
+  },
+  {
+   "frame": 834,
+   "kind": "step_concrete_r",
+   "x": -0.27967147688103494,
+   "gain": 0.433996750174621,
+   "note": "resident 1: right foot down"
+  },
+  {
+   "frame": 834,
+   "kind": "hammer_hit",
+   "x": -0.07202715784914371,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 835,
+   "kind": "step_concrete_l",
+   "x": -0.2533410206083005,
+   "gain": 0.4436119906724683,
+   "note": "resident 1: left foot down"
+  },
+  {
+   "frame": 837,
+   "kind": "step_concrete_r",
+   "x": -0.2086357146882365,
+   "gain": 0.46296136289219264,
+   "note": "resident 1: right foot down"
+  },
+  {
+   "frame": 840,
+   "kind": "step_concrete_l",
+   "x": -0.1618870237320549,
+   "gain": 0.49169157721674717,
+   "note": "resident 1: left foot down"
+  },
+  {
+   "frame": 841,
+   "kind": "hammer_hit",
+   "x": 0.7681147161698809,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 843,
+   "kind": "step_concrete_r",
+   "x": -0.13843514835176599,
+   "gain": 0.5,
+   "note": "resident 1: right foot down"
+  },
+  {
+   "frame": 847,
+   "kind": "ratchet",
+   "x": 0.566089845919648,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 850,
+   "kind": "shovel_dig",
+   "x": -0.4797055135391703,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 850,
+   "kind": "gulp",
+   "x": -0.2,
+   "gain": 0.7,
+   "note": "the engineer grimaces"
+  },
+  {
+   "frame": 857,
+   "kind": "hammer_hit",
+   "x": -0.19969264327664724,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 857,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 871,
+   "kind": "hammer_hit",
+   "x": 0.6780405597304723,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 880,
+   "kind": "hammer_hit",
+   "x": -0.22899318937095095,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 884,
+   "kind": "shovel_dig",
+   "x": -0.5308064302602095,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 884,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 884,
+   "kind": "cloth_soft",
+   "x": 0.4,
+   "gain": 0.8,
+   "note": "the lady turns away"
+  },
+  {
+   "frame": 890,
+   "kind": "ratchet",
+   "x": 0.5009204062475422,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 895,
+   "kind": "step_concrete_l",
+   "x": 0.1506829237216835,
+   "gain": 0.4782215321563206,
+   "note": "resident 0: left foot down"
+  },
+  {
+   "frame": 899,
+   "kind": "step_concrete_r",
+   "x": 0.21606635001037625,
+   "gain": 0.4603608039238623,
+   "note": "resident 0: right foot down"
+  },
+  {
+   "frame": 901,
+   "kind": "hammer_hit",
+   "x": 0.6775217939324797,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 902,
+   "kind": "step_concrete_l",
+   "x": 0.2884620938540062,
+   "gain": 0.44200075773859865,
+   "note": "resident 0: left foot down"
+  },
+  {
+   "frame": 903,
+   "kind": "hammer_hit",
+   "x": -0.2126805063464818,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 911,
+   "kind": "shovel_dig",
+   "x": -0.85,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 917,
+   "kind": "shovel_dig",
+   "x": -0.27102033914216145,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 924,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 927,
+   "kind": "hammer_hit",
+   "x": 0.3235430804831294,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 929,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 931,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 933,
+   "kind": "ratchet",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 934,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 938,
+   "kind": "shovel_dig",
+   "x": -0.6693223473461446,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 939,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 944,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 949,
+   "kind": "pen_scratch",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "he scribbles a big X"
+  },
+  {
+   "frame": 950,
+   "kind": "shovel_dig",
+   "x": 0.39627057708605373,
+   "gain": 0.45,
+   "note": "crewman 0: shovel"
+  },
+  {
+   "frame": 950,
+   "kind": "hammer_hit",
+   "x": 0.6962705770860538,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 950,
+   "kind": "reject_buzz",
+   "x": 0,
+   "gain": 0.7,
+   "note": "the imagined plant folds away (rejected)"
+  },
+  {
+   "frame": 961,
+   "kind": "hammer_hit",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 4: hammer"
+  },
+  {
+   "frame": 966,
+   "kind": "shovel_dig",
+   "x": -0.5781061591773401,
+   "gain": 0.45,
+   "note": "crewman 3: shovel"
+  },
+  {
+   "frame": 966,
+   "kind": "idea_ding",
+   "x": 0,
+   "gain": 0.45,
+   "note": "he looks at the real house"
+  },
+  {
+   "frame": 973,
+   "kind": "hammer_hit",
+   "x": 0.6737475208254868,
+   "gain": 0.45,
+   "note": "crewman 1: hammer"
+  },
+  {
+   "frame": 976,
+   "kind": "ratchet",
+   "x": 0.85,
+   "gain": 0.45,
+   "note": "crewman 2: wrench"
+  },
+  {
+   "frame": 996,
+   "kind": "step_concrete_r",
+   "x": -0.14359478947234305,
+   "gain": 0.2512295214978147,
+   "note": "conversion crew 0: right foot down"
+  },
+  {
+   "frame": 999,
+   "kind": "step_concrete_l",
+   "x": -0.20232275030873068,
+   "gain": 0.28037987380041524,
+   "note": "conversion crew 0: left foot down"
+  },
+  {
+   "frame": 1002,
+   "kind": "step_concrete_r",
+   "x": -0.25766340230501467,
+   "gain": 0.31462502933283626,
+   "note": "conversion crew 0: right foot down"
+  },
+  {
+   "frame": 1004,
+   "kind": "timber_thud",
+   "x": -0.1,
+   "gain": 0.6,
+   "note": "furniture carried out down the stoop"
+  },
+  {
+   "frame": 1005,
+   "kind": "step_concrete_l",
+   "x": -0.3048966776120388,
+   "gain": 0.35166159919536893,
+   "note": "conversion crew 0: left foot down"
+  },
+  {
+   "frame": 1015,
+   "kind": "timber_thud",
+   "x": -0.1,
+   "gain": 0.6,
+   "note": "furniture carried out down the stoop"
+  },
+  {
+   "frame": 1020,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.45,
+   "note": "stripping the rooms to the brick"
+  },
+  {
+   "frame": 1028,
+   "kind": "timber_thud",
+   "x": -0.1,
+   "gain": 0.6,
+   "note": "furniture carried out down the stoop"
+  },
+  {
+   "frame": 1031,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.45,
+   "note": "stripping the rooms to the brick"
+  },
+  {
+   "frame": 1036,
+   "kind": "crane_winch",
+   "x": 0,
+   "gain": 0.7,
+   "note": "machinery lowered into the shell"
+  },
+  {
+   "frame": 1042,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.45,
+   "note": "stripping the rooms to the brick"
+  },
+  {
+   "frame": 1044,
+   "kind": "steel_clank",
+   "x": 0,
+   "gain": 0.7,
+   "note": "steel and fan housing set in place"
+  },
+  {
+   "frame": 1053,
+   "kind": "hammer_hit",
+   "x": -0.2,
+   "gain": 0.45,
+   "note": "stripping the rooms to the brick"
+  },
+  {
+   "frame": 1054,
+   "kind": "steel_clank",
+   "x": 0,
+   "gain": 0.7,
+   "note": "steel and fan housing set in place"
+  },
+  {
+   "frame": 1056,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.7,
+   "note": "era dissolve"
+  },
+  {
+   "frame": 1062,
+   "kind": "step_concrete_l",
+   "x": -0.17288038570133094,
+   "gain": 0.5,
+   "note": "conversion crew 3: left foot down"
+  },
+  {
+   "frame": 1065,
+   "kind": "step_concrete_r",
+   "x": -0.12262130960896311,
+   "gain": 0.5,
+   "note": "conversion crew 3: right foot down"
+  },
+  {
+   "frame": 1083,
+   "kind": "step_concrete_l",
+   "x": -0.21575341806696127,
+   "gain": 0.9913476679080002,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1088,
+   "kind": "step_concrete_r",
+   "x": -0.1059650045006959,
+   "gain": 0.8755676180160422,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 1092,
+   "kind": "step_concrete_l",
+   "x": -0.04132142242169053,
+   "gain": 0.7847654312168078,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1097,
+   "kind": "step_concrete_r",
+   "x": 0.016212393944325276,
+   "gain": 0.6886123625818087,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 1102,
+   "kind": "step_concrete_l",
+   "x": 0.054857114455707956,
+   "gain": 0.6097965127607832,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1106,
+   "kind": "step_concrete_r",
+   "x": 0.07625920050052419,
+   "gain": 0.5571977508164677,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 1110,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 1111,
+   "kind": "step_concrete_l",
+   "x": 0.0956509182067492,
+   "gain": 0.5025448561019606,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1115,
+   "kind": "step_concrete_r",
+   "x": 0.1086039828587569,
+   "gain": 0.4665766526681413,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 1120,
+   "kind": "step_concrete_l",
+   "x": 0.12607546843025297,
+   "gain": 0.4301711706643132,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1124,
+   "kind": "far_horn",
+   "x": -0.6,
+   "gain": 1,
+   "note": "a car horn two streets away"
+  },
+  {
+   "frame": 1125,
+   "kind": "step_concrete_r",
+   "x": 0.1499477277841794,
+   "gain": 0.40229812904881196,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 1129,
+   "kind": "step_concrete_l",
+   "x": 0.1772297668308752,
+   "gain": 0.38558910862952284,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1134,
+   "kind": "step_concrete_r",
+   "x": 0.22553871058371397,
+   "gain": 0.37150649447201245,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 1139,
+   "kind": "step_concrete_l",
+   "x": 0.2911944165120412,
+   "gain": 0.3665774112192017,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1143,
+   "kind": "step_concrete_r",
+   "x": 0.3535153411604284,
+   "gain": 0.37219807155232804,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 1148,
+   "kind": "step_concrete_l",
+   "x": 0.43722607767998606,
+   "gain": 0.3953962208310709,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1150,
+   "kind": "whoosh_reveal",
+   "x": 0,
+   "gain": 0.5,
+   "note": "reveal 2: the facade dissolves"
+  },
+  {
+   "frame": 1170,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.9,
+   "note": "fans + air drawn up the shaft"
+  },
+  {
+   "frame": 1177,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 1186,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.9,
+   "note": "passing the fans (in and back out)"
+  },
+  {
+   "frame": 1205,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.9,
+   "note": "fans + air drawn up the shaft"
+  },
+  {
+   "frame": 1214,
+   "kind": "ratchet",
+   "x": -0.3,
+   "gain": 0.7,
+   "note": "the panel worker turns a valve with his wrench"
+  },
+  {
+   "frame": 1221,
+   "kind": "ratchet",
+   "x": -0.3,
+   "gain": 0.7,
+   "note": "the panel worker turns a valve with his wrench"
+  },
+  {
+   "frame": 1229,
+   "kind": "cloth_soft",
+   "x": -0.3,
+   "gain": 1,
+   "note": "he whips round (double-take)"
+  },
+  {
+   "frame": 1232,
+   "kind": "train_now_pass",
+   "x": 0,
+   "gain": 1,
+   "note": "today's train: approach, pass, muffled as we climb the shaft"
+  },
+  {
+   "frame": 1236,
+   "kind": "sign_hum",
+   "x": 0,
+   "gain": 1,
+   "note": "the EXIT lamp over the doorway"
+  },
+  {
+   "frame": 1240,
+   "kind": "tunnel_drip",
+   "x": -0.4,
+   "gain": 1,
+   "note": "water dripping in the tube"
+  },
+  {
+   "frame": 1257,
+   "kind": "rail_clack",
+   "x": -0.7320022305682489,
+   "gain": 0.2,
+   "note": "axle over the rail joint at x -16.2"
+  },
+  {
+   "frame": 1258,
+   "kind": "tunnel_drip",
+   "x": 0.5,
+   "gain": 1,
+   "note": "water dripping in the tube"
+  },
+  {
+   "frame": 1278,
+   "kind": "rail_clack",
+   "x": -0.85,
+   "gain": 0.2,
+   "note": "axle over the rail joint at x -16.2"
+  },
+  {
+   "frame": 1281,
+   "kind": "rail_clack",
+   "x": 0.2854920339722467,
+   "gain": 0.9124121332743982,
+   "note": "axle over the rail joint at x -4.3"
+  },
+  {
+   "frame": 1282,
+   "kind": "rail_clack",
+   "x": -0.85,
+   "gain": 0.2,
+   "note": "axle over the rail joint at x -16.2"
+  },
+  {
+   "frame": 1284,
+   "kind": "brake_squeal",
+   "x": 0.2,
+   "gain": 1,
+   "note": "the train brakes for the curve"
+  },
+  {
+   "frame": 1286,
+   "kind": "rail_clack",
+   "x": -0.30408745698154394,
+   "gain": 0.90317481672652,
+   "note": "axle over the rail joint at x -4.3"
+  },
+  {
+   "frame": 1291,
+   "kind": "rail_clack",
+   "x": -0.85,
+   "gain": 0.2,
+   "note": "axle over the rail joint at x -16.2"
+  },
+  {
+   "frame": 1295,
+   "kind": "rail_clack",
+   "x": -0.85,
+   "gain": 0.2,
+   "note": "axle over the rail joint at x -16.2"
+  },
+  {
+   "frame": 1296,
+   "kind": "tunnel_drip",
+   "x": -0.2,
+   "gain": 1,
+   "note": "water dripping in the tube"
+  },
+  {
+   "frame": 1300,
+   "kind": "air_rush",
+   "x": 0,
+   "gain": 1,
+   "note": "piston wind rushes up the shaft with the camera"
+  },
+  {
+   "frame": 1330,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 1336,
+   "kind": "fan_hum",
+   "x": 0,
+   "gain": 0.9,
+   "note": "passing the fans (in and back out)"
+  },
+  {
+   "frame": 1348,
+   "kind": "car_pass",
+   "x": 0,
+   "gain": 0.8,
+   "note": "a car passes along Joralemon Street"
+  },
+  {
+   "frame": 1372,
+   "kind": "step_concrete_l",
+   "x": -0.21012173159401648,
+   "gain": 0.584724621126134,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1372,
+   "kind": "bike_tick",
+   "x": -0.85,
+   "gain": 0.8,
+   "note": "the cyclist freewheels past"
+  },
+  {
+   "frame": 1384,
+   "kind": "pigeon_flutter",
+   "x": 0.5100548210076893,
+   "gain": 0.6704884869271621,
+   "note": "pigeon 0 lands"
+  },
+  {
+   "frame": 1387,
+   "kind": "step_concrete_r",
+   "x": -0.057367986340743395,
+   "gain": 0.44599890562590366,
+   "note": "pedestrian 7: right foot down"
+  },
+  {
+   "frame": 1387,
+   "kind": "pigeon_flutter",
+   "x": 0.7542493536661908,
+   "gain": 0.6410570547981749,
+   "note": "pigeon 2 lands"
+  },
+  {
+   "frame": 1391,
+   "kind": "pigeon_flutter",
+   "x": 0.6415390361489435,
+   "gain": 0.6479208363438957,
+   "note": "pigeon 1 lands"
+  },
+  {
+   "frame": 1395,
+   "kind": "pigeon_flutter",
+   "x": 0.85,
+   "gain": 0.5847171435289423,
+   "note": "pigeon 3 lands"
+  },
+  {
+   "frame": 1396,
+   "kind": "step_concrete_l",
+   "x": 0.0573176460965279,
+   "gain": 0.40139218637985885,
+   "note": "pedestrian 7: left foot down"
+  },
+  {
+   "frame": 1398,
+   "kind": "cloth_soft",
+   "x": 0,
+   "gain": 1,
+   "note": "the hero's jacket on a big gesture"
+  },
+  {
+   "frame": 1399,
+   "kind": "pigeon_flutter",
+   "x": 0.85,
+   "gain": 0.5355791444564586,
+   "note": "pigeon 4 lands"
+  },
+  {
+   "frame": 1405,
+   "kind": "step_concrete_r",
+   "x": 0.09904010358811462,
+   "gain": 0.342788965546313,
+   "note": "pedestrian 7: right foot down"
+  },
+  {
+   "frame": 1413,
+   "kind": "step_concrete_l",
+   "x": 0.08233604426622769,
+   "gain": 0.2975380386940896,
+   "note": "pedestrian 7: left foot down"
+  },
+  {
+   "frame": 1418,
+   "kind": "step_concrete_r",
+   "x": -0.2744573642548314,
+   "gain": 0.3369946375384408,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 1420,
+   "kind": "leaves",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a breeze moves the plane-tree leaves (visible sway)"
+  },
+  {
+   "frame": 1421,
+   "kind": "pigeon_coo",
+   "x": 0.5752899068182461,
+   "gain": 0.8,
+   "note": "a pigeon coos on the sidewalk"
+  },
+  {
+   "frame": 1422,
+   "kind": "step_concrete_r",
+   "x": 0.037877145919633426,
+   "gain": 0.26061273512954536,
+   "note": "pedestrian 7: right foot down"
+  },
+  {
+   "frame": 1423,
+   "kind": "step_concrete_l",
+   "x": -0.40815560200010476,
+   "gain": 0.31506193083581463,
+   "note": "hero 0: left foot down"
+  },
+  {
+   "frame": 1429,
+   "kind": "step_concrete_r",
+   "x": -0.5601107800997586,
+   "gain": 0.29506047577248895,
+   "note": "hero 0: right foot down"
+  },
+  {
+   "frame": 1461,
+   "kind": "pigeon_coo",
+   "x": 0.4166666666666667,
+   "gain": 0.8,
+   "note": "a pigeon coos on the sidewalk"
+  }
+ ]
+}

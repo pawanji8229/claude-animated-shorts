@@ -1,0 +1,9 @@
+cache/
+*.tmp
+# original models stay local until you approve publication (public repo)
+originals/**/*.glb
+originals/**/*.jpg
+originals/**/*.png
+publish/
+publish-log.jsonl
+asset-report-*.json

@@ -1,0 +1,77 @@
+# Sound cue sheet (0–9.69 s; loop-safe: True)
+
+Narration-priority mix. Narration -23.1 LUFS is the reference; event levels are peak dB under the narration peak, beds are LU under the narration loudness. Ducking under speech: {'sfx': -4, 'crowd': -8, 'ambience': -6, 'music': -10}. Word masking guard: every word ≥ 15 dB above all other layers in the 300–4000 Hz speech band (worst word before guard 14.3 dB, after 15.5 dB; 1 guard cuts). Master +7.0 dB → -16.1 LUFS, -1.1 dBTP.
+
+Measured stem loudness vs narration (LU): {'sfx': np.float64(-22.1), 'crowd': np.float64(-34.0), 'ambience': np.float64(-29.2), 'music': None}
+
+All effects are procedurally synthesised in `studio/audio/` (no third-party recordings).
+
+| frame | start s | end s | source / object | generator | stem | level | pan |
+|---|---|---|---|---|---|---|---|
+| 0 | 0.000 | 9.691 | gentle distant crowd murmur (no shouting) (continuous, loop-safe) | crowd_murmur | bed | -28 LU re narration | stereo wide |
+| 0 | 0.000 | 9.691 | river lapping under the bridge (continuous, loop-safe) | river_bed | bed | -25 LU re narration | stereo wide |
+| 0 | 0.000 | 9.691 | light desert wind (continuous, loop-safe) | desert_wind | bed | -30 LU re narration | stereo wide |
+| 21 | 0.700 | 0.790 | person 0 claps | clap_soft | crowd | -24.1 dB re narration peak | -0.67 |
+| 29 | 0.967 | 1.057 | person 0 claps | clap_soft | crowd | -22.4 dB re narration peak | -0.75 |
+| 29 | 0.967 | 1.317 | person 1 lifts camera | cloth_soft | sfx | -29.2 dB re narration peak | -0.03 |
+| 30 | 1.000 | 1.259 | person 9 lapel | cloth_soft | sfx | -29.1 dB re narration peak | -0.54 |
+| 37 | 1.233 | 1.323 | person 0 claps | clap_soft | crowd | -22.9 dB re narration peak | -0.82 |
+| 44 | 1.467 | 1.887 | person 1 presses the shutter | shutter | sfx | -14.2 dB re narration peak | -0.15 |
+| 44 | 1.467 | 1.817 | person 1 flashcube/flash gun fires | flash_pop | sfx | -22.7 dB re narration peak | -0.15 |
+| 46 | 1.533 | 1.623 | person 0 claps | clap_soft | crowd | -23.2 dB re narration peak | -0.88 |
+| 106 | 1.533 | 7.533 | motorboat 1 passes under the arch | boat_pass | sfx | -22.8 dB re narration peak | +0.38 |
+| 53 | 1.767 | 2.067 | person 1 winds on the film | film_advance | sfx | -25.1 dB re narration peak | -0.20 |
+| 58 | 1.933 | 2.353 | person 1 presses the shutter | shutter | sfx | -14.4 dB re narration peak | -0.22 |
+| 60 | 2.000 | 2.281 | person 6 wave | cloth_soft | sfx | -28.5 dB re narration peak | -0.28 |
+| 65 | 2.167 | 2.535 | person 1 lowers camera | cloth_soft | sfx | -29.4 dB re narration peak | -0.24 |
+| 67 | 2.233 | 2.533 | person 1 winds on the film | film_advance | sfx | -26.1 dB re narration peak | -0.25 |
+| 104 | 3.467 | 3.726 | person 3 lifts camera | cloth_soft | sfx | -28.1 dB re narration peak | -0.25 |
+| 110 | 3.667 | 3.757 | person 4 claps | clap_soft | crowd | -22.7 dB re narration peak | -0.65 |
+| 117 | 3.900 | 3.990 | person 4 claps | clap_soft | crowd | -22.3 dB re narration peak | -0.59 |
+| 124 | 4.133 | 4.553 | person 3 presses the shutter | shutter | sfx | -13.6 dB re narration peak | -0.07 |
+| 124 | 4.133 | 4.483 | person 3 flashcube/flash gun fires | flash_pop | sfx | -21.5 dB re narration peak | -0.07 |
+| 124 | 4.133 | 4.223 | person 4 claps | clap_soft | crowd | -21.9 dB re narration peak | -0.52 |
+| 126 | 4.200 | 4.290 | person 0 claps | clap_soft | crowd | -21.8 dB re narration peak | -0.65 |
+| 131 | 4.367 | 4.667 | person 3 winds on the film | film_advance | sfx | -24.8 dB re narration peak | +0.00 |
+| 136 | 4.533 | 4.623 | person 0 claps | clap_soft | crowd | -23.9 dB re narration peak | -0.54 |
+| 136 | 4.533 | 4.828 | person 3 lowers camera | cloth_soft | sfx | -28.3 dB re narration peak | +0.06 |
+| 203 | 4.767 | 10.767 | motorboat 0 passes under the arch | boat_pass | sfx | -23.3 dB re narration peak | -0.33 |
+| 150 | 5.000 | 5.449 | person 6 lapel | cloth_soft | sfx | -27.3 dB re narration peak | +0.29 |
+| 152 | 5.067 | 5.347 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -27.7 dB re narration peak | -0.15 |
+| 155 | 5.167 | 5.468 | person 7 lifts camera | cloth_soft | sfx | -26.9 dB re narration peak | -0.22 |
+| 158 | 5.267 | 5.357 | person 8 claps | clap_soft | crowd | -21.6 dB re narration peak | +0.48 |
+| 172 | 5.733 | 6.153 | person 7 presses the shutter | shutter | sfx | -16.3 dB re narration peak | -0.04 |
+| 180 | 6.000 | 6.300 | person 7 winds on the film | film_advance | sfx | -24.1 dB re narration peak | +0.03 |
+| 188 | 6.267 | 6.687 | person 7 presses the shutter | shutter | sfx | -15.7 dB re narration peak | +0.09 |
+| 188 | 6.267 | 6.617 | person 7 flashcube/flash gun fires | flash_pop | sfx | -23.4 dB re narration peak | +0.09 |
+| 190 | 6.333 | 6.776 | person 9 lifts camera | cloth_soft | sfx | -28.1 dB re narration peak | +0.22 |
+| 196 | 6.533 | 6.792 | person 7 lowers camera | cloth_soft | sfx | -26.8 dB re narration peak | +0.14 |
+| 197 | 6.567 | 6.867 | person 7 winds on the film | film_advance | sfx | -26.1 dB re narration peak | +0.14 |
+| 206 | 6.867 | 7.287 | person 9 presses the shutter | shutter | sfx | -15.2 dB re narration peak | +0.30 |
+| 214 | 7.133 | 7.433 | person 9 winds on the film | film_advance | sfx | -23.9 dB re narration peak | +0.31 |
+| 215 | 7.167 | 7.472 | person 5 lifts camera | cloth_soft | sfx | -27.4 dB re narration peak | +0.92 |
+| 216 | 7.200 | 7.620 | person 9 presses the shutter | shutter | sfx | -16.4 dB re narration peak | +0.32 |
+| 216 | 7.200 | 7.550 | person 9 flashcube/flash gun fires | flash_pop | sfx | -24.5 dB re narration peak | +0.32 |
+| 218 | 7.267 | 7.357 | person 6 claps | clap_soft | crowd | -23.3 dB re narration peak | +0.77 |
+| 220 | 7.333 | 7.613 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -28.0 dB re narration peak | -0.15 |
+| 225 | 7.500 | 7.800 | person 9 winds on the film | film_advance | sfx | -25.0 dB re narration peak | +0.31 |
+| 225 | 7.500 | 7.837 | person 9 lowers camera | cloth_soft | sfx | -26.7 dB re narration peak | +0.31 |
+| 228 | 7.600 | 7.690 | person 6 claps | clap_soft | crowd | -23.4 dB re narration peak | +0.75 |
+| 229 | 7.633 | 8.053 | person 5 presses the shutter | shutter | sfx | -14.2 dB re narration peak | +0.90 |
+| 229 | 7.633 | 7.983 | person 5 flashcube/flash gun fires | flash_pop | sfx | -23.8 dB re narration peak | +0.90 |
+| 233 | 7.767 | 7.947 | comic freeze tick | freeze_sting | sfx | -25.6 dB re narration peak | -0.10 |
+| 236 | 7.867 | 8.167 | person 5 winds on the film | film_advance | sfx | -25.0 dB re narration peak | +0.88 |
+| 236 | 7.867 | 8.187 | Hal gulps after the flash | gulp | sfx | -18.8 dB re narration peak | -0.15 |
+| 238 | 7.933 | 8.381 | person 3 wave | cloth_soft | sfx | -28.4 dB re narration peak | +0.65 |
+| 9 | 7.991 | 13.991 | motorboat 2 passes under the arch | boat_pass | sfx | -22.9 dB re narration peak | -0.03 |
+| 240 | 8.000 | 8.262 | person 0 hat | cloth_soft | sfx | -27.8 dB re narration peak | +0.04 |
+| 242 | 8.067 | 8.350 | person 7 lifts camera | cloth_soft | sfx | -27.7 dB re narration peak | +0.13 |
+| 246 | 8.200 | 8.620 | person 5 presses the shutter | shutter | sfx | -15.1 dB re narration peak | +0.82 |
+| 246 | 8.200 | 8.480 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -27.9 dB re narration peak | -0.15 |
+| 252 | 8.400 | 8.654 | person 2 lapel | cloth_soft | sfx | -29.2 dB re narration peak | +0.25 |
+| 253 | 8.433 | 8.733 | person 5 winds on the film | film_advance | sfx | -23.6 dB re narration peak | +0.77 |
+| 254 | 8.467 | 8.812 | person 5 lowers camera | cloth_soft | sfx | -26.8 dB re narration peak | +0.77 |
+| 258 | 8.600 | 9.020 | person 7 presses the shutter | shutter | sfx | -15.4 dB re narration peak | +0.02 |
+| 263 | 8.767 | 9.061 | person 7 lowers camera | cloth_soft | sfx | -28.8 dB re narration peak | -0.03 |
+| 265 | 8.833 | 9.133 | person 7 winds on the film | film_advance | sfx | -25.0 dB re narration peak | -0.05 |
+| 278 | 9.267 | 9.547 | Hal's suit sleeve (gesture change) | fabric_swish | sfx | -28.3 dB re narration peak | -0.15 |

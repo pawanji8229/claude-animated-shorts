@@ -1,0 +1,454 @@
+{
+ "fps": 30,
+ "frames": 291,
+ "events": [
+  {
+   "frame": 9,
+   "kind": "boat_pass",
+   "x": -0.03333333333333333,
+   "gain": 0.55,
+   "note": "motorboat 2 passes under the arch"
+  },
+  {
+   "frame": 21,
+   "kind": "clap_soft",
+   "x": -0.6669587609902307,
+   "gain": 1,
+   "note": "person 0 claps"
+  },
+  {
+   "frame": 29,
+   "kind": "clap_soft",
+   "x": -0.7458864416669909,
+   "gain": 1,
+   "note": "person 0 claps"
+  },
+  {
+   "frame": 29,
+   "kind": "cloth_soft",
+   "x": -0.029219775000324095,
+   "gain": 1,
+   "note": "person 1 lifts camera"
+  },
+  {
+   "frame": 30,
+   "kind": "cloth_soft",
+   "x": -0.5384770848975601,
+   "gain": 1,
+   "note": "person 9 lapel"
+  },
+  {
+   "frame": 37,
+   "kind": "clap_soft",
+   "x": -0.815511670019332,
+   "gain": 1,
+   "note": "person 0 claps"
+  },
+  {
+   "frame": 44,
+   "kind": "shutter",
+   "x": -0.15049909347650706,
+   "gain": 1,
+   "note": "person 1 presses the shutter"
+  },
+  {
+   "frame": 44,
+   "kind": "flash_pop",
+   "x": -0.15049909347650706,
+   "gain": 1,
+   "note": "person 1 flashcube/flash gun fires"
+  },
+  {
+   "frame": 46,
+   "kind": "clap_soft",
+   "x": -0.8801533292740545,
+   "gain": 1,
+   "note": "person 0 claps"
+  },
+  {
+   "frame": 53,
+   "kind": "film_advance",
+   "x": -0.20223768166565273,
+   "gain": 1,
+   "note": "person 1 winds on the film"
+  },
+  {
+   "frame": 58,
+   "kind": "shutter",
+   "x": -0.22318037983923725,
+   "gain": 1,
+   "note": "person 1 presses the shutter"
+  },
+  {
+   "frame": 60,
+   "kind": "cloth_soft",
+   "x": -0.2799174754314831,
+   "gain": 1,
+   "note": "person 6 wave"
+  },
+  {
+   "frame": 65,
+   "kind": "cloth_soft",
+   "x": -0.2425504118920232,
+   "gain": 1,
+   "note": "person 1 lowers camera"
+  },
+  {
+   "frame": 67,
+   "kind": "film_advance",
+   "x": -0.2458949328554881,
+   "gain": 1,
+   "note": "person 1 winds on the film"
+  },
+  {
+   "frame": 104,
+   "kind": "cloth_soft",
+   "x": -0.24979678233513405,
+   "gain": 1,
+   "note": "person 3 lifts camera"
+  },
+  {
+   "frame": 106,
+   "kind": "boat_pass",
+   "x": 0.3833333333333333,
+   "gain": 0.55,
+   "note": "motorboat 1 passes under the arch"
+  },
+  {
+   "frame": 110,
+   "kind": "clap_soft",
+   "x": -0.653265173210826,
+   "gain": 1,
+   "note": "person 4 claps"
+  },
+  {
+   "frame": 117,
+   "kind": "clap_soft",
+   "x": -0.5912028741541437,
+   "gain": 1,
+   "note": "person 4 claps"
+  },
+  {
+   "frame": 124,
+   "kind": "shutter",
+   "x": -0.07212101885991966,
+   "gain": 1,
+   "note": "person 3 presses the shutter"
+  },
+  {
+   "frame": 124,
+   "kind": "flash_pop",
+   "x": -0.07212101885991966,
+   "gain": 1,
+   "note": "person 3 flashcube/flash gun fires"
+  },
+  {
+   "frame": 124,
+   "kind": "clap_soft",
+   "x": -0.5221210188599196,
+   "gain": 1,
+   "note": "person 4 claps"
+  },
+  {
+   "frame": 126,
+   "kind": "clap_soft",
+   "x": -0.6513110365725634,
+   "gain": 1,
+   "note": "person 0 claps"
+  },
+  {
+   "frame": 131,
+   "kind": "film_advance",
+   "x": 0.0024052970422534514,
+   "gain": 1,
+   "note": "person 3 winds on the film"
+  },
+  {
+   "frame": 136,
+   "kind": "clap_soft",
+   "x": -0.5419657552295062,
+   "gain": 1,
+   "note": "person 0 claps"
+  },
+  {
+   "frame": 136,
+   "kind": "cloth_soft",
+   "x": 0.05803424477049409,
+   "gain": 1,
+   "note": "person 3 lowers camera"
+  },
+  {
+   "frame": 150,
+   "kind": "cloth_soft",
+   "x": 0.2850719215224782,
+   "gain": 1,
+   "note": "person 6 lapel"
+  },
+  {
+   "frame": 152,
+   "kind": "fabric_swish",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal's suit sleeve (gesture change)"
+  },
+  {
+   "frame": 155,
+   "kind": "cloth_soft",
+   "x": -0.22470091143716076,
+   "gain": 1,
+   "note": "person 7 lifts camera"
+  },
+  {
+   "frame": 158,
+   "kind": "clap_soft",
+   "x": 0.4755367835521926,
+   "gain": 1,
+   "note": "person 8 claps"
+  },
+  {
+   "frame": 172,
+   "kind": "shutter",
+   "x": -0.044551361250597665,
+   "gain": 1,
+   "note": "person 7 presses the shutter"
+  },
+  {
+   "frame": 180,
+   "kind": "film_advance",
+   "x": 0.028217805870668283,
+   "gain": 1,
+   "note": "person 7 winds on the film"
+  },
+  {
+   "frame": 188,
+   "kind": "shutter",
+   "x": 0.09022620259609464,
+   "gain": 1,
+   "note": "person 7 presses the shutter"
+  },
+  {
+   "frame": 188,
+   "kind": "flash_pop",
+   "x": 0.09022620259609464,
+   "gain": 1,
+   "note": "person 7 flashcube/flash gun fires"
+  },
+  {
+   "frame": 190,
+   "kind": "cloth_soft",
+   "x": 0.22048945770581638,
+   "gain": 1,
+   "note": "person 9 lifts camera"
+  },
+  {
+   "frame": 196,
+   "kind": "cloth_soft",
+   "x": 0.1396282860759328,
+   "gain": 1,
+   "note": "person 7 lowers camera"
+  },
+  {
+   "frame": 197,
+   "kind": "film_advance",
+   "x": 0.14483952384926133,
+   "gain": 1,
+   "note": "person 7 winds on the film"
+  },
+  {
+   "frame": 203,
+   "kind": "boat_pass",
+   "x": -0.3333333333333333,
+   "gain": 0.55,
+   "note": "motorboat 0 passes under the arch"
+  },
+  {
+   "frame": 206,
+   "kind": "shutter",
+   "x": 0.2981193419091852,
+   "gain": 1,
+   "note": "person 9 presses the shutter"
+  },
+  {
+   "frame": 214,
+   "kind": "film_advance",
+   "x": 0.31442270428497626,
+   "gain": 1,
+   "note": "person 9 winds on the film"
+  },
+  {
+   "frame": 215,
+   "kind": "cloth_soft",
+   "x": 0.9153540709250905,
+   "gain": 1,
+   "note": "person 5 lifts camera"
+  },
+  {
+   "frame": 216,
+   "kind": "shutter",
+   "x": 0.31603741828244836,
+   "gain": 1,
+   "note": "person 9 presses the shutter"
+  },
+  {
+   "frame": 216,
+   "kind": "flash_pop",
+   "x": 0.31603741828244836,
+   "gain": 1,
+   "note": "person 9 flashcube/flash gun fires"
+  },
+  {
+   "frame": 218,
+   "kind": "clap_soft",
+   "x": 0.7666588966588831,
+   "gain": 1,
+   "note": "person 6 claps"
+  },
+  {
+   "frame": 220,
+   "kind": "fabric_swish",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal's suit sleeve (gesture change)"
+  },
+  {
+   "frame": 225,
+   "kind": "film_advance",
+   "x": 0.31101233665939,
+   "gain": 1,
+   "note": "person 9 winds on the film"
+  },
+  {
+   "frame": 225,
+   "kind": "cloth_soft",
+   "x": 0.31101233665939,
+   "gain": 1,
+   "note": "person 9 lowers camera"
+  },
+  {
+   "frame": 228,
+   "kind": "clap_soft",
+   "x": 0.7548920386109709,
+   "gain": 1,
+   "note": "person 6 claps"
+  },
+  {
+   "frame": 229,
+   "kind": "shutter",
+   "x": 0.902364273026158,
+   "gain": 1,
+   "note": "person 5 presses the shutter"
+  },
+  {
+   "frame": 229,
+   "kind": "flash_pop",
+   "x": 0.902364273026158,
+   "gain": 1,
+   "note": "person 5 flashcube/flash gun fires"
+  },
+  {
+   "frame": 233,
+   "kind": "freeze_sting",
+   "x": -0.1,
+   "gain": 0.4,
+   "note": "comic freeze tick"
+  },
+  {
+   "frame": 236,
+   "kind": "film_advance",
+   "x": 0.8779750546849255,
+   "gain": 1,
+   "note": "person 5 winds on the film"
+  },
+  {
+   "frame": 236,
+   "kind": "gulp",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal gulps after the flash"
+  },
+  {
+   "frame": 238,
+   "kind": "cloth_soft",
+   "x": 0.6522376816656527,
+   "gain": 1,
+   "note": "person 3 wave"
+  },
+  {
+   "frame": 240,
+   "kind": "cloth_soft",
+   "x": 0.04226162008438076,
+   "gain": 1,
+   "note": "person 0 hat"
+  },
+  {
+   "frame": 242,
+   "kind": "cloth_soft",
+   "x": 0.13139880380708568,
+   "gain": 1,
+   "note": "person 7 lifts camera"
+  },
+  {
+   "frame": 246,
+   "kind": "shutter",
+   "x": 0.8237622050422703,
+   "gain": 1,
+   "note": "person 5 presses the shutter"
+  },
+  {
+   "frame": 246,
+   "kind": "fabric_swish",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal's suit sleeve (gesture change)"
+  },
+  {
+   "frame": 252,
+   "kind": "cloth_soft",
+   "x": 0.24788129127639813,
+   "gain": 1,
+   "note": "person 2 lapel"
+  },
+  {
+   "frame": 253,
+   "kind": "film_advance",
+   "x": 0.773454081239891,
+   "gain": 1,
+   "note": "person 5 winds on the film"
+  },
+  {
+   "frame": 254,
+   "kind": "cloth_soft",
+   "x": 0.765511670019332,
+   "gain": 1,
+   "note": "person 5 lowers camera"
+  },
+  {
+   "frame": 258,
+   "kind": "shutter",
+   "x": 0.015331967620934842,
+   "gain": 1,
+   "note": "person 7 presses the shutter"
+  },
+  {
+   "frame": 263,
+   "kind": "cloth_soft",
+   "x": -0.030183241994915733,
+   "gain": 1,
+   "note": "person 7 lowers camera"
+  },
+  {
+   "frame": 265,
+   "kind": "film_advance",
+   "x": -0.04940879727167591,
+   "gain": 1,
+   "note": "person 7 winds on the film"
+  },
+  {
+   "frame": 278,
+   "kind": "fabric_swish",
+   "x": -0.15,
+   "gain": 0.55,
+   "note": "Hal's suit sleeve (gesture change)"
+  }
+ ]
+}

@@ -1,0 +1,1153 @@
+{
+ "audio": "/home/user/claude-animated-shorts/studio/productions/postoffice/input/narration.mp3",
+ "codec": "mp3",
+ "sample_rate": 44100,
+ "channels": 1,
+ "bit_rate": "128006",
+ "duration": 50.5991,
+ "fps": 30,
+ "frames": 1518,
+ "pauses": [
+  {
+   "start": 2.803,
+   "end": 3.48
+  },
+  {
+   "start": 6.233,
+   "end": 6.932
+  },
+  {
+   "start": 9.337,
+   "end": 9.718
+  },
+  {
+   "start": 12.123,
+   "end": 12.693
+  },
+  {
+   "start": 15.802,
+   "end": 16.212
+  },
+  {
+   "start": 19.008,
+   "end": 19.547
+  },
+  {
+   "start": 21.14,
+   "end": 21.688
+  },
+  {
+   "start": 24.956,
+   "end": 25.495
+  },
+  {
+   "start": 28.968,
+   "end": 29.408
+  },
+  {
+   "start": 31.494,
+   "end": 31.865
+  },
+  {
+   "start": 34.635,
+   "end": 35.113
+  },
+  {
+   "start": 38.493,
+   "end": 38.92
+  },
+  {
+   "start": 42.168,
+   "end": 42.561
+  },
+  {
+   "start": 45.373,
+   "end": 45.765
+  },
+  {
+   "start": 49.055,
+   "end": 49.553
+  }
+ ],
+ "phrases": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 2.803,
+   "startFrame": 0,
+   "endFrame": 84,
+   "asr": "this post office is three meters underwater",
+   "asr_alt": "this post office is three meters underwater",
+   "asr_words": [
+    {
+     "word": "this",
+     "t0": 0.06,
+     "t1": 0.28,
+     "p": 1.0
+    },
+    {
+     "word": "post",
+     "t0": 0.29,
+     "t1": 0.62,
+     "p": 1.0
+    },
+    {
+     "word": "office",
+     "t0": 0.63,
+     "t1": 0.97,
+     "p": 1.0
+    },
+    {
+     "word": "is",
+     "t0": 0.98,
+     "t1": 1.18,
+     "p": 1.0
+    },
+    {
+     "word": "three",
+     "t0": 1.19,
+     "t1": 1.68,
+     "p": 1.0
+    },
+    {
+     "word": "meters",
+     "t0": 1.69,
+     "t1": 2.17,
+     "p": 1.0
+    },
+    {
+     "word": "underwater",
+     "t0": 2.18,
+     "t1": 2.84,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "this post office is three meters underwater",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 2,
+   "start": 3.48,
+   "end": 6.233,
+   "startFrame": 104,
+   "endFrame": 187,
+   "asr": "and yes people actually some letters from it",
+   "asr_alt": "and yes people actually some letters from it",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 3.451,
+     "t1": 3.651,
+     "p": 1.0
+    },
+    {
+     "word": "yes",
+     "t0": 3.661,
+     "t1": 4.101,
+     "p": 1.0
+    },
+    {
+     "word": "people",
+     "t0": 4.191,
+     "t1": 4.591,
+     "p": 1.0
+    },
+    {
+     "word": "actually",
+     "t0": 4.711,
+     "t1": 5.181,
+     "p": 1.0
+    },
+    {
+     "word": "some",
+     "t0": 5.191,
+     "t1": 5.391,
+     "p": 1.0
+    },
+    {
+     "word": "letters",
+     "t0": 5.401,
+     "t1": 5.781,
+     "p": 1.0
+    },
+    {
+     "word": "from",
+     "t0": 5.791,
+     "t1": 6.001,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 6.011,
+     "t1": 6.371,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and yes people actually some letters from it",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 3,
+   "start": 6.932,
+   "end": 9.337,
+   "startFrame": 208,
+   "endFrame": 280,
+   "asr": "you see on hide away island and bought a lot too",
+   "asr_alt": "you see on hide away island and bought a lot too",
+   "asr_words": [
+    {
+     "word": "you",
+     "t0": 6.913,
+     "t1": 6.973,
+     "p": 1.0
+    },
+    {
+     "word": "see",
+     "t0": 6.983,
+     "t1": 7.303,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 7.493,
+     "t1": 7.623,
+     "p": 1.0
+    },
+    {
+     "word": "hide",
+     "t0": 7.633,
+     "t1": 7.913,
+     "p": 1.0
+    },
+    {
+     "word": "away",
+     "t0": 7.923,
+     "t1": 8.113,
+     "p": 1.0
+    },
+    {
+     "word": "island",
+     "t0": 8.123,
+     "t1": 8.523,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 8.533,
+     "t1": 8.643,
+     "p": 1.0
+    },
+    {
+     "word": "bought",
+     "t0": 8.653,
+     "t1": 8.803,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 8.813,
+     "t1": 8.833,
+     "p": 1.0
+    },
+    {
+     "word": "lot",
+     "t0": 8.843,
+     "t1": 9.083,
+     "p": 1.0
+    },
+    {
+     "word": "too",
+     "t0": 9.093,
+     "t1": 9.303,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "you see on hide away island and bought a lot too",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 4,
+   "start": 9.718,
+   "end": 12.123,
+   "startFrame": 292,
+   "endFrame": 364,
+   "asr": "someone came up with a very strange idea",
+   "asr_alt": "someone came up with a very strange idea",
+   "asr_words": [
+    {
+     "word": "someone",
+     "t0": 9.688,
+     "t1": 10.008,
+     "p": 1.0
+    },
+    {
+     "word": "came",
+     "t0": 10.018,
+     "t1": 10.238,
+     "p": 1.0
+    },
+    {
+     "word": "up",
+     "t0": 10.248,
+     "t1": 10.378,
+     "p": 1.0
+    },
+    {
+     "word": "with",
+     "t0": 10.388,
+     "t1": 10.508,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 10.518,
+     "t1": 10.558,
+     "p": 1.0
+    },
+    {
+     "word": "very",
+     "t0": 10.568,
+     "t1": 11.098,
+     "p": 1.0
+    },
+    {
+     "word": "strange",
+     "t0": 11.108,
+     "t1": 11.658,
+     "p": 1.0
+    },
+    {
+     "word": "idea",
+     "t0": 11.668,
+     "t1": 12.098,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "someone came up with a very strange idea",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 5,
+   "start": 12.693,
+   "end": 15.802,
+   "startFrame": 381,
+   "endFrame": 474,
+   "asr": "what if tourists could mail postcards will swimming underwater",
+   "asr_alt": "what if tourists could mail postcards will swimming underwater",
+   "asr_words": [
+    {
+     "word": "what",
+     "t0": 12.668,
+     "t1": 12.838,
+     "p": 1.0
+    },
+    {
+     "word": "if",
+     "t0": 12.848,
+     "t1": 12.958,
+     "p": 1.0
+    },
+    {
+     "word": "tourists",
+     "t0": 12.968,
+     "t1": 13.478,
+     "p": 1.0
+    },
+    {
+     "word": "could",
+     "t0": 13.488,
+     "t1": 13.648,
+     "p": 1.0
+    },
+    {
+     "word": "mail",
+     "t0": 13.658,
+     "t1": 13.958,
+     "p": 1.0
+    },
+    {
+     "word": "postcards",
+     "t0": 13.968,
+     "t1": 14.628,
+     "p": 1.0
+    },
+    {
+     "word": "will",
+     "t0": 14.638,
+     "t1": 14.758,
+     "p": 1.0
+    },
+    {
+     "word": "swimming",
+     "t0": 14.768,
+     "t1": 15.208,
+     "p": 1.0
+    },
+    {
+     "word": "underwater",
+     "t0": 15.218,
+     "t1": 15.798,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "what if tourists could mail postcards will swimming underwater",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 6,
+   "start": 16.212,
+   "end": 19.008,
+   "startFrame": 486,
+   "endFrame": 570,
+   "asr": "so they build a small post office beneath the surface",
+   "asr_alt": "so they build a small post office beneath the surface",
+   "asr_words": [
+    {
+     "word": "so",
+     "t0": 16.177,
+     "t1": 16.397,
+     "p": 1.0
+    },
+    {
+     "word": "they",
+     "t0": 16.407,
+     "t1": 16.517,
+     "p": 1.0
+    },
+    {
+     "word": "build",
+     "t0": 16.527,
+     "t1": 16.807,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 16.817,
+     "t1": 16.837,
+     "p": 1.0
+    },
+    {
+     "word": "small",
+     "t0": 16.847,
+     "t1": 17.287,
+     "p": 1.0
+    },
+    {
+     "word": "post",
+     "t0": 17.297,
+     "t1": 17.657,
+     "p": 1.0
+    },
+    {
+     "word": "office",
+     "t0": 17.667,
+     "t1": 17.967,
+     "p": 1.0
+    },
+    {
+     "word": "beneath",
+     "t0": 17.977,
+     "t1": 18.267,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 18.277,
+     "t1": 18.357,
+     "p": 1.0
+    },
+    {
+     "word": "surface",
+     "t0": 18.367,
+     "t1": 18.997,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "so they build a small post office beneath the surface",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 7,
+   "start": 19.547,
+   "end": 21.14,
+   "startFrame": 586,
+   "endFrame": 634,
+   "asr": "but there was one problem",
+   "asr_alt": "but there was one problem",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 19.498,
+     "t1": 19.748,
+     "p": 1.0
+    },
+    {
+     "word": "there",
+     "t0": 19.878,
+     "t1": 20.028,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 20.038,
+     "t1": 20.228,
+     "p": 1.0
+    },
+    {
+     "word": "one",
+     "t0": 20.238,
+     "t1": 20.628,
+     "p": 1.0
+    },
+    {
+     "word": "problem",
+     "t0": 20.638,
+     "t1": 21.168,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "but there was one problem",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 8,
+   "start": 21.688,
+   "end": 24.956,
+   "startFrame": 651,
+   "endFrame": 749,
+   "asr": "paper and ordinary and to work very well underwater",
+   "asr_alt": "paper and ordinary and to work very well underwater",
+   "asr_words": [
+    {
+     "word": "paper",
+     "t0": 21.624,
+     "t1": 22.124,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 22.134,
+     "t1": 22.344,
+     "p": 1.0
+    },
+    {
+     "word": "ordinary",
+     "t0": 22.354,
+     "t1": 22.934,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 22.944,
+     "t1": 23.204,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 23.324,
+     "t1": 23.444,
+     "p": 1.0
+    },
+    {
+     "word": "work",
+     "t0": 23.454,
+     "t1": 23.834,
+     "p": 1.0
+    },
+    {
+     "word": "very",
+     "t0": 23.844,
+     "t1": 24.064,
+     "p": 1.0
+    },
+    {
+     "word": "well",
+     "t0": 24.074,
+     "t1": 24.324,
+     "p": 1.0
+    },
+    {
+     "word": "underwater",
+     "t0": 24.334,
+     "t1": 24.914,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "paper and ordinary and to work very well underwater",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 9,
+   "start": 25.495,
+   "end": 28.968,
+   "startFrame": 765,
+   "endFrame": 869,
+   "asr": "so have degraded special waterproof postcards",
+   "asr_alt": "so have they created special waterproof postcards",
+   "asr_words": [
+    {
+     "word": "so",
+     "t0": 25.946,
+     "t1": 26.376,
+     "p": 1.0
+    },
+    {
+     "word": "have",
+     "t0": 26.386,
+     "t1": 26.556,
+     "p": 1.0
+    },
+    {
+     "word": "degraded",
+     "t0": 26.566,
+     "t1": 27.086,
+     "p": 0.0
+    },
+    {
+     "word": "special",
+     "t0": 27.096,
+     "t1": 27.696,
+     "p": 1.0
+    },
+    {
+     "word": "waterproof",
+     "t0": 27.706,
+     "t1": 28.286,
+     "p": 1.0
+    },
+    {
+     "word": "postcards",
+     "t0": 28.296,
+     "t1": 28.986,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.833,
+   "uncertain": [
+    "degraded"
+   ],
+   "text": "so have degraded special waterproof postcards",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 10,
+   "start": 29.408,
+   "end": 31.494,
+   "startFrame": 882,
+   "endFrame": 945,
+   "asr": "and instead of using an ordinary ink stamp",
+   "asr_alt": "and instead of using an ordinary and stamp",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 29.398,
+     "t1": 29.638,
+     "p": 1.0
+    },
+    {
+     "word": "instead",
+     "t0": 29.648,
+     "t1": 29.938,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 29.948,
+     "t1": 30.018,
+     "p": 1.0
+    },
+    {
+     "word": "using",
+     "t0": 30.028,
+     "t1": 30.308,
+     "p": 1.0
+    },
+    {
+     "word": "an",
+     "t0": 30.318,
+     "t1": 30.398,
+     "p": 1.0
+    },
+    {
+     "word": "ordinary",
+     "t0": 30.508,
+     "t1": 30.978,
+     "p": 1.0
+    },
+    {
+     "word": "ink",
+     "t0": 30.988,
+     "t1": 31.168,
+     "p": 0.0
+    },
+    {
+     "word": "stamp",
+     "t0": 31.178,
+     "t1": 31.578,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.875,
+   "uncertain": [
+    "ink"
+   ],
+   "text": "and instead of using an ordinary ink stamp",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 11,
+   "start": 31.865,
+   "end": 34.635,
+   "startFrame": 956,
+   "endFrame": 1039,
+   "asr": "postal workers mark the cards using it in boxing device",
+   "asr_alt": "postal workers mark the cards using him in boston device",
+   "asr_words": [
+    {
+     "word": "postal",
+     "t0": 31.77,
+     "t1": 32.21,
+     "p": 1.0
+    },
+    {
+     "word": "workers",
+     "t0": 32.22,
+     "t1": 32.56,
+     "p": 1.0
+    },
+    {
+     "word": "mark",
+     "t0": 32.57,
+     "t1": 32.87,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 32.88,
+     "t1": 32.95,
+     "p": 1.0
+    },
+    {
+     "word": "cards",
+     "t0": 32.96,
+     "t1": 33.3,
+     "p": 1.0
+    },
+    {
+     "word": "using",
+     "t0": 33.31,
+     "t1": 33.56,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 33.57,
+     "t1": 33.63,
+     "p": 0.0
+    },
+    {
+     "word": "in",
+     "t0": 33.64,
+     "t1": 33.78,
+     "p": 1.0
+    },
+    {
+     "word": "boxing",
+     "t0": 33.79,
+     "t1": 34.18,
+     "p": 0.0
+    },
+    {
+     "word": "device",
+     "t0": 34.19,
+     "t1": 34.63,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.8,
+   "uncertain": [
+    "it",
+    "boxing"
+   ],
+   "text": "postal workers mark the cards using it in boxing device",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 12,
+   "start": 35.113,
+   "end": 38.493,
+   "startFrame": 1053,
+   "endFrame": 1155,
+   "asr": "visitors can swim down to the post office and hand over the postcards",
+   "asr_alt": "visitors can swim down to the post office and hand over the postcards",
+   "asr_words": [
+    {
+     "word": "visitors",
+     "t0": 35.094,
+     "t1": 35.524,
+     "p": 1.0
+    },
+    {
+     "word": "can",
+     "t0": 35.534,
+     "t1": 35.674,
+     "p": 1.0
+    },
+    {
+     "word": "swim",
+     "t0": 35.684,
+     "t1": 36.064,
+     "p": 1.0
+    },
+    {
+     "word": "down",
+     "t0": 36.074,
+     "t1": 36.264,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 36.274,
+     "t1": 36.334,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 36.344,
+     "t1": 36.424,
+     "p": 1.0
+    },
+    {
+     "word": "post",
+     "t0": 36.434,
+     "t1": 36.774,
+     "p": 1.0
+    },
+    {
+     "word": "office",
+     "t0": 36.784,
+     "t1": 37.164,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 37.174,
+     "t1": 37.294,
+     "p": 1.0
+    },
+    {
+     "word": "hand",
+     "t0": 37.304,
+     "t1": 37.584,
+     "p": 1.0
+    },
+    {
+     "word": "over",
+     "t0": 37.594,
+     "t1": 37.754,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 37.764,
+     "t1": 37.874,
+     "p": 1.0
+    },
+    {
+     "word": "postcards",
+     "t0": 37.884,
+     "t1": 38.494,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "visitors can swim down to the post office and hand over the postcards",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 13,
+   "start": 38.92,
+   "end": 42.168,
+   "startFrame": 1168,
+   "endFrame": 1265,
+   "asr": "during opening hours a postal worker handles them under water",
+   "asr_alt": "during opening hours a postal worker handles them under water",
+   "asr_words": [
+    {
+     "word": "during",
+     "t0": 38.896,
+     "t1": 39.156,
+     "p": 1.0
+    },
+    {
+     "word": "opening",
+     "t0": 39.166,
+     "t1": 39.546,
+     "p": 1.0
+    },
+    {
+     "word": "hours",
+     "t0": 39.556,
+     "t1": 39.926,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 40.016,
+     "t1": 40.066,
+     "p": 1.0
+    },
+    {
+     "word": "postal",
+     "t0": 40.076,
+     "t1": 40.486,
+     "p": 1.0
+    },
+    {
+     "word": "worker",
+     "t0": 40.496,
+     "t1": 40.796,
+     "p": 1.0
+    },
+    {
+     "word": "handles",
+     "t0": 40.806,
+     "t1": 41.206,
+     "p": 1.0
+    },
+    {
+     "word": "them",
+     "t0": 41.216,
+     "t1": 41.376,
+     "p": 1.0
+    },
+    {
+     "word": "under",
+     "t0": 41.506,
+     "t1": 41.766,
+     "p": 1.0
+    },
+    {
+     "word": "water",
+     "t0": 41.776,
+     "t1": 42.196,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "during opening hours a postal worker handles them under water",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 14,
+   "start": 42.561,
+   "end": 45.373,
+   "startFrame": 1277,
+   "endFrame": 1361,
+   "asr": "the postcards can then enter the ordinary postal system",
+   "asr_alt": "and a postcard can then enter the ordinary postal system",
+   "asr_words": [
+    {
+     "word": "the",
+     "t0": 42.564,
+     "t1": 42.694,
+     "p": 0.0
+    },
+    {
+     "word": "postcards",
+     "t0": 42.704,
+     "t1": 43.264,
+     "p": 0.0
+    },
+    {
+     "word": "can",
+     "t0": 43.274,
+     "t1": 43.464,
+     "p": 1.0
+    },
+    {
+     "word": "then",
+     "t0": 43.474,
+     "t1": 43.694,
+     "p": 1.0
+    },
+    {
+     "word": "enter",
+     "t0": 43.704,
+     "t1": 43.964,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 43.974,
+     "t1": 44.124,
+     "p": 1.0
+    },
+    {
+     "word": "ordinary",
+     "t0": 44.134,
+     "t1": 44.594,
+     "p": 1.0
+    },
+    {
+     "word": "postal",
+     "t0": 44.604,
+     "t1": 44.954,
+     "p": 1.0
+    },
+    {
+     "word": "system",
+     "t0": 44.964,
+     "t1": 45.384,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.778,
+   "uncertain": [
+    "the",
+    "postcards"
+   ],
+   "text": "the postcards can then enter the ordinary postal system",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 15,
+   "start": 45.765,
+   "end": 49.055,
+   "startFrame": 1373,
+   "endFrame": 1472,
+   "asr": "meaning you can send someone a message without ever leaving the ocean",
+   "asr_alt": "meaning you can send someone a message without ever leaving the ocean",
+   "asr_words": [
+    {
+     "word": "meaning",
+     "t0": 45.739,
+     "t1": 46.059,
+     "p": 1.0
+    },
+    {
+     "word": "you",
+     "t0": 46.069,
+     "t1": 46.189,
+     "p": 1.0
+    },
+    {
+     "word": "can",
+     "t0": 46.199,
+     "t1": 46.349,
+     "p": 1.0
+    },
+    {
+     "word": "send",
+     "t0": 46.359,
+     "t1": 46.639,
+     "p": 1.0
+    },
+    {
+     "word": "someone",
+     "t0": 46.649,
+     "t1": 46.909,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 46.919,
+     "t1": 46.959,
+     "p": 1.0
+    },
+    {
+     "word": "message",
+     "t0": 46.969,
+     "t1": 47.429,
+     "p": 1.0
+    },
+    {
+     "word": "without",
+     "t0": 47.439,
+     "t1": 47.729,
+     "p": 1.0
+    },
+    {
+     "word": "ever",
+     "t0": 47.879,
+     "t1": 48.139,
+     "p": 1.0
+    },
+    {
+     "word": "leaving",
+     "t0": 48.149,
+     "t1": 48.489,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 48.499,
+     "t1": 48.629,
+     "p": 1.0
+    },
+    {
+     "word": "ocean",
+     "t0": 48.639,
+     "t1": 49.079,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "meaning you can send someone a message without ever leaving the ocean",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 16,
+   "start": 49.553,
+   "end": 50.599,
+   "startFrame": 1487,
+   "endFrame": 1517,
+   "asr": "which is how",
+   "asr_alt": "which is how",
+   "asr_words": [
+    {
+     "word": "which",
+     "t0": 49.504,
+     "t1": 49.764,
+     "p": 1.0
+    },
+    {
+     "word": "is",
+     "t0": 49.774,
+     "t1": 49.914,
+     "p": 1.0
+    },
+    {
+     "word": "how",
+     "t0": 49.924,
+     "t1": 50.414,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "which is how",
+   "text_source": "ASR (unconfirmed)"
+  }
+ ],
+ "asr_engine": "pocketsphinx (offline)"
+}

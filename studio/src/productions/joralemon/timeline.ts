@@ -1,0 +1,108 @@
+// joralemon timeline: ONE continuous camera (keys on the narration beats -> monotone cubic -> Gaussian) and the hero's
+// blocking + acting (pure functions of the film frame). Other characters live in life.ts.
+import { V3, lerp, smooth, clamp01 } from "../../lib/math";
+import { camPath, type Cam } from "../london-bridge/common";
+import { pose5, COSTUME, REST_L, REST_R, type Odo5Pose, type Costume } from "../../char/odo5";
+import { FACES, faceTrack, withFace, type FaceName } from "../short3/expr";
+import { SW_Y, PF, STOOP, FILM_FRAMES } from "./world";
+
+// ================================================================ camera
+const K = (f: number, pos: V3, look: V3, fov: number) => ({ f, pos, look, fov });
+const OPEN = K(0, [-1.3, 1.6, 15.4], [-0.5, 4.7, 0.0], 54);   // across the street: the whole house, readable and still
+export const camMain = camPath([
+  OPEN,
+  K(70, [-1.15, 1.58, 14.3], [-0.5, 4.6, 0.0], 53),              // S01 a slow push across the street (he walks in, a car + a cyclist pass)
+  K(130, [-0.8, 1.45, 11.6], [-0.3, 4.9, 0.0], 51),               // S02 "look carefully": still pushing, gently lowering
+  K(196, [0.45, 0.98, 7.5], [0.15, 4.7, 0.0], 57),                // S03 "its windows are completely dark": all three storeys + him below
+  K(254, [0.55, 0.96, 6.7], [0.15, 4.3, 0.0], 56),                //     hold (a slow creep only)
+  K(300, [0.95, 1.02, 5.5], [0.1, 3.4, 0.0], 50),                 // S04 "no curtains": the bare black parlour window over his shoulder
+  K(342, [0.75, 1.15, 5.6], [-0.9, 2.9, 0.6], 50),                // S05 "nobody seems to be home": ease toward the shut door
+  K(374, [0.35, 1.72, 3.95], [0.15, 1.62, 2.25], 38),             //     "Seriously?" (his face)
+  K(404, [0.9, 1.1, 8.2], [0.2, 4.6, 0.0], 58),                  // S06 reveal 1: back + up, the wall dissolves
+  K(444, [0.7, 2.2, 6.6], [0.0, 4.0, -3.0], 56),
+  K(482, [0.25, 4.3, 0.9], [0.0, 3.9, -6.0], 56),                 //     at the cutaway: fans + walkways
+  K(522, [0.4, 3.8, 0.1], [0.7, 3.0, -5.0], 56),                  // S07 1847: into the parlour
+  K(560, [-0.3, 3.5, -0.8], [1.4, 2.5, -4.6], 58),                //     the family
+  K(590, [0.4, 3.5, 1.8], [0.3, 3.0, -4.0], 56),                  // S08 1907: back out through the (ghost) front
+  K(622, [2.5, 2.3, 15.2], [-2.5, 1.0, 6.5], 52),                  //     street level: the works arrive
+  K(652, [1.0, -7.0, 14.5], [-1.5, -15.0, 5.0], 56),              //     down through the cut street
+  K(678, [-3.2, -18.3, 15.5], [-3.0, -19.3, 5.0], 54),            //     the tunnel takes shape, a train runs
+  K(700, [0.0, -6.0, 13.2], [-0.5, -19.0, 6.0], 60),             //     crane up in front of the cutaway, still looking down at the tunnel
+  K(720, [-1.0, 5.0, 13.4], [1.5, -3.0, 6.5], 58),               // S09 high: the street closes over the tunnel; the worksite below
+  K(744, [0.0, 3.4, 14.0], [4.6, 1.9, 8.2], 48),                 //     the fan lifted onto its foundation
+  K(784, [-1.6, 1.7, 12.7], [-3.2, 1.3, 9.0], 44),                //     to the engineer + the model
+  K(806, [-3.2, 1.9, 13.6], [-0.6, 4.6, 0.0], 54),                // S10 the imagined plant grows
+  K(850, [1.2, 1.7, 9.0], [2.3, 2.6, 3.6], 56),                 //     wide: elegant houses vs the eyesore
+  K(902, [1.7, 1.75, 9.4], [2.6, 2.8, 3.6], 56),                 //     residents react (foreground)
+  K(946, [-1.5, 2.2, 11.9], [-3.0, 0.95, 9.0], 46),                //     the engineer crosses it out
+  K(984, [-2.0, 1.55, 13.6], [-2.6, 3.4, 0.0], 54),                //     ...and looks at the real house
+  K(1012, [0.9, 4.1, 7.0], [0.0, 4.3, -5.0], 58),                 // S11 the conversion cutaway
+  K(1050, [0.6, 4.5, 5.2], [0.0, 4.3, -5.0], 58),
+  K(1088, [-4.2, 1.45, 7.8], [-3.0, 2.0, 2.0], 46),               // S12 today: following him past the house
+  K(1140, [0.5, 2.7, 13.4], [0.0, 5.6, 0.0], 52),                 //     widen to the full house
+  K(1168, [0.4, 4.4, 6.4], [0.0, 3.4, -5.0], 56),                 // S13 reveal 2: the wall dissolves, the fans
+  K(1192, [0.3, 2.5, 0.5], [0.1, -2.0, -2.6], 60),                //     in through the open front, tilting down into the shaft
+  K(1210, [0.4, -5.2, -1.8], [0.1, -14.0, -2.2], 64),             //     diving down the shaft beside the emergency stair
+  K(1228, [0.1, -18.4, -1.6], [0.0, -19.0, 3.0], 62),             //     the bottom: turn into the adit, the EXIT door ahead
+  K(1244, [0.0, -18.95, 2.3], [-7.0, -19.3, 5.2], 58),             //     through the emergency exit, turning down the tunnel
+  K(1250, [0.0, -18.95, 3.3], [-9.0, -19.3, 5.6], 56),             //     the walkway: the tunnel's depth, headlights coming
+  K(1264, [-2.0, -18.9, 3.55], [-14.0, -19.1, 6.0], 50),          //     pushing toward the approaching train
+  K(1280, [-3.0, -18.95, 3.6], [-7.0, -18.9, 6.2], 56),           //     the cab arrives level with us
+  K(1292, [-2.4, -18.9, 3.6], [2.0, -18.8, 6.6], 58),             //     pan with it: lit cars, passengers
+  K(1300, [-1.0, -18.9, 3.5], [4.0, -18.8, 5.6], 58),             //     tracking with the train...
+  K(1308, [0.0, -18.85, 2.3], [1.5, -18.6, 0.5], 60),             //     ...back through the exit door (air rushing past)
+  K(1316, [0.1, -18.45, -1.5], [0.0, -12.0, -2.2], 62),            //     into the adit, looking up the shaft
+  K(1332, [0.2, -7.0, -1.8], [0.2, 4.0, -5.0], 64),               //     riding the air up the shaft
+  K(1344, [0.3, 2.4, -1.6], [0.3, 3.0, -6.0], 60),                //     up between the fans
+  K(1362, [1.2, 2.2, 6.8], [-0.6, 2.4, 0.0], 54),                 // S14 pulling back out to the street; the wall closes
+  K(1398, [-2.5, 1.5, 11.2], [-2.7, 1.9, 3.7], 30),              //     his side-eye (long lens from across the street)
+  K(1440, [-1.5, 1.62, 15.9], [-0.5, 4.7, 0.0], 54),              // S15 settle back into the opening composition
+  { ...OPEN, f: FILM_FRAMES - 1 },
+], 5);
+export const camAt = (f: number): Cam => camMain(f);
+
+// ================================================================ the hero (odo: goggles, teal jacket, paper shopping bag)
+export const HERO: Costume = { ...COSTUME.odo, apron: false, pal: { shirt: "#2f6f78", shirtShade: "#22545b", hair: "#ebe9f0", hairShade: "#b9b4c4" } };
+export type Placed = { pose: Odo5Pose; pos: V3; h: number; flip?: boolean; halo?: number; light?: number };
+const WALK_Z = 3.7, LAND: V3 = [0.15, SW_Y, 2.25];
+const gaitPose = (c: Costume, d: number, walking: number, extra: Partial<Odo5Pose> = {}) => pose5({ costume: c, view: walking > 0.02 ? "side" : "front", gait: d / 0.95, walk: walking, stride: 0.95, lean: 0.05 * walking, ...extra });
+const heroFace = faceTrack([
+  [0, "content"], [72, "neutral"], [80, "oneBrowUp"], [100, "xSideEyeL"], [116, "xSideEyeR"], [134, "suspSquint"], [173, "doubleTake"], [186, "focused"], [214, "tinyConfused"],
+  [270, "suspSquint"], [284, "frozenSmile"], [312, "xSideEyeL"], [330, "focused"], [346, "uncomfyGrin"], [358, "comicSerious"], [392, "hugeShock"], [420, "panic"],
+  [1064, "content"], [1100, "bored"], [1384, "suspSquint"], [1398, "uncomfyGrin"], [1410, "embarrassed"], [1424, "content"],
+] as [number, FaceName][], 6);
+/** walk along a 1-D path: constant speed with short accel/decel ramps (rampIn/rampOut frames; 0 = already walking / keeps walking) */
+const walkSeg = (f: number, f0: number, f1: number, d: number, rampIn = 8, rampOut = 10) => {
+  const T = f1 - f0, v = d / (T - rampIn / 2 - rampOut / 2), t = Math.max(0, Math.min(T, f - f0));
+  let x: number; if (t < rampIn) x = (v * t * t) / (2 * rampIn); else if (t < T - rampOut) x = (v * rampIn) / 2 + v * (t - rampIn); else { const r = T - t; x = d - (v * r * r) / (2 * Math.max(1e-6, rampOut)); }
+  const w = f <= f0 || f >= f1 ? 0 : Math.min(1, rampIn ? t / rampIn : 1, rampOut ? (T - t) / rampOut : 1) * 0.85 + 0.15;
+  return { d: x, w: f <= f0 || f >= f1 ? 0 : w };
+};
+export const heroAt = (f: number): Placed | null => {
+  const blink = ((f + 11) % 83) < 3, base = { blink, holdR: "bag" as const };
+  const face = heroFace(f);
+  // S01-S06: walks in, stops, looks, climbs the stoop, peers, reacts (gone before the era dissolve completes)
+  if (f < 500) {
+    if (f < 76) { const s = walkSeg(f, -48, 76, 10.65, 0, 12); return { pose: withFace(gaitPose(HERO, s.d, s.w, base), face, f, 1), pos: [-11.6 + s.d, SW_Y, WALK_Z], h: 1.5, halo: 0.12 }; }
+    if (f < 150) { const look = f < 92 ? smooth(76, 88, f) : 1 - smooth(130, 146, f) * 0.6; const lean = smooth(130, 140, f) * (1 - smooth(146, 152, f));
+      return { pose: withFace(pose5({ costume: HERO, ...base, lookY: -0.8 * (f < 100 ? look : 0.3), lean: lean * 0.18, armR: { ...REST_R, shape: "grip" } }), face, f, 1), pos: [-1.0, SW_Y, WALK_Z], h: 1.5, halo: 0.12 }; }
+    if (f < 194) { if (f < 150 + 0) {} const s = walkSeg(f, 150, 178, Math.hypot(1.15, 1.45), 6, 8); const u = s.d / Math.hypot(1.15, 1.45);   // to the fence below the black window
+      return { pose: withFace(gaitPose(HERO, s.d, s.w, base), face, f, 1), pos: [lerp(-1.0, LAND[0], u), SW_Y, lerp(WALK_Z, LAND[2], u)], h: 1.5, halo: 0.12 }; }
+    const leanIn = (f < 266 ? smooth(200, 222, f) : f < 312 ? 0.5 : 0.2) * 0.6, tilt = f >= 267 && f < 312 ? Math.sin((f - 267) / 44 * Math.PI) * 0.22 : 0;
+    const lookCam = smooth(356, 366, f) * (1 - smooth(388, 396, f));
+    const shock = smooth(392, 400, f), arms = f > 392 ? { armL: { hand: [-96, -40] as [number, number], elbow: [-70, 50] as [number, number], shape: "open" as const, rot: -0.4, bend: -1 }, armR: { hand: [96, -40] as [number, number], elbow: [70, 50] as [number, number], shape: "open" as const, rot: 0.4, bend: 1 } } : {};
+    const p = withFace(pose5({ costume: HERO, ...base, lean: leanIn * 0.2 - shock * 0.08, headRoll: tilt, ...arms }), face, f, 1);
+    const up = smooth(196, 210, f) * (1 - smooth(300, 318, f)) + smooth(392, 400, f) * 0.6;
+    return { pose: { ...p, lookX: lerp(p.lookX, 0, lookCam), lookY: lerp(lerp(p.lookY, -0.75, up), 0, lookCam), squash: shock * (1 - smooth(400, 412, f)) * -0.6 }, pos: LAND, h: 1.5, halo: 0.14, light: 1.2 };
+  }
+  if (f < 1060) return null;
+  // S12: strolls past No. 58 eastward (+x), out of the shot by ~1200
+  if (f < 1220) { const s = walkSeg(f, 1060, 1220, 15.5); return { pose: withFace(gaitPose(HERO, s.d, s.w, base), face, f, 1), pos: [-6.0 + s.d, SW_Y, WALK_Z + 0.2], h: 1.5, halo: 0.12 }; }
+  if (f < 1270) return null;
+  // S14: comes back westward with the crowd, stops, side-eyes the house, walks on past the camera (loop: he will walk in again)
+  if (f < 1380) { const s = walkSeg(f, 1270, 1380, 9.8, 0, 12); return { pose: withFace(gaitPose(HERO, s.d, s.w, base), face, f, 1), pos: [7.0 - s.d, SW_Y, WALK_Z], h: 1.5, flip: true, halo: 0.12 }; }
+  if (f < 1408) { const sq = smooth(1396, 1404, f) * (1 - smooth(1416, 1426, f));
+    return { pose: withFace(pose5({ costume: HERO, ...base, lean: 0.06 * sq, headRoll: -0.12 * sq, armL: { ...REST_L } }), face, f, 1), pos: [-2.8, SW_Y, WALK_Z], h: 1.5, halo: 0.13 }; }
+  const s = walkSeg(f, 1408, FILM_FRAMES + 60, 9.9, 8, 0); return { pose: withFace(gaitPose(HERO, s.d, s.w, base), face, f, 1), pos: [-2.8 - s.d, SW_Y, WALK_Z], h: 1.5, flip: true, halo: 0.12 };
+};
+export { FACES, STOOP };

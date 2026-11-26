@@ -1,0 +1,1149 @@
+{
+ "audio": "/home/user/claude-animated-shorts/studio/productions/short3/input/narration.mp3",
+ "codec": "mp3",
+ "sample_rate": 44100,
+ "channels": 1,
+ "bit_rate": "128006",
+ "duration": 52.1142,
+ "fps": 30,
+ "frames": 1564,
+ "pauses": [
+  {
+   "start": 3.768,
+   "end": 4.325
+  },
+  {
+   "start": 5.36,
+   "end": 5.812
+  },
+  {
+   "start": 8.04,
+   "end": 8.618
+  },
+  {
+   "start": 14.438,
+   "end": 14.964
+  },
+  {
+   "start": 15.103,
+   "end": 15.382
+  },
+  {
+   "start": 16.227,
+   "end": 16.715
+  },
+  {
+   "start": 21.001,
+   "end": 21.586
+  },
+  {
+   "start": 23.158,
+   "end": 23.558
+  },
+  {
+   "start": 25.917,
+   "end": 26.375
+  },
+  {
+   "start": 28.663,
+   "end": 29.32
+  },
+  {
+   "start": 31.891,
+   "end": 32.373
+  },
+  {
+   "start": 36.347,
+   "end": 36.935
+  },
+  {
+   "start": 40.449,
+   "end": 41.016
+  },
+  {
+   "start": 43.955,
+   "end": 44.462
+  },
+  {
+   "start": 46.077,
+   "end": 46.426
+  },
+  {
+   "start": 48.246,
+   "end": 48.649
+  },
+  {
+   "start": 50.485,
+   "end": 50.93
+  }
+ ],
+ "phrases": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 3.768,
+   "startFrame": 0,
+   "endFrame": 113,
+   "asr": "this is a story office building moved all people worked inside",
+   "asr_alt": "this is a story office building moved all people worked inside",
+   "asr_words": [
+    {
+     "word": "this",
+     "t0": 0.03,
+     "t1": 0.31,
+     "p": 1.0
+    },
+    {
+     "word": "is",
+     "t0": 0.44,
+     "t1": 0.52,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 0.53,
+     "t1": 0.61,
+     "p": 1.0
+    },
+    {
+     "word": "story",
+     "t0": 0.62,
+     "t1": 1.01,
+     "p": 1.0
+    },
+    {
+     "word": "office",
+     "t0": 1.02,
+     "t1": 1.4,
+     "p": 1.0
+    },
+    {
+     "word": "building",
+     "t0": 1.41,
+     "t1": 1.73,
+     "p": 1.0
+    },
+    {
+     "word": "moved",
+     "t0": 1.74,
+     "t1": 2.42,
+     "p": 1.0
+    },
+    {
+     "word": "all",
+     "t0": 2.43,
+     "t1": 2.52,
+     "p": 1.0
+    },
+    {
+     "word": "people",
+     "t0": 2.53,
+     "t1": 2.83,
+     "p": 1.0
+    },
+    {
+     "word": "worked",
+     "t0": 2.84,
+     "t1": 3.19,
+     "p": 1.0
+    },
+    {
+     "word": "inside",
+     "t0": 3.2,
+     "t1": 3.84,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "this is a story office building moved all people worked inside",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 2,
+   "start": 4.325,
+   "end": 5.36,
+   "startFrame": 130,
+   "endFrame": 161,
+   "asr": "and the craziest part",
+   "asr_alt": "and the craziest part",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 4.286,
+     "t1": 4.406,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 4.416,
+     "t1": 4.476,
+     "p": 1.0
+    },
+    {
+     "word": "craziest",
+     "t0": 4.486,
+     "t1": 5.066,
+     "p": 1.0
+    },
+    {
+     "word": "part",
+     "t0": 5.076,
+     "t1": 5.436,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and the craziest part",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 3,
+   "start": 5.812,
+   "end": 8.04,
+   "startFrame": 174,
+   "endFrame": 241,
+   "asr": "most of them could barely tell it was moving",
+   "asr_alt": "most of them could barely tell it was moving",
+   "asr_words": [
+    {
+     "word": "most",
+     "t0": 5.766,
+     "t1": 6.116,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 6.126,
+     "t1": 6.196,
+     "p": 1.0
+    },
+    {
+     "word": "them",
+     "t0": 6.206,
+     "t1": 6.356,
+     "p": 1.0
+    },
+    {
+     "word": "could",
+     "t0": 6.366,
+     "t1": 6.556,
+     "p": 1.0
+    },
+    {
+     "word": "barely",
+     "t0": 6.566,
+     "t1": 7.026,
+     "p": 1.0
+    },
+    {
+     "word": "tell",
+     "t0": 7.036,
+     "t1": 7.286,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 7.296,
+     "t1": 7.346,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 7.356,
+     "t1": 7.506,
+     "p": 1.0
+    },
+    {
+     "word": "moving",
+     "t0": 7.516,
+     "t1": 8.076,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "most of them could barely tell it was moving",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 4,
+   "start": 8.618,
+   "end": 14.438,
+   "startFrame": 259,
+   "endFrame": 433,
+   "asr": "you see the back in nineteen thirty the indiana bell telephone company needed space for a bigger headquarters",
+   "asr_alt": "you see back in nineteen thirty the indiana bell telephone company needed space for a bigger headquarters",
+   "asr_words": [
+    {
+     "word": "you",
+     "t0": 8.579,
+     "t1": 8.669,
+     "p": 1.0
+    },
+    {
+     "word": "see",
+     "t0": 8.679,
+     "t1": 8.999,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 9.139,
+     "t1": 9.189,
+     "p": 0.0
+    },
+    {
+     "word": "back",
+     "t0": 9.199,
+     "t1": 9.449,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 9.459,
+     "t1": 9.539,
+     "p": 1.0
+    },
+    {
+     "word": "nineteen",
+     "t0": 9.549,
+     "t1": 9.949,
+     "p": 1.0
+    },
+    {
+     "word": "thirty",
+     "t0": 9.959,
+     "t1": 10.499,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 10.659,
+     "t1": 10.759,
+     "p": 1.0
+    },
+    {
+     "word": "indiana",
+     "t0": 10.829,
+     "t1": 11.299,
+     "p": 1.0
+    },
+    {
+     "word": "bell",
+     "t0": 11.309,
+     "t1": 11.569,
+     "p": 1.0
+    },
+    {
+     "word": "telephone",
+     "t0": 11.579,
+     "t1": 12.049,
+     "p": 1.0
+    },
+    {
+     "word": "company",
+     "t0": 12.059,
+     "t1": 12.449,
+     "p": 1.0
+    },
+    {
+     "word": "needed",
+     "t0": 12.459,
+     "t1": 12.709,
+     "p": 1.0
+    },
+    {
+     "word": "space",
+     "t0": 12.719,
+     "t1": 13.229,
+     "p": 1.0
+    },
+    {
+     "word": "for",
+     "t0": 13.239,
+     "t1": 13.389,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 13.399,
+     "t1": 13.429,
+     "p": 1.0
+    },
+    {
+     "word": "bigger",
+     "t0": 13.439,
+     "t1": 13.779,
+     "p": 1.0
+    },
+    {
+     "word": "headquarters",
+     "t0": 13.789,
+     "t1": 14.439,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.944,
+   "uncertain": [
+    "the"
+   ],
+   "text": "you see the back in nineteen thirty the indiana bell telephone company needed space for a bigger headquarters",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 5,
+   "start": 14.964,
+   "end": 15.103,
+   "startFrame": 449,
+   "endFrame": 453,
+   "asr": "but",
+   "asr_alt": "but",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 14.871,
+     "t1": 15.141,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "but",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 6,
+   "start": 15.382,
+   "end": 16.227,
+   "startFrame": 461,
+   "endFrame": 487,
+   "asr": "there was a problem",
+   "asr_alt": "there was a problem",
+   "asr_words": [
+    {
+     "word": "there",
+     "t0": 15.332,
+     "t1": 15.472,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 15.482,
+     "t1": 15.612,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 15.622,
+     "t1": 15.642,
+     "p": 1.0
+    },
+    {
+     "word": "problem",
+     "t0": 15.652,
+     "t1": 16.252,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "there was a problem",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 7,
+   "start": 16.715,
+   "end": 21.001,
+   "startFrame": 501,
+   "endFrame": 630,
+   "asr": "an enormous building was standing exactly were they wanted to expand",
+   "asr_alt": "an enormous building was standing exactly were they wanted to expand",
+   "asr_words": [
+    {
+     "word": "an",
+     "t0": 17.251,
+     "t1": 17.361,
+     "p": 1.0
+    },
+    {
+     "word": "enormous",
+     "t0": 17.371,
+     "t1": 18.041,
+     "p": 1.0
+    },
+    {
+     "word": "building",
+     "t0": 18.051,
+     "t1": 18.431,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 18.441,
+     "t1": 18.551,
+     "p": 1.0
+    },
+    {
+     "word": "standing",
+     "t0": 18.561,
+     "t1": 18.981,
+     "p": 1.0
+    },
+    {
+     "word": "exactly",
+     "t0": 19.051,
+     "t1": 19.771,
+     "p": 1.0
+    },
+    {
+     "word": "were",
+     "t0": 19.781,
+     "t1": 19.931,
+     "p": 1.0
+    },
+    {
+     "word": "they",
+     "t0": 19.941,
+     "t1": 20.021,
+     "p": 1.0
+    },
+    {
+     "word": "wanted",
+     "t0": 20.031,
+     "t1": 20.311,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 20.321,
+     "t1": 20.441,
+     "p": 1.0
+    },
+    {
+     "word": "expand",
+     "t0": 20.451,
+     "t1": 21.001,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "an enormous building was standing exactly were they wanted to expand",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 8,
+   "start": 21.586,
+   "end": 23.158,
+   "startFrame": 648,
+   "endFrame": 695,
+   "asr": "so instead of demolishing it",
+   "asr_alt": "so instead of demolishing it",
+   "asr_words": [
+    {
+     "word": "so",
+     "t0": 21.553,
+     "t1": 21.873,
+     "p": 1.0
+    },
+    {
+     "word": "instead",
+     "t0": 21.973,
+     "t1": 22.333,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 22.343,
+     "t1": 22.413,
+     "p": 1.0
+    },
+    {
+     "word": "demolishing",
+     "t0": 22.423,
+     "t1": 23.013,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 23.023,
+     "t1": 23.203,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "so instead of demolishing it",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 9,
+   "start": 23.558,
+   "end": 25.917,
+   "startFrame": 707,
+   "endFrame": 778,
+   "asr": "engineers decided to move the whole thing",
+   "asr_alt": "engineers decided to move the whole thing",
+   "asr_words": [
+    {
+     "word": "engineers",
+     "t0": 23.538,
+     "t1": 23.998,
+     "p": 1.0
+    },
+    {
+     "word": "decided",
+     "t0": 24.008,
+     "t1": 24.448,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 24.458,
+     "t1": 24.548,
+     "p": 1.0
+    },
+    {
+     "word": "move",
+     "t0": 24.558,
+     "t1": 24.998,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 25.008,
+     "t1": 25.088,
+     "p": 1.0
+    },
+    {
+     "word": "whole",
+     "t0": 25.098,
+     "t1": 25.518,
+     "p": 1.0
+    },
+    {
+     "word": "thing",
+     "t0": 25.528,
+     "t1": 25.958,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "engineers decided to move the whole thing",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 10,
+   "start": 26.375,
+   "end": 28.663,
+   "startFrame": 791,
+   "endFrame": 860,
+   "asr": "with hundreds of employees still inside",
+   "asr_alt": "with hundreds of employees still inside",
+   "asr_words": [
+    {
+     "word": "with",
+     "t0": 26.356,
+     "t1": 26.466,
+     "p": 1.0
+    },
+    {
+     "word": "hundreds",
+     "t0": 26.476,
+     "t1": 27.076,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 27.086,
+     "t1": 27.166,
+     "p": 1.0
+    },
+    {
+     "word": "employees",
+     "t0": 27.176,
+     "t1": 27.716,
+     "p": 1.0
+    },
+    {
+     "word": "still",
+     "t0": 27.726,
+     "t1": 28.116,
+     "p": 1.0
+    },
+    {
+     "word": "inside",
+     "t0": 28.126,
+     "t1": 28.696,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "with hundreds of employees still inside",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 11,
+   "start": 29.32,
+   "end": 31.891,
+   "startFrame": 880,
+   "endFrame": 957,
+   "asr": "first workers carefully support of a building",
+   "asr_alt": "first workers carefully support of the building",
+   "asr_words": [
+    {
+     "word": "first",
+     "t0": 29.231,
+     "t1": 29.771,
+     "p": 1.0
+    },
+    {
+     "word": "workers",
+     "t0": 29.951,
+     "t1": 30.351,
+     "p": 1.0
+    },
+    {
+     "word": "carefully",
+     "t0": 30.361,
+     "t1": 30.921,
+     "p": 1.0
+    },
+    {
+     "word": "support",
+     "t0": 30.931,
+     "t1": 31.321,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 31.331,
+     "t1": 31.421,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 31.431,
+     "t1": 31.461,
+     "p": 0.0
+    },
+    {
+     "word": "building",
+     "t0": 31.471,
+     "t1": 31.911,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.857,
+   "uncertain": [
+    "a"
+   ],
+   "text": "first workers carefully support of a building",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 12,
+   "start": 32.373,
+   "end": 36.347,
+   "startFrame": 971,
+   "endFrame": 1090,
+   "asr": "then special moving equipment slowly shifted the enormous structure",
+   "asr_alt": "then special moving equipment slowly shifted the enormous structure",
+   "asr_words": [
+    {
+     "word": "then",
+     "t0": 32.332,
+     "t1": 32.782,
+     "p": 1.0
+    },
+    {
+     "word": "special",
+     "t0": 32.842,
+     "t1": 33.292,
+     "p": 1.0
+    },
+    {
+     "word": "moving",
+     "t0": 33.302,
+     "t1": 33.622,
+     "p": 1.0
+    },
+    {
+     "word": "equipment",
+     "t0": 33.632,
+     "t1": 34.092,
+     "p": 1.0
+    },
+    {
+     "word": "slowly",
+     "t0": 34.102,
+     "t1": 34.702,
+     "p": 1.0
+    },
+    {
+     "word": "shifted",
+     "t0": 34.712,
+     "t1": 35.202,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 35.212,
+     "t1": 35.312,
+     "p": 1.0
+    },
+    {
+     "word": "enormous",
+     "t0": 35.322,
+     "t1": 35.862,
+     "p": 1.0
+    },
+    {
+     "word": "structure",
+     "t0": 35.872,
+     "t1": 36.392,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "then special moving equipment slowly shifted the enormous structure",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 13,
+   "start": 36.935,
+   "end": 40.449,
+   "startFrame": 1108,
+   "endFrame": 1213,
+   "asr": "they moved it sideways hundred ninety degrees and moved again",
+   "asr_alt": "they moved it sideways hundred ninety degrees and moved it again",
+   "asr_words": [
+    {
+     "word": "they",
+     "t0": 36.911,
+     "t1": 36.991,
+     "p": 1.0
+    },
+    {
+     "word": "moved",
+     "t0": 37.001,
+     "t1": 37.221,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 37.231,
+     "t1": 37.321,
+     "p": 1.0
+    },
+    {
+     "word": "sideways",
+     "t0": 37.331,
+     "t1": 38.091,
+     "p": 1.0
+    },
+    {
+     "word": "hundred",
+     "t0": 38.261,
+     "t1": 38.541,
+     "p": 1.0
+    },
+    {
+     "word": "ninety",
+     "t0": 38.551,
+     "t1": 38.831,
+     "p": 1.0
+    },
+    {
+     "word": "degrees",
+     "t0": 38.841,
+     "t1": 39.431,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 39.571,
+     "t1": 39.681,
+     "p": 1.0
+    },
+    {
+     "word": "moved",
+     "t0": 39.691,
+     "t1": 40.011,
+     "p": 1.0
+    },
+    {
+     "word": "again",
+     "t0": 40.021,
+     "t1": 40.471,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "they moved it sideways hundred ninety degrees and moved again",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 14,
+   "start": 41.016,
+   "end": 43.955,
+   "startFrame": 1230,
+   "endFrame": 1319,
+   "asr": "meanwhile employees continued answering telephone calls",
+   "asr_alt": "meanwhile employees continued answering telephone calls",
+   "asr_words": [
+    {
+     "word": "meanwhile",
+     "t0": 40.972,
+     "t1": 41.532,
+     "p": 1.0
+    },
+    {
+     "word": "employees",
+     "t0": 41.662,
+     "t1": 42.172,
+     "p": 1.0
+    },
+    {
+     "word": "continued",
+     "t0": 42.182,
+     "t1": 42.772,
+     "p": 1.0
+    },
+    {
+     "word": "answering",
+     "t0": 42.782,
+     "t1": 43.152,
+     "p": 1.0
+    },
+    {
+     "word": "telephone",
+     "t0": 43.162,
+     "t1": 43.592,
+     "p": 1.0
+    },
+    {
+     "word": "calls",
+     "t0": 43.602,
+     "t1": 43.942,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "meanwhile employees continued answering telephone calls",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 15,
+   "start": 44.462,
+   "end": 46.077,
+   "startFrame": 1334,
+   "endFrame": 1382,
+   "asr": "and after the move was finished",
+   "asr_alt": "and after the move was finished",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 44.428,
+     "t1": 44.798,
+     "p": 1.0
+    },
+    {
+     "word": "after",
+     "t0": 44.938,
+     "t1": 45.208,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 45.218,
+     "t1": 45.288,
+     "p": 1.0
+    },
+    {
+     "word": "move",
+     "t0": 45.298,
+     "t1": 45.488,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 45.498,
+     "t1": 45.638,
+     "p": 1.0
+    },
+    {
+     "word": "finished",
+     "t0": 45.648,
+     "t1": 46.088,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and after the move was finished",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 16,
+   "start": 46.426,
+   "end": 48.246,
+   "startFrame": 1393,
+   "endFrame": 1447,
+   "asr": "the building stood in its new position",
+   "asr_alt": "the building stood in its new position",
+   "asr_words": [
+    {
+     "word": "the",
+     "t0": 46.332,
+     "t1": 46.462,
+     "p": 1.0
+    },
+    {
+     "word": "building",
+     "t0": 46.472,
+     "t1": 46.842,
+     "p": 1.0
+    },
+    {
+     "word": "stood",
+     "t0": 46.852,
+     "t1": 47.202,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 47.212,
+     "t1": 47.332,
+     "p": 1.0
+    },
+    {
+     "word": "its",
+     "t0": 47.342,
+     "t1": 47.512,
+     "p": 1.0
+    },
+    {
+     "word": "new",
+     "t0": 47.522,
+     "t1": 47.732,
+     "p": 1.0
+    },
+    {
+     "word": "position",
+     "t0": 47.742,
+     "t1": 48.272,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "the building stood in its new position",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 17,
+   "start": 48.649,
+   "end": 50.485,
+   "startFrame": 1459,
+   "endFrame": 1515,
+   "asr": "without the company having to shut down",
+   "asr_alt": "without the company having to shut down",
+   "asr_words": [
+    {
+     "word": "without",
+     "t0": 48.618,
+     "t1": 48.988,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 48.998,
+     "t1": 49.078,
+     "p": 1.0
+    },
+    {
+     "word": "company",
+     "t0": 49.088,
+     "t1": 49.518,
+     "p": 1.0
+    },
+    {
+     "word": "having",
+     "t0": 49.528,
+     "t1": 49.788,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 49.798,
+     "t1": 49.858,
+     "p": 1.0
+    },
+    {
+     "word": "shut",
+     "t0": 49.868,
+     "t1": 50.098,
+     "p": 1.0
+    },
+    {
+     "word": "down",
+     "t0": 50.108,
+     "t1": 50.508,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "without the company having to shut down",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 18,
+   "start": 50.93,
+   "end": 52.114,
+   "startFrame": 1528,
+   "endFrame": 1563,
+   "asr": "which is how all",
+   "asr_alt": "which is how all",
+   "asr_words": [
+    {
+     "word": "which",
+     "t0": 50.887,
+     "t1": 51.097,
+     "p": 1.0
+    },
+    {
+     "word": "is",
+     "t0": 51.107,
+     "t1": 51.237,
+     "p": 1.0
+    },
+    {
+     "word": "how",
+     "t0": 51.247,
+     "t1": 51.577,
+     "p": 1.0
+    },
+    {
+     "word": "all",
+     "t0": 51.587,
+     "t1": 51.847,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "which is how all",
+   "text_source": "ASR (unconfirmed)"
+  }
+ ],
+ "asr_engine": "pocketsphinx (offline)"
+}

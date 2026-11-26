@@ -1,0 +1,699 @@
+{
+ "fps": 30,
+ "frames": 1518,
+ "events": [
+  {
+   "frame": 8,
+   "kind": "fin_kick",
+   "x": -0.47333333333333333,
+   "gain": 0.55,
+   "note": "the snorkeller's fins push her towards the counter"
+  },
+  {
+   "frame": 15,
+   "kind": "fin_kick",
+   "x": 0.6,
+   "gain": 0.35,
+   "note": "fusiliers flick past the lens"
+  },
+  {
+   "frame": 30,
+   "kind": "fin_kick",
+   "x": -0.4,
+   "gain": 0.55,
+   "note": "the snorkeller's fins push her towards the counter"
+  },
+  {
+   "frame": 40,
+   "kind": "bubbles_small",
+   "x": -0.4,
+   "gain": 0.5,
+   "note": "a few bubbles escape the snorkeller's mask"
+  },
+  {
+   "frame": 52,
+   "kind": "fin_kick",
+   "x": -0.32666666666666666,
+   "gain": 0.55,
+   "note": "the snorkeller's fins push her towards the counter"
+  },
+  {
+   "frame": 57,
+   "kind": "regulator",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "the postal worker breathes out: a train of bubbles rises from the regulator"
+  },
+  {
+   "frame": 74,
+   "kind": "fin_kick",
+   "x": -0.2533333333333333,
+   "gain": 0.55,
+   "note": "the snorkeller's fins push her towards the counter"
+  },
+  {
+   "frame": 92,
+   "kind": "fin_kick",
+   "x": -0.19333333333333336,
+   "gain": 0.55,
+   "note": "the snorkeller's fins push her towards the counter"
+  },
+  {
+   "frame": 110,
+   "kind": "double_take",
+   "x": 0.2,
+   "gain": 0.8,
+   "note": "the hero's double-take ('yes')"
+  },
+  {
+   "frame": 126,
+   "kind": "card_uw",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "the waterproof card is held out at the counter"
+  },
+  {
+   "frame": 140,
+   "kind": "card_uw",
+   "x": 0,
+   "gain": 0.8,
+   "note": "the worker takes it"
+  },
+  {
+   "frame": 164,
+   "kind": "brow_pluck",
+   "x": 0.25,
+   "gain": 0.8,
+   "note": "eyes pop: card -> office -> card"
+  },
+  {
+   "frame": 174,
+   "kind": "regulator",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "the postal worker breathes out: a train of bubbles rises from the regulator"
+  },
+  {
+   "frame": 196,
+   "kind": "bubbles_small",
+   "x": 0.3,
+   "gain": 0.6,
+   "note": "the hero's startled bubbles"
+  },
+  {
+   "frame": 274,
+   "kind": "surface_break",
+   "x": 0,
+   "gain": 1,
+   "note": "the camera rises out of the water"
+  },
+  {
+   "frame": 291,
+   "kind": "regulator",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "the postal worker breathes out: a train of bubbles rises from the regulator"
+  },
+  {
+   "frame": 292,
+   "kind": "flag_flutter",
+   "x": 0.2,
+   "gain": 0.6,
+   "note": "the yellow 'open' flag on its float"
+  },
+  {
+   "frame": 300,
+   "kind": "bird",
+   "x": -0.5,
+   "gain": 0.6,
+   "note": "tropical birds on the island"
+  },
+  {
+   "frame": 326,
+   "kind": "bird",
+   "x": 0.6,
+   "gain": 0.5,
+   "note": "birds in the palms"
+  },
+  {
+   "frame": 333,
+   "kind": "brow_pluck",
+   "x": -0.2,
+   "gain": 0.8,
+   "note": "one eyebrow climbs ('strange')"
+  },
+  {
+   "frame": 345,
+   "kind": "idea_pop",
+   "x": -0.2,
+   "gain": 0.9,
+   "note": "the idea lands"
+  },
+  {
+   "frame": 350,
+   "kind": "double_take",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "the postmaster's side-eye"
+  },
+  {
+   "frame": 372,
+   "kind": "bird",
+   "x": -0.4,
+   "gain": 0.4,
+   "note": "birds"
+  },
+  {
+   "frame": 419,
+   "kind": "double_take",
+   "x": 0,
+   "gain": 0.7,
+   "note": "he spots the marker float out at sea"
+  },
+  {
+   "frame": 428,
+   "kind": "fin_flap",
+   "x": -0.1,
+   "gain": 0.75,
+   "note": "fins slap the wet sand (left)"
+  },
+  {
+   "frame": 435,
+   "kind": "fin_flap",
+   "x": 0.1,
+   "gain": 0.75,
+   "note": "fins slap the wet sand (right)"
+  },
+  {
+   "frame": 436,
+   "kind": "wade",
+   "x": 0,
+   "gain": 0.8,
+   "note": "wading into the shallows"
+  },
+  {
+   "frame": 442,
+   "kind": "fin_flap",
+   "x": -0.1,
+   "gain": 0.75,
+   "note": "fins slap the wet sand (left)"
+  },
+  {
+   "frame": 447,
+   "kind": "wade",
+   "x": 0.1,
+   "gain": 0.7,
+   "note": "wading deeper"
+  },
+  {
+   "frame": 449,
+   "kind": "fin_flap",
+   "x": 0.1,
+   "gain": 0.75,
+   "note": "fins slap the wet sand (right)"
+  },
+  {
+   "frame": 457,
+   "kind": "splash_entry",
+   "x": 0.1,
+   "gain": 1,
+   "note": "he flops forward into the water"
+  },
+  {
+   "frame": 463,
+   "kind": "dip_under",
+   "x": 0,
+   "gain": 0.9,
+   "note": "the camera follows him under"
+  },
+  {
+   "frame": 470,
+   "kind": "fin_kick",
+   "x": 0.1,
+   "gain": 0.7,
+   "note": "he kicks out towards the spot"
+  },
+  {
+   "frame": 482,
+   "kind": "fin_kick",
+   "x": 0.1,
+   "gain": 0.7,
+   "note": "he kicks out towards the spot"
+  },
+  {
+   "frame": 490,
+   "kind": "rope_creak",
+   "x": 0.3,
+   "gain": 0.6,
+   "note": "builders take the weight of the roof"
+  },
+  {
+   "frame": 494,
+   "kind": "fin_kick",
+   "x": 0.1,
+   "gain": 0.7,
+   "note": "he kicks out towards the spot"
+  },
+  {
+   "frame": 496,
+   "kind": "hammer_hit",
+   "x": 0.5,
+   "gain": 0.6,
+   "note": "a builder hammers a bracket"
+  },
+  {
+   "frame": 504,
+   "kind": "hammer_hit",
+   "x": 0.5,
+   "gain": 0.55,
+   "note": "hammer"
+  },
+  {
+   "frame": 510,
+   "kind": "outboard_idle",
+   "x": 0.2,
+   "gain": 0.8,
+   "note": "the work barge idling off the beach"
+  },
+  {
+   "frame": 517,
+   "kind": "roof_set",
+   "x": 0,
+   "gain": 0.9,
+   "note": "the roof drops onto the tank"
+  },
+  {
+   "frame": 524,
+   "kind": "winch",
+   "x": 0.4,
+   "gain": 0.8,
+   "note": "the A-frame winch pays out"
+  },
+  {
+   "frame": 534,
+   "kind": "rope_creak",
+   "x": 0.4,
+   "gain": 0.7,
+   "note": "ropes creak"
+  },
+  {
+   "frame": 544,
+   "kind": "tank_descend",
+   "x": 0,
+   "gain": 0.9,
+   "note": "the tank sinks on its ropes"
+  },
+  {
+   "frame": 560,
+   "kind": "bubbles_small",
+   "x": -0.3,
+   "gain": 0.8,
+   "note": "air spills from under the roof"
+  },
+  {
+   "frame": 576,
+   "kind": "tank_settle",
+   "x": 0,
+   "gain": 1,
+   "note": "it settles into the sand (puff)"
+  },
+  {
+   "frame": 600,
+   "kind": "pen_scratch_uw",
+   "x": 0.1,
+   "gain": 0.8,
+   "note": "he tries to write with a ballpoint"
+  },
+  {
+   "frame": 626,
+   "kind": "paper_soak",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "the paper starts to soak"
+  },
+  {
+   "frame": 642,
+   "kind": "regulator",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "the postal worker breathes out: a train of bubbles rises from the regulator"
+  },
+  {
+   "frame": 670,
+   "kind": "brow_pluck",
+   "x": 0.1,
+   "gain": 0.6,
+   "note": "suspicious squint"
+  },
+  {
+   "frame": 688,
+   "kind": "double_take",
+   "x": 0.1,
+   "gain": 0.7,
+   "note": "the ink runs ('ink')"
+  },
+  {
+   "frame": 720,
+   "kind": "paper_soak",
+   "x": -0.1,
+   "gain": 0.6,
+   "note": "corners sag"
+  },
+  {
+   "frame": 744,
+   "kind": "bubbles_small",
+   "x": 0.2,
+   "gain": 0.7,
+   "note": "embarrassed bubbles"
+  },
+  {
+   "frame": 759,
+   "kind": "regulator",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "the postal worker breathes out: a train of bubbles rises from the regulator"
+  },
+  {
+   "frame": 768,
+   "kind": "card_flick",
+   "x": -0.2,
+   "gain": 0.9,
+   "note": "the seller fans out the waterproof cards"
+  },
+  {
+   "frame": 778,
+   "kind": "bird",
+   "x": 0.6,
+   "gain": 0.4,
+   "note": "birds behind the kiosk"
+  },
+  {
+   "frame": 782,
+   "kind": "card_flick",
+   "x": -0.1,
+   "gain": 0.7,
+   "note": "glossy cards"
+  },
+  {
+   "frame": 798,
+   "kind": "card_slide",
+   "x": 0.1,
+   "gain": 0.9,
+   "note": "one card slides across the counter"
+  },
+  {
+   "frame": 826,
+   "kind": "brow_pluck",
+   "x": 0.2,
+   "gain": 0.7,
+   "note": "brows shoot up"
+  },
+  {
+   "frame": 832,
+   "kind": "dip_under",
+   "x": 0,
+   "gain": 0.7,
+   "note": "light-wash into the water"
+  },
+  {
+   "frame": 848,
+   "kind": "card_uw",
+   "x": 0.1,
+   "gain": 0.9,
+   "note": "the card, crisp under water"
+  },
+  {
+   "frame": 860,
+   "kind": "bubbles_small",
+   "x": 0.2,
+   "gain": 0.6,
+   "note": "bubbles"
+  },
+  {
+   "frame": 904,
+   "kind": "box_slide_uw",
+   "x": -0.4,
+   "gain": 0.9,
+   "note": "the dry box with the ink stamp is pushed aside"
+  },
+  {
+   "frame": 948,
+   "kind": "card_uw",
+   "x": 0.2,
+   "gain": 0.9,
+   "note": "the card is slid between the dies"
+  },
+  {
+   "frame": 993,
+   "kind": "regulator",
+   "x": -0.2,
+   "gain": 0.9,
+   "note": "the postal worker breathes out: a train of bubbles rises from the regulator"
+  },
+  {
+   "frame": 1000,
+   "kind": "emboss_press",
+   "x": 0.1,
+   "gain": 1,
+   "note": "lever down: the die presses the seal into the card"
+  },
+  {
+   "frame": 1030,
+   "kind": "emboss_release",
+   "x": 0.1,
+   "gain": 0.9,
+   "note": "lever released"
+  },
+  {
+   "frame": 1040,
+   "kind": "card_uw",
+   "x": 0.2,
+   "gain": 0.8,
+   "note": "the embossed card is drawn out"
+  },
+  {
+   "frame": 1046,
+   "kind": "fin_kick",
+   "x": -0.6,
+   "gain": 0.55,
+   "note": "visitors kicking down to the office"
+  },
+  {
+   "frame": 1060,
+   "kind": "fin_kick",
+   "x": 0.6,
+   "gain": 0.55,
+   "note": "visitors kicking down to the office"
+  },
+  {
+   "frame": 1068,
+   "kind": "bubbles_small",
+   "x": -0.5,
+   "gain": 0.6,
+   "note": "snorkellers' bubbles"
+  },
+  {
+   "frame": 1072,
+   "kind": "fin_kick",
+   "x": -0.5,
+   "gain": 0.55,
+   "note": "visitors kicking down to the office"
+  },
+  {
+   "frame": 1084,
+   "kind": "fin_kick",
+   "x": 0.5,
+   "gain": 0.55,
+   "note": "visitors kicking down to the office"
+  },
+  {
+   "frame": 1094,
+   "kind": "fin_kick",
+   "x": -0.3,
+   "gain": 0.55,
+   "note": "visitors kicking down to the office"
+  },
+  {
+   "frame": 1096,
+   "kind": "bubbles_small",
+   "x": 0.5,
+   "gain": 0.5,
+   "note": "bubbles"
+  },
+  {
+   "frame": 1106,
+   "kind": "fin_kick",
+   "x": 0.4,
+   "gain": 0.55,
+   "note": "visitors kicking down to the office"
+  },
+  {
+   "frame": 1110,
+   "kind": "regulator",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "the postal worker breathes out: a train of bubbles rises from the regulator"
+  },
+  {
+   "frame": 1120,
+   "kind": "fin_kick",
+   "x": -0.2,
+   "gain": 0.55,
+   "note": "visitors kicking down to the office"
+  },
+  {
+   "frame": 1120,
+   "kind": "card_uw",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "a visitor hands over her card"
+  },
+  {
+   "frame": 1129,
+   "kind": "card_uw",
+   "x": 0,
+   "gain": 0.8,
+   "note": "the worker takes it"
+  },
+  {
+   "frame": 1190,
+   "kind": "card_uw",
+   "x": 0,
+   "gain": 0.8,
+   "note": "card onto the die"
+  },
+  {
+   "frame": 1214,
+   "kind": "emboss_press",
+   "x": 0,
+   "gain": 0.9,
+   "note": "embossed ('handles')"
+  },
+  {
+   "frame": 1226,
+   "kind": "double_take",
+   "x": 0.4,
+   "gain": 0.6,
+   "note": "the hero, fascinated"
+  },
+  {
+   "frame": 1227,
+   "kind": "regulator",
+   "x": -0.2,
+   "gain": 0.9,
+   "note": "the postal worker breathes out: a train of bubbles rises from the regulator"
+  },
+  {
+   "frame": 1236,
+   "kind": "emboss_release",
+   "x": 0,
+   "gain": 0.8,
+   "note": "lever back"
+  },
+  {
+   "frame": 1250,
+   "kind": "bag_rustle_uw",
+   "x": -0.3,
+   "gain": 0.9,
+   "note": "into the sealed mail bag"
+  },
+  {
+   "frame": 1266,
+   "kind": "fin_kick",
+   "x": 0,
+   "gain": 0.7,
+   "note": "the worker swims the bag up"
+  },
+  {
+   "frame": 1280,
+   "kind": "fin_kick",
+   "x": 0,
+   "gain": 0.7,
+   "note": "the worker swims the bag up"
+  },
+  {
+   "frame": 1294,
+   "kind": "fin_kick",
+   "x": 0,
+   "gain": 0.7,
+   "note": "the worker swims the bag up"
+  },
+  {
+   "frame": 1300,
+   "kind": "surface_emerge",
+   "x": 0.1,
+   "gain": 0.9,
+   "note": "he surfaces at the jetty steps"
+  },
+  {
+   "frame": 1310,
+   "kind": "bird",
+   "x": -0.5,
+   "gain": 0.4,
+   "note": "birds"
+  },
+  {
+   "frame": 1320,
+   "kind": "bag_rustle",
+   "x": 0.1,
+   "gain": 0.9,
+   "note": "the bag is handed up"
+  },
+  {
+   "frame": 1346,
+   "kind": "stamp_ink",
+   "x": 0,
+   "gain": 0.9,
+   "note": "the Port Vila clerk date-stamps the card (above water)"
+  },
+  {
+   "frame": 1370,
+   "kind": "drop_in_bag",
+   "x": 0.3,
+   "gain": 0.9,
+   "note": "into the outward mail bag"
+  },
+  {
+   "frame": 1386,
+   "kind": "bird",
+   "x": 0.5,
+   "gain": 0.4,
+   "note": "birds"
+  },
+  {
+   "frame": 1400,
+   "kind": "flag_flutter",
+   "x": -0.2,
+   "gain": 0.5,
+   "note": "the flag above the office"
+  },
+  {
+   "frame": 1428,
+   "kind": "dip_under",
+   "x": 0,
+   "gain": 0.8,
+   "note": "the camera sinks under"
+  },
+  {
+   "frame": 1461,
+   "kind": "regulator",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "the postal worker breathes out: a train of bubbles rises from the regulator"
+  },
+  {
+   "frame": 1462,
+   "kind": "bubbles_small",
+   "x": 0.2,
+   "gain": 0.5,
+   "note": "bubbles"
+  },
+  {
+   "frame": 1500,
+   "kind": "fin_kick",
+   "x": 0.6,
+   "gain": 0.35,
+   "note": "fusiliers turn past the lens"
+  }
+ ]
+}

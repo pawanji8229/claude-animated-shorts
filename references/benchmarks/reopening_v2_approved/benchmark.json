@@ -1,0 +1,81 @@
+{
+ "id": "reopening_v2_approved",
+ "approved_by_user": "2026-11-09",
+ "status": "OFFICIAL TwistFrame Lab quality reference \u2014 do not modify",
+ "video": {
+  "file": "approved_reopening_540x960.mp4",
+  "sha256": "198933eb2ef336d5e1b67ab9e306aa85fd55b301d20624bd6f99dbdcdbd66182",
+  "size": [
+   540,
+   960
+  ],
+  "fps": 30,
+  "frames": 291,
+  "duration_s": 9.7
+ },
+ "source": {
+  "commit": "9fb221e",
+  "scene": "studio/src/productions/reopening/scene.ts",
+  "film": "studio/src/productions/reopening/Film.tsx",
+  "crowd": "studio/src/char/crowdLife.ts",
+  "mixer": "studio/audio/mix_events.py",
+  "production": "studio/productions/reopening/"
+ },
+ "audio_targets_met": {
+  "final_lufs": -16.1,
+  "true_peak_dbtp": -1.1,
+  "stems_lu_re_narration": {
+   "sfx": -22.1,
+   "crowd": -34.0,
+   "ambience": -29.2,
+   "music": null
+  },
+  "worst_word_margin_db": 15.5,
+  "guard_cuts": 1,
+  "ducking_db": {
+   "sfx": -4,
+   "crowd": -8,
+   "ambience": -6,
+   "music": -10
+  }
+ },
+ "crowd_metrics": {
+  "max_pairwise_hand_correlation": 0.35,
+  "max_people_gesturing_at_once": "5/10",
+  "photographers": "5/10",
+  "shutters": 10,
+  "min_shutter_gap_frames": 10,
+  "flashes": 5,
+  "min_flash_gap_frames": 13,
+  "every_photographer_visible": true
+ },
+ "qc": {
+  "video codec H.264": "h264",
+  "audio track AAC": "aac",
+  "9:16 resolution": "540x960",
+  "30 fps": "30.0",
+  "frame count = narration frames": "291 vs 291",
+  "duration = narration": "video 9.700s vs narration 9.691s",
+  "audio duration matches video": "audio 9.691s",
+  "no black frames": "0 black runs []",
+  "no single-frame glitches": "0 at frames []",
+  "no frozen/duplicated runs": "0 freeze(s) at []",
+  "loudness near target": "I=-16.2 LUFS (target -16.0)",
+  "no clipping (true peak <= -1 dBTP)": "TP=-1.1 dBTP",
+  "narration in sync (|offset| <= 1 frame)": "offset 0 ms",
+  "narration intelligible (every word above background)": "worst word margin 15.5 dB in speech band (target >= 12.0; 1 automatic guard cuts)",
+  "crowd stays quiet under narration": "crowd -34.0 LU re narration (limit -18.0)",
+  "loop: last frame ~ first frame": "mean abs diff 6.3 (limit 18)",
+  "loop: no audio click at boundary": "max sample step 0.004",
+  "loop: ambience level continuous": "level change +2.7 dB"
+ },
+ "future_productions_must_match_or_beat": [
+  "worst word margin >= 15 dB (QC hard limit 12)",
+  "crowd stem <= -28 LU re narration (QC hard limit -18)",
+  "final -16 +/-1 LUFS, <= -1 dBTP",
+  "check-crowd all PASS (corr <= 0.6, flashes >= 8 frames apart, every photographer visible)",
+  "no single-frame glitches, black frames or freezes",
+  "loop frame diff <= ~6-8 when the story loops (limit 18)",
+  "visual: earless odo5 characters, subtle face glow, brush outlines, detailed lit 3D world, one continuous smooth camera, no captions/text"
+ ]
+}

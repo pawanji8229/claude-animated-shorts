@@ -1,0 +1,2 @@
+{"composition":"BoeingPreview","finalComposition":"Boeing","scene":"src/productions/boeing/scene.ts","ambience":"room","music":"office_piano","loop":true,
+ "ambienceTimeline":[[0,"roof_day"],[176,"aerial_high"],[252,"street1942"],[414,"factory_floor"],[514,"office1942"],[892,"roof_day"],[1240,"aerial_high"],[1420,"factory_floor"],[1502,"roof_day"]]}

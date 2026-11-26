@@ -1,0 +1,92 @@
+{
+ "asphalt": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "sidewalk": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "brick": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "tarroof": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "hangar": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "corrugated": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "siding": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "shingle": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "planks": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "rustmetal": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "grassph": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "plaster": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "grass": [
+  "color",
+  "normal",
+  "rough",
+  "ao"
+ ],
+ "aluminium": [
+  "color",
+  "normal",
+  "rough",
+  "metal"
+ ],
+ "wiremesh": [
+  "color",
+  "normal",
+  "rough",
+  "metal",
+  "opacity"
+ ],
+ "plywood": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "gravel": [
+  "color",
+  "normal",
+  "rough",
+  "ao"
+ ]
+}

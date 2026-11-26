@@ -1,0 +1,1224 @@
+{
+ "audio": "/home/user/claude-animated-shorts/studio/productions/flight/input/narration.mp3",
+ "codec": "mp3",
+ "sample_rate": 44100,
+ "channels": 1,
+ "bit_rate": "128006",
+ "duration": 50.3641,
+ "fps": 30,
+ "frames": 1511,
+ "pauses": [
+  {
+   "start": 3.104,
+   "end": 3.434
+  },
+  {
+   "start": 6.144,
+   "end": 6.697
+  },
+  {
+   "start": 8.685,
+   "end": 8.94
+  },
+  {
+   "start": 10.217,
+   "end": 10.61
+  },
+  {
+   "start": 13.148,
+   "end": 13.458
+  },
+  {
+   "start": 17.076,
+   "end": 17.495
+  },
+  {
+   "start": 19.247,
+   "end": 19.504
+  },
+  {
+   "start": 22.382,
+   "end": 23.171
+  },
+  {
+   "start": 25.688,
+   "end": 26.106
+  },
+  {
+   "start": 27.493,
+   "end": 27.893
+  },
+  {
+   "start": 29.521,
+   "end": 29.859
+  },
+  {
+   "start": 30.911,
+   "end": 31.226
+  },
+  {
+   "start": 34.256,
+   "end": 34.815
+  },
+  {
+   "start": 38.097,
+   "end": 38.608
+  },
+  {
+   "start": 40.929,
+   "end": 41.403
+  },
+  {
+   "start": 45.068,
+   "end": 45.502
+  },
+  {
+   "start": 48.62,
+   "end": 49.06
+  },
+  {
+   "start": 50.086,
+   "end": 50.364
+  }
+ ],
+ "phrases": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 3.104,
+   "startFrame": 0,
+   "endFrame": 93,
+   "asr": "this airplane to finish its flight in ninety seconds",
+   "asr_alt": "this airplane to finish its flight in ninety seconds",
+   "asr_words": [
+    {
+     "word": "this",
+     "t0": 0.05,
+     "t1": 0.32,
+     "p": 1.0
+    },
+    {
+     "word": "airplane",
+     "t0": 0.33,
+     "t1": 0.83,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 0.84,
+     "t1": 0.97,
+     "p": 1.0
+    },
+    {
+     "word": "finish",
+     "t0": 0.98,
+     "t1": 1.3,
+     "p": 1.0
+    },
+    {
+     "word": "its",
+     "t0": 1.31,
+     "t1": 1.48,
+     "p": 1.0
+    },
+    {
+     "word": "flight",
+     "t0": 1.49,
+     "t1": 1.82,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 1.83,
+     "t1": 2.03,
+     "p": 1.0
+    },
+    {
+     "word": "ninety",
+     "t0": 2.04,
+     "t1": 2.47,
+     "p": 1.0
+    },
+    {
+     "word": "seconds",
+     "t0": 2.48,
+     "t1": 3.11,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "this airplane to finish its flight in ninety seconds",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 2,
+   "start": 3.434,
+   "end": 6.144,
+   "startFrame": 103,
+   "endFrame": 184,
+   "asr": "what it sounds completely ridiculous",
+   "asr_alt": "what it sounds completely ridiculous",
+   "asr_words": [
+    {
+     "word": "what",
+     "t0": 3.409,
+     "t1": 3.869,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 3.879,
+     "t1": 3.969,
+     "p": 1.0
+    },
+    {
+     "word": "sounds",
+     "t0": 3.979,
+     "t1": 4.399,
+     "p": 1.0
+    },
+    {
+     "word": "completely",
+     "t0": 4.409,
+     "t1": 5.259,
+     "p": 1.0
+    },
+    {
+     "word": "ridiculous",
+     "t0": 5.269,
+     "t1": 6.139,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "what it sounds completely ridiculous",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 3,
+   "start": 6.697,
+   "end": 8.685,
+   "startFrame": 201,
+   "endFrame": 261,
+   "asr": "because by the time you settled into your seat",
+   "asr_alt": "because by the time you settled into your seat",
+   "asr_words": [
+    {
+     "word": "because",
+     "t0": 6.671,
+     "t1": 6.921,
+     "p": 1.0
+    },
+    {
+     "word": "by",
+     "t0": 6.931,
+     "t1": 7.101,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 7.111,
+     "t1": 7.191,
+     "p": 1.0
+    },
+    {
+     "word": "time",
+     "t0": 7.201,
+     "t1": 7.441,
+     "p": 1.0
+    },
+    {
+     "word": "you",
+     "t0": 7.451,
+     "t1": 7.581,
+     "p": 1.0
+    },
+    {
+     "word": "settled",
+     "t0": 7.591,
+     "t1": 7.951,
+     "p": 1.0
+    },
+    {
+     "word": "into",
+     "t0": 7.961,
+     "t1": 8.131,
+     "p": 1.0
+    },
+    {
+     "word": "your",
+     "t0": 8.141,
+     "t1": 8.28,
+     "p": 1.0
+    },
+    {
+     "word": "seat",
+     "t0": 8.291,
+     "t1": 8.681,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "because by the time you settled into your seat",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 4,
+   "start": 8.94,
+   "end": 10.217,
+   "startFrame": 268,
+   "endFrame": 307,
+   "asr": "you're almost ready land",
+   "asr_alt": "you're almost ready to land",
+   "asr_words": [
+    {
+     "word": "you're",
+     "t0": 8.902,
+     "t1": 9.072,
+     "p": 1.0
+    },
+    {
+     "word": "almost",
+     "t0": 9.142,
+     "t1": 9.482,
+     "p": 1.0
+    },
+    {
+     "word": "ready",
+     "t0": 9.492,
+     "t1": 9.692,
+     "p": 1.0
+    },
+    {
+     "word": "land",
+     "t0": 9.702,
+     "t1": 10.232,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "you're almost ready land",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 5,
+   "start": 10.61,
+   "end": 13.148,
+   "startFrame": 318,
+   "endFrame": 394,
+   "asr": "but this is a real scheduled flight in scotland",
+   "asr_alt": "but this is a real scheduled flight in scotland",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 10.584,
+     "t1": 10.754,
+     "p": 1.0
+    },
+    {
+     "word": "this",
+     "t0": 10.764,
+     "t1": 10.954,
+     "p": 1.0
+    },
+    {
+     "word": "is",
+     "t0": 10.964,
+     "t1": 11.074,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 11.084,
+     "t1": 11.114,
+     "p": 1.0
+    },
+    {
+     "word": "real",
+     "t0": 11.124,
+     "t1": 11.634,
+     "p": 1.0
+    },
+    {
+     "word": "scheduled",
+     "t0": 11.644,
+     "t1": 12.134,
+     "p": 1.0
+    },
+    {
+     "word": "flight",
+     "t0": 12.144,
+     "t1": 12.444,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 12.454,
+     "t1": 12.514,
+     "p": 1.0
+    },
+    {
+     "word": "scotland",
+     "t0": 12.524,
+     "t1": 13.164,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "but this is a real scheduled flight in scotland",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 6,
+   "start": 13.458,
+   "end": 17.076,
+   "startFrame": 404,
+   "endFrame": 512,
+   "asr": "the next two tiny islands called went straight and papa was struck",
+   "asr_alt": "the next two tiny islands called went straight and papa western",
+   "asr_words": [
+    {
+     "word": "the",
+     "t0": 13.673,
+     "t1": 13.753,
+     "p": 1.0
+    },
+    {
+     "word": "next",
+     "t0": 13.763,
+     "t1": 14.063,
+     "p": 1.0
+    },
+    {
+     "word": "two",
+     "t0": 14.073,
+     "t1": 14.363,
+     "p": 1.0
+    },
+    {
+     "word": "tiny",
+     "t0": 14.373,
+     "t1": 14.803,
+     "p": 1.0
+    },
+    {
+     "word": "islands",
+     "t0": 14.813,
+     "t1": 15.223,
+     "p": 1.0
+    },
+    {
+     "word": "called",
+     "t0": 15.233,
+     "t1": 15.423,
+     "p": 1.0
+    },
+    {
+     "word": "went",
+     "t0": 15.433,
+     "t1": 15.693,
+     "p": 1.0
+    },
+    {
+     "word": "straight",
+     "t0": 15.703,
+     "t1": 16.113,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 16.123,
+     "t1": 16.233,
+     "p": 1.0
+    },
+    {
+     "word": "papa",
+     "t0": 16.243,
+     "t1": 16.583,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 16.593,
+     "t1": 16.773,
+     "p": 0.0
+    },
+    {
+     "word": "struck",
+     "t0": 16.783,
+     "t1": 17.163,
+     "p": 0.0
+    }
+   ],
+   "asr_agreement": 0.833,
+   "uncertain": [
+    "was",
+    "struck"
+   ],
+   "text": "the next two tiny islands called went straight and papa was struck",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 7,
+   "start": 17.495,
+   "end": 19.247,
+   "startFrame": 525,
+   "endFrame": 577,
+   "asr": "these are the ones are so close",
+   "asr_alt": "in these islands are so close",
+   "asr_words": [
+    {
+     "word": "these",
+     "t0": 17.585,
+     "t1": 17.855,
+     "p": 1.0
+    },
+    {
+     "word": "are",
+     "t0": 17.865,
+     "t1": 17.945,
+     "p": 0.0
+    },
+    {
+     "word": "the",
+     "t0": 17.956,
+     "t1": 18.015,
+     "p": 0.0
+    },
+    {
+     "word": "ones",
+     "t0": 18.025,
+     "t1": 18.226,
+     "p": 0.0
+    },
+    {
+     "word": "are",
+     "t0": 18.235,
+     "t1": 18.386,
+     "p": 1.0
+    },
+    {
+     "word": "so",
+     "t0": 18.395,
+     "t1": 18.816,
+     "p": 1.0
+    },
+    {
+     "word": "close",
+     "t0": 18.825,
+     "t1": 19.235,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.571,
+   "uncertain": [
+    "are",
+    "the",
+    "ones"
+   ],
+   "text": "these are the ones are so close",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 8,
+   "start": 19.504,
+   "end": 22.382,
+   "startFrame": 585,
+   "endFrame": 671,
+   "asr": "but the entire injury can take less than two minutes",
+   "asr_alt": "but the entire journey can take less than two minutes",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 19.456,
+     "t1": 19.566,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 19.576,
+     "t1": 19.676,
+     "p": 1.0
+    },
+    {
+     "word": "entire",
+     "t0": 19.686,
+     "t1": 20.196,
+     "p": 1.0
+    },
+    {
+     "word": "injury",
+     "t0": 20.206,
+     "t1": 20.606,
+     "p": 0.0
+    },
+    {
+     "word": "can",
+     "t0": 20.616,
+     "t1": 20.756,
+     "p": 1.0
+    },
+    {
+     "word": "take",
+     "t0": 20.766,
+     "t1": 20.966,
+     "p": 1.0
+    },
+    {
+     "word": "less",
+     "t0": 20.976,
+     "t1": 21.306,
+     "p": 1.0
+    },
+    {
+     "word": "than",
+     "t0": 21.316,
+     "t1": 21.496,
+     "p": 1.0
+    },
+    {
+     "word": "two",
+     "t0": 21.506,
+     "t1": 21.846,
+     "p": 1.0
+    },
+    {
+     "word": "minutes",
+     "t0": 21.856,
+     "t1": 22.366,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.9,
+   "uncertain": [
+    "injury"
+   ],
+   "text": "but the entire injury can take less than two minutes",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 9,
+   "start": 23.171,
+   "end": 25.688,
+   "startFrame": 695,
+   "endFrame": 771,
+   "asr": "first the passengers border small aircraft",
+   "asr_alt": "first the passengers boarded small aircraft",
+   "asr_words": [
+    {
+     "word": "first",
+     "t0": 23.086,
+     "t1": 23.616,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 23.706,
+     "t1": 23.806,
+     "p": 1.0
+    },
+    {
+     "word": "passengers",
+     "t0": 23.816,
+     "t1": 24.356,
+     "p": 1.0
+    },
+    {
+     "word": "border",
+     "t0": 24.366,
+     "t1": 24.656,
+     "p": 0.0
+    },
+    {
+     "word": "small",
+     "t0": 24.666,
+     "t1": 25.096,
+     "p": 1.0
+    },
+    {
+     "word": "aircraft",
+     "t0": 25.106,
+     "t1": 25.696,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.833,
+   "uncertain": [
+    "border"
+   ],
+   "text": "first the passengers border small aircraft",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 10,
+   "start": 26.106,
+   "end": 27.493,
+   "startFrame": 783,
+   "endFrame": 825,
+   "asr": "the pilot start the engines",
+   "asr_alt": "the pilot start the engines",
+   "asr_words": [
+    {
+     "word": "the",
+     "t0": 26.047,
+     "t1": 26.137,
+     "p": 1.0
+    },
+    {
+     "word": "pilot",
+     "t0": 26.147,
+     "t1": 26.547,
+     "p": 1.0
+    },
+    {
+     "word": "start",
+     "t0": 26.557,
+     "t1": 26.867,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 26.877,
+     "t1": 27.007,
+     "p": 1.0
+    },
+    {
+     "word": "engines",
+     "t0": 27.017,
+     "t1": 27.487,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "the pilot start the engines",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 11,
+   "start": 27.893,
+   "end": 29.521,
+   "startFrame": 837,
+   "endFrame": 886,
+   "asr": "the plane taxes on to the runway",
+   "asr_alt": "the plane taxes on to the runway",
+   "asr_words": [
+    {
+     "word": "the",
+     "t0": 27.803,
+     "t1": 27.923,
+     "p": 1.0
+    },
+    {
+     "word": "plane",
+     "t0": 27.933,
+     "t1": 28.243,
+     "p": 1.0
+    },
+    {
+     "word": "taxes",
+     "t0": 28.253,
+     "t1": 28.723,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 28.733,
+     "t1": 28.853,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 28.863,
+     "t1": 28.933,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 28.943,
+     "t1": 29.033,
+     "p": 1.0
+    },
+    {
+     "word": "runway",
+     "t0": 29.043,
+     "t1": 29.513,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "the plane taxes on to the runway",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 12,
+   "start": 29.859,
+   "end": 30.911,
+   "startFrame": 896,
+   "endFrame": 927,
+   "asr": "and after taking off",
+   "asr_alt": "and after taking off",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 29.82,
+     "t1": 29.95,
+     "p": 1.0
+    },
+    {
+     "word": "after",
+     "t0": 30.06,
+     "t1": 30.3,
+     "p": 1.0
+    },
+    {
+     "word": "taking",
+     "t0": 30.31,
+     "t1": 30.64,
+     "p": 1.0
+    },
+    {
+     "word": "off",
+     "t0": 30.65,
+     "t1": 30.92,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and after taking off",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 13,
+   "start": 31.226,
+   "end": 34.256,
+   "startFrame": 937,
+   "endFrame": 1028,
+   "asr": "we barely have time to climb before preparing to land again",
+   "asr_alt": "it barely have time to climb before preparing to land again",
+   "asr_words": [
+    {
+     "word": "we",
+     "t0": 31.208,
+     "t1": 31.288,
+     "p": 0.0
+    },
+    {
+     "word": "barely",
+     "t0": 31.298,
+     "t1": 31.818,
+     "p": 1.0
+    },
+    {
+     "word": "have",
+     "t0": 31.828,
+     "t1": 31.988,
+     "p": 1.0
+    },
+    {
+     "word": "time",
+     "t0": 31.998,
+     "t1": 32.238,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 32.248,
+     "t1": 32.348,
+     "p": 1.0
+    },
+    {
+     "word": "climb",
+     "t0": 32.358,
+     "t1": 32.868,
+     "p": 1.0
+    },
+    {
+     "word": "before",
+     "t0": 32.878,
+     "t1": 33.128,
+     "p": 1.0
+    },
+    {
+     "word": "preparing",
+     "t0": 33.138,
+     "t1": 33.558,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 33.568,
+     "t1": 33.638,
+     "p": 1.0
+    },
+    {
+     "word": "land",
+     "t0": 33.648,
+     "t1": 33.948,
+     "p": 1.0
+    },
+    {
+     "word": "again",
+     "t0": 33.958,
+     "t1": 34.268,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.909,
+   "uncertain": [
+    "we"
+   ],
+   "text": "we barely have time to climb before preparing to land again",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 14,
+   "start": 34.815,
+   "end": 38.097,
+   "startFrame": 1044,
+   "endFrame": 1143,
+   "asr": "sometimes the flight is even shorter or depending on the weather and went",
+   "asr_alt": "sometimes the flight is even shorter or depending on the weather and went",
+   "asr_words": [
+    {
+     "word": "sometimes",
+     "t0": 34.806,
+     "t1": 35.286,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 35.296,
+     "t1": 35.366,
+     "p": 1.0
+    },
+    {
+     "word": "flight",
+     "t0": 35.376,
+     "t1": 35.656,
+     "p": 1.0
+    },
+    {
+     "word": "is",
+     "t0": 35.666,
+     "t1": 35.756,
+     "p": 1.0
+    },
+    {
+     "word": "even",
+     "t0": 35.766,
+     "t1": 36.106,
+     "p": 1.0
+    },
+    {
+     "word": "shorter",
+     "t0": 36.116,
+     "t1": 36.596,
+     "p": 1.0
+    },
+    {
+     "word": "or",
+     "t0": 36.606,
+     "t1": 36.676,
+     "p": 1.0
+    },
+    {
+     "word": "depending",
+     "t0": 36.686,
+     "t1": 37.096,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 37.106,
+     "t1": 37.196,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 37.206,
+     "t1": 37.256,
+     "p": 1.0
+    },
+    {
+     "word": "weather",
+     "t0": 37.266,
+     "t1": 37.636,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 37.646,
+     "t1": 37.726,
+     "p": 1.0
+    },
+    {
+     "word": "went",
+     "t0": 37.736,
+     "t1": 38.106,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "sometimes the flight is even shorter or depending on the weather and went",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 15,
+   "start": 38.608,
+   "end": 40.929,
+   "startFrame": 1158,
+   "endFrame": 1228,
+   "asr": "and there's something particularly funny about it",
+   "asr_alt": "and there's something particularly funny about it",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 38.573,
+     "t1": 38.723,
+     "p": 1.0
+    },
+    {
+     "word": "there's",
+     "t0": 38.733,
+     "t1": 38.873,
+     "p": 1.0
+    },
+    {
+     "word": "something",
+     "t0": 38.883,
+     "t1": 39.313,
+     "p": 1.0
+    },
+    {
+     "word": "particularly",
+     "t0": 39.323,
+     "t1": 40.153,
+     "p": 1.0
+    },
+    {
+     "word": "funny",
+     "t0": 40.163,
+     "t1": 40.503,
+     "p": 1.0
+    },
+    {
+     "word": "about",
+     "t0": 40.513,
+     "t1": 40.843,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 40.853,
+     "t1": 40.963,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and there's something particularly funny about it",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 16,
+   "start": 41.403,
+   "end": 45.068,
+   "startFrame": 1242,
+   "endFrame": 1352,
+   "asr": "but the passengers still go to the process of boarding an airplane",
+   "asr_alt": "the the passengers still go to the process of boarding an airplane",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 41.566,
+     "t1": 41.746,
+     "p": 0.0
+    },
+    {
+     "word": "the",
+     "t0": 41.916,
+     "t1": 42.126,
+     "p": 1.0
+    },
+    {
+     "word": "passengers",
+     "t0": 42.136,
+     "t1": 42.726,
+     "p": 1.0
+    },
+    {
+     "word": "still",
+     "t0": 42.736,
+     "t1": 43.136,
+     "p": 1.0
+    },
+    {
+     "word": "go",
+     "t0": 43.146,
+     "t1": 43.316,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 43.326,
+     "t1": 43.426,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 43.436,
+     "t1": 43.516,
+     "p": 1.0
+    },
+    {
+     "word": "process",
+     "t0": 43.526,
+     "t1": 44.026,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 44.036,
+     "t1": 44.126,
+     "p": 1.0
+    },
+    {
+     "word": "boarding",
+     "t0": 44.136,
+     "t1": 44.516,
+     "p": 1.0
+    },
+    {
+     "word": "an",
+     "t0": 44.526,
+     "t1": 44.586,
+     "p": 1.0
+    },
+    {
+     "word": "airplane",
+     "t0": 44.596,
+     "t1": 45.086,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.917,
+   "uncertain": [
+    "but"
+   ],
+   "text": "but the passengers still go to the process of boarding an airplane",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 17,
+   "start": 45.502,
+   "end": 48.62,
+   "startFrame": 1365,
+   "endFrame": 1459,
+   "asr": "only to arrive at another airport almost immediately",
+   "asr_alt": "only to arrive at another airport almost immediately",
+   "asr_words": [
+    {
+     "word": "only",
+     "t0": 45.485,
+     "t1": 45.755,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 45.765,
+     "t1": 45.935,
+     "p": 1.0
+    },
+    {
+     "word": "arrive",
+     "t0": 45.945,
+     "t1": 46.335,
+     "p": 1.0
+    },
+    {
+     "word": "at",
+     "t0": 46.345,
+     "t1": 46.425,
+     "p": 1.0
+    },
+    {
+     "word": "another",
+     "t0": 46.435,
+     "t1": 46.945,
+     "p": 1.0
+    },
+    {
+     "word": "airport",
+     "t0": 46.955,
+     "t1": 47.415,
+     "p": 1.0
+    },
+    {
+     "word": "almost",
+     "t0": 47.485,
+     "t1": 47.835,
+     "p": 1.0
+    },
+    {
+     "word": "immediately",
+     "t0": 47.845,
+     "t1": 48.645,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "only to arrive at another airport almost immediately",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 18,
+   "start": 49.06,
+   "end": 50.086,
+   "startFrame": 1472,
+   "endFrame": 1503,
+   "asr": "because on this route",
+   "asr_alt": "because on this route",
+   "asr_words": [
+    {
+     "word": "because",
+     "t0": 49.0,
+     "t1": 49.3,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 49.31,
+     "t1": 49.49,
+     "p": 1.0
+    },
+    {
+     "word": "this",
+     "t0": 49.5,
+     "t1": 49.71,
+     "p": 1.0
+    },
+    {
+     "word": "route",
+     "t0": 49.72,
+     "t1": 50.16,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "because on this route",
+   "text_source": "ASR (unconfirmed)"
+  }
+ ],
+ "asr_engine": "pocketsphinx (offline)"
+}

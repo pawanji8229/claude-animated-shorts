@@ -1,0 +1,1375 @@
+{
+ "audio": "/home/user/claude-animated-shorts/studio/productions/london-bridge/input/narration.mp3",
+ "codec": "mp3",
+ "sample_rate": 44100,
+ "channels": 1,
+ "bit_rate": "128005",
+ "duration": 59.0106,
+ "fps": 30,
+ "frames": 1771,
+ "pauses": [
+  {
+   "start": 1.539,
+   "end": 1.803
+  },
+  {
+   "start": 4.718,
+   "end": 5.203
+  },
+  {
+   "start": 6.962,
+   "end": 7.519
+  },
+  {
+   "start": 9.625,
+   "end": 10.334
+  },
+  {
+   "start": 14.547,
+   "end": 15.097
+  },
+  {
+   "start": 17.076,
+   "end": 17.338
+  },
+  {
+   "start": 20.321,
+   "end": 20.942
+  },
+  {
+   "start": 25.209,
+   "end": 25.791
+  },
+  {
+   "start": 30.357,
+   "end": 30.715
+  },
+  {
+   "start": 32.313,
+   "end": 32.829
+  },
+  {
+   "start": 35.352,
+   "end": 35.688
+  },
+  {
+   "start": 37.46,
+   "end": 37.981
+  },
+  {
+   "start": 41.855,
+   "end": 42.426
+  },
+  {
+   "start": 44.396,
+   "end": 44.94
+  },
+  {
+   "start": 46.081,
+   "end": 46.652
+  },
+  {
+   "start": 49.119,
+   "end": 49.629
+  },
+  {
+   "start": 52.485,
+   "end": 52.76
+  },
+  {
+   "start": 54.155,
+   "end": 54.61
+  },
+  {
+   "start": 56.534,
+   "end": 56.91
+  }
+ ],
+ "phrases": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 1.539,
+   "startFrame": 0,
+   "endFrame": 46,
+   "asr": "in nineteen sixty eight",
+   "asr_alt": "in nineteen sixty eight",
+   "asr_words": [
+    {
+     "word": "in",
+     "t0": 0.12,
+     "t1": 0.22,
+     "p": 1.0
+    },
+    {
+     "word": "nineteen",
+     "t0": 0.23,
+     "t1": 0.65,
+     "p": 1.0
+    },
+    {
+     "word": "sixty",
+     "t0": 0.66,
+     "t1": 1.1,
+     "p": 1.0
+    },
+    {
+     "word": "eight",
+     "t0": 1.16,
+     "t1": 1.55,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "In 1968,",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 2,
+   "start": 1.803,
+   "end": 4.718,
+   "startFrame": 54,
+   "endFrame": 142,
+   "asr": "the businessman bought an entire bridge from london",
+   "asr_alt": "the businessman bought the entire bridge from london",
+   "asr_words": [
+    {
+     "word": "the",
+     "t0": 1.771,
+     "t1": 1.831,
+     "p": 1.0
+    },
+    {
+     "word": "businessman",
+     "t0": 1.841,
+     "t1": 2.511,
+     "p": 1.0
+    },
+    {
+     "word": "bought",
+     "t0": 2.521,
+     "t1": 2.761,
+     "p": 1.0
+    },
+    {
+     "word": "an",
+     "t0": 2.771,
+     "t1": 2.841,
+     "p": 0.0
+    },
+    {
+     "word": "entire",
+     "t0": 2.851,
+     "t1": 3.501,
+     "p": 1.0
+    },
+    {
+     "word": "bridge",
+     "t0": 3.511,
+     "t1": 4.001,
+     "p": 1.0
+    },
+    {
+     "word": "from",
+     "t0": 4.011,
+     "t1": 4.231,
+     "p": 1.0
+    },
+    {
+     "word": "london",
+     "t0": 4.241,
+     "t1": 4.721,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.875,
+   "uncertain": [
+    "an"
+   ],
+   "text": "a businessman bought an entire bridge from London",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 3,
+   "start": 5.203,
+   "end": 6.962,
+   "startFrame": 156,
+   "endFrame": 209,
+   "asr": "he stepped into the middle of the desert",
+   "asr_alt": "and stepped into the middle of the desert",
+   "asr_words": [
+    {
+     "word": "he",
+     "t0": 5.15,
+     "t1": 5.26,
+     "p": 0.0
+    },
+    {
+     "word": "stepped",
+     "t0": 5.27,
+     "t1": 5.63,
+     "p": 1.0
+    },
+    {
+     "word": "into",
+     "t0": 5.64,
+     "t1": 5.81,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 5.82,
+     "t1": 5.89,
+     "p": 1.0
+    },
+    {
+     "word": "middle",
+     "t0": 5.9,
+     "t1": 6.27,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 6.28,
+     "t1": 6.33,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 6.34,
+     "t1": 6.41,
+     "p": 1.0
+    },
+    {
+     "word": "desert",
+     "t0": 6.42,
+     "t1": 6.97,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.875,
+   "uncertain": [
+    "he"
+   ],
+   "text": "and shipped it to the middle of the desert.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 4,
+   "start": 7.519,
+   "end": 9.625,
+   "startFrame": 226,
+   "endFrame": 289,
+   "asr": "but there was even on a river waiting for it",
+   "asr_alt": "but it was even on a river waiting for",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 7.49,
+     "t1": 7.71,
+     "p": 1.0
+    },
+    {
+     "word": "there",
+     "t0": 7.81,
+     "t1": 8.01,
+     "p": 0.0
+    },
+    {
+     "word": "was",
+     "t0": 8.02,
+     "t1": 8.26,
+     "p": 1.0
+    },
+    {
+     "word": "even",
+     "t0": 8.27,
+     "t1": 8.52,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 8.53,
+     "t1": 8.67,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 8.68,
+     "t1": 8.7,
+     "p": 1.0
+    },
+    {
+     "word": "river",
+     "t0": 8.71,
+     "t1": 8.97,
+     "p": 1.0
+    },
+    {
+     "word": "waiting",
+     "t0": 8.98,
+     "t1": 9.28,
+     "p": 1.0
+    },
+    {
+     "word": "for",
+     "t0": 9.29,
+     "t1": 9.58,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 9.59,
+     "t1": 9.68,
+     "p": 0.0
+    }
+   ],
+   "asr_agreement": 0.8,
+   "uncertain": [
+    "there",
+    "it"
+   ],
+   "text": "But there wasn't even a river waiting for it.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 5,
+   "start": 10.334,
+   "end": 14.547,
+   "startFrame": 310,
+   "endFrame": 436,
+   "asr": "you see london was replacing it's old bridge and an american businessman",
+   "asr_alt": "you see london was replacing it's old bridge and an american businessman",
+   "asr_words": [
+    {
+     "word": "you",
+     "t0": 10.309,
+     "t1": 10.379,
+     "p": 1.0
+    },
+    {
+     "word": "see",
+     "t0": 10.389,
+     "t1": 10.759,
+     "p": 1.0
+    },
+    {
+     "word": "london",
+     "t0": 10.939,
+     "t1": 11.299,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 11.309,
+     "t1": 11.449,
+     "p": 1.0
+    },
+    {
+     "word": "replacing",
+     "t0": 11.459,
+     "t1": 11.959,
+     "p": 1.0
+    },
+    {
+     "word": "it's",
+     "t0": 11.969,
+     "t1": 12.079,
+     "p": 1.0
+    },
+    {
+     "word": "old",
+     "t0": 12.209,
+     "t1": 12.449,
+     "p": 1.0
+    },
+    {
+     "word": "bridge",
+     "t0": 12.459,
+     "t1": 12.889,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 13.019,
+     "t1": 13.269,
+     "p": 1.0
+    },
+    {
+     "word": "an",
+     "t0": 13.279,
+     "t1": 13.359,
+     "p": 1.0
+    },
+    {
+     "word": "american",
+     "t0": 13.369,
+     "t1": 13.839,
+     "p": 1.0
+    },
+    {
+     "word": "businessman",
+     "t0": 13.849,
+     "t1": 14.549,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "You see, London was replacing its old bridge, and an American businessman",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 6,
+   "start": 15.097,
+   "end": 17.076,
+   "startFrame": 453,
+   "endFrame": 512,
+   "asr": "he was building a new city in arizona",
+   "asr_alt": "he was building a new city in arizona",
+   "asr_words": [
+    {
+     "word": "he",
+     "t0": 15.022,
+     "t1": 15.142,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 15.152,
+     "t1": 15.282,
+     "p": 1.0
+    },
+    {
+     "word": "building",
+     "t0": 15.292,
+     "t1": 15.602,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 15.612,
+     "t1": 15.632,
+     "p": 1.0
+    },
+    {
+     "word": "new",
+     "t0": 15.642,
+     "t1": 15.932,
+     "p": 1.0
+    },
+    {
+     "word": "city",
+     "t0": 15.942,
+     "t1": 16.272,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 16.282,
+     "t1": 16.372,
+     "p": 1.0
+    },
+    {
+     "word": "arizona",
+     "t0": 16.382,
+     "t1": 17.102,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "was building a new city in Arizona.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 7,
+   "start": 17.338,
+   "end": 20.321,
+   "startFrame": 520,
+   "endFrame": 610,
+   "asr": "but he needed something that would make people actually want to visit",
+   "asr_alt": "but he needed something that would make people actually want to visit",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 17.237,
+     "t1": 17.477,
+     "p": 1.0
+    },
+    {
+     "word": "he",
+     "t0": 17.537,
+     "t1": 17.717,
+     "p": 1.0
+    },
+    {
+     "word": "needed",
+     "t0": 17.727,
+     "t1": 17.967,
+     "p": 1.0
+    },
+    {
+     "word": "something",
+     "t0": 17.977,
+     "t1": 18.337,
+     "p": 1.0
+    },
+    {
+     "word": "that",
+     "t0": 18.347,
+     "t1": 18.427,
+     "p": 1.0
+    },
+    {
+     "word": "would",
+     "t0": 18.437,
+     "t1": 18.547,
+     "p": 1.0
+    },
+    {
+     "word": "make",
+     "t0": 18.557,
+     "t1": 18.767,
+     "p": 1.0
+    },
+    {
+     "word": "people",
+     "t0": 18.777,
+     "t1": 19.087,
+     "p": 1.0
+    },
+    {
+     "word": "actually",
+     "t0": 19.237,
+     "t1": 19.677,
+     "p": 1.0
+    },
+    {
+     "word": "want",
+     "t0": 19.687,
+     "t1": 19.917,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 19.927,
+     "t1": 20.017,
+     "p": 1.0
+    },
+    {
+     "word": "visit",
+     "t0": 20.027,
+     "t1": 20.387,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "But he needed something that would make people actually want to visit.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 8,
+   "start": 20.942,
+   "end": 25.209,
+   "startFrame": 628,
+   "endFrame": 756,
+   "asr": "so he spent two point four six million dollars buying london bridge",
+   "asr_alt": "so he spent two point four six million dollars buying london bridge",
+   "asr_words": [
+    {
+     "word": "so",
+     "t0": 20.902,
+     "t1": 21.072,
+     "p": 1.0
+    },
+    {
+     "word": "he",
+     "t0": 21.082,
+     "t1": 21.202,
+     "p": 1.0
+    },
+    {
+     "word": "spent",
+     "t0": 21.212,
+     "t1": 21.552,
+     "p": 1.0
+    },
+    {
+     "word": "two",
+     "t0": 21.562,
+     "t1": 21.782,
+     "p": 1.0
+    },
+    {
+     "word": "point",
+     "t0": 21.792,
+     "t1": 22.082,
+     "p": 1.0
+    },
+    {
+     "word": "four",
+     "t0": 22.092,
+     "t1": 22.412,
+     "p": 1.0
+    },
+    {
+     "word": "six",
+     "t0": 22.422,
+     "t1": 22.712,
+     "p": 1.0
+    },
+    {
+     "word": "million",
+     "t0": 22.722,
+     "t1": 23.392,
+     "p": 1.0
+    },
+    {
+     "word": "dollars",
+     "t0": 23.402,
+     "t1": 23.872,
+     "p": 1.0
+    },
+    {
+     "word": "buying",
+     "t0": 23.882,
+     "t1": 24.342,
+     "p": 1.0
+    },
+    {
+     "word": "london",
+     "t0": 24.352,
+     "t1": 24.782,
+     "p": 1.0
+    },
+    {
+     "word": "bridge",
+     "t0": 24.792,
+     "t1": 25.242,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "So he spent 2.46 million dollars buying London Bridge.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 9,
+   "start": 25.791,
+   "end": 30.357,
+   "startFrame": 774,
+   "endFrame": 911,
+   "asr": "workers carefully numbered more than ten thousand granted blocks took the bridge apart",
+   "asr_alt": "workers carefully numbered more than ten thousand granted blocks took the bridge apart",
+   "asr_words": [
+    {
+     "word": "workers",
+     "t0": 25.76,
+     "t1": 26.15,
+     "p": 1.0
+    },
+    {
+     "word": "carefully",
+     "t0": 26.16,
+     "t1": 26.72,
+     "p": 1.0
+    },
+    {
+     "word": "numbered",
+     "t0": 26.73,
+     "t1": 27.08,
+     "p": 1.0
+    },
+    {
+     "word": "more",
+     "t0": 27.09,
+     "t1": 27.27,
+     "p": 1.0
+    },
+    {
+     "word": "than",
+     "t0": 27.28,
+     "t1": 27.48,
+     "p": 1.0
+    },
+    {
+     "word": "ten",
+     "t0": 27.49,
+     "t1": 27.88,
+     "p": 1.0
+    },
+    {
+     "word": "thousand",
+     "t0": 27.89,
+     "t1": 28.49,
+     "p": 1.0
+    },
+    {
+     "word": "granted",
+     "t0": 28.5,
+     "t1": 28.82,
+     "p": 1.0
+    },
+    {
+     "word": "blocks",
+     "t0": 28.83,
+     "t1": 29.33,
+     "p": 1.0
+    },
+    {
+     "word": "took",
+     "t0": 29.52,
+     "t1": 29.71,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 29.72,
+     "t1": 29.79,
+     "p": 1.0
+    },
+    {
+     "word": "bridge",
+     "t0": 29.8,
+     "t1": 30.0,
+     "p": 1.0
+    },
+    {
+     "word": "apart",
+     "t0": 30.01,
+     "t1": 30.42,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "Workers carefully numbered more than ten thousand granite blocks, took the bridge apart,",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 10,
+   "start": 30.715,
+   "end": 32.313,
+   "startFrame": 921,
+   "endFrame": 969,
+   "asr": "and loaded the stones on the ships",
+   "asr_alt": "and loaded the stones on the ships",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 30.586,
+     "t1": 30.796,
+     "p": 1.0
+    },
+    {
+     "word": "loaded",
+     "t0": 30.806,
+     "t1": 31.146,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 31.156,
+     "t1": 31.206,
+     "p": 1.0
+    },
+    {
+     "word": "stones",
+     "t0": 31.216,
+     "t1": 31.626,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 31.636,
+     "t1": 31.746,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 31.756,
+     "t1": 31.826,
+     "p": 1.0
+    },
+    {
+     "word": "ships",
+     "t0": 31.836,
+     "t1": 32.316,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and loaded the stones onto ships.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 11,
+   "start": 32.829,
+   "end": 35.352,
+   "startFrame": 985,
+   "endFrame": 1061,
+   "asr": "across the ocean pass through the panama canal",
+   "asr_alt": "across the ocean pass through the panama canal",
+   "asr_words": [
+    {
+     "word": "across",
+     "t0": 32.811,
+     "t1": 33.261,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 33.271,
+     "t1": 33.411,
+     "p": 1.0
+    },
+    {
+     "word": "ocean",
+     "t0": 33.421,
+     "t1": 33.851,
+     "p": 1.0
+    },
+    {
+     "word": "pass",
+     "t0": 34.051,
+     "t1": 34.331,
+     "p": 1.0
+    },
+    {
+     "word": "through",
+     "t0": 34.341,
+     "t1": 34.451,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 34.461,
+     "t1": 34.531,
+     "p": 1.0
+    },
+    {
+     "word": "panama",
+     "t0": 34.541,
+     "t1": 34.911,
+     "p": 1.0
+    },
+    {
+     "word": "canal",
+     "t0": 34.921,
+     "t1": 35.371,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "Across the ocean, through the Panama Canal,",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 12,
+   "start": 35.688,
+   "end": 37.46,
+   "startFrame": 1071,
+   "endFrame": 1124,
+   "asr": "and finally arrived in arizona",
+   "asr_alt": "and finally arrived in arizona",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 35.58,
+     "t1": 35.76,
+     "p": 1.0
+    },
+    {
+     "word": "finally",
+     "t0": 35.77,
+     "t1": 36.35,
+     "p": 1.0
+    },
+    {
+     "word": "arrived",
+     "t0": 36.36,
+     "t1": 36.75,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 36.76,
+     "t1": 36.85,
+     "p": 1.0
+    },
+    {
+     "word": "arizona",
+     "t0": 36.86,
+     "t1": 37.39,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and finally arrived in Arizona.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 13,
+   "start": 37.981,
+   "end": 41.855,
+   "startFrame": 1139,
+   "endFrame": 1256,
+   "asr": "then construction crews rebuild the bridge around the modern concrete structure",
+   "asr_alt": "then construction crews rebuild the bridge around the modern concrete structure",
+   "asr_words": [
+    {
+     "word": "then",
+     "t0": 37.96,
+     "t1": 38.35,
+     "p": 1.0
+    },
+    {
+     "word": "construction",
+     "t0": 38.36,
+     "t1": 38.92,
+     "p": 1.0
+    },
+    {
+     "word": "crews",
+     "t0": 38.93,
+     "t1": 39.21,
+     "p": 1.0
+    },
+    {
+     "word": "rebuild",
+     "t0": 39.22,
+     "t1": 39.69,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 39.7,
+     "t1": 39.77,
+     "p": 1.0
+    },
+    {
+     "word": "bridge",
+     "t0": 39.78,
+     "t1": 40.1,
+     "p": 1.0
+    },
+    {
+     "word": "around",
+     "t0": 40.11,
+     "t1": 40.39,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 40.4,
+     "t1": 40.45,
+     "p": 1.0
+    },
+    {
+     "word": "modern",
+     "t0": 40.46,
+     "t1": 40.91,
+     "p": 1.0
+    },
+    {
+     "word": "concrete",
+     "t0": 40.92,
+     "t1": 41.37,
+     "p": 1.0
+    },
+    {
+     "word": "structure",
+     "t0": 41.38,
+     "t1": 41.87,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "Then construction crews rebuilt the bridge around a modern concrete structure.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 14,
+   "start": 42.426,
+   "end": 44.396,
+   "startFrame": 1273,
+   "endFrame": 1332,
+   "asr": "but there was still won a problem",
+   "asr_alt": "but there was still one problem",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 42.281,
+     "t1": 42.621,
+     "p": 1.0
+    },
+    {
+     "word": "there",
+     "t0": 42.631,
+     "t1": 42.811,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 42.821,
+     "t1": 42.931,
+     "p": 1.0
+    },
+    {
+     "word": "still",
+     "t0": 42.941,
+     "t1": 43.361,
+     "p": 1.0
+    },
+    {
+     "word": "won",
+     "t0": 43.371,
+     "t1": 43.651,
+     "p": 0.0
+    },
+    {
+     "word": "a",
+     "t0": 43.661,
+     "t1": 43.691,
+     "p": 0.0
+    },
+    {
+     "word": "problem",
+     "t0": 43.701,
+     "t1": 44.251,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.714,
+   "uncertain": [
+    "won",
+    "a"
+   ],
+   "text": "But there was still one problem.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 15,
+   "start": 44.94,
+   "end": 46.081,
+   "startFrame": 1348,
+   "endFrame": 1382,
+   "asr": "there was no river",
+   "asr_alt": "two was no river",
+   "asr_words": [
+    {
+     "word": "there",
+     "t0": 44.888,
+     "t1": 45.058,
+     "p": 0.0
+    },
+    {
+     "word": "was",
+     "t0": 45.068,
+     "t1": 45.228,
+     "p": 1.0
+    },
+    {
+     "word": "no",
+     "t0": 45.238,
+     "t1": 45.598,
+     "p": 1.0
+    },
+    {
+     "word": "river",
+     "t0": 45.608,
+     "t1": 46.118,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.75,
+   "uncertain": [
+    "there"
+   ],
+   "text": "There was no river.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 16,
+   "start": 46.652,
+   "end": 49.119,
+   "startFrame": 1400,
+   "endFrame": 1474,
+   "asr": "so the dog an entire channel underneath it",
+   "asr_alt": "so the dog an entire channel underneath it",
+   "asr_words": [
+    {
+     "word": "so",
+     "t0": 46.626,
+     "t1": 47.046,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 47.086,
+     "t1": 47.236,
+     "p": 1.0
+    },
+    {
+     "word": "dog",
+     "t0": 47.246,
+     "t1": 47.486,
+     "p": 1.0
+    },
+    {
+     "word": "an",
+     "t0": 47.496,
+     "t1": 47.566,
+     "p": 1.0
+    },
+    {
+     "word": "entire",
+     "t0": 47.576,
+     "t1": 48.096,
+     "p": 1.0
+    },
+    {
+     "word": "channel",
+     "t0": 48.106,
+     "t1": 48.606,
+     "p": 1.0
+    },
+    {
+     "word": "underneath",
+     "t0": 48.616,
+     "t1": 48.996,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 49.006,
+     "t1": 49.156,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "So they dug an entire channel underneath it.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 17,
+   "start": 49.629,
+   "end": 52.485,
+   "startFrame": 1489,
+   "endFrame": 1575,
+   "asr": "and in nineteen seventy one london bridge reopened",
+   "asr_alt": "and in nineteen seventy one london bridge reopened",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 49.604,
+     "t1": 49.714,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 49.724,
+     "t1": 49.834,
+     "p": 1.0
+    },
+    {
+     "word": "nineteen",
+     "t0": 49.844,
+     "t1": 50.204,
+     "p": 1.0
+    },
+    {
+     "word": "seventy",
+     "t0": 50.214,
+     "t1": 50.564,
+     "p": 1.0
+    },
+    {
+     "word": "one",
+     "t0": 50.574,
+     "t1": 50.924,
+     "p": 1.0
+    },
+    {
+     "word": "london",
+     "t0": 51.104,
+     "t1": 51.524,
+     "p": 1.0
+    },
+    {
+     "word": "bridge",
+     "t0": 51.534,
+     "t1": 51.804,
+     "p": 1.0
+    },
+    {
+     "word": "reopened",
+     "t0": 51.814,
+     "t1": 52.484,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "And in 1971, London Bridge reopened",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 18,
+   "start": 52.76,
+   "end": 54.155,
+   "startFrame": 1583,
+   "endFrame": 1625,
+   "asr": "in the arizona desert",
+   "asr_alt": "in the arizona desert",
+   "asr_words": [
+    {
+     "word": "in",
+     "t0": 52.743,
+     "t1": 52.893,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 52.903,
+     "t1": 53.063,
+     "p": 1.0
+    },
+    {
+     "word": "arizona",
+     "t0": 53.073,
+     "t1": 53.623,
+     "p": 1.0
+    },
+    {
+     "word": "desert",
+     "t0": 53.633,
+     "t1": 54.203,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "in the Arizona desert.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 19,
+   "start": 54.61,
+   "end": 56.534,
+   "startFrame": 1638,
+   "endFrame": 1696,
+   "asr": "because he wasn't just buying a bridge",
+   "asr_alt": "because he wasn't just buying a bridge",
+   "asr_words": [
+    {
+     "word": "because",
+     "t0": 54.542,
+     "t1": 54.812,
+     "p": 1.0
+    },
+    {
+     "word": "he",
+     "t0": 54.822,
+     "t1": 54.913,
+     "p": 1.0
+    },
+    {
+     "word": "wasn't",
+     "t0": 54.922,
+     "t1": 55.362,
+     "p": 1.0
+    },
+    {
+     "word": "just",
+     "t0": 55.373,
+     "t1": 55.672,
+     "p": 1.0
+    },
+    {
+     "word": "buying",
+     "t0": 55.682,
+     "t1": 56.002,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 56.013,
+     "t1": 56.053,
+     "p": 1.0
+    },
+    {
+     "word": "bridge",
+     "t0": 56.062,
+     "t1": 56.553,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "Because he wasn't just buying a bridge.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  },
+  {
+   "index": 20,
+   "start": 56.91,
+   "end": 59.011,
+   "startFrame": 1707,
+   "endFrame": 1770,
+   "asr": "he was buying the world's attention",
+   "asr_alt": "he was buying the world's attention",
+   "asr_words": [
+    {
+     "word": "he",
+     "t0": 56.832,
+     "t1": 57.022,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 57.032,
+     "t1": 57.212,
+     "p": 1.0
+    },
+    {
+     "word": "buying",
+     "t0": 57.222,
+     "t1": 57.642,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 57.652,
+     "t1": 57.712,
+     "p": 1.0
+    },
+    {
+     "word": "world's",
+     "t0": 57.722,
+     "t1": 58.202,
+     "p": 1.0
+    },
+    {
+     "word": "attention",
+     "t0": 58.212,
+     "t1": 58.852,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "He was buying the world's attention.",
+   "text_source": "user transcript (anchored to ASR timing)"
+  }
+ ],
+ "asr_engine": "pocketsphinx (offline)"
+}

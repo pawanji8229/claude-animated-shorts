@@ -1,0 +1,72 @@
+{
+ "brickY": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "brickR": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "stucco": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "slate": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "setts": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "asphalt": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "paving": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "tiles": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "iron": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "metal": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "concrete": [
+  "color",
+  "normal",
+  "rough"
+ ],
+ "plaster": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "oak": [
+  "arm",
+  "color",
+  "normal"
+ ],
+ "rust": [
+  "color",
+  "normal",
+  "rough"
+ ]
+}

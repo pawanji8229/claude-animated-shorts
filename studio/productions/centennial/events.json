@@ -1,0 +1,1154 @@
+{
+ "fps": 30,
+ "frames": 1607,
+ "events": [
+  {
+   "frame": 30,
+   "kind": "filament_on",
+   "x": 0,
+   "gain": 0.25,
+   "note": "the Centennial's faint electrical hum close to the glass (it is lit, very dimly)"
+  },
+  {
+   "frame": 138,
+   "kind": "brow_pluck",
+   "x": 0.3,
+   "gain": 0.5,
+   "note": "the hero's eyebrow climbs"
+  },
+  {
+   "frame": 150,
+   "kind": "bulb_burnout",
+   "x": -0.3,
+   "gain": 0.9,
+   "note": "1912: a newer bulb flickers and dies"
+  },
+  {
+   "frame": 156,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.35,
+   "note": "era dissolve 1912 -> 1938"
+  },
+  {
+   "frame": 166,
+   "kind": "ladder_creak",
+   "x": -0.4,
+   "gain": 0.8,
+   "note": "a fireman steps up the stepladder"
+  },
+  {
+   "frame": 174,
+   "kind": "screw_bulb",
+   "x": -0.4,
+   "gain": 0.9,
+   "note": "he screws in a frosted bulb"
+  },
+  {
+   "frame": 188,
+   "kind": "filament_on",
+   "x": -0.4,
+   "gain": 0.8,
+   "note": "it lights"
+  },
+  {
+   "frame": 196,
+   "kind": "double_take",
+   "x": 0.3,
+   "gain": 0.4,
+   "note": "the hero's confused side-eye"
+  },
+  {
+   "frame": 198,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.3,
+   "note": "era dissolve 1938 -> 1955"
+  },
+  {
+   "frame": 217,
+   "kind": "bulb_burnout",
+   "x": -0.5,
+   "gain": 0.8,
+   "note": "1955: an enamel-shade lamp blinks out"
+  },
+  {
+   "frame": 228,
+   "kind": "step_wood_l",
+   "x": -0.7,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 233,
+   "kind": "step_wood_r",
+   "x": -0.6699999999999999,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 238,
+   "kind": "step_wood_l",
+   "x": -0.6399999999999999,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 242,
+   "kind": "step_wood_r",
+   "x": -0.61,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 247,
+   "kind": "step_wood_l",
+   "x": -0.58,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 252,
+   "kind": "step_wood_r",
+   "x": -0.5499999999999999,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 257,
+   "kind": "step_wood_l",
+   "x": -0.52,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 261,
+   "kind": "step_wood_r",
+   "x": -0.49,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 266,
+   "kind": "step_wood_l",
+   "x": -0.45999999999999996,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 271,
+   "kind": "step_wood_r",
+   "x": -0.42999999999999994,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 275,
+   "kind": "step_wood_l",
+   "x": -0.39999999999999997,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 280,
+   "kind": "step_wood_r",
+   "x": -0.36999999999999994,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 285,
+   "kind": "step_wood_l",
+   "x": -0.33999999999999997,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 289,
+   "kind": "step_wood_r",
+   "x": -0.30999999999999994,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 294,
+   "kind": "step_wood_l",
+   "x": -0.27999999999999997,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 299,
+   "kind": "step_wood_r",
+   "x": -0.25,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 300,
+   "kind": "ladder_creak",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "the electrician shifts on the stepladder"
+  },
+  {
+   "frame": 304,
+   "kind": "step_wood_l",
+   "x": -0.21999999999999997,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 308,
+   "kind": "step_wood_r",
+   "x": -0.18999999999999995,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 313,
+   "kind": "step_wood_l",
+   "x": -0.15999999999999992,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 318,
+   "kind": "step_wood_r",
+   "x": -0.13,
+   "gain": 0.55,
+   "note": "a townsman on the board sidewalk: footstep on wood"
+  },
+  {
+   "frame": 318,
+   "kind": "screw_bulb",
+   "x": -0.1,
+   "gain": 1,
+   "note": "the bulb's brass base threads into the socket"
+  },
+  {
+   "frame": 346,
+   "kind": "filament_on",
+   "x": -0.1,
+   "gain": 1,
+   "note": "the Centennial lights for the first time (1901)"
+  },
+  {
+   "frame": 363,
+   "kind": "step_wood_l",
+   "x": 0.6,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 368,
+   "kind": "step_wood_r",
+   "x": 0.5499999999999999,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 373,
+   "kind": "step_wood_l",
+   "x": 0.5,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 378,
+   "kind": "step_wood_r",
+   "x": 0.44999999999999996,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 382,
+   "kind": "hose_coil",
+   "x": -0.4,
+   "gain": 0.8,
+   "note": "a volunteer coils canvas hose"
+  },
+  {
+   "frame": 383,
+   "kind": "step_wood_l",
+   "x": 0.4,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 388,
+   "kind": "step_wood_r",
+   "x": 0.35,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 393,
+   "kind": "step_wood_l",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 396,
+   "kind": "ladder_creak",
+   "x": -0.1,
+   "gain": 0.8,
+   "note": "the electrician climbs down"
+  },
+  {
+   "frame": 398,
+   "kind": "step_wood_r",
+   "x": 0.24999999999999994,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 403,
+   "kind": "step_wood_l",
+   "x": 0.2,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 408,
+   "kind": "step_wood_r",
+   "x": 0.15000000000000002,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 413,
+   "kind": "step_wood_l",
+   "x": 0.09999999999999998,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 416,
+   "kind": "ladder_creak",
+   "x": 0,
+   "gain": 0.6,
+   "note": "last step"
+  },
+  {
+   "frame": 418,
+   "kind": "step_wood_r",
+   "x": 0.050000000000000044,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 423,
+   "kind": "step_wood_l",
+   "x": 0,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 428,
+   "kind": "step_wood_r",
+   "x": -0.04999999999999993,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 433,
+   "kind": "step_wood_l",
+   "x": -0.10000000000000009,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 434,
+   "kind": "hose_coil",
+   "x": -0.4,
+   "gain": 0.7,
+   "note": "more hose coiled"
+  },
+  {
+   "frame": 438,
+   "kind": "step_wood_l",
+   "x": 0.1,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 438,
+   "kind": "step_wood_r",
+   "x": -0.15000000000000002,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 442,
+   "kind": "step_wood_r",
+   "x": 0.15000000000000002,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 443,
+   "kind": "step_wood_l",
+   "x": -0.19999999999999996,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 446,
+   "kind": "step_wood_l",
+   "x": 0.2,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 448,
+   "kind": "step_wood_r",
+   "x": -0.25,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 450,
+   "kind": "step_wood_r",
+   "x": 0.25,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 453,
+   "kind": "step_wood_l",
+   "x": -0.29999999999999993,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 454,
+   "kind": "step_wood_l",
+   "x": 0.30000000000000004,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 458,
+   "kind": "step_wood_r",
+   "x": 0.35,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 458,
+   "kind": "step_wood_r",
+   "x": -0.35,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 462,
+   "kind": "step_wood_l",
+   "x": 0.4,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 463,
+   "kind": "step_wood_l",
+   "x": -0.4,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 466,
+   "kind": "step_wood_r",
+   "x": 0.44999999999999996,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 468,
+   "kind": "step_wood_r",
+   "x": -0.45000000000000007,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 470,
+   "kind": "step_wood_l",
+   "x": 0.5,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 473,
+   "kind": "step_wood_l",
+   "x": -0.4999999999999999,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 474,
+   "kind": "step_wood_r",
+   "x": 0.55,
+   "gain": 0.6,
+   "note": "the electrician walks away: footstep on wood"
+  },
+  {
+   "frame": 478,
+   "kind": "step_wood_r",
+   "x": -0.5499999999999999,
+   "gain": 0.7,
+   "note": "a volunteer walks under the bulb without looking: footstep on wood"
+  },
+  {
+   "frame": 484,
+   "kind": "match_strike",
+   "x": -0.2,
+   "gain": 1,
+   "note": "a volunteer strikes a match and lights the lantern on the column"
+  },
+  {
+   "frame": 520,
+   "kind": "polish_rag",
+   "x": -0.4,
+   "gain": 0.7,
+   "note": "another checks + wipes the brass nozzle"
+  },
+  {
+   "frame": 588,
+   "kind": "bulb_burnout",
+   "x": 0.2,
+   "gain": 1,
+   "note": "the ordinary bulb burns out"
+  },
+  {
+   "frame": 598,
+   "kind": "ladder_creak",
+   "x": 0.3,
+   "gain": 0.7,
+   "note": "a fireman climbs to it"
+  },
+  {
+   "frame": 612,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.3,
+   "note": "era dissolve 1912 -> 1940s"
+  },
+  {
+   "frame": 616,
+   "kind": "screw_bulb",
+   "x": 0.2,
+   "gain": 0.9,
+   "note": "the replacement goes in"
+  },
+  {
+   "frame": 626,
+   "kind": "filament_on",
+   "x": 0.2,
+   "gain": 0.8,
+   "note": "the new bulb lights"
+  },
+  {
+   "frame": 655,
+   "kind": "brow_pluck",
+   "x": 0.1,
+   "gain": 0.4,
+   "note": "the hero's smug look"
+  },
+  {
+   "frame": 691,
+   "kind": "step_wood_l",
+   "x": -0.6,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 696,
+   "kind": "step_wood_r",
+   "x": -0.5363636363636364,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 701,
+   "kind": "step_wood_l",
+   "x": -0.4727272727272727,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 706,
+   "kind": "step_wood_r",
+   "x": -0.40909090909090906,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 711,
+   "kind": "step_wood_l",
+   "x": -0.34545454545454546,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 717,
+   "kind": "step_wood_r",
+   "x": -0.2818181818181818,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 722,
+   "kind": "step_wood_l",
+   "x": -0.2181818181818182,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 724,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.4,
+   "note": "years pass (1915 -> 1938)"
+  },
+  {
+   "frame": 727,
+   "kind": "step_wood_r",
+   "x": -0.15454545454545454,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 732,
+   "kind": "step_wood_l",
+   "x": -0.09090909090909094,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 737,
+   "kind": "step_wood_r",
+   "x": -0.027272727272727226,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 742,
+   "kind": "step_wood_l",
+   "x": 0.036363636363636376,
+   "gain": 0.45,
+   "note": "a passer-by on the board sidewalk outside (1915): footstep on wood"
+  },
+  {
+   "frame": 758,
+   "kind": "time_shimmer",
+   "x": 0,
+   "gain": 0.45,
+   "note": "decades (1938 -> 1976)"
+  },
+  {
+   "frame": 762,
+   "kind": "car_pass",
+   "x": 0.4,
+   "gain": 0.5,
+   "note": "a 1970s car passes outside the doors"
+  },
+  {
+   "frame": 800,
+   "kind": "ladder_creak",
+   "x": 0,
+   "gain": 0.7,
+   "note": "a firefighter on the stepladder takes hold of the bulb"
+  },
+  {
+   "frame": 812,
+   "kind": "cord_snip",
+   "x": 0,
+   "gain": 1,
+   "note": "the cord is cut (the bulb goes dark for the move)"
+  },
+  {
+   "frame": 813,
+   "kind": "bulb_dark",
+   "x": 0,
+   "gain": 0.5,
+   "note": "its faint hum stops"
+  },
+  {
+   "frame": 834,
+   "kind": "engine76",
+   "x": 0.1,
+   "gain": 0.6,
+   "note": "the 1976 pumper rolls along the street"
+  },
+  {
+   "frame": 840,
+   "kind": "engine_arrive",
+   "x": 0.1,
+   "gain": 0.9,
+   "note": "it slows and stops at the new Station 6"
+  },
+  {
+   "frame": 847,
+   "kind": "box_lid",
+   "x": 0.2,
+   "gain": 1,
+   "note": "the padded box is closed over the bulb"
+  },
+  {
+   "frame": 919,
+   "kind": "step_concrete_l",
+   "x": -0.2,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 922,
+   "kind": "step_concrete_r",
+   "x": -0.21764705882352942,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 925,
+   "kind": "step_concrete_l",
+   "x": -0.23529411764705882,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 928,
+   "kind": "step_concrete_r",
+   "x": -0.2529411764705882,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 930,
+   "kind": "screw_bulb",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "the bulb goes into its new socket"
+  },
+  {
+   "frame": 931,
+   "kind": "step_concrete_l",
+   "x": -0.2705882352941177,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 934,
+   "kind": "step_concrete_r",
+   "x": -0.2882352941176471,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 937,
+   "kind": "step_concrete_l",
+   "x": -0.3058823529411765,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 940,
+   "kind": "step_concrete_r",
+   "x": -0.3235294117647059,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 943,
+   "kind": "step_concrete_l",
+   "x": -0.3411764705882353,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 946,
+   "kind": "step_concrete_r",
+   "x": -0.3588235294117647,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 949,
+   "kind": "step_concrete_l",
+   "x": -0.3764705882352941,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 950,
+   "kind": "filament_on",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "the Centennial lights again in its new home"
+  },
+  {
+   "frame": 952,
+   "kind": "step_concrete_r",
+   "x": -0.3941176470588236,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 952,
+   "kind": "ladder_steel",
+   "x": 0.2,
+   "gain": 0.6,
+   "note": "the hero shifts on the steel platform"
+  },
+  {
+   "frame": 955,
+   "kind": "step_concrete_l",
+   "x": -0.4117647058823529,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 958,
+   "kind": "step_concrete_r",
+   "x": -0.4294117647058823,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 961,
+   "kind": "step_concrete_l",
+   "x": -0.44705882352941173,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 964,
+   "kind": "step_concrete_r",
+   "x": -0.4647058823529412,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 967,
+   "kind": "step_concrete_l",
+   "x": -0.4823529411764706,
+   "gain": 0.7,
+   "note": "the firefighter carries the box into the bay: footstep on concrete"
+  },
+  {
+   "frame": 968,
+   "kind": "brow_pluck",
+   "x": 0.2,
+   "gain": 0.45,
+   "note": "one eyebrow up"
+  },
+  {
+   "frame": 1092,
+   "kind": "bulb_dark",
+   "x": -0.1,
+   "gain": 1,
+   "note": "the bulb's power supply fails: it goes dark"
+  },
+  {
+   "frame": 1096,
+   "kind": "ladder_steel",
+   "x": 0.2,
+   "gain": 0.7,
+   "note": "the hero jolts on the platform"
+  },
+  {
+   "frame": 1097,
+   "kind": "flashlight_click",
+   "x": -0.4,
+   "gain": 0.9,
+   "note": "a firefighter switches on a flashlight"
+  },
+  {
+   "frame": 1097,
+   "kind": "step_concrete_l",
+   "x": -0.3,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1099,
+   "kind": "step_concrete_r",
+   "x": -0.32727272727272727,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1101,
+   "kind": "step_concrete_l",
+   "x": -0.35454545454545455,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1103,
+   "kind": "step_concrete_r",
+   "x": -0.3818181818181818,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1105,
+   "kind": "step_concrete_l",
+   "x": -0.40909090909090906,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1107,
+   "kind": "step_concrete_r",
+   "x": -0.43636363636363634,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1109,
+   "kind": "step_concrete_l",
+   "x": -0.4636363636363636,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1111,
+   "kind": "step_concrete_r",
+   "x": -0.49090909090909085,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1113,
+   "kind": "step_concrete_l",
+   "x": -0.5181818181818182,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1115,
+   "kind": "step_concrete_r",
+   "x": -0.5454545454545454,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1117,
+   "kind": "step_concrete_l",
+   "x": -0.5727272727272728,
+   "gain": 0.75,
+   "note": "the firefighter walks to the power box: footstep on concrete"
+  },
+  {
+   "frame": 1122,
+   "kind": "box_latch",
+   "x": -0.6,
+   "gain": 0.9,
+   "note": "the power-supply box is opened"
+  },
+  {
+   "frame": 1132,
+   "kind": "cord_unroll",
+   "x": -0.6,
+   "gain": 0.9,
+   "note": "an extension cord is pulled off its coil"
+  },
+  {
+   "frame": 1146,
+   "kind": "plug_click",
+   "x": -0.6,
+   "gain": 1,
+   "note": "the bypass is plugged in"
+  },
+  {
+   "frame": 1150,
+   "kind": "filament_on",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "the glow returns"
+  },
+  {
+   "frame": 1180,
+   "kind": "step_concrete_l",
+   "x": -0.7,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1184,
+   "kind": "step_concrete_r",
+   "x": -0.6479999999999999,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1187,
+   "kind": "step_concrete_l",
+   "x": -0.596,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1191,
+   "kind": "step_concrete_r",
+   "x": -0.544,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1195,
+   "kind": "step_concrete_l",
+   "x": -0.492,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1198,
+   "kind": "step_concrete_r",
+   "x": -0.44,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1202,
+   "kind": "step_concrete_l",
+   "x": -0.388,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1206,
+   "kind": "step_concrete_r",
+   "x": -0.33599999999999997,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1209,
+   "kind": "step_concrete_l",
+   "x": -0.28400000000000003,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1213,
+   "kind": "step_concrete_r",
+   "x": -0.23200000000000004,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1217,
+   "kind": "step_concrete_l",
+   "x": -0.18000000000000005,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1220,
+   "kind": "step_concrete_r",
+   "x": -0.128,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1224,
+   "kind": "step_concrete_l",
+   "x": -0.07600000000000007,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1228,
+   "kind": "step_concrete_r",
+   "x": -0.02400000000000002,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1231,
+   "kind": "step_concrete_l",
+   "x": 0.028000000000000025,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1235,
+   "kind": "step_concrete_r",
+   "x": 0.07999999999999996,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1239,
+   "kind": "step_concrete_l",
+   "x": 0.1319999999999999,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1242,
+   "kind": "step_concrete_r",
+   "x": 0.18399999999999994,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1246,
+   "kind": "step_concrete_l",
+   "x": 0.23599999999999988,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1250,
+   "kind": "step_concrete_r",
+   "x": 0.2879999999999999,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1253,
+   "kind": "step_concrete_l",
+   "x": 0.33999999999999986,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1257,
+   "kind": "step_concrete_r",
+   "x": 0.3919999999999999,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1261,
+   "kind": "step_concrete_l",
+   "x": 0.44399999999999995,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1264,
+   "kind": "step_concrete_r",
+   "x": 0.496,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1268,
+   "kind": "step_concrete_l",
+   "x": 0.5479999999999998,
+   "gain": 0.65,
+   "note": "a modern firefighter in turnout boots walks past: footstep on concrete"
+  },
+  {
+   "frame": 1452,
+   "kind": "double_take",
+   "x": -0.3,
+   "gain": 0.4,
+   "note": "the hero's double-take from the monitor to the real bulb"
+  }
+ ]
+}

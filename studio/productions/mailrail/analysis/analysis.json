@@ -1,0 +1,1315 @@
+{
+ "audio": "/home/user/claude-animated-shorts/studio/productions/mailrail/input/narration.mp3",
+ "codec": "mp3",
+ "sample_rate": 44100,
+ "channels": 1,
+ "bit_rate": "128005",
+ "duration": 60.0294,
+ "fps": 30,
+ "frames": 1801,
+ "pauses": [
+  {
+   "start": 3.537,
+   "end": 4.589
+  },
+  {
+   "start": 6.829,
+   "end": 7.297
+  },
+  {
+   "start": 9.793,
+   "end": 10.489
+  },
+  {
+   "start": 10.829,
+   "end": 11.194
+  },
+  {
+   "start": 13.934,
+   "end": 14.497
+  },
+  {
+   "start": 19.56,
+   "end": 20.125
+  },
+  {
+   "start": 20.461,
+   "end": 20.746
+  },
+  {
+   "start": 22.686,
+   "end": 23.251
+  },
+  {
+   "start": 27.066,
+   "end": 27.442
+  },
+  {
+   "start": 27.485,
+   "end": 28.156
+  },
+  {
+   "start": 31.429,
+   "end": 31.841
+  },
+  {
+   "start": 34.567,
+   "end": 35.052
+  },
+  {
+   "start": 37.221,
+   "end": 37.772
+  },
+  {
+   "start": 41.852,
+   "end": 42.432
+  },
+  {
+   "start": 46.669,
+   "end": 47.41
+  },
+  {
+   "start": 51.658,
+   "end": 52.222
+  },
+  {
+   "start": 53.937,
+   "end": 54.485
+  },
+  {
+   "start": 58.597,
+   "end": 59.133
+  }
+ ],
+ "phrases": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 3.537,
+   "startFrame": 0,
+   "endFrame": 106,
+   "asr": "tiny trains once carried millions of letters on an equal and",
+   "asr_alt": "tiny trains once carried millions of letters on an equal and",
+   "asr_words": [
+    {
+     "word": "tiny",
+     "t0": 0.04,
+     "t1": 0.36,
+     "p": 1.0
+    },
+    {
+     "word": "trains",
+     "t0": 0.37,
+     "t1": 0.84,
+     "p": 1.0
+    },
+    {
+     "word": "once",
+     "t0": 0.85,
+     "t1": 1.1,
+     "p": 1.0
+    },
+    {
+     "word": "carried",
+     "t0": 1.11,
+     "t1": 1.48,
+     "p": 1.0
+    },
+    {
+     "word": "millions",
+     "t0": 1.49,
+     "t1": 2.15,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 2.16,
+     "t1": 2.26,
+     "p": 1.0
+    },
+    {
+     "word": "letters",
+     "t0": 2.27,
+     "t1": 2.7,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 2.71,
+     "t1": 2.85,
+     "p": 1.0
+    },
+    {
+     "word": "an",
+     "t0": 2.86,
+     "t1": 2.95,
+     "p": 1.0
+    },
+    {
+     "word": "equal",
+     "t0": 2.96,
+     "t1": 3.22,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 3.23,
+     "t1": 3.4,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "tiny trains once carried millions of letters on an equal and",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 2,
+   "start": 4.589,
+   "end": 6.829,
+   "startFrame": 138,
+   "endFrame": 205,
+   "asr": "but there were no driver sitting inside them",
+   "asr_alt": "but there were no drivers sitting inside them",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 4.563,
+     "t1": 4.873,
+     "p": 1.0
+    },
+    {
+     "word": "there",
+     "t0": 4.953,
+     "t1": 5.143,
+     "p": 1.0
+    },
+    {
+     "word": "were",
+     "t0": 5.153,
+     "t1": 5.253,
+     "p": 1.0
+    },
+    {
+     "word": "no",
+     "t0": 5.263,
+     "t1": 5.413,
+     "p": 1.0
+    },
+    {
+     "word": "driver",
+     "t0": 5.423,
+     "t1": 5.903,
+     "p": 0.0
+    },
+    {
+     "word": "sitting",
+     "t0": 5.913,
+     "t1": 6.213,
+     "p": 1.0
+    },
+    {
+     "word": "inside",
+     "t0": 6.223,
+     "t1": 6.613,
+     "p": 1.0
+    },
+    {
+     "word": "them",
+     "t0": 6.623,
+     "t1": 6.863,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.875,
+   "uncertain": [
+    "driver"
+   ],
+   "text": "but there were no driver sitting inside them",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 3,
+   "start": 7.297,
+   "end": 9.793,
+   "startFrame": 219,
+   "endFrame": 294,
+   "asr": "and ordinary passengers on allowed on board",
+   "asr_alt": "and ordinary passengers are not allowed on board",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 7.283,
+     "t1": 7.443,
+     "p": 1.0
+    },
+    {
+     "word": "ordinary",
+     "t0": 7.453,
+     "t1": 7.953,
+     "p": 1.0
+    },
+    {
+     "word": "passengers",
+     "t0": 7.963,
+     "t1": 8.573,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 8.583,
+     "t1": 8.963,
+     "p": 0.0
+    },
+    {
+     "word": "allowed",
+     "t0": 9.003,
+     "t1": 9.303,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 9.313,
+     "t1": 9.463,
+     "p": 1.0
+    },
+    {
+     "word": "board",
+     "t0": 9.473,
+     "t1": 9.833,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.857,
+   "uncertain": [
+    "on"
+   ],
+   "text": "and ordinary passengers on allowed on board",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 4,
+   "start": 10.489,
+   "end": 10.829,
+   "startFrame": 315,
+   "endFrame": 325,
+   "asr": "you see",
+   "asr_alt": "you see",
+   "asr_words": [
+    {
+     "word": "you",
+     "t0": 10.461,
+     "t1": 10.531,
+     "p": 1.0
+    },
+    {
+     "word": "see",
+     "t0": 10.541,
+     "t1": 10.861,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "you see",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 5,
+   "start": 11.194,
+   "end": 13.934,
+   "startFrame": 336,
+   "endFrame": 418,
+   "asr": "london's postal system had a huge problem",
+   "asr_alt": "london's postal system had a huge problem",
+   "asr_words": [
+    {
+     "word": "london's",
+     "t0": 11.171,
+     "t1": 11.591,
+     "p": 1.0
+    },
+    {
+     "word": "postal",
+     "t0": 11.601,
+     "t1": 12.031,
+     "p": 1.0
+    },
+    {
+     "word": "system",
+     "t0": 12.041,
+     "t1": 12.402,
+     "p": 1.0
+    },
+    {
+     "word": "had",
+     "t0": 12.412,
+     "t1": 12.611,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 12.662,
+     "t1": 12.761,
+     "p": 1.0
+    },
+    {
+     "word": "huge",
+     "t0": 12.771,
+     "t1": 13.431,
+     "p": 1.0
+    },
+    {
+     "word": "problem",
+     "t0": 13.441,
+     "t1": 13.982,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "london's postal system had a huge problem",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 6,
+   "start": 14.497,
+   "end": 19.56,
+   "startFrame": 435,
+   "endFrame": 587,
+   "asr": "the streets above are crowded and moving mountains of male between sorting offices was difficult",
+   "asr_alt": "the streets above are crowded and moving mountains of male between sorting offices was difficult",
+   "asr_words": [
+    {
+     "word": "the",
+     "t0": 14.445,
+     "t1": 14.525,
+     "p": 1.0
+    },
+    {
+     "word": "streets",
+     "t0": 14.535,
+     "t1": 14.875,
+     "p": 1.0
+    },
+    {
+     "word": "above",
+     "t0": 14.885,
+     "t1": 15.235,
+     "p": 1.0
+    },
+    {
+     "word": "are",
+     "t0": 15.245,
+     "t1": 15.325,
+     "p": 1.0
+    },
+    {
+     "word": "crowded",
+     "t0": 15.335,
+     "t1": 15.965,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 16.115,
+     "t1": 16.245,
+     "p": 1.0
+    },
+    {
+     "word": "moving",
+     "t0": 16.255,
+     "t1": 16.625,
+     "p": 1.0
+    },
+    {
+     "word": "mountains",
+     "t0": 16.635,
+     "t1": 17.245,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 17.255,
+     "t1": 17.325,
+     "p": 1.0
+    },
+    {
+     "word": "male",
+     "t0": 17.335,
+     "t1": 17.635,
+     "p": 1.0
+    },
+    {
+     "word": "between",
+     "t0": 17.645,
+     "t1": 17.925,
+     "p": 1.0
+    },
+    {
+     "word": "sorting",
+     "t0": 17.935,
+     "t1": 18.305,
+     "p": 1.0
+    },
+    {
+     "word": "offices",
+     "t0": 18.315,
+     "t1": 18.805,
+     "p": 1.0
+    },
+    {
+     "word": "was",
+     "t0": 18.815,
+     "t1": 19.005,
+     "p": 1.0
+    },
+    {
+     "word": "difficult",
+     "t0": 19.015,
+     "t1": 19.545,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "the streets above are crowded and moving mountains of male between sorting offices was difficult",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 7,
+   "start": 20.125,
+   "end": 20.461,
+   "startFrame": 604,
+   "endFrame": 614,
+   "asr": "so on",
+   "asr_alt": "so",
+   "asr_words": [
+    {
+     "word": "so",
+     "t0": 20.093,
+     "t1": 20.343,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 20.353,
+     "t1": 20.473,
+     "p": 0.0
+    }
+   ],
+   "asr_agreement": 0.5,
+   "uncertain": [
+    "on"
+   ],
+   "text": "so on",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 8,
+   "start": 20.746,
+   "end": 22.686,
+   "startFrame": 622,
+   "endFrame": 681,
+   "asr": "engineers build something unusual",
+   "asr_alt": "engineers build something unusual",
+   "asr_words": [
+    {
+     "word": "engineers",
+     "t0": 20.713,
+     "t1": 21.233,
+     "p": 1.0
+    },
+    {
+     "word": "build",
+     "t0": 21.243,
+     "t1": 21.473,
+     "p": 1.0
+    },
+    {
+     "word": "something",
+     "t0": 21.483,
+     "t1": 22.053,
+     "p": 1.0
+    },
+    {
+     "word": "unusual",
+     "t0": 22.063,
+     "t1": 22.723,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "engineers build something unusual",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 9,
+   "start": 23.251,
+   "end": 27.066,
+   "startFrame": 698,
+   "endFrame": 812,
+   "asr": "an underground railway designed specifically for letters and parcels",
+   "asr_alt": "an underground railway designed specifically for letters and parcels",
+   "asr_words": [
+    {
+     "word": "an",
+     "t0": 23.218,
+     "t1": 23.348,
+     "p": 1.0
+    },
+    {
+     "word": "underground",
+     "t0": 23.498,
+     "t1": 24.028,
+     "p": 1.0
+    },
+    {
+     "word": "railway",
+     "t0": 24.038,
+     "t1": 24.548,
+     "p": 1.0
+    },
+    {
+     "word": "designed",
+     "t0": 24.558,
+     "t1": 24.909,
+     "p": 1.0
+    },
+    {
+     "word": "specifically",
+     "t0": 24.918,
+     "t1": 25.778,
+     "p": 1.0
+    },
+    {
+     "word": "for",
+     "t0": 25.788,
+     "t1": 25.918,
+     "p": 1.0
+    },
+    {
+     "word": "letters",
+     "t0": 25.928,
+     "t1": 26.358,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 26.368,
+     "t1": 26.488,
+     "p": 1.0
+    },
+    {
+     "word": "parcels",
+     "t0": 26.498,
+     "t1": 27.069,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "an underground railway designed specifically for letters and parcels",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 10,
+   "start": 27.442,
+   "end": 27.485,
+   "startFrame": 823,
+   "endFrame": 825,
+   "asr": "but",
+   "asr_alt": "",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 27.354,
+     "t1": 27.504,
+     "p": 0.0
+    }
+   ],
+   "asr_agreement": 0.0,
+   "uncertain": [
+    "but"
+   ],
+   "text": "but",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 11,
+   "start": 28.156,
+   "end": 31.429,
+   "startFrame": 845,
+   "endFrame": 943,
+   "asr": "workers loaded bags of male onto little electric trains",
+   "asr_alt": "workers loaded bags of male onto little electric trains",
+   "asr_words": [
+    {
+     "word": "workers",
+     "t0": 28.141,
+     "t1": 28.571,
+     "p": 1.0
+    },
+    {
+     "word": "loaded",
+     "t0": 28.581,
+     "t1": 28.941,
+     "p": 1.0
+    },
+    {
+     "word": "bags",
+     "t0": 28.951,
+     "t1": 29.331,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 29.341,
+     "t1": 29.411,
+     "p": 1.0
+    },
+    {
+     "word": "male",
+     "t0": 29.421,
+     "t1": 29.781,
+     "p": 1.0
+    },
+    {
+     "word": "onto",
+     "t0": 29.791,
+     "t1": 30.001,
+     "p": 1.0
+    },
+    {
+     "word": "little",
+     "t0": 30.011,
+     "t1": 30.391,
+     "p": 1.0
+    },
+    {
+     "word": "electric",
+     "t0": 30.401,
+     "t1": 30.871,
+     "p": 1.0
+    },
+    {
+     "word": "trains",
+     "t0": 30.881,
+     "t1": 31.421,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "workers loaded bags of male onto little electric trains",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 12,
+   "start": 31.841,
+   "end": 34.567,
+   "startFrame": 955,
+   "endFrame": 1037,
+   "asr": "and trains traveled through narrow titles but the the city",
+   "asr_alt": "and trains traveled through narrow titles but the the city",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 31.825,
+     "t1": 31.975,
+     "p": 1.0
+    },
+    {
+     "word": "trains",
+     "t0": 31.985,
+     "t1": 32.425,
+     "p": 1.0
+    },
+    {
+     "word": "traveled",
+     "t0": 32.435,
+     "t1": 32.805,
+     "p": 1.0
+    },
+    {
+     "word": "through",
+     "t0": 32.815,
+     "t1": 32.965,
+     "p": 1.0
+    },
+    {
+     "word": "narrow",
+     "t0": 32.975,
+     "t1": 33.395,
+     "p": 1.0
+    },
+    {
+     "word": "titles",
+     "t0": 33.405,
+     "t1": 33.835,
+     "p": 1.0
+    },
+    {
+     "word": "but",
+     "t0": 33.845,
+     "t1": 33.965,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 33.975,
+     "t1": 34.065,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 34.145,
+     "t1": 34.195,
+     "p": 1.0
+    },
+    {
+     "word": "city",
+     "t0": 34.205,
+     "t1": 34.565,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and trains traveled through narrow titles but the the city",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 13,
+   "start": 35.052,
+   "end": 37.221,
+   "startFrame": 1052,
+   "endFrame": 1117,
+   "asr": "all without a driver sitting at the controls",
+   "asr_alt": "all without a driver sitting at the controls",
+   "asr_words": [
+    {
+     "word": "all",
+     "t0": 35.009,
+     "t1": 35.289,
+     "p": 1.0
+    },
+    {
+     "word": "without",
+     "t0": 35.299,
+     "t1": 35.669,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 35.679,
+     "t1": 35.719,
+     "p": 1.0
+    },
+    {
+     "word": "driver",
+     "t0": 35.729,
+     "t1": 36.189,
+     "p": 1.0
+    },
+    {
+     "word": "sitting",
+     "t0": 36.199,
+     "t1": 36.479,
+     "p": 1.0
+    },
+    {
+     "word": "at",
+     "t0": 36.489,
+     "t1": 36.559,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 36.569,
+     "t1": 36.619,
+     "p": 1.0
+    },
+    {
+     "word": "controls",
+     "t0": 36.629,
+     "t1": 37.229,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "all without a driver sitting at the controls",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 14,
+   "start": 37.772,
+   "end": 41.852,
+   "startFrame": 1133,
+   "endFrame": 1256,
+   "asr": "when they reached another coastal station workers on low to the bags and send them on board",
+   "asr_alt": "when they reached another coastal station workers on the the bags and send them on board",
+   "asr_words": [
+    {
+     "word": "when",
+     "t0": 37.736,
+     "t1": 37.856,
+     "p": 1.0
+    },
+    {
+     "word": "they",
+     "t0": 37.866,
+     "t1": 37.966,
+     "p": 1.0
+    },
+    {
+     "word": "reached",
+     "t0": 37.976,
+     "t1": 38.266,
+     "p": 1.0
+    },
+    {
+     "word": "another",
+     "t0": 38.276,
+     "t1": 38.516,
+     "p": 1.0
+    },
+    {
+     "word": "coastal",
+     "t0": 38.526,
+     "t1": 38.906,
+     "p": 1.0
+    },
+    {
+     "word": "station",
+     "t0": 38.916,
+     "t1": 39.426,
+     "p": 1.0
+    },
+    {
+     "word": "workers",
+     "t0": 39.606,
+     "t1": 39.966,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 39.976,
+     "t1": 40.176,
+     "p": 1.0
+    },
+    {
+     "word": "low",
+     "t0": 40.186,
+     "t1": 40.336,
+     "p": 0.0
+    },
+    {
+     "word": "to",
+     "t0": 40.346,
+     "t1": 40.406,
+     "p": 0.0
+    },
+    {
+     "word": "the",
+     "t0": 40.416,
+     "t1": 40.516,
+     "p": 1.0
+    },
+    {
+     "word": "bags",
+     "t0": 40.526,
+     "t1": 40.966,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 40.976,
+     "t1": 41.096,
+     "p": 1.0
+    },
+    {
+     "word": "send",
+     "t0": 41.106,
+     "t1": 41.326,
+     "p": 1.0
+    },
+    {
+     "word": "them",
+     "t0": 41.336,
+     "t1": 41.486,
+     "p": 1.0
+    },
+    {
+     "word": "on",
+     "t0": 41.496,
+     "t1": 41.626,
+     "p": 1.0
+    },
+    {
+     "word": "board",
+     "t0": 41.636,
+     "t1": 41.876,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.882,
+   "uncertain": [
+    "low",
+    "to"
+   ],
+   "text": "when they reached another coastal station workers on low to the bags and send them on board",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 15,
+   "start": 42.432,
+   "end": 46.669,
+   "startFrame": 1273,
+   "endFrame": 1400,
+   "asr": "the railway opened in nineteen twenty seven and continue operating for decades",
+   "asr_alt": "the railway opened in nineteen twenty seven and continue operating for decades",
+   "asr_words": [
+    {
+     "word": "the",
+     "t0": 42.372,
+     "t1": 42.462,
+     "p": 1.0
+    },
+    {
+     "word": "railway",
+     "t0": 42.472,
+     "t1": 42.862,
+     "p": 1.0
+    },
+    {
+     "word": "opened",
+     "t0": 42.872,
+     "t1": 43.232,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 43.242,
+     "t1": 43.352,
+     "p": 1.0
+    },
+    {
+     "word": "nineteen",
+     "t0": 43.362,
+     "t1": 43.882,
+     "p": 1.0
+    },
+    {
+     "word": "twenty",
+     "t0": 43.892,
+     "t1": 44.162,
+     "p": 1.0
+    },
+    {
+     "word": "seven",
+     "t0": 44.172,
+     "t1": 44.642,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 44.732,
+     "t1": 44.832,
+     "p": 1.0
+    },
+    {
+     "word": "continue",
+     "t0": 44.842,
+     "t1": 45.292,
+     "p": 1.0
+    },
+    {
+     "word": "operating",
+     "t0": 45.302,
+     "t1": 45.792,
+     "p": 1.0
+    },
+    {
+     "word": "for",
+     "t0": 45.802,
+     "t1": 45.932,
+     "p": 1.0
+    },
+    {
+     "word": "decades",
+     "t0": 45.942,
+     "t1": 46.672,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "the railway opened in nineteen twenty seven and continue operating for decades",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 16,
+   "start": 47.41,
+   "end": 51.658,
+   "startFrame": 1422,
+   "endFrame": 1550,
+   "asr": "but eventually and change email operations make it uneconomical",
+   "asr_alt": "but eventually change email operations make it uneconomical",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 47.949,
+     "t1": 48.169,
+     "p": 1.0
+    },
+    {
+     "word": "eventually",
+     "t0": 48.279,
+     "t1": 48.949,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 48.959,
+     "t1": 49.189,
+     "p": 0.0
+    },
+    {
+     "word": "change",
+     "t0": 49.199,
+     "t1": 49.499,
+     "p": 1.0
+    },
+    {
+     "word": "email",
+     "t0": 49.509,
+     "t1": 49.869,
+     "p": 1.0
+    },
+    {
+     "word": "operations",
+     "t0": 49.879,
+     "t1": 50.509,
+     "p": 1.0
+    },
+    {
+     "word": "make",
+     "t0": 50.519,
+     "t1": 50.689,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 50.699,
+     "t1": 50.859,
+     "p": 1.0
+    },
+    {
+     "word": "uneconomical",
+     "t0": 50.869,
+     "t1": 51.669,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.889,
+   "uncertain": [
+    "and"
+   ],
+   "text": "but eventually and change email operations make it uneconomical",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 17,
+   "start": 52.222,
+   "end": 53.937,
+   "startFrame": 1567,
+   "endFrame": 1618,
+   "asr": "the system closed in two thousand three",
+   "asr_alt": "the system closed in two thousand three",
+   "asr_words": [
+    {
+     "word": "the",
+     "t0": 52.16,
+     "t1": 52.24,
+     "p": 1.0
+    },
+    {
+     "word": "system",
+     "t0": 52.25,
+     "t1": 52.58,
+     "p": 1.0
+    },
+    {
+     "word": "closed",
+     "t0": 52.59,
+     "t1": 53.0,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 53.01,
+     "t1": 53.09,
+     "p": 1.0
+    },
+    {
+     "word": "two",
+     "t0": 53.1,
+     "t1": 53.25,
+     "p": 1.0
+    },
+    {
+     "word": "thousand",
+     "t0": 53.26,
+     "t1": 53.61,
+     "p": 1.0
+    },
+    {
+     "word": "three",
+     "t0": 53.62,
+     "t1": 53.97,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "the system closed in two thousand three",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 18,
+   "start": 54.485,
+   "end": 58.597,
+   "startFrame": 1635,
+   "endFrame": 1758,
+   "asr": "and all that hidden railway infrastructure had existed just to move the post",
+   "asr_alt": "and all that hidden railway infrastructure had existed just to move the post",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 54.441,
+     "t1": 54.551,
+     "p": 1.0
+    },
+    {
+     "word": "all",
+     "t0": 54.671,
+     "t1": 54.921,
+     "p": 1.0
+    },
+    {
+     "word": "that",
+     "t0": 54.931,
+     "t1": 55.111,
+     "p": 1.0
+    },
+    {
+     "word": "hidden",
+     "t0": 55.121,
+     "t1": 55.431,
+     "p": 1.0
+    },
+    {
+     "word": "railway",
+     "t0": 55.441,
+     "t1": 55.881,
+     "p": 1.0
+    },
+    {
+     "word": "infrastructure",
+     "t0": 55.891,
+     "t1": 56.531,
+     "p": 1.0
+    },
+    {
+     "word": "had",
+     "t0": 56.541,
+     "t1": 56.671,
+     "p": 1.0
+    },
+    {
+     "word": "existed",
+     "t0": 56.681,
+     "t1": 57.271,
+     "p": 1.0
+    },
+    {
+     "word": "just",
+     "t0": 57.331,
+     "t1": 57.621,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 57.631,
+     "t1": 57.711,
+     "p": 1.0
+    },
+    {
+     "word": "move",
+     "t0": 57.721,
+     "t1": 57.971,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 57.981,
+     "t1": 58.051,
+     "p": 1.0
+    },
+    {
+     "word": "post",
+     "t0": 58.061,
+     "t1": 58.601,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and all that hidden railway infrastructure had existed just to move the post",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 19,
+   "start": 59.133,
+   "end": 60.029,
+   "startFrame": 1774,
+   "endFrame": 1800,
+   "asr": "which is how all",
+   "asr_alt": "which is how all",
+   "asr_words": [
+    {
+     "word": "which",
+     "t0": 59.085,
+     "t1": 59.265,
+     "p": 1.0
+    },
+    {
+     "word": "is",
+     "t0": 59.275,
+     "t1": 59.385,
+     "p": 1.0
+    },
+    {
+     "word": "how",
+     "t0": 59.395,
+     "t1": 59.655,
+     "p": 1.0
+    },
+    {
+     "word": "all",
+     "t0": 59.665,
+     "t1": 59.945,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "which is how all",
+   "text_source": "ASR (unconfirmed)"
+  }
+ ],
+ "asr_engine": "pocketsphinx (offline)"
+}

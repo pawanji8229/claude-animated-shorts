@@ -17,6 +17,11 @@ Proven on **The Bridge That Fell for a Song**, a 67 s short about the 1831 Broug
 | `references/reports/` | Seven measured reports: motion, depth, textures, characters, lighting, outlines, grade |
 | `references/frames/` | 38 full-size reference frames (540x960) to compare your frames against |
 | `references/sheets/` | 20 contact sheets, one per reference short, 60 frames each (1,200 frames) |
+| `studio/` | **Runnable Remotion + three.js + React Three Fiber project** (first shot: an original inventor walking into a warm workshop, 5 s, 9:16) |
+| `.github/workflows/render-video.yml` | Cloud render on free GitHub runners; MP4 and stills come back as a downloadable artifact |
+| `docs/ANDROID_RENDER_GUIDE.md` | Phone-only steps to start a render and download the MP4 |
+| `references/MASTER_STYLE_BIBLE.md` etc. | Cinematic 2.5D reference kit (style bible, observed style, manifest, script study, Gemini analysis); fixes are in `references/REFERENCE_CORRECTIONS.md` |
+| `ALL_CLAUDE_PROMPTS.md` | 24 step-by-step production prompts (00–23) |
 
 ## Install
 1. Copy this folder to `~/.claude/skills/cartoon-3d-short/` (clone it there, or download the ZIP).

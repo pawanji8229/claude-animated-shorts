@@ -1,0 +1,160 @@
+[
+ {
+  "key": "marble",
+  "polyhavenId": "marble_tiles",
+  "slots": [
+   "arm",
+   "color",
+   "normal"
+  ],
+  "source": "https://polyhaven.com/a/marble_tiles",
+  "licence": "CC0-1.0",
+  "authors": [
+   "Charlotte Baglioni"
+  ]
+ },
+ {
+  "key": "terrazzo",
+  "polyhavenId": "terrazzo_tiles",
+  "slots": [
+   "arm",
+   "color",
+   "normal"
+  ],
+  "source": "https://polyhaven.com/a/terrazzo_tiles",
+  "licence": "CC0-1.0",
+  "authors": [
+   "Amal Kumar"
+  ]
+ },
+ {
+  "key": "hinoki",
+  "polyhavenId": "hinoki_planks",
+  "slots": [
+   "arm",
+   "color",
+   "normal"
+  ],
+  "source": "https://polyhaven.com/a/hinoki_planks",
+  "licence": "CC0-1.0",
+  "authors": [
+   "Charlotte Baglioni"
+  ]
+ },
+ {
+  "key": "cedar",
+  "polyhavenId": "japanese_cedar_planks",
+  "slots": [
+   "arm",
+   "color",
+   "normal"
+  ],
+  "source": "https://polyhaven.com/a/japanese_cedar_planks",
+  "licence": "CC0-1.0",
+  "authors": [
+   "Charlotte Baglioni",
+   "Rico Cilliers"
+  ]
+ },
+ {
+  "key": "parquet",
+  "polyhavenId": "herringbone_parquet",
+  "slots": [
+   "arm",
+   "color",
+   "normal"
+  ],
+  "source": "https://polyhaven.com/a/herringbone_parquet",
+  "licence": "CC0-1.0",
+  "authors": [
+   "Jenelle van Heerden",
+   "Sergej Majboroda"
+  ]
+ },
+ {
+  "key": "plaster",
+  "polyhavenId": "white_plaster_02",
+  "slots": [
+   "color",
+   "normal",
+   "rough"
+  ],
+  "source": "https://polyhaven.com/a/white_plaster_02",
+  "licence": "CC0-1.0",
+  "authors": [
+   "Rob Tuytel"
+  ]
+ },
+ {
+  "key": "jacquard",
+  "polyhavenId": "quatrefoil_jacquard_fabric",
+  "slots": [
+   "arm",
+   "color",
+   "normal"
+  ],
+  "source": "https://polyhaven.com/a/quatrefoil_jacquard_fabric",
+  "licence": "CC0-1.0",
+  "authors": [
+   "colormass",
+   "Rico Cilliers"
+  ]
+ },
+ {
+  "key": "pavers",
+  "polyhavenId": "large_grey_tiles",
+  "slots": [
+   "color",
+   "normal",
+   "rough"
+  ],
+  "source": "https://polyhaven.com/a/large_grey_tiles",
+  "licence": "CC0-1.0",
+  "authors": [
+   "Rob Tuytel"
+  ]
+ },
+ {
+  "key": "facade",
+  "polyhavenId": "rectangular_facade_tiles",
+  "slots": [
+   "arm",
+   "color",
+   "normal"
+  ],
+  "source": "https://polyhaven.com/a/rectangular_facade_tiles",
+  "licence": "CC0-1.0",
+  "authors": [
+   "Charlotte Baglioni"
+  ]
+ },
+ {
+  "key": "leather",
+  "polyhavenId": "leather_white",
+  "slots": [
+   "color",
+   "normal",
+   "rough"
+  ],
+  "source": "https://polyhaven.com/a/leather_white",
+  "licence": "CC0-1.0",
+  "authors": [
+   "Rob Tuytel"
+  ]
+ },
+ {
+  "key": "velvet",
+  "polyhavenId": "velour_velvet",
+  "slots": [
+   "arm",
+   "color",
+   "normal"
+  ],
+  "source": "https://polyhaven.com/a/velour_velvet",
+  "licence": "CC0-1.0",
+  "authors": [
+   "colormass",
+   "Rico Cilliers"
+  ]
+ }
+]

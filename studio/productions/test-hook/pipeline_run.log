@@ -1,0 +1,62 @@
+render 0-149 ...
+Detected differing memory amounts:
+Memory reported by CGroup: 8796093019690.36 MB
+Memory reported by /proc/meminfo MemAvailable: 15194.92 MB
+You might have inadvertently set the --memory flag of `docker run` to a value that is higher than the global Docker memory limit.
+Using the lower amount of memory for calculation.
+Detected differing memory amounts:
+Memory reported by CGroup: 8796093019044.21 MB
+Memory reported by /proc/meminfo MemAvailable: 14559.01 MB
+You might have inadvertently set the --memory flag of `docker run` to a value that is higher than the global Docker memory limit.
+Using the lower amount of memory for calculation.
+Detected differing memory amounts:
+Memory reported by CGroup: 8796093019026.93 MB
+Memory reported by /proc/meminfo MemAvailable: 14525.23 MB
+You might have inadvertently set the --memory flag of `docker run` to a value that is higher than the global Docker memory limit.
+Using the lower amount of memory for calculation.
+Detected differing memory amounts:
+Memory reported by CGroup: 8796093019019.58 MB
+Memory reported by /proc/meminfo MemAvailable: 14525.26 MB
+You might have inadvertently set the --memory flag of `docker run` to a value that is higher than the global Docker memory limit.
+Using the lower amount of memory for calculation.
+  done in 756 s
+render 150-297 ...
+Detected differing memory amounts:
+Memory reported by CGroup: 8796093019819.96 MB
+Memory reported by /proc/meminfo MemAvailable: 15379.17 MB
+You might have inadvertently set the --memory flag of `docker run` to a value that is higher than the global Docker memory limit.
+Using the lower amount of memory for calculation.
+Detected differing memory amounts:
+Memory reported by CGroup: 8796093019174.26 MB
+Memory reported by /proc/meminfo MemAvailable: 14751.33 MB
+You might have inadvertently set the --memory flag of `docker run` to a value that is higher than the global Docker memory limit.
+Using the lower amount of memory for calculation.
+Detected differing memory amounts:
+Memory reported by CGroup: 8796093019156.87 MB
+Memory reported by /proc/meminfo MemAvailable: 14677.23 MB
+You might have inadvertently set the --memory flag of `docker run` to a value that is higher than the global Docker memory limit.
+Using the lower amount of memory for calculation.
+Detected differing memory amounts:
+Memory reported by CGroup: 8796093019154.86 MB
+Memory reported by /proc/meminfo MemAvailable: 14671.52 MB
+You might have inadvertently set the --memory flag of `docker run` to a value that is higher than the global Docker memory limit.
+Using the lower amount of memory for calculation.
+  done in 758 s
+wrote /home/user/claude-animated-shorts/studio/productions/test-hook/render/final.mp4
+PASS (automatic checks) — visual review still required
+PASS video codec H.264 — h264
+PASS audio track AAC — aac
+PASS 9:16 resolution — 540x960
+PASS 30 fps — 30.0
+PASS frame count = narration frames — 298 vs 298
+PASS duration = narration — video 9.933s vs narration 9.927s
+PASS audio duration matches video — audio 9.926s
+PASS no black frames — 0 black runs []
+PASS no frozen/duplicated runs — 0 freeze(s) at []
+PASS loudness near target — I=-16.3 LUFS (target -16.0)
+PASS no clipping (true peak <= -1 dBTP) — TP=-1.1 dBTP
+PASS narration in sync (|offset| <= 1 frame) — offset 0 ms
+FAIL loop: last frame ~ first frame — mean abs diff 57.1 (limit 18)
+PASS loop: no audio click at boundary — max sample step 0.048
+PASS loop: ambience level continuous — level change -2.3 dB
+PIPELINE_EXIT=0

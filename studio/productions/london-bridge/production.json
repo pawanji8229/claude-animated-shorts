@@ -1,0 +1,3 @@
+{"title": "London Bridge in the Desert (full 59 s film)", "composition": "LondonBridgeFullPreview", "finalComposition": "LondonBridgeFull",
+ "scene": "src/productions/london-bridge/scene.ts", "ambience": "desert", "music": "none", "loop": true,
+ "ambienceTimeline": [[0, "desert"], [356, "london"], [985, "sea"], [1064, "desert"], [1481, "crowd"]]}

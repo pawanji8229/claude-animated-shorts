@@ -1,0 +1,73 @@
+{
+ "note": "Original models created for TwistFrame videos and their vault publication status.",
+ "models": [
+  {
+   "slug": "camouflage-prop-house-1940s",
+   "title": "1940s Rooftop Camouflage Prop House — Canvas & Timber Stage Set",
+   "author": "TwistFrame Lab",
+   "licence": "CC BY 4.0",
+   "original": true,
+   "created": "2026-11-22",
+   "generator": "tools/tf-ext/vault/create/models/camouflage_house.js",
+   "category": "Architecture",
+   "tags": [
+    "1940s",
+    "WWII",
+    "camouflage",
+    "decoy house",
+    "stage set",
+    "canvas",
+    "timber frame",
+    "Boeing Plant 2",
+    "aircraft factory roof",
+    "PBR",
+    "GLB"
+   ],
+   "intendedUses": [
+    "period films and animation",
+    "WWII games",
+    "dioramas",
+    "set-construction visualisation"
+   ],
+   "parts": [
+    "Frame",
+    "CanvasWalls",
+    "CanvasRoof",
+    "PaintedDetails",
+    "Chimney",
+    "LawnMat"
+   ],
+   "description": "Original WWII decoy house like those built on aircraft-plant roofs c.1944: painted canvas over a timber stud frame, shingle-painted canvas roof, painted windows, open braced back. 8.8 × 5.0 × 9.1 m, 16k tris, 2K PBR, Y-up GLB. Separate movable parts. Film, games, dioramas.",
+   "files": {
+    "glb": "originals/camouflage-prop-house-1940s/camouflage_house.glb",
+    "preview": "originals/camouflage-prop-house-1940s/camouflage_house_preview.jpg",
+    "backView": "originals/camouflage-prop-house-1940s/camouflage_house_back.png"
+   },
+   "status": "prepared",
+   "historicalBasis": "Boeing Plant 2 rooftop camouflage (99% Invisible, Cascade PBS, Warfare History Network, Flying magazine): canvas over light timber frames, painted roofs/streets.",
+   "sha256": "e5758fce532b524ed56a6af55cc55d197c32c9b168f71f518e827c79f5bddc3a",
+   "fingerprint": {
+    "tris": 16142,
+    "size": [
+     4.955,
+     8.8,
+     9.073
+    ]
+   },
+   "metrics": {
+    "triangles": 16142,
+    "meshes": 11,
+    "materials": 9,
+    "maxTexture": 2048,
+    "sizeM": [
+     8.8,
+     4.955,
+     9.073
+    ]
+   },
+   "duplicateCheck": [],
+   "checks": [],
+   "bundle": "publish/camouflage-prop-house-1940s"
+  }
+ ]
+}

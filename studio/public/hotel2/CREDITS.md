@@ -1,0 +1,30 @@
+# Robot Hotel 2: third-party 3D models (credit required by CC-BY)
+
+- "Robot dinosaur (Toy)" by 3DWorkbench (https://sketchfab.com/3d-models/robot-dinosaur-toy-8ce1a6e5ce4d43ada896ee8f2d4ab289), CC Attribution
+- "Robotic T-Rex Roaring Animation" by ChoochooLi Models (https://sketchfab.com/3d-models/robotic-t-rex-roaring-animation-bcb1c3ee0b3a4e649f96a6d924f3b8c7), CC Attribution
+- "PBR Velociraptor (Animated)" by Ferocious Industries (https://sketchfab.com/3d-models/pbr-velociraptor-animated-8f1744af7b0847a2aabe3df90be802f0), CC Attribution
+- "Blue Velociraptor" by Cenker Turhan (https://sketchfab.com/3d-models/blue-velociraptor-02fa50fae031447c98e56d1710e9fbe2), CC Attribution
+- "Copper - Robot Guide - 200 Followers Celebration" by re1monsen (https://sketchfab.com/3d-models/copper-robot-guide-200-followers-celebration-5c41480a945246ba90c80eaeef480d5b), CC Attribution
+- "Poddy M1 - Stylized Floating Robot - Posed" by Exmoor beast (https://sketchfab.com/3d-models/poddy-m1-stylized-floating-robot-posed-6b5b90dc52ae4933a103d0a71777ecbd), CC Attribution
+- "WAITRESS BOT F-4.3" by Binkley-Spacetrucker (https://sketchfab.com/3d-models/waitress-bot-f-43-f708584af98a47989d5827ae4fb25372), CC Attribution
+- "Animated humanoid robot" by pinguinoconpulgares (https://sketchfab.com/3d-models/animated-humanoid-robot-8993602ca91f4c499e690e5dae19f978), CC Attribution
+- "Robo Bun" by futaba@blender (https://sketchfab.com/3d-models/robo-bun-88b7c991fb1f40fd87af4141c923fecb), CC Attribution
+- "Antique Luggage Carts Type A" by Mad_Lobster_Workshop (https://sketchfab.com/3d-models/antique-luggage-carts-type-a-141b8b0b1e43437a9ec53ca039af1bbc), CC Attribution
+- "Modern Reception Desk | Marble, Wood & Metal Tri" by CG Lads (https://sketchfab.com/3d-models/modern-reception-desk-marble-wood-metal-tri-e249711a3f8747baaaa37d606bc36d82), CC Attribution
+- "ArtDeco hotel lobby low poly" by Pasha (https://sketchfab.com/3d-models/artdeco-hotel-lobby-low-poly-7876a45f11dc4059a6872fd63e793f11), CC Attribution
+- "Japanese Hotel" by local.yany (https://sketchfab.com/3d-models/japanese-hotel-d61d983380ed4946b34a40364ac11c46), CC Attribution
+- "Melodia City Hotel" by Dreaming Dogg (https://sketchfab.com/3d-models/melodia-city-hotel-a2fb8e4065ce470296d6d801daa37f18), CC Attribution
+- "Cozy Modern Bedroom" by dylanheyes (https://sketchfab.com/3d-models/cozy-modern-bedroom-ea25adc53f514eaba9dd043f5eac9c77), CC Attribution
+- "Cute robot" by Arturo (https://sketchfab.com/3d-models/cute-robot-72357362eace4609bbc23d75f6603cab), CC Attribution
+- "Mini robot" by YarikLegendary (https://sketchfab.com/3d-models/mini-robot-cf5dd6fed1f14e33aaa396c558d3c747), CC Attribution
+- "Toony Vintage Robot Character" by battlestoriesfan (https://sketchfab.com/3d-models/toony-vintage-robot-character-0b66ea46d2a44162bc32b5fb6111d9b1), CC Attribution
+- "Robot vacuum cleaner low poly" by Moryak (https://sketchfab.com/3d-models/robot-vacuum-cleaner-low-poly-7230d8d80e8b4a82b4a34a5e7926d0d3), CC Attribution
+- "Suitcases" by Olli_one (https://sketchfab.com/3d-models/suitcases-998cccab49ed496586994d9f4774daa0), CC Attribution
+- "Red Bellhop in Uniform" by restore50 (https://sketchfab.com/3d-models/red-bellhop-in-uniform-b13f7312f9484cdf8ffdf40e7db60bdd), CC Attribution
+- "Modern  Sofa" by 3dimentionalben (https://sketchfab.com/3d-models/modern-sofa-ac92f6e97eaa43c4ad6cb8f7c65ac43f), CC Attribution
+- "Leather armchair/ Coffee table/ Floorlamp" by YJ_ (https://sketchfab.com/3d-models/leather-armchair-coffee-table-floorlamp-fcce92a09de84456a071ea6117b57cbc), CC Attribution
+- "Monstera Deliciosa Potted Mid-Century plant" by Giora (https://sketchfab.com/3d-models/monstera-deliciosa-potted-mid-century-plant-1ab9bf841df04c07b1819be596327629), CC Attribution
+- "[FREE] Dyspis Lutescens - Potted Palm" by AllQuad (https://sketchfab.com/3d-models/free-dyspis-lutescens-potted-palm-92f75abd656049608248cf76a8c88136), CC Attribution
+- "Modern Chandelier" by Heliona (https://sketchfab.com/3d-models/modern-chandelier-6708f383a4334b53b17784f8f2d16215), CC Attribution
+- "Gold Hotel Luggage Trolley (Fallout: Miami)" by Damian Tkaczyk (https://sketchfab.com/3d-models/gold-hotel-luggage-trolley-fallout-miami-d89f1bba5e62451d9d11eaf599a6542b), CC Attribution
+- "Floor Lamp" by bilgehan.korkmaz (https://sketchfab.com/3d-models/floor-lamp-33eb258d9873435690254cfbb0ea46ec), CC Attribution

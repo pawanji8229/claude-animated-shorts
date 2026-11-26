@@ -1,0 +1,345 @@
+# TwistFrame Lab generic event-driven sound design + NARRATION-PRIORITY mix.
+# Usage: python mix_events.py <narration.mp3|wav> <events.json> <outdir> [duration_s|full]
+#            [--ambience desert|crowd|room|sea|none] [--music desert_guitar|none] [--loop] [--analysis analysis.json]
+# Principles (see .claude/skills/voice-to-video/SKILL.md §6):
+#  * the narration is the reference: every layer is set RELATIVE to it (event peaks vs narration peak, beds by loudness)
+#  * layers duck under speech (smooth attack/release) and come back in pauses
+#  * word-level masking guard: in the speech band (300-4000 Hz) every word must stay >= MIN_MARGIN dB above everything
+#    else; where it does not, all background layers are pulled down around that word (smooth ramps)
+#  * narration is never edited (timing, content, tone); one uniform master gain + true-peak limiter on the finished mix
+#  * --loop: beds are circular (tail crossfaded into head); SFX tails past the end wrap onto the start
+# Writes stems narration/sfx/crowd/ambience/music + mix.wav, cue_sheet.csv/.md, mix_report.json (measured balance,
+# per-word margins, every guard adjustment).
+import json, subprocess, os, csv, argparse
+import numpy as np
+from dsp import SR, ns, rng, pan, st, place, make_ir, convolve_st, write_wav, read_wav, integrated, true_peak, lp, bp
+import desert_sfx as S
+import crowd_sfx as C
+import london_sfx as LS
+import office_sfx as O
+import joralemon_sfx as J
+import flight_sfx as FL
+import po_sfx as PS
+import cent_sfx as CS
+import boeing_sfx as BO
+
+ap = argparse.ArgumentParser(); ap.add_argument("narration"); ap.add_argument("events"); ap.add_argument("outdir"); ap.add_argument("duration", nargs="?", default="full")
+ap.add_argument("--ambience", default="desert"); ap.add_argument("--music", default="desert_guitar"); ap.add_argument("--loop", action="store_true")
+ap.add_argument("--analysis", default=None)
+ap.add_argument("--ambience-timeline", default=None, help='JSON [[frame, preset], ...] crossfaded at each switch (overrides --ambience)')
+A = ap.parse_args()
+CFG = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "twistframe.config.json")))["audio"]
+MIX = CFG.get("mix", {})
+MIN_MARGIN = MIX.get("minWordMarginDb", 15.0)
+DUCK = MIX.get("duckDb", {"sfx": -4, "crowd": -8, "ambience": -6, "music": -10})
+mp3, evp, out = A.narration, A.events, A.outdir
+DUR = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp3], capture_output=True, text=True, check=True).stdout.strip()) if A.duration == "full" else float(A.duration)
+FPS = 30
+os.makedirs(out, exist_ok=True)
+N = ns(DUR)
+db = lambda x: 10 ** (x / 20)
+
+# ---- narration: decode only (no edits, no gain change); master clock and level reference ----
+wav_full = os.path.join(out, "narration_full_48k.wav")
+subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", mp3, "-ar", str(SR), "-ac", "2", "-c:a", "pcm_s24le", wav_full], check=True)
+vo_full, _ = read_wav(wav_full)
+vo = np.zeros((2, N)); m = min(N, vo_full.shape[1]); vo[:, :m] = vo_full[:, :m]
+NPK = float(np.max(np.abs(vo))) + 1e-9          # narration sample peak (event levels are relative to it)
+NI = integrated(vo)                               # narration loudness (bed levels are relative to it)
+
+# ---- speech envelope for ducking (smooth: 60 ms attack, 600 ms release -> no pumping, backgrounds return in pauses) ----
+win = ns(0.02); rms = np.sqrt(np.convolve(vo[0] ** 2, np.ones(win) / win, mode="same"))
+mask = (rms > NPK * db(-32)).astype(float)
+a1, a2 = np.exp(-1 / (0.06 * SR)), np.exp(-1 / (0.6 * SR)); env = np.zeros(N); v = 0.0
+for i in range(N):
+    k = a1 if mask[i] > v else a2; v = k * v + (1 - k) * mask[i]; env[i] = v
+duck = lambda depth_db: 10 ** (depth_db * env / 20)
+
+# ---- event levels: dB of the event's PEAK relative to the narration peak; stem; description ----
+REL = {
+    "step_sand": (-14, "sfx", "shoes on sand"), "turn_scuff": (-16, "sfx", "foot reposition on sand"),
+    "fabric_swish_big": (-20, "sfx", "suit sleeves sweep"), "fabric_swish": (-25, "sfx", "suit fabric movement"), "cloth_soft": (-31, "sfx", "quiet clothing rustle"),
+    "wallet_pat": (-14, "sfx", "hand pats leather wallet"), "coin_jingle": (-22, "sfx", "coins in wallet"),
+    "whoosh_reveal": (-18, "sfx", "camera rise / reveal"), "pebble_whistle": (-26, "sfx", "pebble falling (subtle whistle)"),
+    "pebble_clack": (-12, "sfx", "pebble hits baked mud"), "freeze_sting": (-21, "sfx", "comic freeze tick"),
+    "gulp": (-18, "sfx", "nervous gulp"), "hawk": (-23, "sfx", "distant hawk cry"),
+    "tumble_roll_1": (-14, "sfx", "tumbleweed rolling across foreground"), "tumble_roll_2": (-20, "sfx", "tumbleweed rolling away"),
+    "vulture_flap": (-24, "sfx", "vulture wing shuffle"),
+    "car_arrive": (-6, "sfx", "1960s convertible V8 approaching, decelerating"), "brake_squeak": (-18, "sfx", "brakes squeak"),
+    "engine_off": (-15, "sfx", "ignition off + cooling ticks"), "door_open": (-16, "sfx", "car door latch + hinge"), "door_close": (-12, "sfx", "car door shuts"),
+    "shutter": (-15, "sfx", "SLR shutter (mirror slap + curtain)"), "film_advance": (-25, "sfx", "thumb winds on the film"),
+    "flash_pop": (-23, "sfx", "flashcube / flash gun pop"), "boat_pass": (-18, "sfx", "small motor boat passing (Doppler)"),
+    "step_stone": (-15, "sfx", "shoes on stone paving"), "paper_unroll": (-20, "sfx", "blueprint unrolls"), "paper_rustle": (-24, "sfx", "paper rustle"),
+    "yawn": (-18, "sfx", "Hal's yawn (synthesised voice, wordless)"), "idea_ding": (-20, "sfx", "soft idea bell"), "pen_scratch": (-24, "sfx", "pen on cheque"),
+    "stamp_thunk": (-12, "sfx", "rubber stamp thunk"), "crate_slide": (-18, "sfx", "wooden crate slides"), "register_ring": (-22, "sfx", "cash-register ding (synth)"),
+    "bell_chime": (-24, "sfx", "distant city clock bell (original)"), "gull": (-25, "sfx", "gull cry"), "chalk_scratch": (-24, "sfx", "chalk on granite"),
+    "hammer_hit": (-17, "sfx", "hammer strike"), "ratchet": (-24, "sfx", "wrench ratchet"), "shovel_dig": (-18, "sfx", "shovel bites soil"),
+    "crane_winch": (-22, "sfx", "crane winch motor"), "chain_rattle": (-20, "sfx", "lifting chain"), "stone_thud": (-15, "sfx", "granite block set down"),
+    "ship_horn": (-17, "sfx", "cargo ship horn"), "ship_engine": (-22, "sfx", "ship diesel thump"), "bow_splash": (-22, "sfx", "bow splash"),
+    "lock_gate": (-22, "sfx", "lock gate motors + clunk"), "water_rush": (-20, "sfx", "rushing water"), "splash_big": (-17, "sfx", "flood front splash"),
+    "truck_pass": (-18, "sfx", "1960s diesel flatbed passing"), "air_brake": (-22, "sfx", "air brake hiss"), "concrete_mixer": (-24, "sfx", "concrete mixer drum"),
+    "scaffold_clatter": (-20, "sfx", "scaffold poles clatter"), "excavator": (-18, "sfx", "excavator diesel + hydraulics"), "bucket_scrape": (-19, "sfx", "bucket scrapes the channel bed"),
+    "dirt_dump": (-20, "sfx", "soil dumped on the bank"), "wind_gust": (-16, "sfx", "desert dust gust"),
+    "clap_soft": (-23, "crowd", "single soft clap"), "cheer": (-27, "crowd", "distant crowd cheer"), "crowd_ooh": (-29, "crowd", "distant crowd 'ooh'"),
+    # short3 (1930 office move) - original synthesised sounds
+    "phone_ring": (-24, "sfx", "1930 desk telephone ringer (twin gongs)"), "plug_click": (-24, "sfx", "switchboard cord plug"), "key_click": (-28, "sfx", "switchboard key"),
+    "typewriter": (-27, "sfx", "typewriter burst"), "coffee_clink": (-24, "sfx", "coffee cup on saucer"), "office_door": (-20, "sfx", "office door"),
+    "roller_creak": (-19, "sfx", "steel rollers under load"), "jack_pull": (-22, "sfx", "screw-jack bar pull"), "timber_thud": (-17, "sfx", "timber crib placed"),
+    "steel_clank": (-20, "sfx", "steel I-beam clank"), "building_groan": (-18, "sfx", "deep structural groan"), "streetcar_bell": (-25, "sfx", "distant streetcar bell"),
+    "crawler_crane": (-15, "sfx", "crawler crane engine + tracks"), "plank_step": (-15, "sfx", "shoes on wooden gangway"), "rope_creak": (-27, "sfx", "rope creak"),
+    # joralemon (58 Joralemon Street) - original synthesised sounds
+    "car_pass": (-19, "sfx", "modern car passing (tyres + engine)"), "bike_tick": (-27, "sfx", "bicycle freewheel"), "dog_paws": (-24, "sfx", "dog paws + tag"),
+    "fan_hum": (-17, "sfx", "ventilation fan hum"), "fan_spinup": (-19, "sfx", "fan starting"), "train_rumble": (-14, "sfx", "subway train under the street"),
+    "train_old": (-15, "sfx", "1907 train in the new tunnel"), "time_shimmer": (-22, "sfx", "era dissolve shimmer"), "mystery_accent": (-21, "sfx", "soft mysterious accent"),
+    "reject_buzz": (-20, "sfx", "comic rejection slide"), "leaves": (-24, "sfx", "breeze in the plane trees"),
+    "train_now_pass": (-11, "sfx", "today's train approaching + passing in the tube (rumble, wheel roar, motor whine, reverb)"), "rail_clack": (-18, "sfx", "wheelset over a rail joint"),
+    "brake_squeal": (-27, "sfx", "gentle brake squeal"), "air_rush": (-19, "sfx", "piston wind up the shaft"), "tunnel_drip": (-31, "sfx", "water drip in the tunnel"),
+    "sign_hum": (-33, "sfx", "EXIT lamp buzz"), "pigeon_takeoff": (-19, "sfx", "pigeon wing claps + flutter"), "pigeon_flutter": (-23, "sfx", "pigeon landing flutter"),
+    "pigeon_coo": (-30, "sfx", "pigeon coo"), "parcel_thud": (-22, "sfx", "parcel set down"), "hazard_tick": (-34, "sfx", "hazard relay click"), "far_horn": (-31, "sfx", "distant car horn"),
+    "shield_hiss": (-22, "sfx", "shield rams hiss + clunk"), "ring_clank": (-21, "sfx", "iron ring segment clank"), "muck_cart": (-23, "sfx", "muck car rolling"),
+    **{f"step_{s}_{lr}": (lv, "sfx", f"footstep ({s}, {'left' if lr == 'l' else 'right'} foot)") for s, lv in [("concrete", -23), ("wood", -25), ("tunnel", -25)] for lr in "lr"},
+    # flight (Westray - Papa Westray) - original synthesised sounds
+    "eng_start": (-17, "sfx", "piston engine start: starter crank, coughs, catch, run up to idle"), "eng_start_far": (-23, "sfx", "second engine starting (far side)"),
+    "taxi": (-19, "sfx", "idle engines + tyres rolling on gravel"), "takeoff": (-15, "sfx", "take-off power: props bite, roar, gravel rush, airborne"),
+    "touchdown": (-17, "sfx", "main wheels touch down (tyre chirps + thump)"), "rollout": (-17, "sfx", "roll-out on grass, power to idle"),
+    "spin_down": (-18, "sfx", "engines cut, props wind down, cooling ticks"), "ac_door_open": (-21, "sfx", "aircraft door latch + swing"), "ac_door_close": (-18, "sfx", "aircraft door shuts"),
+    "belt_click": (-21, "sfx", "lap belt latch click"), "belt_slide": (-28, "sfx", "belt webbing slides"), "seat_creak": (-26, "sfx", "bench seat takes weight"), "bag_set": (-25, "sfx", "small bag set down"),
+    "windsock": (-31, "sfx", "windsock flutter"), "oystercatcher": (-28, "sfx", "oystercatcher piping"), "sheep": (-33, "sfx", "distant sheep"),
+    "brow_pluck": (-26, "sfx", "tiny comic pluck (brows up)"), "watch_tick": (-27, "sfx", "wristwatch ticks"), "double_take": (-28, "sfx", "double-take zip"), "air_swell": (-24, "sfx", "outside air as the camera passes the window"),
+    **{f"step_{s}_{lr}": (lv, "sfx", f"footstep ({s}, {'left' if lr == 'l' else 'right'} foot)") for s, lv in [("gravel", -24), ("grass", -27)] for lr in "lr"},
+    # underwater post office (Hideaway Island) - original synthesised sounds; underwater ones are muffled by design
+    "regulator": (-24, "sfx", "scuba regulator exhalation (bubble train)"), "bubbles_small": (-30, "sfx", "snorkeller's small bubbles"), "fin_kick": (-30, "sfx", "fin stroke under water"),
+    "card_uw": (-25, "sfx", "plastic postcard handled under water"), "emboss_press": (-19, "sfx", "embosser: lever creak, ram clunk, die crunch (under water)"), "emboss_release": (-25, "sfx", "embosser lever released"),
+    "box_slide_uw": (-27, "sfx", "dry box with the ink stamp slid aside"), "pen_scratch_uw": (-30, "sfx", "ballpoint scratching wet paper"), "paper_soak": (-33, "sfx", "paper soaking (soft fizz)"),
+    "tank_settle": (-17, "sfx", "fibreglass tank settles on the sand"), "tank_descend": (-24, "sfx", "tank lowered on ropes (hull resonance, creaks)"), "surface_emerge": (-24, "sfx", "worker breaks the surface"),
+    "idea_pop": (-27, "sfx", "comic idea accent"), "bird": (-30, "sfx", "tropical bird"), "outboard_idle": (-25, "sfx", "outboard idling"), "winch": (-24, "sfx", "A-frame winch"),
+    "rope_creak": (-29, "sfx", "rope creak"), "roof_set": (-21, "sfx", "fibreglass roof set down"), "card_flick": (-25, "sfx", "plastic cards fanned"), "card_slide": (-27, "sfx", "card slid across the counter"),
+    "flag_flutter": (-31, "sfx", "yellow flag flutters"), "splash_entry": (-20, "sfx", "dives in"), "wade": (-25, "sfx", "wading into the shallows"), "fin_flap": (-27, "sfx", "fins flap on wet sand"),
+    "surface_break": (-23, "sfx", "camera rises out of the water"), "dip_under": (-23, "sfx", "camera dips under the surface"), "stamp_ink": (-21, "sfx", "rubber date stamp (above water)"),
+    "drop_in_bag": (-25, "sfx", "card dropped into the outward mail bag"), "bag_rustle": (-26, "sfx", "mail bag handled"), "bag_rustle_uw": (-26, "sfx", "mail bag handled under water"),
+    # the Centennial Light (Livermore) - original synthesised sounds, quiet and natural
+    "filament_on": (-28, "sfx", "lamp comes on: tiny tink + soft hum"), "bulb_burnout": (-27, "sfx", "ordinary bulb flickers out (buzz + soft snap)"), "screw_bulb": (-27, "sfx", "brass base threads into the socket"),
+    "bulb_dark": (-26, "sfx", "power supply fails: relay tick, hum drops away"), "ladder_creak": (-27, "sfx", "wooden stepladder takes weight"), "match_strike": (-24, "sfx", "match struck, lantern wick catches, chimney clink"),
+    "hose_coil": (-28, "sfx", "canvas hose coiled"), "polish_rag": (-31, "sfx", "rag polishing brass"), "cord_snip": (-24, "sfx", "wire cutters through the cord"), "box_lid": (-25, "sfx", "padded box lid closes"),
+    "engine76": (-19, "sfx", "1970s cab-forward diesel engine rolling alongside"), "engine_arrive": (-18, "sfx", "diesel engine slows to a stop"), "ladder_steel": (-27, "sfx", "foot on a steel ladder step"),
+    "flashlight_click": (-27, "sfx", "flashlight switched on"), "box_latch": (-26, "sfx", "power-supply box door latch"), "cord_unroll": (-27, "sfx", "extension cord pulled off a coil"),
+    # the fake neighbourhood above Boeing Plant 2 - original synthesised sounds
+    "rivet_burst": (-24, "sfx", "pneumatic rivet-gun burst"), "tool_clink": (-29, "sfx", "tool set down on steel"), "hangar_door": (-22, "sfx", "steel door leaf rolling on its track"),
+    "cart_roll": (-27, "sfx", "steel-wheeled shop cart rolling"), "truck42": (-19, "sfx", "1940s truck rolls in, brakes, idles"), "hammer_wood": (-23, "sfx", "framing hammer on timber"),
+    "saw_stroke": (-28, "sfx", "hand saw stroke"), "canvas_flap": (-27, "sfx", "canvas stretched over the frame"), "paint_roll": (-29, "sfx", "paint roller on the tar-paper road"),
+    "winch_ratchet": (-25, "sfx", "derrick hand winch ratchet"), "bundle_land": (-22, "sfx", "lumber bundle set down on the roof"), "board_pick": (-28, "sfx", "board lifted off the pile"),
+    "model_tick": (-26, "sfx", "tiny model piece set on the table"), "paper_slide": (-30, "sfx", "plans slid on the table"), "soft_whoosh": (-27, "sfx", "soft air whoosh (camera move)"),
+    "reveal_shimmer": (-25, "sfx", "airy swell as the roof dissolves"),
+}
+GEN = {
+    "step_sand": lambda r: S.step_sand(r, r.uniform(0.85, 1.1)), "turn_scuff": S.turn_scuff,
+    "fabric_swish_big": lambda r: S.fabric_swish(r, True), "fabric_swish": lambda r: S.fabric_swish(r, False), "cloth_soft": C.cloth_soft,
+    "wallet_pat": S.wallet_pat, "coin_jingle": S.coin_jingle, "whoosh_reveal": S.whoosh_reveal, "pebble_whistle": S.pebble_whistle,
+    "pebble_clack": S.pebble_clack, "freeze_sting": S.freeze_tick, "gulp": S.gulp, "hawk": lambda r: lp(S.hawk(r), 2600, 2), "vulture_flap": S.vulture_flap,
+    "car_arrive": S.car_arrive, "brake_squeak": S.brake_squeak, "engine_off": S.engine_idle_off, "door_open": S.door_open, "door_close": S.door_close,
+    "shutter": lambda r: C.shutter(r, advance=False), "film_advance": C.film_advance, "flash_pop": C.flash_pop, "boat_pass": C.boat_pass,
+    **{k: getattr(LS, k) for k in ["step_stone", "paper_unroll", "paper_rustle", "yawn", "idea_ding", "pen_scratch", "stamp_thunk", "crate_slide", "register_ring", "bell_chime",
+        "gull", "chalk_scratch", "hammer_hit", "ratchet", "shovel_dig", "crane_winch", "chain_rattle", "stone_thud", "ship_horn", "ship_engine", "bow_splash", "lock_gate",
+        "water_rush", "splash_big", "truck_pass", "air_brake", "concrete_mixer", "scaffold_clatter", "excavator", "bucket_scrape", "dirt_dump", "wind_gust"]},
+    "clap_soft": C.clap_soft, "cheer": lambda r: C.cheer(r, people=8), "crowd_ooh": C.crowd_ooh,
+    "phone_ring": O.phone_ring, "plug_click": O.plug_click, "key_click": O.key_click, "typewriter": O.typewriter, "coffee_clink": O.coffee_clink,
+    "office_door": O.office_door, "roller_creak": O.roller_creak, "jack_pull": O.jack_pull, "timber_thud": O.timber_thud, "steel_clank": O.steel_clank,
+    "building_groan": O.building_groan, "streetcar_bell": O.streetcar_bell, "crawler_crane": O.crawler_crane, "plank_step": O.plank_step, "rope_creak": O.rope_creak,
+    **{k: getattr(J, k) for k in ["car_pass", "bike_tick", "dog_paws", "fan_hum", "fan_spinup", "train_rumble", "train_old", "time_shimmer", "mystery_accent", "reject_buzz", "leaves",
+        "train_now_pass", "rail_clack", "brake_squeal", "air_rush", "tunnel_drip", "sign_hum", "pigeon_takeoff", "pigeon_flutter", "pigeon_coo", "parcel_thud", "hazard_tick", "far_horn",
+        "shield_hiss", "ring_clank", "muck_cart"]},
+    **{f"step_{s}_{lr}": (lambda s, lr: lambda r: J.shoe_step(r, s, 0 if lr == "l" else 1))(s, lr) for s in ("concrete", "wood", "tunnel") for lr in "lr"},
+    "eng_start": FL.eng_start, "eng_start_far": lambda r: FL.eng_start(r, far=True), "taxi": FL.taxi, "takeoff": FL.takeoff, "touchdown": FL.touchdown, "rollout": FL.rollout,
+    "spin_down": FL.spin_down, "ac_door_open": FL.ac_door, "ac_door_close": lambda r: FL.ac_door(r, close=True), "belt_click": FL.belt_click, "belt_slide": FL.belt_slide,
+    "seat_creak": FL.seat_creak, "bag_set": FL.bag_set, "windsock": FL.windsock, "oystercatcher": FL.oystercatcher, "sheep": FL.sheep, "brow_pluck": FL.brow_pluck,
+    "watch_tick": FL.watch_tick, "double_take": FL.double_take, "air_swell": FL.air_swell,
+    **{f"step_{s}_{lr}": (lambda s, lr: lambda r: FL.step(r, s, 0 if lr == "l" else 1))(s, lr) for s in ("gravel", "grass") for lr in "lr"},
+    **{k: getattr(PS, k) for k in ["regulator", "bubbles_small", "fin_kick", "card_uw", "emboss_press", "emboss_release", "box_slide_uw", "pen_scratch_uw", "paper_soak", "tank_settle", "tank_descend",
+        "surface_emerge", "idea_pop", "bird", "outboard_idle", "winch", "rope_creak", "roof_set", "card_flick", "card_slide", "flag_flutter", "splash_entry", "wade", "fin_flap", "surface_break", "dip_under",
+        "stamp_ink", "drop_in_bag", "bag_rustle"]}, "bag_rustle_uw": lambda r: PS.bag_rustle(r, under=True),
+    **{k: getattr(CS, k) for k in ["filament_on", "bulb_burnout", "screw_bulb", "bulb_dark", "ladder_creak", "match_strike", "hose_coil", "polish_rag", "cord_snip", "box_lid", "engine76", "engine_arrive",
+        "ladder_steel", "flashlight_click", "box_latch", "cord_unroll"]},
+    **{k: getattr(BO, k) for k in ["rivet_burst", "tool_clink", "hangar_door", "cart_roll", "truck42", "hammer_wood", "saw_stroke", "canvas_flap", "paint_roll", "winch_ratchet",
+        "bundle_land", "board_pick", "model_tick", "paper_slide", "soft_whoosh", "reveal_shimmer"]},
+}
+OFFSET = {"soft_whoosh": -1.0, "reveal_shimmer": -1.2, "truck42": -2.6, "air_swell": -0.6, "takeoff": -0.05, "car_pass": -1.8, "train_rumble": -2.2, "train_old": -2.0, "fan_hum": -0.6, "time_shimmer": -0.8, "leaves": -1.0, "crawler_crane": -1.2, "building_groan": -0.6, "whoosh_reveal": -0.6, "boat_pass": -2.0, "truck_pass": -1.5, "wind_gust": -0.8}   # generator pre-rolls (s) so the peak lands on the event frame
+FIXED_PAN = {"car_arrive": -0.6}
+
+ev = json.load(open(evp))["events"]
+TAILPAD = ns(8.0)
+stems = {k: np.zeros((2, N + TAILPAD)) for k in ("sfx", "crowd")}; verb = np.zeros((2, N + TAILPAD))
+rows, skipped = [], {}
+for k, e in enumerate(ev):
+    f, kind = e["frame"], e["kind"]; t0 = f / FPS + OFFSET.get(kind, 0.0)
+    if f / FPS >= DUR: continue
+    r = rng(1000 + k * 7 + f)
+    if kind.startswith("tumble_roll"):
+        one = kind.endswith("1"); x = S.tumble_roll(r, 3.4 if one else 3.0, 1.4 if one else 1.1); n = len(x); u = np.linspace(0, 1, n)
+        pp = -0.9 + 1.8 * u if one else 0.1 - 0.15 * u; g = np.sin(np.pi * np.clip(u * 1.05, 0, 1)) ** 0.6 if one else np.clip(u / 0.15, 0, 1) * (1 - u) ** 1.4
+        th = (np.clip(pp, -1, 1) + 1) * np.pi / 4; x = np.stack([x * g * np.cos(th), x * g * np.sin(th)]) * np.sqrt(2); p_desc = "moving"
+    elif kind.startswith("rec:"):
+        # recorded sample layer (additive feature): "rec:<file under events dir>/audio/samples>[@start+dur]", 48 kHz WAV prepared by the production
+        spec = kind[4:]; fn, _, cut = spec.partition("@"); x = read_wav(os.path.join(os.path.dirname(os.path.abspath(evp)), "audio", "samples", fn)); x = x[0] if isinstance(x, tuple) else x
+        if x.ndim == 1: x = np.stack([x, x])
+        if cut: s0, _, d0 = cut.partition("+"); a0 = ns(float(s0)); x = x[:, a0:a0 + (ns(float(d0)) if d0 else x.shape[1])].copy()
+        k = min(ns(0.03), x.shape[1] // 4); fade = np.ones(x.shape[1]); fade[:k] = np.linspace(0, 1, k); fade[-k:] = np.linspace(1, 0, k); x = x * fade[None, :]
+        p = float(e.get("x", 0.0)); g = np.array([np.cos((p + 1) * np.pi / 4), np.sin((p + 1) * np.pi / 4)]) * np.sqrt(2); x = x * g[:, None]; p_desc = f"{p:+.2f}"
+    elif kind in GEN:
+        x = GEN[kind](r); p = float(FIXED_PAN.get(kind, e.get("x", 0.0))); x = x if np.ndim(x) == 2 else pan(x, p); p_desc = f"{p:+.2f}"
+    else:
+        skipped[kind] = skipped.get(kind, 0) + 1; continue
+    rel, stem, desc = REL.get(kind, (-24, "sfx", kind))
+    if "rel" in e: rel = float(e["rel"])   # per-event level for recorded layers
+    rel += float(r.uniform(-1.5, 1.5)) + 20 * np.log10(float(np.clip(e.get("gain", 1.0), 0.05, 1.0)))  # seeded per-instance variation
+    gain = NPK * db(rel) / (float(np.max(np.abs(x))) + 1e-9)       # event peak sits `rel` dB under the narration peak
+    if t0 < 0 and A.loop: t0 += DUR
+    place(stems[stem], x, t0, gain); place(verb, x, t0, gain * (0.04 if kind.startswith("step_") else 0.2))   # footsteps stay dry (no hollow room)
+    rows.append([f, f"{t0:.3f}", f"{t0 + x.shape[-1] / SR:.3f}", e.get("note") or desc, kind, stem, f"{rel:+.1f} dB re narration peak", p_desc])
+ir = make_ir(0.65, 7, early=[(0.055, 0.6, 0.2), (0.11, 0.3, -0.3)], hf=1.4)
+stems["sfx"] += convolve_st(verb, ir)[:, :N + TAILPAD] * 0.2
+for k in stems:
+    if A.loop: kk = min(TAILPAD, N); stems[k][:, :kk] += stems[k][:, N:N + kk]
+    stems[k] = stems[k][:, :N]
+
+# ---- continuous beds: loudness set RELATIVE to the narration (LU), loop-safe ----
+XF = 1.2 if A.loop else 0.0
+def bed(gen, seed, rel_lu):
+    x = gen(DUR + XF, rng(seed))
+    if XF > 0:
+        k = ns(XF); w = np.sin(np.linspace(0, np.pi / 2, k)) ** 2
+        head = x[:, :k] * w + x[:, N:N + k] * (1 - w); x = x[:, :N].copy(); x[:, :k] = head
+    x = x[:, :N]; return x * db(NI + rel_lu - integrated(x))
+amb = np.zeros((2, N)); mus = np.zeros((2, N))
+def bedrow(desc, gen, rel): rows.append([0, "0.000", f"{DUR:.3f}", desc + (" (continuous, loop-safe)" if XF else " (continuous)"), gen, "bed", f"{rel:+.0f} LU re narration", "stereo wide"])
+def amb_preset(name):
+    """returns (ambience stereo, crowd stereo) beds for one preset over the whole duration"""
+    a = np.zeros((2, N)); cr = np.zeros((2, N))
+    if name == "desert": a += bed(S.desert_wind, 11, -23) + bed(S.cicadas, 12, -31)
+    elif name == "crowd": cr += bed(C.crowd_murmur, 16, -28); a += bed(C.river_bed, 17, -25) + bed(S.desert_wind, 11, -30)
+    elif name == "london": a += bed(LS.london_bed, 18, -24)
+    elif name == "sea": a += bed(LS.sea_bed, 19, -22)
+    elif name == "city1930": a += bed(O.city1930_bed, 21, -25)
+    elif name == "office": a += bed(O.office_bed, 22, -27)
+    elif name == "brooklyn": a += bed(J.brooklyn_bed, 23, -25)
+    elif name == "parlour": a += bed(J.parlour_bed, 24, -28)
+    elif name == "works1907": a += bed(J.works_bed, 25, -25)
+    elif name == "tunnel": a += bed(J.tunnel_bed, 26, -24)
+    elif name == "ext_cruise": a += bed(FL.ext_cruise_bed, 31, -21)
+    elif name == "int_cruise": a += bed(FL.int_cruise_bed, 32, -23)
+    elif name == "aerial": a += bed(FL.aerial_bed, 33, -26)
+    elif name == "approach": a += bed(FL.approach_bed, 34, -21)
+    elif name == "airfield": a += bed(FL.airfield_bed, 35, -25)
+    elif name == "reef": a += bed(PS.reef_bed, 41, -24)
+    elif name == "beach": a += bed(PS.beach_bed, 42, -24)
+    elif name == "surface": a += bed(PS.surface_bed, 43, -23)
+    elif name == "sortroom": a += bed(PS.room_bed, 44, -29)
+    elif name in ("firehouse1901", "street1901", "night1901", "firehouse_mid", "street1976", "s6_dusk", "s6_night", "s6_day", "s6_ext"):
+        lv = {"firehouse1901": -24, "street1901": -23, "night1901": -24, "firehouse_mid": -24, "street1976": -21, "s6_dusk": -25, "s6_night": -26, "s6_day": -24, "s6_ext": -22}[name]
+        a += bed(getattr(CS, name), 51 + ["firehouse1901", "street1901", "night1901", "firehouse_mid", "street1976", "s6_dusk", "s6_night", "s6_day", "s6_ext"].index(name), lv)
+    elif name in ("factory_floor", "roof_day", "street1942", "aerial_high", "office1942"):
+        lv = {"factory_floor": -23, "roof_day": -25, "street1942": -24, "aerial_high": -26, "office1942": -28}[name]
+        a += bed(getattr(BO, name), 61 + ["factory_floor", "roof_day", "street1942", "aerial_high", "office1942"].index(name), lv)
+    elif name == "room":
+        from sfx_gen import breeze; a += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26)
+    return a, cr
+if A.ambience_timeline:
+    TL = json.loads(A.ambience_timeline); XFS = ns(0.5)
+    cache = {}
+    for i, (fr, name) in enumerate(TL):
+        if name not in cache: cache[name] = amb_preset(name)
+        a0 = ns(fr / FPS); a1 = ns(TL[i + 1][0] / FPS) if i + 1 < len(TL) else N
+        w = np.zeros(N); w[max(0, a0 - XFS):min(N, a1 + XFS)] = 1.0
+        if i > 0: w[max(0, a0 - XFS):min(N, a0 + XFS)] = np.sin(np.linspace(0, np.pi / 2, min(N, a0 + XFS) - max(0, a0 - XFS))) ** 2
+        if i + 1 < len(TL): w[max(0, a1 - XFS):min(N, a1 + XFS)] = np.cos(np.linspace(0, np.pi / 2, min(N, a1 + XFS) - max(0, a1 - XFS))) ** 2
+        amb += cache[name][0] * w[None, :]; stems["crowd"] += cache[name][1] * w[None, :]
+        rows.append([fr, f"{fr / FPS:.3f}", f"{(TL[i + 1][0] / FPS if i + 1 < len(TL) else DUR):.3f}", f"ambience segment: {name} (0.5 s equal-power crossfades)", f"ambience_{name}", "bed", "see preset", "stereo wide"])
+elif A.ambience == "desert":
+    amb += bed(S.desert_wind, 11, -23); amb += bed(S.cicadas, 12, -31); bedrow("desert wind + sand hiss", "desert_wind", -23); bedrow("faint cicadas", "cicadas", -31)
+elif A.ambience == "crowd":
+    stems["crowd"] += bed(C.crowd_murmur, 16, -28); amb += bed(C.river_bed, 17, -25); amb += bed(S.desert_wind, 11, -30)
+    bedrow("gentle distant crowd murmur (no shouting)", "crowd_murmur", -28); bedrow("river lapping under the bridge", "river_bed", -25); bedrow("light desert wind", "desert_wind", -30)
+elif A.ambience == "room":
+    from sfx_gen import breeze
+    amb += bed(lambda d, r: st(breeze(d, r, level=0.5, bright=500)), 14, -26); bedrow("interior room tone", "room_tone", -26)
+elif A.ambience == "sea":
+    amb += bed(C.river_bed, 15, -21); bedrow("sea / water bed", "water_bed", -21)
+if A.music == "office_piano":
+    mus += bed(O.office_piano, 23, -24); bedrow("sparse soft 1930s-style piano + brushes (original)", "music", -24)
+if A.music == "desert_guitar":
+    mus += bed(S.desert_guitar, 13, -21); bedrow("sparse plucked desert guitar motif (original)", "music", -21)
+if not A.loop:
+    fade = np.clip(np.arange(N) / ns(0.5), 0, 1); amb *= fade; mus *= fade; stems["crowd"] *= fade
+
+# ---- ducking under speech ----
+L = {"sfx": stems["sfx"] * duck(DUCK["sfx"]), "crowd": stems["crowd"] * duck(DUCK["crowd"]), "ambience": amb * duck(DUCK["ambience"]), "music": mus * duck(DUCK["music"])}
+
+# ---- word-level masking guard (speech band) ----
+words = []
+anp = A.analysis or os.path.join(os.path.dirname(os.path.abspath(evp)), "analysis", "analysis.json")
+if os.path.exists(anp):
+    for ph in json.load(open(anp)).get("phrases", []):
+        for w in ph.get("asr_words", []): words.append((w["word"], float(w["t0"]), float(w["t1"])))
+def band(x): return bp(x.mean(0), 300, 4000, 2)
+vb = band(vo)
+def margins(beds):
+    bb = band(sum(beds.values())); res = []
+    for w, t0, t1 in words:
+        a, b = ns(max(0, t0 - 0.03)), ns(min(DUR, t1 + 0.03))
+        if b <= a: continue
+        en, eb = np.mean(vb[a:b] ** 2), np.mean(bb[a:b] ** 2) + 1e-12; res.append((w, t0, t1, 10 * np.log10(en / eb + 1e-12)))
+    return res
+before = margins(L); adjustments = []
+for it in range(3):
+    ms = margins(L); att = np.zeros(N)
+    for w, t0, t1, mg in ms:
+        if mg < MIN_MARGIN:
+            need = MIN_MARGIN - mg + 1.0; a, b = ns(max(0, t0 - 0.08)), ns(min(DUR, t1 + 0.08)); att[a:b] = np.maximum(att[a:b], need)
+            adjustments.append({"pass": it + 1, "word": w, "t0": t0, "t1": t1, "margin_db": round(mg, 1), "cut_db": round(need, 1)})
+    if not att.any(): break
+    hw = np.hanning(ns(0.12)); hw /= hw.sum(); att = np.maximum(att, np.convolve(att, hw, "same"))   # smooth ramps, never less than needed
+    g = 10 ** (-att / 20)
+    for k in L: L[k] = L[k] * g[None, :]
+after = margins(L)
+
+bedsum = sum(L.values()); mix = vo + bedsum
+I0 = integrated(mix)
+# gain from the loudness target, capped so narration peaks need at most `peakLimitAllowanceDb` of (transparent) limiting
+MASTER_DB = min(CFG["targetLufs"] - I0, CFG.get("narrationPeakMaxDb", -1.5) + MIX.get("peakLimitAllowanceDb", 2.0) - true_peak(vo))
+master = mix * db(MASTER_DB)
+def limiter(x, ceil_db=-1.0, look=0.003, rel=0.08):
+    from scipy.ndimage import maximum_filter1d
+    ceil = db(ceil_db); pk = np.max(np.abs(x), axis=0); need = np.minimum(1.0, ceil / np.maximum(pk, 1e-9))
+    Lk = ns(look); need = -maximum_filter1d(-need, size=2 * Lk + 1); g = np.empty_like(need); a = np.exp(-1 / (rel * SR)); v = 1.0
+    for i in range(len(need)): v = need[i] if need[i] < v else a * v + (1 - a) * need[i]; g[i] = v
+    return x * g[None, :]
+master = limiter(master, CFG.get("ceilingDbtp", -1.2))
+for name, x in [("narration.wav", vo), ("sfx.wav", L["sfx"]), ("crowd.wav", L["crowd"]), ("ambience.wav", L["ambience"]), ("music.wav", L["music"]), ("mix_premaster.wav", mix), ("mix.wav", master)]:
+    write_wav(os.path.join(out, name), x)
+
+# ---- measured balance report ----
+def rel_lu(x): return None if np.max(np.abs(x)) < 1e-7 else round(integrated(x) - NI, 1)
+speech = env > 0.5
+def speech_ratio(x):  # bed short-term level during speech vs narration (speech band)
+    if not speech.any() or np.max(np.abs(x)) < 1e-7: return None
+    xb = band(x); return round(10 * np.log10(np.mean(xb[speech] ** 2) / (np.mean(vb[speech] ** 2) + 1e-12) + 1e-12), 1)
+rep = {"narration_lufs": round(NI, 1), "master_gain_db": round(MASTER_DB, 1), "final_lufs": round(integrated(master), 1), "final_true_peak_dbtp": round(true_peak(master), 1),
+       "stems_lu_re_narration": {k: rel_lu(v) for k, v in L.items()}, "stems_speechband_db_re_narration_during_speech": {k: speech_ratio(v) for k, v in L.items()},
+       "min_word_margin_target_db": MIN_MARGIN, "words": len(words),
+       "min_word_margin_before_db": round(min([m[3] for m in before]), 1) if before else None, "min_word_margin_after_db": round(min([m[3] for m in after]), 1) if after else None,
+       "word_margins_after": [{"word": w, "t0": t0, "margin_db": round(mg, 1)} for w, t0, t1, mg in after], "guard_adjustments": adjustments,
+       "events_placed": len(rows), "skipped_unknown_kinds": skipped, "ducking_db": DUCK}
+json.dump(rep, open(os.path.join(out, "mix_report.json"), "w"), indent=1)
+
+with open(os.path.join(out, "cue_sheet.csv"), "w", newline="") as fh:
+    w = csv.writer(fh); w.writerow(["trigger_frame", "start_s", "end_s", "source / responsible object", "generator", "stem", "level", "pan"]); w.writerows(rows)
+with open(os.path.join(out, "cue_sheet.md"), "w") as fh:
+    fh.write(f"# Sound cue sheet (0–{DUR:.2f} s; loop-safe: {bool(XF)})\n\n")
+    fh.write(f"Narration-priority mix. Narration {NI:.1f} LUFS is the reference; event levels are peak dB under the narration peak, beds are LU under the narration loudness. "
+             f"Ducking under speech: {DUCK}. Word masking guard: every word ≥ {MIN_MARGIN:.0f} dB above all other layers in the 300–4000 Hz speech band "
+             f"(worst word before guard {rep['min_word_margin_before_db']} dB, after {rep['min_word_margin_after_db']} dB; {len(adjustments)} guard cuts). "
+             f"Master {MASTER_DB:+.1f} dB → {rep['final_lufs']} LUFS, {rep['final_true_peak_dbtp']} dBTP.\n\n")
+    fh.write(f"Measured stem loudness vs narration (LU): {rep['stems_lu_re_narration']}\n\nAll effects are procedurally synthesised in `studio/audio/` (no third-party recordings).\n\n")
+    fh.write("| frame | start s | end s | source / object | generator | stem | level | pan |\n|---|---|---|---|---|---|---|---|\n")
+    for rr in sorted(rows, key=lambda z: float(z[1])): fh.write("| " + " | ".join(str(c) for c in rr) + " |\n")
+print(f"events placed: {len(rows)} (skipped unknown kinds: {skipped}) | narration {NI:.1f} LUFS | stems LU re narration {rep['stems_lu_re_narration']} | "
+      f"worst word margin {rep['min_word_margin_before_db']} -> {rep['min_word_margin_after_db']} dB ({len(adjustments)} guard cuts) | master {MASTER_DB:+.1f} dB -> {rep['final_lufs']} LUFS {rep['final_true_peak_dbtp']} dBTP")

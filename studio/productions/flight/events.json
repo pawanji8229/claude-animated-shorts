@@ -1,0 +1,559 @@
+{
+ "fps": 30,
+ "frames": 1511,
+ "events": [
+  {
+   "frame": 116,
+   "kind": "brow_pluck",
+   "x": -0.2,
+   "gain": 0.8,
+   "note": "his eyebrows shoot up"
+  },
+  {
+   "frame": 126,
+   "kind": "cloth_soft",
+   "x": -0.2,
+   "gain": 0.8,
+   "note": "sleeve as he lifts his wrist"
+  },
+  {
+   "frame": 132,
+   "kind": "watch_tick",
+   "x": -0.2,
+   "gain": 0.9,
+   "note": "he checks his watch"
+  },
+  {
+   "frame": 146,
+   "kind": "cloth_soft",
+   "x": -0.3,
+   "gain": 0.6,
+   "note": "glance at the window"
+  },
+  {
+   "frame": 158,
+   "kind": "cloth_soft",
+   "x": -0.2,
+   "gain": 0.6,
+   "note": "wrist up again"
+  },
+  {
+   "frame": 162,
+   "kind": "watch_tick",
+   "x": -0.2,
+   "gain": 0.8,
+   "note": "watch again"
+  },
+  {
+   "frame": 201,
+   "kind": "seat_creak",
+   "x": -0.2,
+   "gain": 0.9,
+   "note": "he shuffles into the bench"
+  },
+  {
+   "frame": 208,
+   "kind": "cloth_soft",
+   "x": -0.2,
+   "gain": 1,
+   "note": "tugs his jacket straight"
+  },
+  {
+   "frame": 216,
+   "kind": "cloth_soft",
+   "x": -0.15,
+   "gain": 0.7,
+   "note": "jacket"
+  },
+  {
+   "frame": 236,
+   "kind": "bag_set",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "bag tucked under the seat"
+  },
+  {
+   "frame": 246,
+   "kind": "belt_slide",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "pulls the lap belt across"
+  },
+  {
+   "frame": 262,
+   "kind": "belt_click",
+   "x": -0.1,
+   "gain": 1,
+   "note": "lap belt clicks shut"
+  },
+  {
+   "frame": 268,
+   "kind": "seat_creak",
+   "x": -0.2,
+   "gain": 0.7,
+   "note": "comfy wiggle"
+  },
+  {
+   "frame": 282,
+   "kind": "double_take",
+   "x": -0.2,
+   "gain": 0.8,
+   "note": "he notices the island already ahead"
+  },
+  {
+   "frame": 296,
+   "kind": "watch_tick",
+   "x": -0.2,
+   "gain": 0.8,
+   "note": "watch again"
+  },
+  {
+   "frame": 348,
+   "kind": "air_swell",
+   "x": 0.3,
+   "gain": 0.9,
+   "note": "the camera passes out through the window into the open air"
+  },
+  {
+   "frame": 430,
+   "kind": "gull",
+   "x": -0.4,
+   "gain": 0.5,
+   "note": "gulls over Papa Sound (far below)"
+  },
+  {
+   "frame": 486,
+   "kind": "gull",
+   "x": 0.4,
+   "gain": 0.5,
+   "note": "gulls over Papa Sound (far below)"
+  },
+  {
+   "frame": 606,
+   "kind": "cloth_soft",
+   "x": 0.2,
+   "gain": 0.7,
+   "note": "he points at the island"
+  },
+  {
+   "frame": 640,
+   "kind": "double_take",
+   "x": 0.1,
+   "gain": 0.8,
+   "note": "double-take"
+  },
+  {
+   "frame": 698,
+   "kind": "step_grass_r",
+   "x": -0.47392682076233883,
+   "gain": 0.1910069016695559,
+   "note": "Westray passenger 0: right foot down"
+  },
+  {
+   "frame": 698,
+   "kind": "oystercatcher",
+   "x": 0.5,
+   "gain": 0.7,
+   "note": "oystercatchers piping by the shore"
+  },
+  {
+   "frame": 701,
+   "kind": "step_grass_r",
+   "x": -0.45771520198124394,
+   "gain": 0.48084954307400823,
+   "note": "Westray passenger 2: right foot down"
+  },
+  {
+   "frame": 703,
+   "kind": "step_grass_l",
+   "x": -0.5752278467179365,
+   "gain": 0.43468161507128517,
+   "note": "Westray passenger 0: left foot down"
+  },
+  {
+   "frame": 703,
+   "kind": "step_grass_r",
+   "x": -0.36712540161285684,
+   "gain": 0.5708918569317524,
+   "note": "Westray passenger 1: right foot down"
+  },
+  {
+   "frame": 708,
+   "kind": "step_grass_l",
+   "x": 0.7629618631133409,
+   "gain": 1,
+   "note": "Westray passenger 2: left foot down"
+  },
+  {
+   "frame": 710,
+   "kind": "step_grass_r",
+   "x": -0.4061150452836666,
+   "gain": 0.623493791448885,
+   "note": "Westray passenger 0: right foot down"
+  },
+  {
+   "frame": 710,
+   "kind": "step_grass_l",
+   "x": 0.12484952942917743,
+   "gain": 0.8775991301353002,
+   "note": "Westray passenger 1: left foot down"
+  },
+  {
+   "frame": 712,
+   "kind": "windsock",
+   "x": 0.4,
+   "gain": 0.6,
+   "note": "the windsock flutters"
+  },
+  {
+   "frame": 716,
+   "kind": "step_grass_r",
+   "x": 0.08440572053356964,
+   "gain": 0.8628692124279898,
+   "note": "Westray passenger 1: right foot down"
+  },
+  {
+   "frame": 722,
+   "kind": "step_grass_l",
+   "x": -0.017925004986360397,
+   "gain": 0.8174793206976029,
+   "note": "Westray passenger 1: left foot down"
+  },
+  {
+   "frame": 722,
+   "kind": "step_grass_l",
+   "x": 0.6740055638378191,
+   "gain": 1,
+   "note": "Westray passenger 2: left foot down"
+  },
+  {
+   "frame": 724,
+   "kind": "cloth_soft",
+   "x": 0.2,
+   "gain": 0.6,
+   "note": "C climbs in"
+  },
+  {
+   "frame": 729,
+   "kind": "step_grass_r",
+   "x": -0.10937226497495774,
+   "gain": 0.7760195721383815,
+   "note": "Westray passenger 1: right foot down"
+  },
+  {
+   "frame": 729,
+   "kind": "step_grass_r",
+   "x": 0.5311493038129993,
+   "gain": 1,
+   "note": "Westray passenger 2: right foot down"
+  },
+  {
+   "frame": 735,
+   "kind": "step_grass_r",
+   "x": 0.5140154838297999,
+   "gain": 1,
+   "note": "Westray passenger 1: right foot down"
+  },
+  {
+   "frame": 736,
+   "kind": "step_grass_l",
+   "x": 0.5181931182493728,
+   "gain": 1,
+   "note": "Westray passenger 1: left foot down"
+  },
+  {
+   "frame": 743,
+   "kind": "step_grass_r",
+   "x": 0.5635864631082415,
+   "gain": 1,
+   "note": "Westray passenger 1: right foot down"
+  },
+  {
+   "frame": 748,
+   "kind": "cloth_soft",
+   "x": 0.2,
+   "gain": 0.6,
+   "note": "B climbs in"
+  },
+  {
+   "frame": 750,
+   "kind": "step_grass_l",
+   "x": 0.5841863213044233,
+   "gain": 1,
+   "note": "Westray passenger 1: left foot down"
+  },
+  {
+   "frame": 752,
+   "kind": "sheep",
+   "x": -0.6,
+   "gain": 0.6,
+   "note": "a sheep in the next field"
+  },
+  {
+   "frame": 757,
+   "kind": "step_grass_r",
+   "x": 0.5738181304426733,
+   "gain": 1,
+   "note": "Westray passenger 1: right foot down"
+  },
+  {
+   "frame": 764,
+   "kind": "step_grass_l",
+   "x": 0.5532846972464298,
+   "gain": 1,
+   "note": "Westray passenger 0: left foot down"
+  },
+  {
+   "frame": 776,
+   "kind": "cloth_soft",
+   "x": 0.1,
+   "gain": 0.8,
+   "note": "he ducks into the door"
+  },
+  {
+   "frame": 784,
+   "kind": "ac_door_close",
+   "x": 0,
+   "gain": 0.8,
+   "note": "the rear door shuts"
+  },
+  {
+   "frame": 806,
+   "kind": "eng_start",
+   "x": 0.2,
+   "gain": 1,
+   "note": "starboard engine: starter cranks, coughs, catches, runs up"
+  },
+  {
+   "frame": 822,
+   "kind": "eng_start_far",
+   "x": -0.3,
+   "gain": 0.8,
+   "note": "port engine starts (far side)"
+  },
+  {
+   "frame": 826,
+   "kind": "taxi",
+   "x": 0,
+   "gain": 1,
+   "note": "taxi: idle power, tyres on the gravel, nose wheel turning"
+  },
+  {
+   "frame": 830,
+   "kind": "cloth_soft",
+   "x": 0.5,
+   "gain": 0.5,
+   "note": "the attendant gives a thumbs-up"
+  },
+  {
+   "frame": 893,
+   "kind": "takeoff",
+   "x": 0,
+   "gain": 1,
+   "note": "take-off power; wheels leave the ground at ~936; climbing over the cliffs"
+  },
+  {
+   "frame": 1012,
+   "kind": "watch_tick",
+   "x": -0.2,
+   "gain": 0.7,
+   "note": "he checks his watch (seen through the window)"
+  },
+  {
+   "frame": 1024,
+   "kind": "brow_pluck",
+   "x": -0.2,
+   "gain": 0.7,
+   "note": "brows up"
+  },
+  {
+   "frame": 1088,
+   "kind": "oystercatcher",
+   "x": -0.4,
+   "gain": 0.4,
+   "note": "shore birds below as the coast passes under"
+  },
+  {
+   "frame": 1176,
+   "kind": "belt_slide",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "he tightens the belt, very seriously"
+  },
+  {
+   "frame": 1192,
+   "kind": "cloth_soft",
+   "x": -0.2,
+   "gain": 1,
+   "note": "straightens his jacket"
+  },
+  {
+   "frame": 1200,
+   "kind": "cloth_soft",
+   "x": -0.2,
+   "gain": 0.7,
+   "note": "jacket"
+  },
+  {
+   "frame": 1229,
+   "kind": "double_take",
+   "x": -0.2,
+   "gain": 0.9,
+   "note": "the runway is right outside (accent in the pause after \"about it\")"
+  },
+  {
+   "frame": 1245,
+   "kind": "step_grass_r",
+   "x": 0.5668034271898322,
+   "gain": 1,
+   "note": "montage: the hero 0: right foot down"
+  },
+  {
+   "frame": 1252,
+   "kind": "step_grass_l",
+   "x": 0.5668034271898075,
+   "gain": 1,
+   "note": "montage: the hero 0: left foot down"
+  },
+  {
+   "frame": 1258,
+   "kind": "step_grass_r",
+   "x": 0.5668034271898158,
+   "gain": 1,
+   "note": "montage: the hero 0: right foot down"
+  },
+  {
+   "frame": 1265,
+   "kind": "step_grass_l",
+   "x": 0.5668034271898377,
+   "gain": 1,
+   "note": "montage: the hero 0: left foot down"
+  },
+  {
+   "frame": 1272,
+   "kind": "step_grass_r",
+   "x": 0.5668034271898308,
+   "gain": 1,
+   "note": "montage: the hero 0: right foot down"
+  },
+  {
+   "frame": 1286,
+   "kind": "cloth_soft",
+   "x": 0.1,
+   "gain": 0.9,
+   "note": "ducking in through the door"
+  },
+  {
+   "frame": 1310,
+   "kind": "seat_creak",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "he sits down, solemnly"
+  },
+  {
+   "frame": 1332,
+   "kind": "belt_slide",
+   "x": -0.1,
+   "gain": 0.9,
+   "note": "belt across"
+  },
+  {
+   "frame": 1344,
+   "kind": "belt_click",
+   "x": -0.1,
+   "gain": 1,
+   "note": "belt clicks"
+  },
+  {
+   "frame": 1350,
+   "kind": "seat_creak",
+   "x": -0.2,
+   "gain": 0.7,
+   "note": "comfy wiggle"
+  },
+  {
+   "frame": 1392,
+   "kind": "touchdown",
+   "x": 0,
+   "gain": 1,
+   "note": "main wheels touch down on the grass runway"
+  },
+  {
+   "frame": 1394,
+   "kind": "rollout",
+   "x": 0,
+   "gain": 0.9,
+   "note": "roll-out, power to idle"
+  },
+  {
+   "frame": 1420,
+   "kind": "spin_down",
+   "x": 0,
+   "gain": 0.9,
+   "note": "engines cut; props wind down to a stop"
+  },
+  {
+   "frame": 1442,
+   "kind": "ac_door_open",
+   "x": 0.1,
+   "gain": 1,
+   "note": "the starboard door opens"
+  },
+  {
+   "frame": 1469,
+   "kind": "step_gravel_r",
+   "x": -0.47361721158310405,
+   "gain": 1,
+   "note": "Papa Westray passenger 0: right foot down"
+  },
+  {
+   "frame": 1470,
+   "kind": "double_take",
+   "x": 0,
+   "gain": 0.8,
+   "note": "he can't believe it's over"
+  },
+  {
+   "frame": 1476,
+   "kind": "oystercatcher",
+   "x": 0.6,
+   "gain": 0.4,
+   "note": "shore birds at Papa Westray"
+  },
+  {
+   "frame": 1477,
+   "kind": "step_gravel_r",
+   "x": -0.4875287322108801,
+   "gain": 1,
+   "note": "Papa Westray passenger 1: right foot down"
+  },
+  {
+   "frame": 1485,
+   "kind": "step_gravel_l",
+   "x": -0.558618182329294,
+   "gain": 0.8568592399925619,
+   "note": "Papa Westray passenger 1: left foot down"
+  },
+  {
+   "frame": 1486,
+   "kind": "cloth_soft",
+   "x": 0,
+   "gain": 0.8,
+   "note": "he turns to the plane"
+  },
+  {
+   "frame": 1492,
+   "kind": "step_gravel_r",
+   "x": -0.4279730174937147,
+   "gain": 0.6336296746232676,
+   "note": "Papa Westray passenger 1: right foot down"
+  },
+  {
+   "frame": 1498,
+   "kind": "step_gravel_r",
+   "x": -0.793613483308743,
+   "gain": 0.5099594188402337,
+   "note": "Papa Westray passenger 0: right foot down"
+  }
+ ]
+}

@@ -1,0 +1,1134 @@
+{
+ "audio": "/home/user/claude-animated-shorts/studio/productions/joralemon/input/narration.mp3",
+ "codec": "mp3",
+ "sample_rate": 44100,
+ "channels": 1,
+ "bit_rate": "128007",
+ "duration": 48.8489,
+ "fps": 30,
+ "frames": 1466,
+ "pauses": [
+  {
+   "start": 2.393,
+   "end": 3.101
+  },
+  {
+   "start": 5.872,
+   "end": 6.496
+  },
+  {
+   "start": 8.374,
+   "end": 8.887
+  },
+  {
+   "start": 9.855,
+   "end": 10.398
+  },
+  {
+   "start": 11.853,
+   "end": 12.565
+  },
+  {
+   "start": 15.502,
+   "end": 16.086
+  },
+  {
+   "start": 16.415,
+   "end": 16.728
+  },
+  {
+   "start": 18.663,
+   "end": 19.123
+  },
+  {
+   "start": 22.232,
+   "end": 22.779
+  },
+  {
+   "start": 25.366,
+   "end": 25.798
+  },
+  {
+   "start": 31.262,
+   "end": 31.556
+  },
+  {
+   "start": 32.483,
+   "end": 32.981
+  },
+  {
+   "start": 34.925,
+   "end": 35.456
+  },
+  {
+   "start": 37.871,
+   "end": 38.202
+  },
+  {
+   "start": 42.204,
+   "end": 42.663
+  },
+  {
+   "start": 47.331,
+   "end": 47.823
+  }
+ ],
+ "phrases": [
+  {
+   "index": 1,
+   "start": 0.0,
+   "end": 2.393,
+   "startFrame": 0,
+   "endFrame": 72,
+   "asr": "this house doesn't have a family living inside",
+   "asr_alt": "this house doesn't have a family living inside",
+   "asr_words": [
+    {
+     "word": "this",
+     "t0": 0.07,
+     "t1": 0.31,
+     "p": 1.0
+    },
+    {
+     "word": "house",
+     "t0": 0.32,
+     "t1": 0.62,
+     "p": 1.0
+    },
+    {
+     "word": "doesn't",
+     "t0": 0.63,
+     "t1": 0.91,
+     "p": 1.0
+    },
+    {
+     "word": "have",
+     "t0": 0.92,
+     "t1": 1.08,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 1.09,
+     "t1": 1.13,
+     "p": 1.0
+    },
+    {
+     "word": "family",
+     "t0": 1.14,
+     "t1": 1.6,
+     "p": 1.0
+    },
+    {
+     "word": "living",
+     "t0": 1.61,
+     "t1": 1.88,
+     "p": 1.0
+    },
+    {
+     "word": "inside",
+     "t0": 1.89,
+     "t1": 2.37,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "this house doesn't have a family living inside",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 2,
+   "start": 3.101,
+   "end": 5.872,
+   "startFrame": 93,
+   "endFrame": 176,
+   "asr": "and if you look carefully you'll notice something weird",
+   "asr_alt": "and if you look carefully you'll notice something weird",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 3.057,
+     "t1": 3.177,
+     "p": 1.0
+    },
+    {
+     "word": "if",
+     "t0": 3.187,
+     "t1": 3.267,
+     "p": 1.0
+    },
+    {
+     "word": "you",
+     "t0": 3.277,
+     "t1": 3.367,
+     "p": 1.0
+    },
+    {
+     "word": "look",
+     "t0": 3.377,
+     "t1": 3.547,
+     "p": 1.0
+    },
+    {
+     "word": "carefully",
+     "t0": 3.557,
+     "t1": 4.327,
+     "p": 1.0
+    },
+    {
+     "word": "you'll",
+     "t0": 4.477,
+     "t1": 4.707,
+     "p": 1.0
+    },
+    {
+     "word": "notice",
+     "t0": 4.717,
+     "t1": 5.037,
+     "p": 1.0
+    },
+    {
+     "word": "something",
+     "t0": 5.047,
+     "t1": 5.477,
+     "p": 1.0
+    },
+    {
+     "word": "weird",
+     "t0": 5.487,
+     "t1": 5.917,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and if you look carefully you'll notice something weird",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 3,
+   "start": 6.496,
+   "end": 8.374,
+   "startFrame": 195,
+   "endFrame": 251,
+   "asr": "it's windows are completely dark",
+   "asr_alt": "it's windows are completely dark",
+   "asr_words": [
+    {
+     "word": "it's",
+     "t0": 6.484,
+     "t1": 6.624,
+     "p": 1.0
+    },
+    {
+     "word": "windows",
+     "t0": 6.634,
+     "t1": 7.174,
+     "p": 1.0
+    },
+    {
+     "word": "are",
+     "t0": 7.184,
+     "t1": 7.264,
+     "p": 1.0
+    },
+    {
+     "word": "completely",
+     "t0": 7.274,
+     "t1": 7.974,
+     "p": 1.0
+    },
+    {
+     "word": "dark",
+     "t0": 7.984,
+     "t1": 8.404,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "it's windows are completely dark",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 4,
+   "start": 8.887,
+   "end": 9.855,
+   "startFrame": 267,
+   "endFrame": 296,
+   "asr": "there are no curtains",
+   "asr_alt": "there are no curtains",
+   "asr_words": [
+    {
+     "word": "there",
+     "t0": 8.841,
+     "t1": 9.001,
+     "p": 1.0
+    },
+    {
+     "word": "are",
+     "t0": 9.011,
+     "t1": 9.061,
+     "p": 1.0
+    },
+    {
+     "word": "no",
+     "t0": 9.071,
+     "t1": 9.271,
+     "p": 1.0
+    },
+    {
+     "word": "curtains",
+     "t0": 9.281,
+     "t1": 9.861,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "there are no curtains",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 5,
+   "start": 10.398,
+   "end": 11.853,
+   "startFrame": 312,
+   "endFrame": 356,
+   "asr": "and nobody seems to be home",
+   "asr_alt": "and nobody seems to be home",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 10.346,
+     "t1": 10.566,
+     "p": 1.0
+    },
+    {
+     "word": "nobody",
+     "t0": 10.576,
+     "t1": 10.936,
+     "p": 1.0
+    },
+    {
+     "word": "seems",
+     "t0": 10.946,
+     "t1": 11.236,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 11.246,
+     "t1": 11.326,
+     "p": 1.0
+    },
+    {
+     "word": "be",
+     "t0": 11.336,
+     "t1": 11.466,
+     "p": 1.0
+    },
+    {
+     "word": "home",
+     "t0": 11.476,
+     "t1": 11.886,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and nobody seems to be home",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 6,
+   "start": 12.565,
+   "end": 15.502,
+   "startFrame": 377,
+   "endFrame": 465,
+   "asr": "but that's because this building isn't really a home anymore",
+   "asr_alt": "but that's because this building is i'm really a home anymore",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 12.509,
+     "t1": 12.729,
+     "p": 1.0
+    },
+    {
+     "word": "that's",
+     "t0": 12.819,
+     "t1": 13.039,
+     "p": 1.0
+    },
+    {
+     "word": "because",
+     "t0": 13.049,
+     "t1": 13.359,
+     "p": 1.0
+    },
+    {
+     "word": "this",
+     "t0": 13.369,
+     "t1": 13.529,
+     "p": 1.0
+    },
+    {
+     "word": "building",
+     "t0": 13.539,
+     "t1": 13.949,
+     "p": 1.0
+    },
+    {
+     "word": "isn't",
+     "t0": 14.019,
+     "t1": 14.389,
+     "p": 0.0
+    },
+    {
+     "word": "really",
+     "t0": 14.399,
+     "t1": 14.669,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 14.679,
+     "t1": 14.749,
+     "p": 1.0
+    },
+    {
+     "word": "home",
+     "t0": 14.759,
+     "t1": 15.079,
+     "p": 1.0
+    },
+    {
+     "word": "anymore",
+     "t0": 15.089,
+     "t1": 15.489,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 0.9,
+   "uncertain": [
+    "isn't"
+   ],
+   "text": "but that's because this building isn't really a home anymore",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 7,
+   "start": 16.086,
+   "end": 16.415,
+   "startFrame": 483,
+   "endFrame": 492,
+   "asr": "you see",
+   "asr_alt": "you see",
+   "asr_words": [
+    {
+     "word": "you",
+     "t0": 16.044,
+     "t1": 16.124,
+     "p": 1.0
+    },
+    {
+     "word": "see",
+     "t0": 16.134,
+     "t1": 16.464,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "you see",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 8,
+   "start": 16.728,
+   "end": 18.663,
+   "startFrame": 502,
+   "endFrame": 560,
+   "asr": "it used to be an ordinary town house",
+   "asr_alt": "it used to be an ordinary town house",
+   "asr_words": [
+    {
+     "word": "it",
+     "t0": 16.691,
+     "t1": 16.821,
+     "p": 1.0
+    },
+    {
+     "word": "used",
+     "t0": 16.831,
+     "t1": 17.141,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 17.151,
+     "t1": 17.231,
+     "p": 1.0
+    },
+    {
+     "word": "be",
+     "t0": 17.241,
+     "t1": 17.401,
+     "p": 1.0
+    },
+    {
+     "word": "an",
+     "t0": 17.411,
+     "t1": 17.491,
+     "p": 1.0
+    },
+    {
+     "word": "ordinary",
+     "t0": 17.501,
+     "t1": 17.981,
+     "p": 1.0
+    },
+    {
+     "word": "town",
+     "t0": 17.991,
+     "t1": 18.271,
+     "p": 1.0
+    },
+    {
+     "word": "house",
+     "t0": 18.281,
+     "t1": 18.651,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "it used to be an ordinary town house",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 9,
+   "start": 19.123,
+   "end": 22.232,
+   "startFrame": 574,
+   "endFrame": 667,
+   "asr": "until the new york subway system expanded beneath the neighborhood",
+   "asr_alt": "until the new york subway system expanded beneath the neighborhood",
+   "asr_words": [
+    {
+     "word": "until",
+     "t0": 19.103,
+     "t1": 19.413,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 19.423,
+     "t1": 19.483,
+     "p": 1.0
+    },
+    {
+     "word": "new",
+     "t0": 19.493,
+     "t1": 19.633,
+     "p": 1.0
+    },
+    {
+     "word": "york",
+     "t0": 19.643,
+     "t1": 19.903,
+     "p": 1.0
+    },
+    {
+     "word": "subway",
+     "t0": 19.913,
+     "t1": 20.303,
+     "p": 1.0
+    },
+    {
+     "word": "system",
+     "t0": 20.313,
+     "t1": 20.693,
+     "p": 1.0
+    },
+    {
+     "word": "expanded",
+     "t0": 20.703,
+     "t1": 21.303,
+     "p": 1.0
+    },
+    {
+     "word": "beneath",
+     "t0": 21.313,
+     "t1": 21.613,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 21.623,
+     "t1": 21.683,
+     "p": 1.0
+    },
+    {
+     "word": "neighborhood",
+     "t0": 21.693,
+     "t1": 22.243,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "until the new york subway system expanded beneath the neighborhood",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 10,
+   "start": 22.779,
+   "end": 25.366,
+   "startFrame": 683,
+   "endFrame": 761,
+   "asr": "engineers needed somewhere to install ventilation equipment",
+   "asr_alt": "engineers needed somewhere to install ventilation equipment",
+   "asr_words": [
+    {
+     "word": "engineers",
+     "t0": 22.755,
+     "t1": 23.255,
+     "p": 1.0
+    },
+    {
+     "word": "needed",
+     "t0": 23.265,
+     "t1": 23.485,
+     "p": 1.0
+    },
+    {
+     "word": "somewhere",
+     "t0": 23.495,
+     "t1": 23.865,
+     "p": 1.0
+    },
+    {
+     "word": "to",
+     "t0": 23.875,
+     "t1": 24.005,
+     "p": 1.0
+    },
+    {
+     "word": "install",
+     "t0": 24.015,
+     "t1": 24.375,
+     "p": 1.0
+    },
+    {
+     "word": "ventilation",
+     "t0": 24.385,
+     "t1": 24.945,
+     "p": 1.0
+    },
+    {
+     "word": "equipment",
+     "t0": 24.955,
+     "t1": 25.435,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "engineers needed somewhere to install ventilation equipment",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 11,
+   "start": 25.798,
+   "end": 31.262,
+   "startFrame": 774,
+   "endFrame": 938,
+   "asr": "but putting an ugly industrial structure in the middle of a beautiful residential street would look completely",
+   "asr_alt": "but putting an ugly industrial structure in the middle of a beautiful residential street would look completely",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 25.742,
+     "t1": 26.012,
+     "p": 1.0
+    },
+    {
+     "word": "putting",
+     "t0": 26.022,
+     "t1": 26.272,
+     "p": 1.0
+    },
+    {
+     "word": "an",
+     "t0": 26.282,
+     "t1": 26.382,
+     "p": 1.0
+    },
+    {
+     "word": "ugly",
+     "t0": 26.522,
+     "t1": 26.842,
+     "p": 1.0
+    },
+    {
+     "word": "industrial",
+     "t0": 26.852,
+     "t1": 27.432,
+     "p": 1.0
+    },
+    {
+     "word": "structure",
+     "t0": 27.442,
+     "t1": 27.862,
+     "p": 1.0
+    },
+    {
+     "word": "in",
+     "t0": 27.872,
+     "t1": 27.932,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 27.942,
+     "t1": 27.992,
+     "p": 1.0
+    },
+    {
+     "word": "middle",
+     "t0": 28.002,
+     "t1": 28.322,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 28.332,
+     "t1": 28.412,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 28.422,
+     "t1": 28.472,
+     "p": 1.0
+    },
+    {
+     "word": "beautiful",
+     "t0": 28.482,
+     "t1": 29.152,
+     "p": 1.0
+    },
+    {
+     "word": "residential",
+     "t0": 29.162,
+     "t1": 29.692,
+     "p": 1.0
+    },
+    {
+     "word": "street",
+     "t0": 29.702,
+     "t1": 30.112,
+     "p": 1.0
+    },
+    {
+     "word": "would",
+     "t0": 30.122,
+     "t1": 30.262,
+     "p": 1.0
+    },
+    {
+     "word": "look",
+     "t0": 30.272,
+     "t1": 30.432,
+     "p": 1.0
+    },
+    {
+     "word": "completely",
+     "t0": 30.442,
+     "t1": 31.252,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "but putting an ugly industrial structure in the middle of a beautiful residential street would look completely",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 12,
+   "start": 31.556,
+   "end": 32.483,
+   "startFrame": 947,
+   "endFrame": 974,
+   "asr": "out of place",
+   "asr_alt": "out of place",
+   "asr_words": [
+    {
+     "word": "out",
+     "t0": 31.529,
+     "t1": 31.709,
+     "p": 1.0
+    },
+    {
+     "word": "of",
+     "t0": 31.719,
+     "t1": 31.809,
+     "p": 1.0
+    },
+    {
+     "word": "place",
+     "t0": 31.819,
+     "t1": 32.479,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "out of place",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 13,
+   "start": 32.981,
+   "end": 34.925,
+   "startFrame": 989,
+   "endFrame": 1048,
+   "asr": "so they convert existing building",
+   "asr_alt": "so they convert existing building",
+   "asr_words": [
+    {
+     "word": "so",
+     "t0": 32.942,
+     "t1": 33.262,
+     "p": 1.0
+    },
+    {
+     "word": "they",
+     "t0": 33.272,
+     "t1": 33.512,
+     "p": 1.0
+    },
+    {
+     "word": "convert",
+     "t0": 33.522,
+     "t1": 34.042,
+     "p": 1.0
+    },
+    {
+     "word": "existing",
+     "t0": 34.052,
+     "t1": 34.552,
+     "p": 1.0
+    },
+    {
+     "word": "building",
+     "t0": 34.562,
+     "t1": 34.952,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "so they convert existing building",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 14,
+   "start": 35.456,
+   "end": 37.871,
+   "startFrame": 1064,
+   "endFrame": 1136,
+   "asr": "from the outside it still looks like a normal house",
+   "asr_alt": "from the outside it still looks like a normal house",
+   "asr_words": [
+    {
+     "word": "from",
+     "t0": 35.41,
+     "t1": 35.531,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 35.541,
+     "t1": 35.681,
+     "p": 1.0
+    },
+    {
+     "word": "outside",
+     "t0": 35.691,
+     "t1": 36.251,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 36.261,
+     "t1": 36.391,
+     "p": 1.0
+    },
+    {
+     "word": "still",
+     "t0": 36.401,
+     "t1": 36.691,
+     "p": 1.0
+    },
+    {
+     "word": "looks",
+     "t0": 36.7,
+     "t1": 36.92,
+     "p": 1.0
+    },
+    {
+     "word": "like",
+     "t0": 36.931,
+     "t1": 37.06,
+     "p": 1.0
+    },
+    {
+     "word": "a",
+     "t0": 37.071,
+     "t1": 37.1,
+     "p": 1.0
+    },
+    {
+     "word": "normal",
+     "t0": 37.111,
+     "t1": 37.401,
+     "p": 1.0
+    },
+    {
+     "word": "house",
+     "t0": 37.41,
+     "t1": 37.87,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "from the outside it still looks like a normal house",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 15,
+   "start": 38.202,
+   "end": 42.204,
+   "startFrame": 1146,
+   "endFrame": 1266,
+   "asr": "but behind the walls or subway ventilation equipment and an emergency exit",
+   "asr_alt": "but behind the walls or subway ventilation equipment and an emergency exit",
+   "asr_words": [
+    {
+     "word": "but",
+     "t0": 38.086,
+     "t1": 38.276,
+     "p": 1.0
+    },
+    {
+     "word": "behind",
+     "t0": 38.286,
+     "t1": 38.706,
+     "p": 1.0
+    },
+    {
+     "word": "the",
+     "t0": 38.716,
+     "t1": 38.766,
+     "p": 1.0
+    },
+    {
+     "word": "walls",
+     "t0": 38.776,
+     "t1": 39.156,
+     "p": 1.0
+    },
+    {
+     "word": "or",
+     "t0": 39.166,
+     "t1": 39.326,
+     "p": 1.0
+    },
+    {
+     "word": "subway",
+     "t0": 39.336,
+     "t1": 39.826,
+     "p": 1.0
+    },
+    {
+     "word": "ventilation",
+     "t0": 39.836,
+     "t1": 40.396,
+     "p": 1.0
+    },
+    {
+     "word": "equipment",
+     "t0": 40.406,
+     "t1": 40.866,
+     "p": 1.0
+    },
+    {
+     "word": "and",
+     "t0": 40.966,
+     "t1": 41.226,
+     "p": 1.0
+    },
+    {
+     "word": "an",
+     "t0": 41.236,
+     "t1": 41.306,
+     "p": 1.0
+    },
+    {
+     "word": "emergency",
+     "t0": 41.316,
+     "t1": 41.886,
+     "p": 1.0
+    },
+    {
+     "word": "exit",
+     "t0": 41.896,
+     "t1": 42.256,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "but behind the walls or subway ventilation equipment and an emergency exit",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 16,
+   "start": 42.663,
+   "end": 47.331,
+   "startFrame": 1280,
+   "endFrame": 1420,
+   "asr": "which means people walk past it every day without realizing what it actually contains",
+   "asr_alt": "which means people walk past it every day without realizing what it actually contains",
+   "asr_words": [
+    {
+     "word": "which",
+     "t0": 42.613,
+     "t1": 42.773,
+     "p": 1.0
+    },
+    {
+     "word": "means",
+     "t0": 42.783,
+     "t1": 43.113,
+     "p": 1.0
+    },
+    {
+     "word": "people",
+     "t0": 43.263,
+     "t1": 43.543,
+     "p": 1.0
+    },
+    {
+     "word": "walk",
+     "t0": 43.553,
+     "t1": 43.823,
+     "p": 1.0
+    },
+    {
+     "word": "past",
+     "t0": 43.833,
+     "t1": 44.153,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 44.163,
+     "t1": 44.263,
+     "p": 1.0
+    },
+    {
+     "word": "every",
+     "t0": 44.423,
+     "t1": 44.783,
+     "p": 1.0
+    },
+    {
+     "word": "day",
+     "t0": 44.793,
+     "t1": 45.053,
+     "p": 1.0
+    },
+    {
+     "word": "without",
+     "t0": 45.063,
+     "t1": 45.363,
+     "p": 1.0
+    },
+    {
+     "word": "realizing",
+     "t0": 45.373,
+     "t1": 45.953,
+     "p": 1.0
+    },
+    {
+     "word": "what",
+     "t0": 45.963,
+     "t1": 46.073,
+     "p": 1.0
+    },
+    {
+     "word": "it",
+     "t0": 46.083,
+     "t1": 46.183,
+     "p": 1.0
+    },
+    {
+     "word": "actually",
+     "t0": 46.263,
+     "t1": 46.673,
+     "p": 1.0
+    },
+    {
+     "word": "contains",
+     "t0": 46.683,
+     "t1": 47.333,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "which means people walk past it every day without realizing what it actually contains",
+   "text_source": "ASR (unconfirmed)"
+  },
+  {
+   "index": 17,
+   "start": 47.823,
+   "end": 48.849,
+   "startFrame": 1435,
+   "endFrame": 1465,
+   "asr": "and that's why",
+   "asr_alt": "and that's why",
+   "asr_words": [
+    {
+     "word": "and",
+     "t0": 47.787,
+     "t1": 47.967,
+     "p": 1.0
+    },
+    {
+     "word": "that's",
+     "t0": 47.977,
+     "t1": 48.247,
+     "p": 1.0
+    },
+    {
+     "word": "why",
+     "t0": 48.257,
+     "t1": 48.647,
+     "p": 1.0
+    }
+   ],
+   "asr_agreement": 1.0,
+   "uncertain": [],
+   "text": "and that's why",
+   "text_source": "ASR (unconfirmed)"
+  }
+ ],
+ "asr_engine": "pocketsphinx (offline)"
+}

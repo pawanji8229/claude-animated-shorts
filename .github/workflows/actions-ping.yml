@@ -1,0 +1,13 @@
+name: Actions ping
+# minimal diagnostic: proves GitHub Actions starts jobs for this repository (a few seconds of a free runner)
+on:
+  push:
+    branches: ["render/**"]
+    paths: [".github/workflows/actions-ping.yml"]
+permissions: { contents: read }
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - run: echo "Actions is running for ${{ github.repository }} on ${{ github.ref_name }}"

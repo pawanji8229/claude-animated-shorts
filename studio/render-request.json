@@ -1,0 +1,11 @@
+{
+  "_doc": "Edit + commit this file on a render/** branch to start a cloud render (works from the GitHub phone app). production = folder in studio/productions; composition = id in src/Root.tsx (use the 1080x1920 one); frames = a-b or 'all'; workers = parallel free runners (1-8); audio = 'mix' to mux productions/<production>/audio/mix.wav, or 'none'; qc = 'full' runs the complete QC (frame count, narration sync + clarity, loop), 'basic' for partial ranges; release = true attaches the MP4 to a GitHub Release (easy phone download).",
+  "production": "mailrail",
+  "composition": "MailRail",
+  "frames": "all",
+  "workers": 8,
+  "audio": "mix",
+  "qc": "full",
+  "release": true,
+  "note": "TwistFrame Lab: London's Secret Underground Mail Railway v1.1 - hero framing in the street, descent framing, single lamp bulbs (1801 frames, native 1080x1920)"
+}
