@@ -349,8 +349,8 @@ for k, f in enumerate(range(146, 182, 9)):
     cue("step wood", ken("impact-sounds", f"footstep_wood_00{k % 5}.ogg"), f, -20)
 cue("desk bell", ken("impact-sounds", "impactBell_heavy_002.ogg"), 172, -18)
 # 5 ROAR
-cue("raptor roar (synth)", roar(), 188, -3)
-cue("roar sub hit", st(kick(1.0)), 188, -8)
+cue("raptor roar (synth)", roar(), 203, -3)
+cue("roar sub hit", st(kick(1.0)), 204, -8)
 # 6 double take
 cue("cartoon boing", boing(0.5, 240), 224, -10)
 cue("eye pop", pop(), 240, -12)

@@ -398,5 +398,124 @@
   ],
   "animations": [],
   "bytes": 12011772
+ },
+ {
+  "name": "sofa",
+  "file": "sofa.glb",
+  "uid": "ac92f6e97eaa43c4ad6cb8f7c65ac43f",
+  "title": "Modern  Sofa",
+  "author": "3dimentionalben",
+  "url": "https://sketchfab.com/3d-models/modern-sofa-ac92f6e97eaa43c4ad6cb8f7c65ac43f",
+  "licence": "CC Attribution",
+  "attribution": "\"Modern  Sofa\" by 3dimentionalben (https://sketchfab.com/3d-models/modern-sofa-ac92f6e97eaa43c4ad6cb8f7c65ac43f), CC Attribution",
+  "sizeM": [
+   2.825,
+   0.85,
+   1.107
+  ],
+  "animations": [],
+  "bytes": 11057192
+ },
+ {
+  "name": "armset",
+  "file": "armset.glb",
+  "uid": "fcce92a09de84456a071ea6117b57cbc",
+  "title": "Leather armchair/ Coffee table/ Floorlamp",
+  "author": "YJ_",
+  "url": "https://sketchfab.com/3d-models/leather-armchair-coffee-table-floorlamp-fcce92a09de84456a071ea6117b57cbc",
+  "licence": "CC Attribution",
+  "attribution": "\"Leather armchair/ Coffee table/ Floorlamp\" by YJ_ (https://sketchfab.com/3d-models/leather-armchair-coffee-table-floorlamp-fcce92a09de84456a071ea6117b57cbc), CC Attribution",
+  "sizeM": [
+   1.612,
+   1.6,
+   2.085
+  ],
+  "animations": [],
+  "bytes": 6118348
+ },
+ {
+  "name": "monstera",
+  "file": "monstera.glb",
+  "uid": "1ab9bf841df04c07b1819be596327629",
+  "title": "Monstera Deliciosa Potted Mid-Century plant",
+  "author": "Giora",
+  "url": "https://sketchfab.com/3d-models/monstera-deliciosa-potted-mid-century-plant-1ab9bf841df04c07b1819be596327629",
+  "licence": "CC Attribution",
+  "attribution": "\"Monstera Deliciosa Potted Mid-Century plant\" by Giora (https://sketchfab.com/3d-models/monstera-deliciosa-potted-mid-century-plant-1ab9bf841df04c07b1819be596327629), CC Attribution",
+  "sizeM": [
+   0.831,
+   1.3,
+   0.756
+  ],
+  "animations": [],
+  "bytes": 11234304
+ },
+ {
+  "name": "palm",
+  "file": "palm.glb",
+  "uid": "92f75abd656049608248cf76a8c88136",
+  "title": "[FREE] Dyspis Lutescens - Potted Palm",
+  "author": "AllQuad",
+  "url": "https://sketchfab.com/3d-models/free-dyspis-lutescens-potted-palm-92f75abd656049608248cf76a8c88136",
+  "licence": "CC Attribution",
+  "attribution": "\"[FREE] Dyspis Lutescens - Potted Palm\" by AllQuad (https://sketchfab.com/3d-models/free-dyspis-lutescens-potted-palm-92f75abd656049608248cf76a8c88136), CC Attribution",
+  "sizeM": [
+   1.209,
+   1.9,
+   1.219
+  ],
+  "animations": [],
+  "bytes": 5358360
+ },
+ {
+  "name": "chandelier",
+  "file": "chandelier.glb",
+  "uid": "6708f383a4334b53b17784f8f2d16215",
+  "title": "Modern Chandelier",
+  "author": "Heliona",
+  "url": "https://sketchfab.com/3d-models/modern-chandelier-6708f383a4334b53b17784f8f2d16215",
+  "licence": "CC Attribution",
+  "attribution": "\"Modern Chandelier\" by Heliona (https://sketchfab.com/3d-models/modern-chandelier-6708f383a4334b53b17784f8f2d16215), CC Attribution",
+  "sizeM": [
+   0.417,
+   1.2,
+   0.298
+  ],
+  "animations": [],
+  "bytes": 2886944
+ },
+ {
+  "name": "trolley",
+  "file": "trolley.glb",
+  "uid": "d89f1bba5e62451d9d11eaf599a6542b",
+  "title": "Gold Hotel Luggage Trolley (Fallout: Miami)",
+  "author": "Damian Tkaczyk",
+  "url": "https://sketchfab.com/3d-models/gold-hotel-luggage-trolley-fallout-miami-d89f1bba5e62451d9d11eaf599a6542b",
+  "licence": "CC Attribution",
+  "attribution": "\"Gold Hotel Luggage Trolley (Fallout: Miami)\" by Damian Tkaczyk (https://sketchfab.com/3d-models/gold-hotel-luggage-trolley-fallout-miami-d89f1bba5e62451d9d11eaf599a6542b), CC Attribution",
+  "sizeM": [
+   0.643,
+   1.85,
+   1.171
+  ],
+  "animations": [],
+  "bytes": 3097352
+ },
+ {
+  "name": "flamp",
+  "file": "flamp.glb",
+  "uid": "33eb258d9873435690254cfbb0ea46ec",
+  "title": "Floor Lamp",
+  "author": "bilgehan.korkmaz",
+  "url": "https://sketchfab.com/3d-models/floor-lamp-33eb258d9873435690254cfbb0ea46ec",
+  "licence": "CC Attribution",
+  "attribution": "\"Floor Lamp\" by bilgehan.korkmaz (https://sketchfab.com/3d-models/floor-lamp-33eb258d9873435690254cfbb0ea46ec), CC Attribution",
+  "sizeM": [
+   0.44,
+   1.7,
+   0.44
+  ],
+  "animations": [],
+  "bytes": 1399984
  }
 ]

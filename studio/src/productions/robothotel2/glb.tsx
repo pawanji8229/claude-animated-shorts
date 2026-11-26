@@ -11,7 +11,7 @@ import type { V3 } from "../../lib/math";
 
 type Loaded = { scene: THREE.Group; clips: THREE.AnimationClip[] };
 const cache = new Map<string, Loaded>(); let all: Promise<void> | null = null;
-export const H2_MODELS = ["rdino", "trex", "raptorpbr", "raptorblue", "copper", "poddy", "waitress", "humanoid", "robobun", "lugcart", "recdesk", "jphotel", "cityhotel", "bedroom", "cuterobot", "minirobot", "vintagebot", "vacuum", "suitcase", "bellhop"] as const;
+export const H2_MODELS = ["rdino", "trex", "raptorpbr", "raptorblue", "copper", "poddy", "waitress", "humanoid", "robobun", "lugcart", "recdesk", "jphotel", "cityhotel", "bedroom", "cuterobot", "minirobot", "vintagebot", "vacuum", "suitcase", "bellhop", "sofa", "armset", "monstera", "palm", "chandelier", "trolley", "flamp"] as const;
 export type H2Model = (typeof H2_MODELS)[number];
 const loadAll = () => (all ??= Promise.all(H2_MODELS.map(async (n) => { const g = await new GLTFLoader().loadAsync(staticFile(`hotel2/m/${n}.glb`));
   g.scene.traverse((o) => { const m = o as THREE.Mesh; if (m.isMesh) { m.castShadow = true; m.receiveShadow = true; m.frustumCulled = false; } }); cache.set(n, { scene: g.scene, clips: g.animations }); })).then(() => undefined));

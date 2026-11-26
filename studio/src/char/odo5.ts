@@ -47,6 +47,8 @@ export type Odo5Pose = {
   costume?: Costume;
   /** optional (default 0/absent -> identical to earlier renders): head roll + whole-body sway about the soles (radians) */
   headRoll?: number; bodyRoll?: number;
+  /** optional jelly head (absent -> identical to earlier renders): [dx px, dy px, scaleX, scaleY] about the neck */
+  headJelly?: [number, number, number, number];
   /** optional hand-held 1970s camera: blend 0 = hanging on its strap at the chest, 1 = at the point between the hands */
   camera?: { blend: number; flash: "cube" | "gun" | "none"; tiltRad?: number };
   /** optional wristwatch on the screen-left forearm (absent -> identical to earlier renders) */
@@ -555,6 +557,8 @@ const sideArmAngles = (p: Odo5Pose, q: number, far: boolean, lantern: boolean) =
   return { a1, a2, wrist };
 };
 
+const jelly = (g: G, p: Odo5Pose, hx: number, hy: number, draw: () => void) => { const j = p.headJelly; if (!j) { draw(); return; }
+  g.save(); g.translate(hx + j[0], hy + 110 + j[1]); g.scale(j[2], j[3]); g.translate(-hx, -(hy + 110)); draw(); g.restore(); };
 export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
   const cos = p.costume ?? COSTUME.odo;
   const c = mask ? MASK : { ...COLORS, tie: "#7a3b22", hat: "#efe3c4", hatShade: "#cdbb92", band: "#6b3d22", pocket: "#c8452f", ...(cos.pal ?? {}) };
@@ -589,7 +593,7 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
     g.restore();
     const hc = r.headC;
     g.save(); g.translate(hc[0], hc[1] + 140); g.rotate(r.nod - 0.06 * p.lookY); g.translate(-hc[0], -(hc[1] + 140));
-    drawHead(g, c, hc[0], hc[1], p, true, mask);
+    jelly(g, p, hc[0], hc[1], () => drawHead(g, c, hc[0], hc[1], p, true, mask));
     g.restore();
     arm(false);
   } else {
@@ -623,7 +627,7 @@ export const drawOdo5 = (g: G, p: Odo5Pose, mask = false) => {
       if (!mask) { g.beginPath(); g.arc(300 + 44, top + 150, 9, 0, 7); g.fillStyle = "#c9ced4"; g.fill(); g.lineWidth = 2.5; g.strokeStyle = c.ink; g.stroke(); } }
     const hr = p.headRoll ?? 0;
     if (hr) { g.save(); g.translate(r.headC[0], r.headC[1] + 110); g.rotate(hr); g.translate(-r.headC[0], -(r.headC[1] + 110)); }
-    drawHead(g, c, r.headC[0], r.headC[1], p, false, mask);
+    jelly(g, p, r.headC[0], r.headC[1], () => drawHead(g, c, r.headC[0], r.headC[1], p, false, mask));
     if (hr) g.restore();
     if (p.camera) drawCamera5(g, c, p, top, mask);
     if (!p.armL.behind) frontArm(-1, p.armL);
